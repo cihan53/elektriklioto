@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+_arsiv/
+workspace/.scratch/
+workspace/.trace/
+workspace/.control/
+workspace/.lock
+workspace/.gunluk.json
+pipeline.log
+plan.log
+.claude_token
