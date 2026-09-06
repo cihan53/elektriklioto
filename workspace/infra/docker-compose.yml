@@ -1,0 +1,22 @@
+
+services:
+  postgres:
+    image: postgis/postgis:16-3.4
+    container_name: elektriklioto-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-elektriklioto}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-elektriklioto_local_only}
+      POSTGRES_DB: ${POSTGRES_DB:-elektriklioto}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-elektriklioto} -d ${POSTGRES_DB:-elektriklioto}"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+volumes:
+  pg_data:

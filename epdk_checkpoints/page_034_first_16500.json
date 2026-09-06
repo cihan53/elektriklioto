@@ -1,0 +1,2889 @@
+{
+  "page": 34,
+  "first": 16500,
+  "rows": 500,
+  "count": 288,
+  "timestamp": "2026-09-06T14:36:03.772606",
+  "records": [
+    {
+      "istasyon_no": "ŞRJ/17097",
+      "istasyon_adi": "TAM ŞARJ - AYDASÜT DC",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "TAMŞARJ",
+      "sarj_agi_isletmecisi": "TEKNO METAL ÜRÜNLERİ İMALAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "TEKNO METAL ÜRÜNLERİ İMALAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Çakırlar Mahallesi Onikişubat / KAHRAMANMARAŞ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/17266",
+      "istasyon_adi": "TAM ŞARJ - GREENİST SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "TAMŞARJ",
+      "sarj_agi_isletmecisi": "TEKNO METAL ÜRÜNLERİ İMALAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "TEKNO METAL ÜRÜNLERİ İMALAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Yenibosna Merkez Mahallesi Yalçın Koreş Caddesi  No:14 Bahçelievler / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/17393",
+      "istasyon_adi": "TAM ŞARJ – SURYAPI CORRİDOR SİTESİ DC",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "TAMŞARJ",
+      "sarj_agi_isletmecisi": "TEKNO METAL ÜRÜNLERİ İMALAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "TEKNO METAL ÜRÜNLERİ İMALAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Bağlar Mahallesi Yalçın Koreş Caddesi  No:12 Bağcılar / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/17509",
+      "istasyon_adi": "TAM ŞARJ – NİSH İSTANBUL DC",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "TAMŞARJ",
+      "sarj_agi_isletmecisi": "TEKNO METAL ÜRÜNLERİ İMALAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "TEKNO METAL ÜRÜNLERİ İMALAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Çobançeşme Mahallesi Sanayi Caddesi  No:44 Bahçelievler / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/17970",
+      "istasyon_adi": "TAM ŞARJ - NEGMAR ESKİHİSAR DC",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "TAMŞARJ",
+      "sarj_agi_isletmecisi": "TEKNO METAL ÜRÜNLERİ İMALAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "TEKNO METAL ÜRÜNLERİ İMALAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Eskihisar Mah Mahallesi Eskihisar Feribot Yolu Cad No 3/1/1 Caddesi Gebze / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20469",
+      "istasyon_adi": "TAM ŞARJ – HALİMBEY SARAY",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "TAMŞARJ",
+      "sarj_agi_isletmecisi": "TEKNO METAL ÜRÜNLERİ İMALAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "TEKNO METAL ÜRÜNLERİ İMALAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Ergazi Mahallesi  No:444 Kahramankazan / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21144",
+      "istasyon_adi": "TAM ŞARJ – HALİMBEY İNCEK",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "TAMŞARJ",
+      "sarj_agi_isletmecisi": "TEKNO METAL ÜRÜNLERİ İMALAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "TEKNO METAL ÜRÜNLERİ İMALAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Kızılcaşar Mahallesi 4552 Sokağı  No:6 Gölbaşı / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21974",
+      "istasyon_adi": "TAM ŞARJ – İNNOVİA 2 DC",
+      "hizmet_sekli": "Özel",
+      "marka": "TAMŞARJ",
+      "sarj_agi_isletmecisi": "TEKNO METAL ÜRÜNLERİ İMALAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "TEKNO METAL ÜRÜNLERİ İMALAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Yeşilkent Mahallesi  No:51A Esenyurt / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/15615",
+      "istasyon_adi": "Regnum Astrum Towers Açık Otopark",
+      "hizmet_sekli": "Özel",
+      "marka": "powerpay by metropolcard",
+      "sarj_agi_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "adres": "Akevler Mahallesi 1076 Sokağı  No:8/E Esenyurt / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/11370",
+      "istasyon_adi": "BİZİM EVLER 4.1",
+      "hizmet_sekli": "Özel",
+      "marka": "powerpay by metropolcard",
+      "sarj_agi_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "adres": "Tahtakale Mahallesi Abdi İpekçi Caddesi  No:3/11 Avcılar / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/11781",
+      "istasyon_adi": "KRİSTAL ŞEHİR SİTESİ 2",
+      "hizmet_sekli": "Özel",
+      "marka": "powerpay by metropolcard",
+      "sarj_agi_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "adres": "Gökevler Mahallesi  No:3E /3/11 Esenyurt / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/12368",
+      "istasyon_adi": "TERPA DAYANIKLI TÜKETİM MALLARI TİCARET A.Ş.",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "powerpay by metropolcard",
+      "sarj_agi_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "adres": "Altınparmak Mahallesi Karacakaya Sokağı  No:2 Altındağ / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/12431",
+      "istasyon_adi": "ANKARA OZAN WİNGS SİTESİ SİTE YÖNETİCİLİĞİ-1",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "powerpay by metropolcard",
+      "sarj_agi_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "adres": "Alacaatlı Mahallesi Şehit Eren Bülbül Sokağı  No:39 Çankaya / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/12433",
+      "istasyon_adi": "ANKARA OZAN CITY SİTESİ SİTE YÖNETİCİLİĞİ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "powerpay by metropolcard",
+      "sarj_agi_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "adres": "Yeni Bağlıca Mahallesi Kızılelma Sokağı  No:32 Etimesgut / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/12581",
+      "istasyon_adi": "ASO 1. ORGANİZE SANAYİ BÖLGE BAŞKANLIĞI-1",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "powerpay by metropolcard",
+      "sarj_agi_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "adres": "Ahi Evran Osb Mahallesi Aso Marifet Cami Otoparkı Caddesi Sincan / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/12582",
+      "istasyon_adi": "ASO 1. ORGANİZE SANAYİ BÖLGE BAŞKANLIĞI-2",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "powerpay by metropolcard",
+      "sarj_agi_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "adres": "Ahi Evran Osb Mahallesi Türkmenistan Caddesi  No:1/101 Sincan / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/12583",
+      "istasyon_adi": "ASO 1. ORGANİZE SANAYİ BÖLGE BAŞKANLIĞI-3",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "powerpay by metropolcard",
+      "sarj_agi_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "adres": "Esenyurt Caddesi  No:3 Sincan / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/12584",
+      "istasyon_adi": "ASO 1. ORGANİZE SANAYİ BÖLGE BAŞKANLIĞI-4",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "powerpay by metropolcard",
+      "sarj_agi_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "adres": "Osmaniye Mahallesi Büyük Selçuklu Caddesi Sincan / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/12585",
+      "istasyon_adi": "ASO 1. ORGANİZE SANAYİ BÖLGE BAŞKANLIĞI-5",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "powerpay by metropolcard",
+      "sarj_agi_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "adres": "Osmaniye Mahallesi Kırım Hanlığı Caddesi Sincan / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/12613",
+      "istasyon_adi": "NİL GAZ KIRIKKALE",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "powerpay by metropolcard",
+      "sarj_agi_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "adres": "Sağlık Mahallesi 271 Sokağı  No:8  Hacılar Köyü Merkez / KIRIKKALE",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/11300",
+      "istasyon_adi": "BİZİM EVLER 4.2",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "powerpay by metropolcard",
+      "sarj_agi_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "adres": "Tahtakale Mahallesi Abdi İpekçi Caddesi  No:3/11 Avcılar / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/11439",
+      "istasyon_adi": "MARMARA EVLERİ 3 SİTE YÖNETİMİ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "powerpay by metropolcard",
+      "sarj_agi_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "adres": "Marmara Mahallesi  No:19/C  Marmara Evleri 3  Sitesi C0 Blok Sosyal Tesis Beylikdüzü / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/11587",
+      "istasyon_adi": "EMLAK KONUT BAŞAKŞEHİR EVLERİ 1. ETAP 3.KISIM SİTE YÖNETİMİ-1",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "powerpay by metropolcard",
+      "sarj_agi_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "adres": "Kayabaşı Mahallesi Evliya Çelebi Caddesi  No:4 Başakşehir / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/11624",
+      "istasyon_adi": "EMLAK KONUT BAŞAKŞEHİR EVLERİ 1. ETAP 3.KISIM SİTE YÖNETİMİ-2",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "powerpay by metropolcard",
+      "sarj_agi_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "adres": "Kayabaşı Mahallesi Evliya Çelebi Caddesi  No:4 Başakşehir / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/11625",
+      "istasyon_adi": "EMLAK KONUT BAŞAKŞEHİR EVLERİ 1. ETAP 3.KISIM SİTE YÖNETİMİ-3",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "powerpay by metropolcard",
+      "sarj_agi_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "adres": "Kayabaşı Mahallesi Evliya Çelebi Caddesi  No:4 Başakşehir / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/11626",
+      "istasyon_adi": "EMLAK KONUT BAŞAKŞEHİR EVLERİ 1. ETAP 3.KISIM SİTE YÖNETİMİ-4",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "powerpay by metropolcard",
+      "sarj_agi_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "adres": "Kayabaşı Mahallesi Evliya Çelebi Caddesi  No:4 Başakşehir / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/11351",
+      "istasyon_adi": "ŞEHRİ BAHAR 2",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "powerpay by metropolcard",
+      "sarj_agi_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "adres": "Yeni Mahallesi Mahallesi Bağcılar Asf. Caddesi  No:148 34210 Bağcılar / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/11780",
+      "istasyon_adi": "KRİSTAL ŞEHİR SİTESİ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "powerpay by metropolcard",
+      "sarj_agi_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "adres": "Gökevler Mahallesi  No:3E /3/11 Esenyurt / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/11782",
+      "istasyon_adi": "KRİSTAL ŞEHİR SİTESİ 3",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "powerpay by metropolcard",
+      "sarj_agi_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "adres": "Gökevler Mahallesi  No:3E /3/11 Esenyurt / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/11868",
+      "istasyon_adi": "ADM PİRAMİT SİTESİ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "powerpay by metropolcard",
+      "sarj_agi_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "adres": "Akevler Mahallesi 1061. Sokağı  No:11 Esenyurt / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/11921",
+      "istasyon_adi": "DARPHANE VE DAMGA MATBAASI GENEL MÜDÜRLÜĞÜ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "powerpay by metropolcard",
+      "sarj_agi_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "adres": "Orhantepe Mahallesi Tekel Sokağı  No:6 Kartal / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/11952",
+      "istasyon_adi": "NİL SINAİ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "powerpay by metropolcard",
+      "sarj_agi_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "adres": "Karadenizliler Mahallesi Başyiği Caddesi  No:158 Maltepe / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/11666",
+      "istasyon_adi": "HMB DARPHANE VE DAMGA MATBAASI GENEL MÜDÜRLÜĞÜ DÖNER SERMAYE SAYMANLIĞI BEŞİKTAŞ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "powerpay by metropolcard",
+      "sarj_agi_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "adres": "Dikilitaş Mahallesi Yenidoğan Sokağı  No:55 Beşiktaş / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/12231",
+      "istasyon_adi": "NİLÜFERKÖY MAHALLESİ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "powerpay by metropolcard",
+      "sarj_agi_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "adres": "Nilüferköy Mahallesi Kelebek Sokağı  No:4 Osmangazi / BURSA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/12369",
+      "istasyon_adi": "KAVACIK SUBAYEVLERİ MAHALLESİ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "powerpay by metropolcard",
+      "sarj_agi_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "adres": "Kavacık Subayevleri Mahallesi Şehit Makbule Sokağı  No:12 Keçiören / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/12506",
+      "istasyon_adi": "AFB ENERJİ MÜH. İNŞ.LTD.ŞTİ.",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "powerpay by metropolcard",
+      "sarj_agi_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "adres": "İvedik O.s.b. Mahallesi 1551 Caddesi Yenimahalle / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/11834",
+      "istasyon_adi": "MAVERA AHSEN SİTESİ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "powerpay by metropolcard",
+      "sarj_agi_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "adres": "Zafer Mahallesi 146.sokak Sokağı  No:27/A Esenyurt / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/11222",
+      "istasyon_adi": "BİZİM EVLER 4.3",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "powerpay by metropolcard",
+      "sarj_agi_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "adres": "Tahtakale Mahallesi Abdi İpekçi Caddesi  No:3/11 Avcılar / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/15508",
+      "istasyon_adi": "HMB DARPHANE VE DAMGA MATBAASI GENEL MÜDÜRLÜĞÜ DÖNER SERMAYE SAYMANLIĞI",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "powerpay by metropolcard",
+      "sarj_agi_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "adres": "Dikilitaş Mahallesi Yenidoğan Sokağı  No:55 Beşiktaş / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/22788",
+      "istasyon_adi": "ER-DER HUB",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "powerpay by metropolcard",
+      "sarj_agi_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "METROPOL ŞARJ ENERJİ VE TEKNOLOJİ ANONİM ŞİRKETİ",
+      "adres": "Yassıhöyük Mahallesi Mahallesi 51. Sokak Sokağı  No:53 /1 Acıpayam / DENİZLİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16334",
+      "istasyon_adi": "Kentplus Sitesi A Blok",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Qopuz Energy proton neutron",
+      "sarj_agi_isletmecisi": "SENA GÜNEŞ PANEL SANAYİ ENERJİ VE İNŞAAT ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SENA GÜNEŞ PANEL SANAYİ ENERJİ VE İNŞAAT ANONİM ŞİRKETİ",
+      "adres": "Eğitim Mahallesi Abdibey Sokağı  No:24 Kadıköy / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16340",
+      "istasyon_adi": "YÜKSEL CİTY B-BLOK",
+      "hizmet_sekli": "Özel",
+      "marka": "Qopuz Energy proton neutron",
+      "sarj_agi_isletmecisi": "SENA GÜNEŞ PANEL SANAYİ ENERJİ VE İNŞAAT ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SENA GÜNEŞ PANEL SANAYİ ENERJİ VE İNŞAAT ANONİM ŞİRKETİ",
+      "adres": "Tatlısu Mahallesi Şahin Sokağı  No:58 Ümraniye / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16342",
+      "istasyon_adi": "Mopaş Kurtköy",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Qopuz Energy proton neutron",
+      "sarj_agi_isletmecisi": "SENA GÜNEŞ PANEL SANAYİ ENERJİ VE İNŞAAT ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SENA GÜNEŞ PANEL SANAYİ ENERJİ VE İNŞAAT ANONİM ŞİRKETİ",
+      "adres": "Yenişehir Mahallesi Cumhuriyet Sokağı  No:19 Pendik / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16337",
+      "istasyon_adi": "Kentplus Sitesi A-B Blok 2",
+      "hizmet_sekli": "Özel",
+      "marka": "Qopuz Energy proton neutron",
+      "sarj_agi_isletmecisi": "SENA GÜNEŞ PANEL SANAYİ ENERJİ VE İNŞAAT ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SENA GÜNEŞ PANEL SANAYİ ENERJİ VE İNŞAAT ANONİM ŞİRKETİ",
+      "adres": "Eğitim Mahallesi Muratpaşa Sokağı  No:24 Kadıköy / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16341",
+      "istasyon_adi": "Mopaş Zümrütevler",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Qopuz Energy proton neutron",
+      "sarj_agi_isletmecisi": "SENA GÜNEŞ PANEL SANAYİ ENERJİ VE İNŞAAT ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SENA GÜNEŞ PANEL SANAYİ ENERJİ VE İNŞAAT ANONİM ŞİRKETİ",
+      "adres": "Zümrütevler Mahallesi Başöğretmen Sokağı  No:24 Maltepe / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20935",
+      "istasyon_adi": "Meydan 24 Avm Erzincan",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Qopuz Energy proton neutron",
+      "sarj_agi_isletmecisi": "SENA GÜNEŞ PANEL SANAYİ ENERJİ VE İNŞAAT ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SENA GÜNEŞ PANEL SANAYİ ENERJİ VE İNŞAAT ANONİM ŞİRKETİ",
+      "adres": "Karaağaç Mahallesi 13 Şubat Caddesi  No:9 Merkez / ERZİNCAN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20936",
+      "istasyon_adi": "FORTİS SİNANLI 1",
+      "hizmet_sekli": "Özel",
+      "marka": "Qopuz Energy proton neutron",
+      "sarj_agi_isletmecisi": "SENA GÜNEŞ PANEL SANAYİ ENERJİ VE İNŞAAT ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SENA GÜNEŞ PANEL SANAYİ ENERJİ VE İNŞAAT ANONİM ŞİRKETİ",
+      "adres": "Fikirtepe Mahallesi Yıldırım Sokağı  No:1 Kadıköy / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20937",
+      "istasyon_adi": "FORTİS SİNANLI 2",
+      "hizmet_sekli": "Özel",
+      "marka": "Qopuz Energy proton neutron",
+      "sarj_agi_isletmecisi": "SENA GÜNEŞ PANEL SANAYİ ENERJİ VE İNŞAAT ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SENA GÜNEŞ PANEL SANAYİ ENERJİ VE İNŞAAT ANONİM ŞİRKETİ",
+      "adres": "Fikirtepe Mahallesi Hızırbey Sokağı  No:2 Kadıköy / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20938",
+      "istasyon_adi": "BUYUK BAHCE KONUTLARI 3",
+      "hizmet_sekli": "Özel",
+      "marka": "Qopuz Energy proton neutron",
+      "sarj_agi_isletmecisi": "SENA GÜNEŞ PANEL SANAYİ ENERJİ VE İNŞAAT ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SENA GÜNEŞ PANEL SANAYİ ENERJİ VE İNŞAAT ANONİM ŞİRKETİ",
+      "adres": "Bulgurlu Mahallesi Yıldırım Sokağı  No:2/2B Üsküdar / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16333",
+      "istasyon_adi": "REBA MİMARLIK 2",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Qopuz Energy proton neutron",
+      "sarj_agi_isletmecisi": "SENA GÜNEŞ PANEL SANAYİ ENERJİ VE İNŞAAT ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SENA GÜNEŞ PANEL SANAYİ ENERJİ VE İNŞAAT ANONİM ŞİRKETİ",
+      "adres": "Çınarlı Mahallesi  No:72  Aydıncık Gökçeada / ÇANAKKALE",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16338",
+      "istasyon_adi": "Kentplus Sitesi A-B Blok",
+      "hizmet_sekli": "Özel",
+      "marka": "Qopuz Energy proton neutron",
+      "sarj_agi_isletmecisi": "SENA GÜNEŞ PANEL SANAYİ ENERJİ VE İNŞAAT ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SENA GÜNEŞ PANEL SANAYİ ENERJİ VE İNŞAAT ANONİM ŞİRKETİ",
+      "adres": "Eğitim Mahallesi Abdibey Sokağı  No:24 Kadıköy / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16344",
+      "istasyon_adi": "HILTON OTEL CORLU",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Qopuz Energy proton neutron",
+      "sarj_agi_isletmecisi": "SENA GÜNEŞ PANEL SANAYİ ENERJİ VE İNŞAAT ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SENA GÜNEŞ PANEL SANAYİ ENERJİ VE İNŞAAT ANONİM ŞİRKETİ",
+      "adres": "Kazımiye Mahallesi Salih Omurtak Caddesi  No:2 Çorlu / TEKİRDAĞ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16336",
+      "istasyon_adi": "Kentplus Sitesi B2 Blok",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Qopuz Energy proton neutron",
+      "sarj_agi_isletmecisi": "SENA GÜNEŞ PANEL SANAYİ ENERJİ VE İNŞAAT ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SENA GÜNEŞ PANEL SANAYİ ENERJİ VE İNŞAAT ANONİM ŞİRKETİ",
+      "adres": "Eğitim Mahallesi Abdibey Sokağı  No:24 Kadıköy / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16332",
+      "istasyon_adi": "REBA MİMARLIK",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Qopuz Energy proton neutron",
+      "sarj_agi_isletmecisi": "SENA GÜNEŞ PANEL SANAYİ ENERJİ VE İNŞAAT ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SENA GÜNEŞ PANEL SANAYİ ENERJİ VE İNŞAAT ANONİM ŞİRKETİ",
+      "adres": "Çınarlı Mahallesi  No:72  Aydıncık Gökçeada / ÇANAKKALE",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16335",
+      "istasyon_adi": "Kentplus Sitesi C Blok",
+      "hizmet_sekli": "Özel",
+      "marka": "Qopuz Energy proton neutron",
+      "sarj_agi_isletmecisi": "SENA GÜNEŞ PANEL SANAYİ ENERJİ VE İNŞAAT ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SENA GÜNEŞ PANEL SANAYİ ENERJİ VE İNŞAAT ANONİM ŞİRKETİ",
+      "adres": "Eğitim Mahallesi Muratpaşa Sokağı  No:17 Kadıköy / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16339",
+      "istasyon_adi": "YÜKSEL CİTY A-BLOK",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Qopuz Energy proton neutron",
+      "sarj_agi_isletmecisi": "SENA GÜNEŞ PANEL SANAYİ ENERJİ VE İNŞAAT ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SENA GÜNEŞ PANEL SANAYİ ENERJİ VE İNŞAAT ANONİM ŞİRKETİ",
+      "adres": "Tatlısu Mahallesi Şahin Sokağı  No:64 Ümraniye / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16331",
+      "istasyon_adi": "GAYE SİTESİ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Qopuz Energy proton neutron",
+      "sarj_agi_isletmecisi": "SENA GÜNEŞ PANEL SANAYİ ENERJİ VE İNŞAAT ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SENA GÜNEŞ PANEL SANAYİ ENERJİ VE İNŞAAT ANONİM ŞİRKETİ",
+      "adres": "Kemerağzı Mahallesi Tesisler Caddesi 367 Sokağı Aksu / ANTALYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/23190",
+      "istasyon_adi": "Sabancı Olgunlaşma Enstitüsü",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Qopuz Energy proton neutron",
+      "sarj_agi_isletmecisi": "SENA GÜNEŞ PANEL SANAYİ ENERJİ VE İNŞAAT ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SENA GÜNEŞ PANEL SANAYİ ENERJİ VE İNŞAAT ANONİM ŞİRKETİ",
+      "adres": "Beylerbeyi Mahallesi Abdullahağa Sokağı  No:10 Üsküdar / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/23191",
+      "istasyon_adi": "Büyük Bahçe Konutları",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Qopuz Energy proton neutron",
+      "sarj_agi_isletmecisi": "SENA GÜNEŞ PANEL SANAYİ ENERJİ VE İNŞAAT ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SENA GÜNEŞ PANEL SANAYİ ENERJİ VE İNŞAAT ANONİM ŞİRKETİ",
+      "adres": "Bulgurlu Mahallesi Yıldırım Sokağı  No:2 Üsküdar / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/23233",
+      "istasyon_adi": "Brooklyn Park",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Qopuz Energy proton neutron",
+      "sarj_agi_isletmecisi": "SENA GÜNEŞ PANEL SANAYİ ENERJİ VE İNŞAAT ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SENA GÜNEŞ PANEL SANAYİ ENERJİ VE İNŞAAT ANONİM ŞİRKETİ",
+      "adres": "Merdivenköy Mahallesi Seyhan Sokağı  No:13/A Kadıköy / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/14979",
+      "istasyon_adi": "Duhok Saray Restoran",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "AUTOVOLT",
+      "sarj_agi_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VİYAN MOBİLYA AKSESUARLARI İNŞAAT NAKLİYAT KUYUMCULUK TEKSTİL GIDA İTHALAT İHR.SAN.VE TİC.LTD.ŞTİ.",
+      "adres": "Eski Yol Mahallesi İpek Yolu Caddesi  No:18 Nusaybin / MARDİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/15472",
+      "istasyon_adi": "Piran Orman Ürünleri",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "AUTOVOLT",
+      "sarj_agi_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "HAKAN ARSLAN",
+      "adres": "Turgut Özal Mahallesi Mardin Caddesi  No:456 Kızıltepe / MARDİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/15924",
+      "istasyon_adi": "İzla Pizzeria",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "AUTOVOLT",
+      "sarj_agi_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Üçköy Mahallesi Nusaybin / MARDİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/15983",
+      "istasyon_adi": "Loran Cafe Restoran",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "AUTOVOLT",
+      "sarj_agi_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Beyaz Su Midyat Caddesi Midyat / MARDİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16201",
+      "istasyon_adi": "Altın Şehir Konutları",
+      "hizmet_sekli": "Özel",
+      "marka": "AUTOVOLT",
+      "sarj_agi_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Yalım Mahallesi Ömerli Caddesi  Altın Şehir Konutları Artuklu / MARDİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16655",
+      "istasyon_adi": "Dekor Kent Sitesi A BLok",
+      "hizmet_sekli": "Özel",
+      "marka": "AUTOVOLT",
+      "sarj_agi_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "13. Mart Mahallesi 21. Sokağı  No:2 Artuklu / MARDİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16656",
+      "istasyon_adi": "Dekor Kent Sitesi B BLok",
+      "hizmet_sekli": "Özel",
+      "marka": "AUTOVOLT",
+      "sarj_agi_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "13. Mart Mahallesi 21. Sokağı  No:2 Artuklu / MARDİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16657",
+      "istasyon_adi": "Dekor Kent Sitesi C Blok",
+      "hizmet_sekli": "Özel",
+      "marka": "AUTOVOLT",
+      "sarj_agi_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "13. Mart Mahallesi 21. Sokağı  No:2 Artuklu / MARDİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16968",
+      "istasyon_adi": "Mavi Şehir 3. Etap A Blok",
+      "hizmet_sekli": "Özel",
+      "marka": "AUTOVOLT",
+      "sarj_agi_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Yalım Mahallesi Midyat Caddesi Mavişehir Sokağı  No:Mavi Şehir 3. Etap A Blok Artuklu / MARDİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16969",
+      "istasyon_adi": "Mavi Şehir 3. Etap B Blok",
+      "hizmet_sekli": "Özel",
+      "marka": "AUTOVOLT",
+      "sarj_agi_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Yalım Mahallesi Midyat Caddesi Mavişehir Sokağı  No:Mavi Şehir 3. Etap B Blok Artuklu / MARDİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/17145",
+      "istasyon_adi": "Mavi Şehir 1. Etap",
+      "hizmet_sekli": "Özel",
+      "marka": "AUTOVOLT",
+      "sarj_agi_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Yalım Mahallesi Midyat Caddesi Mavi Şehir Sokağı Artuklu / MARDİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/17437",
+      "istasyon_adi": "Akitu Otel",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "AUTOVOLT",
+      "sarj_agi_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Işıklar Mahallesi Mahallesi Otogar Caddesi Caddesi  No:153 Midyat / MARDİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/17827",
+      "istasyon_adi": "Loba Caffee Fuat Morel",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "AUTOVOLT",
+      "sarj_agi_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "50. Yıl Mahallesi 2767 Sokağı  No:1 Yenişehir / MERSİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/17828",
+      "istasyon_adi": "Akasya Park Sityesi",
+      "hizmet_sekli": "Özel",
+      "marka": "AUTOVOLT",
+      "sarj_agi_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Yeni Mahallesi 33157 Sokağı  No:25B Mezitli / MERSİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/17829",
+      "istasyon_adi": "Blut Rgin Towers A",
+      "hizmet_sekli": "Özel",
+      "marka": "AUTOVOLT",
+      "sarj_agi_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Limonluk Mahallesi Vali Hüseyin Aksoy Caddesi 12/a Sokağı Yenişehir / MERSİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/17830",
+      "istasyon_adi": "Blut Rgin Towers",
+      "hizmet_sekli": "Özel",
+      "marka": "AUTOVOLT",
+      "sarj_agi_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Limonluk Mahallesi Vali Hüseyin Aksoy Caddesi  No:12AC Yenişehir / MERSİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/17831",
+      "istasyon_adi": "Blut Rgin Towers B",
+      "hizmet_sekli": "Özel",
+      "marka": "AUTOVOLT",
+      "sarj_agi_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Limonluk Mahallesi Vali Hüseyin Aksoy Caddesi  No:12/B Yenişehir / MERSİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/17832",
+      "istasyon_adi": "Deniz Yıldızı Sitesi",
+      "hizmet_sekli": "Özel",
+      "marka": "AUTOVOLT",
+      "sarj_agi_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Akdeniz Mahallesi Gazi Mustafa Kemal Bulvarı Caddesi  No:805N Mezitli / MERSİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/17833",
+      "istasyon_adi": "İstikbal Öztopraklar",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "AUTOVOLT",
+      "sarj_agi_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Yeni Mahallesi 33180 Sokağı  No:39 Mezitli / MERSİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/17834",
+      "istasyon_adi": "Olypos 1 Sitesi 2",
+      "hizmet_sekli": "Özel",
+      "marka": "AUTOVOLT",
+      "sarj_agi_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Kuzeykent Mahallesi 31141 Sokağı  No:5 Yenişehir / MERSİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/17835",
+      "istasyon_adi": "Olypos 1 Sitesi 1",
+      "hizmet_sekli": "Özel",
+      "marka": "AUTOVOLT",
+      "sarj_agi_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Kuzeykent Mahallesi 31141 Sokağı  No:5 Yenişehir / MERSİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/17836",
+      "istasyon_adi": "Şoray 1 Sitesi",
+      "hizmet_sekli": "Özel",
+      "marka": "AUTOVOLT",
+      "sarj_agi_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "75.yıl Mahallesi Gazi Mustafa Kemal Bulvarı Caddesi  No:851F Mezitli / MERSİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/17837",
+      "istasyon_adi": "Çaltana Sitesi",
+      "hizmet_sekli": "Özel",
+      "marka": "AUTOVOLT",
+      "sarj_agi_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Seymenli Mahallesi Çaltana Sokağı  No:8C Mezitli / MERSİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/17838",
+      "istasyon_adi": "Semt Yeni Köy Ofis 2",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "AUTOVOLT",
+      "sarj_agi_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Limonluk Mahallesi 2415 Sokağı  No:1A Yenişehir / MERSİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/17839",
+      "istasyon_adi": "Sky City Sitesi",
+      "hizmet_sekli": "Özel",
+      "marka": "AUTOVOLT",
+      "sarj_agi_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Merkez Mahallesi 52175 Sokağı  No:1A Mezitli / MERSİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/17854",
+      "istasyon_adi": "MTM Konaklama",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "AUTOVOLT",
+      "sarj_agi_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Çiftlikköy Mahallesi 3204 Sokağı  No:1A Yenişehir / MERSİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16065",
+      "istasyon_adi": "Zerey Yapı",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "AUTOVOLT",
+      "sarj_agi_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Bahçeli Evler Mahallesi  No:Zerey apt. Midyat / MARDİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/15459",
+      "istasyon_adi": "Dayman Hotel",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "AUTOVOLT",
+      "sarj_agi_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "MİDYAT ÇELİK İNŞAAT EMLAK KUYUMCULUK TURİZM SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Cumhuriyet Mahallesi  No:199 Midyat / MARDİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16017",
+      "istasyon_adi": "Zerey Plaza (Lazer Teknoloji)",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "AUTOVOLT",
+      "sarj_agi_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Cumhuriyet Caddesi  No:123/2 Midyat / MARDİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/15997",
+      "istasyon_adi": "Deniz Park Sitesi A Blok",
+      "hizmet_sekli": "Özel",
+      "marka": "AUTOVOLT",
+      "sarj_agi_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Merkez Mahallesi 52070 Sokağı  No:7 A Mezitli / MERSİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16003",
+      "istasyon_adi": "Deniz Park Sitesi B Blok",
+      "hizmet_sekli": "Özel",
+      "marka": "AUTOVOLT",
+      "sarj_agi_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Merkez Mahallesi 52070 Sokağı  No:7A Mezitli / MERSİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/18263",
+      "istasyon_adi": "Mardin yeni Toki 1. Kısım",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "AUTOVOLT",
+      "sarj_agi_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Nur Mahallesi 11. Caddesi  No:3.Blok Artuklu / MARDİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19848",
+      "istasyon_adi": "Navona Otel",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "AUTOVOLT",
+      "sarj_agi_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Dumlupınar Mahallesi Gazi Mustafa Kemal Caddesi  No:437 Yenişehir / MERSİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19880",
+      "istasyon_adi": "Palma Tatil Sitesi",
+      "hizmet_sekli": "Özel",
+      "marka": "AUTOVOLT",
+      "sarj_agi_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Cumhuriyet Mahallesi Gazi Mustafa Kemal Bulvarı Caddesi  No:965n Mezitli / MERSİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20669",
+      "istasyon_adi": "Sunpet Erdemli Şarj İstasyonu",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "AUTOVOLT",
+      "sarj_agi_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Arpaçbahşiş Mahallesi  No:95-A Erdemli / MERSİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20882",
+      "istasyon_adi": "Autovolt Ofis",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "AUTOVOLT",
+      "sarj_agi_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "8 Mart Mahallesi Kore Şehidi Mahmut Aydın Sokağı  No:Antimosya /3C Nusaybin / MARDİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21063",
+      "istasyon_adi": "Mira Blue OTel",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "AUTOVOLT",
+      "sarj_agi_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Yeni Mahallesi Gazi Mustafa Kemal Bulvarı Caddesi  No:663 Mezitli / MERSİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21120",
+      "istasyon_adi": "Kervan Konakları A Blok1",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "AUTOVOLT",
+      "sarj_agi_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Yalım Mahallesi 102 (hürriyet) Caddesi Artuklu / MARDİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21121",
+      "istasyon_adi": "Kervan Konakları A Blok2",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "AUTOVOLT",
+      "sarj_agi_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Yalım Mahallesi 102 (hürriyet) Caddesi Artuklu / MARDİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21776",
+      "istasyon_adi": "Dicle Üniv. Eczacılık Fakültesi",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "AUTOVOLT",
+      "sarj_agi_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Dicle Üniversitesi Eczacılık Fakültesi Caddesi  Dicle Üniversitesi Kampüsü Sur / DİYARBAKIR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21777",
+      "istasyon_adi": "Dicle Üniv. Eğitim Fakültesi",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "AUTOVOLT",
+      "sarj_agi_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Dicle Üniversitesi Eğitim Fakültesi Caddesi  Dicle Üniversitesi Kampüsü Sur / DİYARBAKIR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21778",
+      "istasyon_adi": "Dicle Üniv. Hukuk Fakültesi",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "AUTOVOLT",
+      "sarj_agi_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Dicle Üniversitesi Hukuk Fakültesi Caddesi  Dicle Üniversitesi Kampüsü Sur / DİYARBAKIR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21779",
+      "istasyon_adi": "Dicle Üniv. İletişim Fakültesi",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "AUTOVOLT",
+      "sarj_agi_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Dicle Üniversitesi İibf Fakültesi Caddesi  Dicle Üniversitesi Kampüsü Sur / DİYARBAKIR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21780",
+      "istasyon_adi": "Dicle Üniv. Meslek Yüksek Okulu",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "AUTOVOLT",
+      "sarj_agi_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Dicle Üniversitesi Meslek Yüksek Okulu Caddesi  Dicle Üniversitesi Kampüsü Sur / DİYARBAKIR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21781",
+      "istasyon_adi": "Dicle Üniv. Mimarlık Fakültesi",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "AUTOVOLT",
+      "sarj_agi_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Dicle Üniversitesi Mühendislik Mimarlık Fakültesi Caddesi  Dicle Üniversitesi Kampüsü Sur / DİYARBAKIR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21782",
+      "istasyon_adi": "Dicle Üniv. Rektörlük",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "AUTOVOLT",
+      "sarj_agi_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Dicle Üniversitesi Rektörlük Caddesi  Dicle Üniversitesi Kampüsü Sur / DİYARBAKIR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21877",
+      "istasyon_adi": "Dicle Üniv. Diş Hekimliği Fakültesi",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "AUTOVOLT",
+      "sarj_agi_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Dicle Üniversitesi Diş Hekimliğifakültesi Caddesi  Dicle Üniversitesi Kampüsü Sur / DİYARBAKIR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21878",
+      "istasyon_adi": "Dicle Üniv. Sivil Havacılık YO",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "AUTOVOLT",
+      "sarj_agi_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Dicle Üniversitesi Sivil Havacılık Yüksek Okulu Caddesi  Dicle Üniversitesi Kampüsü Sur / DİYARBAKIR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21879",
+      "istasyon_adi": "Dicle Üniv. Kongre Merkezi",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "AUTOVOLT",
+      "sarj_agi_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Dicle Üniversitesi Kongre Merkezi Caddesi  Dicle Üniversitesi Kampüsü Sur / DİYARBAKIR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21994",
+      "istasyon_adi": "Dicle Üniv. Enstitüler Binası",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "AUTOVOLT",
+      "sarj_agi_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Dicle Üniversitesi Enstitüler Binası Caddesi  Dicle Üniversitesi Kampüsü Sur / DİYARBAKIR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21995",
+      "istasyon_adi": "Bulut Baravia Evleri",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "AUTOVOLT",
+      "sarj_agi_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Nur Mahallesi 1 Sokağı  No:10 Artuklu / MARDİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/22298",
+      "istasyon_adi": "Dicle Üniv. Tıp Fakülte Hastanesi",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "AUTOVOLT",
+      "sarj_agi_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Üniversite Hastanesi Caddesi  Dicle Üniversitesi Tıp Hastanesi Sur / DİYARBAKIR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/22300",
+      "istasyon_adi": "Dicle Üniv. Lojmanlar",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "AUTOVOLT",
+      "sarj_agi_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Dicle Üniversitesi Kampüsü Mahallesi Dicle Üniv Caddesi  No:Saray AVM  Dicle Üniversitesi Lojmanları Sur / DİYARBAKIR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/23177",
+      "istasyon_adi": "Alioğlu Atlantis Sitesi",
+      "hizmet_sekli": "Özel",
+      "marka": "AUTOVOLT",
+      "sarj_agi_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Çiftlikköy Mahallesi 3235 Sokağı  No:10 Yenişehir / MERSİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/23178",
+      "istasyon_adi": "Paradise Home's F Blok",
+      "hizmet_sekli": "Özel",
+      "marka": "AUTOVOLT",
+      "sarj_agi_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Çiftlikköy Mahallesi 32231 Sokağı  No:2F Yenişehir / MERSİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/23179",
+      "istasyon_adi": "Paradise Home's G Blok",
+      "hizmet_sekli": "Özel",
+      "marka": "AUTOVOLT",
+      "sarj_agi_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Çiftlikköy Mahallesi 32231 Sokağı Yenişehir / MERSİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/23385",
+      "istasyon_adi": "Laçin Elit Life Sitesi",
+      "hizmet_sekli": "Özel",
+      "marka": "AUTOVOLT",
+      "sarj_agi_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "BURAK KURTULUŞ",
+      "adres": "Gazi Mustafa Kemalpaşa Mahallesi Narin Caddesi  No:19/ŞARJ Çerkezköy / TEKİRDAĞ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/23447",
+      "istasyon_adi": "Sky Port Sitesi",
+      "hizmet_sekli": "Özel",
+      "marka": "AUTOVOLT",
+      "sarj_agi_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "AUTOVOLT ENERJİ TEKNOLOJİ SİSTEMLERİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Akdeniz Mahallesi 39807 Sokağı Mezitli / MERSİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/15733",
+      "istasyon_adi": "Simurg Cave House",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "QC QUIKŞARJ",
+      "sarj_agi_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Köyün Kendi Mahallesi Ulaşlı Caddesi 164 Sokağı  Simurg Cappadocıa Otel Ürgüp / NEVŞEHİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16763",
+      "istasyon_adi": "BOTANİK PARK SİTESİ 35. BLOK",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "QC QUIKŞARJ",
+      "sarj_agi_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Kayaşehir Mahallesi Veysel Karani Caddesi  No:35.BLOK Başakşehir / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16948",
+      "istasyon_adi": "BOTANİK PARK SİTESİ 34. BLOK",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "QC QUIKŞARJ",
+      "sarj_agi_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Kayaşehir Mahallesi Fenertepe 19.bölge Caddesi  No:34.BLOK /MERDİVEN OTOMATİĞİ 1 Başakşehir / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16949",
+      "istasyon_adi": "BOTANİK PARK  SİTESİ 29. BLOK",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "QC QUIKŞARJ",
+      "sarj_agi_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Kayaşehir Mahallesi Veysel Karani Caddesi  No:29.BLOK  Fenertepe 19.bölge Başakşehir / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16950",
+      "istasyon_adi": "BOTANİK PARK  SİTESİ 27. BLOK",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "QC QUIKŞARJ",
+      "sarj_agi_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Kayaşehir Mahallesi  No:27.BLOK /MERDİVEN OTOMATİĞİ 1  Fenertepe 19.bölge Başakşehir / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16964",
+      "istasyon_adi": "LAVİNYA MARMARA SİTESİ-4",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "QC QUIKŞARJ",
+      "sarj_agi_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Sinanoba Mahallesi Hayırlı Sokağı  No:D BLOK /1  Ortak Alan Büyükçekmece / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16966",
+      "istasyon_adi": "LAVİNYA MARMARA SİTESİ-3",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "QC QUIKŞARJ",
+      "sarj_agi_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Sinanoba Mahallesi Hayırlı Sokağı  No:1 /ORTAK ALAN Arnavutköy / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16967",
+      "istasyon_adi": "SERDİVAN BLD.KAPALI PAZAR YERİ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "QC QUIKŞARJ",
+      "sarj_agi_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Kemalpaşa Mahallesi Karabaş Sokağı  No:9/2 Serdivan / SAKARYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16970",
+      "istasyon_adi": "SERDİVAN BLD.MİLLET BAHÇESİ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "QC QUIKŞARJ",
+      "sarj_agi_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Arabacıalanı Mahallesi 559 Sokağı  No:8/1 Serdivan / SAKARYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16972",
+      "istasyon_adi": "SERDİBAN BLD.ZAMAN PARK",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "QC QUIKŞARJ",
+      "sarj_agi_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "adres": "İstiklal Mahallesi 382 Sokağı  No:2/1 /1  Zaman Park Serdivan / SAKARYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16974",
+      "istasyon_adi": "SERDİVAN BLD.KAPALI SPOR SALONU",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "QC QUIKŞARJ",
+      "sarj_agi_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Köprübaşı Mahallesi 4034 Sokağı  No:13/1 Serdivan / SAKARYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/17029",
+      "istasyon_adi": "DENİZLİ BAROSU BAŞKANLIĞI",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "QC QUIKŞARJ",
+      "sarj_agi_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Adalet Mahallesi Fatih Sultan Mehmet Caddesi  No:3 /D Merkezefendi / DENİZLİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/17030",
+      "istasyon_adi": "LAVİNYA MARMARA OTOPARK",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "QC QUIKŞARJ",
+      "sarj_agi_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Sinanoba Mahallesi Hayırlı Sokağı  No:1 /C BLOK  Ortak Alan Büyükçekmece / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/17089",
+      "istasyon_adi": "MİLPARK OTOPARK",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "QC QUIKŞARJ",
+      "sarj_agi_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Güzelyurt Mahallesi 2070 Sokağı  No:36 Esenyurt / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/15922",
+      "istasyon_adi": "YASEMİN APARTMANI",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "QC QUIKŞARJ",
+      "sarj_agi_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Kavaklı Mahallesi Kocatepe Caddesi  No:321 Beylikdüzü / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/17103",
+      "istasyon_adi": "ONUR PARK LİFE SİTESİ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "QC QUIKŞARJ",
+      "sarj_agi_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Merkez Koza Mahallesi 1673 Sokağı  No:15 /A 3 BLOK  Ortak Alan Esenyurt / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/17161",
+      "istasyon_adi": "ASPOWER GENEL MERKEZ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "QC QUIKŞARJ",
+      "sarj_agi_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Mehmet Akif Ersoy Mahallesi Egemen Caddesi  No:117 /4 Arnavutköy / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/17180",
+      "istasyon_adi": "LİLYUM SİTESİ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "QC QUIKŞARJ",
+      "sarj_agi_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Aşağı Yahyalar Mahallesi 986 Sokağı  No:6 Yenimahalle / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/17181",
+      "istasyon_adi": "ÖZGÜN OTEL",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "QC QUIKŞARJ",
+      "sarj_agi_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Kum Mahallesi Küçük Liman Sokağı Amasra / BARTIN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16246",
+      "istasyon_adi": "Değirmendere Migros",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "QC QUIKŞARJ",
+      "sarj_agi_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Değirmendere Merkez Mahallesi Devlet Karayolu Sokağı  No:50 Gölcük / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/15652",
+      "istasyon_adi": "İLKADIM AKM OTOPARK",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "QC QUIKŞARJ",
+      "sarj_agi_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Pazar Mahallesi Fuar Caddesi  Akm Yanı İlkadım / SAMSUN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16976",
+      "istasyon_adi": "SERDİVAN BLD.ADATIP HASTANE KARŞISI",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "QC QUIKŞARJ",
+      "sarj_agi_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Arabacıalanı Mahallesi Zarif Sokağı  No:2/1 Serdivan / SAKARYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16977",
+      "istasyon_adi": "SERDİVAN BLD.ESENTEPE MUHTARLIK",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "QC QUIKŞARJ",
+      "sarj_agi_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Esentepe Mahallesi Mina Sokağı  No:1/1 Serdivan / SAKARYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/17104",
+      "istasyon_adi": "BUYAR OTEL",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "QC QUIKŞARJ",
+      "sarj_agi_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Cumhuriyet Caddesi  No:25 İlkadım / SAMSUN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/15636",
+      "istasyon_adi": "ÇOBANLI İSKELESİ KARŞISI OTOPARK",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "QC QUIKŞARJ",
+      "sarj_agi_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Cumhuriyet Mahallesi  Çobanlı İskelesi Karşısı Otopark Atakum / SAMSUN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/17164",
+      "istasyon_adi": "CHARGE MAHAL",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "QC QUIKŞARJ",
+      "sarj_agi_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Esentepe Mahallesi Kore Şehitleri Caddesi  No:16/1 Şişli / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16063",
+      "istasyon_adi": "AS POWER OTOPARKI",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "QC QUIKŞARJ",
+      "sarj_agi_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Mehmet Akif Ersoy Mahallesi Egemen Caddesi  No:117/2 Arnavutköy / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/17436",
+      "istasyon_adi": "DURAĞAN BELEDİYESİ OTOPARKI",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "QC QUIKŞARJ",
+      "sarj_agi_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Merkez Mahallesi Cumhuriyet Caddesi  No:117 Durağan / SİNOP",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/17504",
+      "istasyon_adi": "SERDİVAN BELEDİYE BAŞKANLIĞI",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "QC QUIKŞARJ",
+      "sarj_agi_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Arabacıalanı Mahallesi Çark Caddesi  No:328 Serdivan / SAKARYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/17529",
+      "istasyon_adi": "MY ELEGANCE SİTESİ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "QC QUIKŞARJ",
+      "sarj_agi_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Serhat Mahallesi Serhat Sokağı  No:50A Yenimahalle / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/17541",
+      "istasyon_adi": "TRAFİK PARK-SERDİVAN",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "QC QUIKŞARJ",
+      "sarj_agi_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "adres": "İstiklal Mahallesi 403 Sokağı  No:11/1 Serdivan / SAKARYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/17542",
+      "istasyon_adi": "KAMPÜS YOLU-SERDİVAN",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "QC QUIKŞARJ",
+      "sarj_agi_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Kemalpaşa Mahallesi 6 Sokağı  No:1/1 Serdivan / SAKARYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/17662",
+      "istasyon_adi": "SUŞEHRİ YÜCELER PETROL",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "QC QUIKŞARJ",
+      "sarj_agi_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Kemalpaşa Mahallesi Tokat Erzincan Caddesi  No:35/1 Suşehri / SİVAS",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/17940",
+      "istasyon_adi": "KOYULHİSAR ÇELİKLER PETROL",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "QC QUIKŞARJ",
+      "sarj_agi_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Aşağıkale Köyü Tokat Yolu Üzeri Mahallesi Türkiye Petrolleri Caddesi Koyulhisar / SİVAS",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/17941",
+      "istasyon_adi": "AKINCILAR VADİPARK TESİSLERİ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "QC QUIKŞARJ",
+      "sarj_agi_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Gönen, Kıraçköy Mevki Mahallesi Cumhuriyet Caddesi  No:108-1 Akıncılar / SİVAS",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21479",
+      "istasyon_adi": "GRAND AYKANATLAR DÜĞÜN SALONU",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "QC QUIKŞARJ",
+      "sarj_agi_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Kazım Karabekir Mahallesi Abdullah Gül Sokağı  No:20  Bucak Merkez / KİLİS",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21761",
+      "istasyon_adi": "BOTANİK PARK EVLERİ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "QC QUIKŞARJ",
+      "sarj_agi_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Kayabaşı Mahallesi Veysel Karani Caddesi  No:2B Başakşehir / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21763",
+      "istasyon_adi": "ESTON REŞİT PAŞA EVLERİ 3.KISIM",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "QC QUIKŞARJ",
+      "sarj_agi_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "CHARGE MAHAL ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Marmara Mahallesi Yurt Caddesi  No:7 Beylikdüzü / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16158",
+      "istasyon_adi": "NAİPOĞLU KUZEY MARMARA OTOBAN GİRİŞİ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Yeşilova Mahallesi Kandıra Yolu Caddesi  No:66 İzmit / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16162",
+      "istasyon_adi": "YILDIZ KONUTLARI-1",
+      "hizmet_sekli": "Özel",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Alikahya Cumhuriyet Mah. Mahallesi  No:14 İzmit / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16164",
+      "istasyon_adi": "YILDIZ KONUTLARI-2",
+      "hizmet_sekli": "Özel",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Alikahya Cumhuriyet Mahallesi  No:14/1 İzmit / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16166",
+      "istasyon_adi": "YILDIZ KONUTLARI-3",
+      "hizmet_sekli": "Özel",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Alikahya Cumhuriyet Mahallesi  No:14/1 İzmit / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16167",
+      "istasyon_adi": "YILDIZ KONUTLARI-4",
+      "hizmet_sekli": "Özel",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Alikahya Cumhuriyet . Mahallesi  No:14/1 İzmit / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16168",
+      "istasyon_adi": "ANTİK KÖFTE RESTORAN",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Dumlupınar Mahallesi Şehit Turgut Çiçek Caddesi  No:15 Kartepe / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16388",
+      "istasyon_adi": "KARTEPE BELEDİYESİ KAHVALTI EVİ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Derbent Mahallesi Meleksuyu Caddesi  No:13/1 Kartepe / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16594",
+      "istasyon_adi": "TEKNOPARK 2 YENİKÖY",
+      "hizmet_sekli": "Özel",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Yeniköy Merkez Mahallesi Vatan Caddesi  No:83 Başiskele / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16704",
+      "istasyon_adi": "ZERAY ESİL-3",
+      "hizmet_sekli": "Özel",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Ataevler Mahallesi Özgürlük Caddesi  No:24 Kartepe / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16709",
+      "istasyon_adi": "ZERAY PERLA-1",
+      "hizmet_sekli": "Özel",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Fatih Mahallesi Galip Erenoğlu Caddesi  No:12 Başiskele / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16710",
+      "istasyon_adi": "ZERAY PERLA-2",
+      "hizmet_sekli": "Özel",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Fatih Mahallesi Galip Erenoğlu Caddesi  No:12 Başiskele / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16720",
+      "istasyon_adi": "ZERAY MEVA ANADOLU-1",
+      "hizmet_sekli": "Özel",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Akse Mahallesi 448 Sokağı  No:2 Çayırova / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16722",
+      "istasyon_adi": "ZERAY MEVA ANADOLU-3",
+      "hizmet_sekli": "Özel",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Akse Mahallesi 448 Sokağı  No:2 Çayırova / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16724",
+      "istasyon_adi": "ZERAY FORUM ANATOLİA-2",
+      "hizmet_sekli": "Özel",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Emekevler Mahallesi Cengiz Topel Caddesi  No:10 Kartepe / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16726",
+      "istasyon_adi": "ZERAY FORUM ANATOLİA-3",
+      "hizmet_sekli": "Özel",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Emekevler Mahallesi Cengiz Topel Caddesi  No:10 Kartepe / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16705",
+      "istasyon_adi": "ZERAY ESİL-1",
+      "hizmet_sekli": "Özel",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Ataevler Mahallesi Özgürlük Caddesi  No:24 Kartepe / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16706",
+      "istasyon_adi": "ZERAY ESİL-2",
+      "hizmet_sekli": "Özel",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Ataevler Mahallesi Özgürlük Caddesi  No:24 Kartepe / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16707",
+      "istasyon_adi": "ZERAY ESİL-4",
+      "hizmet_sekli": "Özel",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Ataevler Mahallesi Özgürlük Caddesi  No:24 Kartepe / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16708",
+      "istasyon_adi": "ZERAY ESİL-5",
+      "hizmet_sekli": "Özel",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Ataevler Mahallesi Özgürlük Caddesi  No:24 Kartepe / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16723",
+      "istasyon_adi": "ZERAY FORUM ANATOLİA-1",
+      "hizmet_sekli": "Özel",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Emekevler Mahallesi Cengiz Topel Caddesi  No:10 Kartepe / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16727",
+      "istasyon_adi": "ZERAY FORUM ANATOLİA-4",
+      "hizmet_sekli": "Özel",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Emekevler Mahallesi Cengiz Topel Caddesi  No:10 Kartepe / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16728",
+      "istasyon_adi": "ZERAY FORUM ANATOLİA-5",
+      "hizmet_sekli": "Özel",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Emekevler Mahallesi Cengiz Topel Caddesi  No:10 Kartepe / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16729",
+      "istasyon_adi": "ZERAY EFFECT-1",
+      "hizmet_sekli": "Özel",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Fatih Sultan Mehmet Mahallesi Akyol Sokağı  No:24 Kartepe / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16770",
+      "istasyon_adi": "ZERAY EFFECT-2",
+      "hizmet_sekli": "Özel",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Fatih Sultan Mehmet Mahallesi Akyol Sokağı  No:24 Kartepe / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16596",
+      "istasyon_adi": "W BAHÇE SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Yenişehir Mahallesi Bahar Sokağı  No:14/16  Merkez Bucak  Merkez Pendik / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/18183",
+      "istasyon_adi": "KOCAELİ ÜNİVERSİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Kabaoğlu Mahallesi  No:515  Umuttepe İzmit / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/18546",
+      "istasyon_adi": "HÜRSOY BUSİDENCE SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Fatih Sultan Mehmet Mahallesi Metin Sokağı  No:2 Kartepe / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/18548",
+      "istasyon_adi": "TORİUM AVM",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Saadetdere Mahallesi Tonguçbaba Sokağı  No:21  H.dere Esenyurt / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/18551",
+      "istasyon_adi": "NAZEN CAFE",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Dumlupınar Mahallesi Şakirdede Sokağı  No:6/2 Kartepe / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/18552",
+      "istasyon_adi": "SERA AVM",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Akkent Mahallesi  No:1  Eskişehir Yolu Üzeri 1.km Merkez / KÜTAHYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/18554",
+      "istasyon_adi": "ZAFER PLAZA AVM",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Sehreküstü Mahallesi Cemal Nadir Caddesi  No:28 Osmangazi / BURSA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/18555",
+      "istasyon_adi": "KORUPARK AVM",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Emek Adnan Menderes Mahallesi Turgut Özal Caddesi  No:2 Osmangazi / BURSA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/18558",
+      "istasyon_adi": "ÖZKARAARSLAN PETROL OFİSİ-İZMİT",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Körfez Mahallesi Ankara Karayolu Caddesi  No:135 İzmit / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/18547",
+      "istasyon_adi": "MALL OF ANTALYA AVM",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Altınova Sinan Mahallesi Serik Caddesi  No:89 Kepez / ANTALYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/18557",
+      "istasyon_adi": "ÖZKARAARSLAN PETROL OFİSİ-SÖĞÜTLÜ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Gündoğan Mahallesi Çevre Yolu Caddesi  No:61/2 Söğütlü / SAKARYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16160",
+      "istasyon_adi": "SERDİVAN AVM",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Arabacıalanı Mahallesi Mert Sokağı  No:25 Serdivan / SAKARYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19087",
+      "istasyon_adi": "HÜRSOY GREEN LİFE 2",
+      "hizmet_sekli": "Özel",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Fatih Sultan Mehmet Mahallesi Selimiye Caddesi  No:26 Kartepe / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19088",
+      "istasyon_adi": "AKASYA AVM",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Acıbadem Mahallesi Çeçen Sokağı  No:25 Üsküdar / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19089",
+      "istasyon_adi": "AKBATI AVM",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Koza Mahallesi 1655 Sokağı  No:6  Esenkent Esenyurt / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19090",
+      "istasyon_adi": "AKMERKEZ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Akmerkez Avm Kültür Mahallesi Nispetiye Caddesi  No:56 Beşiktaş / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19091",
+      "istasyon_adi": "KOCAELİ ÜNİVERSİTESİ BÜYÜK -AÇIK OTOPARK",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Kabaoğlu Mahallesi  No:558 İzmit / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19120",
+      "istasyon_adi": "KARTEPE BELEDİYESİ AÇIK OTOPARK",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Fatih Sultan Mehmet Mahallesi Hanımağa Caddesi  No:14 Kartepe / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16161",
+      "istasyon_adi": "TEKNOPARK YENİKÖY",
+      "hizmet_sekli": "Özel",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Yeniköy Merkez Mahallesi Vatan Caddesi  No:83 Başiskele / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19464",
+      "istasyon_adi": "ZERAY PERLA 2 SİTESİ-1",
+      "hizmet_sekli": "Özel",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Fatih Mahallesi Hürler Caddesi  No:223 Başiskele / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19465",
+      "istasyon_adi": "ZERAY PERLA 2 SİTESİ-2",
+      "hizmet_sekli": "Özel",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Fatih Mahallesi Hürler Caddesi  No:223 Başiskele / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19467",
+      "istasyon_adi": "ZERAY PERLA 2 SİTESİ-3",
+      "hizmet_sekli": "Özel",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Fatih Mahallesi Hürler Caddesi  No:223 Başiskele / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19469",
+      "istasyon_adi": "SAKARYA CAMİLİ-AÇIK OTOPARK",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "15 Temmuz Camili Mahallesi  No:1 Adapazarı / SAKARYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19786",
+      "istasyon_adi": "TT365 SELF SERVİS OTO YIKAMA",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Yeşiltepe Mahallesi Uluyol Caddesi  No:27 Erenler / SAKARYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20336",
+      "istasyon_adi": "107 KARPAY",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Yeşilova Mahallesi Saltanat Sokağı  No:30 İzmit / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20337",
+      "istasyon_adi": "ZERAY MAHAL-1",
+      "hizmet_sekli": "Özel",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Sarımeşe Mahallesi Sade Sokağı  No:29 Kartepe / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20338",
+      "istasyon_adi": "ZERAY MAHAL-2",
+      "hizmet_sekli": "Özel",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Sarımeşe Mahallesi Sade Caddesi  No:29 Kartepe / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20339",
+      "istasyon_adi": "ZERAY MAHAL-3",
+      "hizmet_sekli": "Özel",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Sarımeşe Mahallesi Sade Sokağı  No:29 Kartepe / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20343",
+      "istasyon_adi": "TURANAY TURİZM",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Ovacık Mahallesi Cevher Sokağı  No:11 Başiskele / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20344",
+      "istasyon_adi": "BİLGİLİ KÜLTÜR OKULLARI",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Karşıyaka Mahallesi Maket Sokağı  No:14 Başiskele / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16591",
+      "istasyon_adi": "MEYDAN 54 AVM",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Erenler Mahallesi 1201. Sokağı  No:5 Erenler / SAKARYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20468",
+      "istasyon_adi": "NAZEN CAFE 2",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Dumlupınar Mahallesi Şakirdede Sokağı  No:6/1 Kartepe / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16592",
+      "istasyon_adi": "MONTEL MOBİLYA",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "İbrikdere Mahallesi D100 Karayolu Caddesi  No:352 Kartepe / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20707",
+      "istasyon_adi": "DEVA ÖZAKÇA YOĞURT",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Fatih Sultan Mehmet Mahallesi Sapanca Yolu Caddesi Kartepe / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21600",
+      "istasyon_adi": "DOĞA ORMAN PARK",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Karaabdülbaki Köyü Mahallesi İzmit / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21601",
+      "istasyon_adi": "480 RESİDENCE",
+      "hizmet_sekli": "Özel",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Dumlupınar Mahallesi Bereket Sokağı  No:18/1 Kartepe / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21602",
+      "istasyon_adi": "HÜRSOY NEFES ÖN OTOPARK",
+      "hizmet_sekli": "Özel",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Fatih Sultan Mehmet Mahallesi Bağdat Caddesi  No:172 Kartepe / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21603",
+      "istasyon_adi": "CONSEPT YAHYAKAPTAN",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Karadenizliler Mahallesi Fuat Paşa Sokağı  No:1 İzmit / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21604",
+      "istasyon_adi": "SERDİVAN AVM",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Arabacıalanı Mahallesi Mert Sokağı  No:25 Serdivan / SAKARYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16758",
+      "istasyon_adi": "BAŞKENT DOĞALGAZ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Kızılırmak Mahallesi Ufuk Üniversitesi Sokağı  No:13/A-B Çankaya / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/18549",
+      "istasyon_adi": "MALL OF İSTANBUL AVM",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Ziya Gökalp Mahallesi  No:7 Başakşehir / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16955",
+      "istasyon_adi": "KARTEPE KONAKLARI 2. ETAP",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Fatih Sultan Mehmet Mahallesi Gazi Caddesi  No:61 Kartepe / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16159",
+      "istasyon_adi": "SEPAŞ MÜŞTERİ HİZMETLERİ OTOPARKI",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Yahyakaptan Mahallesi Şevval Sokağı  No:4/1 İzmit / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20341",
+      "istasyon_adi": "TUANA 2 SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Topçular Mahallesi  No:174 İzmit / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/22330",
+      "istasyon_adi": "ER-DER HUB",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Yassıhöyük Mahallesi 51. Sokağı  No:53/1 Acıpayam / DENİZLİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/22331",
+      "istasyon_adi": "TÜRSAN HUB ÜÇKÖPRÜ MEVKİİ ANKARA YÖNÜ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Mengencik Mahallesi  Hacı Mehmet Üçköprü Kaynaşlı / DÜZCE",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/22332",
+      "istasyon_adi": "TÜRSAN HUB ÜÇKÖPRÜ MEVKİİ İSTANBUL YÖNÜ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Mengencik Mahallesi  Hacı Mehmet Üçköprü Kaynaşlı / DÜZCE",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16721",
+      "istasyon_adi": "ZERAY MEVA ANADOLU-2",
+      "hizmet_sekli": "Özel",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Akse Mahallesi 448 Sokağı  No:2 Çayırova / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/23275",
+      "istasyon_adi": "HÜRSOY NEFES ARKA OTOPARK",
+      "hizmet_sekli": "Özel",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Fatih Sultan Mehmet Mahallesi Bağdat Caddesi  No:172D Kartepe / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/23276",
+      "istasyon_adi": "KARCİTY EVLERİ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Fatih Sultan Mehmet Mahallesi Demokrasi Caddesi  No:12 Kartepe / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/23277",
+      "istasyon_adi": "İZTOP KAVANİUM 830. ADA",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Alikahya Atatürk Mahallesi Güneysu Caddesi  No:12B3A İzmit / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/23278",
+      "istasyon_adi": "VEFAKENT NARLIBAHÇE SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "Sepaş Akıllı Çözümler Anonim Şirketi",
+      "sarj_agi_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SEPAŞ AKILLI ÇÖZÜMLER ANONİM ŞİRKETİ",
+      "adres": "Atakent Mahallesi Sapanca Yolu Caddesi  Narlıbahçe Konutları Kartepe / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16696",
+      "istasyon_adi": "MİMARSİNAN KOLEJİ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "şarjed Park",
+      "sarj_agi_isletmecisi": "ŞARJED ELEKTRİKLİ ARAÇLAR ŞARJ SİSTEMLERİ LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJED ELEKTRİKLİ ARAÇLAR ŞARJ SİSTEMLERİ LİMİTED ŞİRKETİ",
+      "adres": "Mimar Sinan Mahallesi İnönü Caddesi Büyükçekmece / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/17248",
+      "istasyon_adi": "YEŞİLKENT TOPLU YAPI YÖNETİMİ 1.ETAP",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "şarjed Park",
+      "sarj_agi_isletmecisi": "ŞARJED ELEKTRİKLİ ARAÇLAR ŞARJ SİSTEMLERİ LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJED ELEKTRİKLİ ARAÇLAR ŞARJ SİSTEMLERİ LİMİTED ŞİRKETİ",
+      "adres": "Adnan Kahveci Mahallesi Paşabahçe Cd.no:3/1 Caddesi Beylikdüzü / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/17249",
+      "istasyon_adi": "YEŞİLKENT TOPLU YAPI YÖNETİMİ 2.ETAP",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "şarjed Park",
+      "sarj_agi_isletmecisi": "ŞARJED ELEKTRİKLİ ARAÇLAR ŞARJ SİSTEMLERİ LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJED ELEKTRİKLİ ARAÇLAR ŞARJ SİSTEMLERİ LİMİTED ŞİRKETİ",
+      "adres": "Adnan Kahveci Mahallesi Paşabahçe Cd.no:9/1 Caddesi Beylikdüzü / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/17250",
+      "istasyon_adi": "YEŞİLKENT TOPLU YAPI YÖNETİMİ 3.ETAP",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "şarjed Park",
+      "sarj_agi_isletmecisi": "ŞARJED ELEKTRİKLİ ARAÇLAR ŞARJ SİSTEMLERİ LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJED ELEKTRİKLİ ARAÇLAR ŞARJ SİSTEMLERİ LİMİTED ŞİRKETİ",
+      "adres": "Adnan Kahveci Mahallesi Paşabahçe Cd.no:12 Caddesi Beylikdüzü / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/17317",
+      "istasyon_adi": "Istanbloom Residences & Offices",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "şarjed Park",
+      "sarj_agi_isletmecisi": "ŞARJED ELEKTRİKLİ ARAÇLAR ŞARJ SİSTEMLERİ LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJED ELEKTRİKLİ ARAÇLAR ŞARJ SİSTEMLERİ LİMİTED ŞİRKETİ",
+      "adres": "Esentepe Mah Mahallesi Koreşehitleri Caddesi Caddesi 16 Sokağı  No:1 Şişli / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16741",
+      "istasyon_adi": "KİPTAŞ ESENYURT 4. ETAP EVLERİ SİTE YÖNETİM",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "şarjed Park",
+      "sarj_agi_isletmecisi": "ŞARJED ELEKTRİKLİ ARAÇLAR ŞARJ SİSTEMLERİ LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJED ELEKTRİKLİ ARAÇLAR ŞARJ SİSTEMLERİ LİMİTED ŞİRKETİ",
+      "adres": "Akşemseddin Mahallesi Aşık Mahsuni Şerif Caddesi  No:27 Esenyurt / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16745",
+      "istasyon_adi": "DENCE TOPLU YAPI YÖNETİMİ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "şarjed Park",
+      "sarj_agi_isletmecisi": "ŞARJED ELEKTRİKLİ ARAÇLAR ŞARJ SİSTEMLERİ LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJED ELEKTRİKLİ ARAÇLAR ŞARJ SİSTEMLERİ LİMİTED ŞİRKETİ",
+      "adres": "Yeşilkent Mahallesi  No:42 Esenler / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16742",
+      "istasyon_adi": "DOVA OTELCİLİK TURİZM LTD. ŞTİ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "şarjed Park",
+      "sarj_agi_isletmecisi": "ŞARJED ELEKTRİKLİ ARAÇLAR ŞARJ SİSTEMLERİ LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJED ELEKTRİKLİ ARAÇLAR ŞARJ SİSTEMLERİ LİMİTED ŞİRKETİ",
+      "adres": "Namık Kemal Mahallesi  No:10 Esenyurt / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16781",
+      "istasyon_adi": "DAYS HOTEL BY WYNDHAM",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "şarjed Park",
+      "sarj_agi_isletmecisi": "ŞARJED ELEKTRİKLİ ARAÇLAR ŞARJ SİSTEMLERİ LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJED ELEKTRİKLİ ARAÇLAR ŞARJ SİSTEMLERİ LİMİTED ŞİRKETİ",
+      "adres": "Namık Kemal Mahallesi Adile Naşit Caddesi  No:10 Esenyurt / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16907",
+      "istasyon_adi": "BURA RESİDENCE TOPLU YAPI YÖNETİMİ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "şarjed Park",
+      "sarj_agi_isletmecisi": "ŞARJED ELEKTRİKLİ ARAÇLAR ŞARJ SİSTEMLERİ LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJED ELEKTRİKLİ ARAÇLAR ŞARJ SİSTEMLERİ LİMİTED ŞİRKETİ",
+      "adres": "Yeşilkent Mahallesi  No:42B Esenyurt / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/17251",
+      "istasyon_adi": "PELİCAN HILL RESIDENCE",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "şarjed Park",
+      "sarj_agi_isletmecisi": "ŞARJED ELEKTRİKLİ ARAÇLAR ŞARJ SİSTEMLERİ LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJED ELEKTRİKLİ ARAÇLAR ŞARJ SİSTEMLERİ LİMİTED ŞİRKETİ",
+      "adres": "Alkent2000 Mahallesi Mehmet Yeşilgül Cd Caddesi Büyükçekmece / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/17252",
+      "istasyon_adi": "PELİKAN HİLL EVLERİ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "şarjed Park",
+      "sarj_agi_isletmecisi": "ŞARJED ELEKTRİKLİ ARAÇLAR ŞARJ SİSTEMLERİ LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJED ELEKTRİKLİ ARAÇLAR ŞARJ SİSTEMLERİ LİMİTED ŞİRKETİ",
+      "adres": "Alkent2000 Mahallesi Mehmet Yeşilgül Caddesi Büyükçekmece / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21058",
+      "istasyon_adi": "Mehmet Akdeniz Plaza",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "şarjed Park",
+      "sarj_agi_isletmecisi": "ŞARJED ELEKTRİKLİ ARAÇLAR ŞARJ SİSTEMLERİ LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJED ELEKTRİKLİ ARAÇLAR ŞARJ SİSTEMLERİ LİMİTED ŞİRKETİ",
+      "adres": "Güzelce Mahallesi D-100 Karayolu Caddesi Büyükçekmece / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21312",
+      "istasyon_adi": "BURA RESİDENCE TOPLU YAPI YÖNETİMİ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "şarjed Park",
+      "sarj_agi_isletmecisi": "ŞARJED ELEKTRİKLİ ARAÇLAR ŞARJ SİSTEMLERİ LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJED ELEKTRİKLİ ARAÇLAR ŞARJ SİSTEMLERİ LİMİTED ŞİRKETİ",
+      "adres": "Yeşilkent Mahallesi  No:42B Esenyurt / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21313",
+      "istasyon_adi": "DOVA RESİDANCE",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "şarjed Park",
+      "sarj_agi_isletmecisi": "ŞARJED ELEKTRİKLİ ARAÇLAR ŞARJ SİSTEMLERİ LİMİTED ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJED ELEKTRİKLİ ARAÇLAR ŞARJ SİSTEMLERİ LİMİTED ŞİRKETİ",
+      "adres": "Namık Kemal Mahallesi Adile Naşit Caddesi  No:10 Esenyurt / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20355",
+      "istasyon_adi": "CNS SOLAR",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "CNS Solar ŞARJ",
+      "sarj_agi_isletmecisi": "CNS SOLAR TAAHHÜT ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "CNS SOLAR TAAHHÜT ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Anbar Mahallesi  No:519 Melikgazi / KAYSERİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21284",
+      "istasyon_adi": "EYMEN PRESTİJ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "CNS Solar ŞARJ",
+      "sarj_agi_isletmecisi": "CNS SOLAR TAAHHÜT ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "CNS SOLAR TAAHHÜT ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Yıldırım Beyazıt Mahallesi Gökdere Sokağı Melikgazi / KAYSERİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21486",
+      "istasyon_adi": "CNS SEYİR KONAĞI",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "CNS Solar ŞARJ",
+      "sarj_agi_isletmecisi": "CNS SOLAR TAAHHÜT ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "CNS SOLAR TAAHHÜT ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Konaklar Mahallesi Melikgazi / KAYSERİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21487",
+      "istasyon_adi": "CNS OSKAM İNŞAAT",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "CNS Solar ŞARJ",
+      "sarj_agi_isletmecisi": "CNS SOLAR TAAHHÜT ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "CNS SOLAR TAAHHÜT ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Çiğilli Mahallesi Yahyalı / KAYSERİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/22338",
+      "istasyon_adi": "CNS MEYSU AVM",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "CNS Solar ŞARJ",
+      "sarj_agi_isletmecisi": "CNS SOLAR TAAHHÜT ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "CNS SOLAR TAAHHÜT ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Şeker Mahallesi Kocasinan / KAYSERİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/22339",
+      "istasyon_adi": "CNS NEFES PARK",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "CNS Solar ŞARJ",
+      "sarj_agi_isletmecisi": "CNS SOLAR TAAHHÜT ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "CNS SOLAR TAAHHÜT ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Köşk Mahallesi Melikgazi / KAYSERİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/22464",
+      "istasyon_adi": "CNS YILDIZEVLER-1",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "CNS Solar ŞARJ",
+      "sarj_agi_isletmecisi": "CNS SOLAR TAAHHÜT ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "CNS SOLAR TAAHHÜT ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Yıldızevler Mahallesi Kocasinan / KAYSERİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/22513",
+      "istasyon_adi": "CNS YENİDOĞAN-1",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "CNS Solar ŞARJ",
+      "sarj_agi_isletmecisi": "CNS SOLAR TAAHHÜT ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "CNS SOLAR TAAHHÜT ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Yenidoğan Mahallesi Kocasinan / KAYSERİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/22547",
+      "istasyon_adi": "CNS YAKUT-2",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "CNS Solar ŞARJ",
+      "sarj_agi_isletmecisi": "CNS SOLAR TAAHHÜT ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "CNS SOLAR TAAHHÜT ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Yakut Mahallesi Kocasinan / KAYSERİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/22649",
+      "istasyon_adi": "CNS BEYAZŞEHİR-1",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "CNS Solar ŞARJ",
+      "sarj_agi_isletmecisi": "CNS SOLAR TAAHHÜT ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "CNS SOLAR TAAHHÜT ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Beyazşehir Mahallesi Kocasinan / KAYSERİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/22650",
+      "istasyon_adi": "CNS YAKUT-4",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "CNS Solar ŞARJ",
+      "sarj_agi_isletmecisi": "CNS SOLAR TAAHHÜT ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "CNS SOLAR TAAHHÜT ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Yakut Mahallesi Kocasinan / KAYSERİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/22652",
+      "istasyon_adi": "CNS SÜMER-1",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "CNS Solar ŞARJ",
+      "sarj_agi_isletmecisi": "CNS SOLAR TAAHHÜT ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "CNS SOLAR TAAHHÜT ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Sümer Mahallesi Kocasinan / KAYSERİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/22653",
+      "istasyon_adi": "CNS YAKUT-3",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "CNS Solar ŞARJ",
+      "sarj_agi_isletmecisi": "CNS SOLAR TAAHHÜT ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "CNS SOLAR TAAHHÜT ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Yakut Mahallesi Kocasinan / KAYSERİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/22654",
+      "istasyon_adi": "CNS ERCİYESEVLER-2",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "CNS Solar ŞARJ",
+      "sarj_agi_isletmecisi": "CNS SOLAR TAAHHÜT ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "CNS SOLAR TAAHHÜT ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Erciyesevler Mahallesi Kocasinan / KAYSERİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/22704",
+      "istasyon_adi": "CNS ERCİYESEVLER-3",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "CNS Solar ŞARJ",
+      "sarj_agi_isletmecisi": "CNS SOLAR TAAHHÜT ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "CNS SOLAR TAAHHÜT ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Erciyesevler Mahallesi Kocasinan / KAYSERİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/22725",
+      "istasyon_adi": "CNS SAHABİYE-1",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "CNS Solar ŞARJ",
+      "sarj_agi_isletmecisi": "CNS SOLAR TAAHHÜT ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "CNS SOLAR TAAHHÜT ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Sahabiye Mahallesi Kocasinan / KAYSERİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/22742",
+      "istasyon_adi": "CNS NEVŞEHİR FORM KAPADOKYA",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "CNS Solar ŞARJ",
+      "sarj_agi_isletmecisi": "CNS SOLAR TAAHHÜT ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "CNS SOLAR TAAHHÜT ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Bahçelievler Mahallesi Merkez / NEVŞEHİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/22743",
+      "istasyon_adi": "CNS NEVŞEHİR KAYAŞEHİR SPOR SALONU",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "CNS Solar ŞARJ",
+      "sarj_agi_isletmecisi": "CNS SOLAR TAAHHÜT ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "CNS SOLAR TAAHHÜT ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Raşitbey Mahallesi Merkez / NEVŞEHİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/22821",
+      "istasyon_adi": "CNS 2000 EVLER",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "CNS Solar ŞARJ",
+      "sarj_agi_isletmecisi": "CNS SOLAR TAAHHÜT ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "CNS SOLAR TAAHHÜT ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Merkez Mahallesi Merkez / NEVŞEHİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/22822",
+      "istasyon_adi": "CNS SEBZE HALİ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "CNS Solar ŞARJ",
+      "sarj_agi_isletmecisi": "CNS SOLAR TAAHHÜT ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "CNS SOLAR TAAHHÜT ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Sümer Mahallesi Merkez / NEVŞEHİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/22823",
+      "istasyon_adi": "CNS GÜZELYURT",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "CNS Solar ŞARJ",
+      "sarj_agi_isletmecisi": "CNS SOLAR TAAHHÜT ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "CNS SOLAR TAAHHÜT ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Güzelyurt Mahallesi Merkez / NEVŞEHİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/22824",
+      "istasyon_adi": "CNS 1.ETAP TOKİ-2",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "CNS Solar ŞARJ",
+      "sarj_agi_isletmecisi": "CNS SOLAR TAAHHÜT ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "CNS SOLAR TAAHHÜT ENERJİ ANONİM ŞİRKETİ",
+      "adres": "15 Temmuz Mahallesi Ürgüp / NEVŞEHİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/22825",
+      "istasyon_adi": "CNS 1.ETAP TOKİ-3",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "CNS Solar ŞARJ",
+      "sarj_agi_isletmecisi": "CNS SOLAR TAAHHÜT ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "CNS SOLAR TAAHHÜT ENERJİ ANONİM ŞİRKETİ",
+      "adres": "15 Temmuz Mahallesi Ürgüp / NEVŞEHİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20855",
+      "istasyon_adi": "Üsküp",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "AUTOLL",
+      "sarj_agi_isletmecisi": "ŞARJLI ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJLI ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Mehmetçavuş Mahallesi Meydan Sokağı  No:1 Merkez / KIRKLARELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21528",
+      "istasyon_adi": "Orjan AC-2",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "AUTOLL",
+      "sarj_agi_isletmecisi": "ŞARJLI ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJLI ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Çoruk Mahallesi Mahallesi Burhaniye / BALIKESİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21529",
+      "istasyon_adi": "Orjan AC-3",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "AUTOLL",
+      "sarj_agi_isletmecisi": "ŞARJLI ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJLI ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Çoruk Mahallesi Mahallesi Burhaniye / BALIKESİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21530",
+      "istasyon_adi": "Orjan AC-4",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "AUTOLL",
+      "sarj_agi_isletmecisi": "ŞARJLI ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJLI ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Çoruk Mahallesi Mahallesi Burhaniye / BALIKESİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21531",
+      "istasyon_adi": "Orjan AC-5",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "AUTOLL",
+      "sarj_agi_isletmecisi": "ŞARJLI ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJLI ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Çoruk Mahallesi Mahallesi Burhaniye / BALIKESİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/22172",
+      "istasyon_adi": "Teksilkent",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "AUTOLL",
+      "sarj_agi_isletmecisi": "ŞARJLI ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJLI ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Oruçreis Mahallesi Tekstilkent Caddesi  No:10U Esenler / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/22173",
+      "istasyon_adi": "Park Evleri Sitesi",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "AUTOLL",
+      "sarj_agi_isletmecisi": "ŞARJLI ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJLI ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Karadeniz Mahallesi 1129 Sokağı  No:1A Gaziosmanpaşa / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/22174",
+      "istasyon_adi": "Beylicium AVM",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "AUTOLL",
+      "sarj_agi_isletmecisi": "ŞARJLI ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJLI ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Büyükşehir Mahallesi Beylikdüzü Caddesi  No:9 Beylikdüzü / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/22176",
+      "istasyon_adi": "ORJAN AC-6",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "AUTOLL",
+      "sarj_agi_isletmecisi": "ŞARJLI ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJLI ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Çoruk Mahallesi Burhaniye / BALIKESİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/22177",
+      "istasyon_adi": "ORJAN AC-7",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "AUTOLL",
+      "sarj_agi_isletmecisi": "ŞARJLI ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJLI ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Çoruk Mahallesi Burhaniye / BALIKESİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/22178",
+      "istasyon_adi": "ORJAN AC-8",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "AUTOLL",
+      "sarj_agi_isletmecisi": "ŞARJLI ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJLI ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Çoruk Mahallesi Burhaniye / BALIKESİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/22179",
+      "istasyon_adi": "Sapanca Mars Life Bungalov",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "AUTOLL",
+      "sarj_agi_isletmecisi": "ŞARJLI ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJLI ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Göl Mahallesi Ünlüce Yolu Caddesi  No:61/1 Sapanca / SAKARYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/22180",
+      "istasyon_adi": "Sapanca Baga Bungalov",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "AUTOLL",
+      "sarj_agi_isletmecisi": "ŞARJLI ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJLI ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Ünlüce Mahallesi Ünlüce Caddesi  No:113 Sapanca / SAKARYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/22181",
+      "istasyon_adi": "Sapanca Wooden Palace",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "AUTOLL",
+      "sarj_agi_isletmecisi": "ŞARJLI ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJLI ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Nailiye Mahallesi Nailiye Caddesi  No:159 Sapanca / SAKARYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/22182",
+      "istasyon_adi": "Sapanca Lake Palace",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "AUTOLL",
+      "sarj_agi_isletmecisi": "ŞARJLI ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJLI ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Hacımercan Mahallesi Yukarı 2 Sokağı  No:14 Sapanca / SAKARYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/22183",
+      "istasyon_adi": "Sapanca Sophones  Bungalov",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "AUTOLL",
+      "sarj_agi_isletmecisi": "ŞARJLI ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJLI ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Nailiye Mahallesi Nailiye 4 Sokağı Sapanca / SAKARYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/22184",
+      "istasyon_adi": "Sapanca Uzunkum Bungalov",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "AUTOLL",
+      "sarj_agi_isletmecisi": "ŞARJLI ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJLI ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Uzunkum Mahallesi Köydışı Sokağı  No:20 Sapanca / SAKARYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21527",
+      "istasyon_adi": "Orjan AC-1",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "AUTOLL",
+      "sarj_agi_isletmecisi": "ŞARJLI ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJLI ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Çoruk Mahallesi Mahallesi Burhaniye / BALIKESİR",
+      "soket_bilgileri": ""
+    }
+  ]
+}

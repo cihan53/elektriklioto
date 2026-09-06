@@ -1,0 +1,27 @@
+
+{
+  "name": "@elektriklioto/db",
+  "version": "0.1.0",
+  "private": true,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "migrate:up": "node-pg-migrate up",
+    "migrate:down": "node-pg-migrate down",
+    "migrate:redo": "node-pg-migrate redo",
+    "migrate:create": "node-pg-migrate create --",
+    "verify:privacy": "node ./scripts/verify-no-user-location-linkage.js"
+  },
+  "dependencies": {
+    "@elektriklioto/config": "workspace:*",
+    "pg": "8.13.1"
+  },
+  "devDependencies": {
+    "node-pg-migrate": "7.6.1",
+    "typescript": "5.6.3",
+    "@types/node": "22.9.0",
+    "@types/pg": "8.11.10"
+  }
+}

@@ -1,0 +1,5009 @@
+{
+  "page": 2,
+  "first": 500,
+  "rows": 500,
+  "count": 500,
+  "timestamp": "2026-09-06T14:27:32.178544",
+  "records": [
+    {
+      "istasyon_no": "ŞRJ/12210",
+      "istasyon_adi": "GARDENYA PARK 3 SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Doğuyaka Mahallesi  No:40 Muratpaşa / ANTALYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/12326",
+      "istasyon_adi": "AUTO KİNG OTO EKSPERTİZ IĞDIR",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Cumhuriyet Mahallesi K.karabekir Caddesi  No:13/A Merkez / IĞDIR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/7060",
+      "istasyon_adi": "ELİPS ROYAL HOTEL",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Etiler Mahallesi 851 Sokağı  No:2 Muratpaşa / ANTALYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/7882",
+      "istasyon_adi": "ANTGAZ LPG",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Fevzi Çakmak Mahallesi Ulubatlı Hasan Caddesi 6228 Sokağı  No:32 Kepez / ANTALYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/6362",
+      "istasyon_adi": "ELDAR RESORT HOTEL",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Cumhuriyet Mahallesi Ahu Uysal Caddesi  No:24 Kemer / ANTALYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/9979",
+      "istasyon_adi": "CORENDON MERKEZ OFİS",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Güzeloluk Mahallesi 1879 Sokağı  No:148 Muratpaşa / ANTALYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/12325",
+      "istasyon_adi": "GRAND PARK LARA OTEL",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Kemerağzı Mahallesi  No:37-39 Aksu / ANTALYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/13794",
+      "istasyon_adi": "GRANADA LUXURY BEACH",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Avsallar Mahallesi İncekum Caddesi  No:72 Alanya / ANTALYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/6443",
+      "istasyon_adi": "AKAT ANKARA SİMİT EVİ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Side Mahallesi Manavgat Caddesi  No:2 Manavgat / ANTALYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/12491",
+      "istasyon_adi": "CORENDON PLAYA KEMER",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Merkez Mahallesi Atatürk Caddesi  No:195 Kemer / ANTALYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/4376",
+      "istasyon_adi": "GRANADA LUXURY BELEK",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Belek Mahallesi Cumhuriyet Caddesi  No:102 Serik / ANTALYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/6475",
+      "istasyon_adi": "CARMINE HOTEL",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Fabirakalar Mahallesi . Caddesi 7 Sokağı  No:3 Merkez / KIRIKKALE",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/12330",
+      "istasyon_adi": "KUTLUAY PRESTİJ 1 SİTESİ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Esenler Mahallesi Ahmet Piriştina Caddesi  No:33 Merkez / ÇANAKKALE",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/9750",
+      "istasyon_adi": "SABANCI GARDEN CAFE & RESTAURANT",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Üçtutlar Mahallesi  No:29 Merkez / ÇORUM",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/9135",
+      "istasyon_adi": "İSSOS OTEL ARSUZ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Büyükdere Mahallesi Arsuz  Yolu Üzeri 12. Km Pirinçlik Mevkii Sokağı İskenderun / HATAY",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/12499",
+      "istasyon_adi": "DOĞAN EVLERİ APARTMANI",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Esenler Mahallesi Piriştina Caddesi  No:31 Merkez / ÇANAKKALE",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/12984",
+      "istasyon_adi": "BY KARCA COMFORT LIFE",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Esenler Mahallesi 105 Sokağı  No:3 Merkez / ÇANAKKALE",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/7687",
+      "istasyon_adi": "BOLU ET MANGAL",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Kervansaray Mahallesi Ankara Kayseri Caddesi  No:84 Merkez / KIRŞEHİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/6506",
+      "istasyon_adi": "KARİYER PRESTİJ KONUTLARI SİTE YÖNETİMİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Küçük Beybağı Mahallesi  No:351/B Merkez / TOKAT",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/12496",
+      "istasyon_adi": "SIRÇA KÖŞKLER G BLOK",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Esenler Mahallesi Okul Yolu Sokağı  No:- Merkez / ÇANAKKALE",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/8514",
+      "istasyon_adi": "PERA KAFE & BİSTRO",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Çakallar Mahallesi Çakallar Caddesi  No:133A Merkez / AMASYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/9142",
+      "istasyon_adi": "VİTRA ARTEMA - NEMSER",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Fevzi Çakmak Mahallesi  No:108/2 Merkez / UŞAK",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/13801",
+      "istasyon_adi": "OTORAPOR OTO EKSPERTİZ BAYBURT",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Gençosman Mahallesi  No:158/A Merkez / BAYBURT",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/9964",
+      "istasyon_adi": "TWENTYSİX DAVET SALONLARI",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Batıkent Mahallesi Harbiye Sokağı  No:62 Tepebaşı / ESKİŞEHİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19026",
+      "istasyon_adi": "AYDUR PARK SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Yıldız Mahallesi  No:1  Yıldızlı Merke Küme Evleri Akçaabat / TRABZON",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/3235",
+      "istasyon_adi": "KELEBEKLER VADİSİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Bahçeşehir 1. Kısım Mahallesi 2801 Caddesi Başakşehir / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19084",
+      "istasyon_adi": "PANAROMA HİLL SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Balaç Mahallesi 975 Sokağı  No:6 Atakum / SAMSUN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/1407",
+      "istasyon_adi": "TEKNOPARK İSTANBUL 1C BLOK",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Sanayi Mahallesi  No:1 Pendik / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/548",
+      "istasyon_adi": "MANZARA ADALAR",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Karlıktepe Mahallesi Çamlık Sokağı  No:1-B BLOK Kartal / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/12343",
+      "istasyon_adi": "ECZACIBAŞI TÜKETİM ÜRÜNLERİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Rüzgarlıbahçe Mahallesi Kavak Sokağı  No:20 Beykoz / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/7893",
+      "istasyon_adi": "KONAK PARK OTEL YOMRA",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Kaşüstü Mahallesi Devlet Karayolu Caddesi  No:16 /101 Yomra / TRABZON",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/3276",
+      "istasyon_adi": "MESA CADDE",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Feyzullah Mahallesi Bağdat Sokağı  No:286 Maltepe / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/18258",
+      "istasyon_adi": "KOÇ GREEN PARK SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Karaağaç Övündük Mahallesi Uğur Mumcu 9 Sokağı  No:310R Arsuz / HATAY",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/12490",
+      "istasyon_adi": "120 URLA",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Rüstem Mahallesi 2018 Sokağı  No:120/1 Urla / İZMİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/13595",
+      "istasyon_adi": "AVEND BEYTEPE 2",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Beytepe Mahallesi Hafsa Sultan Sokağı  No:12/B Çankaya / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/13554",
+      "istasyon_adi": "AVEND BEYTEPE 1",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Beytepe Mahallesi Hafsa Sultan Sokağı  No:10/A Çankaya / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/1417",
+      "istasyon_adi": "ANTHAVEN BODRUM",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Akyarlar Mahallesi Atatürk Caddesi  No:348  Aspat Bodrum / MUĞLA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/1646",
+      "istasyon_adi": "ELITE WORLD SAPANCA",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Göl Koşuyolu Caddesi  No:71 Sapanca / SAKARYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/1142",
+      "istasyon_adi": "ÇAMLICA RESTAURANT MALATYA",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Sürgü Mahallesi Armağan Sokağı  No:0 Doğanşehir / MALATYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/18159",
+      "istasyon_adi": "OLİVİA PARK 3 SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "50.yıl Mahallesi 2749 Sokağı  No:5B Yenişehir / MERSİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/7261",
+      "istasyon_adi": "TERASPARK 232 SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Onur Mahallesi 7383 Sokağı Bayraklı / İZMİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/6186",
+      "istasyon_adi": "AVRUPA KONUTLARI ISPARTAKULE 3 SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Tahtakale Mahallesi Ahmet Hamdi Tanpınar Caddesi  No:31 Avcılar / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/18327",
+      "istasyon_adi": "SMART TOWERS SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Güvenevler Mahallesi Mehmet Selim Memiş Sokağı Şehitkamil / GAZİANTEP",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/3176",
+      "istasyon_adi": "AVRUPA KONUTLARI ATAKENT 3",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Halkalı Merkez Mahallesi  No:16 Küçükçekmece / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/18733",
+      "istasyon_adi": "IHLAMUR KONUTLARI",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Fevzi Çakmak Mahallesi Fırtına Sokağı  No:3 Pendik / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/546",
+      "istasyon_adi": "YEDPA TİCARET MERKEZİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Mimar Sinan Mahallesi  No:35 Ataşehir / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/10348",
+      "istasyon_adi": "LİV SUİT HOTEL",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Huzurevleri Mahallesi  No:24 Kayapınar / DİYARBAKIR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/7883",
+      "istasyon_adi": "DEVGROSS MARKET",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Soğuksu Mahallesi 404 Sokağı  No:4 /1 Canik / SAMSUN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/18134",
+      "istasyon_adi": "KOY-TÜR 1 SAHİL SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Cumhuriyet Mahallesi Koytür 2 Sokağı Mezitli / MERSİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/6161",
+      "istasyon_adi": "ASTERİA GARDEN OTEL",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": ". Mahallesi . Caddesi Köy Sokağı  No:19/1  Uzunkum Sahil Mevkii Keşap / GİRESUN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/10350",
+      "istasyon_adi": "GEBZE EMLAK KONUTLARI 2",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Kirazpınar Mahallesi Yeni Bağdat Caddesi  No:706 Gebze / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/7548",
+      "istasyon_adi": "BOF HOTEL ULUDAĞ SKİ & LUXURY RESORT",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Kirazlı Mahallesi Osmangazi / BURSA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/15764",
+      "istasyon_adi": "MASLAK İŞ MERKEZİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Gayberli Mahallesi 28403 Sokağı  No:45/A Onikişubat / KAHRAMANMARAŞ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/7066",
+      "istasyon_adi": "ROYAL İNCEK",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Taşpınar Mahallesi  No:546 Gölbaşı / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/9984",
+      "istasyon_adi": "PREMİUM LOFT",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Mustafa Kemal Paşa Mahallesi Akdeniz Caddesi  No:109 Merkez / YALOVA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19118",
+      "istasyon_adi": "YILDIZLI KORUPARK SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Yıldızlı Mahallesi  No:90  Mavra Küme Evleri Akçaabat / TRABZON",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19124",
+      "istasyon_adi": "CASPER PLAZA",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Fatih Sultan Mehmet Mahallesi Balkan Sokağı  No:47 Ümraniye / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/6164",
+      "istasyon_adi": "PORT MARİNA HOTEL",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Yeni Mahallesi 62 Sokağı  No:1 Karataş / ADANA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/6509",
+      "istasyon_adi": "ÖZEL CEYHAN ÇINAR HASTANESİ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Cumhuriyet Mahallesi Ebulfeyz Sokağı  No:64 Ceyhan / ADANA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/6893",
+      "istasyon_adi": "ORTADOĞU HASTANESİ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Ziyapaşa Mahallesi 67055 Sokağı  No:1 /101 Seyhan / ADANA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19134",
+      "istasyon_adi": "GAVİZE PARK SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Yenikent Mahallesi 2424 Sokağı  No:32 Gebze / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/2849",
+      "istasyon_adi": "CER YAPI İSTANBUL",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Yedikule Mahallesi İmrahor İlyasbey Caddesi  No:9 Fatih / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/18228",
+      "istasyon_adi": "RADISSON BLU TRABZON HOTEL",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Boztepe Mahallesi Numan Gül Caddesi Çamlık Sokağı  No:2 Ortahisar / TRABZON",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/9130",
+      "istasyon_adi": "CAVİT DUVAN PRESTİGE HOTEL",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "İstasyon Mahallesi Şehit Emniyet Müdürü Ertan Nezihi Turan Caddesi  No:50-1 Merkez / EDİRNE",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/12386",
+      "istasyon_adi": "SKYWELL TRABZON",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Kaymaklı Mahallesi  No:125 Ortahisar / TRABZON",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/6493",
+      "istasyon_adi": "KİLPA MARKET YALINCAK",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Yalıncak Mahallesi Rize Caddesi  No:160 Ortahisar / TRABZON",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19157",
+      "istasyon_adi": "TURKUAZ SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Soğuksu Mahallesi Canım Sokağı  No:1 Ortahisar / TRABZON",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19158",
+      "istasyon_adi": "SERA KENT SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Söğütlü Mahallesi Söğütlü Meşe Sokağı  No:12 Akçaabat / TRABZON",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19159",
+      "istasyon_adi": "BOSSLİFE SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Bostancı Mahallesi Eski Mezarlık Sokağı  No:1 Ortahisar / TRABZON",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/10353",
+      "istasyon_adi": "THE MARINE OTEL",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Kuzguncuk Mahallesi Devlet Karayolu Caddesi  No:45 Arsin / TRABZON",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/9749",
+      "istasyon_adi": "A PLAZA İŞ MERKEZİ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Etiler Mahallesi 829 Sokağı  No:3 Muratpaşa / ANTALYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/18845",
+      "istasyon_adi": "ORMAN PALACE",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Varsak Karşıyaka Mahallesi 1645 Sokağı  No:2 Kepez / ANTALYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/2852",
+      "istasyon_adi": "ANKAVEGA KONUTLARI",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Yeşilova Mahallesi 4016 Caddesi  No:17 Etimesgut / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/10186",
+      "istasyon_adi": "KAYRA LOFT SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Yeşilova Mahallesi 4015 Sokağı  No:5 Etimesgut / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/7159",
+      "istasyon_adi": "ADDRESS YEŞİLOVA KONUTLARI",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Yeşilova Mahallesi 4016 Caddesi  No:15 Etimesgut / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/10185",
+      "istasyon_adi": "ILGAZLAR SİTESİ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Tunahan Mahallesi 246 Sokağı  No:1 Etimesgut / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19172",
+      "istasyon_adi": "BAHÇELİEVLER SİTESİ 14.ETAP",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Esenler Mahallesi 24 Sokağı  No:7/2 Merkez / ÇANAKKALE",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/12116",
+      "istasyon_adi": "KAYI TRABZON",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Yalıncak Mahallesi Rize Caddesi  No:23 Ortahisar / TRABZON",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/8502",
+      "istasyon_adi": "KARAMAN OTO EKSPERTİZ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Hamidiye Mahallesi 680 Caddesi  No:29 Merkez / KARAMAN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/1649",
+      "istasyon_adi": "KONYA SELÇUKER CENTER",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Parsana Mahallesi Zümrütova Sokağı  No:1/1 Selçuklu / KONYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/17168",
+      "istasyon_adi": "FOLEYA TATİL KÖYÜ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Kalınçam Mahallesi  No:0  Kalınçam Küme Evler Tonya / TRABZON",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/11022",
+      "istasyon_adi": "ASİLTÜRK OTO YIKAMA",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Şirinevler Mahallesi Yusuf Çenet Sokağı  No:158/1 Merkez / OSMANİYE",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/7547",
+      "istasyon_adi": "OTEL HASAN BEY GRANDE",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Gölevi Mahallesi Devlet Sahil Yolu Caddesi  No:374 Ünye / ORDU",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19193",
+      "istasyon_adi": "AYTEMİZ - USTA PİDE",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Karakoç Mahallesi  No:14  Hanyanı Keşap / GİRESUN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/1490",
+      "istasyon_adi": "GREEN NATURE RESORT & SPA",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Şirinyer Mahallesi 131 Sokağı  No:11 Marmaris / MUĞLA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/10347",
+      "istasyon_adi": "BOSCH CAR SERVİCE TATVAN",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Fatih Mahallesi Sanayi Sitesi E/2 Blok Sokağı  No:54 Tatvan / BİTLİS",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/9137",
+      "istasyon_adi": "KANOĞLU ET BALIK RESTAURANT",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Kanoğlu Köyü Mahallesi Tunceli Elazığ Yolu 17. Km Caddesi Merkez / TUNCELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/6175",
+      "istasyon_adi": "AKÇATEPE DAĞ EVLERİ VE RESTAURANT",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Helvacı Mahallesi Helvacı Güney Küme Evleri Caddesi  No:21 Akçaabat / TRABZON",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/9361",
+      "istasyon_adi": "SARAY KÖFTE BALIK RESTAURANT AKÇAABAT",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Orta Mahallesi Adnan Menderes Caddesi  No:46 Akçaabat / TRABZON",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/13520",
+      "istasyon_adi": "Bİ MOLA ÖMERLİ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Nişantepe Mahallesi Nişantepe Sokağı  No:3 Çekmeköy / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/12627",
+      "istasyon_adi": "İLKEM SKY LIFE",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "50.yıl Mahallesi 2731 Sokağı  No:3 Yenişehir / MERSİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/9746",
+      "istasyon_adi": "KOZZA RESTAURANT",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Orhaniye Mahallesi Deveci Caddesi  No:34 Altınordu / ORDU",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/9131",
+      "istasyon_adi": "MARASİUM SUİT OTEL",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Mercimektepe Mahallesi 51007 Sokağı  No:45/A Onikişubat / KAHRAMANMARAŞ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/6176",
+      "istasyon_adi": "KİLPA MARKET BEŞİRLİ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "2 Nolu Beşirli Mahallesi Sahil Caddesi  No:7 Ortahisar / TRABZON",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/9751",
+      "istasyon_adi": "BAŞKONUŞ YAYLASI",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Avgasır Mahallesi Araplı Sokağı  No:100/A Onikişubat / KAHRAMANMARAŞ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/1408",
+      "istasyon_adi": "OFİS KARAT BAKIRKÖY",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Yeni Mahallesi İstanbul Caddesi General Kani Elitez Sokağı  No:1 Bakırköy / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/14622",
+      "istasyon_adi": "USTAOĞLU SÖĞÜTLÜ PARK EVLERİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Söğütlü Mahallesi Kavaklı Sokağı  No:5/B Akçaabat / TRABZON",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/6160",
+      "istasyon_adi": "DEVECİOĞLU ET MANGAL",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "İncesu Yalı Mahallesi  No:7/A Atakum / SAMSUN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/7522",
+      "istasyon_adi": "NEVŞEHİR BELEDİYESİ YER ALTI ŞEHRİ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Hatipoğlu Mahallesi Atatürk Caddesi  No:4 Merkez / NEVŞEHİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/15358",
+      "istasyon_adi": "MUŞ AUTO KİNG",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Küçük Sanayi Sitesi Mahallesi Küçük Sanayi Sitesi Sokağı  No:1 Merkez / MUŞ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/6165",
+      "istasyon_adi": "RUBENİS AVM",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Gülbaharhatun Mahallesi İnönü Caddesi  No:14 Ortahisar / TRABZON",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/3746",
+      "istasyon_adi": "AVRASYA OTEL",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Yeni Mahallesi Kızılırmak Caddesi  No:12 Avanos / NEVŞEHİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/6959",
+      "istasyon_adi": "MELİS CAVE HOTEL",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Karağandere Mahallesi İstiklal Caddesi  No:75 Ürgüp / NEVŞEHİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/6159",
+      "istasyon_adi": "ALESHA SUİTE OTEL",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Sancak Mahallesi  Devlet Rize Yolu Üzeri Liman Yomra / TRABZON",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/3288",
+      "istasyon_adi": "SAMSUN BORKONUT NİŞ İŞ MERKEZİ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Kılıçdede Mahallesi Ülkem Sokağı  No:8 İlkadım / SAMSUN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/13866",
+      "istasyon_adi": "GRAND HOTEL SİLOPİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Şehit Harun Boy Mahallesi İpek Yolu Caddesi  No:29 Silopi / ŞIRNAK",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/8138",
+      "istasyon_adi": "LİFOS CAFE RESTAURANT DAĞ EVİ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Hisarcık Mahallesi Melikgazi / KAYSERİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/6174",
+      "istasyon_adi": "ORTAHİSAR CAVE HOTEL",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Eski Mahallesi . Caddesi Mizanoğlu Ali Bey Sokağı  No:29 Ürgüp / NEVŞEHİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/10316",
+      "istasyon_adi": "KALE PRESTİJ EVLERİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Derebahçe Mahallesi Ünye Sokağı  No:24 İlkadım / SAMSUN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19235",
+      "istasyon_adi": "BOSTANCI VADİ SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Üniversite Mahallesi Fırat Sokağı  No:10 Ortahisar / TRABZON",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19236",
+      "istasyon_adi": "ARİSSA POİNT KONUTLARI",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Turgut Özal Mahallesi 2189 Sokağı  No:14 Yenimahalle / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/6224",
+      "istasyon_adi": "ZIRHLIOĞLU MEGA MARKET",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "İstasyon Mahallesi . Caddesi  No:50 Tuşba / VAN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/6215",
+      "istasyon_adi": "GÖKKULE RESİDENCE",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Limonluk Mahallesi . Caddesi 24116 Sokağı  No:1/A Yenişehir / MERSİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/3290",
+      "istasyon_adi": "MERİŞ GIDA",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Çağdaşkent Mahallesi Mimarsinan Sokağı  No:59 Toroslar / MERSİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19234",
+      "istasyon_adi": "VADİKENT SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Çukurçayır Mahallesi Barbaros Caddesi  No:14 Ortahisar / TRABZON",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/6442",
+      "istasyon_adi": "SAHİL MARTI HOTEL",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Akdeniz Mahallesi . Caddesi  No:825A Mezitli / MERSİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/6477",
+      "istasyon_adi": "DORAMAR RESORT & AQUA TATİL KÖYÜ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Kargıpınarı Mahallesi . Caddesi 53 Sokağı Erdemli / MERSİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/7056",
+      "istasyon_adi": "HOTEL LAMOS",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Ayaş Mahallesi Atatürk Caddesi  No:75 Erdemli / MERSİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/9136",
+      "istasyon_adi": "TERAS PARK SITESI",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Veysel Karani Mahallesi 1903 Sokağı  No:30 Merkez / SİİRT",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19253",
+      "istasyon_adi": "DIAMONDLAND SELECTED",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Yüzüncüyıl Mahallesi 85251 Sokağı  No:26 Çukurova / ADANA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19257",
+      "istasyon_adi": "BATI YILDIZLARI KONUTLARI",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Yeni Batı Mahallesi  No:706 Yenimahalle / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/6507",
+      "istasyon_adi": "PİLOT GARAGE OTO EKSPERTİZ KERESTECİLER",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Gültepe Mahallesi Keresteciler Caddesi  No:26 Merkez / SİVAS",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19273",
+      "istasyon_adi": "RÜYAMPARK B BLOK",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Fatih Sultan Mahallesi 2704 Sokağı  No:4 Etimesgut / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19278",
+      "istasyon_adi": "ÇIRAĞAN REZİDANS",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Gürselpaşa Mahallesi 75496 Sokağı  No:7 Seyhan / ADANA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/7562",
+      "istasyon_adi": "SARP OTEL",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Uzunyalı Mahallesi  No:69 Kemalpaşa / ARTVİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/9987",
+      "istasyon_adi": "HOTEL ANEMURION",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Merkez Mahallesi Alparslan  Türkeş Sokağı  No:1 Bozyazı / MERSİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19303",
+      "istasyon_adi": "MB VERDE KONUTLARI - A BLOK",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Eski Mezitli Mahallesi 61452 Sokağı  No:2A Mezitli / MERSİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19305",
+      "istasyon_adi": "MB VERDE KONUTLARI - D BLOK",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Eski Mezitli Mahallesi 61452 Sokağı  No:2D Mezitli / MERSİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19277",
+      "istasyon_adi": "MB VERDE KONUTLARI - K BLOK",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Eski Mezitli Mahallesi 61452 Sokağı  No:2 Mezitli / MERSİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/9985",
+      "istasyon_adi": "MARPESSA BLUE BEACH OTEL",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Yeşilovacık Mahallesi Akdeniz Sokağı  No:167 Silifke / MERSİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/12699",
+      "istasyon_adi": "OTEL CLUB MED PALMİYE",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Yeni Mahalle Mahallesi Dedeler Küme Evleri Sokağı  No:59 Kemer / ANTALYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/9748",
+      "istasyon_adi": "ALTIN ORFOZ HOTEL",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Atakent Mahallesi 1 Sokağı Silifke / MERSİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/10352",
+      "istasyon_adi": "ADMİRAL HOTEL",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Kızkalesi Mahallesi Ali Kiya Sokağı  No:24/1 Erdemli / MERSİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/7057",
+      "istasyon_adi": "SUNRISE HOTEL",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Kaleşah Mahallesi Cide Yolu Caddesi  No:45 /1 Amasra / BARTIN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19348",
+      "istasyon_adi": "RAMADA PLAZA MALATYA ALTIN KAYISI",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Özalper Mahallesi İstasyon Caddesi  No:24 Yeşilyurt / MALATYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/12492",
+      "istasyon_adi": "PİNE BEACH BELEK OTEL",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Belek Mahallesi  No:5.PARSEL  İleribaşı Serik / ANTALYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/9967",
+      "istasyon_adi": "BURÇ OTOMOTİV VE EMLAK",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Maden Mahallesi Pazaryeri Caddesi  No:84 Çamardı / NİĞDE",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19363",
+      "istasyon_adi": "DOKTORLAR SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Yeni Mahallesi 319 Sokağı  No:6 Atakum / SAMSUN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/1489",
+      "istasyon_adi": "GREEN NATURE DIAMOND HOTEL",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Siteler Mahallesi  No:9 Marmaris / MUĞLA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19385",
+      "istasyon_adi": "SANATÇILAR ARYA KONUTLARI",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Nurtepe Mahallesi Çeşme Sokağı  No:29 Kağıthane / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19399",
+      "istasyon_adi": "MARE ALBA OTEL",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Gündoğdu Mahallesi Şehit Şeridi Küme Evler Sokağı  No:48/A Bodrum / MUĞLA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/6169",
+      "istasyon_adi": "MERSİNLİ CİĞERCİ APO",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Cumhuriyet Mahallesi . Caddesi  No:380 Atakum / SAMSUN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/6157",
+      "istasyon_adi": "DOLPHİN AVM",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Eryaman Mahallesi 285 Sokağı  No:3 Etimesgut / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16785",
+      "istasyon_adi": "KARUM AVM",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Gaziosmanpaşa Mahallesi İran Sokağı  No:21 Çankaya / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/1551",
+      "istasyon_adi": "MERVAG ÖZEL OTO SERVİSİ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Şabanoğlu Mahallesi 64 Sokağı  No:17 Tekkeköy / SAMSUN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19116",
+      "istasyon_adi": "EKMEKÇİ MAKİNE",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Derince Mahallesi Paymar Sokağı  No:14 Antakya / HATAY",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19436",
+      "istasyon_adi": "ATAKENT EVLERİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Yeni Mahallesi İzmir Caddesi  No:11 Atakum / SAMSUN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/3743",
+      "istasyon_adi": "NENESSA HOTEL",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Taşpazar Mahallesi Ebulfeyz Elçibey Caddesi  No:42/A Merkez / AKSARAY",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/3607",
+      "istasyon_adi": "ISPARTA MEYDAN AVM",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Yayla Mahallesi 1612 Sokağı  No:5 Merkez / ISPARTA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/7061",
+      "istasyon_adi": "SEMT BAHÇEKENT KONUT SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Orhangazi Mahallesi 1683 Sokağı  No:14/A Esenyurt / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/6156",
+      "istasyon_adi": "ARAKALE CAFE RESTAURANT",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Kalecik Mahallesi Kalecik Kale Altı Caddesi Araklı / TRABZON",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19502",
+      "istasyon_adi": "AKLİFE 4 SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Çukurçayır Mahallesi Ormanyolu Caddesi  No:13 Ortahisar / TRABZON",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/6209",
+      "istasyon_adi": "TEMUR TERMAL OTEL",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Kuşdilli Mahallesi Yıldırım Beyazıt Caddesi  No:5 Merkez / KIRŞEHİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19537",
+      "istasyon_adi": "ARS GARDEN",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Saray Cumhuriyet Mahallesi As Sokağı  No:16 Pursaklar / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/6432",
+      "istasyon_adi": "NUROL PLAZA",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Maslak Mahallesi Büyükdere Caddesi  No:255 Sarıyer / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/13788",
+      "istasyon_adi": "İHLAS HOLDİNG A.Ş.",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Yenibosna Merkez Mahallesi 29 Ekim Caddesi  No:11 Bahçelievler / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19675",
+      "istasyon_adi": "İSTASYON 24",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "İstasyon Mahallesi Yarımburgaz Caddesi  No:31 Küçükçekmece / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/11130",
+      "istasyon_adi": "NAVONA OTEL",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Dumlupınar Mahallesi  No:437/1 Yenişehir / MERSİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19723",
+      "istasyon_adi": "ARKOÇ SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Bahçelievler Mahallesi 3758 Sokağı  No:25 Gölbaşı / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19735",
+      "istasyon_adi": "SEASİDE BEACH CLUB",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Müskebi Mahallesi Hurma Sokağı  No:3 Bodrum / MUĞLA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/13468",
+      "istasyon_adi": "HOTEL HOUSTON",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Barbaros Mahallesi Güniz Sokağı  No:26 Çankaya / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19751",
+      "istasyon_adi": "BAŞPINAR BAHÇEM SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Bağlıca Mahallesi Bilenler Caddesi  No:17 Etimesgut / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/12501",
+      "istasyon_adi": "SELİN EVLER SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Güzelyurt Mahallesi Mehmet Akif Ersoy Caddesi  No:8 Esenyurt / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19776",
+      "istasyon_adi": "SAFİR KONUTLARI",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Teyyaredüzü Mahallesi Alınca 1 Sokağı  No:4 Merkez / GİRESUN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19777",
+      "istasyon_adi": "ALİ VE BİRCAN KURTULMUŞ APARTMANI",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Karlıktepe Mahallesi Blokevleri Sokağı  No:19 Kartal / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19778",
+      "istasyon_adi": "DORUKKENT 2 SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Ayazma Mahallesi  No:179 İzmit / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19798",
+      "istasyon_adi": "GÖKTÜRK EVLERİ SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Emek Mahallesi 67 Sokağı  No:22 İzmit / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19806",
+      "istasyon_adi": "PARK TOWN SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Harmandere Mahallesi Dedepaşa Caddesi  No:28 Pendik / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19838",
+      "istasyon_adi": "ARSLANLAR ELEKTRİK",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Hadımköy Mahallesi Turgut Reis Caddesi  No:29/3 Arnavutköy / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19875",
+      "istasyon_adi": "GAZİ SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Kazım Karabekir Mahallesi Okan Sokağı  No:7 İlkadım / SAMSUN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19909",
+      "istasyon_adi": "BOĞAZ SARAY EVLERİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Boğaz Mahallesi Payidar Sokağı  No:10 Merkez / RİZE",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19941",
+      "istasyon_adi": "DÜDEN ŞELALE EVLERİ 5-6-7",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Bahçeşehir 2.kısım Mahallesi Şelale Caddesi  No:16 Başakşehir / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19942",
+      "istasyon_adi": "HADIMKÖY 3. ETAP KONUTLARI B BLOK",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Deliklikaya Mahallesi Bordo Caddesi  No:52 Arnavutköy / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/1844",
+      "istasyon_adi": "RENAULT ERNAZ KOCAELİ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Sanayi Mahallesi  No:35 İzmit / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19983",
+      "istasyon_adi": "KORUPARK KONUTLARI",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Altınevler Mahallesi Güldalı Sokağı  No:1 Mamak / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20028",
+      "istasyon_adi": "BAHÇECİK VADİKENT TOKİ SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Bahçecik Mahallesi Basın Sitesi Sokağı  No:12 Ortahisar / TRABZON",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20031",
+      "istasyon_adi": "DOĞAKENT SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Yenikent Mustafa Kemal Mahallesi Tuncel Sokağı  No:6 Sincan / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/12211",
+      "istasyon_adi": "ERGİN CONCEPT YAŞAM SOKAĞI",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Ahmet Yesevi Mahallesi Ergin Sokağı  No:4 Nilüfer / BURSA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/6819",
+      "istasyon_adi": "GÜÇLÜ GROSS SORGUN",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Aydınlıkevler Mahallesi  No:56 Sorgun / YOZGAT",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20056",
+      "istasyon_adi": "BYD PLAZA AYYAPI OTOMOTİV",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Yalıncak Mahallesi Trabzon Rize Caddesi  No:0 Ortahisar / TRABZON",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20067",
+      "istasyon_adi": "DEMİR YAŞAM SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Beşirli Mahallesi Kınalıtaş Caddesi  No:35 Kartal / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20125",
+      "istasyon_adi": "YAŞAM EVLERİ SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Esatpaşa Mahallesi Ziyapaşa Sokağı  No:1 Ataşehir / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20160",
+      "istasyon_adi": "GÖKSU ASLAN SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Kirazlı Mahallesi 1232 Sokağı  No:18 Bağcılar / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20162",
+      "istasyon_adi": "SUNA TOWERS KÜÇÜKKÖY",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Şemsipaşa Mahallesi Küçükköy Caddesi  No:157 Gaziosmanpaşa / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20164",
+      "istasyon_adi": "ADİL PARK SULTANGAZİ SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "50. Yıl Mahallesi 2208 Sokağı  No:4 Sultangazi / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20171",
+      "istasyon_adi": "TRİO LİFE KONUTLARI",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Altındağ Mahallesi 4178/1 Sokağı  No:18 Bornova / İZMİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/6960",
+      "istasyon_adi": "BUSİNESS İSTANBUL",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Merdivenköy Mahallesi Yumurtacı Abdi Bey Caddesi Dikyol Sokağı  No:2/A Kadıköy / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20224",
+      "istasyon_adi": "1001 PIRLANTA SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Çukurçayır Mahallesi Yedikaldırım Sokağı  No:58 Ortahisar / TRABZON",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20225",
+      "istasyon_adi": "1461 REZİDANS",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Çukurçayır Mahallesi Yedikaldırım Sokağı  No:58 Ortahisar / TRABZON",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/11029",
+      "istasyon_adi": "KILAVUZ PARK MODEL SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Alacaatlı Mahallesi 5053 Sokağı  No:8/1 Çankaya / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20246",
+      "istasyon_adi": "ROYAL RESİDENCE",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Cengizhan Mahallesi Sultan Fatih Caddesi  No:4 Mamak / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20277",
+      "istasyon_adi": "ALPENA COURT SİTESİ B BLOK",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Yeni Mahallesi Yüksek Harman Sokağı  No:34B Mezitli / MERSİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20290",
+      "istasyon_adi": "ÇINARKENT SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Mustafa Kemal Mahallesi  No:25 Sincan / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20114",
+      "istasyon_adi": "BLUE SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Portakal Mahallesi 80123 Sokağı  No:5 Toroslar / MERSİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20310",
+      "istasyon_adi": "ARDIÇ BLOK",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Çayyolu Mahallesi Dorukkent Sitesi Sokağı  No:23 Çankaya / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20147",
+      "istasyon_adi": "VADİ PARK EVLERİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Derebahçe Mahallesi Seymenler Sokağı  No:11 İlkadım / SAMSUN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/12089",
+      "istasyon_adi": "ARTE 168 SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Alacaatlı Mahallesi 4847 Sokağı  No:1/A Çankaya / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20342",
+      "istasyon_adi": "SUR YAPI TİLİA KONUTLARI",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Sultançiftliği Mahallesi Lületaşı Sokağı  No:10 Çekmeköy / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20351",
+      "istasyon_adi": "ADELYA PARK",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Esertepe Mahallesi 324 Caddesi  No:7 Keçiören / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20352",
+      "istasyon_adi": "FORLİFE OVACIK",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Esertepe Mahallesi 324 Sokağı  No:5 Keçiören / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/8546",
+      "istasyon_adi": "EXEN İSTANBUL SİTESİ F BLOK",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Tantavi Mahallesi Estergon Caddesi  No:24 Ümraniye / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/576",
+      "istasyon_adi": "EXEN İSTANBUL SİTESİ E BLOK",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Tantavi Mahallesi Estergon Caddesi  No:24 Ümraniye / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20365",
+      "istasyon_adi": "EXEN İSTANBUL SİTESİ D BLOK",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Tantavi Mahallesi Estargon Caddesi  No:24 Ümraniye / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20366",
+      "istasyon_adi": "EXEN İSTANBUL SİTESİ C BLOK",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Tantavi Mahallesi Estergon Caddesi  No:24 Ümraniye / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20370",
+      "istasyon_adi": "HİZMETİÇİ EĞİTİM ENSTİTÜSÜ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Ilıca Mahallesi  No:29 Aziziye / ERZURUM",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/2261",
+      "istasyon_adi": "WEST SİDE 2 SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Barış Mahallesi Mehmetçik Caddesi  No:2/1 Beylikdüzü / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/15695",
+      "istasyon_adi": "GÜVEN OTO ELEKTRİK",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Gündoğdu Mahallesi 3024 Sokağı  No:4-F Gönen / BALIKESİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/11014",
+      "istasyon_adi": "MERSU ALABALIK",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Saraycık Mahallesi  No:BOZÜYÜK BURSA KARAYOLU 8. KM Bozüyük / BİLECİK",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20397",
+      "istasyon_adi": "ANTARES KONUTLARI",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Ayvalı Mahallesi Afra Caddesi  No:3-F Keçiören / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20398",
+      "istasyon_adi": "MANZARA EVLERİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Dodurga Mahallesi Zakir Caddesi  No:15 Yenimahalle / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20399",
+      "istasyon_adi": "HÜMA KULE SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Yükseltepe Mahallesi 1572 Caddesi  No:29 Keçiören / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19299",
+      "istasyon_adi": "AK YAŞAM RECIDANCE 1",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Çukurçayır Mahallesi Ihlamur Sokağı  No:5 Ortahisar / TRABZON",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19025",
+      "istasyon_adi": "AK YAŞAM RECIDANCE 2",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Çukurçayı Mahallesi Karadeniz Caddesi  No:10 Ortahisar / TRABZON",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/18603",
+      "istasyon_adi": "AKADEMİ PARK SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "1. Bostancı Mahallesi Yapı Sokağı  No:25 Ortahisar / TRABZON",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20291",
+      "istasyon_adi": "AKIN 688 SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Şehit Osman Avcı Mahallesi Malazgit 1071 Caddesi  No:45 Etimesgut / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19620",
+      "istasyon_adi": "AKKENT YUVAM SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Ergazi Mahallesi 1830 Sokağı  No:7 Batı / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19119",
+      "istasyon_adi": "AKORAN PARK",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Kaşüstü Mahallesi Okullar Caddesi  No:17 Yomra / TRABZON",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/18620",
+      "istasyon_adi": "ANEMOON BAĞLICA",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Yeni Bağlıca Mahallesi 1366/1 Sokağı  No:1 Etimesgut / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/18612",
+      "istasyon_adi": "ARMADA REINA",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Fuatmorel Mahallesi 28126 Sokağı  No:11 Yenişehir / MERSİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19117",
+      "istasyon_adi": "ASGARDİA KONUTLARI",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Aydınlıkevler Mahallesi Sarıçam Caddesi  No:3 Altındağ / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19490",
+      "istasyon_adi": "ATAKÖY A29 SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Ataköy 7-8-9-10 Mahallesi  No:5/C Bakırköy / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/18437",
+      "istasyon_adi": "AVRUPA KONUTLARI KALE 1",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Maltepe Mahallesi Londra Asfaltı Caddesi  No:32 Zeytinburnu / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/18359",
+      "istasyon_adi": "AY YAPI BOSTANCI",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Üniversite Mahallesi Merkez Sokağı  No:4 Ortahisar / TRABZON",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/18476",
+      "istasyon_adi": "BATI MAHAL BAŞPINAR SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Susuz Mahallesi  No:414  K.mevki Yenimahalle / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20172",
+      "istasyon_adi": "BAYRAKLI 1.BÖLGE BARIŞ SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Adalet Mahallesi 1593/5 Sokağı  No:2 Bayraklı / İZMİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19386",
+      "istasyon_adi": "BİTEZ RİSA HOTEL",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Bitez Mahallesi 1310 Sokağı  No:4 Bodrum / MUĞLA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20191",
+      "istasyon_adi": "ÇINAR6 EVLERİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Barbaros Hayrettin Paşa Mahallesi 2288 Sokağı  No:6 Esenyurt / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19252",
+      "istasyon_adi": "ÇİÇEK PARK EVLERİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "30 Ağustos Zafer Mahallesi 109(520) Sokağı  No:5B Nilüfer / BURSA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19750",
+      "istasyon_adi": "DOĞA SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Kılınçarslan Mahallesi Şair Seyfi Caddesi  No:18 Selçuklu / KONYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19485",
+      "istasyon_adi": "FARAS PANORAMA A BLOK",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Taşpınar Mahallesi 2814 Sokağı  No:6 Gölbaşı / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19325",
+      "istasyon_adi": "FLORA LOCA",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Bağlıca Mahallesi Karatuz Caddesi  No:31 Etimesgut / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/9153",
+      "istasyon_adi": "FORA İNN LARA",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Zümrütova Mahallesi Sinanoğlu Caddesi  No:73/B Muratpaşa / ANTALYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19400",
+      "istasyon_adi": "FORTY SUITES",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Pınar Mahallesi 74200 Sokağı  No:25 Seyhan / ADANA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20161",
+      "istasyon_adi": "GÖKSU SARAY KONUTLARI",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Yavuzselim Mahallesi 1024 Sokağı  No:9 Bağcılar / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/18943",
+      "istasyon_adi": "GREENSİDE EVLERİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Kurtuluş Mahallesi 15(510) Sokağı  No:9 Nilüfer / BURSA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/18872",
+      "istasyon_adi": "GÜNGÖR YAŞAM SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Mimarsinan Mahallesi Sedef Sokağı  No:18 Pursaklar / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19800",
+      "istasyon_adi": "GÜVENPARK KONUTLARI TUNA SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Kovanağzı Mahallesi Çimendere Sokağı  No:13 Meram / KONYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/3247",
+      "istasyon_adi": "AVRUPA KONUTLARI YAMANEVLER 1. ETAP",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Yamanevler Mahallesi Alemdağ Sokağı  No:8 Ümraniye / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/18695",
+      "istasyon_adi": "HYUNDAİ UÇAR OTOMOTİV",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Altunizade Mahallesi Kısıklı Sokağı  No:73 Üsküdar / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/18925",
+      "istasyon_adi": "KENT KAYAPA SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "30 Ağustos Zafer Mahallesi 41.(520) Sokağı  No:4E Nilüfer / BURSA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19499",
+      "istasyon_adi": "KILIÇ OFFICE",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Mustafa Kemal Mahallesi 2127 Sokağı  No:9 Çankaya / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/18809",
+      "istasyon_adi": "KISIKLI PARK SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Küplüce Mahallesi Nuribey Sokağı  No:125 Üsküdar / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20165",
+      "istasyon_adi": "KİPTAŞ HADIMKÖY 2.ETAP ÖMERLİ EVLERİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Ömerli Mahallesi Terme Sokağı  No:4 Arnavutköy / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19836",
+      "istasyon_adi": "LAVİDA CITY",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Akpınar Mahallesi Toki Depremzede Sokağı  No:32 İzmit / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/18770",
+      "istasyon_adi": "LOFT PARK SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Kaşüstü Mahallesi Gültepe 1 Sokağı  No:8 Yomra / TRABZON",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16997",
+      "istasyon_adi": "MED CLUB OTEL PALMİYE",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Çiftlik Mahallesi 34/29 Sokağı Bodrum / MUĞLA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19740",
+      "istasyon_adi": "MER LİFE GOLD RESIDENCE",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Fatih Mahallesi Haşmet İmga Sokağı  No:1 Kozlu / ZONGULDAK",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20292",
+      "istasyon_adi": "MOTTO GÖKSU SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Cumhuriyet Mahallesi 5400 Sokağı  No:2 Yenimahalle / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/18434",
+      "istasyon_adi": "NEXT POİNT SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Yuvaköyü Mahallesi  No:617  Yuvaköy Küme Evleri Yenimahalle / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/13947",
+      "istasyon_adi": "NİLÜFERİUM SAĞLIKÇILAR KENTİ 1. ETAP",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Balkan Mahallesi Aydınlık (610) Sokağı  No:1 G Nilüfer / BURSA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20130",
+      "istasyon_adi": "NORTH STAR OTEL",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Konaklar Mahallesi Soğanlı Sokağı  No:9/A Ortahisar / TRABZON",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19401",
+      "istasyon_adi": "ONA 211 BEŞEVLER SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Beşevler Mahallesi Güllü Sokağı  No:2-6 Nilüfer / BURSA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/18619",
+      "istasyon_adi": "OPEN SKY KONUTLARI",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Yeni Bağlıca Mahallesi Zirve Caddesi  No:91 Etimesgut / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20190",
+      "istasyon_adi": "ROSE GARDEN KAVAKLI SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Kavaklı Mahallesi Ürgüp Caddesi  No:1 Beylikdüzü / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/18233",
+      "istasyon_adi": "RÜYAMPARK A BLOK",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Fatih Sultan Mahallesi Üniversite Sokağı  No:8 Etimesgut / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/14878",
+      "istasyon_adi": "TROYA PARK EVLERİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Kızılcıklı Mahallesi Osmangazi(600) Caddesi  No:21 Nilüfer / BURSA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19023",
+      "istasyon_adi": "TWIN LIFE",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Deniz Mahallesi 49236 Sokağı  No:5A Mezitli / MERSİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19272",
+      "istasyon_adi": "VERA CITY SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Şehit Osman Avcı Mahallesi 1404 Sokağı  No:2 Etimesgut / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20030",
+      "istasyon_adi": "VURAL PARK CITY 2.ETAP",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Karacaören Mahallesi 103 Sokağı  No:8/2 Merkez / ÇANAKKALE",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/18734",
+      "istasyon_adi": "YAPRACIK 1. ETAP Y3 BLOK",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Yukarıyurtçu Mahallesi Evliya Çelebi Sokağı  No:1 Etimesgut / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/18735",
+      "istasyon_adi": "YAPRACIK 1. ETAP Y5 BLOK",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Yukarıyurtçu Mahallesi Evliya Çelebi Sokağı  No:1 Etimesgut / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19115",
+      "istasyon_adi": "YÜKSELENPARK ÖZLEM 2 SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Barış Mahallesi Özlem Sokağı  No:2D Nilüfer / BURSA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20461",
+      "istasyon_adi": "ÖZSEZEN İŞ MERKEZİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Esentepe Mahallesi Büyükdere Caddesi  No:126 Şişli / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20467",
+      "istasyon_adi": "AĞAOĞLU MY WORLD HIGHPARK",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Barbaros Mahallesi Fesleğen Sokağı  No:3 Ataşehir / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/6171",
+      "istasyon_adi": "AVRUPA KONUTLARI BAŞAKŞEHİR 1.ETAP",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Kayabaşı Mahallesi . Caddesi  No:55A/1 Başakşehir / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/7387",
+      "istasyon_adi": "NİDAPARK KAYAŞEHİR ZÜMRÜT",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Kayabaşı Mahallesi  No:47 Başakşehir / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/11462",
+      "istasyon_adi": "MAHALL ANKARA KONUTLARI",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Mustafa Kemal Mahallesi Anadolu Caddesi  No:274/3 Çankaya / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20547",
+      "istasyon_adi": "YALIPARK REZİDANS",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Yalıncak Mahallesi Trabzon Rize Sokağı  No:1 Akçaabat / TRABZON",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20574",
+      "istasyon_adi": "HOMEKS LİFE SİTESİ A BLOK",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Kaşüstü Mahallesi Okullar Sokağı  No:6 Yomra / TRABZON",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20575",
+      "istasyon_adi": "HOMEKS LİFE SİTESİ B BLOK",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Kaşüstü Mahallesi Okullar Sokağı  No:6 Yomra / TRABZON",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20576",
+      "istasyon_adi": "ENAM SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Kaşüstü Mahallesi Okullar Sokağı  No:3 Yomra / TRABZON",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20577",
+      "istasyon_adi": "AKŞEHİR SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Yalıncak Mahallesi Irmak Sokağı  No:3 Akçaabat / TRABZON",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20578",
+      "istasyon_adi": "GÖKTEKİN S1",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Güzelyalı Mahallesi 81054 Sokağı  No:1 Çukurova / ADANA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20579",
+      "istasyon_adi": "BUSİNESS PORT PLAZA",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Yenibosna Merkez Mahallesi Kavak Sokağı  No:11 Bahçelievler / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20631",
+      "istasyon_adi": "A28 SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Ataköy 7-8-9-10 Mahallesi  No:A28/A /5/A Bakırköy / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/6187",
+      "istasyon_adi": "AĞAOĞLU MY TOWN ÜMRANİYE",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Ihlamurkuyu Mahallesi Gümüşsuyu Caddesi  No:8 Ümraniye / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20693",
+      "istasyon_adi": "BİKKA CAFE",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Kalkınma Mahallesi Merkez Sokağı  No:1 Ortahisar / TRABZON",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16278",
+      "istasyon_adi": "İN MARİ SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Marmara Mahallesi Avrasya Caddesi  No:17 Beylikdüzü / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/14585",
+      "istasyon_adi": "YENİ İSTANBUL EVLERİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Hadımköy Mahallesi Dr. Sadık Ahmet Caddesi  No:35 Arnavutköy / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20743",
+      "istasyon_adi": "HADIMKÖY 3. ETAP KONUTLARI A BLOK",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Deliklikaya Mahallesi Ender Sokağı  No:4 Arnavutköy / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20744",
+      "istasyon_adi": "THREE LİFE RESİDANCE",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Yeni Bağlıca Mahallesi 1366/1 Sokağı  No:6 Etimesgut / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20745",
+      "istasyon_adi": "ESTONŞEHİR MAHALLEM 2",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Bahçeşehir 1.kısım Mahallesi Asmalı Caddesi 2801 Sokağı  No:5 Başakşehir / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20746",
+      "istasyon_adi": "ESTONŞEHİR MAHALLEM 1",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Bahçeşehir 1.kısım Mahallesi Asmalı Sokağı  No:5 Başakşehir / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/13917",
+      "istasyon_adi": "KAYI RESORT OTEL",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "İnönü Mahallesi Sarıkamış / KARS",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/12349",
+      "istasyon_adi": "YAPRACIK ODTÜ SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Yukarıyurtçu Mahallesi 4438 Sokağı  No:10/C Etimesgut / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20597",
+      "istasyon_adi": "LİFE TOWER 2 SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Kışla Mahallesi 939 Sokağı  No:13 İlkadım / SAMSUN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/13918",
+      "istasyon_adi": "KAYI SNOW OTEL",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "İnönü Mahallesi Sarıkamış / KARS",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/9986",
+      "istasyon_adi": "NEOPOLİTAN ERYAMAN SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Eryaman Mahallesi 211 Sokağı  No:8 Etimesgut / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/8161",
+      "istasyon_adi": "BEŞYILDIZ MİRA KURTKÖY EVLERİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Harmandere Mahallesi Petek Sokağı  No:3A/1 Pendik / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20803",
+      "istasyon_adi": "DİRİCAN MY CİTY",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Kuzeykent Mahallesi 31205 Sokağı  No:1A Yenişehir / MERSİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20053",
+      "istasyon_adi": "AĞAOĞLU 212 MY OFFİCE",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Mahmutbey Mahallesi Taşocağı Yolu Caddesi  No:3 Bağcılar / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/1403",
+      "istasyon_adi": "VADİSTANBUL PARK",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Ayazağa Mahallesi Kemerburgaz Caddesi  No:7 Sarıyer / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20904",
+      "istasyon_adi": "ÇAĞLA PARK SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "İstiklal Mahallesi Çağaloğlu Caddesi 899 Sokağı  No:1 Atakum / SAMSUN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20906",
+      "istasyon_adi": "MEİDAN PLAZA",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Kızıltoprak Mahallesi  No:115 Muratpaşa / ANTALYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20907",
+      "istasyon_adi": "GÜNEŞ PARK SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Güneşli Mahallesi Koçman Caddesi  No:10 Bağcılar / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/12985",
+      "istasyon_adi": "FİNANSKENT KONUTLARI",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "5.levent Mahallesi 15 Temmuz Şehitler Caddesi  No:4 Eyüpsultan / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/1418",
+      "istasyon_adi": "GÜNEŞPARK EVLERİ 2",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Atakent Mahallesi 213 Sokağı  No:2 Küçükçekmece / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/14587",
+      "istasyon_adi": "ELYSIUM SERENE-KANDİLLİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Küçüksu Mahallesi Asma Sokağı  No:22 Üsküdar / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/6170",
+      "istasyon_adi": "ORYAPARK RESİDENCE",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Saray Mahallesi Dr.adnan Büyükdeniz Sokağı  No:3A-3B Ümraniye / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19491",
+      "istasyon_adi": "GÜLERKENT SİTESİ A BLOK",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "İstanbul Caddesi  No:230 Osmangazi / BURSA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/18046",
+      "istasyon_adi": "GÜNEŞ SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Kazım Karabekir Mahallesi Kış Sokağı Yıldırım / BURSA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/3324",
+      "istasyon_adi": "GREEN GOLD HOTEL",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Güzelçamlı Mahallesi Milli Park Caddesi  No:53 Kuşadası / AYDIN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20976",
+      "istasyon_adi": "PINAR PARK EVLERİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Yenidoğan Mahallesi 3092 Sokağı  No:8 Kepez / ANTALYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20566",
+      "istasyon_adi": "DÖRT MEVSİM ERYAMAN KONUTLARI",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Şeker Mahallesi 1408 Caddesi  No:19 Etimesgut / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/7144",
+      "istasyon_adi": "SİRİUS TOWN",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Uncalı Mahallesi Toroslar Caddesi Çayırlı Pınarlar Sokağı  No:79/A Konyaaltı / ANTALYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21019",
+      "istasyon_adi": "GENYAP LOFT",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Hamidiye Mahallesi Burak Sokağı  No:19 Kağıthane / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/1400",
+      "istasyon_adi": "NİDAPARK KAYAŞEHİR - YAKUT SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Kayabaşı Mahallesi  No:6 Başakşehir / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21035",
+      "istasyon_adi": "FRM BULUT TOWERS",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Akdeniz Mahallesi 39792 Sokağı  No:1B Mezitli / MERSİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21036",
+      "istasyon_adi": "MARVİSTA PREMİUM",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "75.yıl Mahallesi  No:873/ZE Mezitli / MERSİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21037",
+      "istasyon_adi": "BOZYEL ROYAL 6 SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Akdeniz Mahallesi Akdeniz Sokağı  No:17A Mezitli / MERSİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/15740",
+      "istasyon_adi": "SUENO HOTEL BEACH SİDE",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Sueno Beach Hotel Side Mahallesi  No:0  Sorgun Yolu Manavgat / ANTALYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/6963",
+      "istasyon_adi": "KENT PLUS KONUT SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Soğanlık Yeni Mahallesi Pamukkale Sokağı  No:15/2 Kartal / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21083",
+      "istasyon_adi": "EVONAPARK SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Şerifali Mahallesi Nurlu Sokağı  No:26 Ümraniye / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/10432",
+      "istasyon_adi": "DENİZLİ CERRAHİ HASTANESİ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Zeytinköy Mahallesi  No:5/B Pamukkale / DENİZLİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19323",
+      "istasyon_adi": "TEMA İSTANBUL 2. KAPI",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Atakent Mahallesi 243 Sokağı  No:6 Küçükçekmece / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/1503",
+      "istasyon_adi": "TEMA İSTANBUL 1. KAPI",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Atakent Mahallesi 243 Sokağı  No:6 Küçükçekmece / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21140",
+      "istasyon_adi": "GÜRSES PEARLY CITY",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Birlik Mahallesi 877. Sokağı  No:4/6 Esenler / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/6966",
+      "istasyon_adi": "ISPARTAKULE OLİMPOS SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Tahtakale Mahallesi Faruk Nafiz Çamlıbel Caddesi Kar Çiçeği Sokağı  No:1 /10 Avcılar / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21172",
+      "istasyon_adi": "PARK DORA 3 SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Medya Mahallesi 629 Sokağı  No:32 Kayapınar / DİYARBAKIR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21029",
+      "istasyon_adi": "NİDAPARK KAYAŞEHİR YAKUT SİTESİ 2",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Kayabaşı Mahallesi  No:51/D Başakşehir / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/17040",
+      "istasyon_adi": "AYPARK REZIDANS",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Örnekköy Mahallesi 7600 Sokağı  No:13 Karşıyaka / İZMİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21196",
+      "istasyon_adi": "GAYDA ATAŞEHİR",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Ataşehir Mahallesi 8274/2 Sokağı  No:8 Çiğli / İZMİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21197",
+      "istasyon_adi": "OLEA KENT SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "9 Eylül Mahallesi 244 Sokağı  No:7 Menemen / İZMİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21198",
+      "istasyon_adi": "CEBECİ AURA SİTESİ A BLOK",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "30 Ağustos Mahallesi 7218 Sokağı  No:1/1 Menemen / İZMİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21208",
+      "istasyon_adi": "BONİTA ÖVEÇLER",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Yukarı Öveçler Mahallesi 1288 Sokağı  No:4 Çankaya / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/9975",
+      "istasyon_adi": "MESA KOZ SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Sahrayıcedit Mahallesi Atatürk Sokağı  No:69 Kadıköy / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21224",
+      "istasyon_adi": "CEBECİ AURA SİTESİ B BLOK",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "30 Ağustos Mahallesi 7218 Sokağı  No:1/2 Menemen / İZMİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/17315",
+      "istasyon_adi": "SMART MAXSİMUM SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Buca Koop. Mahallesi 200/41 Sokağı  No:20 Buca / İZMİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/15029",
+      "istasyon_adi": "ETİLER FS PRIVATE RESIDENCES",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Nispetiye Mahallesi Belediye Sitesi Yolu Caddesi  No:1 Beşiktaş / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21258",
+      "istasyon_adi": "PRESTİJ İŞ MERKEZİ 3",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Ziya Gökalp Mahallesi 2745 Sokağı  No:3 Başakşehir / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21260",
+      "istasyon_adi": "MYWAY WİNS BLUE",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Ahmetefendi Mahallesi 8920/1 Sokağı  No:2 Çiğli / İZMİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21261",
+      "istasyon_adi": "HALİL ERENLER TERAS BATI",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Akdeniz Mahallesi 39785 Sokağı  No:11C Mezitli / MERSİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20861",
+      "istasyon_adi": "FAMİLLA 4 SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Fuatmorel Mahallesi 2874 Sokağı  No:5 Yenişehir / MERSİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/7165",
+      "istasyon_adi": "MERİTLİFE PARK EVLERİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Yukarı Dudullu Mahallesi Elalmış Caddesi  No:53 Ümraniye / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/18544",
+      "istasyon_adi": "BOF HOTEL BUSİNESS İMES",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "İmes Sanayi Sitesi Mahallesi 504 Sokağı  No:2 Ümraniye / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/7390",
+      "istasyon_adi": "ATAKENT 24 KONUT SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Atakent Mahallesi 241 Sokağı  No:11 Küçükçekmece / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/6222",
+      "istasyon_adi": "BOF HOTEL CEO SUİTES",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Tatlısu Mahallesi . Caddesi Haliç Sokağı  No:10 Ümraniye / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/6172",
+      "istasyon_adi": "TULİP A VİLLALARI",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Alkent 2000 Mahallesi Dr Hasan Akgün Caddesi  No:3 Büyükçekmece / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/12102",
+      "istasyon_adi": "ŞEHR-İ TURKUAZ SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Zeybek Mahallesi Zeybek 5 Caddesi  No:23/B Efeler / AYDIN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19258",
+      "istasyon_adi": "MASHATTAN SİTESİ B BLOK",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Maslak Mahallesi Anka Sokağı  No:2 Sarıyer / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/13868",
+      "istasyon_adi": "MASHATTAN SİTESİ A BLOK",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Maslak Mahallesi Anka Sokağı  No:2 Sarıyer / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/8133",
+      "istasyon_adi": "CROWNE PLAZA ÜMRANİYE ORYAPARK",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "İnkılap Mahallesi Küçüksu Sokağı  No:58 Ümraniye / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21330",
+      "istasyon_adi": "ZEFİRYA APARTMANI",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Güvenevler Mahallesi 1964 Sokağı  No:6 Yenişehir / MERSİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/7143",
+      "istasyon_adi": "SEBA HAYAT SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Esenevler Mahallesi Talatpaşa Caddesi  No:14 Ümraniye / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/13897",
+      "istasyon_adi": "KANYON KONUTLARI",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Esentepe Mahallesi Büyükdere Caddesi  No:185 Şişli / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/14645",
+      "istasyon_adi": "CANIM VADİYAKA 9.KISIM",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "1 Nolu Beşirli Mahallesi Harita Caddesi  No:1 Merkez / TRABZON",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/20905",
+      "istasyon_adi": "OLİVE PARK",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Ergenekon Mahallesi 12130 Sokağı  No:4 Tarsus / MERSİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/10692",
+      "istasyon_adi": "GÜNEŞLİ PALMİYE BAHÇELERİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Hürriyet Mahallesi Aydın Sokağı  No:13 Bağcılar / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21369",
+      "istasyon_adi": "FLORA ŞEHİR SİTESİ HALKA AÇIK",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Beyhekim Mahallesi Gülaçar Caddesi  No:1 Selçuklu / KONYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21370",
+      "istasyon_adi": "FLORA ŞEHİR SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Beyhekim Mahallesi Gülaçar Caddesi  No:1 Selçuklu / KONYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/7743",
+      "istasyon_adi": "İSTİNYEPARK AVM",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Pınar Mahallesi Katar Caddesi  No:11 Sarıyer / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21429",
+      "istasyon_adi": "BAHÇEŞEHİR KONAKLARI 2.ETAP",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Bahçeşehir 1.kısım Mahallesi Uzay Sokağı  No:7D Başakşehir / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21463",
+      "istasyon_adi": "HANİFE HATUN CAMİİ DOĞU OTOPARK",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Pazarkapı Mahallesi Moloz Sokağı  No:1 Ortahisar / TRABZON",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21474",
+      "istasyon_adi": "NATURA ÇAKIRLAR 1",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Yuva Mahallesi Kümeevler Sokağı  No:602 Yenimahalle / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21512",
+      "istasyon_adi": "SARUHAN ELİT EVLERİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Beştepe Mahallesi 33. Sokağı  No:9 Yenimahalle / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21538",
+      "istasyon_adi": "FERCE TULUMTAŞ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Tulumtaş Mahallesi 2358 Sokağı  No:6 Gölbaşı / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21226",
+      "istasyon_adi": "GİZLİ BAHÇE KONAKLARI KORU SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Aydınlı Mahallesi İzzer Kabadayı Sokağı  No:33/28 Tuzla / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21608",
+      "istasyon_adi": "BAKGÖR CİTY 4 SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Ahmet Yesevi Mahallesi Balat Caddesi  No:32 Nilüfer / BURSA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21615",
+      "istasyon_adi": "BAHÇEŞEHİR KONAKLARI 1. ETAP",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Bahçeşehir 1.kısım Mahallesi Uzay Sokağı  No:4/1 Başakşehir / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21633",
+      "istasyon_adi": "ADASYA HOTEL",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Andifli Mahallesi Metin Toker Sokağı  No:1 Kaş / ANTALYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21643",
+      "istasyon_adi": "RADİSSON BLU RESİDENCES İSTANBUL",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Cevizli Mahallesi Denizer Sokağı  No:29 Kartal / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21644",
+      "istasyon_adi": "RADİSSON BLU RESİDENCES",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Cevizli Mahallesi Denizer Sokağı  No:29 Kartal / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21645",
+      "istasyon_adi": "BAKYAPI PRESTİJ MODERN EVLERİ 2. KISIM",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Yunuseli Mahallesi  No:9 Osmangazi / BURSA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21746",
+      "istasyon_adi": "MB NATURE RESORT",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Hürriyet Mahallesi 48441 Sokağı  No:8 Mezitli / MERSİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21748",
+      "istasyon_adi": "NUROL TEKNOLOJİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Oğulbey Mahallesi 3060 Sokağı  No:5 Gölbaşı / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/12820",
+      "istasyon_adi": "VADİ KONUTLARI SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Kavacık Subayevleri Mahallesi Vadi Sokağı  No:1/B Keçiören / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/13728",
+      "istasyon_adi": "NEF ÇAMLITEPE SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Nişantepe Mahallesi 29 Ekim Sokağı  No:297 Çekmeköy / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/11464",
+      "istasyon_adi": "BAKYAPI PRESTİJ MODERN 1.KISIM",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Yunuseli Mahallesi Fuat Kuşçuoğlu Caddesi  No:69-5 Osmangazi / BURSA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21813",
+      "istasyon_adi": "ELİTE CİTY",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Atakent Mahallesi 223 Caddesi  No:2 Küçükçekmece / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21855",
+      "istasyon_adi": "PLATİN PLUS APARTMANI",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Küçükkolpınar Mahallesi 643 Sokağı  No:24 Atakum / SAMSUN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21857",
+      "istasyon_adi": "GÖKAY PARK SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Mevlana Mahallesi Serhat Caddesi  No:40 Atakum / SAMSUN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21858",
+      "istasyon_adi": "PELİT EVLER SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Kalkancı Mahallesi 103 Sokağı  No:66 İlkadım / SAMSUN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21892",
+      "istasyon_adi": "YILDIZ PARK PLAZA 2",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Merkez Mahallesi 52072 Sokağı  No:3C Mezitli / MERSİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21893",
+      "istasyon_adi": "HANİFE HATUN CAMİ BATI OTOPARK",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Trabzon Büyükşehir Bel. Mahallesi Pazarkapı Sokağı  No:0 Ortahisar / TRABZON",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/8180",
+      "istasyon_adi": "YENİTEPE KADIKÖY KONUT SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Dumlupınar Mahallesi Yumurtacı Abdibey Sokağı  No:4A/1 Kadıköy / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/2990",
+      "istasyon_adi": "ROYA NOVA REZİDANS",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Çamlık Mahallesi Sevin Sokağı  No:2-14 Ümraniye / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/3735",
+      "istasyon_adi": "SELVİ DELUXE SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "50.yıl Mahallesi 2756 Sokağı  No:12/B Yenişehir / MERSİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21972",
+      "istasyon_adi": "İZNİK TOKİ OSMANLI EVLERİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Selçuk Mahallesi Ergün Sokağı  No:27 İznik / BURSA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21993",
+      "istasyon_adi": "AVEND NEFES",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Beytepe Mahallesi 5366 Sokağı  No:10 Çankaya / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/13958",
+      "istasyon_adi": "AĞAOĞLU MASLAK 1453 - ÇARŞI",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Maslak Mahallesi Söğüt Sokağı  No:20H OB ETAP Sarıyer / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/14706",
+      "istasyon_adi": "LAVİNYA CITY KONUT SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Ekinoba Mahallesi Akmaz Sokağı  No:1/1 Büyükçekmece / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/22038",
+      "istasyon_adi": "BEKTAŞ PRESTİJ SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Muradiye Mahallesi Dervişbey Sokağı  No:11 Orhangazi / BURSA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/22039",
+      "istasyon_adi": "ANDA PARK MİLLET SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Millet Mahallesi Milli Sokağı  No:87 Yıldırım / BURSA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/22150",
+      "istasyon_adi": "KUDU DREAM CITY",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Mustafa Kemal Paşa Mahallesi 99. Sokağı  No:0  Kirazlı Merkez / YALOVA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/8525",
+      "istasyon_adi": "MARKA BORNOVA PLUS",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Kazımdirirk Mahallesi Sanayi Caddesi  No:4 Bornova / İZMİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/12498",
+      "istasyon_adi": "ASUDE VADİ EVLERİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Mustafa Kemal Paşa Mahallesi Bilge Sokağı  No:5/1 Merkez / YALOVA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/12899",
+      "istasyon_adi": "İNCİ PRİME SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Kaşüstü Mahallesi Muratlı Caddesi 1316 Sokağı  No:76 Yomra / TRABZON",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/12900",
+      "istasyon_adi": "DEMETKENT SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Kılıçdede Mahallesi Yazduz Sokağı  No:3/A İlkadım / SAMSUN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/12987",
+      "istasyon_adi": "OXOPİA RESİDENCE SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Kestel Mahallesi Kızılkuyu Caddesi  No:18 Alanya / ANTALYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/6508",
+      "istasyon_adi": "NAR LİFE KONUT SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Başıbüyük Mahallesi . Caddesi Dinçerler Sokağı  No:9 Maltepe / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/22201",
+      "istasyon_adi": "YELKENT SAFİR KONAKLARI",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Yenikent Mahallesi Gizem Sokağı  No:21 Derince / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/13243",
+      "istasyon_adi": "VADİ LİFE EVLERİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Balkan Mahallesi 437.isimsiz Sokağı  No:2/B Nilüfer / BURSA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/13290",
+      "istasyon_adi": "KİPTAŞ ESENYURT 3.ETAP KONUTLARI",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Orhangazi Mahallesi 1646 Sokağı  No:7 Esenyurt / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/13539",
+      "istasyon_adi": "EMİNEVİM AHENK İSTANBUL",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Adnan Kahveci Mahallesi Kurtuluş Caddesi  No:5/A Beylikdüzü / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/13596",
+      "istasyon_adi": "CITY 328 KONUTLARI",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Adnan Menderes Mahallesi Muhsin Yazıcıoğlu Caddesi  No:5 Merkez / OSMANİYE",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/7686",
+      "istasyon_adi": "TEKNOPARK İSTANBUL 9A BLOK",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Kurtköy Mahallesi  No:9A Pendik / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/13656",
+      "istasyon_adi": "BEYHOUSE PARK SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Yazır Mahallesi Alanlı Sokağı  No:1 Selçuklu / KONYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/13657",
+      "istasyon_adi": "ADATEPE HASBAHÇE SİTESİ A BLOK",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Nurtepe Mahallesi Irmak Sokağı  No:1-3 Kağıthane / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/9992",
+      "istasyon_adi": "ORKİDE 2 EVLERİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Atakent Mahallesi 223 Caddesi Küçükçekmece / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/8533",
+      "istasyon_adi": "PANAROMA SUITES BY KLK SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Zekeriyaköy Mahallesi Yediveren Sokağı  No:7 Sarıyer / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/11030",
+      "istasyon_adi": "SER KULE RESİDENCE",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Çayyolu Mahallesi 2661/1 Sokağı  No:3/A Çankaya / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/7876",
+      "istasyon_adi": "SOYAK MAVİSEHİR OPTİMUS HOME",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Yalı Mahallesi 6523 Sokağı  No:30A Karşıyaka / İZMİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/13754",
+      "istasyon_adi": "KIR PARK YELKEN EVLERİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Akşemsettin Mahallesi 0115 Sokağı  No:14/A Tarsus / MERSİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/13789",
+      "istasyon_adi": "ATLANTİK LİFE SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Bağlar Mahallesi Tandoğan Sokağı  No:92 Pendik / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/13791",
+      "istasyon_adi": "AK TOWERS",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Söğütlü Mahallesi  No:72 Akçaabat / TRABZON",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/13792",
+      "istasyon_adi": "KİPTAŞ İÇERENKÖY EVLERİ SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "İçerenköy Mahallesi Selimbey Sokağı  No:7 Ataşehir / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/13806",
+      "istasyon_adi": "SEMT YENİKÖY ADA 2",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Limonluk Mahallesi 2410 Sokağı  No:5 Yenişehir / MERSİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/13857",
+      "istasyon_adi": "SAĞLIK KENT KONUTLARI SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Fatihsultan Mehmet Mahallesi Keser Caddesi  No:86 Kartepe / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/13860",
+      "istasyon_adi": "KİPTAŞ TUZLA ŞİFA KONUTLARI",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Şifa Mahallesi İnönü Sokağı  No:75 Tuzla / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/7062",
+      "istasyon_adi": "SİNPAŞ LİVA TURKUAZ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Adil Mahallesi Polonez Caddesi  No:11 Sultanbeyli / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/13898",
+      "istasyon_adi": "BİZİM EVLER 2 SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Tahtakale Mahallesi Ayçiçeği Sokağı  No:8 Avcılar / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/2976",
+      "istasyon_adi": "İSTANBUL 216 KADIKÖY 1.ETAP",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Dumlupınar Mahallesi Barış Sokağı  No:7/B Kadıköy / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/14455",
+      "istasyon_adi": "EMPIRE RESIDANCE AVCILAR",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Üniversite Mahallesi Aşık Mahzuni Sokağı  No:4 Avcılar / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/14657",
+      "istasyon_adi": "NEŞE CONCEPT SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "30 Ağustos Mahallesi 77 (520) Sokağı  No:7/B Nilüfer / BURSA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/14658",
+      "istasyon_adi": "VADİŞEHİR 1. ETAP",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "İkitelli-2 Mahallesi Solmaz Sokağı  No:2F Başakşehir / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/14661",
+      "istasyon_adi": "GRANADA SİTESİ 2. ETAP",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Ali Fuat Cebesoy Mahallesi 9519 Sokağı  No:16 Karabağlar / İZMİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/13753",
+      "istasyon_adi": "RELAX PLUS SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Alacaatlı Mahallesi 5088 Sokağı  No:67/F Çankaya / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/551",
+      "istasyon_adi": "AĞAOĞLU MY WORLD DIAMOND",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Barbaros Mahallesi Dereboyu Caddesi Sarı Mimoza Sokağı  No:27 Ataşehir / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/3739",
+      "istasyon_adi": "AND PASTEL KONUT SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Esentepe Mahallesi Anadolu Sokağı  No:5 Kartal / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/3004",
+      "istasyon_adi": "ATAKÖY KONAKLARI 6. KISIM",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Ataköy 2-5-6. Kısım Mahallesi Rauf Orbay Caddesi  No:1/E Bakırköy / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/1412",
+      "istasyon_adi": "AVRUPA KONUTLARI KALE",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Maltepe Mahallesi Londra Asfaltı Caddesi  No:32 Zeytinburnu / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/1413",
+      "istasyon_adi": "AVRUPA KONUTLARI KALE 2",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Maltepe Mahallesi Londra Asfaltı Caddesi  No:32 Zeytinburnu / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/2851",
+      "istasyon_adi": "BİZİM EVLER 4 KONUT SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Tahtakale Mahallesi Abdi İpekçi Caddesi  No:3 / 11 Avcılar / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/6732",
+      "istasyon_adi": "BİZİM EVLER 6 METRO",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Tahtakale Mahallesi . Caddesi Ayçiçek Sokağı  No:2/8 Avcılar / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/13730",
+      "istasyon_adi": "FOLKART LİNE 1. ETAP KONUT SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Yurtoğlu Mahallesi 3959/39 Sokağı  No:3 Karabağlar / İZMİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/1398",
+      "istasyon_adi": "METROCITY RESIDENCE",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Levent Mahallesi Büyükdere Caddesi  No:171 Şişli / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/22241",
+      "istasyon_adi": "ORKİDEPARK KONUTLARI",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Gültepe Mahallesi 2055 Caddesi  No:2 Altındağ / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/14586",
+      "istasyon_adi": "YILDIZPARK MODERN SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Yıldıztabya Mahallesi Berceste Sokağı  No:172-174 Gaziosmanpaşa / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/11474",
+      "istasyon_adi": "CITY LIFE",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Batı Mahallesi 5402 Sokağı  No:2 Yenimahalle / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/11132",
+      "istasyon_adi": "VIA PARK SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Gürselpaşa Mahallesi 75289 Sokağı  No:1/2 Seyhan / ADANA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/1815",
+      "istasyon_adi": "İDEALİSTKENT 1. ETAP",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Madenler Mahallesi Palandöken Caddesi  No:11 Ümraniye / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/1136",
+      "istasyon_adi": "AVANGART İSTANBUL SARIYER",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Ayazağa Mahallesi Cendere Caddesi  No:112a Sarıyer / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/15696",
+      "istasyon_adi": "TRİYANDA EVLERİ SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "İnönü Mahallesi 189 Sokağı  No:0 Torbalı / İZMİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/15732",
+      "istasyon_adi": "KUTLUAY STORE 2 APARTMANI",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Esenler Mahallesi Nazım Hikmet Caddesi  No:C BLOK Merkez / ÇANAKKALE",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/15780",
+      "istasyon_adi": "DOĞAN AQUA PARK",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Tömük Mahallesi Hoca Ahmet Yesevi Sokağı  No:23 Erdemli / MERSİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/1414",
+      "istasyon_adi": "ELITE RESIDENCE",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "19 Mayıs Mahallesi Dr Hüsnü İsmet Öztürk Sokağı  No:3/24 Şişli / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/11128",
+      "istasyon_adi": "KARİNA EVLERİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Ertuğrul Mahallesi  No:2/C Nilüfer / BURSA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/7890",
+      "istasyon_adi": "ŞEHR-İ NAZ KONAKLARI",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Uğurmumcu Mahallesi Şeyh Şamil Caddesi Nurçiçeği Sokağı Kartal / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/15858",
+      "istasyon_adi": "SKALA HASANAĞA SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Kızılcıklı Mahallesi Kanaryalı Sokağı  No:17 Nilüfer / BURSA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/15970",
+      "istasyon_adi": "ARMADA GRAND PLAZA",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Portokal Mahallesi Karaisalı Sokağı  No:31B Toroslar / MERSİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/11475",
+      "istasyon_adi": "ESENPARK SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Beytepe Mahallesi 5540 Sokağı  No:4 Çankaya / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/14607",
+      "istasyon_adi": "SOYAK MAVİŞEHİR B BÖLGESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Yalı Mahallesi 6523 Sokağı  No:11 Karşıyaka / İZMİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/22244",
+      "istasyon_adi": "GÜVENPARK MANZARA EVLERİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Güneşevler Mahallesi Yıldızyepe Caddesi  No:9 Altındağ / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/22248",
+      "istasyon_adi": "İZZET EMİR SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Balkan Mahallesi Turna Sokağı  No:11 Nilüfer / BURSA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/22249",
+      "istasyon_adi": "BLUEPOİNT SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Güzelyalı Burgaz Mahallesi Neşe Sokağı  No:19 Mudanya / BURSA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/22250",
+      "istasyon_adi": "ON4 BADEMLİ SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Bademli Mahallesi Kültür Caddesi  No:83 Mudanya / BURSA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/13090",
+      "istasyon_adi": "SU KENT BEYTEPE SOSYAL TESİSLERİ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Beytepe Mahallesi Hafsa Sultan Sokağı  No:24 Çankaya / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16326",
+      "istasyon_adi": "EDİRNE 1. ETAP TOKİ KONUTLARI",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Barutluk Mahallesi Tekirdağlı Hüseyin Caddesi  No:15 Merkez / EDİRNE",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/2259",
+      "istasyon_adi": "ÜNBAY DOĞA EVLERİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Kurtköy Yavuzselim Mahallesi Portakal Çiceği Caddesi  No:7 Sapanca / SAKARYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/6851",
+      "istasyon_adi": "1STANBUL EVLERİ ISPARTAKULE 2. ADA",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Tahtakale Mahallesi . Caddesi Semt Ayçiçeği Sk Sokağı  No:1/1 Avcılar / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/13737",
+      "istasyon_adi": "NİDAPARK SEYRANTEPE",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Huzur Mahallesi İmam Çeşme Caddesi  No:6 Sarıyer / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/12339",
+      "istasyon_adi": "PANAROMA HASANAĞA SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Kızılcıklı Mahallesi Tuğra Sokağı  No:2/A Nilüfer / BURSA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16555",
+      "istasyon_adi": "TOWERS TRABZON",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Kaşüstü Mahallesi Vali Recep Yazıcıoğlu Caddesi  No:11 Yomra / TRABZON",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16559",
+      "istasyon_adi": "GRANADA 3 SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Ali Fuat Cebesoy Mahallesi 9524 Sokağı  No:1 Karabağlar / İZMİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16578",
+      "istasyon_adi": "VESEN YALILARI",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Postane Mahallesi İller Bankası Sokağı  No:0 Tuzla / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16605",
+      "istasyon_adi": "ERGİN EVLER SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Ahmet Aysevi Mahallesi Ergin Sokağı  No:169 Nilüfer / BURSA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/11360",
+      "istasyon_adi": "ARMİNA EVLERİ SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Başakşehir 1.kısım Mahallesi 2801 Sokağı Başakşehir / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/503",
+      "istasyon_adi": "BİZİM EVLER 8",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Tahtakale Mahallesi Firuzeçiçeği Sokağı  No:4/2 Avcılar / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16783",
+      "istasyon_adi": "DASİF YAŞAM PARK EVLERİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Zafer Mahallesi 800 Sokağı  No:35 Gaziemir / İZMİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16786",
+      "istasyon_adi": "MARMARA PETROL EVLERİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Hadımköy Mahallesi Ferman Sokağı  No:2 Arnavutköy / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16793",
+      "istasyon_adi": "BRN PARK 2 SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Karadolap Mahallesi Direk Sokağı  No:18-32 Eyüpsultan / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16794",
+      "istasyon_adi": "GENYAP OXYGEN",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Merkez Mahallesi Havuzlar Caddesi  No:5 Kağıthane / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/7161",
+      "istasyon_adi": "TEMA TERRACE",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Atakent Mahallesi 241 Sokağı  No:7/1 Küçükçekmece / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16814",
+      "istasyon_adi": "ACASU RESIDENCE",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Gürsel Mahallesi Akmer Sokağı  No:22 Kağıthane / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16815",
+      "istasyon_adi": "PANORAMA EVLERİ 2 SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Çankaya Mahallesi 6375 Sokağı  No:2/A Kepez / ANTALYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16816",
+      "istasyon_adi": "GENYAP WEN LEVENT SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Sultan Selim Mahallesi Tuna Caddesi  No:31 Kağıthane / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16817",
+      "istasyon_adi": "MAKSİMUM EVLER SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Ortaköy Mahallesi Leylekyuvası Sokağı  No:0 Beşiktaş / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16844",
+      "istasyon_adi": "LOCA 104",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Balkan Mahallesi 389 Sokağı  No:15C Nilüfer / BURSA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16845",
+      "istasyon_adi": "UPCITY RESIDENCE",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Uğur Mumcu Mahallesi Safahat Sokağı  No:11/A Kartal / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16902",
+      "istasyon_adi": "MALİK EJDER SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Boğaziçi Mahallesi 95001 Sokağı  No:15/25 Onikişubat / KAHRAMANMARAŞ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16873",
+      "istasyon_adi": "ALARA MY WORLD",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Akyuva Mahallesi Girne Sokağı  No:49 Yumurtalık / ADANA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/17513",
+      "istasyon_adi": "YAPRACIK 5.ETAP KONUTLARI",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Atayurt Mahallesi 4458 Sokağı  No:4 Etimesgut / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/17522",
+      "istasyon_adi": "TEMAPARK KARAPÜRÇEK",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Karapürçek Mahallesi Şehit Eyüp Öksüz Sokağı  No:34 Altındağ / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/3246",
+      "istasyon_adi": "BAYTUR STARGATE KONUTLARI SİTE YÖNETİMİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Barbaros Mahallesi Kardelen Sokağı  No:3 Ataşehir / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/3357",
+      "istasyon_adi": "POYRAZ RESİDENCE SUİTES",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Gazikent Mahallesi 674/1 Sokağı  No:1 Gaziemir / İZMİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/12105",
+      "istasyon_adi": "VERA WEST",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Yeni Batı Mahallesi 5403 Sokağı  No:5/A Yenimahalle / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/6793",
+      "istasyon_adi": "1STANBUL EVLERİ ISPARTAKULE 1. ADA",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Tahtakale Mahallesi Semt Ayçiçeği Sokağı  No:1/1 Avcılar / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/12098",
+      "istasyon_adi": "YENİTEPE İZMİR 3.ETAP",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Uzundere Mahallesi 6100 Sokağı  No:17 Karabağlar / İZMİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/10694",
+      "istasyon_adi": "OLİMPA PARK 1 SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Başakşehir Mahallesi Cahit Zarifoğlu Caddesi  No:10 Başakşehir / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/9966",
+      "istasyon_adi": "ADRA PARK SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "İskele Mahallesi Atatürk Caddesi 20 Sokağı  No:2/2 Edremit / BALIKESİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/17705",
+      "istasyon_adi": "İKİ YAKA EVLERİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Esenler Mahallesi Şehit Ömer Halis Demir Caddesi  No:1/2 Merkez / ÇANAKKALE",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/17706",
+      "istasyon_adi": "VADİ ÇANAKKALE",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Barbaros Mahallesi Özdil Sokağı  No:4 Merkez / ÇANAKKALE",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/16843",
+      "istasyon_adi": "GÖKTEKİN G7 SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Huzurevleri Mahallesi 77051 Sokağı  No:9-2 Çukurova / ADANA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/12138",
+      "istasyon_adi": "SOYAK EVOSTAR 1 SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Atakent Mahallesi 240 Sokağı  No:6 Küçükçekmece / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/17726",
+      "istasyon_adi": "FORTİS MERİDYEN APARTMANI",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Alacaatlı Mahallesi 3158 Sokağı  No:119/A Çankaya / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/18007",
+      "istasyon_adi": "MARKA 333",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Uğurmumcu Mahallesi 8790/5 Sokağı  No:49 Çiğli / İZMİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/11032",
+      "istasyon_adi": "MAVİ YAKA ÇİÇEK EVLER",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Maltepe Mahallesi 3 Sokağı  No:12 Güzelbahçe / İZMİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/10431",
+      "istasyon_adi": "PANULA BALAT KONUTLARI",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Ahmet Yesevi Mahallesi 421 Sokağı  No:4D Nilüfer / BURSA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/8515",
+      "istasyon_adi": "MNG BLUE BOUTİQUE SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Halkalı Merkez Mahallesi Halkalı Caddesi  No:232 Küçükçekmece / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/12823",
+      "istasyon_adi": "EMLAK KONUT ISPARTAKULE EVLERİ 616 ADA SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Tahtakale Mahallesi Saray Patı Sokağı  No:1 Avcılar / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/14317",
+      "istasyon_adi": "ADRA YALI SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Burhaniye Mahallesi Büyük Önder Atatürk Caddesi  No:142/3 Edremit / BALIKESİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/12729",
+      "istasyon_adi": "ALTINPARK KONUTLARI",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Aşağı Kayabaşı Mahallesi Gazetici İsmet Caddesi  No:0 Merkez / NİĞDE",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/12777",
+      "istasyon_adi": "TWİN TOWERS SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Aşağı Kayabaşı Mahallesi Atatürk Caddesi  No:41/35 Merkez / NİĞDE",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/12347",
+      "istasyon_adi": "OPTİMİST RESİDENCE FİKİRTEPE 2",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Fikirtepe Mahallesi Yıldırım Sokağı  No:10 Kadıköy / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/18158",
+      "istasyon_adi": "MUTLU KENT SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Ovacık Mahallesi 640 Sokağı  No:1 Keçiören / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/18170",
+      "istasyon_adi": "VENİSSA SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "75.yıl Mahallesi Mimar Sinan Sokağı  No:3C Mezitli / MERSİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/2880",
+      "istasyon_adi": "POLAT EV",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Çiftehavuzlar Mahallesi Tepegöz Sokağı  No:50 Kadıköy / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/6178",
+      "istasyon_adi": "MARİNERA SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "16 Eylül Mahallesi . Caddesi 3317 Sokağı  No:4 Çeşme / İZMİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/18096",
+      "istasyon_adi": "ORNA PARK RESİDENCE",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Cumhuriyet Mahallesi Fabrika Sokağı  No:29 Ortahisar / TRABZON",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/15737",
+      "istasyon_adi": "YENİŞEHİR MY HOUSE SİTESİ",
+      "hizmet_sekli": "Özel",
+      "marka": "VOLTRUN",
+      "sarj_agi_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VOLTRUN ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Kurtuluş Mahallesi Fetih Caddesi  No:28 Yenişehir / BURSA",
+      "soket_bilgileri": ""
+    }
+  ]
+}

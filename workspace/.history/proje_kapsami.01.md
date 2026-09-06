@@ -65,11 +65,6 @@ Doğrudan CPO lisansı almak (EPDK sermaye ve soket kotası şartları) veya do�
 - **Sözleşme Uyum Testi (kapsama dahil):** OpenAPI şemasından üretilen istemciler ile backend arasında CI'da koşan kontrat testi (spectral / openapi-diff) zorunludur; şema değişip istemci üretilmediğinde build kırılır.
 - **Deep-Link Fallback ve Konfigürasyon Katmanı:** Operatör URL şemaları backend konfigürasyonu olarak yönetilir; mobil güncelleme gerektirmeden bozuk şemalar düzeltilebilir.
 
-<!-- rol: cto -->
-- **Kimlik Modeli — Anonim Öncelikli Cihaz Kaydı:** Harita, filtre ve istasyon detayı hesap açmadan çalışır; favori ve arıza bildirimi için cihaz bazlı anonim token (device attestation ile bağlanmış) yeterlidir. E-posta/telefon toplama Faz 1'de yalnızca push izni ve favori senkronizasyonu isteyen kullanıcı için opsiyoneldir — bu, KVKK yüzeyini asgaride tutar.
-- **Kanonik İstasyon Kimliği ve Kaynak Birleştirme (Entity Resolution):** Aynı fiziksel istasyon birden fazla kaynaktan (açık veri + operatör ucu + kullanıcı katkısı) farklı ID'lerle gelir. Kapsama, koordinat yakınlığı + operatör + soket imzası ile eşleştiren ve kalıcı `station_uid` üreten bir birleştirme modülü ile çakışmaları çözen bir yönetim ekranı dahildir. Bu modül olmadan "veri tazeliği" ve "arıza etiketi" ölçütleri anlamsızdır.
-- **Tarife Verisinin Statüsü:** Fiyat alanları "bilgi amaçlı, kaynak ve zaman damgalı" olarak modellenir; her tarife kaydı `source`, `fetched_at` ve `confidence` taşır ve arayüzde son güncelleme zamanı gösterilir. Bu, EMP konumlandırmasıyla uyumlu ve yanlış fiyat kaynaklı sorumluluk riskini düşüren tek yoldur.
-
 ## 4. Kapsam Dışı
 
 - **Doğrudan Uygulama İçi Ödeme Alma (In-app Billing):** TCMB / BDDK lisanslama süreçlerine ve PCI-DSS maliyetlerine takılmamak adına Faz 1'de ödeme aracılığı yapılmaz; ödeme ilgili operatörün kendi uygulamasında tamamlanır.
@@ -77,15 +72,10 @@ Doğrudan CPO lisansı almak (EPDK sermaye ve soket kotası şartları) veya do�
 - **Doğrudan OCPI v2.2.1 Çift Yönlü Protokol Entegrasyonu:** Operatörlerle resmi B2B masasına oturup sözleşme imzalanana kadar Faz 1 kapsamına dahil edilmez; Faz 2'ye aktarılmıştır.
 - **Kendi Başına Elektrik Satışı / Faturalandırma:** EPDK Şarj Ağı İşletmeci Lisansı gerektiren hiçbir ticari işlem yapılmaz.
 - Masaüstü native uygulamaları (Windows/macOS native istemciler kapsam dışıdır; masaüstü ihtiyacı web üzerinden karşılanır).
-- **Geocoding (adres → koordinat çevrimi):** İstasyon koordinatları veri kaynağıyla birlikte gelecektir; adres metninden koordinat üretme hattı kurulmaz.
 
 <!-- rol: cto -->
 - **Mikroservis parçalanması ilk sürümde kapsam dışıdır:** Tek deploy edilebilir `api` süreci + tek `worker` süreci (modüler monolit). Servis sınırları kod içinde modül olarak çizilir.
 - **Canlı Telemetri / WebSocket Streaming:** Harita soket durumları için istemci tarafında kalıcı WebSocket bağlantısı açılmaz; HTTP delta-polling veya Server-Sent Events (SSE) kullanılır.
-
-<!-- rol: cto -->
-- **Sunucu Tarafı Rota Optimizasyon Motoru kapsam dışıdır:** Faz 1'de kendi yönlendirme (routing/isochrone) motoru işletilmez; rota geometrisi harici bir yönlendirme servisinden alınır, platform yalnızca bu geometri üzerinde PostGIS `ST_DWithin` ile istasyon eşleştirmesi yapar.
-- **Kullanıcı Üretimli Fotoğraf Moderasyonu (otomatik):** Faz 1'de görsel içerik yükleme yalnızca kuyruklanır ve manuel onaydan geçer; otomatik görüntü sınıflandırma/moderasyon modeli kapsam dışıdır.
 
 ## 5. Kısıtlar
 
@@ -98,14 +88,6 @@ Doğrudan CPO lisansı almak (EPDK sermaye ve soket kotası şartları) veya do�
 - **KVKK / GDPR ve Konum Gizliliği: (zorunlu)** Kullanıcının GPS konumu yalnızca anlık harita merkezleme ve en yakın istasyon sorgusu için geçici (in-memory) kullanılır; sunucu tarafında kullanıcıya bağlı geçmiş güzergah/koordinat kaydı tutulamaz.
 - **Veritabanı Şema Göçü: (zorunlu)** Veritabanı değişiklikleri yalnızca sürümlenmiş migration dosyalarıyla yapılır; üretimde elle DDL kapsam dışıdır.
 
-- **Görsel ve etkileşim tasarımı Faz 1'in birincil çıktısıdır. (zorunlu)** Bu ürün bir web sitesi ve bir mobil uygulamadır; tasarım geçiştirilecek bir adım değil, üzerinde tartışılıp iyileştirilecek bir süreçtir. Hiçbir arayüz görevi, onaylanmış tasarım sistemi ve arayüz spesifikasyonu üretilmeden kodlanamaz.
-- **Arayüz geliştiricisi görsel karar veremez. (zorunlu)** Renk, tipografi, boşluk, köşe yarıçapı, gölge, ikon ve bileşen durumu değerlerinin tamamı `tasarim_sistemi.md`'deki token'lardan gelir. Sistemde karşılığı olmayan değer uydurulamaz; eksik `// TASARIM EKSİĞİ:` olarak işaretlenir.
-- **Tasarım denetimden geçmeden yapım aşamasına geçilemez. (zorunlu)** `design_critic` rolü `VERDICT: APPROVED` verene kadar tasarım revize edilir. Erişilebilirlik tabanı WCAG 2.1 AA'dır (gövde metni kontrast ≥ 4.5:1, dokunma hedefi ≥ 44x44pt).
-- **Web ve mobil tek tasarım dilini paylaşır. (zorunlu)** Aynı tasarım token'ı Nuxt tarafında CSS değişkeni, Flutter tarafında Dart sabiti olarak birebir karşılık bulur; iki platform görsel olarak ayrışamaz.
-- **Faz 1 istasyon veri tabanı `istasyonlar.json` ile tohumlanır. (zorunlu)** EPDK Şarj İstasyonları Sorgulama Sistemi'nden alınmış 16.788 istasyon ve 179 marka içerir; resmî `istasyon_no` (`ŞRJ/xxxx`) kanonik istasyon kimliğinin çapasıdır. Ölçülmüş alan envanteri: `workspace/docs/veri_kaynagi_epdk.md`.
-- **İstasyon koordinatı mevcut kabul edilir. (zorunlu)** `istasyonlar.json`'un zenginleştirilmiş sürümü her kayıtta `lat` ve `lon` taşıyacaktır; `geom` bu alanlardan üretilir. Adresten koordinat türetme (geocoding) kapsam dışıdır, planlanmaz.
-- **Soket tipi, güç, tarife ve anlık doluluk verisi Faz 1 başlangıcında YOKTUR. (zorunlu)** Şema bu alanları `NULL` kabul eder ve arayüz bu alanlar boşken de anlamlı görünmek zorundadır; tasarımda her biri için "veri yok" durumu tanımlı olmalıdır. Bu alanlar varmış gibi ekran tasarlanamaz.
-
 <!-- rol: cto -->
 - **KURULUM GEREKİYOR: Docker & PostGIS imajı.** Veritabanı native Postgres değil, spatial indeksleri (`GIST(geom)`) ve coğrafi fonksiyonları destekleyen `postgis/postgis:16-3.4` imajı ile çalışmak zorundadır.
 - **Arka plan işleri için ayrı süreç sınırı:** Veri kazıma/senkronizasyon ve bildirim işleri API sürecinin içinde koşturulamaz; bağımsız bir `worker` süreci zorunludur.
@@ -113,13 +95,6 @@ Doğrudan CPO lisansı almak (EPDK sermaye ve soket kotası şartları) veya do�
 - **Dış Veri Çekme Hız Limiti & Saygılı Kazıma:** Harici operatör uç noktalarından veri çeken worker'lar, kaynakların IP engeline takılmaması için exponential backoff, rate-limiting ve proxy rotasyonu kurallarına uymak zorundadır.
 - **Zaman Damgası Bölümleme (Partitioning):** Fiyat geçmişi ve kitle-kaynaklı arıza logları zaman serisi tablolarda tutulmalı, en az aylık partition stratejisi uygulanmalıdır.
 - **Performans bütçesi:** p95 < 40ms hedefi sunucu içi işlem süresidir (ağ RTT hariç); mobilde 60 FPS harita kaydırması için GeoJSON parse işlemleri UI thread dışında (Isolate) yapılır.
-
-<!-- rol: cto -->
-- **Arıza doğrulaması ile konum gizliliği kısıtının uzlaştırılması:** Arıza bildiriminde 50 m yakınlık şartı, ham koordinat gönderilerek değil, istemcinin hesapladığı mesafe + sunucunun istasyon koordinatına göre doğruladığı tek seferlik `proximity_proof` ile sağlanır. Bildirim kaydında kullanıcı koordinatı değil, yalnızca `station_uid` ve doğrulama sonucu saklanır — böylece "kullanıcıya bağlı koordinat kaydı tutulamaz" kısıtı ihlal edilmez.
-- **Flutter sürüm sabitleme:** Ortamda `flutter 3.27.1` ve `fvm 3.2.1` ölçülmüştür; mobil derleme sürümü `.fvmrc` ile depoya sabitlenir, geliştirici makinesinin global Flutter sürümüne güvenilmez.
-- **Paket yöneticisi tekliği:** Ortamda `pnpm 10.20.0` ölçülmüştür; backend ve web tek pnpm workspace'i altında yönetilir, `npm install` ile lockfile üretilmesi CI'da reddedilir.
-- **KURULUM GEREKİYOR: Harita karo (tile) sağlayıcı hesabı ve API anahtarı.** Mapbox/Google Maps SDK ortam envanterinde ölçülemez bir dış servistir; anahtar olmadan hem web hem mobil harita ekranı çalışmaz, anahtarlar ortam değişkeni olarak yönetilir ve istemci derlemesine gömülmez.
-- **KURULUM GEREKİYOR: APNs/FCM kimlik bilgileri.** Push bildirimi başarı ölçütü, Apple Developer ve Firebase proje kimlik bilgileri tedarik edilmeden doğrulanamaz; bu tedarik edilene kadar favori bildirimi "uygulama içi bildirim listesi" ile sınırlıdır.
 
 ## 6. Başarı Ölçütleri
 
@@ -134,10 +109,6 @@ Doğrudan CPO lisansı almak (EPDK sermaye ve soket kotası şartları) veya do�
 - **Yanlış Arıza İhbar Tavanı (False Positive):** Kullanıcı bildirimleriyle "Arızalı" etiketlenen istasyonların hatalı kapatılma oranı <= %3 olmalıdır. Doğrulama, kullanıcının GPS konumu ile istasyon konumu yakınlığı (< 50 metre) şartıyla filtrelenerek sağlanır.
 - **Çevrimdışı Harita Dayanıklılığı:** Ağ bağlantısı koptuğunda mobil istemci çökmez; Hive önbelleğindeki son bilinen istasyon pinlerini çevrimdışı modda göstermeye devam eder.
 
-<!-- rol: cto -->
-- **Kaynak Kesintisine Dayanıklılık:** Herhangi bir tekil veri kaynağı 24 saat boyunca yanıt vermediğinde platform hata vermez; istasyon kaydı "son güncelleme: X saat önce" rozetiyle sunulmaya devam eder ve kaynak sağlığı panelinde alarm üretilir.
-- **Entity Resolution Doğruluğu:** Kaynak birleştirme sonrası mükerrer istasyon kaydı oranı, elle etiketlenmiş 300 istasyonluk doğrulama kümesinde <= %2 olmalıdır.
-
 ## 7. Açık Sorular
 
 <!-- Cevabını gerçekten bilmediğin, rollerin karar vermesini İSTEDİĞİN şeyler.
@@ -147,7 +118,3 @@ Doğrudan CPO lisansı almak (EPDK sermaye ve soket kotası şartları) veya do�
 - **Operatör Deep-Link Parametre Standartları:** Her CPO'nun mobil uygulaması harici şema parametresiyle (istasyon ID / soket ID) doğrudan başlatmayı destekliyor mu? Desteklemeyen operatörler için pano (clipboard) fallback'i kullanıcı deneyimini nasıl etkiler?
 - **Kitle Kaynaklı Doğrulama Güvenliği:** Kötü niyetli kullanıcıların veya botların istasyonları kasıtlı olarak "arızalı" işaretlemesini engellemek için cihaz güvenilirlik skoru ve mesafe (GPS fence) kısıtı dışında hangi koruma katmanları eklenmeli?
 - **Veri Toplama Hukuku ve Sürdürülebilirlik:** CPO'ların kamuya açık arayüzlerinin değişmesi veya IP bazlı engelleme getirmesi durumunda veri akışının kesintisizliği hangi proxy rotasyonu veya yedek açık veri servisleriyle garanti altına alınabilir?
-
-- **Tasarım Dili ve Marka Kimliği:** elektriklioto.com hangi görsel tonu benimsemeli — teknik/mühendis odaklı mı (yoğun bilgi, kompakt), yoksa tüketici dostu mu (ferah, büyük dokunma hedefleri)? Harita yoğun bir ekranda bu iki yaklaşımın dengesi nasıl kurulmalı?
-- **Koyu Tema Önceliği:** Sürücüler istasyonu çoğunlukla araç içinde ve sıklıkla gece kullanacak. Koyu tema varsayılan mı olmalı, yoksa sistem tercihini mi izlemeli?
-- **Veri Yokluğunun Görsel Dili:** Soket tipi, güç ve tarife Faz 1'de boş olacak. Bu alanlar arayüzde nasıl gösterilmeli — hiç gösterilmesin mi, "bilinmiyor" rozeti mi, yoksa kullanıcıdan katkı isteyen bir çağrı mı?

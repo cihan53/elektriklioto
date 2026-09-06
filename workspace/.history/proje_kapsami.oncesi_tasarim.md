@@ -77,7 +77,6 @@ Doğrudan CPO lisansı almak (EPDK sermaye ve soket kotası şartları) veya do�
 - **Doğrudan OCPI v2.2.1 Çift Yönlü Protokol Entegrasyonu:** Operatörlerle resmi B2B masasına oturup sözleşme imzalanana kadar Faz 1 kapsamına dahil edilmez; Faz 2'ye aktarılmıştır.
 - **Kendi Başına Elektrik Satışı / Faturalandırma:** EPDK Şarj Ağı İşletmeci Lisansı gerektiren hiçbir ticari işlem yapılmaz.
 - Masaüstü native uygulamaları (Windows/macOS native istemciler kapsam dışıdır; masaüstü ihtiyacı web üzerinden karşılanır).
-- **Geocoding (adres → koordinat çevrimi):** İstasyon koordinatları veri kaynağıyla birlikte gelecektir; adres metninden koordinat üretme hattı kurulmaz.
 
 <!-- rol: cto -->
 - **Mikroservis parçalanması ilk sürümde kapsam dışıdır:** Tek deploy edilebilir `api` süreci + tek `worker` süreci (modüler monolit). Servis sınırları kod içinde modül olarak çizilir.
@@ -97,14 +96,6 @@ Doğrudan CPO lisansı almak (EPDK sermaye ve soket kotası şartları) veya do�
 - **Sistem hiçbir aşamada kendisini "Lisanslı Şarj Operatörü" olarak konumlandıramaz. (zorunlu)** Platform yasal olarak bir e-Mobilite Asistanı / EMP adayı statüsündedir; EPDK lisansına tabi elektrik satışı yapılamaz.
 - **KVKK / GDPR ve Konum Gizliliği: (zorunlu)** Kullanıcının GPS konumu yalnızca anlık harita merkezleme ve en yakın istasyon sorgusu için geçici (in-memory) kullanılır; sunucu tarafında kullanıcıya bağlı geçmiş güzergah/koordinat kaydı tutulamaz.
 - **Veritabanı Şema Göçü: (zorunlu)** Veritabanı değişiklikleri yalnızca sürümlenmiş migration dosyalarıyla yapılır; üretimde elle DDL kapsam dışıdır.
-
-- **Görsel ve etkileşim tasarımı Faz 1'in birincil çıktısıdır. (zorunlu)** Bu ürün bir web sitesi ve bir mobil uygulamadır; tasarım geçiştirilecek bir adım değil, üzerinde tartışılıp iyileştirilecek bir süreçtir. Hiçbir arayüz görevi, onaylanmış tasarım sistemi ve arayüz spesifikasyonu üretilmeden kodlanamaz.
-- **Arayüz geliştiricisi görsel karar veremez. (zorunlu)** Renk, tipografi, boşluk, köşe yarıçapı, gölge, ikon ve bileşen durumu değerlerinin tamamı `tasarim_sistemi.md`'deki token'lardan gelir. Sistemde karşılığı olmayan değer uydurulamaz; eksik `// TASARIM EKSİĞİ:` olarak işaretlenir.
-- **Tasarım denetimden geçmeden yapım aşamasına geçilemez. (zorunlu)** `design_critic` rolü `VERDICT: APPROVED` verene kadar tasarım revize edilir. Erişilebilirlik tabanı WCAG 2.1 AA'dır (gövde metni kontrast ≥ 4.5:1, dokunma hedefi ≥ 44x44pt).
-- **Web ve mobil tek tasarım dilini paylaşır. (zorunlu)** Aynı tasarım token'ı Nuxt tarafında CSS değişkeni, Flutter tarafında Dart sabiti olarak birebir karşılık bulur; iki platform görsel olarak ayrışamaz.
-- **Faz 1 istasyon veri tabanı `istasyonlar.json` ile tohumlanır. (zorunlu)** EPDK Şarj İstasyonları Sorgulama Sistemi'nden alınmış 16.788 istasyon ve 179 marka içerir; resmî `istasyon_no` (`ŞRJ/xxxx`) kanonik istasyon kimliğinin çapasıdır. Ölçülmüş alan envanteri: `workspace/docs/veri_kaynagi_epdk.md`.
-- **İstasyon koordinatı mevcut kabul edilir. (zorunlu)** `istasyonlar.json`'un zenginleştirilmiş sürümü her kayıtta `lat` ve `lon` taşıyacaktır; `geom` bu alanlardan üretilir. Adresten koordinat türetme (geocoding) kapsam dışıdır, planlanmaz.
-- **Soket tipi, güç, tarife ve anlık doluluk verisi Faz 1 başlangıcında YOKTUR. (zorunlu)** Şema bu alanları `NULL` kabul eder ve arayüz bu alanlar boşken de anlamlı görünmek zorundadır; tasarımda her biri için "veri yok" durumu tanımlı olmalıdır. Bu alanlar varmış gibi ekran tasarlanamaz.
 
 <!-- rol: cto -->
 - **KURULUM GEREKİYOR: Docker & PostGIS imajı.** Veritabanı native Postgres değil, spatial indeksleri (`GIST(geom)`) ve coğrafi fonksiyonları destekleyen `postgis/postgis:16-3.4` imajı ile çalışmak zorundadır.
@@ -147,7 +138,3 @@ Doğrudan CPO lisansı almak (EPDK sermaye ve soket kotası şartları) veya do�
 - **Operatör Deep-Link Parametre Standartları:** Her CPO'nun mobil uygulaması harici şema parametresiyle (istasyon ID / soket ID) doğrudan başlatmayı destekliyor mu? Desteklemeyen operatörler için pano (clipboard) fallback'i kullanıcı deneyimini nasıl etkiler?
 - **Kitle Kaynaklı Doğrulama Güvenliği:** Kötü niyetli kullanıcıların veya botların istasyonları kasıtlı olarak "arızalı" işaretlemesini engellemek için cihaz güvenilirlik skoru ve mesafe (GPS fence) kısıtı dışında hangi koruma katmanları eklenmeli?
 - **Veri Toplama Hukuku ve Sürdürülebilirlik:** CPO'ların kamuya açık arayüzlerinin değişmesi veya IP bazlı engelleme getirmesi durumunda veri akışının kesintisizliği hangi proxy rotasyonu veya yedek açık veri servisleriyle garanti altına alınabilir?
-
-- **Tasarım Dili ve Marka Kimliği:** elektriklioto.com hangi görsel tonu benimsemeli — teknik/mühendis odaklı mı (yoğun bilgi, kompakt), yoksa tüketici dostu mu (ferah, büyük dokunma hedefleri)? Harita yoğun bir ekranda bu iki yaklaşımın dengesi nasıl kurulmalı?
-- **Koyu Tema Önceliği:** Sürücüler istasyonu çoğunlukla araç içinde ve sıklıkla gece kullanacak. Koyu tema varsayılan mı olmalı, yoksa sistem tercihini mi izlemeli?
-- **Veri Yokluğunun Görsel Dili:** Soket tipi, güç ve tarife Faz 1'de boş olacak. Bu alanlar arayüzde nasıl gösterilmeli — hiç gösterilmesin mi, "bilinmiyor" rozeti mi, yoksa kullanıcıdan katkı isteyen bir çağrı mı?
