@@ -1,0 +1,498 @@
+{
+  "sprints": [
+    {
+      "id": "S1",
+      "name": "Çalışan Harita Dilimi (Uçtan Uca)",
+      "goal": "docker compose ile ayağa kalkan PostGIS, /api/v1/stations viewport sorgusu ve tohumlanmış veriyle istasyon pinlerini gösteren çalışan bir web haritası.",
+      "planned_days": 8,
+      "tasks": [
+        {
+          "id": "S1-T1",
+          "title": "Monorepo, docker-compose ve migration iskeleti",
+          "description": "pnpm workspace, postgis/postgis:16-3.4 compose dosyası, node-pg-migrate ilk şema, zod config, healthz/readyz için altyapı.",
+          "role": "devops_engineer",
+          "phase": "develop",
+          "outputs": [
+            "workspace/infra/"
+          ],
+          "depends_on": [],
+          "status": "DONE",
+          "attempts": 1,
+          "note": "",
+          "started_at": 1788693652.353685,
+          "finished_at": 1788694055.5103612,
+          "duration_s": 403.2
+        },
+        {
+          "id": "S1-T2",
+          "title": "Stations viewport API ve read model",
+          "description": "Fastify /api/v1/stations bbox+zoom uç noktası, station_read_model, GIST indeks, ST_SnapToGrid kümeleme, seed script, OpenAPI üretimi.",
+          "role": "backend_engineer",
+          "phase": "develop",
+          "outputs": [
+            "workspace/src/backend/"
+          ],
+          "depends_on": [
+            "S1-T1"
+          ],
+          "status": "DONE",
+          "attempts": 1,
+          "note": "",
+          "started_at": 1788694055.512036,
+          "finished_at": 1788694719.512819,
+          "duration_s": 664.0
+        },
+        {
+          "id": "S1-T3",
+          "title": "Nuxt harita sayfası ve üretilmiş API istemcisi",
+          "description": "Nuxt 3 iskeleti, client-only MapLibre bileşeni, openapi-typescript ile üretilen istemci, bbox tabanlı pin ve küme çizimi.",
+          "role": "frontend_engineer",
+          "phase": "develop",
+          "outputs": [
+            "workspace/src/frontend/"
+          ],
+          "depends_on": [
+            "S1-T2"
+          ],
+          "status": "DONE",
+          "attempts": 1,
+          "note": "",
+          "started_at": 1788694719.514312,
+          "finished_at": 1788694937.9057658,
+          "duration_s": 218.4
+        },
+        {
+          "id": "S1-T4",
+          "title": "Viewport sorgusu bench ve kabul testi",
+          "description": "AC-01/AC-02 doğrulaması: 15.000 soket seed, autocannon ile 250 eşzamanlı yük, p95<40ms bench raporu, zoom<10 küme testi.",
+          "role": "qa_lead",
+          "phase": "test",
+          "outputs": [
+            "workspace/docs/test_raporu.md"
+          ],
+          "depends_on": [
+            "S1-T2",
+            "S1-T3"
+          ],
+          "status": "DONE",
+          "attempts": 1,
+          "note": "",
+          "started_at": 1788694937.9071748,
+          "finished_at": 1788695171.566414,
+          "duration_s": 233.7
+        },
+        {
+          "id": "S1-T5",
+          "title": "CI hattı ve staging deploy",
+          "description": "CI: migrate+seed+lint+test+openapi diff kapısı; api ve web süreçlerinin staging ortamına ilk dağıtımı, sağlık uçları doğrulaması.",
+          "role": "devops_engineer",
+          "phase": "deploy",
+          "outputs": [
+            "workspace/ci_cd_pipeline.yml"
+          ],
+          "depends_on": [
+            "S1-T4"
+          ],
+          "status": "FAILED",
+          "attempts": 1,
+          "note": "CLI hata koduyla çıktı (143): ",
+          "started_at": 1788695171.56745,
+          "finished_at": 1788695852.9924722,
+          "duration_s": 681.4
+        }
+      ],
+      "order": 0,
+      "status": "BLOCKED",
+      "actual_start": "2026-09-06T14:20:52",
+      "actual_end": null,
+      "planned_start": "2026-09-06",
+      "planned_end": "2026-09-13"
+    },
+    {
+      "id": "S2",
+      "name": "Veri Toplama ve Kanonik Kimlik",
+      "goal": "En az 3 connector ile gerçek veri çeken worker, entity resolution ile birleştirilmiş station_uid ve kaynak sağlığı görünürlüğü.",
+      "planned_days": 10,
+      "tasks": [
+        {
+          "id": "S2-T1",
+          "title": "Worker, kuyruk ve connector sözleşmesi",
+          "description": "Ayrı worker süreci, pg-boss migrate:false ile versiyonlu şema, fetch/normalize connector arayüzü, 3 kaynak adaptörü, raw_snapshot yazımı.",
+          "role": "backend_engineer",
+          "phase": "develop",
+          "outputs": [
+            "workspace/src/backend/"
+          ],
+          "depends_on": [
+            "S1-T2"
+          ],
+          "status": "TODO",
+          "attempts": 0,
+          "note": ""
+        },
+        {
+          "id": "S2-T2",
+          "title": "Entity resolution ve availability delta ucu",
+          "description": "ST_DWithin 75m + operatör + Jaccard 0.6 birleştirme, resolution_conflict kuyruğu, merged_into tombstone, GET /availability?since delta ucu.",
+          "role": "backend_engineer",
+          "phase": "develop",
+          "outputs": [
+            "workspace/src/backend/"
+          ],
+          "depends_on": [
+            "S2-T1"
+          ],
+          "status": "TODO",
+          "attempts": 0,
+          "note": ""
+        },
+        {
+          "id": "S2-T3",
+          "title": "Kaynak sağlığı ve çakışma çözüm ekranı",
+          "description": "Admin arayüzü: source_health tazelik paneli, bekleyen resolution_conflict listesi, yan yana karşılaştırma ve birleştir/ayır aksiyonu.",
+          "role": "frontend_engineer",
+          "phase": "develop",
+          "outputs": [
+            "workspace/src/frontend/"
+          ],
+          "depends_on": [
+            "S2-T2"
+          ],
+          "status": "TODO",
+          "attempts": 0,
+          "note": ""
+        },
+        {
+          "id": "S2-T4",
+          "title": "Ingestion, tazelik ve ER doğruluk testleri",
+          "description": "AC-34..AC-39 testleri: backoff/dead geçişi, SKIP LOCKED çift işleme yok, 24 saat kesinti dayanıklılığı, 300 kayıtlık mükerrer oranı ≤%2.",
+          "role": "qa_lead",
+          "phase": "test",
+          "outputs": [
+            "workspace/docs/test_raporu.md"
+          ],
+          "depends_on": [
+            "S2-T2",
+            "S2-T3"
+          ],
+          "status": "TODO",
+          "attempts": 0,
+          "note": ""
+        },
+        {
+          "id": "S2-T5",
+          "title": "Worker süreç dağıtımı ve metrik izleme",
+          "description": "Worker servisi staging deploy, /metrics kuyruk derinliği ve kaynak tazeliği alarmları, proxy ve kota ortam değişkenleri doğrulaması.",
+          "role": "devops_engineer",
+          "phase": "deploy",
+          "outputs": [
+            "workspace/docs/altyapi_dogrulama.md"
+          ],
+          "depends_on": [
+            "S2-T4"
+          ],
+          "status": "TODO",
+          "attempts": 0,
+          "note": ""
+        }
+      ],
+      "order": 1,
+      "status": "TODO",
+      "actual_start": null,
+      "actual_end": null,
+      "planned_start": "2026-09-14",
+      "planned_end": "2026-09-23"
+    },
+    {
+      "id": "S3",
+      "name": "Mobil Harita, Filtre ve Deep-Link",
+      "goal": "Flutter uygulamasında filtrelenebilir harita, istasyon detayı, çevrimdışı önbellek ve operatör uygulamasına doğru atlayan deep-link.",
+      "planned_days": 10,
+      "tasks": [
+        {
+          "id": "S3-T1",
+          "title": "Filtre, detay ve deeplink uçları",
+          "description": "GET /stations filtre parametreleri AND mantığı, /stations/:uid tarife source+fetched_at+confidence, /deeplink/:socketId konfigürasyon tabanlı şablon motoru.",
+          "role": "backend_engineer",
+          "phase": "develop",
+          "outputs": [
+            "workspace/src/backend/"
+          ],
+          "depends_on": [
+            "S2-T2"
+          ],
+          "status": "TODO",
+          "attempts": 0,
+          "note": ""
+        },
+        {
+          "id": "S3-T2",
+          "title": "Flutter harita, filtre ve detay ekranı",
+          "description": "Riverpod katmanları, maplibre_gl haritası, dart-dio üretilmiş istemci, Isolate ile DTO parse, filtre paneli ve istasyon detay ekranı.",
+          "role": "frontend_engineer",
+          "phase": "develop",
+          "outputs": [
+            "workspace/src/frontend/"
+          ],
+          "depends_on": [
+            "S3-T1"
+          ],
+          "status": "TODO",
+          "attempts": 0,
+          "note": ""
+        },
+        {
+          "id": "S3-T3",
+          "title": "Hive çevrimdışı önbellek ve deep-link köprüsü",
+          "description": "station_pin Hive kutusu, çevrimdışı bandı, kurulu değilse mağaza ve pano fallback zinciri ile operatör uygulaması açma akışı.",
+          "role": "frontend_engineer",
+          "phase": "develop",
+          "outputs": [
+            "workspace/src/frontend/"
+          ],
+          "depends_on": [
+            "S3-T2"
+          ],
+          "status": "TODO",
+          "attempts": 0,
+          "note": ""
+        },
+        {
+          "id": "S3-T4",
+          "title": "Mobil performans ve deep-link doğruluk testi",
+          "description": "AC-04/AC-05/AC-11..AC-13: 60 FPS jank ölçümü, soğuk açılış <1.8sn, çevrimdışı çökme yok, 3 operatörde 30ar denemede >%90 başarı.",
+          "role": "qa_lead",
+          "phase": "test",
+          "outputs": [
+            "workspace/docs/test_raporu.md"
+          ],
+          "depends_on": [
+            "S3-T2",
+            "S3-T3"
+          ],
+          "status": "TODO",
+          "attempts": 0,
+          "note": ""
+        },
+        {
+          "id": "S3-T5",
+          "title": "Mobil derleme hattı ve iç test dağıtımı",
+          "description": "fvm 3.27.1 pinli CI derlemesi, flutter analyze kapısı, TestFlight ve Play internal test kanalına imzalı derleme yükleme.",
+          "role": "devops_engineer",
+          "phase": "deploy",
+          "outputs": [
+            "workspace/ci_cd_pipeline.yml"
+          ],
+          "depends_on": [
+            "S3-T4"
+          ],
+          "status": "TODO",
+          "attempts": 0,
+          "note": ""
+        }
+      ],
+      "order": 2,
+      "status": "TODO",
+      "actual_start": null,
+      "actual_end": null,
+      "planned_start": "2026-09-24",
+      "planned_end": "2026-10-03"
+    },
+    {
+      "id": "S4",
+      "name": "SEO Web Platformu ve Mobil Köprü",
+      "goal": "elektriklioto.com il/ilçe katalog sayfaları ISR ile yayında, sitemap ve JSON-LD çalışıyor, QR ve handoff ile mobile aktarım yapılabiliyor.",
+      "planned_days": 8,
+      "tasks": [
+        {
+          "id": "S4-T1",
+          "title": "Katalog ve handoff uçları",
+          "description": "GET /catalog il/ilçe/otoyol/operatör kırılımı, ETag ve s-maxage önbellek, POST /handoff tek kullanımlık 10 dakikalık kimliksiz kod.",
+          "role": "backend_engineer",
+          "phase": "develop",
+          "outputs": [
+            "workspace/src/backend/"
+          ],
+          "depends_on": [
+            "S3-T1"
+          ],
+          "status": "TODO",
+          "attempts": 0,
+          "note": ""
+        },
+        {
+          "id": "S4-T2",
+          "title": "ISR katalog sayfaları ve SEO varlıkları",
+          "description": "/[il]/[ilce]/sarj-istasyonlari ISR rotaları, SSR gövdesinde ilk 50 istasyon, LocalBusiness JSON-LD, kanonik URL, otomatik sitemap.xml.",
+          "role": "frontend_engineer",
+          "phase": "develop",
+          "outputs": [
+            "workspace/src/frontend/"
+          ],
+          "depends_on": [
+            "S4-T1"
+          ],
+          "status": "TODO",
+          "attempts": 0,
+          "note": ""
+        },
+        {
+          "id": "S4-T3",
+          "title": "QR banner ve rota aktarım köprüsü",
+          "description": "İstasyon sayfasında QR + akıllı banner, /s/<uid> Universal ve App Link yapılandırması, web rotasını handoff koduyla mobile aktarma akışı.",
+          "role": "frontend_engineer",
+          "phase": "develop",
+          "outputs": [
+            "workspace/src/frontend/"
+          ],
+          "depends_on": [
+            "S4-T2"
+          ],
+          "status": "TODO",
+          "attempts": 0,
+          "note": ""
+        },
+        {
+          "id": "S4-T4",
+          "title": "Lighthouse, SEO ve köprü testleri",
+          "description": "AC-14..AC-20: SEO >90 ve FCP <1.2sn 3G Fast, view-source JSON-LD kontrolü, harita chunk lazy import, handoff süre/tek kullanım 410 testi.",
+          "role": "qa_lead",
+          "phase": "test",
+          "outputs": [
+            "workspace/docs/test_raporu.md"
+          ],
+          "depends_on": [
+            "S4-T2",
+            "S4-T3"
+          ],
+          "status": "TODO",
+          "attempts": 0,
+          "note": ""
+        },
+        {
+          "id": "S4-T5",
+          "title": "Üretim domain, CDN ve TLS yayını",
+          "description": "elektriklioto.com, api ve cdn alt alan adları, TLS/HSTS, CSP ve CORS başlıkları, ISR önbellek geçersizleştirme, üretim dağıtımı.",
+          "role": "devops_engineer",
+          "phase": "deploy",
+          "outputs": [
+            "workspace/infra/"
+          ],
+          "depends_on": [
+            "S4-T4"
+          ],
+          "status": "TODO",
+          "attempts": 0,
+          "note": ""
+        }
+      ],
+      "order": 3,
+      "status": "TODO",
+      "actual_start": null,
+      "actual_end": null,
+      "planned_start": "2026-10-04",
+      "planned_end": "2026-10-11"
+    },
+    {
+      "id": "S5",
+      "name": "Arıza Bildirimi, Favoriler ve Gizlilik Sertleştirmesi",
+      "goal": "Anonim cihaz kimliğiyle çalışan arıza bildirimi, favoriler, veri silme hakkı ve tam güvenlik kapıları geçmiş üretim sürümü.",
+      "planned_days": 9,
+      "tasks": [
+        {
+          "id": "S5-T1",
+          "title": "Cihaz kimliği, favoriler ve silme hakkı",
+          "description": "devices/register attestation, kısa ömürlü JWT ve rotasyonlu refresh, GET/PUT /favorites, DELETE /device, GET /device/export.",
+          "role": "backend_engineer",
+          "phase": "develop",
+          "outputs": [
+            "workspace/src/backend/"
+          ],
+          "depends_on": [
+            "S4-T1"
+          ],
+          "status": "TODO",
+          "attempts": 0,
+          "note": ""
+        },
+        {
+          "id": "S5-T2",
+          "title": "Arıza bildirimi ve etiketleme motoru",
+          "description": "nonce + proximity_proof doğrulaması, cihaz güven ağırlıklı skor, 3 farklı cihaz eşiği, 6 saatlik TTL etiket, moderasyon kuyruğu.",
+          "role": "backend_engineer",
+          "phase": "develop",
+          "outputs": [
+            "workspace/src/backend/"
+          ],
+          "depends_on": [
+            "S5-T1"
+          ],
+          "status": "TODO",
+          "attempts": 0,
+          "note": ""
+        },
+        {
+          "id": "S5-T3",
+          "title": "Bildirim, favori ve arıza rozeti arayüzleri",
+          "description": "Mobil ve web: arıza bildirim akışı, favori listesi, uygulama içi bildirim listesi, haritada Arızalı/Riskli rozeti ve tazelik etiketi.",
+          "role": "frontend_engineer",
+          "phase": "develop",
+          "outputs": [
+            "workspace/src/frontend/"
+          ],
+          "depends_on": [
+            "S5-T2"
+          ],
+          "status": "TODO",
+          "attempts": 0,
+          "note": ""
+        },
+        {
+          "id": "S5-T4",
+          "title": "Gizlilik, güvenlik ve kabul kriteri kapanış testi",
+          "description": "AC-21..AC-30 ve AC-43/44: koordinat sütunu yok şema testi, log redaksiyonu, rate-limit 429, SSRF ve EXIF strip, yasaklı sözlük taraması.",
+          "role": "qa_lead",
+          "phase": "test",
+          "outputs": [
+            "workspace/docs/test_raporu.md"
+          ],
+          "depends_on": [
+            "S5-T2",
+            "S5-T3"
+          ],
+          "status": "TODO",
+          "attempts": 0,
+          "note": ""
+        },
+        {
+          "id": "S5-T5",
+          "title": "Faz 1 üretim sürümü ve gözlemlenebilirlik",
+          "description": "gitleaks, pnpm audit, trivy ve SBOM kapıları; yedek ve geri yükleme tatbikatı, alarm eşikleri, Faz 1 üretim sürüm dağıtımı.",
+          "role": "devops_engineer",
+          "phase": "deploy",
+          "outputs": [
+            "workspace/docs/altyapi_dogrulama.md"
+          ],
+          "depends_on": [
+            "S5-T4"
+          ],
+          "status": "TODO",
+          "attempts": 0,
+          "note": ""
+        }
+      ],
+      "order": 4,
+      "status": "TODO",
+      "actual_start": null,
+      "actual_end": null,
+      "planned_start": "2026-10-12",
+      "planned_end": "2026-10-20"
+    }
+  ],
+  "created_at": "2026-09-06T14:20:52",
+  "baseline_end": "2026-10-20",
+  "updated_at": "2026-09-06T14:57:32",
+  "_runtime": {
+    "done_outputs": []
+  }
+}

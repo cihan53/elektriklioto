@@ -1,0 +1,18 @@
+{
+  "completed_outputs": [
+    "proje_kapsami.md",
+    "workspace/docs/teknik_mimari_dokumani.md",
+    "workspace/docs/teknoloji_stack_karari.md",
+    "workspace/docs/backlog.md",
+    "workspace/docs/kabul_kriterleri.md",
+    "workspace/docs/paket_secim_raporu.md",
+    "workspace/docs/guvenlik_tasarimi.md",
+    "workspace/docs/tehdit_modeli.md"
+  ],
+  "completed_steps": [
+    "cto",
+    "product_owner",
+    "tech_scout",
+    "security_lead"
+  ]
+}

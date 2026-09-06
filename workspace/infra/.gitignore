@@ -1,0 +1,14 @@
+
+node_modules/
+dist/
+.pnpm-store/
+*.log
+.env
+.env.*.local
+.DS_Store
+coverage/
+.turbo/
+mobile/.dart_tool/
+mobile/build/
+mobile/.flutter-plugins
+mobile/.flutter-plugins-dependencies

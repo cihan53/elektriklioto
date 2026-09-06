@@ -1,0 +1,10 @@
+
+{
+  "name": "@elektriklioto/contracts",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "generate": "pnpm --filter @elektriklioto/api generate:openapi"
+  }
+}

@@ -1,0 +1,25 @@
+
+{
+  "name": "elektriklioto",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "pnpm@10.20.0",
+  "engines": {
+    "node": ">=20.0.0 <23.0.0",
+    "pnpm": ">=9.0.0"
+  },
+  "scripts": {
+    "build": "pnpm -r run build",
+    "typecheck": "pnpm -r run typecheck",
+    "dev:api": "dotenv -e .env -- pnpm --filter @elektriklioto/api run dev",
+    "dev:worker": "dotenv -e .env -- pnpm --filter @elektriklioto/worker run dev",
+    "db:migrate": "dotenv -e .env -- pnpm --filter @elektriklioto/db run migrate:up",
+    "db:migrate:down": "dotenv -e .env -- pnpm --filter @elektriklioto/db run migrate:down",
+    "db:migrate:create": "pnpm --filter @elektriklioto/db run migrate:create",
+    "db:verify:privacy": "dotenv -e .env -- pnpm --filter @elektriklioto/db run verify:privacy"
+  },
+  "devDependencies": {
+    "typescript": "5.6.3",
+    "dotenv-cli": "7.4.4"
+  }
+}
