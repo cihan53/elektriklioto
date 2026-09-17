@@ -1,5 +1,5 @@
 # ==============================================================================
-# elektriklioto.com - cPanel Apache .htaccess (Frontend Static + Backend Proxy)
+# elektriklioto.com - cPanel Apache .htaccess
 # ==============================================================================
 
 AddDefaultCharset UTF-8
@@ -26,24 +26,12 @@ AddDefaultCharset UTF-8
     RewriteCond %{REQUEST_FILENAME} -d
     RewriteRule ^ - [L]
 
-    # 4. Prerendered HTML Sayfası Varsa Sun (örn: /istanbul/kadikoy/sarj-istasyonlari -> .html)
-    RewriteCond %{REQUEST_FILENAME}.html -f
-    RewriteRule ^(.*)$ $1.html [L]
-
-    # 5. SPA / Nuxt Fallback (Statik dosya bulunamazsa index.html'e yönlendir)
-    RewriteRule ^ index.html [L]
+    # 4. SPA Fallback (index.html harici bulunamayan istekleri index.html'e yönlendir)
+    RewriteCond %{REQUEST_URI} !^/index\.html$
+    RewriteRule ^(.*)$ /index.html [L]
 </IfModule>
 
-# 6. Reverse Proxy Başlıkları
-<IfModule mod_proxy.c>
-    ProxyRequests Off
-    ProxyPreserveHost On
-    <Proxy *>
-        Require all granted
-    </Proxy>
-</IfModule>
-
-# 7. Statik Varlıklar İçin Tarayıcı Önbellekleme (Cache-Control)
+# 5. Statik Varlıklar İçin Tarayıcı Önbellekleme (Cache-Control)
 <IfModule mod_expires.c>
     ExpiresActive On
     ExpiresByType image/jpg "access plus 1 year"
@@ -57,12 +45,12 @@ AddDefaultCharset UTF-8
     ExpiresByType font/woff2 "access plus 1 year"
 </IfModule>
 
-# 8. Gzip / Deflate Sıkıştırma
+# 6. Gzip / Deflate Sıkıştırma
 <IfModule mod_deflate.c>
     AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
 </IfModule>
 
-# 9. Temel Güvenlik Başlıkları
+# 7. Temel Güvenlik Başlıkları
 <IfModule mod_headers.c>
     Header always set X-Content-Type-Options "nosniff"
     Header always set X-XSS-Protection "1; mode=block"
