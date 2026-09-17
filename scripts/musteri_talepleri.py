@@ -205,6 +205,21 @@ def yeni_talep(tur: str, baslik: str, aciklama: str, oncelik: str = "NORMAL", sa
     mevcut.append(yeni)
     data["talepler"] = mevcut
     save_data(data)
+
+    # Otomatik Planlama, GitHub Yorumu ve Sprint Panosuna (pano.json) Aktarım
+    try:
+        sys.path.insert(0, str(ROOT))
+        sys.path.insert(0, str(ROOT / "scripts"))
+        import studio_yetkilisi as SY
+        import studio_board as B
+        print(f"  ⚡ Studio Yetkilisi otomatik çözüm planı hazırlıyor ({talep_id})...")
+        SY.cozum_plani_olustur(talep_id)
+        SY.otomatik_musteri_talepleri_senkronize_et()
+        B.ledger_approve(gorev=2)
+        print(f"  ✓ {talep_id} otomatik planlandı ve Sprint Panosuna (pano.json) eklendi!")
+    except Exception as e:
+        print(f"  [UYARI] Otomatik planlama tetiklenirken hata: {e}")
+
     return yeni
 
 
@@ -229,10 +244,34 @@ def guncelle(talep_id: str, durum: str = None, gorevli_rol: str = None,
                     "durum": durum.upper()
                 })
                 # Eğer talep çözüldüyse GitHub Issue'yu otomatik kapat
-                if durum.upper() == "COZULDU" and t.get("github_issue_number") and GH:
-                    kapanis_aciklama = studio_notu or f"Talep {datetime.now().strftime('%Y-%m-%d %H:%M')} itibarıyla stüdyo ekibi tarafından başarıyla çözüldü."
-                    GH.github_issue_kapat(t["github_issue_number"], kapanis_notu=kapanis_aciklama)
-                    print(f"  ✓ GitHub Issue #{t['github_issue_number']} başarıyla kapatıldı.")
+                if durum.upper() == "COZULDU":
+                    if t.get("github_issue_number") and GH:
+                        kapanis_aciklama = studio_notu or f"Talep {datetime.now().strftime('%Y-%m-%d %H:%M')} itibarıyla stüdyo ekibi tarafından başarıyla çözüldü."
+                        GH.github_issue_kapat(t["github_issue_number"], kapanis_notu=kapanis_aciklama)
+                        print(f"  ✓ GitHub Issue #{t['github_issue_number']} başarıyla kapatıldı.")
+
+                    # Opsiyonel Otomatik Commit & Push (Varsayılan: Aktif)
+                    auto_deploy = os.getenv("STUDIO_AUTO_DEPLOY", "1").strip().lower() in ("1", "true", "yes", "on")
+                    if auto_deploy:
+                        try:
+                            print(f"  🚀 [OTOMATİK YAYINLAMA] {talep_id} çözüldü, commit ve push başlatılıyor...")
+                            issue_ref = f" (closes #{t['github_issue_number']})" if t.get('github_issue_number') else ""
+                            commit_msg = f"fix({talep_id.lower()}): {t.get('baslik', 'Hata giderildi')}{issue_ref}"
+                            
+                            subprocess.run(["git", "add", "-A"], cwd=ROOT, check=True)
+                            status_res = subprocess.run(["git", "status", "--porcelain"], cwd=ROOT, capture_output=True, text=True)
+                            if status_res.stdout.strip():
+                                subprocess.run(["git", "commit", "-m", commit_msg], cwd=ROOT, check=True)
+                                print(f"  ✓ Değişiklikler commit edildi: '{commit_msg}'")
+                                push_res = subprocess.run(["git", "push", "origin", "master"], cwd=ROOT, capture_output=True, text=True)
+                                if push_res.returncode == 0:
+                                    print("  ✓ origin/master dalına başarıyla pushlandı. GitHub Actions CI/CD otomatik dağıtımı başlattı!")
+                                else:
+                                    print(f"  ⚠️ Push uyarısı: {push_res.stderr.strip()[:200]}")
+                            else:
+                                print("  ℹ️ Commit edilecek dosya değişikliği bulunamadı.")
+                        except Exception as e:
+                            print(f"  ⚠️ Otomatik commit/push sırasında hata: {e}")
 
             if gorevli_rol:
                 t["gorevli_rol"] = gorevli_rol
