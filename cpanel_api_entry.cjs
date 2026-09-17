@@ -53,21 +53,30 @@ process.env.NODE_PATH = [backendNodeModules, rootNodeModules].join(path.delimite
 
 console.log(`[cPanel API] Fastify API Başlatılıyor... PORT: ${process.env.PORT}, NODE_ENV: ${process.env.NODE_ENV}`);
 
-// Fastify Backend dist/server.js çıktısını yükle
+// Fastify Backend çıktısını yükle (Öncelikli olarak tek dosyalık CJS bundle, yoksa ESM dist)
+const bundlePath = path.resolve(__dirname, 'workspace/src/backend/dist/server.bundle.cjs');
 const apiServerPath = path.resolve(__dirname, 'workspace/src/backend/dist/server.js');
 
-if (!fs.existsSync(apiServerPath)) {
-  console.error(`[cPanel API Hata] Backend derleme çıktısı bulunamadı: ${apiServerPath}`);
+if (fs.existsSync(bundlePath)) {
+  try {
+    require(bundlePath);
+    console.log('[cPanel API] Fastify API CJS bundle (tek dosya) başarıyla yüklendi.');
+  } catch (err) {
+    console.error('[cPanel API Hata] Fastify bundle başlatılamadı:', err);
+    process.exit(1);
+  }
+} else if (fs.existsSync(apiServerPath)) {
+  import(pathToFileURL(apiServerPath).href)
+    .then(() => {
+      console.log('[cPanel API] Fastify API sunucusu başarıyla yüklendi.');
+    })
+    .catch((err) => {
+      console.error('[cPanel API Hata] Fastify sunucusu başlatılamadı:', err);
+      process.exit(1);
+    });
+} else {
+  console.error(`[cPanel API Hata] Backend derleme çıktısı bulunamadı: ${bundlePath} veya ${apiServerPath}`);
   console.error(`Lütfen önce "npm --prefix workspace/src/backend run build" komutunu çalıştırınız.`);
   process.exit(1);
 }
-
-import(pathToFileURL(apiServerPath).href)
-  .then(() => {
-    console.log('[cPanel API] Fastify API sunucusu başarıyla yüklendi.');
-  })
-  .catch((err) => {
-    console.error('[cPanel API Hata] Fastify sunucusu başlatılamadı:', err);
-    process.exit(1);
-  });
 

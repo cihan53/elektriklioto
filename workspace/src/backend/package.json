@@ -7,7 +7,7 @@
   "type": "module",
   "main": "dist/server.js",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && esbuild src/server.ts --bundle --platform=node --target=node20 --format=cjs --outfile=dist/server.bundle.cjs --external:@fastify/swagger-ui",
     "start": "node dist/server.js",
     "dev": "tsx watch src/server.ts",
     "worker": "node dist/worker.js",
@@ -31,6 +31,7 @@
   "devDependencies": {
     "@types/node": "^22.10.2",
     "drizzle-kit": "^0.30.5",
+    "esbuild": "^0.24.2",
     "tsx": "^4.19.2",
     "typescript": "^5.7.2",
     "vitest": "^3.0.7"

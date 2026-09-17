@@ -4,7 +4,15 @@ import type { PostgresJsDatabase } from 'drizzle-orm/postgres-js';
 import { config } from '../config/env.js';
 import * as schema from './schema/index.js';
 
-const req = createRequire(import.meta.url);
+const getRequire = () => {
+  if (typeof require !== 'undefined') return require;
+  try {
+    return createRequire(import.meta.url);
+  } catch {
+    return () => null;
+  }
+};
+const req = getRequire();
 let client: any = null;
 let dbInstance: PostgresJsDatabase<typeof schema> | null = null;
 
