@@ -45,11 +45,59 @@ jobs:
 
   # 2. cPanel Sunucusuna Otomatik Dağıtım (Deploy)
   deploy:
-    name: Deploy to cPanel via SSH
+    name: Build & Deploy to cPanel
     needs: version_and_release
     runs-on: ubuntu-latest
     steps:
-      - name: Execute Remote SSH Commands
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Build Backend (Fastify API)
+        run: |
+          echo "==> Backend bağımlılıkları kuruluyor ve derleniyor..."
+          cd workspace/src/backend
+          npm ci
+          npm run build
+          npm prune --omit=dev
+
+      - name: Build Frontend (Nuxt 3 SSR)
+        run: |
+          echo "==> Frontend bağımlılıkları kuruluyor ve derleniyor..."
+          cd workspace/src/frontend
+          npm ci
+          npm run build
+
+      - name: Package Deployment Archive
+        run: |
+          echo "==> Dağıtım arşivi paketleniyor..."
+          tar -czf deploy_package.tar.gz \
+            cpanel_api_entry.cjs \
+            cpanel_nuxt_entry.cjs \
+            .htaccess \
+            .env.cpanel.example \
+            scripts/ \
+            workspace/src/backend/dist \
+            workspace/src/backend/node_modules \
+            workspace/src/backend/package.json \
+            workspace/src/frontend/.output
+
+      - name: Transfer Archive to cPanel via SCP
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.CPANEL_SSH_HOST }}
+          username: ${{ secrets.CPANEL_SSH_USER }}
+          key: ${{ secrets.CPANEL_SSH_PRIVATE_KEY }}
+          passphrase: ${{ secrets.CPANEL_SSH_PASSPHRASE }}
+          port: ${{ secrets.CPANEL_SSH_PORT || 22 }}
+          source: "deploy_package.tar.gz"
+          target: "${{ secrets.CPANEL_APP_DIR || 'app' }}"
+
+      - name: Extract Archive & Restart Passenger on cPanel
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.CPANEL_SSH_HOST }}
@@ -59,30 +107,21 @@ jobs:
           port: ${{ secrets.CPANEL_SSH_PORT || 22 }}
           script_stop: true
           script: |
-            echo "==> SSH Bağlantısı Başarılı: $(whoami) @ $(hostname 2>/dev/null || echo 'cpanel')"
-            echo "==> Mevcut dizin: $(pwd), Ev dizini: $HOME"
-
             APP_DIR="${{ secrets.CPANEL_APP_DIR }}"
             if [ -z "$APP_DIR" ]; then
               APP_DIR="$HOME/app"
             fi
             APP_DIR="${APP_DIR/#\~/$HOME}"
-            echo "==> Proje hedef dizini: $APP_DIR"
-
-            if ! mkdir -p "$APP_DIR" 2>/dev/null; then
-              echo "UYARI: Hedef dizin oluşturulamadı, varsayılan $HOME/app dizini kullanılıyor..."
-              APP_DIR="$HOME/app"
-              mkdir -p "$APP_DIR"
-            fi
+            echo "==> Proje dizinine ($APP_DIR) gidiliyor..."
             cd "$APP_DIR"
-            echo "==> Aktif çalışma dizini: $(pwd)"
 
-            echo "==> Git deposu eşitleniyor..."
-            git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
-            git fetch origin ${{ github.ref_name }}
-            git reset --hard origin/${{ github.ref_name }}
+            echo "==> Paket arşivden çıkarılıyor..."
+            tar -xzf deploy_package.tar.gz
+            rm -f deploy_package.tar.gz
 
-            echo "==> Dağıtım betiği (.github/scripts/deploy.sh) çalıştırılıyor..."
-            bash .github/scripts/deploy.sh
+            mkdir -p tmp logs
+            chmod +x scripts/cron_daily_sync.sh 2>/dev/null || true
+            chmod +x scripts/import_cpo_stations.py 2>/dev/null || true
 
-            echo "==> Dağıtım başarıyla tamamlandı: ${{ needs.version_and_release.outputs.new_tag || 'v1.0.0' }}"
+            touch tmp/restart.txt
+            echo "==> Dağıtım ve Passenger restart başarıyla tamamlandı: ${{ needs.version_and_release.outputs.new_tag || 'v1.0.0' }}"
