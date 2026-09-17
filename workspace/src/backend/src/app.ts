@@ -133,6 +133,18 @@ export async function buildApp(): Promise<FastifyInstance> {
     timestamp: new Date().toISOString(),
   }));
 
+  app.get('/api/v1/health', async () => ({
+    status: 'OK',
+    uptime: process.uptime(),
+    timestamp: new Date().toISOString(),
+  }));
+
+  app.get('/api/health', async () => ({
+    status: 'OK',
+    uptime: process.uptime(),
+    timestamp: new Date().toISOString(),
+  }));
+
   // Modül Rotaları
   await app.register(routeBridgeRoutes);
   await app.register(stationRoutes, { prefix: '/api/v1/stations' });

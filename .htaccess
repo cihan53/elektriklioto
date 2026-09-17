@@ -4,6 +4,9 @@
 
 AddDefaultCharset UTF-8
 
+# Varsayılan açılış sayfası olarak index.html'i önceliklendir (WordPress index.php kalıntılarını ezer)
+DirectoryIndex index.html index.php
+
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteBase /

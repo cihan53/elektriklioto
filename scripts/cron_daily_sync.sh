@@ -71,7 +71,10 @@ fi
 # 4. API Servisini Yeniden Başlat (Bellek-içi önbelleği tazelemesi için)
 mkdir -p "$ROOT_DIR/tmp"
 touch "$ROOT_DIR/tmp/restart.txt"
-log "cPanel Passenger yeniden başlatma sinyali gönderildi (tmp/restart.txt)."
+if [ -f "$ROOT_DIR/scripts/start_backend.sh" ]; then
+    bash "$ROOT_DIR/scripts/start_backend.sh" >> "$LOG_FILE" 2>&1 || true
+fi
+log "cPanel Passenger ve Backend API tazelendi (start_backend.sh / tmp/restart.txt)."
 
 # 5. Log Dosyası Boyut Sınırlandırması (10.000 satırı aşarsa son 5.000 satırı tut)
 if [ -f "$LOG_FILE" ]; then
