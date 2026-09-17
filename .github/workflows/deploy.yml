@@ -64,6 +64,10 @@ jobs:
           npm install
           npm run build
           npm prune --omit=dev
+          # postgres paketi için kök index.js uyumluluk yaması (Node legacyMainResolve garantisi)
+          if [ -d "node_modules/postgres" ] && [ ! -f "node_modules/postgres/index.js" ]; then
+            echo "export * from './src/index.js'; import postgres from './src/index.js'; export default postgres;" > node_modules/postgres/index.js
+          fi
 
       - name: Build Frontend (Nuxt 3 SSG & Static)
         run: |

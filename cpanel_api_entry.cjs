@@ -24,6 +24,17 @@ if (!fs.existsSync(rootPackageJson) && fs.existsSync(backendPackageJson)) {
   } catch (e) {}
 }
 
+// postgres paketi index.js uyumluluk yaması (Node legacyMainResolve hatasını engeller)
+const postgresDir = path.resolve(__dirname, 'workspace/src/backend/node_modules/postgres');
+if (fs.existsSync(postgresDir)) {
+  const pgIndex = path.resolve(postgresDir, 'index.js');
+  if (!fs.existsSync(pgIndex)) {
+    try {
+      fs.writeFileSync(pgIndex, "export * from './src/index.js';\nimport postgres from './src/index.js';\nexport default postgres;\n");
+    } catch (e) {}
+  }
+}
+
 // .env dosyasını yükle (varsa)
 const envPath = path.resolve(__dirname, '.env');
 if (fs.existsSync(envPath)) {
