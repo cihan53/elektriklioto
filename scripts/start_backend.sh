@@ -23,28 +23,45 @@ log "========================================================"
 log "Backend API Başlatma Süreci Başlatıldı..."
 log "Proje Dizini: $ROOT_DIR"
 
-# 1. Node.js Binary Tespiti
+# 1. Node.js Binary Tespiti (Node.js >= 18 gereklidir)
 NODE_BIN=""
 CANDIDATES=(
+    "$HOME/bin/node"
     "$HOME/nodevenv/app/20/bin/node"
     "$HOME/nodevenv/app/18/bin/node"
+    "/opt/cpanel/ea-nodejs20/bin/node"
+    "/opt/cpanel/ea-nodejs18/bin/node"
     "/opt/alt/alt-nodejs20/root/usr/bin/node"
     "/opt/alt/alt-nodejs18/root/usr/bin/node"
     "/usr/local/bin/node"
-    "/usr/bin/node"
     "$(which node 2>/dev/null || true)"
 )
 
+# nodevenv altındaki diğer olası yolları da tara
+for nv in $(ls -d $HOME/nodevenv/*/20/bin/node $HOME/nodevenv/*/18/bin/node 2>/dev/null || true); do
+    CANDIDATES+=("$nv")
+done
+
 for cand in "${CANDIDATES[@]}"; do
     if [ -n "$cand" ] && [ -x "$cand" ]; then
-        NODE_BIN="$cand"
-        break
+        VER_STR=$("$cand" -v 2>/dev/null || true)
+        MAJOR=$(echo "$VER_STR" | sed 's/v//' | cut -d. -f1)
+        if [ -n "$MAJOR" ] && [ "$MAJOR" -ge 18 ] 2>/dev/null; then
+            NODE_BIN="$cand"
+            break
+        fi
     fi
 done
 
+# Eğer sistemde Node >= 18 bulunamazsa, kullanıcı dizinine ($HOME/bin) taşınabilir Node 20 LTS indir
 if [ -z "$NODE_BIN" ]; then
-    log "HATA: Sistemde çalıştırılabilir Node.js bulunamadı!"
-    exit 1
+    log "UYARI: Sistemde Node.js >= 18 bulunamadı. $HOME/bin dizinine Node 20 LTS indiriliyor..."
+    mkdir -p "$HOME/bin" "$HOME/tmp_node_install"
+    curl -sSL https://nodejs.org/dist/v20.18.0/node-v20.18.0-linux-x64.tar.gz | tar -xz -C "$HOME/tmp_node_install" --strip-components=1
+    mv "$HOME/tmp_node_install/bin/node" "$HOME/bin/node"
+    rm -rf "$HOME/tmp_node_install"
+    chmod +x "$HOME/bin/node"
+    NODE_BIN="$HOME/bin/node"
 fi
 
 log "Kullanılan Node: $NODE_BIN ($($NODE_BIN -v 2>&1))"
@@ -99,7 +116,8 @@ done
 if [ "$IS_READY" = true ]; then
     log "BAŞARILI: Backend API yanıt veriyor ve sağlıklı! (HTTP 200)"
 else
-    log "BİLGİ: Arka plan servisi başlatıldı (PID: $NEW_PID). İlk sağlık kontrolü yanıtı bekleniyor..."
+    log "UYARI: Backend API sağlık kontrolüne yanıt vermedi (12 sn). Son loglar:"
+    tail -n 30 "$LOG_FILE" 2>/dev/null || true
 fi
 
 log "Backend başlatma süreci tamamlandı."
