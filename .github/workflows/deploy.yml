@@ -65,13 +65,13 @@ jobs:
           npm run build
           npm prune --omit=dev
 
-      - name: Build Frontend (Nuxt 3 SSR)
+      - name: Build Frontend (Nuxt 3 SSG & Static)
         run: |
-          echo "==> Frontend bağımlılıkları kuruluyor ve derleniyor..."
+          echo "==> Frontend bağımlılıkları kuruluyor ve prerender ediliyor..."
           cd workspace/src/frontend
           rm -f package-lock.json
           npm install
-          npm run build
+          npm run generate
 
       - name: Package Deployment Archive
         run: |
@@ -98,7 +98,7 @@ jobs:
           source: "deploy_package.tar.gz"
           target: "${{ secrets.CPANEL_APP_DIR || 'app' }}"
 
-      - name: Extract Archive & Restart Passenger on cPanel
+      - name: Extract Archive, Deploy to public_html & Restart on cPanel
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.CPANEL_SSH_HOST }}
@@ -119,6 +119,12 @@ jobs:
             echo "==> Paket arşivden çıkarılıyor..."
             tar -xzf deploy_package.tar.gz
             rm -f deploy_package.tar.gz
+
+            echo "==> Frontend çıktıları public_html dizinine aktarılıyor..."
+            mkdir -p "$HOME/public_html"
+            cp -rf workspace/src/frontend/.output/public/* "$HOME/public_html/"
+            cp -f .htaccess "$HOME/public_html/.htaccess"
+            echo "==> public_html güncellendi ve .htaccess uygulandı."
 
             mkdir -p tmp logs
             chmod +x scripts/cron_daily_sync.sh 2>/dev/null || true
