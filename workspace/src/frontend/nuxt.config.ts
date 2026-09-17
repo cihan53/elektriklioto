@@ -48,6 +48,15 @@ export default defineNuxtConfig({
         {
           innerHTML: `(function(){try{var m=localStorage.getItem("theme");var d=window.matchMedia("(prefers-color-scheme: dark)").matches;if(m==="dark"||(!m&&d)){document.documentElement.classList.add("dark");}else{document.documentElement.classList.remove("dark");}}catch(e){}})();`,
           type: 'text/javascript'
+        },
+        // Google Analytics (TALEP-002)
+        {
+          src: 'https://www.googletagmanager.com/gtag/js?id=G-BKMTW8EH4K',
+          async: true
+        },
+        {
+          innerHTML: `window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-BKMTW8EH4K');`,
+          type: 'text/javascript'
         }
       ]
     }

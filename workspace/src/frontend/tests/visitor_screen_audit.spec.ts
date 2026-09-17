@@ -243,6 +243,27 @@ describe('Ziyaretçi Ekran ve Gezinim Denetimi (Visitor Screen Audit Suite)', ()
     expect(wrapper.emitted('openReport')?.[0]).toEqual([sampleStation]);
   });
 
+  // TALEP-003: Voltrun istasyonlarında soket tipi AC Tip 2 olarak gösterilmelidir (CCS yerine)
+  it('TALEP-003: Voltrun istasyonunda soket tipi CCS yerine AC Tip 2 olarak görüntülenmelidir', () => {
+    const voltrunStation: StationItem = {
+      ...sampleStation,
+      connector_types: ['CCS2'],
+      power_kw: 120.0,
+      current_tariff: '11.58 TL/kWh'
+    };
+
+    const wrapper = mount(StationDetailPanel, {
+      props: {
+        station: voltrunStation,
+        isOpen: true
+      }
+    });
+
+    expect(wrapper.text()).toContain('AC Tip 2');
+    expect(wrapper.text()).not.toContain('CCS2');
+    expect(wrapper.text()).toContain('120 kW');
+  });
+
   // =========================================================================
   // 6. QR ROTA VE İSTASYON KÖPRÜSÜ MODALI
   // =========================================================================

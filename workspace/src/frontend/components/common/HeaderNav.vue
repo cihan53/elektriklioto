@@ -4,6 +4,7 @@ import { useTheme } from '~/composables/useTheme';
 import { useSourceHealth } from '~/composables/useSourceHealth';
 import { Zap, Sun, Moon, Monitor, Map, Activity } from 'lucide-vue-next';
 import SourceHealthModal from '~/components/modals/SourceHealthModal.vue';
+import GoogleAnalytics from '~/components/common/GoogleAnalytics.vue';
 
 const { currentTheme, applyTheme } = useTheme();
 const { isModalOpen, hasOutage, openModal, closeModal } = useSourceHealth();
@@ -19,6 +20,9 @@ const toggleTheme = () => {
   <header
     class="h-16 w-full bg-bg-surface border-b border-border-default px-4 lg:px-6 flex items-center justify-between z-30 sticky top-0"
   >
+    <!-- Google Analytics İzleme Bileşeni (TALEP-002: G-BKMTW8EH4K) -->
+    <GoogleAnalytics />
+
     <!-- Marka & Logo -->
     <div class="flex items-center gap-6">
       <NuxtLink

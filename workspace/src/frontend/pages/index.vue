@@ -105,6 +105,35 @@ watch(() => route.query, (q) => {
     activeRoutePayload.value = String(q.route);
   }
 });
+
+// SEO ve Schema.org WebSite JSON-LD
+useHead({
+  title: 'elektriklioto.com — Elektrikli Araç Şarj İstasyonları Haritası ve Rehberi',
+  meta: [
+    {
+      name: 'description',
+      content: 'Türkiye genelindeki tüm şarj ağlarını (ZES, Trugo, Eşarj ve 170+ operatör) tek haritada görün. Güncel konumlar ve EPDK sicil bilgileri.'
+    },
+    { property: 'og:title', content: 'elektriklioto.com — Elektrikli Araç Şarj İstasyonları Haritası' },
+    {
+      property: 'og:description',
+      content: '16.788 şarj istasyonu ve 179 lisanslı operatör tek haritada. Bağımsız e-Mobilite Asistanı.'
+    },
+    { property: 'og:type', content: 'website' }
+  ],
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        name: 'elektriklioto.com',
+        url: 'https://elektriklioto.com',
+        description: 'Türkiye genelindeki tüm elektrikli araç şarj ağları tek haritada.'
+      })
+    }
+  ]
+});
 </script>
 
 <template>
@@ -141,6 +170,7 @@ watch(() => route.query, (q) => {
           type="button"
           @click="activeRoutePayload = null"
           class="text-text-muted hover:text-text-primary p-1 touch-target-min"
+          aria-label="Rota bandını kapat"
         >
           ✕
         </button>
