@@ -122,13 +122,24 @@ jobs:
 
             echo "==> Frontend çıktıları public_html dizinine aktarılıyor..."
             mkdir -p "$HOME/public_html"
+
+            # Eski WordPress index.php kalıntısı varsa yedekle ve kaldır
+            if [ -f "$HOME/public_html/index.php" ]; then
+              echo "==> Eski WordPress index.php public_html_wp_backup dizinine taşınıyor..."
+              mkdir -p "$HOME/public_html_wp_backup"
+              mv "$HOME/public_html/index.php" "$HOME/public_html_wp_backup/index.php.$(date +%s)" 2>/dev/null || true
+            fi
+
             cp -rf workspace/src/frontend/.output/public/* "$HOME/public_html/"
             cp -f .htaccess "$HOME/public_html/.htaccess"
             echo "==> public_html güncellendi ve .htaccess uygulandı."
 
             mkdir -p tmp logs
-            chmod +x scripts/cron_daily_sync.sh 2>/dev/null || true
-            chmod +x scripts/import_cpo_stations.py 2>/dev/null || true
+            chmod +x scripts/*.sh 2>/dev/null || true
+            chmod +x scripts/*.py 2>/dev/null || true
+
+            echo "==> Backend Fastify API servisi başlatılıyor..."
+            bash scripts/start_backend.sh || echo "UYARI: start_backend.sh arka plan başlatma uyarısı verdi."
 
             touch tmp/restart.txt
-            echo "==> Dağıtım ve Passenger restart başarıyla tamamlandı: ${{ needs.version_and_release.outputs.new_tag || 'v1.0.0' }}"
+            echo "==> Dağıtım ve servis başlatma başarıyla tamamlandı: ${{ needs.version_and_release.outputs.new_tag || 'v1.0.0' }}"
