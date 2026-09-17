@@ -59,12 +59,16 @@ jobs:
           port: ${{ secrets.CPANEL_SSH_PORT || 22 }}
           script_stop: true
           script: |
+            echo "==> SSH Bağlantısı Başarılı: $(whoami) @ $(hostname 2>/dev/null || echo 'cpanel')"
+            echo "==> Mevcut dizin: $(pwd), Ev dizini: $HOME"
+
             APP_DIR="${{ secrets.CPANEL_APP_DIR }}"
             if [ -z "$APP_DIR" ]; then
-              APP_DIR="/home/elektriklioto/app"
+              APP_DIR="$HOME/app"
             fi
+            APP_DIR="${APP_DIR/#\~/$HOME}"
+            echo "==> Proje hedef dizini: $APP_DIR"
 
-            echo "==> Proje dizinine ($APP_DIR) gidiliyor..."
             mkdir -p "$APP_DIR"
             cd "$APP_DIR"
 
