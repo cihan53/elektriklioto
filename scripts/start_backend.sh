@@ -93,6 +93,13 @@ fi
 cd "$ROOT_DIR"
 ln -sfn "$ROOT_DIR/workspace/src/backend/node_modules" "$ROOT_DIR/node_modules"
 ln -sfn "$ROOT_DIR/workspace/src/backend/package.json" "$ROOT_DIR/package.json"
+
+# postgres index.js uyumluluk yaması
+PG_DIR="$ROOT_DIR/workspace/src/backend/node_modules/postgres"
+if [ -d "$PG_DIR" ] && [ ! -f "$PG_DIR/index.js" ]; then
+    echo "export * from './src/index.js'; import postgres from './src/index.js'; export default postgres;" > "$PG_DIR/index.js"
+fi
+
 export NODE_PATH="$ROOT_DIR/workspace/src/backend/node_modules:$ROOT_DIR/node_modules"
 export PORT=4000
 export HOST=127.0.0.1
