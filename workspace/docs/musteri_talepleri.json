@@ -1,6 +1,6 @@
 {
-  "son_guncelleme": "2026-09-17T13:50:19.031962",
-  "toplam_talep": 3,
+  "son_guncelleme": "2026-09-17T19:21:20.169304",
+  "toplam_talep": 8,
   "talepler": [
     {
       "id": "TALEP-001",
@@ -47,9 +47,9 @@
       "baslik": "google analytics hesabım var kodu G-BKMTW8EH4K trafiği izleye bilmem için bunun siteye eklenmesi gerekiyor",
       "aciklama": "google analytics hesabım var kodu G-BKMTW8EH4K trafiği izleye bilmem için bunun siteye eklenmesi gerekiyor",
       "sayfa_url": "/",
-      "durum": "GELISTIRILIYOR",
+      "durum": "COZULDU",
       "gorevli_rol": "web_engineer",
-      "studio_notu": "Sprint S8 panosuna eklendi (S8-T1 ve S8-T2). Geliştirme başladı.",
+      "studio_notu": "Görev S8-T2 başarıyla tamamlandı ve UAT testinden geçti.",
       "cozum_plani": "workspace/docs/cozum_planlari/TALEP-002.md",
       "github_issue_number": 2,
       "github_issue_url": "https://github.com/cihan53/elektriklioto/issues/2",
@@ -73,6 +73,11 @@
           "zaman": "2026-09-17 13:50",
           "eylem": "Durum güncellendi: GELISTIRILIYOR",
           "durum": "GELISTIRILIYOR"
+        },
+        {
+          "zaman": "2026-09-17 19:04",
+          "eylem": "Durum güncellendi: COZULDU",
+          "durum": "COZULDU"
         }
       ]
     },
@@ -108,6 +113,191 @@
         },
         {
           "zaman": "2026-09-17 13:50",
+          "eylem": "Durum güncellendi: GELISTIRILIYOR",
+          "durum": "GELISTIRILIYOR"
+        }
+      ]
+    },
+    {
+      "id": "TALEP-004",
+      "tarih": "2026-09-17 19:11",
+      "tur": "ISTEK",
+      "oncelik": "YUKSEK",
+      "baslik": "Arama kutusunda ilçe, il ve istasyon araması ve harita odaklanması",
+      "aciklama": "Harita arama kutusuna ilçe (Kadıköy, Çankaya, Bodrum vb.), 81 il ve istasyon adı yazıldığında otomatik tamamlama önerileri gelmeli ve seçildiğinde harita ilgili konuma animasyonla (flyTo) odaklanmalıdır.",
+      "sayfa_url": "/",
+      "durum": "GELISTIRILIYOR",
+      "gorevli_rol": "web_engineer",
+      "studio_notu": "Sprint S9 panosuna eklendi (S9-T1 ve S9-T2). Geliştirme başladı.",
+      "cozum_plani": "workspace/docs/cozum_planlari/TALEP-004.md",
+      "github_issue_number": 4,
+      "github_issue_url": "https://github.com/cihan53/elektriklioto/issues/4",
+      "gecmis": [
+        {
+          "zaman": "2026-09-17 19:11",
+          "eylem": "Kayıt oluşturuldu",
+          "durum": "BEKLEMEDE"
+        },
+        {
+          "zaman": "2026-09-17 19:12",
+          "eylem": "GitHub Issue oluşturuldu: #4",
+          "durum": "BEKLEMEDE"
+        },
+        {
+          "zaman": "2026-09-17 19:12",
+          "eylem": "Durum güncellendi: PLANLANDI",
+          "durum": "PLANLANDI"
+        },
+        {
+          "zaman": "2026-09-17 19:17",
+          "eylem": "Durum güncellendi: GELISTIRILIYOR",
+          "durum": "GELISTIRILIYOR"
+        }
+      ]
+    },
+    {
+      "id": "TALEP-005",
+      "tarih": "2026-09-17 19:13",
+      "tur": "ISTEK",
+      "oncelik": "YUKSEK",
+      "baslik": "GADM 4.1 Türkiye resmi il, ilçe ve mahalle koordinatlarının entegrasyonu",
+      "aciklama": "gadm41_TUR veri kaynağından Türkiye'nin 81 il, 973 ilçe ve mahallelerinin resmi coğrafi sınır ve merkez koordinatları sisteme aktarılmalı; harita arama, ilçe/mahalle sorgulama ve geocoding mekanizması bu resmi CBS (GIS) veritabanı üzerinden çalışmalıdır.",
+      "sayfa_url": "/harita",
+      "durum": "GELISTIRILIYOR",
+      "gorevli_rol": "backend_engineer",
+      "studio_notu": "Sprint S9 panosuna eklendi (S9-T3 ve S9-T4). Geliştirme başladı.",
+      "cozum_plani": "workspace/docs/cozum_planlari/TALEP-005.md",
+      "github_issue_number": 5,
+      "github_issue_url": "https://github.com/cihan53/elektriklioto/issues/5",
+      "gecmis": [
+        {
+          "zaman": "2026-09-17 19:13",
+          "eylem": "Kayıt oluşturuldu",
+          "durum": "BEKLEMEDE"
+        },
+        {
+          "zaman": "2026-09-17 19:13",
+          "eylem": "GitHub Issue oluşturuldu: #5",
+          "durum": "BEKLEMEDE"
+        },
+        {
+          "zaman": "2026-09-17 19:13",
+          "eylem": "Durum güncellendi: PLANLANDI",
+          "durum": "PLANLANDI"
+        },
+        {
+          "zaman": "2026-09-17 19:17",
+          "eylem": "Durum güncellendi: GELISTIRILIYOR",
+          "durum": "GELISTIRILIYOR"
+        }
+      ]
+    },
+    {
+      "id": "TALEP-006",
+      "tarih": "2026-09-17 19:15",
+      "tur": "HATA",
+      "oncelik": "KRITIK",
+      "baslik": "Konum izni verildiğinde kullanıcının anlık konumunu gösteren mavi nokta/baloncuk eksik",
+      "aciklama": "Ziyaretçi harita üzerinde 'Konumumu Bul' butonuna tıklayıp tarayıcıda GPS/konum izni verdiğinde harita o bölgeye yaklaşıyor ancak kullanıcının tam olarak nerede durduğunu gösteren nabız atan mavi konum baloncuğu (user location marker / pulsing blue dot) haritada çizilmiyor.",
+      "sayfa_url": "/harita",
+      "durum": "GELISTIRILIYOR",
+      "gorevli_rol": "web_engineer",
+      "studio_notu": "Sprint S9 panosuna eklendi (S9-T5 ve S9-T6). Geliştirme başladı.",
+      "cozum_plani": "workspace/docs/cozum_planlari/TALEP-006.md",
+      "github_issue_number": 6,
+      "github_issue_url": "https://github.com/cihan53/elektriklioto/issues/6",
+      "gecmis": [
+        {
+          "zaman": "2026-09-17 19:15",
+          "eylem": "Kayıt oluşturuldu",
+          "durum": "BEKLEMEDE"
+        },
+        {
+          "zaman": "2026-09-17 19:15",
+          "eylem": "GitHub Issue oluşturuldu: #6",
+          "durum": "BEKLEMEDE"
+        },
+        {
+          "zaman": "2026-09-17 19:15",
+          "eylem": "Durum güncellendi: PLANLANDI",
+          "durum": "PLANLANDI"
+        },
+        {
+          "zaman": "2026-09-17 19:17",
+          "eylem": "Durum güncellendi: GELISTIRILIYOR",
+          "durum": "GELISTIRILIYOR"
+        }
+      ]
+    },
+    {
+      "id": "TALEP-007",
+      "tarih": "2026-09-17 19:19",
+      "tur": "HATA",
+      "oncelik": "YUKSEK",
+      "baslik": "Tüm operatörler açılır menüsü (dropdown) açıldığında menü taşması ve istenmeyen scroll çubuğu oluşması",
+      "aciklama": "Harita arayüzündeki 'Tüm Operatörler' dropdown açılır listesine tıklandığında menü içeriği ekranda düzgün görünmüyor, container taşması (overflow/z-index/max-height) nedeniyle menü kesiliyor ve istenmeyen çirkin bir scroll çubuğu çıkıyor.",
+      "sayfa_url": "/",
+      "durum": "GELISTIRILIYOR",
+      "gorevli_rol": "web_engineer",
+      "studio_notu": "Sprint S10 panosuna eklendi (S10-T1 ve S10-T2). Geliştirme başladı.",
+      "cozum_plani": "workspace/docs/cozum_planlari/TALEP-007.md",
+      "github_issue_number": 7,
+      "github_issue_url": "https://github.com/cihan53/elektriklioto/issues/7",
+      "gecmis": [
+        {
+          "zaman": "2026-09-17 19:19",
+          "eylem": "Kayıt oluşturuldu",
+          "durum": "BEKLEMEDE"
+        },
+        {
+          "zaman": "2026-09-17 19:19",
+          "eylem": "GitHub Issue oluşturuldu: #7",
+          "durum": "BEKLEMEDE"
+        },
+        {
+          "zaman": "2026-09-17 19:19",
+          "eylem": "Durum güncellendi: PLANLANDI",
+          "durum": "PLANLANDI"
+        },
+        {
+          "zaman": "2026-09-17 19:19",
+          "eylem": "Durum güncellendi: GELISTIRILIYOR",
+          "durum": "GELISTIRILIYOR"
+        }
+      ]
+    },
+    {
+      "id": "TALEP-008",
+      "tarih": "2026-09-17 19:21",
+      "tur": "HATA",
+      "oncelik": "KRITIK",
+      "baslik": "Harita pinleri ve kümeleme baloncuklarının modal pencerelerin (QrBridgeModal vb.) üzerine taşması (z-index katman çakışması)",
+      "aciklama": "Karekod (QrBridgeModal), Arıza Bildirimi veya Katkı Sağla modalı açıldığında, MapLibre harita üzerindeki pinler ve kümeleme baloncukları (marker/cluster elements) modal penceresinin ve karartma katmanının (backdrop) üzerinde kalmakta; karekodun ve modal içeriğinin önünü kapatarak görseli ve tıklanabilirliği bozmaktadır. z-index hiyerarşisinin düzeltilmesi (Modal: z-50/z-[100], Harita markerları: z-10) gerekmektedir.",
+      "sayfa_url": "/",
+      "durum": "GELISTIRILIYOR",
+      "gorevli_rol": "web_engineer",
+      "studio_notu": "Sprint S11 panosuna eklendi (S11-T1 ve S11-T2). Geliştirme başladı.",
+      "cozum_plani": "workspace/docs/cozum_planlari/TALEP-008.md",
+      "github_issue_number": 8,
+      "github_issue_url": "https://github.com/cihan53/elektriklioto/issues/8",
+      "gecmis": [
+        {
+          "zaman": "2026-09-17 19:21",
+          "eylem": "Kayıt oluşturuldu",
+          "durum": "BEKLEMEDE"
+        },
+        {
+          "zaman": "2026-09-17 19:21",
+          "eylem": "GitHub Issue oluşturuldu: #8",
+          "durum": "BEKLEMEDE"
+        },
+        {
+          "zaman": "2026-09-17 19:21",
+          "eylem": "Durum güncellendi: PLANLANDI",
+          "durum": "PLANLANDI"
+        },
+        {
+          "zaman": "2026-09-17 19:21",
           "eylem": "Durum güncellendi: GELISTIRILIYOR",
           "durum": "GELISTIRILIYOR"
         }

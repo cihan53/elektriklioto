@@ -806,10 +806,12 @@
             "S8-T1"
           ],
           "talep_id": "TALEP-002",
-          "status": "RUNNING",
+          "status": "DONE",
           "attempts": 1,
-          "note": "",
-          "started_at": 1789659296.2709792
+          "note": "canlı UAT hata tespit edildi",
+          "started_at": 1789659296.2709792,
+          "finished_at": 1789661091.514132,
+          "duration_s": 1795.2
         },
         {
           "id": "S8-T3",
@@ -843,22 +845,230 @@
             "S8-T3"
           ],
           "talep_id": "TALEP-003",
-          "status": "READY",
-          "attempts": 0,
-          "note": ""
+          "status": "RUNNING",
+          "attempts": 1,
+          "note": "",
+          "started_at": 1789661094.184627
         }
       ],
       "order": 7,
-      "status": "READY",
+      "status": "RUNNING",
       "actual_start": "2026-09-17T16:22:10",
       "actual_end": null,
       "planned_start": "2026-09-18",
       "planned_end": "2026-09-19"
+    },
+    {
+      "id": "S9",
+      "name": "Müşteri Denetimi & Saha Onarımları (TALEP-004, TALEP-005, TALEP-006)",
+      "goal": "Site sahibinin ilettiği 3 adet müşteri talebinin çözülmesi ve UAT ile kabul edilmesi.",
+      "planned_days": 3,
+      "tasks": [
+        {
+          "id": "S9-T1",
+          "title": "[TALEP-004] Arama kutusunda ilçe, il ve istasyon araması ve harita odaklanması",
+          "description": "Müşteri Talebi: Harita arama kutusuna ilçe (Kadıköy, Çankaya, Bodrum vb.), 81 il ve istasyon adı yazıldığında otomatik tamamlama önerileri gelmeli ve seçildiğinde harita ilgili konuma animasyonla (flyTo) odaklanmalıdır.\nÇözüm Planı: workspace/docs/cozum_planlari/TALEP-004.md",
+          "role": "web_engineer",
+          "phase": "develop",
+          "outputs": [
+            "workspace/src/frontend/components/",
+            "workspace/src/frontend/pages/"
+          ],
+          "depends_on": [],
+          "talep_id": "TALEP-004",
+          "status": "TODO",
+          "attempts": 0,
+          "note": ""
+        },
+        {
+          "id": "S9-T2",
+          "title": "[TALEP-004] Müşteri Kabulü & UAT Doğrulama Denetimi",
+          "description": "TALEP-004 için yapılan düzeltmenin canlı sistemde çalıştığını ve 0 konsol hatası olduğunu doğrula.",
+          "role": "uat_auditor",
+          "phase": "test",
+          "outputs": [
+            "workspace/docs/uat_kabul_raporu.md"
+          ],
+          "depends_on": [
+            "S9-T1"
+          ],
+          "talep_id": "TALEP-004",
+          "status": "TODO",
+          "attempts": 0,
+          "note": ""
+        },
+        {
+          "id": "S9-T3",
+          "title": "[TALEP-005] GADM 4.1 Türkiye resmi il, ilçe ve mahalle koordinatlarının entegrasyonu",
+          "description": "Müşteri Talebi: gadm41_TUR veri kaynağından Türkiye'nin 81 il, 973 ilçe ve mahallelerinin resmi coğrafi sınır ve merkez koordinatları sisteme aktarılmalı; harita arama, ilçe/mahalle sorgulama ve geocoding mekanizması bu resmi CBS (GIS) veritabanı üzerinden çalışmalıdır.\nÇözüm Planı: workspace/docs/cozum_planlari/TALEP-005.md",
+          "role": "backend_engineer",
+          "phase": "develop",
+          "outputs": [
+            "workspace/src/backend/src/modules/",
+            "workspace/src/backend/src/app.ts"
+          ],
+          "depends_on": [],
+          "talep_id": "TALEP-005",
+          "status": "TODO",
+          "attempts": 0,
+          "note": ""
+        },
+        {
+          "id": "S9-T4",
+          "title": "[TALEP-005] Müşteri Kabulü & UAT Doğrulama Denetimi",
+          "description": "TALEP-005 için yapılan düzeltmenin canlı sistemde çalıştığını ve 0 konsol hatası olduğunu doğrula.",
+          "role": "uat_auditor",
+          "phase": "test",
+          "outputs": [
+            "workspace/docs/uat_kabul_raporu.md"
+          ],
+          "depends_on": [
+            "S9-T3"
+          ],
+          "talep_id": "TALEP-005",
+          "status": "TODO",
+          "attempts": 0,
+          "note": ""
+        },
+        {
+          "id": "S9-T5",
+          "title": "[TALEP-006] Konum izni verildiğinde kullanıcının anlık konumunu gösteren mavi nokta/baloncuk eksik",
+          "description": "Müşteri Talebi: Ziyaretçi harita üzerinde 'Konumumu Bul' butonuna tıklayıp tarayıcıda GPS/konum izni verdiğinde harita o bölgeye yaklaşıyor ancak kullanıcının tam olarak nerede durduğunu gösteren nabız atan mavi konum baloncuğu (user location marker / pulsing blue dot) haritada çizilmiyor.\nÇözüm Planı: workspace/docs/cozum_planlari/TALEP-006.md",
+          "role": "web_engineer",
+          "phase": "develop",
+          "outputs": [
+            "workspace/src/frontend/components/",
+            "workspace/src/frontend/pages/"
+          ],
+          "depends_on": [],
+          "talep_id": "TALEP-006",
+          "status": "TODO",
+          "attempts": 0,
+          "note": ""
+        },
+        {
+          "id": "S9-T6",
+          "title": "[TALEP-006] Müşteri Kabulü & UAT Doğrulama Denetimi",
+          "description": "TALEP-006 için yapılan düzeltmenin canlı sistemde çalıştığını ve 0 konsol hatası olduğunu doğrula.",
+          "role": "uat_auditor",
+          "phase": "test",
+          "outputs": [
+            "workspace/docs/uat_kabul_raporu.md"
+          ],
+          "depends_on": [
+            "S9-T5"
+          ],
+          "talep_id": "TALEP-006",
+          "status": "TODO",
+          "attempts": 0,
+          "note": ""
+        }
+      ],
+      "order": 8,
+      "status": "TODO",
+      "actual_start": null,
+      "actual_end": null,
+      "planned_start": "2026-09-20",
+      "planned_end": "2026-09-22"
+    },
+    {
+      "id": "S10",
+      "name": "Müşteri Denetimi & Saha Onarımları (TALEP-007)",
+      "goal": "Site sahibinin ilettiği 1 adet müşteri talebinin çözülmesi ve UAT ile kabul edilmesi.",
+      "planned_days": 1,
+      "tasks": [
+        {
+          "id": "S10-T1",
+          "title": "[TALEP-007] Tüm operatörler açılır menüsü (dropdown) açıldığında menü taşması ve istenmeyen scroll çubuğu oluşması",
+          "description": "Müşteri Talebi: Harita arayüzündeki 'Tüm Operatörler' dropdown açılır listesine tıklandığında menü içeriği ekranda düzgün görünmüyor, container taşması (overflow/z-index/max-height) nedeniyle menü kesiliyor ve istenmeyen çirkin bir scroll çubuğu çıkıyor.\nÇözüm Planı: workspace/docs/cozum_planlari/TALEP-007.md",
+          "role": "web_engineer",
+          "phase": "develop",
+          "outputs": [
+            "workspace/src/frontend/components/",
+            "workspace/src/frontend/pages/"
+          ],
+          "depends_on": [],
+          "talep_id": "TALEP-007",
+          "status": "TODO",
+          "attempts": 0,
+          "note": ""
+        },
+        {
+          "id": "S10-T2",
+          "title": "[TALEP-007] Müşteri Kabulü & UAT Doğrulama Denetimi",
+          "description": "TALEP-007 için yapılan düzeltmenin canlı sistemde çalıştığını ve 0 konsol hatası olduğunu doğrula.",
+          "role": "uat_auditor",
+          "phase": "test",
+          "outputs": [
+            "workspace/docs/uat_kabul_raporu.md"
+          ],
+          "depends_on": [
+            "S10-T1"
+          ],
+          "talep_id": "TALEP-007",
+          "status": "TODO",
+          "attempts": 0,
+          "note": ""
+        }
+      ],
+      "order": 9,
+      "status": "TODO",
+      "actual_start": null,
+      "actual_end": null,
+      "planned_start": "2026-09-23",
+      "planned_end": "2026-09-23"
+    },
+    {
+      "id": "S11",
+      "name": "Müşteri Denetimi & Saha Onarımları (TALEP-008)",
+      "goal": "Site sahibinin ilettiği 1 adet müşteri talebinin çözülmesi ve UAT ile kabul edilmesi.",
+      "planned_days": 1,
+      "tasks": [
+        {
+          "id": "S11-T1",
+          "title": "[TALEP-008] Harita pinleri ve kümeleme baloncuklarının modal pencerelerin (QrBridgeModal vb.) üzerine taşması (z-index katman çakışması)",
+          "description": "Müşteri Talebi: Karekod (QrBridgeModal), Arıza Bildirimi veya Katkı Sağla modalı açıldığında, MapLibre harita üzerindeki pinler ve kümeleme baloncukları (marker/cluster elements) modal penceresinin ve karartma katmanının (backdrop) üzerinde kalmakta; karekodun ve modal içeriğinin önünü kapatarak görseli ve tıklanabilirliği bozmaktadır. z-index hiyerarşisinin düzeltilmesi (Modal: z-50/z-[100], Harita markerları: z-10) gerekmektedir.\nÇözüm Planı: workspace/docs/cozum_planlari/TALEP-008.md",
+          "role": "web_engineer",
+          "phase": "develop",
+          "outputs": [
+            "workspace/src/frontend/components/",
+            "workspace/src/frontend/pages/"
+          ],
+          "depends_on": [],
+          "talep_id": "TALEP-008",
+          "status": "TODO",
+          "attempts": 0,
+          "note": ""
+        },
+        {
+          "id": "S11-T2",
+          "title": "[TALEP-008] Müşteri Kabulü & UAT Doğrulama Denetimi",
+          "description": "TALEP-008 için yapılan düzeltmenin canlı sistemde çalıştığını ve 0 konsol hatası olduğunu doğrula.",
+          "role": "uat_auditor",
+          "phase": "test",
+          "outputs": [
+            "workspace/docs/uat_kabul_raporu.md"
+          ],
+          "depends_on": [
+            "S11-T1"
+          ],
+          "talep_id": "TALEP-008",
+          "status": "TODO",
+          "attempts": 0,
+          "note": ""
+        }
+      ],
+      "order": 10,
+      "status": "TODO",
+      "actual_start": null,
+      "actual_end": null,
+      "planned_start": "2026-09-24",
+      "planned_end": "2026-09-24"
     }
   ],
   "created_at": "2026-09-06T17:56:01",
-  "baseline_end": "2026-09-21",
-  "updated_at": "2026-09-17T18:34:56",
+  "baseline_end": "2026-09-24",
+  "updated_at": "2026-09-17T19:21:21",
   "_runtime": {
     "done_outputs": []
   }

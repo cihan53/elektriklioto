@@ -1,4 +1,3 @@
-I have initiated the installation of dependencies for the frontend so that we can run and test the live application. Waiting for the process to complete.
 # Kullanıcı Kabul Testleri (UAT) ve Canlı Sistem Kabul Raporu: elektriklioto.com (Faz 1)
 
 > **Belge Sürümü:** 1.0.0-faz1  
@@ -41,15 +40,15 @@ Sistemin tartışmaya kapalı temel kısıtları doğrultusunda tüm kullanıcı
 Canlı ortamda (localhost:3000 web & localhost:3001 API) icra edilen 5 zorunlu test adımının somut bulguları:
 
 ### Adım 1: Canlı Web Haritasına Bağlanma
-- **İcra Yöntemi:** Playwright Chromium ve HTTP istemcisiyle `http://127.0.0.1:3000/` ve `http://localhost:3001/` uç noktalarına bağlanıldı.
-- **Ölçüm:** Nuxt 3 SSR motoru HTTP 200 yanıtı verdi. HTML DOM içinde `<ClientOnly>` MapLibre GL harita kabuğu başarıyla ayağa kalktı.
+- **İcra Yöntemi:** Playwright Chromium ve HTTP istemcisiyle `http://localhost:3000/` ve `http://localhost:3001/` uç noktalarına bağlanıldı.
+- **Ölçüm:** Nuxt 3 SSR motoru HTTP 200 yanıtı verdi. HTML DOM içinde `<ClientOnly>` MapLibre GL harita kabuğu başarıyla ayağa kalktı. API sağlık denetimi (`GET /api/v1/health/sources`) HTTP 200 ile doğrulandı.
 - **Durum:** **GEÇTİ (PASS)**.
 
 ### Adım 2: Türkiye Genelindeki Kümeleme (Clustering) Dairelerini Kontrol Etme
-- **Kabul Eşiği:** Harita ilk açılışta (Zoom 6, Ankara merkezi) ülke genelini kapsar; harita üzerindeki kümeleme dairelerinin sayısı `> 0` olmalıdır (`.cluster-marker`).
+- **Kabul Eşiği:** Harita ilk açılışta (Zoom 6, Türkiye merkezi) ülke genelini kapsar; harita üzerindeki kümeleme dairelerinin sayısı `> 0` olmalıdır (`.cluster-marker`).
 - **Ölçüm:** Canlı DOM'da bulunan kümeleme dairesi sayısı tam olarak **0 (SIFIR)**.
 - **Kök Neden:**
-  1. Harita ilk açıldığında `useStations.ts` ülke BBox koordinatlarını (`minLon=25.82, minLat=37.11, maxLon=39.89, maxLat=42.64&zoom=6`) backend'e iletmektedir (`lonDiff = 14.06 derece`).
+  1. Harita ilk açıldığında `useStations.ts` ülke BBox koordinatlarını (`minLon=25.82, minLat=37.39, maxLon=39.89, maxLat=42.37&zoom=6`) backend'e iletmektedir (`lonDiff = 14.06 derece`).
   2. Backend `workspace/src/backend/src/utils/geo.ts:18` satırında yer alan keyfi `if (lonDiff > 0.5 || latDiff > 0.5) return false;` kuralı nedeniyle isteği reddetmekte ve **`HTTP 400 Bad Request`** dönmektedir.
   3. Ayrıca Fastify `station.routes.ts` içinde `zoom < 11` kümeleme yanıt şeması (`{ type: 'clusters', data: ClusterItem[] }`) ve PostGIS `ST_SnapToGrid` sorgusu hiç kodlanmamıştır.
 - **Durum:** **BAŞARISIZ (FAIL)**.
@@ -59,7 +58,7 @@ Canlı ortamda (localhost:3000 web & localhost:3001 API) icra edilen 5 zorunlu t
 - **Ölçüm:** Haritaya düşen istasyon pini sayısı tam olarak **0 (SIFIR)**.
 - **Kök Neden:**
   1. İstanbul genelini kapsayan sınır kutusu (`bbox=28.42962,40.84865,29.48826,41.22010&zoom=11`) sorgulandığında `lonDiff = 1.05864 > 0.5` olduğu için backend API yine **`HTTP 400 Bad Request`** (`"BBox sınırları geçersiz veya izin verilen maksimum alan (0.5 derece) aşıldı."`) dönmektedir.
-  2. Harita arayüzünde kırmızı hata bandı belirip harita kilitlenmektedir.
+  2. Harita arayüzünde kırmızı hata bandı (`[GET] "http://localhost:3001/api/v1/stations?bbox=...": 400 Bad Request`) belirip harita kilitlenmektedir.
   3. Veritabanına 16.788 EPDK kaydı tohumlanmamıştır (`npm run db:seed` komutu ve `istasyonlar.json` yoktur); bellekte Türkiye geneli için sadece 4 adet mock istasyon (İstanbul için 3 adet) bulunmaktadır. 500+ istasyon pinine ulaşılması teknik olarak imkânsızdır.
 - **Durum:** **BAŞARISIZ (FAIL)**.
 
@@ -70,13 +69,13 @@ Canlı ortamda (localhost:3000 web & localhost:3001 API) icra edilen 5 zorunlu t
   - Eksik veri modeli doğrulanmıştır: Soket, güç ve tarifede sahte mock veri gösterilmemekte; nötr gri "Operatör Verisi Bekleniyor" rozeti ve "+ Bilgi Ekle" CTA'sı render edilmektedir.
   - "Operatörde Aç" tıklandığında masaüstü pano kopyalama mekanizması (`navigator.clipboard`) tetiklenmekte; `ŞRJ/10423` kodu panoya alınıp toast uyarısı verilmektedir.
   - **Kritik Test Sahteciliği Tespiti:** Geliştiricinin yazdığı `tests/uat_journey.spec.ts` dosyasının, repoda hiç var olmayan `../../backend/src/data/cpo_stations.json` dosyasını import ettiği ve çalıştırıldığında derleme hatasıyla patladığı tespit edilmiştir. Geliştirici ve QA testlerinin izole mock verilerle gerçeği yansıtmadığı kanıtlanmıştır.
-- **Durum:** **BLOKE / KISMEN BAŞARILI (BLOCKED / CONDITIONAL PASS)**.
+- **Durum:** **BLOKE / ŞARTLI GEÇTİ (BLOCKED / CONDITIONAL PASS)**.
 
 ### Adım 5: Konsol ve Ağ Hata Denetimi (0 TypeError / 0 400 Bad Request Kuralı)
 - **Kabul Eşiği:** Tarayıcı konsolunda hiçbir `TypeError: Cannot read properties of undefined` ve ağda hiçbir `400 Bad Request` hatası bulunmamalıdır. Hata tespitinde görev derhal REDDEDİLİR.
 - **Ölçüm:**
-  1. **Ağ Hatası (Kritik):** Ülke BBox (`zoom=6`) ve İstanbul BBox (`zoom=11`) sorgularında ardışık **`HTTP 400 Bad Request`** yanıtları yakalanmıştır.
-  2. **CORS Hatası:** Fastify `securityPlugin` izin listesinde `127.0.0.1:3000` tanımlanmadığı için konsolda `Access-Control-Allow-Origin` ve `net::ERR_FAILED` hataları oluşmaktadır.
+  1. **Ağ Hatası (Kritik):** Canlı harita oturumunda `http://localhost:3001/api/v1/stations?bbox=25.82845,37.39904,39.89095,42.37728&zoom=6` isteğinde doğrudan **`HTTP 400 Bad Request`** yakalanmıştır.
+  2. **Konsol Hata Kaydı:** `Failed to load resource: the server responded with a status of 400 (Bad Request)`.
 - **Durum:** **BAŞARISIZ (FAIL - GÖREV REDDİ GEREKÇESİ)**.
 
 ---
@@ -87,12 +86,12 @@ Canlı ortamda (localhost:3000 web & localhost:3001 API) icra edilen 5 zorunlu t
 |---|---|---|---|:---:|
 | **UAT-01** | Ülke Geneli Harita Açılışı & Kümeleme | Zoom < 10 seviyesinde ülke genelinde kümeleme daireleri (`count > 0`) görünmeli | Küme sayısı = 0. Zoom 6 BBox isteği 0.5 derece tavanına takılıp 400 Bad Request aldı. | **RED (FAIL)** |
 | **UAT-02** | Büyükşehir Viewport Odaklanması | İstanbul'a odaklanıldığında (Zoom 11-12) 500+ istasyon pini haritaya düşmeli | Pin sayısı = 0. BBox isteği 400 Bad Request aldı; repoda 16.788 veri yerine 4 mock kayıt var. | **RED (FAIL)** |
-| **UAT-03** | İstasyon Detay Paneli & Eksik Veri | Pine tıklandığında panel açılmalı; eksik verilerde "Operatör Verisi Bekleniyor" görünmeli | Panel açıldı, veri yokluk rozetleri doğru render edildi; ancak yalnızca dar BBox'ta test edilebildi. | **ŞARTLI GEÇTİ** |
+| **UAT-03** | İstasyon Detay Paneli & Eksik Veri | Pine tıklandığında panel açılmalı; eksik verilerde "Operatör Verisi Bekleniyor" görünmeli | Panel açıldı, veri yokluk rozetleri doğru render edildi; ancak yalnızca mikro BBox'ta test edilebildi. | **ŞARTLI GEÇTİ** |
 | **UAT-04** | CPO Derin Bağlantı & Pano Fallback | "Operatörde Aç" tıklandığında masaüstünde EPDK kodu panoya kopyalanmalı, toast çıkmalı | `ŞRJ/10423` panoya kopyalandı, toast bildirimi gösterildi ve operatör web sitesi tetiklendi. | **GEÇTİ (PASS)** |
 | **UAT-05** | Ağ Trafiği Hata Denetimi | Canlı harita hareketinde 0 adet `400 Bad Request` oluşmalı | Ülke ve il BBox isteklerinde tekrarlayan `400 Bad Request` yanıtları yakalandı. | **RED (FAIL)** |
-| **UAT-06** | Konsol Çalışma Zamanı Denetimi | Tarayıcı konsolunda 0 adet `TypeError: Cannot read properties of undefined` olmalı | TypeError oluşmadı; ancak CORS kaynaklı `net::ERR_FAILED` ve HMR 426 uyarıları yakalandı. | **ŞARTLI GEÇTİ** |
+| **UAT-06** | Konsol Çalışma Zamanı Denetimi | Tarayıcı konsolunda 0 adet `TypeError: Cannot read properties of undefined` olmalı | TypeError oluşmadı (0 adet). | **GEÇTİ (PASS)** |
 | **UAT-07** | Tohumlama (Seed) Bütünlüğü | `npm run db:seed` ile 16.788 EPDK istasyonunun veritabanına yüklenmiş olması | Veritabanında istasyon tablosu boş; seed komutu ve `istasyonlar.json` dosyası mevcut değil. | **RED (FAIL)** |
-| **UAT-08** | Geliştirici UAT Paket Güvenilirliği | Geliştirici UAT testlerinin hatasız çalışması ve mock dosyaya bağımlı olmaması | `uat_journey.spec.ts` var olmayan `cpo_stations.json` dosyasını import ettiği için çalıştırılamadı. | **RED (FAIL)** |
+| **UAT-08** | Geliştirici UAT Paket Güvenilirliği | Geliştirici UAT testlerinin hatasız çalışması ve mock dosyaya bağımlı olmaması | `uat_journey.spec.ts` var olmayan `cpo_stations.json` dosyasını import ettiği için derleme hatasıyla çöktü. | **RED (FAIL)** |
 
 ---
 
@@ -110,6 +109,7 @@ Aşağıdaki kritik (P0/P1) hatalar nedeniyle kullanıcı kabulü verilemez; gö
     "title": "Geçersiz İstek",
     "status": 400,
     "detail": "BBox sınırları geçersiz veya izin verilen maksimum alan (0.5 derece) aşıldı.",
+    "instance": "/api/v1/stations?bbox=25.82845,37.39904,39.89095,42.37728&zoom=6",
     "code": "BAD_REQUEST"
   }
   ```
@@ -135,5 +135,5 @@ Aşağıdaki kritik (P0/P1) hatalar nedeniyle kullanıcı kabulü verilemez; gö
 ## 5. Nihai UAT Kararı ve Aşağı Akış Talimatı
 
 - **Karar:** **GÖREV REDDİ (VERDICT: REJECTED)**.
-- **Gerekçe:** Test Adımı 5'te yer alan bağlayıcı kural uyarınca; canlı harita etkileşimlerinde ağda yakalanan **`400 Bad Request`** hataları, kümeleme dairelerinin sıfır olması (Adım 2 ihlali) ve İstanbul'da 500+ istasyon pini yerine 0 pin düşmesi (Adım 3 ihlali) nedeniyle sistem kabul eşiğini geçememiştir.
+- **Gerekçe:** Test Adımı 5'te yer alan bağlayıcı kural uyarınca; canlı harita etkileşimlerinde ağda yakalanan **`400 Bad Request`** hataları, kümeleme dairelerinin sıfır olması (Adım 2 ihlali) ve İstanbul'da 500+ istasyon pini yerine 0 pin düşmesi (Adım 3 ihlali) nedeniyle sistem kullanıcı kabul eşiğini geçememiştir.
 - **Sonuç:** `BUG-UAT-01`, `BUG-UAT-02` ve `BUG-UAT-03` numaralı P0 kök nedenler backend geliştirici rolü tarafından giderilmeden ve 16.788 kayıt veritabanına tohumlanmadan sistem bir sonraki aşamaya geçirilemez.
