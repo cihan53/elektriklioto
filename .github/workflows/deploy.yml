@@ -61,7 +61,7 @@ jobs:
         run: |
           echo "==> Backend bağımlılıkları kuruluyor ve derleniyor..."
           cd workspace/src/backend
-          npm ci
+          npm install
           npm run build
           npm prune --omit=dev
 
@@ -69,7 +69,7 @@ jobs:
         run: |
           echo "==> Frontend bağımlılıkları kuruluyor ve derleniyor..."
           cd workspace/src/frontend
-          npm ci
+          npm install
           npm run build
 
       - name: Package Deployment Archive
