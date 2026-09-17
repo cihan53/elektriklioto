@@ -111,6 +111,8 @@ jobs:
           passphrase: ${{ secrets.CPANEL_SSH_PASSPHRASE }}
           port: ${{ secrets.CPANEL_SSH_PORT || 22 }}
           script_stop: true
+          pty: true
+          timeout: 120s
           script: |
             APP_DIR="${{ secrets.CPANEL_APP_DIR }}"
             if [ -z "$APP_DIR" ]; then
