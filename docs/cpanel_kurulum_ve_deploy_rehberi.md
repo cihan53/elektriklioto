@@ -14,7 +14,8 @@ GitHub reponuzun **Settings > Secrets and variables > Actions** sayfasına gider
 | `CPANEL_SSH_USER` | cPanel SSH kullanıcı adınız | `denemekulubum` |
 | `CPANEL_SSH_PRIVATE_KEY` | cPanel'e bağlanacak SSH özel anahtarı (Private Key) | `-----BEGIN OPENSSH PRIVATE KEY----- ...` |
 | `CPANEL_SSH_PORT` | SSH bağlantı portu (Genellikle 22 veya hosting özel portu) | `22` |
-| `CPANEL_APP_DIR` | Projenin cPanel sunucusundaki tam yolu | `/home/denemekulubum/app` |
+| `CPANEL_APP_DIR` | Projenin cPanel sunucusundaki tam yolu | `/home/elektriklioto/app` |
+| `CPANEL_SSH_PASSPHRASE` | *(İsteğe Bağlı)* SSH anahtarınız şifreli ise parolası | `AnahtarSifreniz123` |
 
 ---
 
@@ -25,10 +26,10 @@ SSH ile cPanel sunucunuza bağlanınız ve aşağıdaki adımları sırayla uygu
 ### Adım 2.1: Proje Dizinini Oluşturma ve Git Clone
 ```bash
 # Kullanıcı ev dizininde app klasörüne geçiniz
-cd /home/KULLANICI_ADINIZ
+cd /home/elektriklioto
 
 # Repoyu klonlayınız (veya app klasörü oluşturup içine klonlayınız)
-git clone https://github.com/KULLANICI_ADINIZ/elektriklioto-gemini.git app
+git clone https://github.com/cihan53/elektriklioto.git app
 cd app
 ```
 
@@ -54,10 +55,10 @@ cPanel paneline girerek **Yazılım (Software) > Setup Node.js App** menüsüne 
 ### 3.1. Web Frontend (Nuxt 3) Uygulaması:
 - **Node.js Version:** 18.x veya 20.x (Önerilen: 20+)
 - **Application Mode:** `Production`
-- **Application Root:** `app` (veya projenizin bulunduğu dizin)
+- **Application Root:** `app` (veya projenizin bulunduğu dizin: `/home/elektriklioto/app`)
 - **Application URL:** `elektriklioto.com` (Ana alan adınız)
 - **Application Startup File:** `cpanel_nuxt_entry.cjs`
-- **Passenger Log File:** `/home/KULLANICI_ADINIZ/logs/nuxt.log`
+- **Passenger Log File:** `/home/elektriklioto/logs/nuxt.log`
 
 ### 3.2. Backend API (Fastify) Uygulaması (Subdomain Kullanılıyorsa):
 - **Node.js Version:** 18.x veya 20.x
@@ -65,7 +66,7 @@ cPanel paneline girerek **Yazılım (Software) > Setup Node.js App** menüsüne 
 - **Application Root:** `app`
 - **Application URL:** `api.elektriklioto.com`
 - **Application Startup File:** `cpanel_api_entry.cjs`
-- **Passenger Log File:** `/home/KULLANICI_ADINIZ/logs/api.log`
+- **Passenger Log File:** `/home/elektriklioto/logs/api.log`
 
 ---
 

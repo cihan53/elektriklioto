@@ -32,11 +32,8 @@ Sunucu trafiğinin en düşük olduğu gece saatleri önerilir:
 Aşağıdaki komutu cPanel'deki **Komut (Command)** kutusuna yapıştırınız:
 
 ```bash
-/bin/bash /home/KULLANICI_ADINIZ/app/scripts/cron_daily_sync.sh
+/bin/bash /home/elektriklioto/app/scripts/cron_daily_sync.sh
 ```
-
-> [!NOTE]
-> `KULLANICI_ADINIZ` yazan yeri cPanel ana kullanıcı adınız ile değiştiriniz (Örn: `/home/denemekulubum/app/...` veya `/home/elektriklioto/app/...`).
 
 ---
 
@@ -45,7 +42,7 @@ Aşağıdaki komutu cPanel'deki **Komut (Command)** kutusuna yapıştırınız:
 Cronjob'ı beklemeden komutun çalıştığını SSH terminalinizden test etmek için:
 
 ```bash
-cd /home/KULLANICI_ADINIZ/app
+cd /home/elektriklioto/app
 ./scripts/cron_daily_sync.sh
 ```
 
@@ -53,11 +50,11 @@ cd /home/KULLANICI_ADINIZ/app
 Senkronizasyonun durumunu, eklenen istasyon sayısını ve geçmiş logları görmek için:
 
 ```bash
-cat /home/KULLANICI_ADINIZ/app/logs/cron_daily_sync.log
+cat /home/elektriklioto/app/logs/cron_daily_sync.log
 ```
 veya anlık canlı takip için:
 ```bash
-tail -f /home/KULLANICI_ADINIZ/app/logs/cron_daily_sync.log
+tail -f /home/elektriklioto/app/logs/cron_daily_sync.log
 ```
 
 ---

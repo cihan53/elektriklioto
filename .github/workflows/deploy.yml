@@ -55,12 +55,13 @@ jobs:
           host: ${{ secrets.CPANEL_SSH_HOST }}
           username: ${{ secrets.CPANEL_SSH_USER }}
           key: ${{ secrets.CPANEL_SSH_PRIVATE_KEY }}
+          passphrase: ${{ secrets.CPANEL_SSH_PASSPHRASE }}
           port: ${{ secrets.CPANEL_SSH_PORT || 22 }}
           script_stop: true
           script: |
             APP_DIR="${{ secrets.CPANEL_APP_DIR }}"
             if [ -z "$APP_DIR" ]; then
-              APP_DIR="/home/${{ secrets.CPANEL_SSH_USER }}/app"
+              APP_DIR="/home/elektriklioto/app"
             fi
 
             echo "==> Proje dizinine ($APP_DIR) gidiliyor..."
