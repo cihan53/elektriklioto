@@ -3,19 +3,18 @@
 import { onMounted } from 'vue';
 
 // Google Analytics Entegrasyonu (TALEP-002: G-BKMTW8EH4K)
-// Sitedeki trafiğin izlenebilmesi için gtag ve dataLayer yapılandırması
 if (typeof useHead === 'function') {
   useHead({
     script: [
       {
         src: 'https://www.googletagmanager.com/gtag/js?id=G-BKMTW8EH4K',
-        async: true
+        async: true,
       },
       {
         innerHTML: `window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-BKMTW8EH4K');`,
-        type: 'text/javascript'
-      }
-    ]
+        type: 'text/javascript',
+      },
+    ],
   });
 }
 

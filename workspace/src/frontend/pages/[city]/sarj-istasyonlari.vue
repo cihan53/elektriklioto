@@ -109,24 +109,12 @@ useHead(() => {
           '@context': 'https://schema.org',
           '@type': 'ItemList',
           name: `${cityName.value} Elektrikli Araç Şarj İstasyonları`,
-          description,
           numberOfItems: count,
-          itemListElement: paginatedStations.value.map((st, index) => ({
-            '@type': 'ChargingStation',
-            position: index + 1,
+          itemListElement: paginatedStations.value.map((st, i) => ({
+            '@type': 'ListItem',
+            position: i + 1,
             name: st.name,
-            identifier: st.istasyon_no,
-            geo: {
-              '@type': 'GeoCoordinates',
-              latitude: st.lat,
-              longitude: st.lon
-            },
-            address: {
-              '@type': 'PostalAddress',
-              addressLocality: st.district || '',
-              addressRegion: st.city || cityName.value,
-              addressCountry: 'TR'
-            }
+            url: `https://elektriklioto.com/${st.operator?.slug || 'operator'}/${st.slug}`
           }))
         })
       }
@@ -137,111 +125,114 @@ useHead(() => {
 
 <template>
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full space-y-8">
-    <!-- Breadcrumb (İçerik Haritası) -->
+    <!-- Breadcrumb -->
     <nav class="flex items-center gap-1.5 text-xs text-text-secondary" aria-label="Breadcrumb">
       <NuxtLink to="/" class="hover:text-primary touch-target-min flex items-center">Ana Sayfa</NuxtLink>
       <ChevronRight class="w-3.5 h-3.5 text-border-strong" />
       <span class="text-text-primary font-medium">{{ cityName }} Şarj İstasyonları</span>
     </nav>
 
-    <!-- Başlık ve Özet Bloğu (SCR-03) -->
+    <!-- Başlık ve Özet Alanı (SCR-03) -->
     <header class="bg-bg-surface border border-border-default rounded-xl p-6 sm:p-8 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-6">
       <div class="space-y-2">
         <h1 class="text-2xl sm:text-3xl font-bold text-text-primary tracking-tight">
           {{ cityName }} Elektrikli Araç Şarj İstasyonları
         </h1>
-        <p class="text-sm text-text-secondary max-w-2xl leading-relaxed">
+        <p class="text-xs sm:text-sm text-text-secondary leading-relaxed max-w-2xl">
           {{ cityName }} genelinde EPDK siciline kayıtlı toplam
           <strong class="text-text-primary font-semibold">{{ stations.length }}</strong>
-          şarj istasyonu listelenmektedir. ZES, Trugo, Eşarj ve 170+ operatörün güncel lokasyonlarını inceleyin.
+          şarj istasyonu listelenmektedir.
         </p>
       </div>
 
-      <!-- Haritada Gör Eylem Butonu -->
+      <!-- Haritada Gör Butonu -->
       <NuxtLink
         :to="`/?city=${encodeURIComponent(cityName)}`"
-        class="inline-flex items-center justify-center gap-2 h-12 px-6 rounded-md bg-primary text-on-primary font-semibold text-sm shadow-sm hover:bg-primary-hover active:bg-primary-active touch-target-min transition-all flex-shrink-0 focus-visible:outline-none"
+        class="h-11 px-5 rounded-md bg-primary text-on-primary font-semibold text-xs shadow-sm hover:bg-primary-hover active:bg-primary-active flex items-center justify-center gap-2 touch-target-min transition-all self-start md:self-auto flex-shrink-0"
       >
         <Map class="w-4 h-4" />
         <span>{{ cityName }} İstasyonlarını Haritada Gör</span>
       </NuxtLink>
     </header>
 
-    <!-- İlçe Kırılımları (Hızlı Filtre Çipleri) -->
-    <div v-if="districtOptions.length > 0" class="space-y-2">
-      <h2 class="text-xs font-semibold text-text-secondary uppercase tracking-wider">
+    <!-- Hızlı İlçe Seçim Butonları -->
+    <section v-if="districtOptions.length > 0" class="space-y-2">
+      <h2 class="text-xs font-bold text-text-muted uppercase tracking-wider">
         Öne Çıkan İlçeler
       </h2>
-      <div class="flex flex-wrap gap-2">
+      <div class="flex flex-wrap items-center gap-2">
         <NuxtLink
           v-for="d in districtOptions"
           :key="d.slug"
           :to="`/${cityParam}/${d.slug}/sarj-istasyonlari`"
-          class="px-3 py-1.5 rounded-full text-xs font-medium bg-bg-surface border border-border-default text-text-primary hover:border-primary hover:text-primary transition-colors touch-target-min flex items-center"
+          class="px-3 py-1.5 rounded-full bg-bg-surface border border-border-strong hover:border-primary text-text-primary text-xs font-medium transition-colors touch-target-min flex items-center"
         >
           {{ d.name }}
         </NuxtLink>
       </div>
-    </div>
+    </section>
 
-    <!-- İstasyon Kart Izgarası (3 Kolon Masaüstü, 2 Kolon Tablet, 1 Kolon Mobil) -->
-    <div v-if="paginatedStations.length > 0" class="space-y-6">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- İstasyon Kartları Izgarası (3 Kolon) -->
+    <section class="space-y-6">
+      <div v-if="stations.length > 0" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <StationSummaryCard
-          v-for="st in paginatedStations"
-          :key="st.id"
-          :station="st"
+          v-for="station in paginatedStations"
+          :key="station.id"
+          :station="station"
         />
       </div>
 
-      <!-- Sayfalama (Pagination) -->
+      <!-- Boş Durum -->
       <div
+        v-else
+        class="p-12 text-center bg-bg-surface border border-border-default rounded-xl shadow-sm space-y-3"
+      >
+        <AlertCircle class="w-10 h-10 text-warning mx-auto" />
+        <p class="text-sm font-semibold text-text-primary">
+          Bu şehirde henüz kayıtlı şarj istasyonu bulunmamaktadır.
+        </p>
+        <NuxtLink
+          to="/"
+          class="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-primary text-on-primary text-xs font-semibold touch-target-min"
+        >
+          <ArrowLeft class="w-4 h-4" />
+          Haritayı Aç ve Keşfet
+        </NuxtLink>
+      </div>
+
+      <!-- Sayfalama (Pagination) -->
+      <nav
         v-if="totalPages > 1"
         class="flex items-center justify-center gap-2 pt-6 border-t border-border-default"
+        aria-label="Sayfalama"
       >
         <button
           type="button"
-          @click="currentPage = Math.max(1, currentPage - 1)"
           :disabled="currentPage === 1"
-          class="h-11 px-4 rounded-md border border-border-default bg-bg-surface text-text-primary text-xs font-semibold flex items-center gap-1 disabled:opacity-40 disabled:cursor-not-allowed hover:bg-bg-subdued touch-target-min"
+          @click="currentPage--"
+          class="px-3 py-2 rounded border border-border-strong text-xs font-medium disabled:opacity-40 disabled:cursor-not-allowed hover:bg-bg-subdued touch-target-min flex items-center gap-1 text-text-primary"
         >
           <ChevronLeft class="w-4 h-4" />
           <span>Önceki</span>
         </button>
 
-        <span class="text-xs font-medium text-text-secondary px-3">
+        <span class="text-xs text-text-secondary px-3 font-medium">
           Sayfa {{ currentPage }} / {{ totalPages }}
         </span>
 
         <button
           type="button"
-          @click="currentPage = Math.min(totalPages, currentPage + 1)"
           :disabled="currentPage === totalPages"
-          class="h-11 px-4 rounded-md border border-border-default bg-bg-surface text-text-primary text-xs font-semibold flex items-center gap-1 disabled:opacity-40 disabled:cursor-not-allowed hover:bg-bg-subdued touch-target-min"
+          @click="currentPage++"
+          class="px-3 py-2 rounded border border-border-strong text-xs font-medium disabled:opacity-40 disabled:cursor-not-allowed hover:bg-bg-subdued touch-target-min flex items-center gap-1 text-text-primary"
         >
           <span>Sonraki</span>
           <ChevronRight class="w-4 h-4" />
         </button>
-      </div>
-    </div>
+      </nav>
+    </section>
 
-    <!-- Boş Durum -->
-    <div v-else class="p-12 text-center bg-bg-surface border border-border-default rounded-xl space-y-3">
-      <AlertCircle class="w-10 h-10 text-text-muted mx-auto" />
-      <h2 class="text-lg font-bold text-text-primary">Bu ilde kayıtlı istasyon bulunamadı</h2>
-      <p class="text-xs text-text-secondary max-w-md mx-auto">
-        {{ cityName }} ili için henüz EPDK sicilinde aktif istasyon kaydı bulunamadı veya arama kriterleri eşleşmedi.
-      </p>
-      <NuxtLink
-        to="/"
-        class="inline-flex items-center gap-2 px-4 py-2 bg-primary text-on-primary rounded-md text-xs font-semibold touch-target-min"
-      >
-        <ArrowLeft class="w-4 h-4" />
-        Türkiye Haritasına Dön
-      </NuxtLink>
-    </div>
-
-    <!-- Yasal EMP Dipnot Bildirimi -->
+    <!-- Zorunlu Yasal EMP Uyarısı -->
     <footer class="pt-8 border-t border-border-default text-center text-xs text-text-muted space-y-1">
       <p>Veri Kaynağı: EPDK Sicil Kaydı (Eylül 2026)</p>
       <p>

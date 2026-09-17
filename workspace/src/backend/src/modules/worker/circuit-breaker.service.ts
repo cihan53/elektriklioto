@@ -110,7 +110,6 @@ export class CircuitBreakerService {
 
     try {
       const result = await action();
-      // Başarılı çağrı: Devre kapanır ve sayaç sıfırlanır
       breaker.consecutiveFailures = 0;
       breaker.state = 'CLOSED';
       breaker.openedAt = null;

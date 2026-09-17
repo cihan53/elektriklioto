@@ -2,7 +2,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
 import { useRoute } from 'vue-router';
-import type { StationItem, StationDetailResponse, ReportResponse } from '~/types/station';
+import type { StationItem, ReportResponse } from '~/types/station';
 import { useToast } from '~/composables/useToast';
 import { useSourceHealth } from '~/composables/useSourceHealth';
 import QrBridgeModal from '~/components/modals/QrBridgeModal.vue';
@@ -30,11 +30,16 @@ const operatorParam = route.params.operator as string;
 const slugParam = route.params.slug as string;
 
 // SSR Veri Çekimi
-const { data: response, error } = await useFetch<StationDetailResponse>(
+const { data: response, error } = await useFetch<any>(
   `${config.public.apiBase}/stations/${encodeURIComponent(slugParam)}`
 );
 
-const station = computed<StationItem | null>(() => response.value?.data || null);
+// UAT-04: API doğrudan istasyon nesnesi veya { data: station } döndüğünde güvenli çözümleme
+const station = computed<StationItem | null>(() => {
+  const val = response.value as any;
+  if (!val) return null;
+  return val.data || (val.id ? val : null);
+});
 
 // S5 US-18: 24 Saat Veri Tazeliği Rozeti
 const freshnessInfo = computed(() => {
@@ -99,9 +104,11 @@ const handlePrimaryAction = () => {
   } else if (station.value.istasyon_no) {
     if (typeof navigator !== 'undefined' && navigator.clipboard) {
       navigator.clipboard.writeText(station.value.istasyon_no);
+      showToast(
+        `İstasyon kodu (${station.value.istasyon_no}) kopyalandı! Operatör uygulamasında yapıştırabilirsiniz.`,
+        'info'
+      );
     }
-    showToast(`İstasyon kodu (${station.value.istasyon_no}) kopyalandı! Operatör uygulamasında yapıştırabilirsiniz.`, 'info');
-    window.open(`https://www.google.com/search?q=${encodeURIComponent(station.value.operator.name + ' şarj istasyonu')}`, '_blank');
   }
 };
 
@@ -118,18 +125,40 @@ const handleReportSubmitted = (result: ReportResponse) => {
   }
 };
 
-// SEO & Schema.org ChargingStation JSON-LD (Zorunlu Kısıt)
+// SEO Meta ve Schema.org JSON-LD (PO-501 & PO-1001)
 useHead(() => {
-  const st = station.value;
-  if (!st) {
+  if (!station.value) {
     return {
-      title: 'İstasyon Detayı | elektriklioto.com',
-      meta: [{ name: 'robots', content: 'noindex, nofollow' }]
+      title: 'İstasyon Bulunamadı | elektriklioto.com'
     };
   }
 
-  const title = `${st.name} — ${st.operator?.name || ''} Şarj İstasyonu | elektriklioto.com`;
-  const description = `${st.name} şarj istasyonu detayları, adres, EPDK sicil no (${st.istasyon_no}), operatör bilgileri ve navigasyon.`;
+  const opName = station.value.operator?.name || 'Şarj İstasyonu';
+  const title = `${station.value.name} — ${opName} Şarj İstasyonu | elektriklioto.com`;
+  const description = `${station.value.name}, ${station.value.district || ''} ${station.value.city || ''} konumundaki ${opName} elektrikli araç şarj istasyonu. EPDK Sicil No: ${station.value.istasyon_no}.`;
+
+  const schemaJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ChargingStation',
+    name: station.value.name,
+    identifier: station.value.istasyon_no,
+    provider: {
+      '@type': 'Organization',
+      name: opName
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: station.value.lat,
+      longitude: station.value.lon
+    },
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: station.value.address || '',
+      addressLocality: station.value.district || '',
+      addressRegion: station.value.city || '',
+      addressCountry: 'TR'
+    }
+  };
 
   return {
     title,
@@ -137,29 +166,12 @@ useHead(() => {
       { name: 'description', content: description },
       { property: 'og:title', content: title },
       { property: 'og:description', content: description },
-      { property: 'og:type', content: 'website' }
+      { property: 'og:type', content: 'place' }
     ],
     script: [
       {
         type: 'application/ld+json',
-        innerHTML: JSON.stringify({
-          '@context': 'https://schema.org',
-          '@type': 'ChargingStation',
-          name: st.name,
-          identifier: st.istasyon_no,
-          geo: {
-            '@type': 'GeoCoordinates',
-            latitude: st.lat,
-            longitude: st.lon
-          },
-          address: {
-            '@type': 'PostalAddress',
-            addressLocality: st.district || '',
-            addressRegion: st.city || '',
-            streetAddress: st.address || '',
-            addressCountry: 'TR'
-          }
-        })
+        innerHTML: JSON.stringify(schemaJsonLd)
       }
     ]
   };
@@ -167,28 +179,20 @@ useHead(() => {
 </script>
 
 <template>
-  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full space-y-6">
-    <!-- Breadcrumb -->
-    <nav class="flex items-center gap-1.5 text-xs text-text-secondary" aria-label="Breadcrumb">
-      <NuxtLink to="/" class="hover:text-primary touch-target-min flex items-center">Ana Sayfa</NuxtLink>
-      <ChevronRight class="w-3.5 h-3.5 text-border-strong" />
-      <NuxtLink :to="`/${operatorParam}`" class="hover:text-primary touch-target-min flex items-center">
-        {{ station?.operator?.name || operatorParam }}
-      </NuxtLink>
-      <ChevronRight class="w-3.5 h-3.5 text-border-strong" />
-      <span class="text-text-primary font-medium truncate max-w-xs">{{ station?.name || slugParam }}</span>
-    </nav>
-
-    <!-- Hata Durumu (404) -->
-    <div v-if="error || !station" class="p-12 text-center bg-bg-surface border border-border-default rounded-xl space-y-3">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
+    <!-- Hata Durumu (404 / Bulunamadı) -->
+    <div
+      v-if="error || !station"
+      class="bg-bg-surface border border-border-default rounded-xl p-8 text-center shadow-md space-y-4"
+    >
       <AlertTriangle class="w-12 h-12 text-warning mx-auto" />
       <h1 class="text-xl font-bold text-text-primary">İstasyon Kaydı Bulunamadı</h1>
       <p class="text-xs text-text-secondary max-w-md mx-auto">
-        Aradığınız şarj istasyonu EPDK sicilinde bulunamadı veya bağlantı adresi değişmiş olabilir.
+        Aradığınız şarj istasyonu kaldırılmış veya bağlantı adresi değişmiş olabilir.
       </p>
       <NuxtLink
         to="/"
-        class="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-md bg-primary text-on-primary text-sm font-medium touch-target-min"
+        class="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-primary text-on-primary text-xs font-semibold touch-target-min"
       >
         <ArrowLeft class="w-4 h-4" />
         Haritaya Dön
@@ -196,198 +200,237 @@ useHead(() => {
     </div>
 
     <!-- İstasyon Detay İçeriği -->
-    <article v-else class="bg-bg-surface border border-border-default rounded-xl shadow-md p-6 sm:p-8 space-y-6">
-      <!-- Üst Başlık & Operatör -->
-      <div class="border-b border-border-default pb-6">
-        <div class="flex items-center gap-2 mb-2">
-          <span class="w-6 h-6 rounded-full bg-primary text-on-primary flex items-center justify-center text-xs font-bold">
-            {{ station.operator.name.charAt(0) }}
-          </span>
-          <span class="text-sm font-semibold text-text-secondary">{{ station.operator.name }}</span>
-        </div>
+    <div v-else class="space-y-6">
+      <!-- Breadcrumb (İçerik Haritası) -->
+      <nav class="flex items-center gap-1.5 text-xs text-text-secondary" aria-label="Breadcrumb">
+        <NuxtLink to="/" class="hover:text-primary touch-target-min flex items-center">Ana Sayfa</NuxtLink>
+        <ChevronRight class="w-3.5 h-3.5 text-border-strong" />
+        <NuxtLink
+          v-if="station.city"
+          :to="`/${station.city.toLowerCase()}/sarj-istasyonlari`"
+          class="hover:text-primary touch-target-min flex items-center"
+        >
+          {{ station.city }}
+        </NuxtLink>
+        <ChevronRight v-if="station.city" class="w-3.5 h-3.5 text-border-strong" />
+        <span class="text-text-primary font-medium truncate">{{ station.name }}</span>
+      </nav>
 
-        <h1 class="text-2xl sm:text-3xl font-bold text-text-primary leading-tight">
-          {{ station.name }}
-        </h1>
+      <!-- Ana İstasyon Kartı -->
+      <article class="bg-bg-surface border border-border-default rounded-xl shadow-md overflow-hidden">
+        <!-- Başlık ve Operatör Bilgisi -->
+        <header class="p-6 sm:p-8 border-b border-border-default space-y-3">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-primary"></span>
+              <span class="text-xs font-semibold uppercase tracking-wider text-text-secondary">
+                {{ station.operator?.name || 'Lisanslı Şarj Operatörü' }}
+              </span>
+            </div>
 
-        <div class="flex items-center gap-2 mt-3 flex-wrap">
-          <!-- EPDK Sicil Rozeti -->
-          <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-bg-subdued border border-border-strong text-xs font-mono text-text-secondary">
-            <span>EPDK:</span>
-            <span class="font-bold text-text-primary">{{ station.istasyon_no }}</span>
+            <!-- 24 Saat Veri Tazeliği Rozeti (US-18) -->
+            <div
+              class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium border"
+              :class="
+                freshnessInfo.isStale
+                  ? 'bg-warning-subdued text-warning border-warning/30'
+                  : 'bg-bg-subdued text-text-secondary border-border-strong'
+              "
+              :title="freshnessInfo.subText"
+            >
+              <Clock class="w-3.5 h-3.5" />
+              <span>{{ freshnessInfo.text }}</span>
+            </div>
           </div>
 
-          <!-- Hizmet Şekli -->
-          <span
-            class="inline-flex items-center gap-1 px-2.5 py-1 rounded text-xs font-medium"
-            :class="station.service_type === 'Özel' ? 'bg-warning-subdued text-warning' : 'bg-success-subdued text-success'"
-          >
-            <span class="w-1.5 h-1.5 rounded-full bg-current"></span>
-            {{ station.service_type || 'Halka Açık' }}
-          </span>
+          <h1 class="text-2xl sm:text-3xl font-bold text-text-primary tracking-tight">
+            {{ station.name }}
+          </h1>
 
-          <!-- Arıza Bildirildi Rozeti (3+ Doğrulanmış İhbar) -->
-          <span
-            v-if="station.is_flagged_defective || station.status === 'DEFECTIVE'"
-            class="inline-flex items-center gap-1 px-2.5 py-1 rounded text-xs font-medium bg-danger-subdued text-danger-on-subdued border border-danger/40"
-            role="status"
-            aria-label="İstasyon arızalı olarak bildirildi"
-          >
-            <AlertTriangle class="w-3.5 h-3.5 text-danger flex-shrink-0" />
-            <span>Arıza Bildirildi (3+ Doğrulama)</span>
-          </span>
-
-          <!-- S5 US-18: 24 Saat Veri Tazeliği Rozeti -->
-          <span
-            v-if="freshnessInfo.is_stale"
-            class="inline-flex items-center gap-1 px-2.5 py-1 rounded text-xs font-medium bg-bg-subdued text-text-secondary border border-border-default"
-            :title="`Veri Tazeliği: ${freshnessInfo.last_updated_text}`"
-            role="status"
-            aria-label="Veri tazeliği durumu"
-          >
-            <Clock class="w-3.5 h-3.5 text-text-secondary flex-shrink-0" />
-            <span>{{ freshnessInfo.last_updated_text }}</span>
-          </span>
-        </div>
-      </div>
-
-      <!-- Adres Bloğu -->
-      <div class="flex items-start gap-3 text-sm text-text-secondary">
-        <MapPin class="w-5 h-5 text-text-secondary flex-shrink-0 mt-0.5" />
-        <div>
-          <p class="text-text-primary font-medium">{{ station.address || 'Adres bilgisi EPDK sicilinde belirtilmemiş.' }}</p>
-          <p class="mt-0.5">{{ station.district || '' }} / {{ station.city || '' }}</p>
-        </div>
-      </div>
-
-      <!-- Soket ve Güç Bilgileri (Zenginleştirilmiş veya Faz 1 Boş Veri Durumu) -->
-      <div class="p-4 rounded-lg bg-bg-subdued border border-border-default space-y-3">
-        <div class="flex items-center justify-between">
-          <h2 class="text-sm font-semibold text-text-primary">Soket ve Güç Bilgileri</h2>
-          <button
-            type="button"
-            @click="isContributeModalOpen = true"
-            class="text-xs font-semibold text-primary hover:underline touch-target-min"
-          >
-            + Bilgi Ekle
-          </button>
-        </div>
-
-        <!-- Soket / Güç Verisi Varsa Göster (TALEP-003: Voltrun için AC Tip 2) -->
-        <div v-if="(displayConnectors.length > 0) || station.power_kw" class="space-y-2">
-          <div class="flex flex-wrap items-center gap-1.5">
+          <!-- Rozetler Grubu -->
+          <div class="flex flex-wrap items-center gap-2 pt-1">
+            <!-- EPDK Sicil Rozeti -->
             <span
-              v-for="(ct, cidx) in displayConnectors"
-              :key="cidx"
-              class="inline-flex items-center gap-1 px-2.5 py-1 rounded text-xs font-semibold bg-primary/10 text-primary border border-primary/20"
+              class="inline-flex items-center px-2.5 py-1 rounded bg-bg-subdued border border-border-strong text-xs font-mono font-medium text-text-secondary"
             >
-              <Zap class="w-3.5 h-3.5" />
-              <span>{{ ct }}</span>
+              EPDK: {{ station.istasyon_no }}
             </span>
+
+            <!-- Hizmet Şekli -->
             <span
-              v-if="station.power_kw"
-              class="inline-flex items-center gap-1 px-2.5 py-1 rounded text-xs font-semibold bg-bg-surface text-text-primary border border-border-strong"
+              class="inline-flex items-center px-2.5 py-1 rounded text-xs font-medium"
+              :class="
+                station.service_type === 'Özel'
+                  ? 'bg-warning-subdued text-warning'
+                  : 'bg-success-subdued text-success'
+              "
             >
-              <span>{{ station.power_kw }} kW</span>
+              {{ station.service_type || 'Halka Açık' }}
+            </span>
+
+            <!-- Arıza Rozeti -->
+            <span
+              v-if="station.is_flagged_defective || station.status === 'DEFECTIVE'"
+              class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-danger-subdued text-danger font-medium text-xs border border-danger/20"
+            >
+              <AlertTriangle class="w-3.5 h-3.5" />
+              <span>Arıza Bildirildi (3+ Doğrulama)</span>
             </span>
           </div>
+        </header>
 
-          <div class="text-xs text-text-secondary space-y-1 pt-1 border-t border-border-default/60">
-            <p v-if="station.current_tariff">Tarife: <span class="font-semibold text-text-primary">{{ station.current_tariff }}</span></p>
-            <p v-else>Tarife: <span class="text-text-muted">Operatör Verisi Bekleniyor</span></p>
-            <p>Canlı Doluluk: <span class="text-text-muted">{{ station.status || 'Canlı durum verisi henüz açılmadı' }}</span></p>
+        <!-- Detay Gövdesi -->
+        <div class="p-6 sm:p-8 space-y-6">
+          <!-- Adres Bölümü -->
+          <section class="space-y-1.5">
+            <h2 class="text-xs font-bold text-text-muted uppercase tracking-wider flex items-center gap-1.5">
+              <MapPin class="w-4 h-4 text-primary" />
+              <span>Konum ve Adres</span>
+            </h2>
+            <p class="text-sm text-text-primary leading-relaxed">
+              {{ station.address || 'Adres bilgisi EPDK sicilinde kayıtlıdır.' }}
+            </p>
+            <p v-if="station.district || station.city" class="text-xs text-text-secondary">
+              {{ station.district }} / {{ station.city }}
+            </p>
+          </section>
+
+          <!-- Soket ve Güç Bilgileri -->
+          <section class="space-y-3 pt-4 border-t border-border-default">
+            <h2 class="text-xs font-bold text-text-muted uppercase tracking-wider flex items-center gap-1.5">
+              <Zap class="w-4 h-4 text-primary" />
+              <span>Soket ve Güç Bilgileri</span>
+            </h2>
+
+            <!-- Voltrun veya Gerçek Soket Verisi Varsa -->
+            <div v-if="displayConnectors.length > 0" class="space-y-2">
+              <div
+                v-for="c in displayConnectors"
+                :key="c"
+                class="p-3.5 rounded-lg border border-border-default bg-bg-surface flex items-center justify-between text-sm"
+              >
+                <div class="flex items-center gap-2">
+                  <Zap class="w-4 h-4 text-primary" />
+                  <span class="font-semibold text-text-primary">{{ c }}</span>
+                </div>
+                <span v-if="station.power_kw" class="font-bold text-primary">{{ station.power_kw }} kW</span>
+              </div>
+            </div>
+
+            <!-- Faz 1 Standart Gri Rozet (VERİ YOK) -->
+            <div
+              v-else
+              class="p-4 rounded-lg bg-missing-bg border border-border-default flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+            >
+              <div class="flex items-center gap-2.5">
+                <HelpCircle class="w-5 h-5 text-missing-text flex-shrink-0" />
+                <div>
+                  <p class="text-xs font-semibold text-missing-text">Operatör Verisi Bekleniyor</p>
+                  <p class="text-[11px] text-text-secondary">Soket tipi, güç ve anlık durum bilgisi bekleniyor</p>
+                </div>
+              </div>
+
+              <!-- Topluluk Katkı Butonu CTA -->
+              <button
+                type="button"
+                @click="isContributeModalOpen = true"
+                class="touch-target-min px-3 py-1.5 rounded bg-bg-surface hover:bg-bg-subdued border border-border-strong text-xs font-medium text-text-primary flex-shrink-0 transition-colors focus-visible:outline-none"
+              >
+                + Bilgi Ekle
+              </button>
+            </div>
+          </section>
+
+          <!-- Tarife & Canlı Doluluk Durumu -->
+          <section class="space-y-2 text-xs text-text-secondary pt-4 border-t border-border-default">
+            <p>
+              <strong class="text-text-primary">Tarife:</strong>
+              <span class="text-missing-text font-medium ml-1">Operatör Verisi Bekleniyor</span>
+            </p>
+            <p>
+              <strong class="text-text-primary">Canlı Doluluk:</strong>
+              <span class="text-text-muted ml-1">Canlı durum verisi henüz açılmadı</span>
+            </p>
+          </section>
+
+          <!-- Birincil ve İkincil Aksiyon Butonları -->
+          <div class="space-y-3 pt-4 border-t border-border-default">
+            <!-- Birincil CTA (Masaüstü: Web Sitesi + Pano Fallback) -->
+            <button
+              type="button"
+              @click="handlePrimaryAction"
+              class="w-full h-12 rounded-md bg-primary hover:bg-primary-hover active:bg-primary-active text-on-primary font-semibold text-sm shadow-md flex items-center justify-center gap-2 transition-all touch-target-min focus-visible:outline-none"
+            >
+              <span>Operatör Web Sitesine Git ↗</span>
+              <ExternalLink class="w-4 h-4" />
+            </button>
+            <p class="text-[11px] text-text-secondary text-center leading-tight">
+              Masaüstü ortamında doğrudan şarj başlatılamaz; operatör web sitesine gidebilir veya QR ile telefona aktarabilirsiniz.
+            </p>
+
+            <!-- İkincil Aksiyonlar (2 Kolon) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+              <button
+                type="button"
+                @click="handleDirections"
+                class="h-11 rounded-md border border-border-strong bg-bg-subdued hover:bg-border-default text-text-primary font-medium text-xs flex items-center justify-center gap-2 transition-colors touch-target-min focus-visible:outline-none"
+              >
+                <Navigation class="w-4 h-4 text-primary" />
+                <span>Yol Tarifi Al</span>
+              </button>
+
+              <button
+                type="button"
+                @click="isQrModalOpen = true"
+                class="h-11 rounded-md border border-border-strong bg-bg-subdued hover:bg-border-default text-text-primary font-medium text-xs flex items-center justify-center gap-2 transition-colors touch-target-min focus-visible:outline-none"
+              >
+                <QrCode class="w-4 h-4 text-primary" />
+                <span>Telefona Aktar (QR)</span>
+              </button>
+            </div>
+
+            <!-- Arıza Bildir Butonu -->
+            <button
+              type="button"
+              @click="isReportModalOpen = true"
+              class="w-full py-2.5 text-xs text-text-secondary hover:text-danger flex items-center justify-center gap-1.5 transition-colors touch-target-min focus-visible:outline-none"
+            >
+              <AlertTriangle class="w-3.5 h-3.5" />
+              <span>İstasyonla ilgili bir sorun mu var? Arıza Bildir</span>
+            </button>
           </div>
         </div>
 
-        <!-- Faz 1 Eksik Veri Alanı (Zorunlu Kısıt: Soket Boş Durumu) -->
-        <div v-else class="space-y-2">
-          <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded text-xs font-medium bg-missing-bg text-missing-text border border-border-default">
-            <HelpCircle class="w-4 h-4" />
-            <span>Operatör Verisi Bekleniyor</span>
-          </div>
+        <!-- Zorunlu Yasal EMP ve Veri Kaynak Beyanı -->
+        <footer class="p-6 bg-bg-subdued border-t border-border-default text-center text-xs text-text-muted space-y-1">
+          <p>Veri Kaynağı: EPDK Sicil Kaydı (Eylül 2026)</p>
+          <p class="leading-relaxed">
+            elektriklioto.com lisanslı şarj operatörü değildir. Şarj başlatma ve faturalandırma ilgili operatörün sorumluluğundadır.
+          </p>
+        </footer>
+      </article>
 
-          <div class="text-xs text-text-secondary space-y-1 pt-2 border-t border-border-default/60">
-            <p>Tarife: <span class="text-text-muted">Operatör Verisi Bekleniyor</span></p>
-            <p>Canlı Doluluk: <span class="text-text-muted">Canlı durum verisi henüz açılmadı</span></p>
-          </div>
-        </div>
-      </div>
+      <!-- Web-Mobil QR Aktarım Modalı (SCR-05) -->
+      <QrBridgeModal
+        :station="station"
+        :is-open="isQrModalOpen"
+        @close="isQrModalOpen = false"
+      />
 
-      <!-- Aksiyon Butonları -->
-      <div class="space-y-3 pt-2">
-        <button
-          type="button"
-          @click="handlePrimaryAction"
-          class="w-full h-12 rounded-md bg-primary text-on-primary text-sm font-semibold flex items-center justify-center gap-2 shadow-sm hover:bg-primary-hover active:bg-primary-active touch-target-min transition-all focus-visible:outline-none"
-        >
-          <ExternalLink class="w-4 h-4" />
-          <span>Operatör Web Sitesine Git ↗</span>
-        </button>
+      <!-- Topluluk Veri Katkı Modalı (SCR-07) -->
+      <ContributeModal
+        :station="station"
+        :is-open="isContributeModalOpen"
+        @close="isContributeModalOpen = false"
+      />
 
-        <p class="text-xs text-text-secondary text-center leading-tight">
-          Masaüstü ortamında doğrudan şarj başlatılamaz; operatör web sitesine gidebilir veya QR ile telefona aktarabilirsiniz.
-        </p>
-
-        <div class="grid grid-cols-2 gap-3 pt-1">
-          <button
-            type="button"
-            @click="handleDirections"
-            class="h-11 rounded-md border border-border-strong bg-bg-subdued hover:bg-border-default text-text-primary text-xs font-semibold flex items-center justify-center gap-1.5 touch-target-min transition-colors"
-          >
-            <Navigation class="w-4 h-4 text-primary" />
-            <span>Yol Tarifi</span>
-          </button>
-
-          <button
-            type="button"
-            @click="isQrModalOpen = true"
-            class="h-11 rounded-md border border-border-strong bg-bg-subdued hover:bg-border-default text-text-primary text-xs font-semibold flex items-center justify-center gap-1.5 touch-target-min transition-colors"
-          >
-            <QrCode class="w-4 h-4 text-text-secondary" />
-            <span>Telefona Aktar</span>
-          </button>
-        </div>
-
-        <button
-          type="button"
-          @click="isReportModalOpen = true"
-          class="w-full h-11 inline-flex items-center justify-center gap-1.5 text-xs text-text-secondary hover:text-danger touch-target-min transition-colors"
-        >
-          <AlertTriangle class="w-4 h-4" />
-          <span>İstasyonla ilgili bir sorun mu var? Arıza Bildir</span>
-        </button>
-      </div>
-
-      <!-- Tazelik ve Yasal EMP Beyanı (Zorunlu Kısıt) -->
-      <div class="pt-6 text-xs text-text-muted space-y-1 leading-relaxed border-t border-border-default/60">
-        <p>Veri Kaynağı: EPDK Sicil Kaydı (Eylül 2026)</p>
-        <p v-if="freshnessInfo.is_stale" class="text-text-secondary font-medium">
-          Veri Tazeliği: {{ freshnessInfo.last_updated_text }}
-        </p>
-        <p>
-          elektriklioto.com lisanslı şarj operatörü değildir. Şarj başlatma ve faturalandırma ilgili operatörün sorumluluğundadır.
-        </p>
-      </div>
-    </article>
-
-    <!-- Modallar -->
-    <QrBridgeModal
-      :station="station"
-      :is-open="isQrModalOpen"
-      @close="isQrModalOpen = false"
-    />
-
-    <ContributeModal
-      :station="station"
-      :is-open="isContributeModalOpen"
-      @close="isContributeModalOpen = false"
-    />
-
-    <IssueReportModal
-      :station="station"
-      :is-open="isReportModalOpen"
-      @close="isReportModalOpen = false"
-      @report-submitted="handleReportSubmitted"
-    />
+      <!-- Arıza Bildirim Modalı (SCR-06) -->
+      <IssueReportModal
+        :station="station"
+        :is-open="isReportModalOpen"
+        @close="isReportModalOpen = false"
+        @report-submitted="handleReportSubmitted"
+      />
+    </div>
   </div>
 </template>

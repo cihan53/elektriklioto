@@ -1,4 +1,3 @@
-
 import Fastify, { FastifyInstance } from 'fastify';
 import { TypeBoxTypeProvider } from '@fastify/type-provider-typebox';
 import rateLimit from '@fastify/rate-limit';
@@ -10,6 +9,7 @@ import { operatorRoutes } from './modules/operators/operator.routes.js';
 import { routeBridgeRoutes } from './modules/route-bridge/route-bridge.routes.js';
 import { reportRoutes } from './modules/reports/report.routes.js';
 import { healthRoutes } from './modules/health/health.routes.js';
+import { gadmRoutes } from './modules/gadm/gadm.routes.js';
 import { ProblemDetails } from './types/route-bridge.js';
 import { AppError } from './utils/errors.js';
 
@@ -66,6 +66,7 @@ export async function buildApp(): Promise<FastifyInstance> {
         { name: 'Operators', description: 'Şarj Operatörleri ve Entegrasyon Bilgileri' },
         { name: 'Reports', description: 'Kitle Kaynaklı Arıza Bildirimi ve Proximity Proof' },
         { name: 'Health', description: 'Sistem, Kuyruk ve CPO Kaynak Sağlık İzleme Servisi' },
+        { name: 'GADM', description: 'GADM 4.1 Türkiye Resmi CBS İl, İlçe, Mahalle ve Geocoding Servisi' },
       ],
     },
   });
@@ -133,24 +134,14 @@ export async function buildApp(): Promise<FastifyInstance> {
     timestamp: new Date().toISOString(),
   }));
 
-  app.get('/api/v1/health', async () => ({
-    status: 'OK',
-    uptime: process.uptime(),
-    timestamp: new Date().toISOString(),
-  }));
-
-  app.get('/api/health', async () => ({
-    status: 'OK',
-    uptime: process.uptime(),
-    timestamp: new Date().toISOString(),
-  }));
-
   // Modül Rotaları
   await app.register(routeBridgeRoutes);
   await app.register(stationRoutes, { prefix: '/api/v1/stations' });
   await app.register(operatorRoutes, { prefix: '/api/v1/operators' });
   await app.register(reportRoutes, { prefix: '/api/v1/stations' });
   await app.register(healthRoutes, { prefix: '/api/v1/health' });
+  await app.register(gadmRoutes, { prefix: '/api/v1/gadm' });
+  await app.register(gadmRoutes, { prefix: '/api/v1/geo' });
 
   return app;
 }

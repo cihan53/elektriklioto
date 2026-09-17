@@ -74,7 +74,7 @@ export class SourceHealthService {
         source_name: 'EPDK Kamusal Sorgu Ucu',
         endpoint_url: 'https://epdk.gov.tr/api/sarj/istasyonlar',
         consecutive_failures: 0,
-        last_successful_sync: new Date(Date.now() - 25 * 60 * 60 * 1000), // 25 saat önce (bayat kaynak testi için)
+        last_successful_sync: new Date(Date.now() - 25 * 60 * 60 * 1000),
         last_attempt_at: new Date(),
         last_error: 'Bağlantı zaman aşımı',
         is_healthy: false,

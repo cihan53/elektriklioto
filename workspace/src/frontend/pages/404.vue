@@ -1,6 +1,6 @@
 
 <script setup lang="ts">
-import { Map } from 'lucide-vue-next';
+import { Map, AlertCircle, ArrowLeft } from 'lucide-vue-next';
 
 useHead({
   title: '404 — Aradığınız Sayfa Bulunamadı | elektriklioto.com',
@@ -32,7 +32,7 @@ useHead({
       <div class="pt-2">
         <NuxtLink
           to="/"
-          class="w-full h-12 inline-flex items-center justify-center gap-2 rounded-md bg-primary text-on-primary font-semibold text-sm shadow-sm hover:bg-primary-hover active:bg-primary-active touch-target-min transition-all focus-visible:outline-none"
+          class="w-full h-12 inline-flex items-center justify-center gap-2 rounded-md bg-primary text-on-primary font-semibold text-sm shadow-sm hover:bg-primary-hover active:bg-primary-active touch-target-min transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
         >
           <Map class="w-4 h-4" />
           <span>Haritayı Aç ve Keşfet</span>
@@ -42,7 +42,7 @@ useHead({
       <!-- Popüler Dizin Bağlantıları (Dokunma alanı webde ≥ 44x44px) -->
       <div class="pt-4 border-t border-border-default space-y-2">
         <p class="text-caption text-text-muted uppercase tracking-wider font-semibold">
-          Popüler Şehir Rehberleri
+          Hızlı Bağlantılar ve Rehberler
         </p>
         <div class="flex flex-wrap items-center justify-center gap-2 text-xs font-medium text-primary">
           <NuxtLink
@@ -64,6 +64,13 @@ useHead({
             class="px-3 py-2 rounded hover:bg-bg-subdued touch-target-min transition-colors"
           >
             İzmir Şarj İstasyonları
+          </NuxtLink>
+          <span class="text-border-strong">•</span>
+          <NuxtLink
+            to="/hakkimizda"
+            class="px-3 py-2 rounded hover:bg-bg-subdued touch-target-min transition-colors"
+          >
+            Hakkında & Yasal Bilgiler
           </NuxtLink>
         </div>
       </div>

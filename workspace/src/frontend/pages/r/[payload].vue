@@ -23,7 +23,7 @@ const { showToast } = useToast();
 const payloadParam = (route.params.payload as string) || '';
 const isCopied = ref(false);
 
-// Backend Route Bridge Decode API Çağrısı
+// Backend Route Bridge Decode API Çağrısı (BUG-VIS-01 fix)
 const decodeUrl = computed(() => {
   const base = (config.public.apiBase || '/api/v1').replace(/\/+$/, '');
   return `${base}/routes/bridge/decode/${encodeURIComponent(payloadParam)}`;
