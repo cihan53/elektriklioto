@@ -1,25 +1,64 @@
 
-// Nuxt 3 iskeleti — Sprint S1: harita sayfası + üretilmiş API istemcisi.
-// SEO modülleri (sitemap, schema-org), Tailwind ve i18n bu görevin kapsamı dışıdır;
-// ayrı bir sprint görevinde eklenecektir (bkz. teknik_mimari_dokumani.md §8).
+// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: "2026-09-06",
-  devtools: { enabled: true },
-  css: ["~/assets/css/main.css"],
-  typescript: {
-    strict: true,
-    typeCheck: false,
+  compatibilityDate: '2024-11-01',
+  devtools: { enabled: false },
+  devServer: {
+    host: '127.0.0.1',
+    port: 3000,
+  },
+  vite: {
+    server: {
+      hmr: {
+        protocol: 'ws',
+        host: '127.0.0.1',
+      },
+    },
+  },
+  modules: ['@nuxtjs/tailwindcss'],
+  css: [
+    '~/assets/css/tokens.css',
+    '~/assets/css/main.css',
+    'maplibre-gl/dist/maplibre-gl.css'
+  ],
+  app: {
+    head: {
+      title: 'elektriklioto.com — Elektrikli Araç Şarj İstasyonları Haritası ve Rehberi',
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=5' },
+        {
+          name: 'description',
+          content: 'Türkiye genelindeki tüm şarj ağlarını (ZES, Trugo, Eşarj ve 170+ operatör) tek haritada görün. Güncel konumlar ve EPDK sicil bilgileri.'
+        },
+        { name: 'theme-color', content: '#0066CC' },
+        { property: 'og:site_name', content: 'elektriklioto.com' },
+        { property: 'og:title', content: 'elektriklioto.com — Elektrikli Araç Şarj İstasyonları Haritası' },
+        {
+          property: 'og:description',
+          content: '16.788 şarj istasyonu ve 179 lisanslı operatör tek haritada. Bağımsız e-Mobilite Asistanı.'
+        },
+        { property: 'og:type', content: 'website' }
+      ],
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      ],
+      // 0ms FOUC: Sayfa yüklenmeden önce tema sınıfını HTML etiketine enjekte eder
+      script: [
+        {
+          innerHTML: `(function(){try{var m=localStorage.getItem("theme");var d=window.matchMedia("(prefers-color-scheme: dark)").matches;if(m==="dark"||(!m&&d)){document.documentElement.classList.add("dark");}else{document.documentElement.classList.remove("dark");}}catch(e){}})();`,
+          type: 'text/javascript'
+        }
+      ]
+    }
   },
   runtimeConfig: {
     public: {
-      // Tarayıcı yalnızca api. alt alan adıyla konuşur (bkz. teknik_mimari_dokumani.md §2).
-      apiBase: process.env.NUXT_PUBLIC_API_BASE || "https://api.elektriklioto.com",
-      // > **Varsayım:** Harita karo (tile) sağlayıcı API anahtarı henüz kurulmadı
-      // (bkz. paket_secim_raporu.md §6: "KURULUM GEREKİYOR: harita karo sağlayıcı API anahtarı").
-      // Anahtar gerektirmeyen açık kaynaklı bir stil varsayılan olarak tanımlanmıştır;
-      // gerçek sağlayıcı belirlendiğinde NUXT_PUBLIC_MAP_STYLE_URL ile değiştirilir.
-      mapStyleUrl:
-        process.env.NUXT_PUBLIC_MAP_STYLE_URL || "https://tiles.openfreemap.org/styles/liberty",
-    },
+      apiBase: process.env.NUXT_PUBLIC_API_BASE || 'http://localhost:3001/api/v1',
+      mapTileUrl: process.env.NUXT_PUBLIC_MAP_TILE_URL || 'https://tile.openstreetmap.org/{z}/{x}/{y}.png'
+    }
   },
+  typescript: {
+    strict: true
+  }
 });

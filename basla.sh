@@ -35,6 +35,35 @@ kosucu_pid() { cat workspace/.lock 2>/dev/null; }
 
 # ---------------------------------------------------------------- alt komutlar
 case "${1:-}" in
+  --usage|--kullanim)
+      echo "── Antigravity Model Kotası ─────────────────────────"
+      (agy -p="/usage" 2>/dev/null || ~/.local/bin/agy -p="/usage")
+      echo
+      $PY - <<'PYEOF'
+import json, pathlib
+root = pathlib.Path(".")
+idx = root / "workspace/.trace/index.jsonl"
+if idx.exists() and idx.read_text().strip():
+    rows = [json.loads(l) for l in idx.read_text().splitlines() if l.strip()]
+    tin = sum(r.get("tokens_in", 0) for r in rows)
+    tout = sum(r.get("tokens_out", 0) for r in rows)
+    tth = sum(r.get("tokens_thinking", 0) for r in rows)
+    print("── Proje İçi Token Özeti ────────────────────────────")
+    print(f"Toplam Çağrı  : {len(rows)}")
+    print(f"Girdi Token   : {tin:,}")
+    print(f"Çıktı Token   : {tout:,}")
+    print(f"Düşünce Token : {tth:,}")
+    print(f"Toplam Token  : {(tin + tout):,}")
+PYEOF
+      exit 0 ;;
+  --canli|--dev)
+      exec ./canli.sh ;;
+  --test-izle)
+      node scripts/tarayici_test_izle.mjs
+      exit 0 ;;
+  --incele|--review)
+      $PY studio_engine.py --review
+      exit 0 ;;
   --izle)   exec $PY studio_ctl.py ;;
   --onayla)
       $PY - "$@" <<'PYEOF'
@@ -49,10 +78,17 @@ PYEOF
       exit 0 ;;
   --durum)
       $PY - <<'PYEOF'
-import json, pathlib, subprocess, time
+import json, pathlib, subprocess, time, os
 root = pathlib.Path(".")
-alive = bool(subprocess.run(["pgrep","-f","studio_engine.py"],
-                            capture_output=True, text=True).stdout.strip())
+lock = root / "workspace/.lock"
+alive = False
+if lock.exists():
+    try:
+        pid = int(lock.read_text().strip())
+        os.kill(pid, 0)
+        alive = True
+    except (ValueError, OSError):
+        pass
 print("Koşucu :", "ÇALIŞIYOR" if alive else "boşta")
 try:
     st = json.loads((root/"workspace/.state.json").read_text())
@@ -97,6 +133,8 @@ PYEOF
       [ -f workspace/pano.json ] && mv workspace/pano.json "_arsiv/$TS/"
       rm -f workspace/.state.json
       rm -rf workspace/.trace workspace/.control workspace/.stale
+      # Statik kaynak raporunu koru
+      [ -f "_arsiv/$TS/docs/veri_kaynagi_epdk.md" ] && mkdir -p workspace/docs && cp "_arsiv/$TS/docs/veri_kaynagi_epdk.md" workspace/docs/
       grn "Sıfırlandı. Önceki çıktılar: _arsiv/$TS/"
       exit 0 ;;
 esac
@@ -112,26 +150,22 @@ if [ ! -x "$PY" ]; then
   ylw "· venv yok, kuruluyor..."
   python3 -m venv .venv || { red "✗ venv kurulamadı"; exit 1; }
 fi
-$PY -c "import anthropic" 2>/dev/null || {
-  ylw "· anthropic paketi kuruluyor..."
-  .venv/bin/pip install --quiet anthropic || { red "✗ anthropic kurulamadı"; exit 1; }
-}
 grn "✓ Python ortamı hazır"
 
-# Şemada hangi arka uçlar kullanılıyorsa yalnızca onların komutu aranır.
-for pair in "cli:claude" "agy:agy"; do
-  be="${pair%%:*}"; exe="${pair##*:}"
-  if $PY -c "
-import json,sys
-org=json.load(open('org_chart.json'))
-sys.exit(0 if any((a.get('backend') or 'cli')=='$be' for a in org['hierarchy']) else 1)"; then
-    if command -v "$exe" >/dev/null 2>&1; then
-      grn "✓ $exe bulundu ($(command -v "$exe"))"
-    else
-      red "✗ $exe bulunamadı ama org şeması '$be' arka ucunu istiyor"; HATA=1
-    fi
-  fi
-done
+# PATH'e ~/.local/bin ekle
+export PATH="$HOME/.local/bin:$PATH"
+
+# Antigravity CLI (agy) kontrolü
+AGY_EXE="$(command -v agy 2>/dev/null || true)"
+if [ -z "$AGY_EXE" ] && [ -x "$HOME/.local/bin/agy" ]; then
+  AGY_EXE="$HOME/.local/bin/agy"
+fi
+
+if [ -n "$AGY_EXE" ]; then
+  grn "✓ agy bulundu ($AGY_EXE)"
+else
+  red "✗ agy bulunamadı. Lütfen Antigravity CLI'nın kurulu olduğundan emin olun (~/.local/bin/agy)"; HATA=1
+fi
 
 if [ ! -f proje_kapsami.md ]; then
   red "✗ proje_kapsami.md yok"; HATA=1
@@ -178,10 +212,9 @@ echo
 dim "Log: $LOG    Durdurmak için kontrol ekranında 's'"
 echo
 
-# Arka plan sürecine mutlak komut yollarını geçir: nohup ile giriş kabuğunun
-# PATH'i miras kalmıyor ve 'claude' bulunamıyordu.
-export STUDIO_CLAUDE_BIN="$(command -v claude 2>/dev/null || true)"
-export STUDIO_AGY_BIN="$(command -v agy 2>/dev/null || true)"
+# Arka plan sürecine mutlak komut yollarını ve Antigravity ayarlarını geçir
+export STUDIO_BACKEND="agy"
+export STUDIO_AGY_BIN="${AGY_EXE:-$HOME/.local/bin/agy}"
 nohup $PY studio_engine.py --full --yes ${STUDIO_BUTCE:+--max-cost $STUDIO_BUTCE} > "$LOG" 2>&1 &
 PID=$!
 sleep 2

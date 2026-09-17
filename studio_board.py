@@ -10,12 +10,14 @@ başlamaz, onun yerine sonraki tüm sprint'lerin planlanan tarihleri kayar.
 from __future__ import annotations
 
 import json
+import os
 import time
 from datetime import date, datetime, timedelta
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
-BOARD_FILE = ROOT / "workspace" / "pano.json"
+WORKSPACE = ROOT / "workspace"
+BOARD_FILE = WORKSPACE / "pano.json"
 
 TODO, READY, RUNNING, BLOCKED, DONE, FAILED, SKIPPED = (
     "TODO", "READY", "RUNNING", "BLOCKED", "DONE", "FAILED", "SKIPPED"
@@ -110,6 +112,39 @@ def normalize(board: dict) -> dict:
     return board
 
 
+def append_sprint(board: dict, new_sprint: dict) -> dict:
+    """Mevcut panoyu bozmadan sonuna yeni bir sprint fazı ekler ve takvimi günceller."""
+    existing_sprint_ids = {s["id"] for s in board.get("sprints", [])}
+    sid = new_sprint.get("id")
+    if not sid or sid in existing_sprint_ids:
+        sid = f"S{len(board.get('sprints', [])) + 1}"
+        new_sprint["id"] = sid
+
+    new_sprint["order"] = len(board.get("sprints", []))
+    new_sprint.setdefault("status", TODO)
+    new_sprint.setdefault("actual_start", None)
+    new_sprint.setdefault("actual_end", None)
+    new_sprint.setdefault("planned_days", max(1, len(new_sprint.get("tasks", [])) // 2 or 1))
+
+    existing_task_ids = {t["id"] for _, t in all_tasks(board)}
+    for idx, t in enumerate(new_sprint.get("tasks", [])):
+        if not t.get("id") or t["id"] in existing_task_ids:
+            t["id"] = f"{sid}-T{idx + 1}"
+        t.setdefault("status", TODO)
+        t.setdefault("depends_on", [])
+        t.setdefault("attempts", 0)
+        t.setdefault("note", "")
+        existing_task_ids.add(t["id"])
+
+    board.setdefault("sprints", []).append(new_sprint)
+    normalize(board)
+    refresh(board)
+    schedule(board)
+    if board["sprints"]:
+        board["baseline_end"] = board["sprints"][-1].get("planned_end")
+    return board
+
+
 # ---------------------------------------------------------------- takvim
 def schedule(board: dict, start: date | None = None) -> dict:
     """Planlanan tarihleri yeniden hesaplar.
@@ -144,6 +179,38 @@ def slip_days(board: dict) -> int:
     return (date.fromisoformat(last) - date.fromisoformat(base)).days
 
 
+def is_runner_active() -> bool:
+    """Başka bir sürecin aktif olarak koşup koşmadığını kontrol eder."""
+    lock_file = WORKSPACE / ".lock"
+    if not lock_file.exists():
+        return False
+    try:
+        pid = int(lock_file.read_text(encoding="utf-8").strip())
+        if pid == os.getpid():
+            return False
+        os.kill(pid, 0)
+        return True
+    except (ValueError, OSError):
+        return False
+
+
+def recover_orphans(board: dict) -> bool:
+    """Kapanmış veya çökmüş koşulardan arta kalan RUNNING durumundaki görevleri kurtarır."""
+    if is_runner_active():
+        return False
+    changed = False
+    for s in board.get("sprints", []):
+        for t in s.get("tasks", []):
+            if t.get("status") == RUNNING:
+                t["status"] = READY
+                t["note"] = (t.get("note") or "") + " [yetim durumdan kurtarıldı]"
+                changed = True
+    if changed:
+        refresh(board)
+        save(board)
+    return changed
+
+
 # ---------------------------------------------------------------- durum makinesi
 def refresh(board: dict) -> dict:
     """Bağımlılıklara göre TODO -> READY / BLOCKED geçişlerini uygular.
@@ -154,11 +221,16 @@ def refresh(board: dict) -> dict:
     done_ids = {t["id"] for _, t in all_tasks(board) if t["status"] in TERMINAL}
     failed_ids = {t["id"] for _, t in all_tasks(board) if t["status"] == FAILED}
 
+    active = is_runner_active()
     prev_closed = True
     for s in sorted(board["sprints"], key=lambda x: x["order"]):
         statuses = {t["status"] for t in s["tasks"]}
 
         for t in s["tasks"]:
+            # Dışarıda çalışan aktif bir koşucu yoksa RUNNING kalmış yetim görevleri READY durumuna çek
+            if t["status"] == RUNNING and not active:
+                t["status"] = READY
+
             if t["status"] in (DONE, SKIPPED, RUNNING, FAILED):
                 continue
             deps = set(t.get("depends_on", []))

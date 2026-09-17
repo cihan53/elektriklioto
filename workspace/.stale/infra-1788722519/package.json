@@ -1,0 +1,27 @@
+
+{
+  "name": "@elektriklioto/infra",
+  "version": "1.0.0",
+  "private": true,
+  "description": "elektriklioto.com PostGIS Veritabanı ve Migration Altyapısı",
+  "type": "module",
+  "scripts": {
+    "db:up": "docker compose up -d",
+    "db:down": "docker compose down",
+    "db:logs": "docker compose logs -f postgres",
+    "db:migrate": "tsx scripts/migrate.ts",
+    "db:generate": "drizzle-kit generate",
+    "db:verify": "tsx scripts/verify-db.ts"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "drizzle-orm": "^0.45.2",
+    "postgres": "^3.4.5"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.5",
+    "drizzle-kit": "^0.30.5",
+    "tsx": "^4.19.3",
+    "typescript": "^5.7.3"
+  }
+}

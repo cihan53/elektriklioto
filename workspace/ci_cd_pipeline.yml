@@ -1,0 +1,464 @@
+# ==============================================================================
+# elektriklioto.com - CI/CD Pipeline Yapılandırması (Sprint S1)
+# 
+# Belge Sürümü: 1.0.0-faz1
+# Dosya Yolu: workspace/ci_cd_pipeline.yml
+# Kapsam: S1 - İnteraktif İstasyon Haritası ve BBox Keşfi (Deploy Fazı)
+# 
+# > **ÇATIŞMA:** "Mobil istemci Flutter ile geliştirilecektir. (zorunlu)" kısıtı teknik olarak imkânsızdır. Ortam raporunda flutter ve dart komutları "Exec format error" nedeniyle BOZUK durumdadır. İstemcinin geliştirilebilmesi için onarım gereklidir.
+# > **ÇATIŞMA:** "Paket yöneticisi tekliği: Ortamda pnpm 10.20.0 ölçülmüştür" kısıtı ortam gerçeğiyle uyuşmamaktadır. Güncel ortam raporunda pnpm YOK olarak listelenmiştir. Paylaşımlı workspace mimarisi için KURULUM GEREKİYOR: pnpm.
+# > **Varsayım:** S1 Sprinti kapsamında CI/CD hattı Node.js v22.21.0 ve pnpm 10.x (CI ortamında corepack ile etkinleştirilerek) üzerinde kurgulanmıştır. Pipeline; Fastify BBox API (api.elektriklioto.com), PostGIS 16-3.4 veritabanı, Drizzle migration, Nuxt 3 web harita istemcisi ve tohumlama (seed) servislerinin test, konteynerleme ve dağıtımını kapsar.
+# ==============================================================================
+
+name: S1 Map & BBox Services CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+    paths-ignore:
+      - '**.md'
+      - 'docs/**'
+      - '.gitignore'
+  pull_request:
+    branches:
+      - main
+      - develop
+    paths-ignore:
+      - '**.md'
+      - 'docs/**'
+      - '.gitignore'
+  workflow_dispatch:
+
+env:
+  NODE_VERSION: '22.21.0'
+  POSTGIS_IMAGE: 'postgis/postgis:16-3.4'
+  PRIMARY_DOMAIN: 'elektriklioto.com'
+  API_DOMAIN: 'api.elektriklioto.com'
+  DOCKER_REGISTRY: 'ghcr.io/elektriklioto'
+  POSTGRES_DB: 'elektriklioto'
+  POSTGRES_USER: 'postgres'
+  POSTGRES_PASSWORD: 'ci_test_secure_password_1634'
+  DATABASE_URL: 'postgresql://postgres:ci_test_secure_password_1634@localhost:5432/elektriklioto'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # ----------------------------------------------------------------------------
+  # AŞAMA 1: Statik Kod Kalitesi, Sözleşme, Güvenlik ve Lisans Denetimi
+  # ----------------------------------------------------------------------------
+  lint-and-contract-check:
+    name: Lint, Contract & Security Gates
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Kodu Depodan Çek (Checkout)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Node.js Ortamını Kur (v22.21.0)
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: pnpm Paket Yöneticisini Etkinleştir
+        run: |
+          corepack enable
+          corepack prepare pnpm@10.20.0 --activate
+          pnpm --version
+
+      - name: Bağımlılıkları Kur (Frozen Lockfile)
+        run: pnpm install --frozen-lockfile
+
+      - name: Biome Linter & Formatter Denetimi
+        run: pnpm biome check .
+
+      - name: TypeScript Statik Tip Denetimi (Monorepo)
+        run: pnpm -r exec tsc --noEmit
+
+      - name: Tasarım Token Bütünlüğü ve Senkronizasyon Denetimi
+        run: |
+          pnpm tokens:build
+          git diff --exit-code packages/design-tokens || (echo "HATA: Tasarım token'ları senkronize değil! tokens:build çalıştırılmalıdır." && exit 1)
+
+      - name: OpenAPI 3.1 Sözleşme Denetimi (Spectral CLI)
+        run: |
+          pnpm exec spectral lint apps/api/openapi.json --ruleset .spectral.yaml --fail-severity=error
+
+      - name: Yasal Lisans Sınırı Bariyeri (Anti-Billing / Anti-Operator Guard)
+        run: |
+          echo "Denetim: Yasaklı ödeme ve lisanslı operatör terimleri taranıyor..."
+          FORBIDDEN_TERMS="payment|billing|invoice|checkout|credit|wallet|pos_terminal"
+          VIOLATIONS=$(grep -rnEi "($FORBIDDEN_TERMS)" apps/ packages/ \
+            --exclude-dir={node_modules,dist,.turbo,.nuxt} \
+            --exclude="*.md" || true)
+          if [ -n "$VIOLATIONS" ]; then
+            echo "GÜVENLİK İHLALİ: Projede lisanslı şarj operatörü/ödeme çağrışımı yapan yasaklı terimler bulundu:"
+            echo "$VIOLATIONS"
+            exit 1
+          fi
+          echo "Yasal Lisans Bariyeri Başarılı: Sıfır ödeme/faturalama terimi tespit edildi."
+
+      - name: KVKK Sıfır Konum Saklama Güvenlik Denetimi (Zero-Storage Guard)
+        run: |
+          echo "Denetim: Veritabanı şemasında ve kalıcı modellerde GPS koordinat sütunları taranıyor..."
+          COORD_VIOLATIONS=$(grep -rnEi "(user_lat|user_lon|user_coord|user_gps|device_lat|device_lon|history_route)" packages/db/ apps/api/src/ \
+            --exclude-dir={node_modules,dist} || true)
+          if [ -n "$COORD_VIOLATIONS" ]; then
+            echo "KVKK İHLALİ: Kullanıcıya bağlı GPS koordinatı/güzergah kaydı tespit edildi!"
+            echo "$COORD_VIOLATIONS"
+            exit 1
+          fi
+          echo "KVKK Sıfır Konum Saklama Başarılı: Kullanıcı GPS koordinatı depolanmıyor."
+
+      - name: Bağımlılık Güvenlik Açığı Taraması (pnpm audit)
+        run: pnpm audit --audit-level=high
+
+      - name: Gizli Bilgi ve Anahtar Sızıntı Taraması (Gitleaks)
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  # ----------------------------------------------------------------------------
+  # AŞAMA 2: Veritabanı Şema Göçü, Tohumlama ve Mekânsal (Spatial) Testler
+  # ----------------------------------------------------------------------------
+  test-and-spatial-sla:
+    name: PostGIS DB, Seed & Spatial SLA Tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    services:
+      postgres:
+        image: postgis/postgis:16-3.4
+        env:
+          POSTGRES_DB: ${{ env.POSTGRES_DB }}
+          POSTGRES_USER: ${{ env.POSTGRES_USER }}
+          POSTGRES_PASSWORD: ${{ env.POSTGRES_PASSWORD }}
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - name: Kodu Depodan Çek (Checkout)
+        uses: actions/checkout@v4
+
+      - name: Node.js Ortamını Kur (v22.21.0)
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: pnpm Paket Yöneticisini Etkinleştir
+        run: |
+          corepack enable
+          corepack prepare pnpm@10.20.0 --activate
+
+      - name: Bağımlılıkları Kur
+        run: pnpm install --frozen-lockfile
+
+      - name: Sürümlenmiş Veritabanı Göçlerini Çalıştır (Drizzle Migrations)
+        run: |
+          echo "Drizzle migration'ları uygulanıyor..."
+          pnpm -F @elektriklioto/api db:migrate
+        env:
+          DATABASE_URL: ${{ env.DATABASE_URL }}
+
+      - name: PostGIS Eklenti ve Spatial İndeks Doğrulaması
+        run: |
+          echo "PostGIS sürümü ve GIST spatial indeksleri doğrulanıyor..."
+          docker exec $(docker ps -q -f ancestor=postgis/postgis:16-3.4) psql -U postgres -d elektriklioto -c "SELECT PostGIS_Full_Version();"
+          docker exec $(docker ps -q -f ancestor=postgis/postgis:16-3.4) psql -U postgres -d elektriklioto -c "
+            SELECT indexname, indexdef FROM pg_indexes 
+            WHERE tablename = 'station' AND indexdef LIKE '%gist%geom%';
+          "
+
+      - name: EPDK Tohumlama Hattı ve Idempotence Testi (16.788 İstasyon)
+        run: |
+          echo "1. Tohumlama (Seed) Çalıştırılıyor..."
+          pnpm -F @elektriklioto/worker seed:epdk
+          COUNT_1=$(docker exec $(docker ps -q -f ancestor=postgis/postgis:16-3.4) psql -U postgres -d elektriklioto -t -c "SELECT count(*) FROM station;")
+          echo "1. Tohumlama İstasyon Sayısı: $COUNT_1"
+
+          echo "2. Tohumlama (Idempotence Testi) Çalıştırılıyor..."
+          pnpm -F @elektriklioto/worker seed:epdk
+          COUNT_2=$(docker exec $(docker ps -q -f ancestor=postgis/postgis:16-3.4) psql -U postgres -d elektriklioto -t -c "SELECT count(*) FROM station;")
+          echo "2. Tohumlama İstasyon Sayısı: $COUNT_2"
+
+          if [ "$COUNT_1" -ne "$COUNT_2" ]; then
+            echo "HATA: Seed idempotent değil! Kayıt sayıları eşleşmiyor."
+            exit 1
+          fi
+
+      - name: Birim ve Entegrasyon Testleri (Vitest)
+        run: pnpm test:run
+        env:
+          DATABASE_URL: ${{ env.DATABASE_URL }}
+
+      - name: BBox Spatial Sorgu Performans Testi (SLA: p95 < 40ms)
+        run: |
+          echo "S1 SLA Doğrulaması: 20km BBox PostGIS sorguları p95 < 40ms bütçesi test ediliyor..."
+          pnpm -F @elektriklioto/api test:spatial-benchmark
+        env:
+          DATABASE_URL: ${{ env.DATABASE_URL }}
+
+      - name: Nullable DTO Doğrulama Testi
+        run: |
+          echo "Faz 1 Eksik Veri Doğrulaması: Soket, güç ve tarife alanlarının null döndüğü ve mock veri üretilmediği doğrulanıyor..."
+          pnpm -F @elektriklioto/api test:nullable-contracts
+        env:
+          DATABASE_URL: ${{ env.DATABASE_URL }}
+
+  # ----------------------------------------------------------------------------
+  # AŞAMA 3: Web İstemcisi Derleme, Lighthouse SEO ve WCAG 2.1 AA A11y Kapısı
+  # ----------------------------------------------------------------------------
+  web-lighthouse-and-a11y:
+    name: Nuxt 3 Build, SEO & WCAG 2.1 AA Gate
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Kodu Depodan Çek (Checkout)
+        uses: actions/checkout@v4
+
+      - name: Node.js Ortamını Kur (v22.21.0)
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: pnpm Paket Yöneticisini Etkinleştir
+        run: |
+          corepack enable
+          corepack prepare pnpm@10.20.0 --activate
+
+      - name: Bağımlılıkları Kur
+        run: pnpm install --frozen-lockfile
+
+      - name: Nuxt 3 Web Uygulamasını Derle (SSR/SSG)
+        run: pnpm -F @elektriklioto/web build
+        env:
+          NODE_ENV: production
+          VITE_API_BASE_URL: https://${{ env.API_DOMAIN }}
+
+      - name: Nuxt Önizleme Sunucusunu Arka Planda Başlat
+        run: |
+          node apps/web/.output/server/index.mjs &
+          sleep 5
+          curl -f http://localhost:3000/ || exit 1
+
+      - name: Lighthouse CI ile SEO (> 90) ve Erişilebilirlik (> 95) Denetimi
+        run: |
+          pnpm exec lhci autorun
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+
+  # ----------------------------------------------------------------------------
+  # AŞAMA 4: Konteynerleme (Docker Build) ve Güvenlik Zafiyet Taraması (Trivy)
+  # ----------------------------------------------------------------------------
+  containerize-and-security-scan:
+    name: Containerize & Trivy Vulnerability Scan
+    runs-on: ubuntu-latest
+    needs:
+      - lint-and-contract-check
+      - test-and-spatial-sla
+      - web-lighthouse-and-a11y
+    timeout-minutes: 15
+    steps:
+      - name: Kodu Depodan Çek (Checkout)
+        uses: actions/checkout@v4
+
+      - name: Docker Buildx Kur
+        uses: docker/setup-buildx-action@v3
+
+      - name: Container Registry Oturumu Aç
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop'
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Fastify BBox API İmajını Derle
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: apps/api/Dockerfile
+          push: false
+          load: true
+          tags: ${{ env.DOCKER_REGISTRY }}/api:${{ github.sha }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Nuxt 3 Web Harita İmajını Derle
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: apps/web/Dockerfile
+          push: false
+          load: true
+          tags: ${{ env.DOCKER_REGISTRY }}/web:${{ github.sha }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Aggregator Worker İmajını Derle
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: apps/worker/Dockerfile
+          push: false
+          load: true
+          tags: ${{ env.DOCKER_REGISTRY }}/worker:${{ github.sha }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Trivy Güvenlik Taraması (API İmajı)
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: ${{ env.DOCKER_REGISTRY }}/api:${{ github.sha }}
+          format: 'table'
+          exit-code: '1'
+          ignore-unfixed: true
+          vuln-type: 'os,library'
+          severity: 'CRITICAL,HIGH'
+
+      - name: Trivy Güvenlik Taraması (Web İmajı)
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: ${{ env.DOCKER_REGISTRY }}/web:${{ github.sha }}
+          format: 'table'
+          exit-code: '1'
+          ignore-unfixed: true
+          vuln-type: 'os,library'
+          severity: 'CRITICAL,HIGH'
+
+      - name: Onaylanmış İmajları Registry'ye Gönder (Push)
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop'
+        run: |
+          docker push ${{ env.DOCKER_REGISTRY }}/api:${{ github.sha }}
+          docker push ${{ env.DOCKER_REGISTRY }}/web:${{ github.sha }}
+          docker push ${{ env.DOCKER_REGISTRY }}/worker:${{ github.sha }}
+          if [ "${{ github.ref }}" = "refs/heads/main" ]; then
+            docker tag ${{ env.DOCKER_REGISTRY }}/api:${{ github.sha }} ${{ env.DOCKER_REGISTRY }}/api:latest
+            docker tag ${{ env.DOCKER_REGISTRY }}/web:${{ github.sha }} ${{ env.DOCKER_REGISTRY }}/web:latest
+            docker tag ${{ env.DOCKER_REGISTRY }}/worker:${{ github.sha }} ${{ env.DOCKER_REGISTRY }}/worker:latest
+            docker push ${{ env.DOCKER_REGISTRY }}/api:latest
+            docker push ${{ env.DOCKER_REGISTRY }}/web:latest
+            docker push ${{ env.DOCKER_REGISTRY }}/worker:latest
+          fi
+
+  # ----------------------------------------------------------------------------
+  # AŞAMA 5: Staging Ortamı Dağıtımı ve Doğrulama
+  # ----------------------------------------------------------------------------
+  deploy-staging:
+    name: Deploy to Staging Environment
+    runs-on: ubuntu-latest
+    needs:
+      - containerize-and-security-scan
+    if: github.ref == 'refs/heads/develop'
+    environment:
+      name: staging
+      url: https://staging.elektriklioto.com
+    steps:
+      - name: Kodu Depodan Çek
+        uses: actions/checkout@v4
+
+      - name: Staging Veritabanı Göçlerini Çalıştır (Drizzle Migrator)
+        run: |
+          echo "Staging veritabanı şema göçü (tek transaction) çalıştırılıyor..."
+          # Güvenlik kuralı: Yalnızca migrator_user ile geçici migration yürütülür
+          ssh -o StrictHostKeyChecking=no ${{ secrets.STAGING_SSH_USER }}@${{ secrets.STAGING_HOST }} \
+            "docker run --rm --network backend-net \
+             -e DATABASE_URL='${{ secrets.STAGING_MIGRATOR_DATABASE_URL }}' \
+             ${{ env.DOCKER_REGISTRY }}/api:${{ github.sha }} pnpm db:migrate"
+
+      - name: Konteyner Servislerini Yenile (Rolling Update)
+        run: |
+          echo "Staging servisleri rolling update ile güncelleniyor..."
+          ssh -o StrictHostKeyChecking=no ${{ secrets.STAGING_SSH_USER }}@${{ secrets.STAGING_HOST }} \
+            "cd /opt/elektriklioto && \
+             export IMAGE_TAG=${{ github.sha }} && \
+             docker compose pull api web worker && \
+             docker compose up -d --no-deps api web worker"
+
+      - name: Staging API Healthcheck Doğrulaması
+        run: |
+          echo "Healthcheck denetleniyor: https://staging-api.elektriklioto.com/health"
+          for i in {1..12}; do
+            STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://staging-api.elektriklioto.com/health || true)
+            if [ "$STATUS" = "200" ]; then
+              echo "Staging API Sağlıklı (HTTP 200)"
+              break
+            fi
+            echo "Sağlık kontrolü bekleniyor... ($i/12)"
+            sleep 5
+          done
+          [ "$STATUS" = "200" ] || (echo "HATA: Staging API sağlık kontrolü başarısız!" && exit 1)
+
+      - name: Staging BBox Spatial Endpoint Smoke Test
+        run: |
+          echo "BBox API duman testi yapılıyor: İstanbul BBox sorgusu..."
+          RESPONSE=$(curl -s -w "\n%{http_code}" "https://staging-api.elektriklioto.com/api/v1/stations?bbox=28.9,41.0,29.1,41.1&zoom=12")
+          HTTP_CODE=$(echo "$RESPONSE" | tail -n1)
+          BODY=$(echo "$RESPONSE" | head -n -1)
+          if [ "$HTTP_CODE" != "200" ]; then
+            echo "HATA: BBox API sorgusu HTTP 200 dönmedi! (Kod: $HTTP_CODE)"
+            exit 1
+          fi
+          echo "$BODY" | grep -q "features" || (echo "HATA: Geçerli GeoJSON/BBox çıktısı dönmedi!" && exit 1)
+          echo "Staging BBox testi başarıyla tamamlandı."
+
+  # ----------------------------------------------------------------------------
+  # AŞAMA 6: Üretim (Production) Dağıtımı ve Sıfır Kesinti Doğrulaması
+  # ----------------------------------------------------------------------------
+  deploy-production:
+    name: Deploy to Production Environment
+    runs-on: ubuntu-latest
+    needs:
+      - containerize-and-security-scan
+    if: github.ref == 'refs/heads/main'
+    environment:
+      name: production
+      url: https://elektriklioto.com
+    steps:
+      - name: Kodu Depodan Çek
+        uses: actions/checkout@v4
+
+      - name: Üretim Veritabanı Göçlerini Uygula (Drizzle Kit Transaction Rollback Korumalı)
+        run: |
+          echo "Üretim veritabanı şema göçü (tek transaction) çalıştırılıyor..."
+          ssh -o StrictHostKeyChecking=no ${{ secrets.PROD_SSH_USER }}@${{ secrets.PROD_HOST }} \
+            "docker run --rm --network backend-net \
+             -e DATABASE_URL='${{ secrets.PROD_MIGRATOR_DATABASE_URL }}' \
+             ${{ env.DOCKER_REGISTRY }}/api:${{ github.sha }} pnpm db:migrate"
+
+      - name: Üretim Konteynerlerini Sıfır Kesintiyle Yenile (Zero-Downtime Rolling Update)
+        run: |
+          echo "Üretim servisleri güncelleniyor..."
+          ssh -o StrictHostKeyChecking=no ${{ secrets.PROD_SSH_USER }}@${{ secrets.PROD_HOST }} \
+            "cd /opt/elektriklioto && \
+             export IMAGE_TAG=${{ github.sha }} && \
+             docker compose pull api web worker && \
+             docker compose up -d --no-deps --scale api=2 --no-recreate api && \
+             sleep 10 && \
+             docker compose up -d --no-deps api web worker"
+
+      - name: Üretim API ve BBox Duman Testi (Smoke Tests)
+        run: |
+          echo "Üretim Sağlık Kontrolü (Healthcheck)..."
+          curl -f -s https://api.elektriklioto.com/health | grep -q '"status":"ok"' || exit 1
+
+          echo "Üretim BBox Mekânsal Sorgu Kontrolü..."
+          curl -f -s "https://api.elektriklioto.com/api/v1/stations?bbox=28.9,41.0,29.1,41.1&zoom=12" | grep -q "features" || exit 1
+
+          echo "Güvenlik Başlıkları Kontrolü (OWASP)..."
+          HEADERS=$(curl -s -I https://api.elektriklioto.com/health)
+          echo "$HEADERS" | grep -qi "X-Content-Type-Options: nosniff" || exit 1
+          echo "$HEADERS" | grep -qi "X-Powered-By" && (echo "HATA: X-Powered-By sızdırılıyor!" && exit 1) || true
+
+          echo "Üretim Web Harita Sayfa Kontrolü..."
+          curl -f -s https://elektriklioto.com/ | grep -q "<html" || exit 1
+          echo "Üretim dağıtımı ve duman testleri eksiksiz doğrulandı."

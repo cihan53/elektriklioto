@@ -1,17 +1,46 @@
 
-html,
-body,
-#__nuxt {
-  height: 100%;
-  margin: 0;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: var(--color-bg-base);
+    color: var(--color-text-primary);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+  }
+
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
 }
 
-body {
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  color: #111827;
-  background: #f9fafb;
+/* Dokunma Hedefi Güvencesi: Webde en az 44x44 CSS px */
+.touch-target-min {
+  min-height: 44px;
+  min-width: 44px;
 }
 
-* {
-  box-sizing: border-box;
+/* MapLibre Özel Pin Animasyonları */
+.station-pin {
+  transition: transform 150ms ease-out, filter 150ms ease-out;
+  cursor: pointer;
+}
+
+.station-pin:hover {
+  transform: scale(1.1);
+  z-index: 50;
+}
+
+.station-pin.is-selected {
+  transform: scale(1.18);
+  filter: drop-shadow(0 0 6px var(--color-focus-ring));
+  z-index: 100;
+}
+
+.station-pin.is-defective {
+  filter: drop-shadow(0 2px 4px rgba(185, 28, 28, 0.4));
 }

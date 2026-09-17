@@ -1,0 +1,82 @@
+name: Deploy to cPanel & Create Version Tag
+
+on:
+  push:
+    branches:
+      - master
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  # 1. Otomatik Versiyon Tag'i ve Release Oluşturma
+  version_and_release:
+    name: Create Tag & Release
+    runs-on: ubuntu-latest
+    outputs:
+      new_tag: ${{ steps.tag_version.outputs.new_tag }}
+      changelog: ${{ steps.tag_version.outputs.changelog }}
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Bump Version and Push Tag
+        id: tag_version
+        uses: mathieudutour/github-tag-action@v6.2
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          default_bump: patch
+          release_branches: master,main
+          tag_prefix: v
+          fetch_all_tags: true
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        if: ${{ steps.tag_version.outputs.new_tag }}
+        with:
+          tag_name: ${{ steps.tag_version.outputs.new_tag }}
+          name: Release ${{ steps.tag_version.outputs.new_tag }}
+          body: ${{ steps.tag_version.outputs.changelog }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+  # 2. cPanel Sunucusuna Otomatik Dağıtım (Deploy)
+  deploy:
+    name: Deploy to cPanel via SSH
+    needs: version_and_release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Execute Remote SSH Commands
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.CPANEL_SSH_HOST }}
+          username: ${{ secrets.CPANEL_SSH_USER }}
+          key: ${{ secrets.CPANEL_SSH_PRIVATE_KEY }}
+          port: ${{ secrets.CPANEL_SSH_PORT || 22 }}
+          script_stop: true
+          script: |
+            APP_DIR="${{ secrets.CPANEL_APP_DIR }}"
+            if [ -z "$APP_DIR" ]; then
+              APP_DIR="/home/${{ secrets.CPANEL_SSH_USER }}/app"
+            fi
+
+            echo "==> Proje dizinine ($APP_DIR) gidiliyor..."
+            if [ ! -d "$APP_DIR" ]; then
+              echo "HATA: Proje dizini ($APP_DIR) bulunamadı! Lütfen sunucuda dizini oluşturup git clone yapınız."
+              exit 1
+            fi
+            cd "$APP_DIR"
+
+            echo "==> Conflict (çakışma) önleyici güncelleme yapılıyor..."
+            # Sunucuda dosya izinleri veya yerel önbelleklerden kaynaklanan conflict'leri
+            # temizleyerek doğrudan hedef daldaki haline eşitler.
+            git fetch origin ${{ github.ref_name }}
+            git reset --hard origin/${{ github.ref_name }}
+
+            echo "==> Dağıtım betiği (.github/scripts/deploy.sh) çalıştırılıyor..."
+            bash .github/scripts/deploy.sh
+
+            echo "==> Dağıtım başarıyla tamamlandı: ${{ needs.version_and_release.outputs.new_tag || 'v1.0.0' }}"

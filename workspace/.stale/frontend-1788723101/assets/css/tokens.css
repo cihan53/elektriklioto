@@ -1,0 +1,115 @@
+
+/* elektriklioto.com Tasarım Sistemi Tokenları (WCAG 2.1 AA Doğrulanmış) */
+:root {
+  --color-bg-base: #F8FAFC;
+  --color-bg-surface: #FFFFFF;
+  --color-bg-elevated: #FFFFFF;
+  --color-bg-subdued: #F1F5F9;
+
+  --color-primary: #0066CC;
+  --color-primary-hover: #0052A3;
+  --color-primary-active: #004080;
+  --color-on-primary: #FFFFFF;
+  --color-on-primary-dark-active: #FFFFFF;
+
+  --color-text-primary: #0F172A;
+  --color-text-secondary: #475569;
+  --color-text-muted: #64748B;
+
+  --color-border-default: #E2E8F0;
+  --color-border-strong: #CBD5E1;
+  --color-focus-ring: #0066CC;
+
+  --color-success: #15803D;
+  --color-success-subdued: #DCFCE7;
+
+  --color-warning: #B45309;
+  --color-warning-subdued: #FEF3C7;
+
+  --color-danger: #B91C1C;
+  --color-danger-subdued: #FEE2E2;
+  --color-danger-on-subdued: #B91C1C;
+
+  --color-missing-text: #334155;
+  --color-missing-bg: #E2E8F0;
+
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-5: 20px;
+  --spacing-6: 24px;
+  --spacing-8: 32px;
+  --spacing-12: 48px;
+
+  --radius-none: 0px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+
+  --shadow-none: none;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.10);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.12);
+}
+
+.dark {
+  --color-bg-base: #0B0F19;
+  --color-bg-surface: #0F172A;
+  --color-bg-elevated: #1E293B;
+  --color-bg-subdued: #1E293B;
+
+  --color-primary: #38BDF8;
+  --color-primary-hover: #0284C7;
+  --color-primary-active: #0369A1;
+  --color-on-primary: #0B0F19;
+  --color-on-primary-dark-active: #FFFFFF;
+
+  --color-text-primary: #F8FAFC;
+  --color-text-secondary: #CBD5E1;
+  --color-text-muted: #94A3B8;
+
+  --color-border-default: #1E293B;
+  --color-border-strong: #334155;
+  --color-focus-ring: #38BDF8;
+
+  --color-success: #4ADE80;
+  --color-success-subdued: #064E3B;
+
+  --color-warning: #FBBF24;
+  --color-warning-subdued: #78350F;
+
+  --color-danger: #F87171;
+  --color-danger-subdued: #7F1D1D;
+  --color-danger-on-subdued: #FEE2E2;
+
+  --color-missing-text: #CBD5E1;
+  --color-missing-bg: #334155;
+
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.6);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.7);
+}
+
+/* Zorunlu WCAG 2.1 AA Klavye Odak Halkası */
+:focus-visible {
+  outline: 3px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Hareket Azaltma Kuralı */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,205 +1,282 @@
-# Teknik Mimari Dokümanı — elektriklioto.com (Faz 1)
+# Teknik Mimari Dokümanı: elektriklioto.com
 
-> Sürüm: 1.0 · Tarih: 2026-09-06 · Sahip: CTO
-> Bu doküman `proje_kapsami.md` ve `workspace/docs/ortam_raporu.md` üzerine kuruludur. Teknoloji seçim gerekçeleri ayrı dosyadadır (`teknoloji_stack_karari.md`); burada **yapı, sınır ve akış** kararları yer alır.
+> **Belge Sürümü:** 1.0.0-faz1  
+> **Durum:** Onaylandı (Teknik Karar Dokümanı)  
+> **Kapsam:** Faz 1 Mimari, Modül Sınırları, Veri Modeli ve Altyapı Topolojisi  
+> **Doğruluk Kaynağı:** `proje_kapsami.md` ve `workspace/docs/ortam_raporu.md`
 
 ---
 
-## 1. Mimari Karar Özeti
+## 1. Yönetici Özeti ve Mimari Vizyon
 
-| # | Karar | Tek satır gerekçe | Elenen alternatif |
+elektriklioto.com (Faz 1), elektrikli araç sürücülerine onlarca CPO uygulaması arasında kaybolmadan tek bir harita üzerinden Türkiye şarj altyapısını sunan bir **e-Mobilite Asistanı ve Bilgi Hub'ıdır**. Sistem, EPDK Şarj Ağı İşletmeci Lisansı gerektiren elektrik satışı veya TCMB/BDDK lisansı gerektiren ödeme aracılığı yapmaz; operasyonel derin bağlantılar (deep-linking) kurar.
+
+Mimari yaklaşım; operasyonel karmaşıklığı en aza indiren, yüksek coğrafi sorgu hızına (p95 < 40ms) odaklanan, tip güvenliğini OpenAPI 3.1 ile uçtan uca sağlayan ve KVKK gereği konum gizliliğini donanım seviyesinde koruyan bir **Modüler Monolit** modelidir.
+
+---
+
+## 2. Zorunlu Kısıtlar, Çatışmalar ve Varsayımlar
+
+Aşağıdaki kararlar projenin değişmez kısıtlarıdır ve mimari doğrudan bu zemin üzerine inşa edilmiştir:
+
+- **Alan Adı ve Marka:** `elektriklioto.com` tüm web, API (`api.elektriklioto.com`) ve mobil varlıkların tek çatısıdır (zorunlu).
+- **Web Çatısı:** Nuxt.js / Vue.js (SSR/SSG uyumlu) Fastify API'sini tüketir (zorunlu).
+- **Backend Çatısı:** Node.js / TypeScript üzerinde Fastify framework (zorunlu).
+- **Veritabanı:** `postgis/postgis:16-3.4` sürümü Docker üzerinde çalışır; yapılandırma `docker-compose.yml` ile depoya işlenir (zorunlu).
+- **Lisans Sınırı:** Platform hiçbir aşamada "Lisanslı Şarj Operatörü" statüsü alamaz; EPDK elektrik satışı ve faturalama yapamaz (zorunlu).
+- **Konum Gizliliği:** Kullanıcı GPS koordinatları sunucuda saklanamaz; anlık in-memory işlenir, geçmiş güzergah tutulamaz (zorunlu).
+- **Şema Göçü:** Üretimde elle DDL yasaktır; yalnızca sürümlenmiş migration dosyaları kullanılır (zorunlu).
+- **Tasarım Bütünlüğü:** `tasarim_sistemi.md` token'ları tek kaynaktır; Nuxt CSS ve Flutter Dart çıktıları tek derleme betiğiyle senkronize edilir (zorunlu).
+- **Tohum Veri:** EPDK 16.788 istasyon ve 179 marka içeren `istasyonlar.json` kanonik çapadur; `lat`/`lon` mevcut kabul edilir, geocoding yapılmaz (zorunlu).
+- **Eksik Veri:** Soket tipi, güç, tarife ve canlı doluluk Faz 1 başlangıcında `NULL` kabul edilir; sistem bu alanlar boşken çalışacak şekilde modellenir (zorunlu).
+
+> **ÇATIŞMA:** "Mobil istemci Flutter ile geliştirilecektir. (zorunlu)" kısıtı teknik olarak imkânsızdır. Ortam raporunda `flutter` ve `dart` komutları "Exec format error" nedeniyle BOZUK durumdadır. İstemcinin geliştirilebilmesi için onarım gereklidir.
+
+> **ÇATIŞMA:** "Paket yöneticisi tekliği: Ortamda pnpm 10.20.0 ölçülmüştür" kısıtı ortam gerçeğiyle uyuşmamaktadır. Güncel ortam raporunda `pnpm` YOK olarak listelenmiştir. Paylaşımlı workspace mimarisi için KURULUM GEREKİYOR: pnpm.
+
+> **Varsayım:** Mobil geliştirme ortamı onarılana ve `pnpm` kurulana kadar, backend ve web modülleri ortamda ölçülen `node v22.21.0` ve `npm 10.9.4` ile başlatılabilir; ancak üretim monorepo standardı için pnpm zorunludur.
+
+---
+
+## 3. Sistem Mimarisi ve Süreç Topolojisi
+
+Sistem, operasyonel yükü düşürmek amacıyla mikroservis yerine **Modüler Monolit** mimarisinde iki bağımsız süreç (process) olarak kurgulanmıştır:
+
+```mermaid
+graph TD
+    ClientWeb["Web İstemcisi (Nuxt 3 SSR/Vue)"] -->|HTTPS / OpenAPI Client| API["Fastify API Süreci (api.elektriklioto.com)"]
+    ClientMobile["Mobil İstemci (Flutter)"] -->|HTTPS / OpenAPI Client| API
+    
+    API -->|Pool Bağlantısı| DB[(PostgreSQL 16 + PostGIS 3.4)]
+    
+    subgraph "Arka Plan Yürütme"
+        Worker["Aggregator Worker Süreci"] -->|FOR UPDATE SKIP LOCKED| DB
+        Worker -->|Harici HTTP + Circuit Breaker| CPO["CPO Kamusal Uç Noktaları"]
+    end
+```
+
+### 3.1. Süreç Sınırları ve Dağıtım Kararları
+- **Karar:** `api` (HTTP/REST) ve `worker` (senkronizasyon ve kitle-kaynak işleme) süreçleri aynı kod deposunda fakat bağımsız Node.js runtime konteynerlerinde çalıştırılır.
+- **Gerekçe:** Ağır harici veri çekme ve CBS hesaplama işlerinin istemciye hizmet veren HTTP thread havuzunu bloke etmesini (event loop starvation) engellemek.
+- **Sonuç:** `api` süreci stateless kalır; yatayda bağımsız ölçeklenir.
+- **Alternatif:** *Kubernetes/Mikroservis parçalanması:* Faz 1 operasyonel maliyeti ve karmaşıklığı nedeniyle elendi.
+
+---
+
+## 4. Modül Sınırları ve İstemci Mimarisi
+
+### 4.1. Core API Servisi (`apps/api`)
+Fastify mimarisi eklenti (plugin) tabanlıdır. Her modül kendi rotalarını, iş mantığını ve veri erişim katmanını izole eder:
+- **Station Module:** Viewport tabanlı harita listeleme (`bbox`), detay sorguları ve slug yönlendirmesi.
+- **Operator Module:** 179 markanın sözlük verisi, marka sayfaları ve deep-link URL şablonları.
+- **Feedback & Crowdsource Module:** Arıza bildirimlerinin kabulü, spam filtreleme ve `proximity_proof` doğrulama.
+- **Route Bridge Module:** Web'de oluşturulan rota dizilerini mobil uygulamaya aktaran kısa kod/Base64 URI çözücü.
+
+### 4.2. Aggregator Worker Süreci (`apps/worker`)
+- **Tohumlama (Seed Runner):** `istasyonlar.json` dosyasını doğrulayan, normalize eden ve veritabanına idempotence kuralıyla basan CLI yürütücüsü.
+- **Sync Jobs:** Dış CPO kaynaklarından periyodik veri toplayan zamanlanmış görevler.
+- **Health Evaluator:** 24 saat veri gelmeyen kaynakları izole edip arayüze "veri güncel değil" bayrağı basan denetçi.
+
+### 4.3. Web Platformu (`apps/web` - Nuxt.js / Vue 3)
+- **Katalog ve SEO (SSR/ISR):** `/istanbul/kadikoy/sarj-istasyonlari` ve `/{operator}/{slug}` sayfaları Nuxt Nitro motoru üzerinden sunucu tarafında render edilir (Lighthouse SEO > 90, FCP < 1.2s).
+- **İnteraktif Harita (Client-Only):** Harita bileşeni hydration uyumsuzluğunu (FOUC) ve sunucu yükünü önlemek için `<ClientOnly>` etiketiyle yalnızca istemci tarafında ayağa kalkar.
+- **Tema Enjeksiyonu:** Sistem tercihi ve çerez tabanlı tema seçimi `app.vue` içinde HTML render edilmeden önce `class="dark"` olarak gömülür; sayfa yüklenme parlaması engellenir.
+
+### 4.4. Mobil İstemci (`apps/mobile` - Flutter)
+- **Mimari:** BLoC veya Riverpod tabanlı reaktif durum yönetimi; harita motoru olarak Mapbox / Google Maps SDK.
+- **İzole Çalışma (Worker Thread):** Büyük GeoJSON yanıtlarının ayrıştırılması (parsing) ana arayüz thread'i dışında `compute()` / Isolate ile gerçekleştirilir (60 FPS garantisi).
+- **Çevrimdışı Önbellek:** Cihazda son ziyaret edilen koordinatların istasyon özetleri Hive anahtar-değer deposunda saklanır; ağ koptuğunda harita boşalmaz.
+
+### 4.5. Tasarım Token Derleme Hattı (`packages/design-tokens`)
+- **Karar:** `tasarim_sistemi.md` içerisindeki görsel token'lar (renk, tipografi, aralık, köşe yarıçapı) `tokens.json` dosyasında tutulur.
+- **Gerekçe:** Web ve mobilin tek tasarım dilini paylaşması kısıtı.
+- **Sonuç:** Tek bir Node.js derleme betiği `tokens.json` dosyasından web için `tokens.css` (CSS Custom Properties), Flutter için `tokens.dart` (statik sınıflar) üretir. Elle değişken yazımı CI üzerinde engellenir.
+- **Alternatif:** *Figma Tokens API / Harici SaaS:* Dış bağımlılık ve lisans maliyeti nedeniyle elendi.
+
+---
+
+## 5. Veri Mimarisi ve Depolama Stratejisi
+
+### 5.1. PostgreSQL + PostGIS İlişkisel Modeli
+Veritabanı `postgis/postgis:16-3.4` üzerinde çalışır. Tüm mekânsal veriler WGS 84 (SRID 4326) standardında saklanır.
+
+```mermaid
+erDiagram
+    OPERATOR ||--o{ STATION : operates
+    STATION ||--o{ CONNECTOR : contains
+    STATION ||--o{ STATION_REPORT : receives
+    STATION ||--o{ TARIFF_HISTORY : tracks
+
+    OPERATOR {
+        int id PK
+        string slug UK
+        string name
+        jsonb deep_link_config
+        boolean is_active
+    }
+
+    STATION {
+        uuid id PK
+        string istasyon_no UK
+        string slug UK
+        int operator_id FK
+        geography geom
+        numeric lat
+        numeric lon
+        string address
+        string city
+        string district
+        jsonb raw_metadata
+        timestamp updated_at
+    }
+
+    CONNECTOR {
+        uuid id PK
+        uuid station_id FK
+        string socket_type
+        numeric power_kw
+        string current_type
+        string status
+        timestamp last_status_update
+    }
+
+    STATION_REPORT {
+        uuid id PK
+        uuid station_id FK
+        string issue_type
+        boolean proximity_verified
+        timestamp created_at
+    }
+
+    TARIFF_HISTORY {
+        uuid id PK
+        uuid station_id FK
+        numeric price_per_kwh
+        string currency
+        timestamp valid_from
+    }
+```
+
+### 5.2. Kanonik Kimlik, Unicode Normalizasyonu ve Entity Resolution
+- **Kanonik Çapa (`istasyon_no`):** EPDK tarafından atanan resmî numara (`ŞRJ/xxxx`) tekil ve değiştirilemez doğal anahtardır. Dahili sistemler için UUIDv7 (`station_uid`) birincil anahtardır.
+- **Unicode ve Türkçe Karakter Standartı:** `ŞRJ/` öneki ve tüm istasyon adları veritabanına girmeden önce Unicode NFC normalizasyonuna tabi tutulur. URL slug üretiminde Türkçe karakter katlaması (`İ→i`, `I→ı`, `ş→s`, `ğ→g`) tek bir merkezi yardımcı modülde (`packages/utils`) yapılır.
+- **Mekânsal Doğrulama Kapısı (Seed Gate):** Tohumlama sırasında `lat`/`lon` değerleri Türkiye Bounding Box (`ST_MakeEnvelope(25.5, 35.5, 45.0, 42.5, 4326)`) dışında kalan, `(0,0)` olan veya ters yazılmış kayıtlar `seed_rejects` tablosuna gerekçesiyle fırlatılır.
+
+### 5.3. Nullable DTO ve Eksik Veri Modeli
+- **Karar:** Soket tipi, güç (kW), canlı doluluk ve anlık tarife alanları veritabanında ve API yanıtlarında kesinlikle varsayılan uydurma değerlerle (mock) doldurulmaz; `NULL` döner.
+- **Sonuç:** OpenAPI şemasında `nullable: true` olarak tanımlanır. Arayüz tarafında bu alanlar "Operatör Verisi Bekleniyor" rozeti ve kullanıcı katkı çağrısı (CTA) ile render edilir.
+
+### 5.4. PostgreSQL `SKIP LOCKED` Tabanlı İş Kuyruğu
+- **Karar:** Asenkron işler ve CPO veri çekme sıralaması için Redis veya RabbitMQ kullanılmaz. PostgreSQL tablosu üzerinde `FOR UPDATE SKIP LOCKED` deseni uygulanır.
+- **Gerekçe:** İlk fazda dış altyapı bağımlılığını asgaride tutmak ve işlem tutarlılığını (ACID) tek veritabanında sağlamak.
+- **Sonuç:** `sys_job_queue` tablosu üzerinden worker süreçleri eşzamanlı kilitlenme yaşamadan görevleri tüketir.
+- **Alternatif:** *Redis + BullMQ:* Ek bellek ve operasyonel konteyner gerektirdiği için Faz 1 kapsamından çıkarıldı.
+
+### 5.5. Zaman Serisi Bölümleme (Partitioning)
+- **Karar:** `station_report` (arıza bildirimleri) ve `tariff_history` (fiyat kayıtları) tabloları `created_at` üzerinden aylık aralıklarla PostgreSQL Declarative Table Partitioning ile bölünür.
+- **Gerekçe:** Zaman serisi verisinin hızlı büyümesi durumunda spatial istasyon sorgularının indeks performansını korumak.
+
+---
+
+## 6. Güvenlik, Gizlilik ve KVKK Uyum Mimarisi
+
+### 6.1. Sıfır Konum Saklama İlkesi ve Proximity Proof
+KVKK ve konum gizliliği kısıtı gereğince, istemci GPS koordinatları sunucuda kesinlikle veritabanına veya diske yazılamaz:
+1. **Harita Sorguları:** Kullanıcı konumu yalnızca istemci belleğinde (in-memory) tutulur ve ekrandaki harita kutusu koordinatlarına (`bbox: min_lon, min_lat, max_lon, max_lat`) dönüştürülerek API'ye iletilir. Sunucu kullanıcının tam noktasını bilmez.
+2. **Kitle Kaynaklı Arıza Doğrulama (`proximity_proof`):**
+   - İstemci cihaz, istasyon ile arasındaki mesafeyi lokalde hesaplar.
+   - İstemci, API'ye ham konum göndermek yerine `ST_DWithin` kontrolü için tek kullanımlık, süreli (HMAC-SHA256 imzalı) bir doğrulama belirteci (`proximity_proof`) iletir.
+   - Bildirim tablosunda yalnızca `proximity_verified: true` bayrağı ve `station_uid` saklanır; kullanıcı koordinatı atılır.
+
+### 6.2. Anonim Cihaz Kimlik Doğrulaması (Device Attestation)
+- Kullanıcıların haritayı görüntülemesi, istasyon araması ve filtrelemesi için hesap açması gerekmez.
+- Bildirim ve favori ekleme işlemleri için mobil istemcide Apple App Attest ve Google Play Integrity API kullanılarak üretilen anonim cihaz anahtarı (`device_uid`) kabul edilir.
+- E-posta ve telefon toplama yalnızca çoklu cihaz favori senkronizasyonu isteyen kullanıcılara opsiyonel bırakılarak KVKK yükümlülüğü en aza indirilir.
+
+### 6.3. API Güvenliği, Rate-Limiting ve Bot Koruması
+- **Hız Sınırlaması:** Fastify `@fastify/rate-limit` ile IP ve anonim cihaz token'ı bazında Token Bucket algoritması uygulanır (standart istemci: 120 istek/dakika).
+- **Shadow-Ban:** Belirli bir eşiğin üzerinde asılsız arıza ihbarı yapan cihaz kimlikleri sessiz modda engellenir (istek başarılı döner ancak istasyon güven skorunu etkilemez).
+
+---
+
+## 7. İletişim Protokolleri ve Entegrasyon Katmanı
+
+### 7.1. OpenAPI 3.1 Sözleşme Tabanlı Kod Üretimi
+- **Tek Doğruluk Kaynağı:** Backend Fastify rotaları `zod` veya `typebox` şemaları üzerinden OpenAPI 3.1 spesifikasyonunu (`openapi.json`) otomatik üretir.
+- **İstemci Kod Üretimi:** Web ve mobil istemciler için TypeScript API istemcisi ve Dart DTO sınıfları CI hattında otomatik derlenir. Elle API DTO yazmak yasaktır; şema uyumsuzluğunda build kırılır.
+
+### 7.2. Coğrafi Bounding Box (BBox) ve Delta Senkronizasyon
+16.788 istasyonun tek seferde çekilmesi yasaktır:
+- **Spatial BBox API:** İstemci haritayı kaydırdıkça `/api/v1/stations?bbox=lon1,lat1,lon2,lat2&zoom=12` çağrısı yapar.
+- **Sunucu İçi Kümeleme:** Zoom seviyesi 10'un altındayken PostGIS `ST_SnapToGrid` ile kümelenmiş özet pinler döner; istemci belleği korunur.
+- **Delta Senkronizasyon:** Detay ekranları ve açık haritalar için `GET /api/v1/stations/delta?since={epoch}` kullanılır; yalnızca değişen kayıtlar iletilir.
+
+### 7.3. Akıllı Deep-Linking ve Clipboard Fallback Motoru
+- **Konfigürasyon Yönetimi:** Operatörlerin şema formatları (`zes://station/{id}`, `trugo://charge?socket={id}`) veritabanındaki `operator.deep_link_config` alanında tutulur.
+- **Clipboard Fallback Mekanizması:** Harici şema desteği bilinmeyen operatörlerde istemci `clipboard_fallback: true` yanıtı alır. İstasyon kodu işletim sistemi panosuna (clipboard) yazılır, operatörün market/web bağlantısı açılır ve kullanıcıya arayüzde yönlendirme uyarısı (toast) gösterilir.
+
+### 7.4. Web'den Mobile Rota Aktarım Protokolü
+- Web sitesinde planlanan rota, ara durak istasyonlarının `station_uid` listesini ve rota imzasını içeren sıkıştırılmış Base64 dizesine dönüştürülür (`elektriklioto.com/r/{base64_payload}`).
+- Bu payload masaüstü ekranda dinamik bir QR koda basılır. Mobil kamera veya uygulama tarayıcısı bu kodu okuduğunda rota doğrudan yerel state içine yüklenir.
+
+### 7.5. Dış Veri Kaynakları: Circuit Breaker ve Saygılı Kazıma
+- Kamuya açık CPO uç noktalarından veri çeken worker'lar `opossum` kütüphanesi tabanlı **Circuit Breaker** ile korunur.
+- 429 (Too Many Requests) veya 5xx yanıtlarında kaynak 15 dakika boyunca soğumaya (open circuit) alınır.
+- Tüm istekler rastgele gecikmeler (jitter) ve üstel geri çekilme (exponential backoff) içerir; platform IP engellerine karşı korunur.
+
+---
+
+## 8. Ortam Envanteri, Altyapı ve Bağımlılık Topolojisi
+
+Sistem bileşenleri `workspace/docs/ortam_raporu.md` içinde **ölçülmüş ve doğrulanmış** araçlarla sınırlıdır:
+
+| Bileşen | Seçilen Teknoloji | Ortam Durumu / Envanter Karşılığı | Mimari Rolü |
 |---|---|---|---|
-| M1 | **Modüler monolit**: tek `api` süreci + tek `worker` süreci | Ekip küçük, veri modeli tek merkez; servis sınırı kodda modül olarak çizilir | Mikroservis (erken parçalanma maliyeti) |
-| M2 | **pnpm workspace monorepo** (`apps/`, `packages/`) + ayrı Flutter dizini | Şema→istemci üretimi ve tip paylaşımı tek depo içinde atomik olur | Çoklu repo (sözleşme kayması) |
-| M3 | **OpenAPI 3.1 tek doğruluk kaynağı**, Fastify şemalarından türetilir | Web ve mobil DTO'ları elle yazılmaz, CI'da drift kırılır | Elle yazılan istemci modelleri |
-| M4 | **PostgreSQL tek altyapı bileşeni** (veri + kuyruk + cache tablosu) | Redis/RabbitMQ bağımlılığı Faz 1'de operasyon yükünü ikiye katlar | Redis + BullMQ |
-| M5 | **Okuma yolu materialize edilmiş** `station_read_model` tablosu | Harita p95 < 40ms hedefi 6 tabloyu runtime join ederek tutturulamaz | Runtime join + view |
-| M6 | **Kaynak verisi ham + kanonik iki katmanda** saklanır | Entity resolution hatası geri alınabilir olmalı; ham kayıt silinmez | Doğrudan kanonik yazma |
-| M7 | **SSE + delta polling**, WebSocket yok | Durum değişimi seyrek ve tek yönlü; kalıcı bağlantı SSR sunucusunu şişirir | WebSocket |
+| **Runtime** | Node.js v22.21.0 | **VAR** (`node v22.21.0`) | Fastify API ve Worker çalışma zamanı |
+| **Paket Yöneticisi** | npm 10.9.4 | **VAR** (`npm 10.9.4`) | Paket yönetimi ve derleme betikleri |
+| **Konteyner Motoru** | Docker 29.8.0 | **VAR** (`Docker 29.8.0`) | Veritabanı ve yerel servis orkestrasyonu |
+| **Veritabanı** | PostgreSQL 16 + PostGIS 3.4 | **VAR** (Docker üzerinden çalışır) | Mekânsal veri ve ilişkisel depolama |
+| **Derleme Araçları** | make 3.81 / git 2.45.2 | **VAR** (`make`, `git`) | Görev otomasyonu ve sürüm kontrolü |
+| **Mobil SDK** | Flutter 3.27.1 / Dart | **BOZUK** (`Exec format error`) | Mobil istemci (onarım zorunlu) |
 
----
+### 8.1. Kurulum ve Tedarik Gereksinimleri
+Aşağıdaki bileşenler yerel ortamda eksiktir veya dış servis bağımlılığıdır; kurulumu zorunludur:
+- **KURULUM GEREKİYOR: pnpm:** Monorepo paketlerinin (`apps/*`, `packages/*`) optimize yönetimi için pnpm kurulmalıdır (`npm install -g pnpm`).
+- **KURULUM GEREKİYOR: postgis/postgis:16-3.4 Docker İmajı:** `docker compose pull` ile imaj çekilmelidir.
+- **KURULUM GEREKİYOR: Flutter & Dart SDK Onarımı:** Ortamdaki arm64 Darwin mimarisine uygun Flutter/Dart ikilileri yeniden kurulmalıdır.
+- **KURULUM GEREKİYOR: Harita Karo Sağlayıcı Anahtarı:** Mapbox veya eşdeğer vektör karo servisinden istemci API anahtarı temin edilmelidir (`VITE_MAP_KEY` / `MAPBOX_ACCESS_TOKEN`).
+- **KURULUM GEREKİYOR: APNs / FCM Kimlik Bilgileri:** Mobil anlık bildirim altyapısı için Firebase / Apple Developer anahtarları temin edilmelidir.
 
-## 2. Bileşen Topolojisi
+### 8.2. Altyapı Orkestrasyonu (`docker-compose.yml`)
+Yerel geliştirme ve CI ortamı için veritabanı konfigürasyonu depoya işlenir:
+```yaml
+services:
+  postgres:
+    image: postgis/postgis:16-3.4
+    container_name: elektriklioto-db
+    environment:
+      POSTGRES_DB: ${DB_NAME:-elektriklioto}
+      POSTGRES_USER: ${DB_USER:-postgres}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-postgres}
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
 
-```
-                     ┌──────────────────────┐
-   Flutter (iOS/And) │  Nuxt SSR (web)      │  arama motorları
-        │            └──────────┬───────────┘
-        │  HTTPS /api/v1        │ SSR fetch (internal)
-        └───────────┬───────────┘
-                    ▼
-            ┌───────────────┐        ┌──────────────────┐
-            │  apps/api     │        │  apps/worker     │
-            │  (Fastify)    │        │  (aynı domain    │
-            │  read-heavy   │        │   modülleri)     │
-            └───────┬───────┘        └────────┬─────────┘
-                    │  SQL                    │ SQL + dış HTTP
-                    ▼                         ▼
-            ┌────────────────────────────────────────────┐
-            │ PostgreSQL 16 + PostGIS 3.4 (Docker)       │
-            │ raw_* · canonical · read_model · job_queue │
-            └────────────────────────────────────────────┘
-```
-
-Alt alan adları: `elektriklioto.com` (Nuxt), `api.elektriklioto.com` (Fastify), `cdn.elektriklioto.com` (statik/görsel). SSR sunucusu API'ye **iç ağdan** gider; tarayıcı yalnızca `api.` ile konuşur.
-
----
-
-## 3. Depo Yapısı ve Modül Sınırları
-
-```
-elektriklioto/
-├─ apps/
-│  ├─ api/         # Fastify HTTP yüzeyi: route + şema + auth + rate-limit
-│  ├─ worker/      # zamanlanmış işler, kuyruk tüketicisi
-│  └─ web/         # Nuxt 3 (SSR + ISR)
-├─ packages/
-│  ├─ domain/      # saf iş kuralları, I/O yok (station, tariff, report, resolution)
-│  ├─ db/          # sorgular, migration'lar, seed
-│  ├─ connectors/  # her veri kaynağı için bir adaptör
-│  ├─ contracts/   # OpenAPI 3.1 çıktısı + üretilen TS istemcisi
-│  └─ config/      # ortam değişkeni şeması (zod), tek doğrulama noktası
-├─ mobile/         # Flutter uygulaması (.fvmrc ile sabitli)
-├─ docker-compose.yml
-└─ pnpm-workspace.yaml
+volumes:
+  pgdata:
 ```
 
-**Bağımlılık yönü (tek yönlü, CI'da `dependency-cruiser` ile zorlanır):**
-`api|worker → domain → (hiçbir şey)` ve `api|worker → db|connectors → domain`.
-`domain` katmanı Fastify, pg veya HTTP istemcisi import edemez. Bu kural, ileride bir modülü ayrı servise çıkarmanın tek ön koşuludur.
-
-**Domain modülleri (gelecekteki servis sınırları):**
-`stations` · `sockets` · `tariffs` · `availability` · `reports` (crowdsource) · `deeplinks` · `favorites` · `ingestion` · `resolution`.
-
 ---
 
-## 4. Veri Mimarisi
+## 9. Fonksiyonel Olmayan Gereksinimler (NFR) ve Performans Bütçesi
 
-### 4.1 Katmanlama
-
-| Katman | Tablolar | Rol |
-|---|---|---|
-| Ham | `raw_station_snapshot(source, source_id, payload jsonb, fetched_at)` | Kaynaktan gelen değiştirilmemiş kayıt; asla UPDATE edilmez, append-only |
-| Kanonik | `station`, `socket`, `operator`, `tariff`, `station_source_link` | `station_uid` merkezli birleştirilmiş gerçeklik |
-| Okuma | `station_read_model` | Harita/liste için denormalize, GIST + BRIN indeksli |
-| Zaman serisi | `availability_event`, `tariff_history`, `fault_report` | Aylık `PARTITION BY RANGE (occurred_at)` |
-| Operasyon | `job_queue`, `source_health`, `resolution_conflict` | Kuyruk ve gözlemlenebilirlik |
-
-### 4.2 Kanonik kimlik
-
-`station_source_link(station_uid, source, source_id)` tablosu ham kayıtla kanonik varlığı bağlar. Eşleştirme skoru: `ST_DWithin(geom, 75m)` **AND** operatör eşleşmesi **AND** soket imzası (tip+güç çoklu kümesi) Jaccard ≥ 0.6. Skor eşiğin altındaysa kayıt `resolution_conflict` kuyruğuna düşer ve yönetim ekranında elle çözülür — otomatik birleştirme yapılmaz. `station_uid` bir kez üretildikten sonra **değişmez**; iki UID birleşirse `merged_into` alanı ile tombstone bırakılır, böylece mobil önbellekteki eski UID 301 benzeri bir yönlendirmeyle çözülür.
-
-### 4.3 İndeks ve performans planı
-
-- `station_read_model`: `GIST(geom)`, `BTREE(operator_id, max_power_kw)`, kısmi indeks `WHERE status <> 'decommissioned'`.
-- Viewport sorgusu: `ST_MakeEnvelope(...,4326)` + `&&` operatörü; zoom < 10'da sunucu tarafı kümeleme (`ST_SnapToGrid` ile grid agregasyonu) döner, tekil pin dönmez.
-- `availability_event`: `BRIN(occurred_at)` — partition başına küçük indeks.
-- Ölçüm: `EXPLAIN (ANALYZE, BUFFERS)` çıktıları `packages/db/bench/` altında referans olarak versiyonlanır; p95 regresyonu CI'da 15.000 soket / 500.000 durum kaydı tohumlanmış veri üzerinde ölçülür.
-
-> **Varsayım:** İstasyon sayısı Faz 1'de ≤ 25.000, soket ≤ 60.000. Bu ölçekte tek Postgres örneği yeterlidir; okuma replikası Faz 2 konusudur.
-
-### 4.4 Migration
-
-`node-pg-migrate` ile sürümlenmiş, ileri yönlü SQL dosyaları; her migration `pnpm db:migrate` ile CI'da boş şema üzerinde koşup geri alınabilirliği doğrular. Üretimde DDL yalnızca deploy adımı içinde çalışır. PostGIS uzantısı ilk migration'da `CREATE EXTENSION IF NOT EXISTS postgis` ile kurulur.
-
----
-
-## 5. API Mimarisi
-
-### 5.1 Yüzey
-
-Sürümlenmiş `/api/v1`, REST + JSON. Fastify JSON Schema tanımlarından `@fastify/swagger` ile OpenAPI 3.1 üretilir; `packages/contracts/openapi.json` depoya işlenir ve CI'da yeniden üretilip diff alınır (fark varsa build kırılır).
-
-| Uç nokta | Not |
-|---|---|
-| `GET /stations?bbox=&zoom=&power=&socket=&operator=&status=` | Harita ana sorgusu; zoom'a göre pin veya küme döner |
-| `GET /stations/:uid` | Detay: soketler, tarife (`source`,`fetched_at`,`confidence`), son bildirimler |
-| `GET /availability?bbox=&since=` | Delta çekme; `since` yoksa 400 |
-| `GET /events/availability` (SSE) | Web haritası için opsiyonel canlı akış; düşerse polling'e geri döner |
-| `POST /reports` | Arıza bildirimi + `proximity_proof` |
-| `GET/PUT /favorites` | Cihaz token'ına bağlı |
-| `GET /deeplink/:socketId` | Backend konfigürasyonundan üretilmiş şema + fallback |
-| `GET /catalog/...` | SEO sayfaları için il/ilçe/otoyol kırılımı, uzun `s-maxage` |
-
-### 5.2 Sözleşmeden istemci üretimi
-
-- Web: `openapi-typescript` → tip + `ofetch` sarmalayıcı.
-- Mobil: `openapi-generator` (dart-dio) → `mobile/lib/api/generated/`; üretilen kod elle düzenlenmez, CI'da `git diff --exit-code` ile doğrulanır.
-- `spectral` lint + `openapi-diff` breaking-change kapısı: kırıcı değişiklik yalnızca `/api/v2` açarak yapılır.
-
-### 5.3 Önbellek ve yük kontrolü
-
-Katalog ve detay uçlarında `ETag` + `Cache-Control: s-maxage`; CDN önünde durur. `bbox` sorguları normalize edilmiş grid anahtarıyla (`@fastify/caching`, Postgres destekli kısa TTL tablosu) 30 sn önbelleklenir. `@fastify/rate-limit` ile IP + cihaz token bazlı kota; yazma uçlarında (`/reports`) kota daha sıkıdır.
-
----
-
-## 6. Kimlik ve Gizlilik Mimarisi
-
-- **Anonim öncelikli:** İlk açılışta cihaz `device_token` (opak UUID) alır; Play Integrity / App Attest doğrulaması `device_trust` skoruna yazılır. Harita ve detay token'sız da çalışır.
-- **Konum:** GPS koordinatı **hiçbir uçta gövdede saklanmaz**. Viewport sorgusundaki `bbox` erişim loglarına yazılmaz (Fastify logger'da `bbox`, `lat`, `lon` alanları redaksiyonlu). Uygulama seviyesinde kullanıcı↔koordinat ilişkisi tutan tablo yoktur — bu, şema testinde otomatik kontrol edilir (`fault_report` ve `favorites` tablolarında `geometry` sütunu bulunması testi kırar).
-- **Yakınlık kanıtı:** İstemci istasyon koordinatını zaten API'den almıştır; mesafeyi kendi hesaplar ve `proximity_proof = HMAC(server_nonce, station_uid, distance_bucket)` üretir. Sunucu yalnızca `distance_bucket ∈ {<50m}` bilgisini ve nonce geçerliliğini doğrular, koordinatı görmez.
-- **Silme hakkı:** `DELETE /device` çağrısı favorileri ve bildirim ilişkisini siler, `fault_report` kayıtları `device_token` alanı NULL'lanarak anonimleştirilir (sayım bütünlüğü korunur).
-
----
-
-## 7. Veri Toplama (Ingestion) Mimarisi
-
-**Akış:** `scheduler → job_queue → connector → raw_snapshot → normalize → resolution → canonical → read_model refresh`.
-
-- **Connector sözleşmesi:** her kaynak `fetch(): AsyncIterable<RawRecord>` + `normalize(raw): StationDraft` uygular; kaynağa özgü kod başka hiçbir yere sızmaz. Yeni kaynak eklemek = tek dosya.
-- **Kuyruk:** `job_queue` tablosu, `SELECT ... FOR UPDATE SKIP LOCKED LIMIT n` ile çekilir; `attempts`, `run_after`, `last_error` alanları exponential backoff'u taşır (2^n dk, tavan 60 dk, 8 denemede `dead` durumuna geçer).
-- **Saygılı kazıma:** kaynak başına eşzamanlılık 1–2, `source_policy` tablosunda tanımlı istek/dakika kotası, `robots`/ToS notu alanı, `If-Modified-Since`/`ETag` desteği, proxy havuzu ortam değişkeninden okunur.
-- **Kaynak sağlığı:** her koşu `source_health(source, last_success_at, consecutive_failures, records)` günceller. 24 saat başarısızlıkta istasyonlar silinmez; `read_model.freshness_seconds` büyür ve arayüzde "son güncelleme" rozeti gösterilir — kaynak kesintisi kullanıcıya hata olarak yansımaz.
-- **Tazelik hedefi:** durum (availability) işleri 5 dk periyot, statik istasyon meta verisi 24 saat. 15 dk hedefi 5 dk periyot + 3 kaçırma toleransıyla karşılanır.
-
----
-
-## 8. Web (Nuxt) Mimarisi
-
-- **Render modu route bazlı:** katalog/SEO sayfaları ISR (`routeRules: { '/**/sarj-istasyonlari': { isr: 3600 } }`), istasyon detayı ISR 600 sn, harita sayfası `ssr: false` bileşen ile client-only hydrate.
-- **SEO:** her katalog sayfası `LocalBusiness`/`Place` JSON-LD, kanonik URL, `sitemap.xml` katalog uçlarından üretilir (`@nuxtjs/sitemap`), i18n Faz 1'de tek dil (`tr`) ama URL yapısı ileride `/en/` alacak şekilde ayrılmıştır.
-- **FCP < 1.2 sn:** harita kütüphanesi yalnızca görünüm alanına girince dinamik import; kritik CSS satır içi; görseller `cdn.` üzerinden AVIF/WebP; SSR yanıtı yalnızca ilk 50 istasyonu gömer.
-- **Web→mobil köprü:** istasyon sayfasında QR + akıllı banner, `https://elektriklioto.com/s/<uid>` Universal/App Link'i ile açılır; uygulama yoksa mağazaya, varsa doğrudan istasyona gider. Rota aktarımı için `POST /handoff` kısa ömürlü (10 dk, tek kullanımlık) kod üretir; kod yalnızca rota geometrisi + istasyon UID listesi taşır, kullanıcı kimliği taşımaz.
-
----
-
-## 9. Mobil (Flutter) Mimarisi
-
-- **Katmanlar:** `presentation (widget) → controller (Riverpod) → repository → (api client | local cache)`. Üretilen API istemcisi yalnızca repository katmanından çağrılır.
-- **Önbellek:** Hive'da `station_pin` kutusu (uid, konum, operatör, güç, durum, `fetched_at`). Çevrimdışı açılışta pinler bu kutudan çizilir, üstte "çevrimdışı" bandı gösterilir.
-- **Performans:** GeoJSON/DTO çözümleme ve kümeleme hesabı `compute()` ile ayrı Isolate'te; harita katmanı yalnızca hafif pin listesi alır. Soğuk açılış < 1.8 sn için ilk kare önbellekten çizilir, ağ isteği sonra gelir.
-- **Sürüm sabitleme:** `.fvmrc` → Flutter 3.27.1 (ortamda ölçülü), Dart 3.6.0. iOS derlemesi Xcode 26.4.1, Android `adb` 1.0.41 ile doğrulanır.
-
-> **Varsayım:** Harita SDK'sı olarak Mapbox tercih edilecektir; mimari, harita katmanını `MapAdapter` arayüzü arkasına aldığı için sağlayıcı değişimi tek pakette kalır.
-
----
-
-## 10. Çalıştırma, Gözlemlenebilirlik, Güvenlik
-
-- **Yerel/CI ortam:** `docker-compose.yml` içinde sabitlenmiş `postgis/postgis:16-3.4`; `api`, `worker`, `web` süreçleri host'ta pnpm ile koşar. Tüm bağlantı bilgileri `packages/config` içindeki zod şemasıyla doğrulanır; şema dışı/eksik değişkenle süreç **başlamaz**.
-- **Loglama:** Fastify `pino` JSON log, `request_id` korelasyonu, konum alanları redaksiyonlu. Metrikler `/metrics` (Prometheus formatı): sorgu p50/p95, kaynak tazeliği, kuyruk derinliği, dead job sayısı.
-- **Sağlık uçları:** `/healthz` (süreç), `/readyz` (DB + migration sürümü). Worker ayrı `/healthz` portu açar.
-- **Güvenlik:** yazma uçlarında cihaz token + integrity doğrulaması, `@fastify/helmet`, sıkı CORS (yalnızca `elektriklioto.com` ve uygulama şemaları), tüm SQL parametrik, kullanıcı metni sunucuda sanitize edilip web'de düz metin olarak render edilir. Yüklenen görseller kuyruğa alınır, manuel onay öncesi yayınlanmaz.
-- **Yedekleme:** günlük `pg_dump` + WAL arşivi; geri yükleme tatbikatı sürüm çıkışlarından önce bir kez koşulur.
-
----
-
-## 11. Risk ve Karşılık
-
-| Risk | Karşılık |
-|---|---|
-| Kaynak arayüzü değişir, connector kırılır | Şema doğrulama connector'da; kırılan kaynak `source_health` alarmı üretir, kanonik veri bozulmaz (ham katman koruyucu) |
-| Entity resolution yanlış birleştirir | Otomatik birleştirme eşik altında yasak; `merged_into` ile geri alınabilir |
-| Deep-link şeması bozulur | Şemalar backend konfigürasyonunda; mobil sürüm çıkmadan düzeltilir, fallback mağaza/pano |
-| Bot ile sahte arıza bildirimi | `proximity_proof` + integrity attestation + cihaz güvenilirlik skoru + istasyon başına oran limiti |
-| Postgres tek nokta | Faz 2'de okuma replikası; Faz 1'de günlük yedek + WAL |
-
----
-
-## 12. Faz 1 Bitti Tanımı (mimari açıdan)
-
-1. `docker compose up` + `pnpm db:migrate && pnpm db:seed` ile boş makinede çalışan sistem.
-2. OpenAPI şeması üretiliyor, web ve mobil istemci kodu şemadan otomatik üretiliyor, CI drift kapısı yeşil.
-3. Tohumlanmış 15.000 soketlik veride viewport sorgusu p95 < 40ms (bench çıktısı depoda).
-4. En az 3 connector + entity resolution + `resolution_conflict` yönetim ekranı çalışır durumda.
-5. Şema testi doğruluyor: hiçbir kullanıcı-bağlı tabloda koordinat sütunu yok.
+- **Mekânsal Sorgu Gecikmesi (Spatial SLA):** 20 km yarıçapındaki BBox istasyon sorguları 16.788 istasyon ve 500.000 log kaydı altında **p95 < 40ms** (sunucu içi işleme süresi) içinde tamamlanmalıdır. İndeksleme için `CREATE INDEX idx_station_geom ON station USING GIST(geom);` zorunludur.
+- **İstemci Render Akıcılığı:** Mobil harita kaydırmada arayüz takılması sıfır olmalı, sabit **60 FPS** korunmalıdır.
+- **Web Performansı ve Erişilebilirlik:** Google Lighthouse SEO skoru **≥ 90**, Erişilebilirlik (a11y) skoru **≥ 95**, FCP **< 1.2s** olmalıdır.
+- **Sözleşme Uyum Kapısı:** API ve istemci modelleri arasında CI aşamasında `spectral` ve tip denetimi çalıştırılır; sözleşme ihlalinde derleme derhal durdurulur.

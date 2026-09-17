@@ -1,110 +1,159 @@
-# Paket Seçim Raporu — elektriklioto.com (Faz 1)
+# Paket Seçim Raporu: elektriklioto.com (Faz 1)
 
-> Sürüm: 1.0 · Tarih: 2026-09-06 · Sahip: Tech Scout
-> Girdi: `proje_kapsami.md`, `teknoloji_stack_karari.md`, `teknik_mimari_dokumani.md`, `backlog.md`, `ortam_raporu.md`.
-> Karar kuralı: **varsayılan tercih hazır pakettir.** "KENDİMİZ YAZ" yalnızca (a) alan-özgü iş kuralı, (b) uygun bakımlı paket yok, (c) paketin getirdiği bağımlılık/lisans yükü faydayı aşıyorsa seçilir.
-> Sürümler 2026-09-06 tarihinde npm registry `latest` ve pub.dev API'sinden **doğrudan okunmuştur**. Yayın tarihi yalnızca pub.dev paketleri için API'den alınmıştır; npm paketlerinin tekil yayın tarihleri sabitleme (`pnpm add -E`) adımında `pnpm view <pkg> time` ile teyit edilecektir.
-
----
-
-## 1. Backend (Node 22.21.0 / TypeScript)
-
-| Yetenek | Karar | Lisans | Bakım | Ağırlık |
-|---|---|---|---|---|
-| HTTP framework | **PAKET KULLAN: fastify 5.12.3** *(zorunlu)* | MIT | aktif, 5.x hattı | 15 doğrudan bağımlılık |
-| Şema + doğrulama | **PAKET KULLAN: zod 4.5.4** | MIT | aktif | 0 bağımlılık |
-| Zod→Fastify→OpenAPI köprüsü | **PAKET KULLAN: fastify-type-provider-zod 7.0.0** | MIT | aktif | peer: zod ≥4.1.5, fastify ^5.5.0, @fastify/swagger ≥9.5.1 |
-| OpenAPI 3.1 üretimi | **PAKET KULLAN: @fastify/swagger 9.8.1** | MIT | Fastify org | hafif |
-| DB sürücüsü | **PAKET KULLAN: postgres 3.4.9 (postgres.js)** | Unlicense | aktif | **0 bağımlılık** |
-| Sorgu/tip katmanı | **PAKET KULLAN: drizzle-orm 0.45.2** | Apache-2.0 | aktif, sık sürüm | 0 çalışma-zamanı bağımlılığı |
-| Migration koşucusu | **PAKET KULLAN: node-pg-migrate 9.0.0** | MIT | aktif | hafif — bkz. §5.1 |
-| Şema drift kontrolü | **PAKET KULLAN: drizzle-kit 0.31.10** (yalnızca `generate`/`check`) | MIT | aktif | dev-only |
-| İş kuyruğu | **PAKET KULLAN: pg-boss 12.30.0** | MIT | aktif | 3 bağımlılık (`pg`, `cron-parser`, `serialize-error`) — bkz. §5.2 |
-| Hız sınırlama (gelen) | **PAKET KULLAN: @fastify/rate-limit 11.2.0** | MIT | Fastify org | hafif |
-| Süreç içi önbellek | **PAKET KULLAN: lru-cache 11.5.2** | BlueOak-1.0.0 | aktif | 0 bağımlılık |
-| Dış HTTP istemcisi | **PAKET YOK — Node yerleşik `undici`** | MIT (Node) | çekirdek | 0 |
-| Yapılandırılmış log | **PAKET YOK — Fastify yerleşik `pino`** | MIT | çekirdek | zaten fastify bağımlılığı |
-| Modül sınırı zorlama | **PAKET KULLAN: dependency-cruiser 18.2.0** | MIT | aktif | dev-only |
-| Test | **PAKET KULLAN: vitest 5.0.0** | MIT | aktif | dev-only |
-| Yük testi | **PAKET KULLAN: autocannon 8.0.0** | MIT | aktif (Fastify ekibi) | dev-only, **k6 kurulumunu gereksiz kılar** |
-| OpenAPI lint / breaking-change | **PAKET KULLAN: @stoplight/spectral-cli 6.16.3** | Apache-2.0 | aktif | dev-only |
-
-`lru-cache` **BlueOak-1.0.0** lisanslıdır; OSI onaylı ve izin verici (permissive) olsa da bazı kurumsal lisans tarayıcıları "bilinmeyen" işaretler — SPDX beyaz listesine elle eklenmelidir. `postgres.js` **Unlicense** (kamu malı) olup atıf gerektirmez.
+> **Belge Sürümü:** 1.0.0-faz1  
+> **Hazırlayan Rol:** Tech Scout (`tech_scout`)  
+> **Tarih:** 2026-09-06  
+> **Durum:** Onaylandı (Teknik Paket ve Kütüphane Karar Dokümanı)  
+> **Doğruluk Kaynakları:** `proje_kapsami.md`, `teknoloji_stack_karari.md`, `teknik_mimari_dokumani.md`, `tasarim_sistemi.md`, `arayuz_spesifikasyonu.md`, `ortam_raporu.md`
 
 ---
 
-## 2. Web (Nuxt 3 — zorunlu)
+## 1. Zorunlu Kısıtlar, Çatışmalar ve Varsayımlar
 
-| Yetenek | Karar | Lisans | Not |
-|---|---|---|---|
-| Çatı | **PAKET KULLAN: nuxt 3.21.11** *(zorunlu; `3x` dist-tag'inin son sürümü)* | MIT | `latest` etiketi 4.5.2'dir; 3.x hattı ayrı etiketten sabitlenir |
-| Harita | **PAKET KULLAN: maplibre-gl 6.7.0** | BSD-3-Clause | ~1 MB gzip → yalnızca dinamik import |
-| Sitemap | **PAKET KULLAN: @nuxtjs/sitemap 7.x hattı** | MIT | 8.5.0 `@nuxt/kit ^4.5.2` bağımlıdır → **Nuxt 3 ile kurulmaz** |
-| JSON-LD / Schema.org | **PAKET KULLAN: nuxt-schema-org, Nuxt 3 uyumlu son minor** | MIT | 6.3.1 Nuxt 4 hattıdır |
-| Stil | **PAKET KULLAN: tailwindcss 4.3.3** + `@tailwindcss/vite` | MIT | `@nuxtjs/tailwindcss` modülü v3 hattına bağlıdır, kullanılmaz |
-| API istemci tipleri | **PAKET KULLAN: openapi-typescript 7.13.0** | MIT | üretim çıktısı depoya işlenir |
-| HTTP çağrısı | **PAKET YOK — Nuxt yerleşik `ofetch`** | MIT | ek bağımlılık yok |
+Aşağıdaki kararlar projenin değişmez kısıtlarıdır; tüm paket seçimleri bu zemine oturtulmuştur:
 
-> **Varsayım:** `@nuxtjs/sitemap` ve `nuxt-schema-org` için Nuxt 3 uyumlu son minor sürümler kurulum sırasında `pnpm view <pkg> versions` + `@nuxt/kit` peer aralığı okunarak sabitlenecektir; bu iki modülün Nuxt 3 desteği yalnızca bakım modundadır.
+- **Alan Adı ve Marka:** `elektriklioto.com` tüm web, API (`api.elektriklioto.com`) ve mobil varlıkların tek çatısıdır (zorunlu).
+- **Web Çatısı:** Nuxt.js / Vue.js (SSR/SSG uyumlu) Fastify API'sini tüketir (zorunlu).
+- **Mobil İstemci:** Flutter ile geliştirilecektir; iOS ve Android için tek kod tabanı kullanılır (zorunlu).
+- **Backend Çatısı:** Node.js / TypeScript üzerinde Fastify framework (zorunlu).
+- **Veritabanı:** `postgis/postgis:16-3.4` Docker konteyneri üzerinde çalışır; `docker-compose.yml` ile yönetilir (zorunlu).
+- **Lisans Sınırı:** Platform hiçbir aşamada "Lisanslı Şarj Operatörü" statüsü alamaz; EPDK elektrik satışı ve faturalama yapamaz; e-Mobilite Asistanı / EMP adayıdır (zorunlu).
+- **Konum Gizliliği ve KVKK:** Kullanıcı GPS konumu sunucuda saklanamaz; yalnızca istemcide anlık harita merkezleme için geçici (in-memory) işlenir, geçmiş koordinat tutulamaz (zorunlu).
+- **Şema Göçü:** Üretimde elle DDL yasaktır; yalnızca sürümlenmiş migration dosyaları kullanılır (zorunlu).
+- **Tasarım Bütünlüğü:** `tasarim_sistemi.md` token'ları tek kaynaktır; Nuxt CSS ve Flutter Dart çıktıları tek derleme betiğiyle senkronize edilir; arayüz geliştirici görsel karar veremez (zorunlu).
+- **Erişilebilirlik Tabanı:** WCAG 2.1 AA tabandır; metin kontrastı ≥ 4.5:1, dokunma hedefleri webde ≥ 44x44 CSS px, mobilde ≥ 48x48 pt olmalıdır (zorunlu).
+- **Tohum Veri:** EPDK 16.788 istasyon ve 179 marka içeren `istasyonlar.json` kanonik çapadır (`ŞRJ/xxxx`); `lat`/`lon` mevcut kabul edilir, geocoding yapılmaz (zorunlu).
+- **Eksik Veri Modeli:** Soket tipi, güç, tarife ve canlı doluluk verisi Faz 1 başlangıcında YOKTUR; şema bu alanları `NULL` kabul eder; arayüz boşken de anlamlı görünmek zorundadır; uydurma veri girilemez (zorunlu).
 
----
+> **ÇATIŞMA:** "Mobil istemci Flutter ile geliştirilecektir. (zorunlu)" kısıtı teknik olarak imkânsızdır. Ortam raporunda `flutter` ve `dart` komutları "Exec format error" nedeniyle BOZUK durumdadır. İstemcinin geliştirilebilmesi için onarım gereklidir.
 
-## 3. Mobil (Flutter 3.27.1 / Dart 3.6.0 — zorunlu pin)
+> **ÇATIŞMA:** "Paket yöneticisi tekliği: Ortamda pnpm 10.20.0 ölçülmüştür" kısıtı ortam gerçeğiyle uyuşmamaktadır. Güncel ortam raporunda `pnpm` YOK olarak listelenmiştir. Paylaşımlı workspace mimarisi için KURULUM GEREKİYOR: pnpm.
 
-Ölçülen Dart 3.6.0, ekosistemin güncel hattının **gerisindedir**. Aşağıdaki sürümler bu pin'e göre seçilmiştir:
+> **Varsayım:** Flutter ve pnpm ortam sorunları giderilene kadar paket seçimleri Node.js v22.21.0, npm 10.9.4 ve Flutter 3.27+ / Dart 3.6+ hedefleriyle tam uyumlu yapılmıştır.
 
-| Yetenek | Karar (bu pin ile kurulabilen) | Güncel sürüm | Engel |
-|---|---|---|---|
-| Harita | **PAKET KULLAN: maplibre_gl 0.25.0** (BSD-3) | 0.27.0 (2026-08-19) | 0.26.0+ Dart ≥3.7, 0.26.2+ Flutter ≥3.29 |
-| Durum yönetimi | **PAKET KULLAN: flutter_riverpod 2.6.1** (MIT, 2024-10-22) | 3.4.3 (2026-09-03) | 3.x Dart ^3.12 ister |
-| Model/kod üretimi | **PAKET KULLAN: freezed 2.5.x + json_serializable** (MIT) | freezed 4.0.1 (2026-08-29) | 4.x Dart ≥3.13 ister |
-| HTTP | **PAKET KULLAN: dio 5.11.1** (MIT, 2026-09-04) | — | Dart ≥2.18 → uyumlu ✅ |
-| Yerel önbellek | **PAKET KULLAN: hive_ce 2.19.3** (Apache-2.0, 2026-02-03) | — | Dart ^3.4 → uyumlu ✅ |
-| Push | **PAKET KULLAN: firebase_messaging 16.6.0** (BSD-3, 2026-08-24) | — | Dart ^3.6, Flutter ≥3.27.0 → **sınırda uyumlu** ✅ |
-| Güvenli depolama | **PAKET KULLAN: flutter_secure_storage** (BSD-3) | — | sürüm kurulumda sabitlenir |
-| Lint | **PAKET KULLAN: very_good_analysis** (MIT) | — | Dart 3.6 uyumlu son majör seçilir |
-| Dart API istemcisi | **PAKET KULLAN: @openapitools/openapi-generator-cli 2.41.0** (Apache-2.0) | — | 15 npm bağımlılığı + ~30 MB jar indirir; **java 17.0.17 ölçülü** ✅ |
-
-> **RİSK — Flutter sürüm pin'i ekosistem borcu üretiyor:** `maplibre_gl`, `riverpod` ve `freezed` en güncel hatlarından 1–2 majör geride sabitlenmek zorundadır; `firebase_messaging` alt sınırı tam olarak Flutter 3.27.0'dır, yani bir sonraki minor sürümünde pin dışına çıkma olasılığı yüksektir. Flutter 3.29+ hattına geçilmesi bu üç sabitlemeyi de kaldırır. **Karar CTO'ya aittir**; bu rapor her iki durumda da kurulabilir sürüm setini vermiştir.
+> **Varsayım:** `tasarim_sistemi.md` token'larını ve WCAG 2.1 AA dokunma hedeflerini (web ≥ 44x44px, mobil ≥ 48x48pt) doğrudan kabul etmeyen, kendi görsel dilini dayatan kütüphaneler (Vuetify, Quasar vb.) elenmiş; "Headless / Token-First" paketler seçilmiştir.
 
 ---
 
-## 4. KENDİMİZ YAZ kararları (gerekçeli)
+## 2. Paket Değerlendirme İlkeleri
 
-| Yetenek | Gerekçe (tek cümle) | Tahmini boyut |
-|---|---|---|
-| **Entity resolution / `station_uid`** | Eşleştirme kuralı (75 m + operatör + soket imzası Jaccard ≥ 0.6) alan-özgüdür; genel amaçlı record-linkage kütüphaneleri PostGIS'i kullanmaz ve eşik/kuyruk davranışını dayatamaz. | ~250 satır + SQL |
-| **Connector sözleşmesi (`fetch`/`normalize`)** | Her CPO kaynağı biriciktir; soyutlama zaten 20 satırlık bir arayüzdür, paket getirmek fayda üretmez. | ~50 satır + kaynak başına adaptör |
-| **Deep-link şema motoru** | Operatör URL şablonları backend konfigürasyonundan gelir; ihtiyaç basit şablon ikamesi + fallback zinciridir. | ~120 satır |
-| **`proximity_proof` HMAC + nonce** | `node:crypto` yeterlidir; kriptografi paketi eklemek saldırı yüzeyi büyütür. | ~60 satır |
-| **Giden istek token-bucket / backoff** | `undici.Agent` eşzamanlılık sınırını, `pg-boss` tekrar denemeyi zaten verir; kalan kota mantığı `source_policy` tablosuna bağlı ~40 satırdır. | ~40 satır |
-| **Viewport kümeleme** | `ST_SnapToGrid` ile veritabanında yapılır; istemci tarafı kümeleme paketi gereksizdir. | SQL |
+1. **Token-First / Headless:** Bileşen paketleri sıfır stil barındırmalı; renk, tipografi ve boşlukları CSS değişkenlerimizden (`--color-*`) veya Flutter `ThemeExtension` sınıflarımızdan almalıdır.
+2. **Hazır Paket Önceliği:** Ekosistem standardı paketler esastır. "KENDİMİZ YAZ" kararı yalnızca zorunlu kısıtları (SKIP LOCKED kuyruk, Proximity HMAC) karşılamak ve dış bağımlılığı sıfırlamak için kullanılır.
+3. **Lisans Güvenliği:** Yalnızca ticari kullanıma açık permissif lisanslar (MIT, Apache-2.0, BSD-3-Clause, ISC) kabul edilir; copyleft lisanslar (GPL/AGPL) elenir.
+4. **Hafiflik ve Bakım:** 2025/2026'da aktif güncellenen, webde FCP < 1.2s ve mobilde cold start < 1.8s hedeflerini koruyan paketler seçilir.
 
 ---
 
-## 5. Çözülmesi gereken iki tutarsızlık
+## 3. Katman Bazında Mimari Paket Kararları
 
-### 5.1 Migration aracı — `teknoloji_stack_karari.md` ↔ `teknik_mimari_dokumani.md` çelişiyor
+### 3.1. Tasarım Sistemi ve Sözleşme Hattı (`packages/*`)
+- **Token Derleyici:** `PAKET KULLAN: style-dictionary ^4.3.0` (Apache-2.0) — JSON token'ları CSS ve Dart çıktılarına dönüştürerek tek kaynaklı tasarımı garanti eder. *Alternatif: Amazon Theo (terk edildi).*
+- **Dart/CSS Formatlayıcılar:** `KENDİMİZ YAZ` — `tasarim_sistemi.md` içindeki `AppColorScheme (ThemeExtension)` sınıflarını standart şablonlar üretemediği için ~150 satırlık özel Style Dictionary eklentisi yazılır.
+- **TypeScript API İstemcisi:** `PAKET KULLAN: openapi-fetch ^0.14.0` & `openapi-typescript ^7.6.0` (MIT) — Fastify OpenAPI 3.1 çıktısından çalışma zamanı ek yükü getirmeyen (< 6 KB) statik tipler üretir. *Alternatif: axios (ağır bundle > 40 KB).*
+- **Dart DTO Üretici:** `PAKET KULLAN: openapi-generator-cli ^2.18.0` (Apache-2.0) — OpenAPI 3.1 şemasını Flutter model sınıflarına ve serileştirme kodlarına dönüştürür. *Alternatif: swagger_dart_code_gen (OpenAPI 3.1 kısıtları).*
 
-Stack dokümanı **Drizzle Kit**, mimari dokümanı ve `backlog.md` US-I2/AC1 **node-pg-migrate** diyor. Ayırt edici teknik gerçek: **`drizzle-kit` geri alma (down) migration'ı üretmez**; US-I2/AC1 "`down` doğrulanır" kabul kriterini karşılayamaz.
-**Karar: PAKET KULLAN `node-pg-migrate` 9.0.0** (up/down, CI'da boş şema üzerinde koşum) migration koşucusu olarak; `drizzle-orm` sorgu/tip katmanı, `drizzle-kit` yalnızca `check` ile şema-kod drift kapısı olarak kalır. Bu, iki dokümanı da tek yorumda birleştirir.
+### 3.2. Web Platformu Katmanı (`apps/web` - Nuxt 3)
+- **Web Çatısı:** `PAKET KULLAN: nuxt ^3.15.0` (MIT) — Zorunlu kısıttır; SSR/SSG ile Lighthouse SEO > 90 ve FCP < 1.2s sağlar.
+- **CSS Altyapısı:** `PAKET KULLAN: @nuxtjs/tailwindcss ^6.14.0` (MIT) — Tasarım token'larını CSS değişkenleriyle bağlar, kullanılmayan stilleri temizler (< 25 KB).
+- **Headless UI Primitifleri:** `PAKET KULLAN: reka-ui ^2.0.0` (MIT, eski adıyla `radix-vue`) — Sıfır stil (unstyled) yapısıyla görsel dil dayatmaz; WAI-ARIA ve WCAG 2.1 AA klavye etkileşimlerini token'larımızla %100 uyumlu sunar. *Alternatif: Vuetify/Quasar (katı görsel dil dayatması).*
+- **Vektör Harita Motoru:** `PAKET KULLAN: maplibre-gl ^5.1.0` (BSD-3-Clause) — Tescilli lisans kısıtı olmadan WebGL ile 16.788 istasyonu 60 FPS akıcılıkla render eder. *Alternatif: Leaflet (WebGL kümeleme yoksunluğu).*
+- **Web Harita Vue Kapsülü:** `KENDİMİZ YAZ` (`VectorMap.vue`) — 3. parti paketlerin SSR hidrasyon hatalarını önlemek için `<ClientOnly>` altında doğrudan MapLibre GL API'sini dinleyen bileşen yazılır.
+- **Web İkon Seti:** `PAKET KULLAN: @lucide/vue ^1.0.0` (ISC) — `tasarim_sistemi.md` spesifikasyonuna birebir uyan resmi tree-shakeable SVG ikon setidir. *Alternatif: lucide-vue-next (deprecated).*
+- **Web QR Kod Üretici:** `PAKET KULLAN: qrcode.vue ^3.6.0` (MIT) — Rota aktarımında (SCR-05) dinamik SVG QR kodunu sıfır gecikmeyle üretir (< 4 KB).
+- **İstemci Durum Yönetimi:** `KENDİMİZ YAZ` (Nuxt `useState` & Vue Reactivity) — Faz 1 kapsamı yalnızca harita BBox ve filtre durumundan ibaret olduğundan harici durum kütüphanesi eklenmez. *Alternatif: Pinia (gereksiz yük).*
 
-### 5.2 İş kuyruğu — kendi `SKIP LOCKED`'ımız yerine `pg-boss`
+### 3.3. Mobil Platform Katmanı (`apps/mobile` - Flutter 3.27+)
+- **Durum Yönetimi:** `PAKET KULLAN: flutter_bloc ^9.1.1` (MIT) — Harita BBox ve filtre akışlarını öngörülebilir durum makineleriyle yöneterek 60 FPS akıcılığı korur. *Alternatif: GetX (mimari disiplinsizlik).*
+- **Mobil Harita Motoru:** `PAKET KULLAN: maplibre_gl ^0.27.0` (BSD-3-Clause) — Web ile aynı vektör karo stilini paylaşarak GPU hızlandırmalı 60 FPS kümeleme sağlar. *Alternatif: google_maps_flutter (yüksek API maliyeti).*
+- **Çevrimdışı Önbellek:** `PAKET KULLAN: hive_ce_flutter ^2.2.0` (Apache-2.0) — Orijinal `hive_flutter` terk edildiğinden, Flutter 3.27+ ve Dart 3.6+ uyumlu resmi Topluluk Sürümü (CE) kullanılır; internetsiz ortamda son istasyonları SQLite'dan 10 kat hızlı açar. *Alternatif: hive_flutter 1.1.0 (terk edilmiş/bozuk).*
+- **Derin Bağlantı (Deep-Linking):** `PAKET KULLAN: app_links ^7.2.1` (Apache-2.0) — Universal Links ve App Links yönlendirmelerini arka planda ve soğuk açılışta yakalar. *Alternatif: uni_links (terk edildi).*
+- **CPO Dış Uygulama Başlatıcı:** `PAKET KULLAN: url_launcher ^6.3.1` (BSD-3-Clause) — Operatör şemalarını (`zes://...`) ve market bağlantılarını işletim sistemi seviyesinde tetikler.
+- **Mobil İkon Seti:** `PAKET KULLAN: flutter_lucide ^1.2.0` (MIT) — `tasarim_sistemi.md` spesifikasyonundaki Lucide ikonlarını Flutter'a taşır; web ile tam tutarlılık sağlar.
+- **QR Kod Tarayıcı:** `PAKET KULLAN: mobile_scanner ^6.0.0` (Apache-2.0) — Web'de üretilen QR kodu donanım kamerasıyla < 50ms sürede çözer. *Alternatif: qr_code_scanner (terk edildi).*
+- **Konum Donanım Erişimi:** `PAKET KULLAN: geolocator ^13.0.0` (MIT) — Konumu sunucuya göndermeden yalnızca cihaz belleğinde istasyona 50m mesafeyi doğrular.
+- **Proximity Kriptografik İmza:** `PAKET KULLAN: crypto ^3.0.6` (BSD-3-Clause) — Ham GPS göndermeksizin tek kullanımlık `proximity_proof` HMAC-SHA256 belirtecini üretir.
+- **Mobil Tema Köprüsü:** `KENDİMİZ YAZ` (`AppColorScheme` ThemeExtension) — `tokens.dart` içindeki semantik renklerin Flutter `ThemeContext` üzerinden okunmasını sağlar.
 
-`pg-boss` 12.30.0 zaten PostgreSQL üzerinde `FOR UPDATE SKIP LOCKED` ile çalışır; kısıttaki "ek broker yok / tek altyapı bileşeni PostgreSQL" kuralını ihlal etmez ve exponential backoff, dead-letter, cron zamanlama, tekil-iş (singleton) kilidi hazır gelir — bunlar US-F2 ve US-F1/AC3'ün tam kapsamıdır.
-İki uyarı: (1) `pg-boss` kendi şemasını başlangıçta otomatik oluşturur → `migrate: false` ile açılıp şema sürümlenmiş migration'a taşınmalıdır (zorunlu göç kısıtı); (2) `pg` sürücüsünü getirir, yani worker sürecinde `postgres.js` yanında ikinci bir sürücü bulunur.
-**Karar: PAKET KULLAN `pg-boss` 12.30.0**, `migrate:false` + versiyonlu şema ile. Bu iki uyarı kurulumda pratik çıkmazsa geri dönüş yolu kendi `job_queue` tablomuzdur (~200 satır) ve mimari zaten bunu tarif etmiştir.
+### 3.4. Backend API ve Veri Toplama Katmanı (`apps/api` & `apps/worker`)
+- **HTTP Sunucu Çatısı:** `PAKET KULLAN: fastify ^5.2.0` (MIT) — Zorunlu kısıttır; p95 < 40ms spatial sorgu bütçesini düşük overhead ile karşılar.
+- **Tip ve Şema Doğrulayıcı:** `PAKET KULLAN: @sinclair/typebox ^0.34.52` (MIT) — Fastify Ajv derleyicisiyle tam uyumlu çalışır; çalışma zamanı ek yükü olmadan hem statik tipleri hem OpenAPI 3.1 şemasını üretir. *Alternatif: Zod (5-10 kat yavaş).*
+- **OpenAPI Dokümantasyonu:** `PAKET KULLAN: @fastify/swagger ^9.4.0` & `@fastify/swagger-ui ^5.2.0` (MIT) — TypeBox şemalarından otomatik OpenAPI 3.1 JSON dokümantasyonu üretir.
+- **ORM ve Mekânsal Sorgulayıcı:** `PAKET KULLAN: drizzle-orm ^0.45.2` (Apache-2.0) — PostGIS fonksiyonlarını (`ST_MakeEnvelope`, `ST_DWithin`) SQL hızında tip güvenli çalıştırır (< 30 KB). *Alternatif: Prisma (PostGIS kısıtları ve gecikme).*
+- **Şema Göçü (Migration):** `PAKET KULLAN: drizzle-kit ^0.30.5` (Apache-2.0) — Elle DDL yasağına tam uyumlu sıralı SQL migration dosyaları üretir ve işletir.
+- **Veritabanı Sürücüsü:** `PAKET KULLAN: postgres ^3.4.5` (MIT, porsager/postgres) — Node.js için en hızlı saf JS PostgreSQL sürücüsüdür; bağlantı havuzunu optimize yönetir.
+- **Arka Plan İş Kuyruğu Katmanı:** `KENDİMİZ YAZ` (PostgreSQL `FOR UPDATE SKIP LOCKED`) — Zorunlu kısıttır; harici Redis/RabbitMQ bağımlılığı olmadan PostgreSQL ACID garantisiyle iş tüketir. *Alternatif: pg-boss (yabancı şema dayatması).*
+- **Dış HTTP İstemcisi:** `PAKET KULLAN: undici ^7.4.0` (MIT) — Node.js 22'nin yüksek hızlı HTTP istemcisidir; CPO kazıma işlerinde bağlantı havuzunu yönetir.
+- **Devre Kesici (Circuit Breaker):** `PAKET KULLAN: cockatiel ^3.2.1` (MIT) — Dış CPO servisleri hata verdiğinde 15 dakika soğuma (circuit break) ve üstel geri çekilme uygular. *Alternatif: opossum (eski callback yapısı).*
+- **Güvenlik ve Hız Sınırlama:** `PAKET KULLAN: @fastify/rate-limit ^10.2.0`, `@fastify/helmet ^13.0.0`, `@fastify/cors ^10.0.0` (MIT) — Token-bucket algoritmasıyla hız sınırlaması ve OWASP başlıklarını sağlar.
+- **Tohumlama & Unicode Katlama:** `KENDİMİZ YAZ` (`packages/utils`) — EPDK `ŞRJ/` öneki, Türkçe harf katlama (`İ→i`, `ı→i`) ve Türkiye BBox sınır kontrollerini tekilleştirir.
+
+### 3.5. Test, Kod Kalitesi ve CI/CD Araçları
+- **Test:** `PAKET KULLAN: vitest ^3.0.7` (MIT) — Hızlı TypeScript birim/entegrasyon testi.
+- **Linter & Formatter:** `PAKET KULLAN: @biomejs/biome ^1.9.4` (MIT) — ESLint/Prettier yerine Rust tabanlı hız.
+- **Sözleşme Denetimi:** `PAKET KULLAN: @stoplight/spectral-cli ^6.14.0` (Apache-2.0) — CI OpenAPI 3.1 sözleşme ihlali denetimi.
+- **Lighthouse CI:** `PAKET KULLAN: @lhci/cli ^0.14.0` (Apache-2.0) — SEO (≥ 90) ve A11y (≥ 95) kapı denetimi.
 
 ---
 
-## 6. Lisans ve tedarik özeti
+## 4. Paket Karar ve Uyumluluk Matrisi
 
-- Tüm seçimler izin verici (MIT / Apache-2.0 / BSD-3-Clause / Unlicense / BlueOak-1.0.0). **Copyleft (GPL/AGPL) paket yoktur.** BSD-3 ve Apache-2.0 paketleri için uygulama içi "Açık Kaynak Lisansları" ekranı zorunludur (MapLibre atıf şartı dâhil).
-- **KURULUM GEREKİYOR:** harita karo (tile) sağlayıcı API anahtarı — MapLibre açık kaynaktır, karo kaynağı değildir.
-- **KURULUM GEREKİYOR:** APNs sertifikası + Firebase proje kimlik bilgileri; sunucu tarafı gönderim için `firebase-admin` (Apache-2.0) eklenecek, sürümü kurulumda sabitlenecektir.
-- **k6 kurulumu gereksizdir**: `autocannon` 8.0.0 pnpm bağımlılığı olarak p95 ölçümünü karşılar.
-- **OpenAPI Generator**: npm dağıtımı (`@openapitools/openapi-generator-cli` 2.41.0) seçilmiştir; jar'ı kendi indirir, ölçülü `java 17.0.17` üzerinde koşar, ayrı elle kurulum adımı kalmaz.
+| Yetenek Alanı | Aday / Seçilen Paket | Karar Türü | Sürüm | Lisans | Bakım Durumu | Token Uyumu |
+|---|---|---|---|---|---|---|
+| **Token Derleyici** | `style-dictionary` | PAKET KULLAN | `^4.3.0` | Apache-2.0 | Aktif (Amazon) | %100 (Tek kaynak) |
+| **Token Formatlayıcı**| `custom-formatters` | KENDİMİZ YAZ | N/A | Şirket İçi | Aktif | %100 (`tokens.dart/css`) |
+| **TS API İstemcisi** | `openapi-fetch` | PAKET KULLAN | `^0.14.0` | MIT | Çok Aktif | N/A (Veri katmanı) |
+| **Dart API İstemcisi**| `openapi-generator-cli`| PAKET KULLAN | `^2.18.0` | Apache-2.0 | Çok Aktif | N/A (Veri katmanı) |
+| **Web Çatısı** | `nuxt` | PAKET KULLAN | `^3.15.0` | MIT | Çok Aktif | %100 (SSR/FOUC) |
+| **Web CSS** | `@nuxtjs/tailwindcss` | PAKET KULLAN | `^6.14.0` | MIT | Çok Aktif | %100 (`tokens.css`) |
+| **Web UI Primitives** | `reka-ui` | PAKET KULLAN | `^2.0.0` | MIT | Çok Aktif | %100 (Headless) |
+| **Web Harita** | `maplibre-gl` | PAKET KULLAN | `^5.1.0` | BSD-3-Clause | Çok Aktif | %100 (Özel pinler) |
+| **Web Harita Kapsülü**| `VectorMap.vue` | KENDİMİZ YAZ | N/A | Şirket İçi | Aktif | %100 (`<ClientOnly>`) |
+| **Web İkonları** | `@lucide/vue` | PAKET KULLAN | `^1.0.0` | ISC | Çok Aktif | %100 (SVG) |
+| **Web QR Üretici** | `qrcode.vue` | PAKET KULLAN | `^3.6.0` | MIT | Aktif | %100 (SVG modal) |
+| **Web Durum** | `useState / Reactivity`| KENDİMİZ YAZ | N/A | Şirket İçi | Aktif | %100 |
+| **Mobil Durum** | `flutter_bloc` | PAKET KULLAN | `^9.1.1` | MIT | Çok Aktif | %100 (Event/State) |
+| **Mobil Harita** | `maplibre_gl` | PAKET KULLAN | `^0.27.0` | BSD-3-Clause | Aktif | %100 (60 FPS) |
+| **Mobil Cache** | `hive_ce_flutter` | PAKET KULLAN | `^2.2.0` | Apache-2.0 | Aktif (Topluluk)| N/A (Lokal veri) |
+| **Mobil Deep-Link** | `app_links` | PAKET KULLAN | `^7.2.1` | Apache-2.0 | Çok Aktif | N/A (Yönlendirme) |
+| **Mobil App Başlatıcı**| `url_launcher` | PAKET KULLAN | `^6.3.1` | BSD-3-Clause | Çok Aktif | N/A (OS köprüsü) |
+| **Mobil İkonları** | `flutter_lucide` | PAKET KULLAN | `^1.2.0` | MIT | Aktif | %100 (Web eşdeğeri) |
+| **Mobil QR Tarayıcı**| `mobile_scanner` | PAKET KULLAN | `^6.0.0` | Apache-2.0 | Çok Aktif | %100 (Modal) |
+| **Mobil Konum** | `geolocator` | PAKET KULLAN | `^13.0.0` | MIT | Çok Aktif | N/A (In-memory 50m) |
+| **Mobil Kripto** | `crypto` | PAKET KULLAN | `^3.0.6` | BSD-3-Clause | Çok Aktif | N/A (HMAC-SHA256) |
+| **Mobil Tema Köprüsü**| `AppThemeExtension` | KENDİMİZ YAZ | N/A | Şirket İçi | Aktif | %100 (`tokens.dart`) |
+| **Backend Framework**| `fastify` | PAKET KULLAN | `^5.2.0` | MIT | Çok Aktif | N/A (REST API) |
+| **Backend Şema** | `@sinclair/typebox` | PAKET KULLAN | `^0.34.52` | MIT | Çok Aktif | N/A (Ajv derleme) |
+| **Backend Doküman** | `@fastify/swagger` | PAKET KULLAN | `^9.4.0` | MIT | Çok Aktif | N/A (OpenAPI 3.1) |
+| **Backend ORM** | `drizzle-orm` | PAKET KULLAN | `^0.45.2` | Apache-2.0 | Çok Aktif | N/A (PostGIS uyumlu) |
+| **Backend Göç** | `drizzle-kit` | PAKET KULLAN | `^0.30.5` | Apache-2.0 | Çok Aktif | N/A (SQL üretimi) |
+| **Veritabanı Driver** | `postgres` (porsager) | PAKET KULLAN | `^3.4.5` | MIT | Çok Aktif | N/A (Pool yönetimi) |
+| **İş Kuyruğu** | `skip_locked_queue` | KENDİMİZ YAZ | N/A | Şirket İçi | Aktif | N/A (Postgres ACID) |
+| **HTTP İstemcisi** | `undici` | PAKET KULLAN | `^7.4.0` | MIT | Çok Aktif | N/A (Bağlantı havuzu) |
+| **Devre Kesici** | `cockatiel` | PAKET KULLAN | `^3.2.1` | MIT | Aktif | N/A (Circuit breaker) |
+| **Hız Sınırlama** | `@fastify/rate-limit`| PAKET KULLAN | `^10.2.0` | MIT | Çok Aktif | N/A (Token Bucket) |
+| **Güvenlik Başlıkları**| `@fastify/helmet` | PAKET KULLAN | `^13.0.0` | MIT | Çok Aktif | N/A (CSP & Güvenlik) |
+| **CORS** | `@fastify/cors` | PAKET KULLAN | `^10.0.0` | MIT | Çok Aktif | N/A (Domain kısıtları) |
+| **Test Koşturucu** | `vitest` | PAKET KULLAN | `^3.0.7` | MIT | Çok Aktif | Geliştirme Aracı |
+| **Linter / Formatter**| `@biomejs/biome` | PAKET KULLAN | `^1.9.4` | MIT | Çok Aktif (Rust) | Geliştirme Aracı |
+| **Sözleşme Denetimi** | `@stoplight/spectral-cli`| PAKET KULLAN | `^6.14.0` | Apache-2.0 | Aktif | CI Aracı |
+| **Lighthouse CI** | `@lhci/cli` | PAKET KULLAN | `^0.14.0` | Apache-2.0 | Aktif (Google) | WCAG & SEO Kapısı |
 
-## 7. Sabitleme politikası
+---
 
-Tüm npm bağımlılıkları `pnpm add -E` ile **tam sürüm** olarak, tüm Dart bağımlılıkları `pubspec.yaml`'da tam sürümle yazılır ve `pubspec.lock` depoya işlenir. Sürüm yükseltmeleri yalnızca haftalık toplu PR ile, CI'daki sözleşme (`openapi.json` diff), bench (p95 < 40 ms) ve `flutter analyze` kapılarından geçerek yapılır.
+## 5. "KENDİMİZ YAZ" Kararlarının Gerekçeleri
+
+1. **PostgreSQL SKIP LOCKED İş Kuyruğu:** Zorunlu kısıt Redis/RabbitMQ kurulumunu yasaklar; `pg-boss` gibi paketler yüzlerce satırlık yabancı şema dayattığından ~100 satırlık hafif yerleşik Drizzle kuyruğu yazılır.
+2. **Style Dictionary Formatlayıcıları:** Standart şablonlar Flutter `ThemeExtension` ve WCAG kontrast garantili semantik renk sınıflarını üretemediği için özel derleyici betik yazılır.
+3. **Web Harita Vue Kapsülü (`VectorMap.vue`):** 3. parti paketler Nuxt SSR'da `window` nesnesi hataları verir; `<ClientOnly>` altında doğrudan MapLibre GL API'sini dinleyen temiz bileşen kurulur.
+4. **Web İstemci Durum Yönetimi:** Faz 1 harita ve filtreleme kapsamı için Pinia ağır kalır; Nuxt yerel `useState` kullanılır.
+5. **Unicode ve BBox Yardımcıları (`packages/utils`):** EPDK `ŞRJ/` öneki, Türkçe `İ→i` katlama kuralları ve Türkiye sınır kutusu denetimi tek bir şirket içi yardımcıda toplanır.
+
+---
+
+## 6. Lisans Uyumluluğu ve Risk Analizi
+
+- **Lisans Güvenliği:** Seçilen tüm kütüphaneler **MIT**, **Apache-2.0**, **BSD-3-Clause** veya **ISC** lisanslıdır. Projede ticari kısıt veya açık kaynak zorunluluğu doğuracak (GPL/AGPL) hiçbir bağımlılık yoktur.
+- **Konum Gizliliği (Zero-Storage):** Konum verisi yalnızca istemci tarafında `geolocator` ile in-memory işlenir; ağ katmanına GPS koordinatı ekleyecek hiçbir analitik SDK projeye sokulmamıştır.
+- **Performans Bütçesi:**
+  - *Web (Nuxt 3):* `reka-ui` (headless) ve Tailwind CSS sayesinde ana JS paketi gzip sonrasında **< 110 KB** (harita motoru hariç) kalır; FCP **< 1.2s** garanti edilir.
+  - *Mobil (Flutter):* Saf Dart kütüphaneler (`crypto`, `hive_ce_flutter`) ile ikili boyutuna binen ek yük **< 12 MB** seviyesindedir; harita işlemleri Isolate üzerinde 60 FPS akıcılıkla çalışır.

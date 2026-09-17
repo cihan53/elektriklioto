@@ -1,0 +1,2443 @@
+<!DOCTYPE html>
+<html lang="tr" class="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>elektriklioto.com — Tasarım Sistemi & Canlı Stil Rehberi (Faz 1)</title>
+  <style>
+    /* ==========================================================================
+       TASARIM TOKENLARI — Nuxt 3 CSS Custom Properties & Semantik Değişkenler
+       Doğruluk Kaynağı: tasarim_sistemi.md (Faz 1)
+       ========================================================================== */
+    :root {
+      /* Renk Paleti — Açık Tema (Light) */
+      --color-bg-base: #F8FAFC;
+      --color-bg-surface: #FFFFFF;
+      --color-bg-elevated: #FFFFFF;
+      --color-bg-subdued: #F1F5F9;
+      --color-primary: #0066CC;
+      --color-primary-hover: #0052A3;
+      --color-primary-active: #004080;
+      --color-on-primary: #FFFFFF;
+      --color-text-primary: #0F172A;
+      --color-text-secondary: #475569;
+      --color-text-muted: #64748B;
+      --color-border-default: #E2E8F0;
+      --color-border-strong: #CBD5E1;
+      --color-focus-ring: #0066CC;
+      --color-success: #15803D;
+      --color-success-subdued: #DCFCE7;
+      --color-warning: #B45309;
+      --color-warning-subdued: #FEF3C7;
+      --color-danger: #B91C1C;
+      --color-danger-subdued: #FEE2E2;
+      --color-missing-text: #334155;
+      --color-missing-bg: #E2E8F0;
+
+      /* Boşluk Skalası (Spacing Scale) */
+      --spacing-1: 4px;
+      --spacing-2: 8px;
+      --spacing-3: 12px;
+      --spacing-4: 16px;
+      --spacing-5: 20px;
+      --spacing-6: 24px;
+      --spacing-8: 32px;
+      --spacing-12: 48px;
+
+      /* Köşe Yarıçapları (Border Radius) */
+      --radius-none: 0px;
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --radius-xl: 16px;
+      --radius-full: 9999px;
+
+      /* Gölgeler ve Derinlik (Elevation) */
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.10), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.12), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+      /* Tipografi */
+      --font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    /* Koyu Tema (Dark) */
+    html.dark {
+      --color-bg-base: #0B0F19;
+      --color-bg-surface: #0F172A;
+      --color-bg-elevated: #1E293B;
+      --color-bg-subdued: #1E293B;
+      --color-primary: #38BDF8;
+      --color-primary-hover: #0284C7;
+      --color-primary-active: #0369A1;
+      --color-on-primary: #0B0F19;
+      --color-text-primary: #F8FAFC;
+      --color-text-secondary: #CBD5E1;
+      --color-text-muted: #94A3B8;
+      --color-border-default: #1E293B;
+      --color-border-strong: #334155;
+      --color-focus-ring: #38BDF8;
+      --color-success: #4ADE80;
+      --color-success-subdued: #064E3B;
+      --color-warning: #FBBF24;
+      --color-warning-subdued: #78350F;
+      --color-danger: #F87171;
+      --color-danger-subdued: #7F1D1D;
+      --color-missing-text: #CBD5E1;
+      --color-missing-bg: #334155;
+
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.6);
+      --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.7);
+    }
+
+    /* Sıfırlama ve Temel Kurallar */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-family);
+      background-color: var(--color-bg-base);
+      color: var(--color-text-primary);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      transition: background-color 0.2s ease, color 0.2s ease;
+      padding-bottom: 80px;
+    }
+
+    /* Klavye Odak Standartı — WCAG 2.1 AA */
+    :focus-visible {
+      outline: 3px solid var(--color-focus-ring) !important;
+      outline-offset: 2px !important;
+    }
+
+    /* Hareket Azaltma (prefers-reduced-motion) */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    /* Tabular Rakamlar (Sayaçlar, EPDK Kodları, Mesafeler için zorunlu) */
+    .tabular-nums {
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Kapsayıcı Düzeni */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 var(--spacing-6);
+    }
+
+    /* ==========================================================================
+       ÜST BAŞLIK VE KONTROL ÇUBUĞU (Sticky Header)
+       ========================================================================== */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background-color: var(--color-bg-surface);
+      border-bottom: 1px solid var(--color-border-default);
+      box-shadow: var(--shadow-sm);
+      transition: background-color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-3);
+      text-decoration: none;
+    }
+
+    .brand-logo {
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, #0066CC 0%, #0284C7 100%);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFFFFF;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .brand-name {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--color-text-primary);
+    }
+
+    .brand-name span {
+      color: var(--color-primary);
+    }
+
+    .brand-badge {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+      background-color: var(--color-bg-subdued);
+      color: var(--color-text-secondary);
+      border: 1px solid var(--color-border-default);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-4);
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--color-text-secondary);
+      text-decoration: none;
+      padding: var(--spacing-2) var(--spacing-3);
+      border-radius: var(--radius-md);
+      transition: color 0.15s ease, background-color 0.15s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--color-primary);
+      background-color: var(--color-bg-subdued);
+    }
+
+    .theme-switcher {
+      display: inline-flex;
+      background-color: var(--color-bg-subdued);
+      border: 1px solid var(--color-border-default);
+      border-radius: var(--radius-full);
+      padding: 3px;
+      gap: 2px;
+    }
+
+    .theme-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      min-height: 36px;
+      font-size: 12px;
+      font-weight: 600;
+      border: none;
+      border-radius: var(--radius-full);
+      background: transparent;
+      color: var(--color-text-secondary);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .theme-btn.active {
+      background-color: var(--color-bg-surface);
+      color: var(--color-primary);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* ==========================================================================
+       YASAL VE MİMARİ BİLGİ BANDI (Banner)
+       ========================================================================== */
+    .info-banner {
+      background-color: var(--color-bg-surface);
+      border-bottom: 1px solid var(--color-border-default);
+      padding: var(--spacing-4) 0;
+      margin-bottom: var(--spacing-8);
+    }
+
+    .info-banner-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--spacing-4);
+    }
+
+    .info-card {
+      background-color: var(--color-bg-subdued);
+      border: 1px solid var(--color-border-default);
+      border-radius: var(--radius-md);
+      padding: var(--spacing-4);
+      display: flex;
+      align-items: flex-start;
+      gap: var(--spacing-3);
+    }
+
+    .info-card svg {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      margin-top: 2px;
+    }
+
+    .info-card-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      margin-bottom: 2px;
+    }
+
+    .info-card-desc {
+      font-size: 12px;
+      color: var(--color-text-secondary);
+      line-height: 1.4;
+    }
+
+    /* ==========================================================================
+       BÖLÜM STİLLERİ (Sections)
+       ========================================================================== */
+    .section {
+      margin-bottom: var(--spacing-12);
+    }
+
+    .section-header {
+      margin-bottom: var(--spacing-6);
+      padding-bottom: var(--spacing-3);
+      border-bottom: 1px solid var(--color-border-default);
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+
+    .section-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--color-text-primary);
+      letter-spacing: -0.01em;
+    }
+
+    .section-subtitle {
+      font-size: 13px;
+      color: var(--color-text-muted);
+      margin-top: 4px;
+    }
+
+    /* ==========================================================================
+       1. RENK PALETİ VE SEMANTİK ROLLER
+       ========================================================================== */
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: var(--spacing-4);
+    }
+
+    .color-card {
+      background-color: var(--color-bg-surface);
+      border: 1px solid var(--color-border-default);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-4);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-3);
+    }
+
+    .color-swatch-box {
+      height: 64px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 var(--spacing-4);
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .swatch-label {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .swatch-hex {
+      font-size: 13px;
+      font-family: monospace;
+      font-weight: 600;
+    }
+
+    .color-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .color-role-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--color-text-primary);
+    }
+
+    .color-role-desc {
+      font-size: 12px;
+      color: var(--color-text-secondary);
+    }
+
+    .color-tokens {
+      margin-top: 6px;
+      padding-top: 6px;
+      border-top: 1px dashed var(--color-border-default);
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      font-size: 11px;
+      font-family: monospace;
+    }
+
+    .token-row {
+      display: flex;
+      justify-content: space-between;
+      color: var(--color-text-muted);
+    }
+
+    .token-row span:last-child {
+      color: var(--color-primary);
+    }
+
+    .contrast-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 2px 6px;
+      border-radius: var(--radius-sm);
+      font-size: 10px;
+      font-weight: 700;
+    }
+
+    .contrast-pass-aaa {
+      background-color: var(--color-success-subdued);
+      color: var(--color-success);
+    }
+
+    .contrast-pass-aa {
+      background-color: #E0F2FE;
+      color: #0369A1;
+    }
+
+    /* ==========================================================================
+       2. TİPOGRAFİ SİSTEMİ
+       ========================================================================== */
+    .typography-table-card {
+      background-color: var(--color-bg-surface);
+      border: 1px solid var(--color-border-default);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      overflow-x: auto;
+    }
+
+    .typo-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    .typo-table th {
+      background-color: var(--color-bg-subdued);
+      padding: var(--spacing-3) var(--spacing-4);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--color-text-secondary);
+      border-bottom: 1px solid var(--color-border-default);
+    }
+
+    .typo-table td {
+      padding: var(--spacing-4);
+      border-bottom: 1px solid var(--color-border-default);
+      font-size: 13px;
+      color: var(--color-text-primary);
+      vertical-align: middle;
+    }
+
+    .typo-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Tipografi Sınıfları */
+    .text-display {
+      font-size: 36px;
+      line-height: 44px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .text-h1 {
+      font-size: 30px;
+      line-height: 38px;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+    }
+
+    .text-h2 {
+      font-size: 24px;
+      line-height: 32px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    .text-h3 {
+      font-size: 20px;
+      line-height: 28px;
+      font-weight: 600;
+      letter-spacing: -0.005em;
+    }
+
+    .text-h4 {
+      font-size: 18px;
+      line-height: 24px;
+      font-weight: 500;
+    }
+
+    .text-body-lg {
+      font-size: 16px;
+      line-height: 24px;
+      font-weight: 400;
+    }
+
+    .text-body-md {
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: 400;
+    }
+
+    .text-body-md-bold {
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: 500;
+    }
+
+    .text-body-sm {
+      font-size: 12px;
+      line-height: 16px;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+    }
+
+    .text-caption {
+      font-size: 11px;
+      line-height: 14px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+
+    .text-mono {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 13px;
+      line-height: 18px;
+      font-weight: 500;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* ==========================================================================
+       3. BOŞLUK, KÖŞE YARIÇAPI VE GÖLGELER
+       ========================================================================== */
+    .system-props-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: var(--spacing-6);
+    }
+
+    .props-card {
+      background-color: var(--color-bg-surface);
+      border: 1px solid var(--color-border-default);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-5);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .props-card-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      margin-bottom: var(--spacing-4);
+      padding-bottom: var(--spacing-2);
+      border-bottom: 1px solid var(--color-border-default);
+    }
+
+    .spacing-item {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-3);
+      margin-bottom: var(--spacing-3);
+    }
+
+    .spacing-bar-container {
+      flex: 1;
+      background-color: var(--color-bg-subdued);
+      height: 24px;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+
+    .spacing-bar {
+      background-color: var(--color-primary);
+      height: 100%;
+      border-radius: var(--radius-sm);
+    }
+
+    .spacing-label {
+      width: 140px;
+      font-size: 12px;
+      font-family: monospace;
+      color: var(--color-text-secondary);
+    }
+
+    .radius-demo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--spacing-3);
+    }
+
+    .radius-box {
+      height: 72px;
+      background-color: var(--color-bg-subdued);
+      border: 2px solid var(--color-primary);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      text-align: center;
+    }
+
+    .shadow-demo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--spacing-4);
+    }
+
+    .shadow-box {
+      padding: var(--spacing-4);
+      background-color: var(--color-bg-surface);
+      border-radius: var(--radius-md);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      border: 1px solid var(--color-border-default);
+    }
+
+    .shadow-box-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--color-text-primary);
+    }
+
+    .shadow-box-desc {
+      font-size: 11px;
+      color: var(--color-text-muted);
+      margin-top: 2px;
+    }
+
+    /* ==========================================================================
+       4. BİLEŞEN DURUM MATRİSİ (Component Inventory & All States)
+       ========================================================================== */
+    .component-group {
+      background-color: var(--color-bg-surface);
+      border: 1px solid var(--color-border-default);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-6);
+      margin-bottom: var(--spacing-6);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .group-header {
+      margin-bottom: var(--spacing-5);
+    }
+
+    .group-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--color-text-primary);
+    }
+
+    .group-desc {
+      font-size: 12px;
+      color: var(--color-text-muted);
+      margin-top: 2px;
+    }
+
+    .state-matrix-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: var(--spacing-4);
+      align-items: center;
+    }
+
+    .state-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--spacing-2);
+      text-align: center;
+    }
+
+    .state-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* 4.1 Butonlar */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--spacing-2);
+      padding: 0 var(--spacing-5);
+      min-height: 48px; /* Dokunma Hedefi >= 44px kuralı (Zorunlu) */
+      min-width: 48px;
+      border-radius: var(--radius-md);
+      font-family: var(--font-family);
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+      transition: all 0.15s ease;
+      user-select: none;
+      position: relative;
+    }
+
+    /* Birincil Buton */
+    .btn-primary {
+      background-color: var(--color-primary);
+      color: var(--color-on-primary);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-primary:hover:not(:disabled) {
+      background-color: var(--color-primary-hover);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-primary:active:not(:disabled) {
+      background-color: var(--color-primary-active);
+      transform: scale(0.98);
+    }
+
+    .btn-primary.is-focused {
+      outline: 3px solid var(--color-focus-ring) !important;
+      outline-offset: 2px !important;
+    }
+
+    .btn:disabled {
+      background-color: var(--color-border-default);
+      color: var(--color-text-muted);
+      cursor: not-allowed;
+      box-shadow: none;
+      transform: none;
+    }
+
+    /* Yükleniyor Durumu (Loading) */
+    .btn.is-loading {
+      color: transparent !important;
+      pointer-events: none;
+    }
+
+    .btn.is-loading::after {
+      content: "";
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border: 2px solid var(--color-on-primary);
+      border-top-color: transparent;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+    }
+
+    /* Hata Durumu (Error) */
+    .btn-primary.is-error {
+      background-color: var(--color-danger);
+      color: #FFFFFF;
+      animation: shake 0.3s ease-in-out;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-4px); }
+      75% { transform: translateX(4px); }
+    }
+
+    /* İkincil Buton */
+    .btn-secondary {
+      background-color: var(--color-bg-subdued);
+      color: var(--color-text-primary);
+      border: 1px solid var(--color-border-strong);
+    }
+
+    .btn-secondary:hover:not(:disabled) {
+      background-color: var(--color-border-default);
+    }
+
+    .btn-secondary:active:not(:disabled) {
+      transform: scale(0.98);
+    }
+
+    .btn-secondary.is-focused {
+      outline: 3px solid var(--color-focus-ring) !important;
+      outline-offset: 2px !important;
+    }
+
+    .btn-secondary.is-loading::after {
+      border-color: var(--color-text-primary);
+      border-top-color: transparent;
+    }
+
+    /* 4.2 Filtre Hapları (Filter Chips) */
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      min-height: 44px; /* Web dokunma hedefi >= 44px kuralı */
+      border-radius: var(--radius-full);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      border: 1px solid var(--color-border-default);
+      background-color: var(--color-bg-surface);
+      color: var(--color-text-secondary);
+      transition: all 0.15s ease;
+      user-select: none;
+    }
+
+    .chip:hover:not(.chip-disabled) {
+      border-color: var(--color-border-strong);
+      color: var(--color-text-primary);
+    }
+
+    .chip.chip-selected {
+      background-color: var(--color-primary);
+      border-color: var(--color-primary);
+      color: var(--color-on-primary);
+    }
+
+    .chip.chip-locked {
+      background-color: var(--color-bg-subdued);
+      border: 1px dashed var(--color-border-strong);
+      color: var(--color-text-muted);
+      cursor: not-allowed;
+    }
+
+    /* 4.3 Arama ve Girdi Kutuları */
+    .input-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 380px;
+    }
+
+    .input-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--color-text-muted);
+      pointer-events: none;
+      width: 18px;
+      height: 18px;
+    }
+
+    .input-field {
+      width: 100%;
+      height: 48px;
+      padding: 0 var(--spacing-4) 0 42px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border-strong);
+      background-color: var(--color-bg-surface);
+      color: var(--color-text-primary);
+      font-family: var(--font-family);
+      font-size: 14px;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .input-field:hover:not(:disabled) {
+      border-color: var(--color-text-muted);
+    }
+
+    .input-field:focus {
+      outline: none;
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.15);
+    }
+
+    html.dark .input-field:focus {
+      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+    }
+
+    .input-field:disabled {
+      background-color: var(--color-bg-subdued);
+      border-color: var(--color-border-default);
+      color: var(--color-text-muted);
+      cursor: not-allowed;
+    }
+
+    .input-field.input-error {
+      border-color: var(--color-danger);
+      color: var(--color-danger);
+    }
+
+    /* ==========================================================================
+       5. ROZETLER VE "VERİ YOK" GÖRSEL DİLİ (ZORUNLU KISIT)
+       ========================================================================== */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    /* Eksik Veri Standart Rozeti: "Operatör Verisi Bekleniyor" */
+    .badge-missing-data {
+      background-color: var(--color-missing-bg);
+      color: var(--color-missing-text);
+      border: 1px solid var(--color-border-strong);
+    }
+
+    .badge-btn-add {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      margin-left: 6px;
+      padding: 2px 8px;
+      min-height: 28px;
+      border-radius: var(--radius-sm);
+      background-color: var(--color-bg-surface);
+      color: var(--color-primary);
+      font-size: 11px;
+      font-weight: 700;
+      border: 1px solid var(--color-border-strong);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .badge-btn-add:hover {
+      background-color: var(--color-primary);
+      color: var(--color-on-primary);
+      border-color: var(--color-primary);
+    }
+
+    /* Arıza / Riskli Rozeti (Kitle Kaynak) */
+    .badge-danger {
+      background-color: var(--color-danger-subdued);
+      color: var(--color-danger);
+      border: 1px solid var(--color-danger);
+    }
+
+    /* Halka Açık / Özel Rozeti */
+    .badge-success {
+      background-color: var(--color-success-subdued);
+      color: var(--color-success);
+      border: 1px solid rgba(21, 128, 61, 0.2);
+    }
+
+    .badge-warning {
+      background-color: var(--color-warning-subdued);
+      color: var(--color-warning);
+      border: 1px solid rgba(180, 83, 9, 0.2);
+    }
+
+    /* ==========================================================================
+       6. HARİTA PİNLERİ VE KÜMELER
+       ========================================================================== */
+    .pins-demo-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--spacing-8);
+      align-items: center;
+      padding: var(--spacing-6);
+      background: radial-gradient(circle at center, var(--color-bg-subdued) 0%, var(--color-bg-surface) 100%);
+      border: 1px solid var(--color-border-default);
+      border-radius: var(--radius-lg);
+    }
+
+    .pin-demo-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--spacing-2);
+    }
+
+    /* Tekil İstasyon Pini */
+    .map-pin {
+      width: 40px;
+      height: 48px;
+      position: relative;
+      cursor: pointer;
+      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15));
+      transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .map-pin:hover {
+      transform: translateY(-4px);
+    }
+
+    .map-pin.selected {
+      transform: scale(1.15) translateY(-4px);
+      filter: drop-shadow(0 8px 12px rgba(0, 102, 204, 0.35));
+    }
+
+    .map-pin-svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Küme Pinleri */
+    .cluster-pin {
+      border-radius: var(--radius-full);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFFFFF;
+      font-weight: 700;
+      position: relative;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      cursor: pointer;
+      user-select: none;
+      transition: transform 0.2s ease;
+    }
+
+    .cluster-pin:hover {
+      transform: scale(1.08);
+    }
+
+    .cluster-pin::after {
+      content: "";
+      position: absolute;
+      inset: -4px;
+      border-radius: var(--radius-full);
+      background-color: currentColor;
+      opacity: 0.25;
+      animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+
+    @keyframes pulse-ring {
+      0%, 100% { transform: scale(1); opacity: 0.25; }
+      50% { transform: scale(1.15); opacity: 0.1; }
+    }
+
+    .cluster-sm {
+      width: 36px;
+      height: 36px;
+      font-size: 12px;
+      background-color: #0066CC;
+      color: #0066CC;
+    }
+    .cluster-sm span { color: #FFFFFF; }
+
+    .cluster-md {
+      width: 44px;
+      height: 44px;
+      font-size: 13px;
+      background-color: #0052A3;
+      color: #0052A3;
+    }
+    .cluster-md span { color: #FFFFFF; }
+
+    .cluster-lg {
+      width: 52px;
+      height: 52px;
+      font-size: 14px;
+      background-color: #0F172A;
+      color: #0F172A;
+    }
+    html.dark .cluster-lg {
+      background-color: #38BDF8;
+      color: #38BDF8;
+    }
+    .cluster-lg span { color: #FFFFFF; }
+    html.dark .cluster-lg span { color: #0B0F19; }
+
+    /* ==========================================================================
+       7. CANLI İSTASYON DETAY KARTI SİMÜLASYONU (SCR-02)
+       ========================================================================== */
+    .screen-simulation-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: var(--spacing-8);
+    }
+
+    .station-detail-card {
+      background-color: var(--color-bg-surface);
+      border: 1px solid var(--color-border-default);
+      border-radius: var(--radius-xl);
+      padding: var(--spacing-6);
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-5);
+      position: relative;
+    }
+
+    .card-operator-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .operator-badge-brand {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-3);
+    }
+
+    .operator-icon-box {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-md);
+      background-color: #0066CC;
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 16px;
+    }
+
+    .operator-name-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--color-text-primary);
+    }
+
+    .station-code-mono {
+      font-family: monospace;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--color-text-muted);
+    }
+
+    .station-address-box {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--spacing-2);
+      font-size: 13px;
+      color: var(--color-text-secondary);
+      line-height: 1.4;
+    }
+
+    .missing-data-panel {
+      background-color: var(--color-bg-subdued);
+      border: 1px solid var(--color-border-default);
+      border-radius: var(--radius-md);
+      padding: var(--spacing-4);
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-3);
+    }
+
+    .missing-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 13px;
+    }
+
+    .missing-row-label {
+      color: var(--color-text-secondary);
+      font-weight: 500;
+    }
+
+    .card-actions-col {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-3);
+    }
+
+    .card-actions-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--spacing-3);
+    }
+
+    .legal-disclaimer {
+      font-size: 11px;
+      color: var(--color-text-muted);
+      line-height: 1.35;
+      text-align: center;
+      border-top: 1px solid var(--color-border-default);
+      padding-top: var(--spacing-3);
+    }
+
+    /* ==========================================================================
+       8. TOAST BİLDİRİM SİSTEMİ (Clipboard Fallback & Proximity)
+       ========================================================================== */
+    .toast-container {
+      position: fixed;
+      bottom: var(--spacing-6);
+      right: var(--spacing-6);
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-3);
+      pointer-events: none;
+    }
+
+    .toast {
+      pointer-events: auto;
+      min-width: 320px;
+      max-width: 420px;
+      padding: var(--spacing-3) var(--spacing-4);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-xl);
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-3);
+      font-size: 13px;
+      font-weight: 500;
+      animation: toast-in 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .toast-info {
+      background-color: #0F172A;
+      color: #F8FAFC;
+      border-left: 4px solid var(--color-primary);
+    }
+
+    .toast-success {
+      background-color: var(--color-success);
+      color: #FFFFFF;
+    }
+
+    .toast-danger {
+      background-color: var(--color-danger);
+      color: #FFFFFF;
+    }
+
+    @keyframes toast-in {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    /* ==========================================================================
+       9. MODAL VE ÇEKMECE SİMÜLASYONU
+       ========================================================================== */
+    .modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+      z-index: 500;
+      align-items: center;
+      justify-content: center;
+      padding: var(--spacing-4);
+    }
+
+    .modal-backdrop.active {
+      display: flex;
+    }
+
+    .modal-card {
+      background-color: var(--color-bg-elevated);
+      border: 1px solid var(--color-border-default);
+      border-radius: var(--radius-xl);
+      max-width: 480px;
+      width: 100%;
+      padding: var(--spacing-6);
+      box-shadow: var(--shadow-xl);
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-4);
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .modal-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--color-text-primary);
+    }
+
+    .modal-close-btn {
+      background: none;
+      border: none;
+      color: var(--color-text-muted);
+      cursor: pointer;
+      padding: 4px;
+      min-height: 44px;
+      min-width: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--radius-full);
+    }
+
+    .modal-close-btn:hover {
+      color: var(--color-text-primary);
+      background-color: var(--color-bg-subdued);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================================================
+       ÜST GEZİNME VE TEMA SEÇİCİ
+       ========================================================================== -->
+  <header class="header">
+    <div class="container header-inner">
+      <div class="brand-group">
+        <div class="brand-logo">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+          </svg>
+        </div>
+        <div>
+          <div class="brand-name">elektrikli<span>oto</span>.com</div>
+        </div>
+        <span class="brand-badge">Faz 1 Tasarım Sistemi</span>
+      </div>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#renkler">Renkler & Kontrast</a></li>
+          <li><a href="#tipografi">Tipografi</a></li>
+          <li><a href="#bosluk-radius">Boşluk & Radius</a></li>
+          <li><a href="#bilesenler">Bileşen Matrisi</a></li>
+          <li><a href="#eksik-veri">Eksik Veri (Rozet)</a></li>
+          <li><a href="#harita-pinleri">Harita Pinleri</a></li>
+          <li><a href="#ekran-simulasyonu">SCR-02 Kart Simülasyonu</a></li>
+        </ul>
+      </nav>
+
+      <!-- Canlı Açık / Koyu Tema Anahtarı -->
+      <div class="theme-switcher">
+        <button type="button" class="theme-btn active" id="btn-theme-light" onclick="setTheme('light')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="12" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          Açık
+        </button>
+        <button type="button" class="theme-btn" id="btn-theme-dark" onclick="setTheme('dark')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          Koyu
+        </button>
+        <button type="button" class="theme-btn" id="btn-theme-auto" onclick="setTheme('auto')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+            <line x1="8" y1="21" x2="16" y2="21"></line>
+            <line x1="12" y1="17" x2="12" y2="21"></line>
+          </svg>
+          Sistem
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       YASAL VE KISIT BİLGİ BANDI
+       ========================================================================== -->
+  <div class="info-banner">
+    <div class="container info-banner-grid">
+      <div class="info-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+        </svg>
+        <div>
+          <div class="info-card-title">Yasal Sınır: EMP Statüsü (Zorunlu)</div>
+          <div class="info-card-desc">elektriklioto.com lisanslı şarj operatörü değildir. Elektrik satışı yapılmaz; CPO uygulamalarına derin bağlantı kurulur.</div>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+          <polyline points="22 4 12 14.01 9 11.01"></polyline>
+        </svg>
+        <div>
+          <div class="info-card-title">WCAG 2.1 AA Kontrast Onaylı</div>
+          <div class="info-card-desc">Gövde metinleri ≥ 4.5:1, başlıklar ≥ 3:1 matematiksel kontrast sertifikasyonuna sahiptir. Dokunma hedefi min 44x44px.</div>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--color-warning)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="8" x2="12" y2="12"></line>
+          <line x1="12" y1="16" x2="12.01" y2="16"></line>
+        </svg>
+        <div>
+          <div class="info-card-title">Eksik Veri Modeli (Zorunlu Kısıt)</div>
+          <div class="info-card-desc">Soket, güç ve tarife Faz 1'de boştur (NULL). Arayüzde uydurma veri girilemez; standart gri rozet gösterilir.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main class="container">
+
+    <!-- ==========================================================================
+         BÖLÜM 1: RENK PALETİ VE KONTRAST
+         ========================================================================== -->
+    <section id="renkler" class="section">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">1. Renk Paleti ve Semantik Roller</h2>
+          <p class="section-subtitle">Nuxt 3 CSS Custom Properties ve Flutter Dart AppColors eşleşmesi (WCAG 2.1 AA Sertifikalı)</p>
+        </div>
+      </div>
+
+      <div class="color-grid">
+        <!-- Primary -->
+        <div class="color-card">
+          <div class="color-swatch-box" style="background-color: var(--color-primary); color: var(--color-on-primary);">
+            <span class="swatch-label">Primary</span>
+            <span class="swatch-hex">#0066CC / #38BDF8</span>
+          </div>
+          <div class="color-meta">
+            <div class="color-role-name">Primary (Birincil Aksiyon)</div>
+            <div class="color-role-desc">"Şarja Başla" butonu, seçili pin odağı, aktif linkler.</div>
+            <div class="color-tokens">
+              <div class="token-row"><span>CSS:</span> <span>--color-primary</span></div>
+              <div class="token-row"><span>Dart:</span> <span>AppColors.primary</span></div>
+              <div class="token-row"><span>Kontrast:</span> <span class="contrast-badge contrast-pass-aa">5.57:1 (AA)</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Surface -->
+        <div class="color-card">
+          <div class="color-swatch-box" style="background-color: var(--color-bg-surface); color: var(--color-text-primary); border: 1px solid var(--color-border-default);">
+            <span class="swatch-label">Surface</span>
+            <span class="swatch-hex">#FFFFFF / #0F172A</span>
+          </div>
+          <div class="color-meta">
+            <div class="color-role-name">Background Surface (Yüzey)</div>
+            <div class="color-role-desc">İstasyon detay kartları, sol filtre paneli, üst menü.</div>
+            <div class="color-tokens">
+              <div class="token-row"><span>CSS:</span> <span>--color-bg-surface</span></div>
+              <div class="token-row"><span>Dart:</span> <span>AppColors.bgSurface</span></div>
+              <div class="token-row"><span>Kontrast:</span> <span class="contrast-badge contrast-pass-aaa">17.85:1 (AAA)</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Text Primary -->
+        <div class="color-card">
+          <div class="color-swatch-box" style="background-color: var(--color-text-primary); color: var(--color-bg-surface);">
+            <span class="swatch-label">Text Primary</span>
+            <span class="swatch-hex">#0F172A / #F8FAFC</span>
+          </div>
+          <div class="color-meta">
+            <div class="color-role-name">Text Primary (Başlık ve Gövde)</div>
+            <div class="color-role-desc">İstasyon adı, adres satırları ve temel içerik metinleri.</div>
+            <div class="color-tokens">
+              <div class="token-row"><span>CSS:</span> <span>--color-text-primary</span></div>
+              <div class="token-row"><span>Dart:</span> <span>AppColors.textPrimary</span></div>
+              <div class="token-row"><span>Kontrast:</span> <span class="contrast-badge contrast-pass-aaa">17.85:1 (AAA)</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Text Secondary -->
+        <div class="color-card">
+          <div class="color-swatch-box" style="background-color: var(--color-text-secondary); color: #FFFFFF;">
+            <span class="swatch-label">Text Secondary</span>
+            <span class="swatch-hex">#475569 / #CBD5E1</span>
+          </div>
+          <div class="color-meta">
+            <div class="color-role-name">Text Secondary (İkincil Metin)</div>
+            <div class="color-role-desc">İl/ilçe bilgisi, operatör unvanı, açıklama etiketleri.</div>
+            <div class="color-tokens">
+              <div class="token-row"><span>CSS:</span> <span>--color-text-secondary</span></div>
+              <div class="token-row"><span>Dart:</span> <span>AppColors.textSecondary</span></div>
+              <div class="token-row"><span>Kontrast:</span> <span class="contrast-badge contrast-pass-aaa">7.58:1 (AAA)</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Missing Data (Eksik Veri) -->
+        <div class="color-card">
+          <div class="color-swatch-box" style="background-color: var(--color-missing-bg); color: var(--color-missing-text);">
+            <span class="swatch-label">Missing Data</span>
+            <span class="swatch-hex">#E2E8F0 / #334155</span>
+          </div>
+          <div class="color-meta">
+            <div class="color-role-name">Missing Data (Veri Bekleniyor)</div>
+            <div class="color-role-desc">Soket, güç ve tarife bilinmediğinde basılan nötr rozet.</div>
+            <div class="color-tokens">
+              <div class="token-row"><span>CSS:</span> <span>--color-missing-bg</span></div>
+              <div class="token-row"><span>Dart:</span> <span>AppColors.missingBg</span></div>
+              <div class="token-row"><span>Kontrast:</span> <span class="contrast-badge contrast-pass-aaa">8.40:1 (AAA)</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Success (Halka Açık / Uygun) -->
+        <div class="color-card">
+          <div class="color-swatch-box" style="background-color: var(--color-success); color: #FFFFFF;">
+            <span class="swatch-label">Success</span>
+            <span class="swatch-hex">#15803D / #4ADE80</span>
+          </div>
+          <div class="color-meta">
+            <div class="color-role-name">Success (Doğrulanmış / Halka Açık)</div>
+            <div class="color-role-desc">Hizmet şekli rozeti, başarılı bildirim toastları.</div>
+            <div class="color-tokens">
+              <div class="token-row"><span>CSS:</span> <span>--color-success</span></div>
+              <div class="token-row"><span>Dart:</span> <span>AppColors.success</span></div>
+              <div class="token-row"><span>Kontrast:</span> <span class="contrast-badge contrast-pass-aa">5.02:1 (AA)</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Danger (Arıza Bildirildi) -->
+        <div class="color-card">
+          <div class="color-swatch-box" style="background-color: var(--color-danger); color: #FFFFFF;">
+            <span class="swatch-label">Danger</span>
+            <span class="swatch-hex">#B91C1C / #F87171</span>
+          </div>
+          <div class="color-meta">
+            <div class="color-role-name">Danger (Arızalı / Riskli İstasyon)</div>
+            <div class="color-role-desc">3+ doğrulanmış bildirim alan istasyon pini ve rozeti.</div>
+            <div class="color-tokens">
+              <div class="token-row"><span>CSS:</span> <span>--color-danger</span></div>
+              <div class="token-row"><span>Dart:</span> <span>AppColors.danger</span></div>
+              <div class="token-row"><span>Kontrast:</span> <span class="contrast-badge contrast-pass-aaa">6.47:1 (AAA)</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Warning (Özel / Kısıtlı) -->
+        <div class="color-card">
+          <div class="color-swatch-box" style="background-color: var(--color-warning); color: #FFFFFF;">
+            <span class="swatch-label">Warning</span>
+            <span class="swatch-hex">#B45309 / #FBBF24</span>
+          </div>
+          <div class="color-meta">
+            <div class="color-role-name">Warning (Kısıtlı Kullanım / Uyarı)</div>
+            <div class="color-role-desc">"Özel / Abone" istasyonlar ve doluluk uyarıları.</div>
+            <div class="color-tokens">
+              <div class="token-row"><span>CSS:</span> <span>--color-warning</span></div>
+              <div class="token-row"><span>Dart:</span> <span>AppColors.warning</span></div>
+              <div class="token-row"><span>Kontrast:</span> <span class="contrast-badge contrast-pass-aa">5.02:1 (AA)</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         BÖLÜM 2: TİPOGRAFİ SİSTEMİ
+         ========================================================================== -->
+    <section id="tipografi" class="section">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">2. Tipografi Ölçeği ve Tabular Rakamlar</h2>
+          <p class="section-subtitle">Yazı Tipi: Inter. Rakam genişlikleri oynamayan tabular-nums zorunludur.</p>
+        </div>
+      </div>
+
+      <div class="typography-table-card">
+        <table class="typo-table">
+          <thead>
+            <tr>
+              <th>Seviye Adı</th>
+              <th>Boyut / Satır Yük.</th>
+              <th>Ağırlık</th>
+              <th>Önizleme ve Canlı Örnek</th>
+              <th>CSS Sınıfı</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Display</strong></td>
+              <td>36px / 44px</td>
+              <td>Bold (700)</td>
+              <td><span class="text-display">Türkiye Şarj Altyapısı</span></td>
+              <td><code>.text-display</code></td>
+            </tr>
+            <tr>
+              <td><strong>H1</strong></td>
+              <td>30px / 38px</td>
+              <td>Bold (700)</td>
+              <td><span class="text-h1">Kadıköy Şarj İstasyonları</span></td>
+              <td><code>.text-h1</code></td>
+            </tr>
+            <tr>
+              <td><strong>H2</strong></td>
+              <td>24px / 32px</td>
+              <td>SemiBold (600)</td>
+              <td><span class="text-h2">ZES Tepe Nautilus AVM</span></td>
+              <td><code>.text-h2</code></td>
+            </tr>
+            <tr>
+              <td><strong>H3</strong></td>
+              <td>20px / 28px</td>
+              <td>SemiBold (600)</td>
+              <td><span class="text-h3">İstasyon Özellikleri & Konum</span></td>
+              <td><code>.text-h3</code></td>
+            </tr>
+            <tr>
+              <td><strong>H4</strong></td>
+              <td>18px / 24px</td>
+              <td>Medium (500)</td>
+              <td><span class="text-h4">Soket ve Güç Durumu</span></td>
+              <td><code>.text-h4</code></td>
+            </tr>
+            <tr>
+              <td><strong>Body Large</strong></td>
+              <td>16px / 24px</td>
+              <td>Regular (400)</td>
+              <td><span class="text-body-lg">Harita üzerindeki istasyona dokunarak rota planlayın.</span></td>
+              <td><code>.text-body-lg</code></td>
+            </tr>
+            <tr>
+              <td><strong>Body Regular</strong></td>
+              <td>14px / 20px</td>
+              <td>Regular (400)</td>
+              <td><span class="text-body-md">Acıbadem Mah. Fatih Sok. No:1 Kadıköy / İstanbul</span></td>
+              <td><code>.text-body-md</code></td>
+            </tr>
+            <tr>
+              <td><strong>Body Medium</strong></td>
+              <td>14px / 20px</td>
+              <td>Medium (500)</td>
+              <td><span class="text-body-md-bold">Operatörde Aç / Şarja Başla</span></td>
+              <td><code>.text-body-md-bold</code></td>
+            </tr>
+            <tr>
+              <td><strong>Body Small</strong></td>
+              <td>12px / 16px</td>
+              <td>Regular (400)</td>
+              <td><span class="text-body-sm">Son güncelleme: 2 gün önce (EPDK Sicil Verisi)</span></td>
+              <td><code>.text-body-sm</code></td>
+            </tr>
+            <tr>
+              <td><strong>Caption</strong></td>
+              <td>11px / 14px</td>
+              <td>Medium (500)</td>
+              <td><span class="text-caption">HALKA AÇIK İSTASYON</span></td>
+              <td><code>.text-caption</code></td>
+            </tr>
+            <tr>
+              <td><strong>Code / Mono</strong></td>
+              <td>13px / 18px</td>
+              <td>Medium (500)</td>
+              <td><span class="text-mono">EPDK Kodu: ŞRJ/1904 — Mesafe: 1.4 km</span></td>
+              <td><code>.text-mono</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         BÖLÜM 3: BOŞLUK, KÖŞE YARIÇAPLARI VE GÖLGELER
+         ========================================================================== -->
+    <section id="bosluk-radius" class="section">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">3. Boşluk (Spacing), Radius ve Gölgeler</h2>
+          <p class="section-subtitle">4px/8px katları ızgara sistemi, dokunmatik ergonomi ve katmanlı yükseklik (elevation)</p>
+        </div>
+      </div>
+
+      <div class="system-props-grid">
+        <!-- Boşluk Skalası -->
+        <div class="props-card">
+          <div class="props-card-title">Boşluk Skalası (Spacing Scale)</div>
+          
+          <div class="spacing-item">
+            <span class="spacing-label">--spacing-1 (4px)</span>
+            <div class="spacing-bar-container"><div class="spacing-bar" style="width: 4px;"></div></div>
+          </div>
+          <div class="spacing-item">
+            <span class="spacing-label">--spacing-2 (8px)</span>
+            <div class="spacing-bar-container"><div class="spacing-bar" style="width: 8px;"></div></div>
+          </div>
+          <div class="spacing-item">
+            <span class="spacing-label">--spacing-3 (12px)</span>
+            <div class="spacing-bar-container"><div class="spacing-bar" style="width: 12px;"></div></div>
+          </div>
+          <div class="spacing-item">
+            <span class="spacing-label">--spacing-4 (16px)</span>
+            <div class="spacing-bar-container"><div class="spacing-bar" style="width: 16px;"></div></div>
+          </div>
+          <div class="spacing-item">
+            <span class="spacing-label">--spacing-5 (20px)</span>
+            <div class="spacing-bar-container"><div class="spacing-bar" style="width: 20px;"></div></div>
+          </div>
+          <div class="spacing-item">
+            <span class="spacing-label">--spacing-6 (24px)</span>
+            <div class="spacing-bar-container"><div class="spacing-bar" style="width: 24px;"></div></div>
+          </div>
+          <div class="spacing-item">
+            <span class="spacing-label">--spacing-8 (32px)</span>
+            <div class="spacing-bar-container"><div class="spacing-bar" style="width: 32px;"></div></div>
+          </div>
+          <div class="spacing-item">
+            <span class="spacing-label">--spacing-12 (48px)</span>
+            <div class="spacing-bar-container"><div class="spacing-bar" style="width: 48px;"></div></div>
+          </div>
+        </div>
+
+        <!-- Köşe Yarıçapları -->
+        <div class="props-card">
+          <div class="props-card-title">Köşe Yarıçapları (Border Radius)</div>
+          <div class="radius-demo-grid">
+            <div class="radius-box" style="border-radius: var(--radius-none);">None<br>(0px)</div>
+            <div class="radius-box" style="border-radius: var(--radius-sm);">Small<br>(4px)</div>
+            <div class="radius-box" style="border-radius: var(--radius-md);">Medium<br>(8px)</div>
+            <div class="radius-box" style="border-radius: var(--radius-lg);">Large<br>(12px)</div>
+            <div class="radius-box" style="border-radius: var(--radius-xl);">XLarge<br>(16px)</div>
+            <div class="radius-box" style="border-radius: var(--radius-full);">Full<br>(Pill)</div>
+          </div>
+        </div>
+
+        <!-- Gölgeler / Elevation -->
+        <div class="props-card">
+          <div class="props-card-title">Derinlik Seviyeleri (Shadows)</div>
+          <div class="shadow-demo-grid">
+            <div class="shadow-box" style="box-shadow: var(--shadow-sm);">
+              <div class="shadow-box-name">Shadow SM</div>
+              <div class="shadow-box-desc">Hap Butonlar (Elevation 1)</div>
+            </div>
+            <div class="shadow-box" style="box-shadow: var(--shadow-md);">
+              <div class="shadow-box-name">Shadow MD</div>
+              <div class="shadow-box-desc">İstasyon Kartı (Elevation 3)</div>
+            </div>
+            <div class="shadow-box" style="box-shadow: var(--shadow-lg);">
+              <div class="shadow-box-name">Shadow LG</div>
+              <div class="shadow-box-desc">Sol Panel & FAB (Elevation 6)</div>
+            </div>
+            <div class="shadow-box" style="box-shadow: var(--shadow-xl);">
+              <div class="shadow-box-name">Shadow XL</div>
+              <div class="shadow-box-desc">Modallar (Elevation 12)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         BÖLÜM 4: BİLEŞEN DURUM MATRİSİ (ALL STATES VISIBLY RENDERED)
+         ========================================================================== -->
+    <section id="bilesenler" class="section">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">4. Bileşen Envanteri ve Durum Matrisi</h2>
+          <p class="section-subtitle">Tüm varyantlar ve TÜM durumlar: default, hover, focus, active, disabled, loading, error.</p>
+        </div>
+      </div>
+
+      <!-- 4.1 Birincil Buton Durumları -->
+      <div class="component-group">
+        <div class="group-header">
+          <div class="group-title">Birincil Buton (ButtonPrimary — "Operatörde Aç / Şarja Başla")</div>
+          <div class="group-desc">Yükseklik 48px, min-width 48px (Dokunma hedefi garantili), radius 8px, font: Body Medium (500).</div>
+        </div>
+        <div class="state-matrix-grid">
+          <div class="state-col">
+            <span class="state-label">Default</span>
+            <button type="button" class="btn btn-primary" onclick="showToast('info', 'Normal buton tıklandı.')">Şarja Başla</button>
+          </div>
+          <div class="state-col">
+            <span class="state-label">Hover (Zemin Koyu)</span>
+            <button type="button" class="btn btn-primary" style="background-color: var(--color-primary-hover);">Şarja Başla</button>
+          </div>
+          <div class="state-col">
+            <span class="state-label">Focus (3px Ring)</span>
+            <button type="button" class="btn btn-primary is-focused">Şarja Başla</button>
+          </div>
+          <div class="state-col">
+            <span class="state-label">Active (Scale 0.98)</span>
+            <button type="button" class="btn btn-primary" style="background-color: var(--color-primary-active); transform: scale(0.98);">Şarja Başla</button>
+          </div>
+          <div class="state-col">
+            <span class="state-label">Disabled</span>
+            <button type="button" class="btn btn-primary" disabled>Şarja Başla</button>
+          </div>
+          <div class="state-col">
+            <span class="state-label">Loading (Spinner)</span>
+            <button type="button" class="btn btn-primary is-loading">Şarja Başla</button>
+          </div>
+          <div class="state-col">
+            <span class="state-label">Error (Danger Red)</span>
+            <button type="button" class="btn btn-primary is-error" onclick="this.classList.toggle('is-error')">Hata Oluştu</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4.2 İkincil Buton Durumları -->
+      <div class="component-group">
+        <div class="group-header">
+          <div class="group-title">İkincil Buton (ButtonSecondary — "Yol Tarifi", "Telefona Aktar")</div>
+          <div class="group-desc">Yüzey zeminli, 1px kenarlıklı, destekleyici aksiyonlar.</div>
+        </div>
+        <div class="state-matrix-grid">
+          <div class="state-col">
+            <span class="state-label">Default</span>
+            <button type="button" class="btn btn-secondary">Yol Tarifi Al</button>
+          </div>
+          <div class="state-col">
+            <span class="state-label">Hover</span>
+            <button type="button" class="btn btn-secondary" style="background-color: var(--color-border-default);">Yol Tarifi Al</button>
+          </div>
+          <div class="state-col">
+            <span class="state-label">Focus</span>
+            <button type="button" class="btn btn-secondary is-focused">Yol Tarifi Al</button>
+          </div>
+          <div class="state-col">
+            <span class="state-label">Active</span>
+            <button type="button" class="btn btn-secondary" style="transform: scale(0.98);">Yol Tarifi Al</button>
+          </div>
+          <div class="state-col">
+            <span class="state-label">Disabled</span>
+            <button type="button" class="btn btn-secondary" disabled>Yol Tarifi Al</button>
+          </div>
+          <div class="state-col">
+            <span class="state-label">Loading</span>
+            <button type="button" class="btn btn-secondary is-loading">Yol Tarifi Al</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4.3 Filtre Hapları (Filter Chips) -->
+      <div class="component-group">
+        <div class="group-header">
+          <div class="group-title">Hap Filtre Butonları (FilterChip)</div>
+          <div class="group-desc">Yükseklik 36px (Fiziksel alan 44x44px), radius 9999px. Eksik veri durumunda kilitli pasif görünüm.</div>
+        </div>
+        <div class="state-matrix-grid">
+          <div class="state-col">
+            <span class="state-label">Seçili Değil (Default)</span>
+            <button type="button" class="chip" onclick="this.classList.toggle('chip-selected')">
+              <span>Trugo</span>
+            </button>
+          </div>
+          <div class="state-col">
+            <span class="state-label">Seçili (Active)</span>
+            <button type="button" class="chip chip-selected">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>ZES (Aktif)</span>
+            </button>
+          </div>
+          <div class="state-col">
+            <span class="state-label">Halka Açık Filtresi</span>
+            <button type="button" class="chip" onclick="this.classList.toggle('chip-selected')">
+              <span>Halka Açık</span>
+            </button>
+          </div>
+          <div class="state-col">
+            <span class="state-label">Kilitli Pasif: Hızlı Şarj</span>
+            <button type="button" class="chip chip-locked" onclick="showToast('info', 'Operatör Verisi Bekleniyor: Şarj gücü (kW) verisi henüz mevcut değildir.')">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+              <span>DC Hızlı Şarj *</span>
+            </button>
+          </div>
+          <div class="state-col">
+            <span class="state-label">Kilitli Pasif: Boş Soket</span>
+            <button type="button" class="chip chip-locked" onclick="showToast('info', 'Operatör Verisi Bekleniyor: Canlı doluluk verisi Faz 1 başlangıcında açılmamıştır.')">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+              <span>Boş Soketler *</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4.4 Arama ve Girdi Kutuları -->
+      <div class="component-group">
+        <div class="group-header">
+          <div class="group-title">Arama ve Giriş Alanı (SearchInput)</div>
+          <div class="group-desc">Yükseklik 48px, radius 8px, sol arama ikonu 18px.</div>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: var(--spacing-6);">
+          <div style="flex: 1; min-width: 260px;">
+            <span class="state-label" style="display: block; margin-bottom: 6px;">Default / Boş</span>
+            <div class="input-wrapper">
+              <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              <input type="text" class="input-field" placeholder="İstasyon veya operatör ara...">
+            </div>
+          </div>
+          <div style="flex: 1; min-width: 260px;">
+            <span class="state-label" style="display: block; margin-bottom: 6px;">Focus (Odaklanmış)</span>
+            <div class="input-wrapper">
+              <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              <input type="text" class="input-field" style="border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(0,102,204,0.15);" value="Kadıköy ZES">
+            </div>
+          </div>
+          <div style="flex: 1; min-width: 260px;">
+            <span class="state-label" style="display: block; margin-bottom: 6px;">Hata Durumu</span>
+            <div class="input-wrapper">
+              <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="var(--color-danger)" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+              <input type="text" class="input-field input-error" value="Geçersiz istasyon kodu">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         BÖLÜM 5: EKSİK VERİ ROZETLERİ VE GÖRSEL DİL
+         ========================================================================== -->
+    <section id="eksik-veri" class="section">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">5. Eksik Veri ("VERİ YOK") ve Durum Rozetleri</h2>
+          <p class="section-subtitle">Faz 1 kısıtı: Soket tipi, güç (kW) ve tarife bilinmiyor. Uydurma veri girilmez, nötr gri rozet basılır.</p>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--spacing-4);">
+        <!-- Standart Eksik Veri Rozeti -->
+        <div class="color-card">
+          <div class="color-role-name">Soket / Güç / Tarife Eksikliği</div>
+          <p class="color-role-desc">Veri olmadığı zaman uydurma 22kW yazılmaz; bu rozet basılır ve tıklandığında kitle katkı modalı açılır.</p>
+          <div style="margin-top: var(--spacing-3);">
+            <div class="badge badge-missing-data">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+              <span>Operatör Verisi Bekleniyor</span>
+              <button type="button" class="badge-btn-add" onclick="openModal('contribute-modal')">+ Bilgi Ekle</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Arıza Bildirildi Rozeti -->
+        <div class="color-card">
+          <div class="color-role-name">Arıza / Risk Rozeti (Crowdsourced)</div>
+          <p class="color-role-desc">50 metre yakınındaki sürücülerin doğruladığı bildirim eşiği aşılınca pin ve detayda kırmızı rozet belirir.</p>
+          <div style="margin-top: var(--spacing-3);">
+            <div class="badge badge-danger">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+              <span>Arıza Bildirildi (3 Doğrulama)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hizmet Şekli Rozetleri -->
+        <div class="color-card">
+          <div class="color-role-name">Hizmet Şekli (EPDK)</div>
+          <p class="color-role-desc">İstasyonun kamuya açık olup olmadığını belirten yeşil veya sarı rozetler.</p>
+          <div style="margin-top: var(--spacing-3); display: flex; gap: var(--spacing-2);">
+            <div class="badge badge-success">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Halka Açık</span>
+            </div>
+            <div class="badge badge-warning">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+              <span>Özel / Abone</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         BÖLÜM 6: HARİTA PİNLERİ VE KÜMELER
+         ========================================================================== -->
+    <section id="harita-pinleri" class="section">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">6. Harita Pinleri ve Kümeler</h2>
+          <p class="section-subtitle">Düşük zoomda PostGIS ST_SnapToGrid kümeleri, yüksek zoomda tekil 40x48px damla pinler</p>
+        </div>
+      </div>
+
+      <div class="pins-demo-container">
+        <!-- Normal Pin -->
+        <div class="pin-demo-item">
+          <div class="map-pin">
+            <svg class="map-pin-svg" viewBox="0 0 40 48" fill="none">
+              <path d="M20 0C8.954 0 0 8.954 0 20c0 14.5 20 28 20 28s20-13.5 20-28C40 8.954 31.046 0 20 0z" fill="#0066CC"/>
+              <circle cx="20" cy="18" r="12" fill="#FFFFFF"/>
+              <path d="M20 10l-4 8h5l-1 6 5-8h-5l1-6z" fill="#0066CC"/>
+            </svg>
+          </div>
+          <span class="text-caption">Normal Pin</span>
+        </div>
+
+        <!-- Seçili Pin -->
+        <div class="pin-demo-item">
+          <div class="map-pin selected">
+            <svg class="map-pin-svg" viewBox="0 0 40 48" fill="none">
+              <path d="M20 0C8.954 0 0 8.954 0 20c0 14.5 20 28 20 28s20-13.5 20-28C40 8.954 31.046 0 20 0z" fill="#0284C7"/>
+              <path d="M20 0C8.954 0 0 8.954 0 20c0 14.5 20 28 20 28s20-13.5 20-28C40 8.954 31.046 0 20 0z" stroke="#38BDF8" stroke-width="3"/>
+              <circle cx="20" cy="18" r="12" fill="#FFFFFF"/>
+              <path d="M20 10l-4 8h5l-1 6 5-8h-5l1-6z" fill="#0284C7"/>
+            </svg>
+          </div>
+          <span class="text-caption">Seçili Pin (+%15 Odak)</span>
+        </div>
+
+        <!-- Arızalı Pin -->
+        <div class="pin-demo-item">
+          <div class="map-pin">
+            <svg class="map-pin-svg" viewBox="0 0 40 48" fill="none">
+              <path d="M20 0C8.954 0 0 8.954 0 20c0 14.5 20 28 20 28s20-13.5 20-28C40 8.954 31.046 0 20 0z" fill="#B91C1C"/>
+              <circle cx="20" cy="18" r="12" fill="#FFFFFF"/>
+              <path d="M19 12h2v7h-2zm0 9h2v2h-2z" fill="#B91C1C"/>
+            </svg>
+          </div>
+          <span class="text-caption">Arıza Pini</span>
+        </div>
+
+        <!-- Küme: <10 -->
+        <div class="pin-demo-item">
+          <div class="cluster-pin cluster-sm"><span>8</span></div>
+          <span class="text-caption">&lt; 10 İstasyon (36px)</span>
+        </div>
+
+        <!-- Küme: 10-99 -->
+        <div class="pin-demo-item">
+          <div class="cluster-pin cluster-md"><span>42</span></div>
+          <span class="text-caption">10-99 İstasyon (44px)</span>
+        </div>
+
+        <!-- Küme: >=100 -->
+        <div class="pin-demo-item">
+          <div class="cluster-pin cluster-lg"><span>148</span></div>
+          <span class="text-caption">100+ İstasyon (52px)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         BÖLÜM 7: CANLI İSTASYON DETAY KARTI SİMÜLASYONU (SCR-02)
+         ========================================================================== -->
+    <section id="ekran-simulasyonu" class="section">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">7. Canlı İstasyon Detay Kartı (SCR-02 Spesifikasyonu)</h2>
+          <p class="section-subtitle">Web sol yan panel (380px) ve Mobil Alt Çekmece (StationDetailSheet) yerleşim karşılığı</p>
+        </div>
+      </div>
+
+      <div class="screen-simulation-grid">
+        <!-- Canlı İstasyon Detay Kartı -->
+        <div class="station-detail-card" style="max-width: 420px; margin: 0 auto;">
+          <!-- Kart Üstü: Operatör ve EPDK Kodu -->
+          <div class="card-operator-header">
+            <div class="operator-badge-brand">
+              <div class="operator-icon-box">ZES</div>
+              <div>
+                <div class="operator-name-title">Zorlu Energy Solutions</div>
+                <div class="station-code-mono">Kayıt No: ŞRJ/1904</div>
+              </div>
+            </div>
+            <div class="badge badge-success">Halka Açık</div>
+          </div>
+
+          <!-- İstasyon Adı ve Adresi -->
+          <div>
+            <h3 class="text-h3" style="margin-bottom: 6px;">Tepe Nautilus AVM Otoparkı</h3>
+            <div class="station-address-box">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0; margin-top:2px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>Acıbadem Mah. Fatih Sok. No:1 Kadıköy / İstanbul (Kat -2 Kapalı Otopark)</span>
+            </div>
+          </div>
+
+          <!-- Faz 1 Eksik Veri Alanları -->
+          <div class="missing-data-panel">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 2px;">
+              <span style="font-size: 11px; font-weight: 700; color: var(--color-text-muted); text-transform: uppercase;">Teknik Soket ve Tarife Bilgileri</span>
+              <span class="text-caption" style="color: var(--color-primary);">Faz 1 Veri Durumu</span>
+            </div>
+
+            <!-- Soket Tipi -->
+            <div class="missing-row">
+              <span class="missing-row-label">Soket Tipi:</span>
+              <div class="badge badge-missing-data">
+                <span>Operatör Verisi Bekleniyor</span>
+                <button type="button" class="badge-btn-add" onclick="openModal('contribute-modal')">+ Ekle</button>
+              </div>
+            </div>
+
+            <!-- Şarj Gücü (kW) -->
+            <div class="missing-row">
+              <span class="missing-row-label">Şarj Gücü:</span>
+              <div class="badge badge-missing-data">
+                <span>Operatör Verisi Bekleniyor</span>
+                <button type="button" class="badge-btn-add" onclick="openModal('contribute-modal')">+ Ekle</button>
+              </div>
+            </div>
+
+            <!-- Canlı Tarife -->
+            <div class="missing-row">
+              <span class="missing-row-label">Tarife / Ücret:</span>
+              <div class="badge badge-missing-data">
+                <span>Operatör Verisi Bekleniyor</span>
+                <button type="button" class="badge-btn-add" onclick="openModal('contribute-modal')">+ Ekle</button>
+              </div>
+            </div>
+
+            <!-- Canlı Doluluk Durumu -->
+            <div class="missing-row">
+              <span class="missing-row-label">Canlı Doluluk:</span>
+              <span style="font-size: 12px; color: var(--color-text-muted); font-style: italic;">Operatör telemetrisi bekleniyor</span>
+            </div>
+          </div>
+
+          <!-- Birincil Eylem: Operatörde Aç & Fallback -->
+          <div class="card-actions-col">
+            <button type="button" class="btn btn-primary" style="width: 100%; font-size: 15px; font-weight: 600;" onclick="handleDeepLink('ZES', 'ŞRJ/1904')">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+              <span>Operatörde Aç / Şarja Başla (ZES)</span>
+            </button>
+
+            <!-- İkincil Eylemler -->
+            <div class="card-actions-row">
+              <button type="button" class="btn btn-secondary" onclick="showToast('info', 'Harita navigasyonu başlatılıyor...')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>
+                <span>Yol Tarifi</span>
+              </button>
+              <button type="button" class="btn btn-secondary" onclick="openModal('qr-modal')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                <span>Telefona Aktar</span>
+              </button>
+            </div>
+
+            <!-- Arıza Bildir Butonu (Proximity Doğrulamalı) -->
+            <button type="button" class="btn btn-secondary" style="border-color: var(--color-danger); color: var(--color-danger);" onclick="openModal('report-modal')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+              <span>Arıza / Engel Bildir</span>
+            </button>
+          </div>
+
+          <!-- Yasal EMP Sorumluluk Reddi (Zorunlu) -->
+          <div class="legal-disclaimer">
+            elektriklioto.com EPDK lisanslı şarj operatörü değildir. Şarj başlatma ve faturalandırma ilgili operatörün sorumluluğundadır.
+          </div>
+
+          <div style="display: flex; justify-content: space-between; font-size: 11px; color: var(--color-text-muted);">
+            <span>Kaynak: EPDK Sicil Verisi</span>
+            <span>Tazelik: 2 gün önce</span>
+          </div>
+        </div>
+
+        <!-- Etkileşim Test Paneli -->
+        <div class="station-detail-card">
+          <div class="card-operator-header">
+            <h3 class="text-h3">Etkileşim & Senaryo Test Paneli</h3>
+            <span class="badge badge-success">Canlı Test</span>
+          </div>
+
+          <p class="text-body-md" style="color: var(--color-text-secondary);">
+            Geliştirici veya tasarım denetçisi olarak aşağıdaki butonları kullanarak spesifikasyonda tanımlanan hata ve akış senaryolarını canlı olarak deneyimleyebilirsiniz:
+          </p>
+
+          <div style="display: flex; flex-direction: column; gap: var(--spacing-3);">
+            <button type="button" class="btn btn-secondary" style="justify-content: flex-start;" onclick="handleDeepLink('Trugo', 'ŞRJ/8841')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
+              <span>Senaryo 1: Clipboard Fallback (Pano Kopyalama Toastı)</span>
+            </button>
+
+            <button type="button" class="btn btn-secondary" style="justify-content: flex-start;" onclick="showToast('danger', 'İstasyona 50m yakınında olmalısınız. (Ölçülen: ~140m)')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>Senaryo 2: Proximity Proof Hata Uyarısı (> 50m)</span>
+            </button>
+
+            <button type="button" class="btn btn-secondary" style="justify-content: flex-start;" onclick="showToast('success', 'Katkınız alındı ve moderasyon kuyruğuna iletildi.')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Senaryo 3: Veri Katkısı Başarı Toastı</span>
+            </button>
+
+            <button type="button" class="btn btn-secondary" style="justify-content: flex-start;" onclick="openModal('qr-modal')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+              <span>Senaryo 4: Web-to-Mobile QR Kod Modalı (SCR-05)</span>
+            </button>
+          </div>
+
+          <div class="missing-data-panel" style="margin-top: auto;">
+            <div style="font-size: 12px; font-weight: 600; color: var(--color-text-primary); margin-bottom: 4px;">Konum Gizliliği (KVKK) Güvencesi:</div>
+            <div style="font-size: 12px; color: var(--color-text-secondary); line-height: 1.4;">
+              İstemci GPS konumu kesinlikle sunucuya gönderilmez veya saklanmaz. Arıza bildiriminde mesafe cihaz tarafında lokal hesaplanıp tek kullanımlık HMAC belirteci üretilir.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       CANLI TOAST BİLDİRİM KAPSAYICISI
+       ========================================================================== -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- ==========================================================================
+       MODAL 1: KİTLE KATKI FORMU (SCR-07)
+       ========================================================================== -->
+  <div class="modal-backdrop" id="contribute-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title">İstasyon Bilgisi Ekle (Topluluk Katkısı)</div>
+        <button type="button" class="modal-close-btn" onclick="closeModal('contribute-modal')">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <p style="font-size: 13px; color: var(--color-text-secondary);">
+        Tepe Nautilus AVM ZES istasyonunda gördüğünüz teknik soket veya güç bilgilerini seçerek diğer sürücülere yardımcı olun:
+      </p>
+
+      <div style="display: flex; flex-direction: column; gap: var(--spacing-3);">
+        <div>
+          <label style="font-size: 12px; font-weight: 600; color: var(--color-text-primary); display: block; margin-bottom: 4px;">Soket Tipi:</label>
+          <div style="display: flex; gap: var(--spacing-2);">
+            <button type="button" class="chip chip-selected">CCS (DC Hızlı)</button>
+            <button type="button" class="chip">Type 2 (AC)</button>
+            <button type="button" class="chip">CHAdeMO</button>
+          </div>
+        </div>
+
+        <div>
+          <label style="font-size: 12px; font-weight: 600; color: var(--color-text-primary); display: block; margin-bottom: 4px;">Tahmini Şarj Gücü:</label>
+          <div style="display: flex; gap: var(--spacing-2);">
+            <button type="button" class="chip">22 kW</button>
+            <button type="button" class="chip chip-selected">120 kW+</button>
+            <button type="button" class="chip">Bilmiyorum</button>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: flex; justify-content: flex-end; gap: var(--spacing-2); margin-top: var(--spacing-3);">
+        <button type="button" class="btn btn-secondary" onclick="closeModal('contribute-modal')">İptal</button>
+        <button type="button" class="btn btn-primary" onclick="submitContribution()">Bilgiyi Gönder</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       MODAL 2: QR ROTA AKTARIM KÖPRÜSÜ (SCR-05)
+       ========================================================================== -->
+  <div class="modal-backdrop" id="qr-modal">
+    <div class="modal-card" style="text-align: center; align-items: center;">
+      <div class="modal-header" style="width: 100%;">
+        <div class="modal-title">Telefona Aktar (Web &rarr; Mobil)</div>
+        <button type="button" class="modal-close-btn" onclick="closeModal('qr-modal')">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+
+      <!-- Canlı Vektörel QR Kod (Bağımlılıksız SVG) -->
+      <div style="background-color: #FFFFFF; padding: var(--spacing-4); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); margin: var(--spacing-2) 0;">
+        <svg width="180" height="180" viewBox="0 0 25 25" fill="#000000">
+          <rect x="0" y="0" width="7" height="7" fill="#000000"/>
+          <rect x="1" y="1" width="5" height="5" fill="#FFFFFF"/>
+          <rect x="2" y="2" width="3" height="3" fill="#000000"/>
+          <rect x="18" y="0" width="7" height="7" fill="#000000"/>
+          <rect x="19" y="1" width="5" height="5" fill="#FFFFFF"/>
+          <rect x="20" y="2" width="3" height="3" fill="#000000"/>
+          <rect x="0" y="18" width="7" height="7" fill="#000000"/>
+          <rect x="1" y="19" width="5" height="5" fill="#FFFFFF"/>
+          <rect x="2" y="20" width="3" height="3" fill="#000000"/>
+          <rect x="9" y="1" width="2" height="4" fill="#000000"/>
+          <rect x="13" y="2" width="3" height="2" fill="#000000"/>
+          <rect x="9" y="9" width="7" height="7" fill="#000000"/>
+          <rect x="10" y="10" width="5" height="5" fill="#FFFFFF"/>
+          <rect x="11" y="11" width="3" height="3" fill="#0066CC"/>
+          <rect x="2" y="9" width="4" height="2" fill="#000000"/>
+          <rect x="19" y="9" width="4" height="2" fill="#000000"/>
+          <rect x="18" y="14" width="3" height="4" fill="#000000"/>
+          <rect x="9" y="18" width="3" height="3" fill="#000000"/>
+          <rect x="14" y="20" width="4" height="2" fill="#000000"/>
+          <rect x="20" y="20" width="3" height="3" fill="#000000"/>
+        </svg>
+      </div>
+
+      <p style="font-size: 13px; color: var(--color-text-secondary); max-width: 320px;">
+        Telefonunuzun kamerasıyla kodu okutun. İstasyon ve rota doğrudan mobil uygulamada açılacaktır.
+      </p>
+
+      <div style="font-size: 11px; color: var(--color-text-muted); font-family: monospace; background: var(--color-bg-subdued); padding: 4px 8px; border-radius: 4px;">
+        https://elektriklioto.com/r/k8F2m9A
+      </div>
+
+      <button type="button" class="btn btn-secondary" style="width: 100%; margin-top: var(--spacing-2);" onclick="copyLink('https://elektriklioto.com/r/k8F2m9A')">
+        Bağlantıyı Kopyala
+      </button>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       MODAL 3: ARIZA BİLDİRİM FORMU (SCR-06)
+       ========================================================================== -->
+  <div class="modal-backdrop" id="report-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title">İstasyon Arızası Bildir</div>
+        <button type="button" class="modal-close-btn" onclick="closeModal('report-modal')">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+
+      <p style="font-size: 13px; color: var(--color-text-secondary);">
+        Hatalı ihbarları önlemek için bildirim yalnızca istasyonun 50 metre yakınındaysanız kabul edilir (KVKK gereği konumunuz sunucuda saklanmaz).
+      </p>
+
+      <div style="display: flex; flex-direction: column; gap: var(--spacing-2);">
+        <label style="display: flex; align-items: center; gap: 8px; padding: 8px; border-radius: 6px; border: 1px solid var(--color-border-default); cursor: pointer;">
+          <input type="radio" name="issue" checked>
+          <span style="font-size: 13px; font-weight: 500;">İstasyon Tamamen Çevrimdışı / Arızalı</span>
+        </label>
+        <label style="display: flex; align-items: center; gap: 8px; padding: 8px; border-radius: 6px; border: 1px solid var(--color-border-default); cursor: pointer;">
+          <input type="radio" name="issue">
+          <span style="font-size: 13px; font-weight: 500;">Şarj Kablosu / Kilit Mekanizması Hasarlı</span>
+        </label>
+        <label style="display: flex; align-items: center; gap: 8px; padding: 8px; border-radius: 6px; border: 1px solid var(--color-border-default); cursor: pointer;">
+          <input type="radio" name="issue">
+          <span style="font-size: 13px; font-weight: 500;">Benzinli Araç Park Etmiş (ICEing)</span>
+        </label>
+      </div>
+
+      <div style="background-color: var(--color-bg-subdued); padding: var(--spacing-3); border-radius: var(--radius-md); font-size: 12px; display: flex; align-items: center; gap: 8px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+        <span>Mesafe Doğrulandı: İstasyona ~24m mesafedesiniz (&lt; 50m).</span>
+      </div>
+
+      <div style="display: flex; justify-content: flex-end; gap: var(--spacing-2); margin-top: var(--spacing-2);">
+        <button type="button" class="btn btn-secondary" onclick="closeModal('report-modal')">Vazgeç</button>
+        <button type="button" class="btn btn-primary" style="background-color: var(--color-danger);" onclick="submitReport()">Arızayı Bildir</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       CANLI JAVASCRIPT ETKİLEŞİM KATMANI
+       ========================================================================== -->
+  <script>
+    // 1. Tema Değiştirici (Light / Dark / Auto)
+    function setTheme(theme) {
+      const html = document.documentElement;
+      const btnLight = document.getElementById('btn-theme-light');
+      const btnDark = document.getElementById('btn-theme-dark');
+      const btnAuto = document.getElementById('btn-theme-auto');
+
+      [btnLight, btnDark, btnAuto].forEach(btn => btn.classList.remove('active'));
+
+      if (theme === 'dark') {
+        html.classList.remove('light');
+        html.classList.add('dark');
+        btnDark.classList.add('active');
+        localStorage.setItem('eo_theme', 'dark');
+      } else if (theme === 'light') {
+        html.classList.remove('dark');
+        html.classList.add('light');
+        btnLight.classList.add('active');
+        localStorage.setItem('eo_theme', 'light');
+      } else {
+        // Sistem Tercihi (Auto)
+        btnAuto.classList.add('active');
+        localStorage.removeItem('eo_theme');
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          html.classList.add('dark');
+          html.classList.remove('light');
+        } else {
+          html.classList.add('light');
+          html.classList.remove('dark');
+        }
+      }
+    }
+
+    // İlk Yükleme Tercih Denetimi
+    (function initTheme() {
+      const savedTheme = localStorage.getItem('eo_theme');
+      if (savedTheme) {
+        setTheme(savedTheme);
+      } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        setTheme('dark');
+      } else {
+        setTheme('light');
+      }
+    })();
+
+    // 2. Toast Bildirim Motoru
+    function showToast(type, message) {
+      const container = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+      toast.className = `toast toast-${type}`;
+
+      let iconSvg = '';
+      if (type === 'success') {
+        iconSvg = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+      } else if (type === 'danger') {
+        iconSvg = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>';
+      } else {
+        iconSvg = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>';
+      }
+
+      toast.innerHTML = `${iconSvg}<span>${message}</span>`;
+      container.appendChild(toast);
+
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateY(10px)';
+        setTimeout(() => toast.remove(), 200);
+      }, 4000);
+    }
+
+    // 3. Deep Link ve Pano Kopyalama (Clipboard Fallback) Simülasyonu
+    function handleDeepLink(operator, stationNo) {
+      // Panoya kopyala
+      navigator.clipboard.writeText(stationNo).catch(() => {});
+      showToast('info', `İstasyon kodu (${stationNo}) panoya kopyalandı! ${operator} uygulaması açılıyor...`);
+    }
+
+    // 4. Modal Yönetimi
+    function openModal(modalId) {
+      document.getElementById(modalId).classList.add('active');
+    }
+
+    function closeModal(modalId) {
+      document.getElementById(modalId).classList.remove('active');
+    }
+
+    function submitContribution() {
+      closeModal('contribute-modal');
+      showToast('success', 'Veri katkınız başarıyla iletildi. Moderasyon sonrasında haritada görünecektir!');
+    }
+
+    function submitReport() {
+      closeModal('report-modal');
+      showToast('success', 'Arıza bildiriminiz alındı. 50m yakınlık doğrulandı (HMAC imzanız kaydedildi).');
+    }
+
+    function copyLink(url) {
+      navigator.clipboard.writeText(url).catch(() => {});
+      showToast('success', 'Bağlantı panoya kopyalandı: ' + url);
+      closeModal('qr-modal');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: var(--color-bg-base);
+    color: var(--color-text-primary);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+  }
+
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Dokunma Hedefi Güvencesi: Webde en az 44x44 CSS px */
+.touch-target-min {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* MapLibre Özel Pin Animasyonları */
+.station-pin {
+  transition: transform 150ms ease-out, filter 150ms ease-out;
+  cursor: pointer;
+}
+
+.station-pin:hover {
+  transform: scale(1.1);
+  z-index: 50;
+}
+
+.station-pin.is-selected {
+  transform: scale(1.18);
+  filter: drop-shadow(0 0 6px var(--color-focus-ring));
+  z-index: 100;
+}

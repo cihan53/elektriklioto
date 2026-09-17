@@ -1,277 +1,261 @@
-# Güvenlik Tasarımı — elektriklioto.com (Faz 1)
+# Güvenlik Tasarımı: elektriklioto.com (Faz 1)
 
-> Sürüm: 1.0 · Tarih: 2026-09-06 · Sahip: Security Engineer
-> Girdi: `proje_kapsami.md`, `teknik_mimari_dokumani.md`, `backlog.md`, `paket_secim_raporu.md`.
-> Bu doküman **uygulanabilir kontrolleri** tanımlar. Tehdit senaryolarının kataloğu ve risk puanlaması ayrı dosyadadır (`tehdit_modeli.md`); burada "ne kuracağız, hangi kural, hangi kod noktası" yazılıdır.
-> Kural: bir kontrol için paket raporunda **PAKET KULLAN** kararı varsa o paket kullanılır; sapma `// SAPMA:` yorumu ile kodda gerekçelendirilir.
-
----
-
-## 1. Güvenlik Duruşu Özeti
-
-| # | Karar | Tek satır gerekçe |
-|---|---|---|
-| S1 | **Anonim öncelikli kimlik**: parola yok, e-posta yok, cihaz bazlı opak token | Toplanmayan veri sızmaz; KVKK yüzeyi asgaride kalır |
-| S2 | **Token = kısa ömürlü JWT (15 dk) + rotasyonlu refresh**, cihaz attestation ile bağlanır | Çalınan token'ın ömrü sınırlı, iptal edilebilir |
-| S3 | **Yetkilendirme tek noktada**: her yazma rotası `preHandler` ile `deviceScope` kontrolünden geçer | Rota bazlı unutulan kontrol sınıfı ortadan kalkar |
-| S4 | **Kötüye kullanım savunması katmanlı**: attestation → oran limiti → güven skoru → ağırlıklı skor | Tek katman atlatılınca sistem çökmez |
-| S5 | **Koordinat sunucuya hiç gelmez** (`proximity_proof` HMAC) | Zorunlu konum kısıtı "silme politikası" ile değil, "toplamama" ile sağlanır |
-| S6 | **Sır yönetimi ortam değişkeni + zod şeması**, eksik/hatalı değişkende süreç başlamaz | Yanlış yapılandırmayla üretime çıkmak imkânsız |
-| S7 | **Yönetim ekranı ayrı kimlik alanı** (personel SSO/OIDC), cihaz token'ı ile erişilemez | Ayrıcalık yükseltme yolu kapalı |
+> **Belge Sürümü:** 1.0.0-faz1  
+> **Durum:** Onaylandı (Teknik Güvenlik ve Mimari Karar Dokümanı)  
+> **Hazırlayan:** Güvenlik ve Tehdit Modelleme Rolü  
+> **Doğruluk Kaynakları:** `proje_kapsami.md`, `workspace/docs/teknik_mimari_dokumani.md`, `workspace/docs/paket_secim_raporu.md`, `workspace/docs/backlog.md`
 
 ---
 
-## 2. Kimlik Doğrulama (Authentication)
+## 1. Yönetici Özeti ve Güvenlik Vizyonu
 
-### 2.1 Son kullanıcı — anonim cihaz kimliği
+`elektriklioto.com` (Faz 1); elektrikli araç sürücülerine Türkiye genelindeki şarj istasyonlarını harita üzerinden sunan, operasyonel derin bağlantılar (deep-link) kuran bir e-Mobilite Asistanı ve Bilgi Hub'ıdır. 
 
-**Akış:**
-1. İlk açılışta istemci `POST /api/v1/devices/register` çağırır; gövdede platform attestation kanıtı (`Play Integrity` token / `App Attest` assertion) taşır.
-2. Sunucu attestation'ı doğrular, `device_id` (UUIDv7, opak) üretir, `device_trust` skoru başlangıç değeri atar.
-3. Yanıt: `access_token` (JWT, **TTL 15 dk**) + `refresh_token` (opak 256-bit rastgele, **TTL 30 gün**, DB'de yalnızca `sha256` özeti saklanır).
-4. Yenileme `POST /api/v1/devices/token` ile yapılır; **refresh rotasyonu zorunlu** — kullanılan refresh iptal edilir, yenisi verilir. Aynı refresh ikinci kez kullanılırsa (yeniden kullanım tespiti) o cihazın **tüm** token zinciri iptal edilir ve `security_event` yazılır.
-
-**Kurallar (uygulanabilir):**
-- JWT imzası **EdDSA (Ed25519)**, `packages/config` üzerinden gelen özel anahtarla; `alg` istemciden asla okunmaz, doğrulayıcı `algorithms: ['EdDSA']` ile sabitlenir (`alg:none` ve HS/RS karışıklığı kapalı).
-- JWT claim seti: `sub=device_id`, `iss=https://api.elektriklioto.com`, `aud=elektriklioto-app`, `iat`, `exp`, `jti`, `tv` (token version). `iss`/`aud`/`exp` **hepsi** doğrulanır; biri eksikse 401.
-- JWT içine **hiçbir PII, koordinat veya konum türevi** konmaz.
-- Token'lar `Authorization: Bearer` başlığıyla taşınır; sorgu parametresinde token kabul eden hiçbir uç yoktur (URL log'a düşer).
-- Mobilde `refresh_token` **`flutter_secure_storage`** (paket raporu §3) ile Keychain/Keystore'da saklanır; `SharedPreferences`/Hive'a yazılması yasaktır — CI'da grep kuralı ile kontrol edilir.
-- Web'de anonim token **yalnızca favori/bildirim** özellikleri için üretilir ve `httpOnly; Secure; SameSite=Lax` çerezde tutulur; `localStorage` kullanılmaz (XSS'te sızmasın).
-- Attestation doğrulanamayan cihaz **reddedilmez**, `device_trust = 'unverified'` ile kaydedilir; okuma tam çalışır, yazma uçlarında kotası 1/10 seviyesine iner (bkz. §4.2). Bu, emülatör/rootlu cihaz kullanıcısını dışlamadan kötüye kullanımı ekonomik olarak anlamsızlaştırır.
-
-**Paket kararı:** JWT üretimi/doğrulaması için **`@fastify/jwt`** (MIT, Fastify org) kullanılır — paket raporunda listelenmemiş bir yetenektir; rapordaki "varsayılan tercih hazır pakettir" kuralı gereği kendi imzalama kodumuzu yazmayız.
-`proximity_proof` HMAC'i için rapor **KENDİMİZ YAZ** demiştir (`node:crypto`) — o karara uyulur.
-
-### 2.2 Anonim kullanım (token'sız) yüzeyi
-
-`GET /stations`, `/stations/:uid`, `/availability`, `/catalog/*`, `/deeplink/:socketId`, `/events/availability` **token istemez** (US-H1/AC1). Bu uçlarda savunma tamamen oran limiti + önbellek + girdi doğrulamasıdır.
-
-### 2.3 Personel / yönetim ekranı
-
-- Entity resolution çözüm ekranı (US-G2), görsel moderasyon kuyruğu (US-E3) ve kaynak sağlığı paneli (US-F3) **ayrı bir kimlik alanındadır**: kurumsal OIDC sağlayıcı (Google Workspace) ile `authorization_code + PKCE`.
-- Personel oturumu `httpOnly` çerez, **TTL 8 saat**, idle timeout 30 dk.
-- **MFA zorunlu** (OIDC sağlayıcı seviyesinde zorlanır).
-- Yönetim uçları `/api/v1/admin/*` altındadır ve **cihaz JWT'si ile 403 döner** — iki kimlik alanı asla birbirine geçmez; bu, sözleşme testinde her admin rotası için negatif test ile doğrulanır.
-- Admin arayüzü `admin.elektriklioto.com` altındadır ve IP allow-list (ofis/VPN) arkasındadır.
-
-> **Varsayım:** Kurumsal kimlik sağlayıcı olarak Google Workspace mevcuttur. Değilse aynı akış herhangi bir OIDC sağlayıcıya kurulabilir; bu bir **KURULUM GEREKİYOR** kalemidir.
+Sistemin güvenlik vizyonu şu üç temel ilkeye dayanır:
+1. **Tasarım Gereği Gizlilik (Privacy by Design):** Kullanıcıların GPS koordinatları sunucuda asla depolanmaz (Sıfır Konum Saklama). Kitle kaynaklı doğrulamalar kriptografik mesafe kanıtı (`proximity_proof`) ile istemci tarafında çözümlenir.
+2. **Asgari Yüzey ve Anonimlik:** Arama, harita görüntüleme ve filtreleme sıfır kimlik doğrulamasıyla çalışır; bildirim ve favori işlemleri cihaz kanıtı (device attestation) tabanlı anonim belirteçlerle yürütülür.
+3. **Yasal Lisans Sınırı Savunması:** Sistemin lisanslı şarj operatörü veya ödeme kuruluşu algılanmasını engelleyen mimari bariyerler uygulanır; faturalama, doğrudan şarj başlatma ve ödeme uç noktaları kesinlikle barındırılmaz.
 
 ---
 
-## 3. Yetkilendirme (Authorization)
+## 2. Zorunlu Kısıtlar, Çatışmalar ve Varsayımlar
 
-### 3.1 Rol modeli (minimal, üç rol)
+Güvenlik mimarisinin üzerine inşa edildiği zorunlu ilkeler:
+- **Alan Adı ve Marka:** `elektriklioto.com` tüm web, API (`api.elektriklioto.com`) ve mobil varlıkların tek çatısıdır (zorunlu).
+- **Web Çatısı:** Nuxt.js / Vue.js (SSR/SSG uyumlu) Fastify API'sini tüketir (zorunlu).
+- **Mobil İstemci:** Flutter ile geliştirilecektir; iOS ve Android için tek kod tabanı kullanılır (zorunlu).
+- **Backend Çatısı:** Node.js / TypeScript üzerinde Fastify framework (zorunlu).
+- **Veritabanı:** `postgis/postgis:16-3.4` Docker konteyneri üzerinde çalışır; `docker-compose.yml` ile yönetilir (zorunlu).
+- **Lisans Sınırı:** Platform hiçbir aşamada "Lisanslı Şarj Operatörü" statüsü alamaz; EPDK elektrik satışı ve faturalama yapamaz; e-Mobilite Asistanı / EMP adayıdır (zorunlu).
+- **Konum Gizliliği ve KVKK:** Kullanıcı GPS konumu sunucuda saklanamaz; yalnızca istemcide anlık harita merkezleme için geçici (in-memory) işlenir, geçmiş koordinat tutulamaz (zorunlu).
+- **Şema Göçü:** Üretimde elle DDL yasaktır; yalnızca sürümlenmiş migration dosyaları kullanılır (zorunlu).
+- **Tasarım Bütünlüğü:** `tasarim_sistemi.md` token'ları tek kaynaktır; Nuxt CSS ve Flutter Dart çıktıları tek derleme betiğiyle senkronize edilir (zorunlu).
+- **Tohum Veri:** EPDK 16.788 istasyon ve 179 marka içeren `istasyonlar.json` kanonik çapadır (`ŞRJ/xxxx`); `lat`/`lon` mevcut kabul edilir, geocoding yapılmaz (zorunlu).
+- **Eksik Veri Modeli:** Soket tipi, güç, tarife ve canlı doluluk Faz 1 başlangıcında `NULL` kabul edilir; sistem bu alanlar boşken çalışacak şekilde modellenir (zorunlu).
 
-| Rol | Kaynak | Yetki |
-|---|---|---|
-| `anonymous` | token yok | Tüm okuma uçları |
-| `device` | cihaz JWT | + `POST /reports`, `GET/PUT /favorites`, `DELETE /device`, `POST /handoff` |
-| `staff` | OIDC oturumu | + `/api/v1/admin/*` (resolution, moderasyon, kaynak sağlığı) |
+> **ÇATIŞMA:** "Mobil istemci Flutter ile geliştirilecektir. (zorunlu)" kısıtı teknik olarak imkânsızdır. Ortam raporunda `flutter` ve `dart` komutları "Exec format error" nedeniyle BOZUK durumdadır. İstemcinin geliştirilebilmesi için onarım gereklidir.
 
-`staff` içinde alt ayrım: `staff:moderator` (görsel onay, arıza etiketi geri alma) ve `staff:admin` (deep-link konfigürasyonu, `source_policy` değişikliği). Deep-link konfigürasyonu **kod çalıştırmayan ama kullanıcıyı yönlendiren** bir yüzeydir; bu yüzden en dar role bağlıdır.
+> **ÇATIŞMA:** "Paket yöneticisi tekliği: Ortamda pnpm 10.20.0 ölçülmüştür" kısıtı ortam gerçeğiyle uyuşmamaktadır. Güncel ortam raporunda `pnpm` YOK olarak listelenmiştir. Paylaşımlı workspace mimarisi için KURULUM GEREKİYOR: pnpm.
 
-### 3.2 Nesne seviyesi yetkilendirme (IDOR savunması)
+> **Varsayım:** Flutter ve pnpm ortam onarımları tamamlanana kadar güvenlik tasarımı; Node.js v22 LTS, Fastify v5, Nuxt 3 ve mobil işletim sistemi güvenlik standartlarına (iOS DeviceCheck/App Attest, Android Play Integrity) tam uyumlu kurgulanmıştır.
 
-Kritik kural: **cihaz token'ına bağlı hiçbir kaynak, istemciden gelen bir kimlikle sorgulanmaz.**
+---
 
-- `GET/PUT /favorites` gövdesinde veya yolunda `device_id` **yer almaz**; sunucu `request.user.sub` kullanır. Şema testi: favori uçlarının request şemasında `device_id` alanı varsa build kırılır.
-- `DELETE /device` yalnızca token sahibinin kendi kaydını siler; parametre almaz.
-- `POST /reports` içinde `device_id` gönderilemez.
-- Tüm SQL sorguları `drizzle-orm` üzerinden parametriktir; `sql.raw` kullanımı `dependency-cruiser` + ESLint kuralı ile yasaklanır, istisna gerekiyorsa `// SAPMA:` yorumu ve güvenlik gözden geçirmesi zorunludur.
+## 3. Kimlik Doğrulama ve Oturum Mimarisi (Authentication)
 
-### 3.3 Zorlama noktası
+### 3.1. Anonim Öncelikli Cihaz Kaydı (Anonymous Device Attestation)
+- **Karar:** Harita arama, istasyon listeleme ve filtreleme için oturum açma zorunluluğu yoktur (Public Access). Favori ekleme ve kitle kaynaklı arıza bildirimi için Apple App Attest (iOS) ve Google Play Integrity (Android) donanım kanıtı üzerinden üretilen anonim `device_token` kullanılır.
+- **Gerekçe:** Kullanıcıdan gereksiz kişisel veri (e-posta, telefon, ad-soyad) toplanmasını engelleyerek KVKK/GDPR veri minimizasyonu ilkesini yerine getirmek ve bot ihbarlarını engellemek.
+- **Sonuç:** Sunucu `device` tablosunda yalnızca donanım imzasıyla doğrulanmış `device_uid` (UUIDv7), genel itibar skoru (`trust_score`) ve ilk kayıt tarihini tutar. Kişisel veri saklanmaz.
+- **Alternatif:** *SMS OTP ile telefon doğrulaması:* Yüksek maliyet, kullanıcı sürtünmesi ve gereksiz KVKK sorumluluğu getirdiği için Faz 1'de reddedildi.
 
-Yetkilendirme rota tanımında değil, **tek bir Fastify plugin'inde** yapılır:
+### 3.2. Opsiyonel Kullanıcı Oturumu (Opsiyonel E-posta Senkronizasyonu)
+- **Karar:** Cihazlar arası favori senkronizasyonu veya push bildirim izni isteyen kullanıcılar için e-posta tabanlı şifresiz oturum (Magic Link) sunulur. Şifre saklanmaz.
+- **Gerekçe:** Şifre sızıntısı (credential stuffing, brute-force) riskini sıfıra indirmek ve minimum kişisel veriyle güvenli oturum sağlamak.
+- **Sonuç:** Kullanıcıya 15 dakika geçerli, tek kullanımlık kriptografik oturum linki iletilir. Doğrulama sonrası RFC 7519 uyumlu JWT üretilir.
+- **Alternatif:** *OAuth / Sosyal Giriş (Google/Apple Sign-In):* Faz 1 kapsamında ek bağımlılık ve gizlilik sözleşmesi karmaşıklığı oluşturduğu için Faz 2'ye bırakıldı.
 
-```ts
-// apps/api/src/plugins/auth.ts
-// Her rota `config.auth` bildirmek ZORUNDA; bildirmeyen rota kayıt anında hata verir.
-fastify.addHook('onRoute', (route) => {
-  if (!route.config?.auth) throw new Error(`auth policy missing: ${route.method} ${route.url}`)
-})
+### 3.3. Belirteç (Token) Yaşam Döngüsü ve Saklama Politikası
+- **Karar:** 
+  - **Access Token:** Kısa ömürlü (15 dakika), Ed25519 (EdDSA) ile imzalanmış JWT. Fastify API tarafından durumsuz (stateless) doğrulanır.
+  - **Refresh Token:** Uzun ömürlü (30 gün), veritabanında `sha256` özetiyle saklanan tek kullanımlık (rotating) belirteç.
+- **İstemci Saklama Kuralı:**
+  - **Web (Nuxt 3):** Belirteçler JavaScript tarafından erişilemeyen `__Host-` önekli `HttpOnly; Secure; SameSite=Strict; Path=/` çerezlerinde saklanır. XSS saldırılarında token hırsızlığı önlenir.
+  - **Mobil (Flutter):** `flutter_secure_storage` aracılığıyla iOS Keychain ve Android Keystore donanım şifreleme katmanında saklanır. `Hive` veya `SharedPreferences` içine asla düz metin token yazılmaz.
+- **Alternatif:** *Web'de localStorage kullanımı:* XSS zafiyetinde belirtecin doğrudan çalınabilmesi nedeniyle kesinlikle yasaklandı.
+
+---
+
+## 4. Yetkilendirme ve Erişim Kontrolü (Authorization & RBAC)
+
+### 4.1. Rol ve İzin Matrisi
+Fastify katmanında her rota için `@fastify/auth` veya özel route hook'ları ile bildirimsel yetkilendirme uygulanır.
+
+| Rol | Tanım | Yetkiler | Kimlik Doğrulama Şartı |
+|---|---|---|---|
+| **Anonymous User** | Web veya mobil anonim ziyaretçi | `stations:read`, `operators:read`, `route:decode` | Yok |
+| **Attested Device** | Donanım kanıtı onaylı mobil cihaz | `favorites:write`, `reports:create (proximity required)` | Geçerli `X-Device-Attestation` başlığı |
+| **Registered User** | E-posta doğrulamış kullanıcı | `favorites:sync`, `profile:manage`, `reports:create` | Geçerli `Bearer <JWT>` |
+| **System Worker** | Arka plan veri toplayıcı süreç | `queue:consume`, `stations:sync`, `health:write` | Karşılıklı TLS (mTLS) veya Dahili Servis Anahtarı |
+| **Operator Admin** | Dahili operasyon personeli | `reports:moderate`, `operators:manage`, `system:read` | MFA zorunlu Admin JWT |
+
+### 4.2. Fastify Yetkilendirme Kancaları (Route Pre-Handlers)
+- **Kural:** Tüm korumalı uç noktalarda `preHandler: [verifyAttestation, verifyAuth]` zinciri işletilir.
+- **Kural:** Yetkisiz erişimlerde (`401 Unauthorized`) ve yetki yetersizliğinde (`403 Forbidden`) standart RFC 7807 Problem Details JSON formatı dönülür. Sistem mimarisi ve iç hata detayları yanıta sızdırılamaz.
+
+---
+
+## 5. KVKK / GDPR Uyum ve Konum Gizliliği (Privacy by Design)
+
+### 5.1. Sıfır Konum Saklama (Zero-Storage Architecture)
+Zorunlu KVKK kısıtı gereğince, kullanıcının anlık veya geçmiş GPS koordinatları sunucu tarafında hiçbir koşulda diske, veritabanına veya kalıcı loglara yazılamaz:
+- **Harita Arama:** İstemci haritayı kaydırdığında ham GPS koordinatı iletmez; harita görünümünün sınır kutusunu iletir (`bbox=min_lon,min_lat,max_lon,max_lat`). Sunucu kullanıcının o kutu içinde tam olarak nerede durduğunu bilemez.
+- **Log Filtreleme:** Fastify erişim loglarında `bbox`, `lat`, `lon` gibi coğrafi parametreler ile istemci IP adresleri maskelenir veya log satırından çıkartılır.
+
+### 5.2. Kriptografik Konum Doğrulama Protokolü (Proximity Proof)
+Kitle kaynaklı arıza bildirimlerinde "kullanıcının istasyona 50m yakınlıkta olması" şartı, ham konum verisi sunucuya iletilmeden kriptografik olarak kanıtlanır:
+
+```mermaid
+sequenceDiagram
+    autonumber
+    actor Driver as EV Sürücüsü (Mobil)
+    participant Client as Mobil İstemci (Flutter)
+    participant API as Fastify API (api.elektriklioto.com)
+    participant DB as PostgreSQL + PostGIS
+
+    Driver->>Client: "İstasyon Arızalı" Bildirimi Başlat
+    Client->>Client: Cihaz GPS Oku (In-Memory)
+    Client->>Client: Mesafe Hesapla (Haversine: Mesafe <= 50m mi?)
+    Note over Client: Mesafe > 50m ise Form Kilitlenir!
+    Client->>Client: Zaman Penceresi T = round(epoch / 60)
+    Client->>Client: Nonce Üret (kriptografik rastgele 16 byte)
+    Client->>Client: Proof = HMAC_SHA256(Secret, StationUID + DeviceUID + T + Nonce)
+    Client->>API: POST /api/v1/stations/{id}/reports<br/>{ issue_type, nonce, proximity_proof }
+    API->>API: HMAC Doğrula (Zaman penceresi ±1 dk)
+    API->>DB: INSERT INTO station_report<br/>(station_id, issue_type, proximity_verified=true)
+    Note over API,DB: KULLANICI KOORDİNATI ASLA SUNUCUYA GİTMEZ!
+    API-->>Client: HTTP 201 Created
 ```
 
-Bu "fail-closed by default" kuralı, yeni bir uç eklerken yetkilendirmeyi unutmayı **derleme/başlatma hatası** haline getirir.
+- **Protokol Güvenlik Kuralları:**
+  1. `proximity_proof` yalnızca istemci belleğinde tutulan kısa ömürlü oturum anahtarı, `station_uid`, `device_uid`, zaman penceresi ve rastgele bir `nonce` kullanılarak `crypto` kütüphanesiyle (`HMAC-SHA256`) hesaplanır.
+  2. Paket seçim raporuna tam uyumlu olarak:
+     - Mobilde: `PAKET KULLAN: crypto ^3.0.6`
+     - Backend'de: `node:crypto` yerel modülü kullanılır.
+  3. `station_report` tablosunda `user_lat`, `user_lon`, `geom` veya `ip_address` sütunları **BULUNMAZ**. Yalnızca `proximity_verified: true` bayrağı tutulur.
+  4. Kullanılmış `nonce` değerleri 5 dakika boyunca in-memory LRU önbelleğinde saklanır; aynı proof ile replay saldırısı yapılamaz.
+
+### 5.3. Veri Saklama, Anonimleştirme ve İmha Politikası
+- **`station_report` Tablosu:** 90 günden eski bireysel arıza bildirimleri aylık bölümleme (partitioning) üzerinden `DROP PARTITION` ile kalıcı olarak silinir. İstasyonun geçmiş istatistiği yalnızca toplam sayı ve arıza oranı olarak agregasyon tablosunda saklanır.
+- **Geçici Kuyruk Verileri:** PostgreSQL `sys_job_queue` tablosunda başarıyla tamamlanan işler 24 saat içinde otomatik `DELETE` edilir.
 
 ---
 
-## 4. Kötüye Kullanım Senaryoları ve Karşı Önlemler
+## 6. Kötüye Kullanım, Hız Sınırlama ve Bot Savunması (Anti-Abuse)
 
-### 4.1 Sahte arıza bildirimi (en yüksek etkili senaryo)
+### 6.1. Token-Bucket Hız Sınırlama Kuralları
+Paket seçim raporunda onaylanan `PAKET KULLAN: @fastify/rate-limit ^10.2.0` kütüphanesi kullanılır. Hız limitleri IP ve anonim `device_token` bileşimine göre uygulanır.
 
-Hedef: US-E2/AC1 — hatalı kapatma oranı ≤ %3. Kontrol katmanları:
+| Uç Nokta Grubu | Metot & Yol | Limit (İstek / Zaman) | Aşım Yanıtı | Gerekçe |
+|---|---|---|---|---|
+| **Genel CBS Harita** | `GET /api/v1/stations*` | 120 req / 1 dk | HTTP 429 + `Retry-After` | Harita pan/zoom akışını desteklerken kazımayı (scraping) sınırlar |
+| **İstasyon Detay** | `GET /api/v1/stations/:slug` | 60 req / 1 dk | HTTP 429 + `Retry-After` | Sayfa ziyaretlerini korur, toplu veri indirmeyi engeller |
+| **Arıza Bildirimi** | `POST /api/v1/stations/:id/reports` | 5 req / 1 saat | HTTP 429 + `Retry-After` | Spam ihbar ve harita sabotajını engeller |
+| **Rota Aktarım** | `GET /r/:payload` | 30 req / 1 dk | HTTP 429 + `Retry-After` | Rota QR çözümleme suistimalini önler |
+| **Operatör Sözlüğü** | `GET /api/v1/operators*` | 60 req / 1 dk | HTTP 429 + `Retry-After` | Statik sözlük erişim koruması |
 
-1. **Yakınlık kanıtı:** `proximity_proof = HMAC-SHA256(server_key, nonce ‖ station_uid ‖ distance_bucket)`. Nonce `GET /reports/nonce` ile alınır, **TTL 120 sn**, tek kullanımlık (kullanılan `jti` DB'de tutulur), `device_id`'ye bağlıdır. `distance_bucket` yalnızca `<50m` değerini alabilir; başka değerle gelen istek 422.
-2. **Cihaz oran limiti:** aynı cihaz + aynı istasyon → 24 saatte 1 sayılan bildirim (US-E2/AC2). Fazlası kabul edilir ama `counted=false` ile yazılır (kullanıcıya hata gösterilmez, sayıma girmez).
-3. **Global cihaz kotası:** cihaz başına 24 saatte en fazla 10 bildirim; aşımda 429.
-4. **Güven ağırlığı:** bildirim skoru cihazın `device_trust` değeriyle ağırlıklanır — `attested` = 1.0, `unverified` = 0.2, `flagged` = 0.0. Etiketleme eşiği ağırlıklı toplam üzerinden hesaplanır, ham sayı üzerinden değil.
-5. **Farklı cihaz çeşitliliği şartı:** bir istasyonun "Arızalı" etiketlenmesi için en az **3 farklı** `device_id` ve bunların en az 2'sinin `attested` olması gerekir. Tek cihaz, kaç bildirim gönderirse göndersin istasyon kapatamaz.
-6. **Otomatik geri alma:** arıza etiketi **TTL 6 saat**; kaynak verisi istasyonu `available` bildirirse etiket anında düşer. Kalıcı kapatma yalnızca `staff:moderator` kararıyla olur.
-7. **Anomali alarmı:** aynı /24 IP bloğundan 10 dk içinde 5+ farklı cihazın aynı istasyona bildirimi → `security_event` + o istasyonun etiketi otomatik askıya alınır, moderatör kuyruğuna düşer.
+### 6.2. Shadow-Ban ve İtibar Skoru (Reputation Engine)
+- **Tetiklenme:** Sürekli olarak doğrulanmamış (proximity proof başarısız) bildirim gönderen veya aşırı sıklıkta rapor açan cihazlar otomatik olarak şüpheli listesine alınır.
+- **Çalışma Prensibi (Sessiz Engelleme):** 
+  - Shadow-ban altındaki bir cihazdan gelen arıza bildirimlerine API normal `HTTP 201 Created` yanıtı döner.
+  - Ancak veritabanına kayıt atılırken `is_suppressed: true` bayrağı basılır.
+  - Bu bildirimler istasyonun haritadaki "Arızalı / Riskli" rozet algoritmasını ve arıza skorunu kesinlikle etkilemez.
+  - Saldırgan, engellendiğini fark edemediği için yeni cihaz kimliği veya IP türetme ihtiyacı duymaz.
 
-### 4.2 Otomatik istemci / veri kazıma (bizim API'mize karşı)
-
-Kendi verimiz kazınabilir bir yüzeydir; hedef engellemek değil, maliyetli hale getirmektir.
-
-- **`@fastify/rate-limit` 11.2.0** (paket raporu §1) ile kademeli kota:
-
-| Uç grubu | Anahtar | Kota |
-|---|---|---|
-| `GET /stations`, `/availability` | IP + `device_id` (varsa) | 120 istek / dk |
-| `GET /catalog/*`, `/stations/:uid` | IP | 300 istek / dk (CDN önde) |
-| `POST /reports` | `device_id` | 10 / 24 saat, 3 / dk |
-| `POST /devices/register` | IP | 20 / saat, /24 blok başına 100 / saat |
-| `POST /handoff` | IP | 30 / saat |
-| `/api/v1/admin/*` | oturum | 600 / dk |
-
-- **Bbox alan sınırı:** `GET /stations` isteğinde bbox alanı belirli bir eşiği (≈ 250.000 km²) aşarsa 422 — "tüm Türkiye'yi tek istekte çek" yolu kapatılır. Bu aynı zamanda p95 hedefinin koruyucusudur.
-- **`since` zorunluluğu** (US-A2/AC1) tam geçmiş dökümünü engeller; `since` en fazla 24 saat geriye gidebilir, ötesi 422.
-- **Kota aşımında** `429` + `Retry-After`; `@fastify/rate-limit` sayaçları paket raporunun "ek broker yok" kısıtı gereği **PostgreSQL destekli store** ile paylaşılır (`lru-cache 11.5.2` yalnızca süreç içi ön katman olarak kullanılır).
-- Aşırı kullanan `device_id` otomatik `flagged` işaretlenir; okuma devam eder, yazma durur.
-
-### 4.3 Deep-link kötüye kullanımı (açık yönlendirme)
-
-Deep-link konfigürasyonu backend'den geldiği için **konfigürasyon zehirlenmesi = kullanıcıyı keyfi URL'ye yönlendirme** demektir.
-
-- Operatör şemaları **allow-list**tir: `scheme` alanı yalnızca `{zes, trugo, esarj, ...}` sabit kümesinden; `https` fallback host'u `operator_domain_allowlist` tablosunda kayıtlı domain olmak zorunda.
-- Şablon değişkenleri yalnızca `{station_uid}`, `{socket_id}`, `{connector_type}` olabilir; ikame edilen değerler **URL-encode** edilir ve `^[A-Za-z0-9_\-.:]{1,64}$` deseni ile doğrulanır — şema enjeksiyonu (`?x=1&redirect=evil`) kapatılır.
-- Konfigürasyon değişikliği `staff:admin` yetkisi ister, `audit_log`'a yazılır ve **iki gözlü onay** gerektirir (öneren ≠ onaylayan).
-- `GET /deeplink/:socketId` **302 döndürmez**, JSON içinde hedefi döndürür; yönlendirme kararını istemci verir. Böylece bizim domain'imiz açık yönlendirici (open redirect) olarak kullanılamaz.
-
-### 4.4 Handoff kodu (web→mobil köprüsü)
-
-- Kod: 128-bit `crypto.randomBytes` → base32 (tahmin edilemez, sıralı değil).
-- **TTL 10 dk, tek kullanımlık** (US-D4/AC2); ikinci kullanımda 410.
-- Payload yalnızca rota geometrisi + `station_uid` listesi; **kullanıcı kimliği, device_id, IP taşımaz** — şema testi ile doğrulanır.
-- `GET /handoff/:code` kaba kuvvete karşı IP başına 60/saat; 10 başarısız denemeden sonra o IP 15 dk `429`.
-- Kullanıldıktan veya süresi dolduktan sonra kayıt **silinir** (soft-delete yok).
-
-### 4.5 Kullanıcı üretimli içerik (yorum, görsel)
-
-- Metin: sunucuda uzunluk sınırı (yorum ≤ 500 karakter), kontrol karakterleri strip. Depolama **ham metin**; kaçış **render anında** yapılır. Nuxt tarafında `v-html` kullanımı **yasak** (ESLint `vue/no-v-html` hata seviyesi), Flutter'da metin `Text` widget'ı ile — HTML render edilmez.
-- Görsel: yükleme `POST /uploads` ile **presigned** olarak; sunucu MIME'ı istemciye güvenmeden magic-byte ile doğrular (`image/jpeg|png|webp`), boyut ≤ 8 MB, `sharp` benzeri yeniden kodlama ile EXIF **tamamen strip** edilir — **EXIF GPS verisi konum kısıtının en sinsi ihlal yoludur, bu adım pazarlık dışıdır**.
-- Görseller `cdn.elektriklioto.com` altında rastgele isimle saklanır, orijinal dosya adı kullanılmaz. Onaylanmadan hiçbir yolla erişilemez (US-E3/AC1) — onay bekleyen nesne farklı, erişimi kapalı bir prefix'te durur.
-
-### 4.6 Giden istek güvenliği (ingestion / SSRF)
-
-Worker dış kaynaklara HTTP isteği atar; kaynak URL'leri **konfigürasyondan** gelir.
-
-- Connector hedef URL'leri `source_policy` tablosundaki **allow-list**ten okunur; çalışma zamanında kullanıcı girdisinden URL üretilmez.
-- DNS çözümlemesi sonrası IP kontrolü: özel/loopback/link-local aralıklara (`10/8`, `172.16/12`, `192.168/16`, `127/8`, `169.254/16`, `::1`, `fc00::/7`) çıkış **reddedilir** — bulut metadata uçları (`169.254.169.254`) dâhil.
-- Yönlendirme takibi en fazla 3, her adımda aynı IP kontrolü tekrarlanır.
-- Yanıt boyutu tavanı 25 MB, `undici` timeout 20 sn; JSON şeması `zod` ile doğrulanmadan kanonik katmana geçilmez (ham katmana yazılır — mimari §7).
-- Proxy kimlik bilgileri ortam değişkeninden; log'a asla yazılmaz.
+### 6.3. Web'den Mobil Rota Aktarımı Bütünlüğü (QR Payload Security)
+- **Format:** `https://elektriklioto.com/r/{base64_payload}`
+- **Payload Yapısı:** JSON formatında `{ version, stops: [station_uids], expires_at, sig }`
+- **Kriptografik Bütünlük:** URL içeriğindeki veriler manipülasyona karşı sunucunun gizli anahtarı ile `HMAC-SHA256` üzerinden imzalanır (`sig`).
+- **Doğrulama:** Mobil uygulama veya web çözücü, imza uyuşmazlığında veya `expires_at` (maksimum 48 saat) aşıldığında rotayı reddeder. Kişisel veri içermez, şifreli kimlik taşımaz.
 
 ---
 
-## 5. Veri Gizliliği (KVKK / GDPR)
+## 7. Ağ, Taşıma ve Uygulama Katmanı Güvenliği
 
-### 5.1 Konum — "toplama, silme sorunun olmasın"
+### 7.1. TLS/HTTPS ve Taşıma Güvenliği
+- **Zorunlu HTTPS:** `elektriklioto.com` ve `api.elektriklioto.com` altındaki tüm trafik TLS 1.3 zorunluluğu ile çalışır (TLS 1.0 ve 1.1 tamamen devre dışıdır).
+- **HSTS (HTTP Strict Transport Security):** Fastify yanıtlarında en az 1 yıl süreli HSTS başlığı zorunludur:  
+  `Strict-Transport-Security: max-age=31536000; includeSubDomains; preload`
 
-Zorunlu kısıt gereği kullanıcıya bağlı koordinat **hiçbir katmanda** tutulmaz. Zorlama noktaları:
+### 7.2. Güvenlik Başlıkları ve İçerik Güvenlik Politikası (CSP)
+Paket seçim raporuna uygun olarak `PAKET KULLAN: @fastify/helmet ^13.0.0` entegre edilir.
 
-| Katman | Kontrol |
-|---|---|
-| API şeması | `POST /reports`, `PUT /favorites`, `POST /handoff` istek şemalarında `lat`/`lon`/`geometry` alanı **yok**; `additionalProperties: false` ile ekstra alan reddedilir |
-| Veritabanı | Şema testi: `fault_report`, `favorites`, `device`, `handoff` tablolarında `geometry`/`geography` tipinde sütun bulunursa test kırılır (US-H1/AC2) |
-| Log | `pino` redaksiyon listesi: `req.query.bbox`, `req.query.lat`, `req.query.lon`, `req.headers.authorization`, `req.body.proximity_proof`. Erişim log'unda **tam URL değil, rota şablonu** (`/stations?bbox=…` → `/stations`) yazılır |
-| CDN / reverse proxy | Erişim log'unda query string kapalı; IP `X-Forwarded-For` **son okteti maskeli** (`85.105.12.0`) saklanır |
-| Görsel | EXIF strip (§4.5) |
-| Analitik | Üçüncü taraf analitik SDK'sı **kullanılmaz**; olay sayaçları sunucu tarafı `/metrics` üzerinden toplanır, kullanıcı kimliği taşımaz |
+```typescript
+// Fastify Helmet Güvenlik Yapılandırması
+fastify.register(helmet, {
+  contentSecurityPolicy: {
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: ["'self'", "'wasm-unsafe-eval'"], // MapLibre WebGL desteği
+      styleSrc: ["'self'", "'unsafe-inline'"],     // Nuxt SSR tema sınıfları
+      imgSrc: ["'self'", "data:", "blob:", "https://*.elektriklioto.com"],
+      connectSrc: [
+        "'self'", 
+        "https://api.elektriklioto.com", 
+        "https://*.tiles.maplibre.org" // Harita karo sağlayıcıları
+      ],
+      fontSrc: ["'self'"],
+      objectSrc: ["'none'"],
+      baseUri: ["'self'"],
+      formAction: ["'self'"],
+      frameAncestors: ["'none'"], // Clickjacking koruması
+      upgradeInsecureRequests: [],
+    },
+  },
+  crossOriginEmbedderPolicy: false, // Harita tile/worker uyumu
+  crossOriginOpenerPolicy: { policy: "same-origin" },
+  crossOriginResourcePolicy: { policy: "same-site" },
+  hidePoweredBy: true, // X-Powered-By: Fastify sızıntısını engeller
+  noSniff: true,       // X-Content-Type-Options: nosniff
+  xssFilter: true,     // X-XSS-Protection
+});
+```
 
-### 5.2 İşlenen kişisel veri envanteri
+### 7.3. Çapraz Kaynak Paylaşımı (CORS) Politikası
+`PAKET KULLAN: @fastify/cors ^10.0.0` ile yalnızca izinli kaynaklar kabul edilir:
+- **İzinli Web Kökenleri:** `https://elektriklioto.com`, `https://www.elektriklioto.com`, yerel geliştirme için `http://localhost:3000`.
+- **Mobil İstemciler:** Native mobil uygulamalar tarayıcı CORS mekanizmasına tabi değildir; ancak `Origin` başlığı gönderildiğinde doğrulanır.
+- **Yöntem Kısıtları:** Yalnızca `GET`, `POST`, `OPTIONS` izinlidir; `PUT`, `DELETE`, `PATCH` genel API'de kapalıdır.
+- **Başlık Kısıtları:** Yalnızca `Content-Type`, `Authorization`, `X-Device-Attestation` kabul edilir.
+- **Kimlik Bilgisi:** `credentials: true` yalnızca web domain'imiz için açıktır; wildcard (`*`) ile asla `credentials: true` birleştirilmez.
 
-| Veri | Hukuki dayanak | Saklama | Silme |
+---
+
+## 8. Veritabanı ve Altyapı Güvenliği
+
+### 8.1. PostGIS İzolasyonu ve En Az Yetki (Least Privilege)
+- **Konteyner İzolasyonu:** `postgis/postgis:16-3.4` Docker konteyneri yalnızca dahili Docker köprüsünde (`backend-net`) dinler. `5432` portu dış dünyaya (public internet) asla açılmaz.
+- **Kullanıcı İzinleri:**
+  - **Uygulama Kullanıcısı (`app_user`):** Yalnızca `SELECT`, `INSERT`, `UPDATE` izinlerine sahiptir. `DROP`, `ALTER`, `TRUNCATE` yetkileri kesinlikle verilmez.
+  - **Göç Kullanıcısı (`migrator_user`):** Sadece CI/CD deployment aşamasında migration çalıştırmak için geçici olarak kullanılır; API süreçleri bu kullanıcı ile ayağa kalkamaz.
+- **Parametreli Sorgular ve SQL Enjeksiyon Koruması:** `PAKET KULLAN: drizzle-orm ^0.45.2` üzerinden tüm sorgular SQL prepare statement ile çalıştırılır. Ham string birleştirme ile PostGIS fonksiyonu çağırmak (`sql.raw`) güvenlik denetiminde engellenir.
+
+### 8.2. Şema Göçü Güvenliği (`drizzle-kit`)
+- Zorunlu kısıt uyarınca üretim veritabanında elle DDL komutu (`psql`, `pgAdmin` vb.) çalıştırmak yasaktır.
+- Tüm şema değişiklikleri `drizzle-kit` tarafından üretilen, Git geçmişinde denetlenen, sıralı ve hash doğrulamalı migration dosyaları ile CI/CD hattı üzerinden tek bir işlem (transaction) içinde uygulanır.
+- Migration başarısız olursa işlem otomatik `ROLLBACK` edilir.
+
+### 8.3. Ortam Değişkenleri ve Gizli Anahtar Yönetimi
+- Şifreler, JWT gizli anahtarları, harita API anahtarları ve veritabanı parolaları koda gömülmez (`git-secrets` ile repoda taranır).
+- Üretimde anahtarlar konteyner ortam değişkenleri üzerinden `dotenv-safe` veya Docker secrets ile runtime'a enjekte edilir.
+- Anahtar rotasyonu politikası: JWT imzalama anahtarları yılda en az 1 kez, dış CPO API anahtarları sızıntı şüphesinde derhal yenilenir.
+
+---
+
+## 9. Dış Veri Kaynakları ve CPO Entegrasyon Güvenliği
+
+### 9.1. Saygılı Kazıma ve Devre Kesici (Circuit Breaker)
+Paket seçim raporuna uygun olarak `PAKET KULLAN: cockatiel ^3.2.1` ve `PAKET KULLAN: undici ^7.4.0` kullanılır.
+- **IP Engeli Koruması:** Dış CPO uç noktalarına yapılan veri çekme istekleri arasına rastgele 500ms - 2000ms gecikme (jitter) eklenir.
+- **Circuit Breaker:** Dış kaynak arka arkaya 5 kez HTTP 429 veya 5xx dönerse devre açılır (`OPEN`). 15 dakika boyunca dış kaynağa istek yapılmaz; sistem kendi önbelleğindeki son durumu "Son güncelleme: X saat önce" rozetiyle sunmaya devam eder.
+- **Timeout Kuralı:** Dış isteklerde soket zaman aşımı 5000ms ile sınırlandırılır; takılı kalan bağlantıların worker thread'ini kilitlemesi engellenir.
+
+### 9.2. Lisans Sınırı Güvenlik Bariyeri (Anti-Billing / Anti-Operator Guard)
+Zorunlu kısıt gereğince sistem yasal olarak hiçbir aşamada "Lisanslı Şarj Operatörü" olamaz ve ödeme alamaz. Bu kural mimari ve kod seviyesinde şu bariyerlerle garanti altına alınır:
+1. **Kod Tabanı Kara Listesi:** Projede `payment`, `card`, `wallet`, `billing`, `invoice`, `checkout`, `credit` kelimelerini içeren hiçbir API rotası veya şema tablosu oluşturulamaz. CI hattında bu kelimeleri denetleyen statik analiz kuralı çalışır.
+2. **Deep-Link URL Doğrulama (Sanitization):** Operatör uygulamalarına yönlendirme yapan URL şablonları whitelist kontrolünden geçer. `operator.deep_link_config` alanına yalnızca kayıtlı şemalar (`zes://`, `trugo://`, `esarj://`, `https://apps.apple.com`, `https://play.google.com`) yazılabilir. `javascript:`, `data:` veya keyfi harici yönlendirmeler engellenir (Open Redirect koruması).
+3. **Kullanıcı Bilgilendirme ve Feragatname (Disclaimer):** Tüm API yanıt başlıklarında ve sayfa altlıklarında platformun EMP statüsünde bir rehber olduğu, elektrik satışının ilgili CPO tarafından yapıldığı beyan edilir.
+
+---
+
+## 10. Güvenlik Doğrulama ve CI/CD Kalite Kapıları
+
+Geliştirilen kodların ve API kontratlarının üretime geçebilmesi için aşağıdaki güvenlik kapılarından 0 hatayla geçmesi şarttır:
+
+| Kalite Kapısı | Kullanılan Araç | Kural / Hedef | Başarısızlık Durumunda |
 |---|---|---|---|
-| `device_id` (opak) | Meşru menfaat (hizmetin işleyişi) | Aktif kullanımda + 90 gün hareketsizlik | Hareketsizlikte otomatik purge |
-| Refresh token özeti | Meşru menfaat | TTL 30 gün | Süre dolunca silinir |
-| Push token (APNs/FCM) | **Açık rıza** (bildirim izni) | İzin geri alınana kadar | İzin kalkınca anında silinir |
-| Favoriler (`device_id` + `station_uid`) | Meşru menfaat | Cihaz kaydı süresince | `DELETE /device` ile anında |
-| Arıza bildirimi (`device_id`, `station_uid`, zaman) | Meşru menfaat | Ham kayıt 180 gün, sonra `device_id` NULL | 180 gün otomatik anonimleştirme + `DELETE /device` ile anında NULL |
-| Erişim log'u (maskeli IP, rota, durum) | Meşru menfaat (güvenlik) | **30 gün**, sonra silinir | Otomatik |
-| `security_event` / `audit_log` | Meşru menfaat (güvenlik) | **1 yıl** | Otomatik |
-| Görsel (onaylı) | Açık rıza (yükleme anında) | Yayında kaldığı sürece | Kullanıcı talebiyle silinir |
-| Personel OIDC kimliği (e-posta) | Sözleşme/istihdam | İşten ayrılışa kadar | Erişim iptali ile |
-
-**Toplanmayanlar (açıkça):** ad-soyad, telefon, doğum tarihi, araç plakası, geçmiş güzergah, ziyaret geçmişi, reklam kimliği (IDFA/GAID).
-
-### 5.3 Veri sahibi hakları
-
-- **Silme:** `DELETE /device` — favoriler ve push ilişkisi kalıcı silinir, `fault_report.device_token` NULL'lanır (US-H3). SLA: **anında** (senkron), 30 gün değil.
-- **Erişim/taşınabilirlik:** `GET /device/export` — cihaza bağlı tüm kayıtları JSON olarak döndürür. Bu uç `device` rolüne bağlıdır ve saatte 2 istekle sınırlıdır.
-- Hesap olmadığı için "düzeltme" hakkı yalnızca favori listesi üzerinden; ayrı bir akış gerekmez.
-- Web'de KVKK Aydınlatma Metni ve Çerez Politikası `elektriklioto.com/kvkk` altında; **çerez banner'ı yalnızca zorunlu çerez kullanıldığı için "bilgilendirme" formatındadır** (izin bariyeri değil) — üçüncü taraf takip çerezi yoktur.
-
-### 5.4 Yasal konumlandırma güvencesi
-
-Zorunlu kısıt: platform "Lisanslı Şarj Operatörü" değildir. Güvenlik açısından bunun karşılığı **içerik kontrolüdür**:
-- Tarife gösterilen her yüzeyde `source` + `fetched_at` + "bilgi amaçlıdır, bağlayıcı değildir" ibaresi **şablon seviyesinde zorunlu**; tarife bileşeni bu alanlar boşken render edilmez (bileşen testi).
-- Uygulama ve web metinlerinde "şarj satışı", "operatörümüz", "bizim istasyonlarımız" ifadeleri CI'da yasaklı sözlük taraması ile engellenir.
-
----
-
-## 6. Aktarım, Depolama ve Sır Yönetimi
-
-- **TLS 1.2+ zorunlu** (1.3 tercihli), tüm alt alan adlarında HSTS `max-age=31536000; includeSubDomains; preload`.
-- Mobilde `api.elektriklioto.com` için **sertifika pinning** (SPKI pin, en az 2 pin: aktif + yedek); pin süresi 90 gün, uzaktan kapatılabilir kill-switch ile — yanlış pin uygulamayı tuğlalaştırmasın.
-- **`@fastify/helmet`**: `X-Content-Type-Options: nosniff`, `Referrer-Policy: no-referrer`, `X-Frame-Options: DENY`, `Permissions-Policy: geolocation=(self)`.
-- **CSP (Nuxt):** `default-src 'self'; script-src 'self'; connect-src 'self' https://api.elektriklioto.com <tile-host>; img-src 'self' https://cdn.elektriklioto.com data: blob:; frame-ancestors 'none'; object-src 'none'; base-uri 'self'`. Satır içi script yalnızca nonce ile (JSON-LD dâhil).
-- **CORS:** allow-list `https://elektriklioto.com`, `https://www.elektriklioto.com`; `credentials: true`; wildcard yasak. Mobil istemci Origin göndermez, etkilenmez.
-- **Sırlar:** `packages/config` içindeki `zod` şeması tüm gizli değişkenleri zorunlu kılar; eksikse süreç başlamaz. `.env` dosyaları `.gitignore`'da, `gitleaks` pre-commit + CI taraması. Harita tile anahtarı ve APNs/FCM kimlikleri **istemci derlemesine gömülmez**; harita anahtarı için `GET /config/map-token` ile kısa ömürlü, domain/paket-adı kısıtlı token dağıtılır.
-- **Anahtar rotasyonu:** JWT imzalama anahtarı 90 günde bir, HMAC `proximity_proof` anahtarı 30 günde bir rotasyona girer; iki nesil anahtar aynı anda geçerli tutulur (overlap penceresi).
-- **Şifreleme:** disk düzeyinde at-rest şifreleme (yönetilen disk/volume). Uygulama seviyesinde sütun şifrelemesi **yok** — çünkü hassas alan tutulmuyor; push token'ları hariç, onlar da opak.
-- **Yedekler:** `pg_dump` + WAL arşivi şifreli depolanır; yedek erişimi `staff:admin` ile sınırlı, geri yükleme tatbikatı sürüm öncesi.
-
----
-
-## 7. Tedarik Zinciri Güvenliği
-
-- Tüm npm ve Dart bağımlılıkları **tam sürüm** sabitli (paket raporu §7); `pnpm-lock.yaml` ve `pubspec.lock` depoda.
-- CI'da `pnpm audit --audit-level=high` **kapı**; kritik/yüksek açık varsa build kırılır. `flutter pub outdated`/`dart pub audit` haftalık raporlanır.
-- `pnpm config set ignore-scripts=true` — kurulum script'leri varsayılan kapalı; ihtiyaç duyan paketler (`@openapitools/openapi-generator-cli`) açık listeye alınır.
-- `openapi-generator` jar'ı **SHA-256 doğrulaması** ile kullanılır; jar sürümü sabit.
-- CI'da SBOM (CycloneDX) üretilir ve sürüm artefaktına eklenir; lisans taraması `BlueOak-1.0.0` beyaz listesi ile (paket raporu §1 uyarısı).
-- Üretilen istemci kodları (`packages/contracts`, `mobile/lib/api/generated/`) elle düzenlenemez; `git diff --exit-code` kapısı (US-I1/AC2) aynı zamanda bir tedarik zinciri kontrolüdür — üretilmiş koda gizli değişiklik sokulamaz.
-- Docker imajı sürüm sabitli (`postgis/postgis:16-3.4`), digest ile pinlenir; `trivy` ile imaj taraması CI'da koşar.
-
----
-
-## 8. Gözlemlenebilirlik ve Olay Müdahalesi
-
-**`security_event` tablosu** (partition'lı, 1 yıl saklama) şu olayları yazar: refresh yeniden kullanım tespiti, attestation başarısızlığı, kota aşımı serisi, SSRF blok kararı, admin yetki reddi, deep-link konfigürasyon değişikliği, toplu arıza bildirimi anomalisi.
-
-**`audit_log`** (değiştirilemez, append-only): her `staff` eylemi — kim, ne zaman, hangi kayıt, önceki/sonraki değer. Admin ekranındaki her yazma bu log'a düşmeden tamamlanmaz (transaction içinde).
-
-**Alarm eşikleri:** 5 dk içinde 10+ refresh yeniden kullanımı → sayfa; herhangi bir SSRF bloğu → sayfa; tek istasyona 10 dk'da 20+ bildirim → moderatör bildirimi; `pnpm audit` kritik bulgu → sürüm dondurma.
-
-**Müdahale araçları (Faz 1'de hazır olmak zorunda):**
-1. `device_id` iptali (token zinciri geçersizleştirme) — admin ekranından tek tuş.
-2. Uç nokta bazlı acil kota daraltma (konfigürasyon, deploy'suz).
-3. Arıza etiketi toplu geri alma (istasyon veya zaman aralığı bazlı).
-4. Deep-link konfigürasyonunu bilinen-iyi sürüme geri alma.
-
-**Sızıntı bildirimi:** KVKK kapsamında ihlal tespitinden itibaren **72 saat** içinde Kurul'a bildirim; bildirim taslağı ve sorumlu iletişim zinciri `docs/ihlal_mudahale.md` altında hazır tutulur (Faz 1 çıkışından önce).
-
----
-
-## 9. Faz 1 Güvenlik "Bitti Tanımı"
-
-1. Her rota `config.auth` bildiriyor; bildirmeyen rota süreci başlatmıyor (§3.3 testi yeşil).
-2. Şema testi doğruluyor: kullanıcıya bağlı hiçbir tabloda koordinat sütunu yok, istek şemalarında `lat`/`lon` alanı yok.
-3. `proximity_proof` nonce tekrar kullanımı, süresi dolmuş nonce ve sahte HMAC için üç negatif test yeşil.
-4. Admin uçlarının her biri için cihaz JWT'siyle 403 negatif testi yeşil.
-5. SSRF koruması: `169.254.169.254` ve `127.0.0.1` hedefli connector konfigürasyonu birim testinde reddediliyor.
-6. EXIF strip testi: GPS içeren JPEG yüklendiğinde çıktı dosyasında GPS tag'i yok.
-7. `gitleaks` + `pnpm audit --audit-level=high` + `trivy` CI kapıları yeşil.
-8. Rate-limit kotaları `autocannon` ile doğrulanmış (429 eşiği ölçülü).
-9. `DELETE /device` sonrası veri kalıntısı testi: favori 0 kayıt, `fault_report.device_token` NULL, sayım bütünlüğü korunuyor.
-
----
-
-## 10. Açıkta Kalanlar (KURULUM GEREKİYOR)
-
-- **Kurumsal OIDC sağlayıcı** — personel kimliği için; tedarik edilene kadar admin ekranı yalnızca VPN + kısa ömürlü statik anahtarla erişilebilir olacak (geçici, Faz 1 çıkışından önce kapatılmalı).
-- **Play Integrity / App Attest yapılandırması** — Google Play Console ve Apple Developer tarafında etkinleştirilmeli; yoksa tüm cihazlar `unverified` sayılır ve §4.1 çeşitlilik şartı `attested` gereksinimi geçici olarak "3 farklı cihaz" ile karşılanır.
-- **Harita tile anahtarı** — `GET /config/map-token` uç noktası bu anahtar olmadan çalışmaz.
-- **Sır saklama servisi** — Faz 1'de ortam değişkeni yeterlidir; birden fazla ortam çıktığında yönetilen bir secret store'a taşınmalıdır.
+| **Sözleşme Güvenliği** | `@stoplight/spectral-cli` | OpenAPI 3.1 güvenlik şemaları (`securitySchemes`) ve OWASP API kuralları | Derleme derhal kırılır |
+| **Gizli Anahtar Denetimi**| `gitleaks` / `git-secrets`| Kaynak koda şifre/token gömülmesini engelleme | Commit / PR engellenir |
+| **Bağımlılık Güvenliği** | `npm audit` / `pnpm audit`| Yüksek (High) ve Kritik (Critical) CVE zafiyet içermeme | CI hattı durdurulur |
+| **KVKK Konum Denetimi** | Özel AST Linter / Vitest | `station_report` modelinde koordinat sütunlarının bulunmaması | Test suite başarısız olur |
+| **Lisans Güvenlik Denetimi**| RegEx Grep CI Script | Rota ve tablolarda ödeme/faturalama terimlerinin bulunmaması | Derleme iptal edilir |

@@ -203,3 +203,151 @@ içinde Host takma adı tanımla.
 ikili olmadığı için `docker run`'ı daha kimlik doğrulamaya gelmeden düşürür.
 Colima gibi bir çalıştırıcıya geçerken bu satırı kaldır; Homebrew eklentileri
 için `cliPluginsExtraDirs` ekle.
+
+## 9. İnteraktif Doğrulama Kapısı ve "Kağıt Üstünde DONE" Tuzağı
+
+**Simülasyon ile gerçek dünya aynı şey değildir.** QA ve DevOps ajanları sadece test
+dosyası (`.test.ts`), Docker yapılandırması veya markdown raporu üretip görevi
+tamamladığında motor doğrudan `[DONE]` vermemelidir. Bu durum kullanıcıda "her şey
+bitti ve çalışıyor" yanılgısı yaratır; oysa yerel makinede `node_modules` bile
+inmemiştir.
+
+**Doğrulama Kapısı (Verification Gate) kur.** `test` ve `deploy` fazındaki görevlerde
+motor, hedef klasörde bağımlılıkların (`node_modules`, Docker daemon vb.) olup
+olmadığını denetlemelidir:
+- Eksikse terminale açıkça kurulum komutlarını basmalı (`npm install` / `yarn install --ignore-engines`).
+- Etkileşimli modda kullanıcıya sormalı: *"Gerçek testleri yerel ortamda çalıştırmak istiyor musunuz? (e/h)"*.
+- Testleri fiilen koşturmalı (`npm test`) ve gerçek çıkış kodunu (`exit code 0`)
+  görevin durum notuna ve rapora bağlamalıdır.
+
+**Sprint Kapanış Canlı Test Rehberi bas.** Bir sprint bittiğinde geliştiricinin
+klasörler arasında kaybolmaması için terminale açıkça canlı test adımları
+basılmalıdır: Veritabanı, Backend API, Web Harita ve Test komutları.
+
+## 10. Tek Tıkla (On-Click) Canlı Ortam Başlatıcı (`canli.sh`)
+
+**Geliştiriciyi klasör klasör dolaştırma.** Backend, frontend ve veritabanı farklı
+alt dizinlerdeyse kullanıcıya "önce infra'ya git compose aç, sonra backend'e git
+dev de, sonra frontend'e git yarn dev yap" demek büyük bir sürtünmedir.
+
+**Her projede kök dizinde `canli.sh` orkestrasyon betiği olsun.** Bu betik:
+1. Önceden asılı kalmış portları (3000, 3001 vb.) otomatik temizlemelidir (`lsof -ti:port | xargs kill -9`).
+2. Eksik bağımlılıkları sessizce kurmalıdır.
+3. Docker çalışıyorsa veritabanını arka planda ayağa kaldırmalıdır.
+4. Backend ve Frontend'i eşzamanlı başlatmalıdır.
+5. Tarayıcıyı otomatik olarak `http://localhost:3000` adresine açmalıdır (`open`).
+6. **Zarif Kapanış (Graceful Shutdown):** `SIGINT / SIGTERM / EXIT` yakalayarak (`trap cleanup`)
+   Ctrl+C yapıldığında arkada yetim (zombie) süreç veya kilitli port bırakmamalıdır.
+
+**Kuralı ajan şemasına göm.** `sprint_planner` ve `devops_engineer` sistem
+promptlarına bu kuralı ekle: İlk sprintte (S1) kök dizinde `canli.sh` üretmek
+zorunludur.
+
+## 11. Paket Yöneticisi Katılıkları ve Sürüm Uyumu
+
+**Yarn 1.x motor denetimi tuzağı.** Yarn v1, paketlerin istediği Node motor
+sürümlerini aşırı katı denetler. Sistemde Node 22.21.0 varken bir alt paketin
+(`nopt`) 22.22.2 talep etmesi gibi 0.01'lik küçük bir yama farkında bile kurulumu
+anında durdurur (`Found incompatible module`).
+
+**Önleyici tedbir:**
+- Projelerin kök veya alt dizinlerine mutlaka `.yarnrc` dosyası koy ve `ignore-engines true` ekle.
+- Komutlarda `yarn install --ignore-engines` kullan veya bu tür katı kısıtlar
+  uygulamayan standart `npm` tercih et.
+
+## 12. Modüler Refactor'da Rota ve Kod Kaybı (Route Regression)
+
+**Yeni sprint eski sprintin kodunu ezmemeli.** S1'de yazılan harita listeleme
+rotası (`GET /api/v1/stations?bbox=...`), S2'de istasyon detay modülü (`/stations/:slug`)
+yazılırken backend mühendisi tarafından unutuldu ve dosya üzerine yazıldığı için
+kayboldu. Arayüz açıldığında 404 hatası verdi.
+
+**Kurallar:**
+1. Ajan bir dizini veya modülü güncellerken mevcut rotaları silmemeli, genişletmelidir.
+2. QA mühendisi regresyon testlerinde önceki sprintin temel uç noktalarını da
+   çağırmaya devam etmelidir.
+3. **Zarif Fallback Katmanı:** Veritabanı henüz tohumlanmamış veya Docker kapalı olsa bile
+   uç noktalar 404/500 vermek yerine anlamlı mock/fallback verisi dönmeli; böylece
+   arayüz geliştirici veya kullanıcı veritabanı kurulumunu beklemeden haritayı hemen
+   test edebilmelidir.
+
+## 13. Multi-file Üretiminde Dizin Ezme (Directory Wipeout) Tuzağı
+
+**`write_multi_file` tüm dizini `.stale`'e taşımamalı.**
+Bir görev bir dizin çıktısı (`workspace/src/backend/` veya `workspace/src/frontend/`) hedeflediğinde, motor eski dizini toptan `.stale`'e taşıyıp sıfırdan dizin açarsa:
+- Önceki sprintlerde üretilmiş bağımsız alt modüller (`stations`, `operators`, `db` şemaları vb.) kaybolur.
+- Kurulu `node_modules` paketleri arşivlenir; yeni görev sadece kendi az sayıdaki paketini bildiği için çalışma anında `ERR_MODULE_NOT_FOUND` (örn. `drizzle-orm`) patlar.
+
+**Önleyici kural:**
+Motor dizini toptan taşımamalı, **dosya bazlı birleştirme (merge)** yapmalıdır. Yalnızca üzerine yazılan münferit dosyalar gerekiyorsa yedeklenmeli, dizin ağacı ve kütüphaneler korunmalıdır.
+
+## 14. Nuxt 3 / Vite Dev Server ve "Upgrade Required" (HTTP 426) Hatası
+
+**macOS ve Node 22'de `localhost` IPv6 HMR Çakışması.**
+Nuxt 3 dev modunda çalışırken (`nuxt dev`), Vite HMR (Hot Module Replacement) WebSocket sunucusunu aynı porta bağlar. macOS ve modern Node (v20+) ortamlarında `localhost` varsayılan olarak IPv6 (`::1`) üzerinden çözülür. Tarayıcı standart HTTP GET isteği gönderdiğinde Vite'ın WebSocket dinleyicisi isteği yakalar ve WebSocket `Upgrade` başlığı beklediği için HTTP 426 "Upgrade Required" hatası döner.
+
+**Önleyici tedbir:**
+1. `nuxt.config.ts` içinde `devServer` ve Vite HMR hostunu açıkça `127.0.0.1` (IPv4) olarak sabitle:
+   ```typescript
+   devServer: { host: '127.0.0.1', port: 3000 },
+   vite: { server: { hmr: { protocol: 'ws', host: '127.0.0.1' } } }
+   ```
+2. Başlatıcı ve kullanıcı linklerinde `http://localhost:3000` yerine öncelikle `http://127.0.0.1:3000` adresini kullan.
+
+## 15. Arka Plan Süreç Yönetimi (`exec`, `pkill -P`) ve Port İzolasyonu
+
+**Bash alt kabuk (subshell) yetim süreç (orphan process) bırakır.**
+`canli.sh` gibi başlatıcı betiklerde `(cd dir && yarn dev) &` şeklinde komut verildiğinde `$!` olarak kaydedilen PID, gerçek Node sürecinin değil, dış kabuk ara sürecinin PID'sidir. `kill $PID` yapıldığında sadece kabuk kapanır; `yarn`, `node`, `tsx`, `vite` ve `nitro` gibi alt çocuk süreçler portu tutmaya devam eder.
+
+**Önleyici tedbir:**
+1. Arka plan süreçlerini ara kabuk olmadan doğrudan çalıştır: `(cd dir && exec env PORT=... yarn dev) &`. `exec`, kabuğun yerini doğrudan hedef ikilinin almasını sağlar.
+2. `cleanup` kapanış fonksiyonunda `pkill -P "$PID"` ile sürecin başlattığı tüm alt çocuk süreçleri (process tree) hiyerarşik olarak temizle.
+3. Kapanış anında kullanılan portları (3000, 3001) döngü ile denetle ve kalan süreç varsa temizle.
+4. Fastify backend tarafında Base64 parametreli rotalar için `maxParamLength: 4096` tanımlamayı unutma.
+
+## 16. Otomatik İyileştirme ve Kendi Kendini Onarma Motoru (Self-Healing Loop)
+
+**Kod üretiminden hemen sonra otomatik regresyon ve derleme kapısı.**
+Yapay zeka ajanları bazen aceleyle veya önceki kapsamı unutarak kod üretebilir. Bu durumun manuel müdahale gerektirmeden çözülmesi için motora **Self-Healing Loop** entegre edilmelidir.
+
+**Çalışma Prensibi:**
+1. **Artımlı Bağlam (Incremental Context):** Görev başlamadan önce hedef dizindeki mevcut dosyalar ve ana omurga (`app.ts`, `package.json`, `nuxt.config.ts`) taranıp ajana *"Önceki rotaları ASLA silme, genişleterek ekle"* talimatı verilir.
+2. **Anlık Doğrulama:** Kod yazıldığı an motor hedef dizinde:
+   - Kritik rotaların silinip silinmediğini (`/stations`, `/operators`) kontrol eder.
+   - `npx tsc --noEmit` ile TypeScript derleme hatası olup olmadığını bakar.
+3. **Otomatik Onarım Döngüsü:** Hata varsa motor görevi doğrudan bitirmez; hata çıktısını ajana geri göndererek *"Şu hata oluştu, mevcudu koruyarak düzelt"* diyerek 2 kez otomatik onarım turu başlatır. Kod ancak hatasız olduğunda diske onaylanır.
+
+## 17. Python Subprocess ve İkili (Binary) Dosyalarda "ValueError: embedded null byte" Tuzağı
+
+**`node_modules` altındaki ikili dosyalar prompt'a sızmamalı.**
+Bir ajanın (`qa_lead` gibi) girdi listesinde bir kod dizini (`workspace/src/backend/`) olduğunda, `read_input` fonksiyonu `p.rglob("*")` ile o dizindeki tüm dosyaları okur. Eğer `node_modules` (özellikle `.bin/esbuild` gibi ikili çalıştırılabilir dosyalar) filtrelenmezse, bu ikili dosyaların içindeki ASCII `\x00` (NUL) baytları doğrudan prompt metnine karışır.
+
+Python 3.14 (ve tüm modern POSIX Python sürümleri), `subprocess.Popen` veya `subprocess.run` çağrısında komut argümanı içinde `\x00` gördüğünde güvenlik ve C uyumu gereği derhal çöker:
+`ValueError: embedded null byte`
+
+**Önleyici tedbir:**
+1. `read_input` ve dosya tarama fonksiyonlarında `node_modules`, `.bin`, `.git`, `.nuxt`, `dist`, `__pycache__` dizinlerini katı bir izin/engelleme listesiyle hariç tut.
+2. Dosya okunurken ikili bayt denetimi yap: `if b"\x00" in raw: continue` (ikili dosyaları atla).
+3. `subprocess`'a gönderilecek birleştirilmiş prompt metnini her ihtimale karşı `.replace("\x00", "")` ile temizle.
+
+
+## 18. Süreç Çökmesi Sonrası "Yetim (Orphan) RUNNING Görevleri" ve Kilit (Lock) Çakışması
+
+**Çöken bir koşunun ardından görev RUNNING kalırsa, yeni başlatılan koşucu kendini kilitli sanarak durmamalı.**
+Bir görev icra edilirken süreç aniden ölürse (örn: `kill`, `SIGTERM`, `ValueError` veya elektrik/bağlantı kesintisi), `pano.json` içerisinde o görev `"status": "RUNNING"` durumunda asılı kalır.
+
+Yeni başlatılan bir koşucu (`./basla.sh`) şu döngüye düşüyordu:
+1. `studio_engine.py` başlarken `workspace/.lock` dosyasını kendi PID'si ile oluşturuyordu.
+2. Ardından `run_board()` çağrıldığında `refresh(board)` fonksiyonu eski mantıkla `if not (WORKSPACE / ".lock").exists():` kontrolü yapıyordu.
+3. Ancak kilit dosyası koşucunun KENDİSİ tarafından zaten oluşturulmuş olduğundan, `not exists` koşulu yanlış (False) çıkıyor ve `RUNNING` görev kurtarılmıyordu.
+4. Panoda hiç `READY` görev kalmadığı için koşucu 0.5 saniyede "Hazır görev yok" diyerek 0 koduyla çıkıyordu.
+5. `basla.sh` ise 2 saniye sonra sürecin sonlandığını görünce "Koşucu hemen düştü" uyarısı veriyordu.
+
+**Çözüm:**
+1. `studio_board.py` içine `is_runner_active()` fonksiyonu eklendi; kilitteki PID mevcut sürecin kendi PID'si (`os.getpid()`) ise dışarıda başka bir aktif koşucu olmadığı anlaşıldı.
+2. `recover_orphans(board)` fonksiyonu yazılarak, koşu başlarken yetim kalmış `RUNNING` görevler otomatik olarak `READY` durumuna çekilip panoya kaydedildi.
+3. `run_board()` başladığında ilk iş olarak yetim görevler kurtarılır.
+
+
+
+
