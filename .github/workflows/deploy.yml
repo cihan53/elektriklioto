@@ -77,25 +77,10 @@ jobs:
             cd "$APP_DIR"
             echo "==> Aktif çalışma dizini: $(pwd)"
 
-            if [ -d ".git" ]; then
-              echo "==> Mevcut Git deposu kontrol ediliyor..."
-              git status || rm -rf .git
-            fi
-
-            if [ ! -d ".git" ]; then
-              echo "==> İlk kurulum: Git deposu klonlanıyor..."
-              TMP_CLONE="/tmp/elektriklioto_clone_$$"
-              rm -rf "$TMP_CLONE"
-              git clone -b ${{ github.ref_name }} https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git "$TMP_CLONE"
-              cp -rf "$TMP_CLONE/.git" ./
-              rm -rf "$TMP_CLONE"
-              git reset --hard origin/${{ github.ref_name }}
-            else
-              echo "==> Conflict (çakışma) önleyici güncelleme yapılıyor..."
-              git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git || true
-              git fetch origin ${{ github.ref_name }}
-              git reset --hard origin/${{ github.ref_name }}
-            fi
+            echo "==> Git deposu eşitleniyor..."
+            git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+            git fetch origin ${{ github.ref_name }}
+            git reset --hard origin/${{ github.ref_name }}
 
             echo "==> Dağıtım betiği (.github/scripts/deploy.sh) çalıştırılıyor..."
             bash .github/scripts/deploy.sh
