@@ -1,0 +1,64 @@
+
+# ==============================================================================
+# elektriklioto.com - Fastlane Fastfile (Mobil Dağıtım Otomasyonu)
+# ==============================================================================
+
+default_platform(:android)
+
+platform :android do
+  desc "Birim ve Widget Testlerini Çalıştırır"
+  lane :test do
+    sh("cd ../../src/mobile && flutter test")
+  end
+
+  desc "Dahili Test (Internal) Debug APK Derler"
+  lane :build_internal do
+    sh("cd ../../src/mobile && flutter build apk --debug --dart-define=BUILD_FLAVOR=dev")
+  end
+
+  desc "Staging APK ve AAB Derler"
+  lane :build_staging do
+    sh("cd ../../src/mobile && flutter build apk --release --dart-define=BUILD_FLAVOR=staging --dart-define=API_BASE_URL=https://api-staging.elektriklioto.com")
+    sh("cd ../../src/mobile && flutter build appbundle --release --dart-define=BUILD_FLAVOR=staging --dart-define=API_BASE_URL=https://api-staging.elektriklioto.com")
+  end
+
+  desc "Üretim (Production) App Bundle (AAB) Derler"
+  lane :build_release do
+    sh("cd ../../src/mobile && flutter build appbundle --release --dart-define=BUILD_FLAVOR=production --dart-define=API_BASE_URL=https://api.elektriklioto.com")
+  end
+
+  desc "Google Play Store Dahili Test Kanalına (Internal Track) Dağıtır"
+  lane :deploy_playstore do
+    build_release
+    upload_to_play_store(
+      track: 'internal',
+      package_name: 'com.elektriklioto.app',
+      aab: '../../src/mobile/build/app/outputs/bundle/release/app-release.aab',
+      skip_upload_metadata: true,
+      skip_upload_images: true,
+      skip_upload_screenshots: true
+    )
+  end
+end
+
+platform :ios do
+  desc "iOS Birim Testlerini Çalıştırır"
+  lane :test do
+    sh("cd ../../src/mobile && flutter test")
+  end
+
+  desc "iOS Staging IPA Derler"
+  lane :build_staging do
+    sh("cd ../../src/mobile && flutter build ipa --release --dart-define=BUILD_FLAVOR=staging --dart-define=API_BASE_URL=https://api-staging.elektriklioto.com")
+  end
+
+  desc "iOS Üretim IPA Derler ve TestFlight'a Gönderir"
+  lane :distribute_testflight do
+    sh("cd ../../src/mobile && flutter build ipa --release --dart-define=BUILD_FLAVOR=production --dart-define=API_BASE_URL=https://api.elektriklioto.com")
+    upload_to_testflight(
+      app_identifier: 'com.elektriklioto.app',
+      ipa: '../../src/mobile/build/ios/ipa/Runner.ipa',
+      skip_waiting_for_build_processing: true
+    )
+  end
+end

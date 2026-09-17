@@ -70,6 +70,15 @@ Doğrudan CPO lisansı almak (EPDK sermaye ve soket kotası şartları) veya do�
 - **Kanonik İstasyon Kimliği ve Kaynak Birleştirme (Entity Resolution):** Aynı fiziksel istasyon birden fazla kaynaktan (açık veri + operatör ucu + kullanıcı katkısı) farklı ID'lerle gelir. Kapsama, koordinat yakınlığı + operatör + soket imzası ile eşleştiren ve kalıcı `station_uid` üreten bir birleştirme modülü ile çakışmaları çözen bir yönetim ekranı dahildir. Bu modül olmadan "veri tazeliği" ve "arıza etiketi" ölçütleri anlamsızdır.
 - **Tarife Verisinin Statüsü:** Fiyat alanları "bilgi amaçlı, kaynak ve zaman damgalı" olarak modellenir; her tarife kaydı `source`, `fetched_at` ve `confidence` taşır ve arayüzde son güncelleme zamanı gösterilir. Bu, EMP konumlandırmasıyla uyumlu ve yanlış fiyat kaynaklı sorumluluk riskini düşüren tek yoldur.
 
+<!-- rol: cto -->
+- **Tohumlama (seed) hattı kapsama dahildir:** `istasyonlar.json` → normalize → `station_uid` üretimi → `geom` (SRID 4326) yazımı adımları, elle çalıştırılan bir betik değil, tekrar edilebilir ve idempotent bir `seed` komutu olarak repoda yaşar; aynı dosya iki kez yüklendiğinde kayıt sayısı değişmez (`istasyon_no` üzerinde `UNIQUE` + upsert).
+- **Veri Kalitesi Kapısı (seed öncesi doğrulama):** 16.788 kaydın `lat`/`lon` alanları Türkiye sınır kutusu (`ST_MakeEnvelope(25.5,35.5,45.0,42.5)`) dışında kalıyorsa, `lat`/`lon` yer değiştirmişse veya `(0,0)` ise kayıt reddedilir ve `seed_rejects` tablosuna gerekçesiyle yazılır. Reddedilen kayıt sessizce düşürülmez; sayısı seed raporunda gösterilir.
+- **Marka Sözlüğü (179 marka) ayrı bir varlıktır:** Operatör adı serbest metin olarak istasyon satırında tutulmaz; `operator` tablosuna normalize edilir (slug + görünen ad + eşanlamlılar). Deep-link konfigürasyonu, SEO operatör rotaları (`/zes/...`) ve filtre listesi bu tek tablodan beslenir.
+
+<!-- rol: cto -->
+- **Tasarım Token Senkronizasyon Hattı (kapsama dahil):** Web ve mobilin tek tasarım dilini paylaşması kısıtı için, `tasarim_sistemi.md` içindeki renk, tipografi, aralık ve bileşen token'larını tek kaynaklı JSON/YAML'dan hem Nuxt CSS değişkenlerine hem Flutter Dart sınıflarına dönüştüren otomatik derleme betiği repositoride yaşar.
+- **Sunucu Tarafı Kümeleme ve Viewport Optimizasyonu (MVT / BBox):** 16.788 istasyonun tamamının istemciye GeoJSON olarak indirilmesi mobilde ve webde bellek krizine yol açar. Düşük zoom seviyelerinde PostGIS `ST_SnapToGrid` ile kümelenmiş özet veri veya MVT (Mapbox Vector Tile) üretilerek istemci yükü hafifletilir.
+
 ## 4. Kapsam Dışı
 
 - **Doğrudan Uygulama İçi Ödeme Alma (In-app Billing):** TCMB / BDDK lisanslama süreçlerine ve PCI-DSS maliyetlerine takılmamak adına Faz 1'de ödeme aracılığı yapılmaz; ödeme ilgili operatörün kendi uygulamasında tamamlanır.
@@ -86,6 +95,9 @@ Doğrudan CPO lisansı almak (EPDK sermaye ve soket kotası şartları) veya do�
 <!-- rol: cto -->
 - **Sunucu Tarafı Rota Optimizasyon Motoru kapsam dışıdır:** Faz 1'de kendi yönlendirme (routing/isochrone) motoru işletilmez; rota geometrisi harici bir yönlendirme servisinden alınır, platform yalnızca bu geometri üzerinde PostGIS `ST_DWithin` ile istasyon eşleştirmesi yapar.
 - **Kullanıcı Üretimli Fotoğraf Moderasyonu (otomatik):** Faz 1'de görsel içerik yükleme yalnızca kuyruklanır ve manuel onaydan geçer; otomatik görüntü sınıflandırma/moderasyon modeli kapsam dışıdır.
+
+<!-- rol: cto -->
+- **Soket seviyesi (connector) envanteri Faz 1'de üretilmez:** Soket tipi/güç verisi kaynakta yokken `connector` satırları uydurulmaz. Şema soket tablosunu içerir ancak boş kalır; filtre ve "soket seçimi" akışları veri geldiğinde açılmak üzere kapalı doğar.
 
 ## 5. Kısıtlar
 
@@ -121,6 +133,20 @@ Doğrudan CPO lisansı almak (EPDK sermaye ve soket kotası şartları) veya do�
 - **KURULUM GEREKİYOR: Harita karo (tile) sağlayıcı hesabı ve API anahtarı.** Mapbox/Google Maps SDK ortam envanterinde ölçülemez bir dış servistir; anahtar olmadan hem web hem mobil harita ekranı çalışmaz, anahtarlar ortam değişkeni olarak yönetilir ve istemci derlemesine gömülmez.
 - **KURULUM GEREKİYOR: APNs/FCM kimlik bilgileri.** Push bildirimi başarı ölçütü, Apple Developer ve Firebase proje kimlik bilgileri tedarik edilmeden doğrulanamaz; bu tedarik edilene kadar favori bildirimi "uygulama içi bildirim listesi" ile sınırlıdır.
 
+<!-- rol: cto -->
+- **Kanonik kimlik çapası tek yönlüdür:** `station_uid` dahili ve kalıcıdır; `istasyon_no` (`ŞRJ/xxxx`) ise üzerinde `UNIQUE` kısıt bulunan doğal anahtardır. Dış API yüzeyinde ve SEO URL'lerinde `istasyon_no` doğrudan teşhir edilmez, slug üzerinden çözümlenir — resmî numaranın değişmesi kalıcı bağlantıları kırmamalıdır.
+- **`ŞRJ/` önekinde Unicode tuzağı:** `Ş` karakteri nedeniyle karşılaştırma, indeksleme ve URL üretimi NFC normalize edilmiş metin üzerinde yapılır; slug üretiminde Türkçe harf katlaması (`İ→i`, `ı→i`) tek bir yardımcı fonksiyonda toplanır, her modülde yeniden yazılmaz.
+- **`geom` türetilmiş sütundur:** `lat`/`lon` kaynak gerçeği, `geom geography(Point,4326)` ise migration içinde bu alanlardan üretilir ve `GIST` ile indekslenir; ikisi el ile ayrı ayrı güncellenemez.
+- **Java 17 yalnızca Android derlemesi içindir:** Ortamda ölçülen `openjdk 17.0.17` Android Gradle zinciri için yeterlidir; backend tarafında JVM bağımlılığı üretilmez.
+
+<!-- rol: cto -->
+- > **ÇATIŞMA:** "Mobil istemci Flutter ile geliştirilecektir. (zorunlu)" kısıtı teknik olarak imkânsızdır. Ortam raporunda `flutter` ve `dart` komutları "Exec format error" nedeniyle BOZUK durumdadır. İstemcinin geliştirilebilmesi için onarım gereklidir.
+<!-- rol: cto -->
+- > **ÇATIŞMA:** "Paket yöneticisi tekliği: Ortamda pnpm 10.20.0 ölçülmüştür" kısıtı ortam gerçeğiyle uyuşmamaktadır. Güncel ortam raporunda `pnpm` YOK olarak listelenmiştir. Paylaşımlı workspace mimarisi için KURULUM GEREKİYOR: pnpm.
+
+<!-- rol: cto -->
+- **Eksik Veri Tipi Sözleşmesi (Nullable DTO Kısıtı):** Soket, güç ve tarife alanlarının Faz 1'de bulunmaması kısıtı doğrultusunda, backend API yanıtlarında `null` değerler için varsayılan uydurma değer dönülmez; OpenAPI şemasında bu alanlar açıkça `nullable` tanımlanır ve istemcilerde "veri yok" durumunu zorunlu kılan TypeScript/Dart tipleri üretilir.
+
 ## 6. Başarı Ölçütleri
 
 - **Harita Yanıt Hızı:** 20 km çapındaki istasyon sorgularının (PostGIS spatial query) veritabanı yanıt süresi p95 < 40ms olmalıdır.
@@ -138,6 +164,12 @@ Doğrudan CPO lisansı almak (EPDK sermaye ve soket kotası şartları) veya do�
 - **Kaynak Kesintisine Dayanıklılık:** Herhangi bir tekil veri kaynağı 24 saat boyunca yanıt vermediğinde platform hata vermez; istasyon kaydı "son güncelleme: X saat önce" rozetiyle sunulmaya devam eder ve kaynak sağlığı panelinde alarm üretilir.
 - **Entity Resolution Doğruluğu:** Kaynak birleştirme sonrası mükerrer istasyon kaydı oranı, elle etiketlenmiş 300 istasyonluk doğrulama kümesinde <= %2 olmalıdır.
 
+<!-- rol: cto -->
+- **Tohumlama Bütünlüğü (Faz 1'in ilk ölçülebilir kapısı):** Temiz bir veritabanına `seed` çalıştırıldığında 16.788 kaydın en az %99'u yüklenmeli, reddedilen her kayıt gerekçesiyle raporlanmalı ve komut ikinci kez çalıştırıldığında satır sayısı değişmemelidir (idempotence).
+
+<!-- rol: cto -->
+- **Erişilebilirlik (A11y) ve Tasarım Uyumu Kapısı:** Tasarım denetimi gereği CI hattında çalışacak otomatik kontrollerde (Lighthouse a11y skoru ≥ 95 ve WCAG 2.1 AA kontrast oranı ≥ 4.5:1) sıfır ihlal kuralı aranır; dokunma hedefleri mobilde 48x48pt altına inemez.
+
 ## 7. Açık Sorular
 
 <!-- Cevabını gerçekten bilmediğin, rollerin karar vermesini İSTEDİĞİN şeyler.
@@ -151,3 +183,18 @@ Doğrudan CPO lisansı almak (EPDK sermaye ve soket kotası şartları) veya do�
 - **Tasarım Dili ve Marka Kimliği:** elektriklioto.com hangi görsel tonu benimsemeli — teknik/mühendis odaklı mı (yoğun bilgi, kompakt), yoksa tüketici dostu mu (ferah, büyük dokunma hedefleri)? Harita yoğun bir ekranda bu iki yaklaşımın dengesi nasıl kurulmalı?
 - **Koyu Tema Önceliği:** Sürücüler istasyonu çoğunlukla araç içinde ve sıklıkla gece kullanacak. Koyu tema varsayılan mı olmalı, yoksa sistem tercihini mi izlemeli?
 - **Veri Yokluğunun Görsel Dili:** Soket tipi, güç ve tarife Faz 1'de boş olacak. Bu alanlar arayüzde nasıl gösterilmeli — hiç gösterilmesin mi, "bilinmiyor" rozeti mi, yoksa kullanıcıdan katkı isteyen bir çağrı mı?
+
+<!-- rol: cto -->
+- **Cevap (Rota Mekanizması Kararı):** Web'de planlanan rota koordinat ve istasyon ID dizisi içeren Base64 kodlanmış bir kısa URL'e dönüştürülüp QR kod aracılığıyla cihaz kamerasına sunulacak, doğrudan mobil uygulama içinde state olarak hydrate edilecektir.
+<!-- rol: cto -->
+- **Cevap (Deep-Link Standartları Kararı):** Desteklenmeyen operatörler için istasyon/soket kodu işletim sistemi panosuna (clipboard) otomatik kopyalanacak ve `clipboard_fallback: true` mantığıyla kullanıcıya "yapıştırabilirsiniz" yönergesi (toast) gösterilecektir.
+<!-- rol: cto -->
+- **Cevap (Doğrulama Güvenliği Kararı):** GPS fence ve cihaz attestation kısıtlarına ek olarak, API ağ geçidinde "token bucket" algoritmasıyla rate limiting uygulanacak ve şüpheli/spam istemci imzaları shadow-ban (sessiz red) listesine alınacaktır.
+<!-- rol: cto -->
+- **Cevap (Veri Toplama Sürdürülebilirliği Kararı):** Dış uç noktalara yapılacak anlık doluluk istekleri için 429/403 HTTP durum kodlarına duyarlı "Circuit Breaker" devresi eklenecek ve rastgele saniyeler (jitter) barındıran "Exponential Backoff" katmanı uygulanacaktır.
+<!-- rol: cto -->
+- **Cevap (Tasarım Dili ve Bilgi Hiyerarşisi Kararı):** Haritada tüketici dostu ferah dokunma hedefleri (≥ 48x48pt) ve sade küme pinleri kullanılacak; istasyon detayında ise kademeli açılma (progressive disclosure) ile teknik sürücü kartları sunulacaktır.
+<!-- rol: cto -->
+- **Cevap (Koyu Tema ve FOUC Önleme Kararı):** Sistem tercihi (`prefers-color-scheme`) varsayılan olacak, kullanıcıya Açık/Koyu/Sistem seçeneği verilecektir. Web SSR'da tema çerezden (cookie) okunup `<html>` etiketine hydration öncesi enjekte edilerek parlama (FOUC) engellenecektir.
+<!-- rol: cto -->
+- **Cevap (Veri Yokluğunun Görsel Dili Kararı):** Boş alanlar gizlenmeyecek veya uydurulmayacak; "Operatör Verisi Bekleniyor" nötr gri rozetiyle gösterilecek ve tıklandığında kitle kaynaklı katkı formunu tetikleyen çağrıya (CTA) dönüşecektir.

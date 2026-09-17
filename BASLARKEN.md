@@ -9,19 +9,17 @@ varsayım üretir. Özellikle **6. Başarı Ölçütleri** ölçülebilir olsun.
 - **7. Açık Sorular** → buraya yazdığını model KENDİ karara bağlar.
 
 ## 2. Org şemasını projene uyarla
-`org_chart.json` 9 rollük jenerik bir iskelet. Projene göre rol ekle/çıkar.
-Her rolde: `stage` (design/build), `backend` (cli/agy/api), `model`,
+`org_chart.json` 11 rollük sanal stüdyo iskeleti. Projene göre rol ekle/çıkar.
+Her rolde: `stage` (design/build), `backend` (agy), `model` (gemini-3.1-pro-high / gemini-3.8-flash-high),
 `max_words`, isteğe bağlı `tools`.
 
-Kabuk gerektiren roller `cli` arka ucunda olmalı — izin deseni yalnızca orada
-CLI seviyesinde zorlanır.
+Boru hattı tamamen Google Antigravity (`agy`) CLI ve Gemini modelleri ile çalışır.
 
 ## 3. Ön koşullar
 ```bash
 ./basla.sh --kontrol
 ```
-`claude` CLI (ve şemada varsa `agy`) kurulu olmalı. venv ve `anthropic`
-paketini script kendisi kurar.
+`agy` CLI (`~/.local/bin/agy`) kurulu olmalıdır. venv ortamı script tarafından otomatik yönetilir.
 
 ## 4. Git — kabuk yetkisi vermeden ÖNCE
 ```bash
@@ -44,9 +42,9 @@ Tasarım aşaması (roller sırayla) → sprint panosu → yapım aşaması (pan
 ./basla.sh --sifirla   # ilerlemeyi sıfırla (çıktılar _arsiv/ altına)
 ```
 
-## Bütçe
-Varsayılan günlük kota: **3 görev / 2 USD**. Sınıra yaklaşınca durur ve
-`--onayla` bekler. Değiştirmek için `STUDIO_GUNLUK_GOREV`, `STUDIO_GUNLUK_BUTCE`.
+## Bütçe ve Tempo
+Varsayılan günlük tempo: **3 görev**. Sınıra yaklaşınca durur ve
+`--onayla` bekler. Değiştirmek için `STUDIO_GUNLUK_GOREV`.
 
 Zamana yaymak için launchd (15 dakikada bir tek görev):
 ```bash
@@ -56,13 +54,11 @@ cp studio.tick.plist ~/Library/LaunchAgents/ && launchctl load ~/Library/LaunchA
 ## Ayarlar
 | Değişken | Varsayılan | Ne yapar |
 |---|---|---|
-| `STUDIO_BACKEND` | `cli` | Genel arka uç (cli/agy/api) |
-| `STUDIO_CLI_MODEL` | `sonnet` | claude CLI modeli |
-| `STUDIO_AGY_MODEL` | `gemini-3.1-pro-high` | agy modeli |
-| `STUDIO_EFFORT` | `high` | Düşünme derinliği |
+| `STUDIO_BACKEND` | `agy` | Genel arka uç (Antigravity agy) |
+| `STUDIO_AGY_MODEL` | `gemini-3.1-pro-high` | Varsayılan agy modeli |
+| `STUDIO_EFFORT` | `high` | Düşünme derinliği (low/medium/high) |
 | `STUDIO_DOC_WORDS` | `1800` | Varsayılan kelime bütçesi |
 | `STUDIO_GUNLUK_GOREV` | `3` | Günlük görev kotası |
-| `STUDIO_GUNLUK_BUTCE` | `2.0` | Günlük harcama sınırı (USD) |
 | `STUDIO_RESPECT_CALENDAR` | `0` | `1` ise sprint tarihinden önce başlamaz |
 
 ## Okumadan başlama

@@ -1,0 +1,151 @@
+
+# ==============================================================================
+# elektriklioto.com - Üretim (Production) Compose Yapılandırması
+# Sprint: S5-S6 — Modüler Monolit ve Bağımsız Asenkron Worker Dağıtımı
+# ==============================================================================
+services:
+  postgres:
+    image: postgis/postgis:16-3.4
+    container_name: elektriklioto-db-prod
+    restart: always
+    command: >
+      postgres 
+      -c shared_buffers=512MB 
+      -c work_mem=16MB 
+      -c maintenance_work_mem=128MB 
+      -c effective_cache_size=1536MB 
+      -c max_connections=100
+      -c checkpoint_completion_target=0.9
+      -c wal_buffers=16MB
+    env_file:
+      - ./env/.env.production
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-elektriklioto_prod}
+      POSTGRES_USER: ${POSTGRES_USER:-prod_db_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - pgdata_prod:/var/lib/postgresql/data
+    networks:
+      - elektriklioto-prod-net
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-prod_db_user} -d ${POSTGRES_DB:-elektriklioto_prod}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 2048M
+
+  api:
+    build:
+      context: ../src/backend
+      dockerfile: ../../infra/docker/Dockerfile.api
+    container_name: elektriklioto-api-prod
+    restart: always
+    env_file:
+      - ./env/.env.production
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      HOST: 0.0.0.0
+      DATABASE_URL: postgres://${POSTGRES_USER:-prod_db_user}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-elektriklioto_prod}
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - elektriklioto-prod-net
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://127.0.0.1:3000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 1024M
+
+  worker:
+    build:
+      context: ../src/backend
+      dockerfile: ../../infra/docker/Dockerfile.worker
+    container_name: elektriklioto-worker-prod
+    restart: always
+    env_file:
+      - ./env/.env.production
+    environment:
+      NODE_ENV: production
+      DATABASE_URL: postgres://${POSTGRES_USER:-prod_db_user}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-elektriklioto_prod}
+      WORKER_POLL_INTERVAL_MS: 1000
+      CB_FAILURE_THRESHOLD: 5
+      CB_COOLDOWN_MS: 900000
+      HTTP_TIMEOUT_MS: 5000
+      CPO_SYNC_INTERVAL_MINUTES: 15
+    depends_on:
+      postgres:
+        condition: service_healthy
+      api:
+        condition: service_started
+    networks:
+      - elektriklioto-prod-net
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
+
+  web:
+    build:
+      context: ../src
+      dockerfile: ../infra/docker/Dockerfile.web
+    container_name: elektriklioto-web-prod
+    restart: always
+    env_file:
+      - ./env/.env.production
+    environment:
+      NODE_ENV: production
+      PORT: 3001
+      NUXT_PUBLIC_API_BASE: https://api.elektriklioto.com
+    depends_on:
+      - api
+    networks:
+      - elektriklioto-prod-net
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 1024M
+
+  nginx:
+    image: nginx:1.27-alpine
+    container_name: elektriklioto-nginx-prod
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/production.conf:/etc/nginx/nginx.conf:ro
+      - ssl_certs:/etc/nginx/ssl:ro
+    depends_on:
+      - api
+      - web
+    networks:
+      - elektriklioto-prod-net
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 256M
+
+networks:
+  elektriklioto-prod-net:
+    driver: bridge
+
+volumes:
+  pgdata_prod:
+    driver: local
+  ssl_certs:
+    driver: local

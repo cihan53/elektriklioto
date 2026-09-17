@@ -1,0 +1,9 @@
+
+# ==============================================================================
+# elektriklioto.com - Fastlane Appfile
+# ==============================================================================
+
+app_identifier("com.elektriklioto.app")
+apple_id(ENV["APPLE_ID"] || "developer@elektriklioto.com")
+team_id(ENV["APPLE_TEAM_ID"] || "ELEKTRIKLIOTO_TEAM")
+package_name("com.elektriklioto.app")

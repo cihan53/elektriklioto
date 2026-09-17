@@ -2,6 +2,7 @@
 __pycache__/
 *.pyc
 .DS_Store
+.vscode/
 _arsiv/
 workspace/.scratch/
 workspace/.trace/
@@ -11,3 +12,16 @@ workspace/.gunluk.json
 pipeline.log
 plan.log
 .claude_token
+
+# cPanel ve Dağıtım Geçici Dosyaları
+tmp/
+logs/
+.env
+.env.*
+!.env.cpanel.example
+
+# Node.js Derleme ve Paketleri
+node_modules/
+dist/
+.nuxt/
+.output/

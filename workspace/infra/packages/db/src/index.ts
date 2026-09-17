@@ -1,2 +1,0 @@
-
-export { createDbPool } from './pool';

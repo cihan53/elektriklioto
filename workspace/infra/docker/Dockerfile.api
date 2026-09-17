@@ -1,0 +1,52 @@
+
+# ==============================================================================
+# elektriklioto.com - Fastify API Üretim İmajı
+# Node.js 22 Multi-Stage Build
+# ==============================================================================
+
+# 1. Derleme Aşaması (Builder)
+FROM node:22-alpine AS builder
+
+WORKDIR /app
+
+# Derleme gereksinimleri
+RUN apk add --no-cache python3 make g++
+
+COPY package*.json tsconfig.json ./
+RUN npm ci
+
+COPY src/ ./src/
+
+# TypeScript derleme (dist/ üretir)
+RUN npm run build
+
+# Üretim bağımlılıklarını izole et
+RUN npm prune --omit=dev
+
+# 2. Üretim Çalışma Zamanı (Runtime)
+FROM node:22-alpine AS runner
+
+WORKDIR /app
+
+# Güvenlik: root olmayan kullanıcı oluştur
+RUN addgroup -g 1001 -S nodejs && \
+    adduser -S -u 1001 -G nodejs appuser
+
+ENV NODE_ENV=production \
+    PORT=3000 \
+    HOST=0.0.0.0
+
+# Gerekli kütüphaneleri ve derlenmiş dosyaları kopyala
+COPY --from=builder --chown=appuser:nodejs /app/package.json ./package.json
+COPY --from=builder --chown=appuser:nodejs /app/node_modules ./node_modules
+COPY --from=builder --chown=appuser:nodejs /app/dist ./dist
+
+USER appuser
+
+EXPOSE 3000
+
+# Konteyner içi sağlık denetimi
+HEALTHCHECK --interval=10s --timeout=5s --start-period=5s --retries=3 \
+  CMD wget --no-verbose --tries=1 --spider http://127.0.0.1:3000/health || exit 1
+
+CMD ["node", "dist/server.js"]

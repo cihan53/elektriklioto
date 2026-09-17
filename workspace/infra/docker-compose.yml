@@ -1,22 +1,93 @@
 
+# ==============================================================================
+# elektriklioto.com - Yerel Geliştirme ve Entegrasyon Compose Yapılandırması
+# ==============================================================================
 services:
   postgres:
     image: postgis/postgis:16-3.4
     container_name: elektriklioto-postgres
     restart: unless-stopped
     environment:
-      POSTGRES_USER: ${POSTGRES_USER:-elektriklioto}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-elektriklioto_local_only}
       POSTGRES_DB: ${POSTGRES_DB:-elektriklioto}
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
     ports:
-      - "${POSTGRES_PORT:-5432}:5432"
+      - "5432:5432"
     volumes:
-      - pg_data:/var/lib/postgresql/data
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - elektriklioto-network
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-elektriklioto} -d ${POSTGRES_DB:-elektriklioto}"]
+      test: ["CMD-SHELL", "pg_isready -U postgres -d ${POSTGRES_DB:-elektriklioto}"]
       interval: 5s
       timeout: 5s
-      retries: 20
+      retries: 5
+
+  api:
+    build:
+      context: ../src/backend
+      dockerfile: ../../infra/docker/Dockerfile.api
+    container_name: elektriklioto-api
+    restart: unless-stopped
+    environment:
+      NODE_ENV: development
+      PORT: 3000
+      HOST: 0.0.0.0
+      DATABASE_URL: postgres://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres:5432/${POSTGRES_DB:-elektriklioto}
+      PROXIMITY_SECRET: ${PROXIMITY_SECRET:-elektriklioto-proximity-secret-key-32b!}
+      ROUTE_BRIDGE_SECRET: ${ROUTE_BRIDGE_SECRET:-elektriklioto-route-bridge-secret-32b!}
+      RATE_LIMIT_MAX: 120
+    ports:
+      - "3000:3000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - elektriklioto-network
+
+  worker:
+    build:
+      context: ../src/backend
+      dockerfile: ../../infra/docker/Dockerfile.worker
+    container_name: elektriklioto-worker
+    restart: unless-stopped
+    environment:
+      NODE_ENV: development
+      DATABASE_URL: postgres://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres:5432/${POSTGRES_DB:-elektriklioto}
+      WORKER_POLL_INTERVAL_MS: 1000
+      CB_FAILURE_THRESHOLD: 5
+      CB_COOLDOWN_MS: 900000
+      HTTP_TIMEOUT_MS: 5000
+      CPO_SYNC_INTERVAL_MINUTES: 15
+    depends_on:
+      postgres:
+        condition: service_healthy
+      api:
+        condition: service_started
+    networks:
+      - elektriklioto-network
+
+  web:
+    build:
+      context: ../src
+      dockerfile: ../infra/docker/Dockerfile.web
+    container_name: elektriklioto-web
+    restart: unless-stopped
+    environment:
+      NODE_ENV: development
+      PORT: 3001
+      NUXT_PUBLIC_API_BASE: http://localhost:3000
+    ports:
+      - "3001:3001"
+    depends_on:
+      - api
+    networks:
+      - elektriklioto-network
+
+networks:
+  elektriklioto-network:
+    driver: bridge
 
 volumes:
-  pg_data:
+  pgdata:
+    driver: local

@@ -1,8 +1,16 @@
 
 node_modules
-dist
+npm-debug.log
 .git
+.gitignore
 .env
-*.log
-mobile
-apps/web
+.env.local
+.output
+.nuxt
+dist
+coverage
+*.md
+!README.md
+test
+tests
+docs

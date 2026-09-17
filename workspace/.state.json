@@ -5,13 +5,23 @@
     "workspace/docs/teknoloji_stack_karari.md",
     "workspace/docs/backlog.md",
     "workspace/docs/kabul_kriterleri.md",
+    "workspace/docs/ux_akislari.md",
+    "workspace/docs/ekran_envanteri.md",
+    "workspace/docs/tasarim_sistemi.md",
+    "workspace/docs/arayuz_spesifikasyonu.md",
+    "workspace/docs/tasarim_onizleme.html",
+    "workspace/docs/tasarim_denetimi.md",
     "workspace/docs/paket_secim_raporu.md",
     "workspace/docs/guvenlik_tasarimi.md",
-    "workspace/docs/tehdit_modeli.md"
+    "workspace/docs/tehdit_modeli.md",
+    "workspace/docs/ekip_yapisi.json"
   ],
   "completed_steps": [
     "cto",
     "product_owner",
+    "ux_lead",
+    "ui_designer",
+    "design_critic",
     "tech_scout",
     "security_lead"
   ]

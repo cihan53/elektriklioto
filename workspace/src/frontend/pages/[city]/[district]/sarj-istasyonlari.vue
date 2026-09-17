@@ -1,0 +1,229 @@
+
+<script setup lang="ts">
+import { ref, computed } from 'vue';
+import { useRoute } from 'vue-router';
+import type { StationItem } from '~/types/station';
+import StationSummaryCard from '~/components/station/StationSummaryCard.vue';
+import { Map, ChevronRight, AlertCircle, ArrowLeft, ChevronLeft } from 'lucide-vue-next';
+
+const route = useRoute();
+const config = useRuntimeConfig();
+
+const cityParam = (route.params.city as string) || '';
+const districtParam = (route.params.district as string) || '';
+
+const cityName = computed(() => {
+  const c = cityParam.toLocaleLowerCase('tr');
+  const map: Record<string, string> = {
+    'istanbul': 'İstanbul',
+    'ankara': 'Ankara',
+    'izmir': 'İzmir',
+    'bursa': 'Bursa',
+    'antalya': 'Antalya',
+    'kocaeli': 'Kocaeli',
+    'bolu': 'Bolu'
+  };
+  return map[c] || c.charAt(0).toLocaleUpperCase('tr') + c.slice(1);
+});
+
+const districtName = computed(() => {
+  const d = districtParam.toLocaleLowerCase('tr');
+  const map: Record<string, string> = {
+    'kadikoy': 'Kadıköy',
+    'besiktas': 'Beşiktaş',
+    'uskudar': 'Üsküdar',
+    'sisli': 'Şişli',
+    'bakirkoy': 'Bakırköy',
+    'atasehir': 'Ataşehir',
+    'sariyer': 'Sarıyer',
+    'cankaya': 'Çankaya',
+    'yenimahalle': 'Yenimahalle',
+    'etimesgut': 'Etimesgut',
+    'konak': 'Konak',
+    'karsiyaka': 'Karşıyaka',
+    'bornova': 'Bornova',
+    'cesme': 'Çeşme',
+    'nilufer': 'Nilüfer',
+    'muratpasa': 'Muratpaşa'
+  };
+  return map[d] || d.charAt(0).toLocaleUpperCase('tr') + d.slice(1);
+});
+
+// SSR Veri Çekimi
+const { data: stationsData } = await useFetch<any>(
+  `${config.public.apiBase}/stations`,
+  {
+    params: {
+      city: cityName.value,
+      district: districtName.value,
+      limit: 100
+    }
+  }
+);
+
+const stations = computed<StationItem[]>(() => {
+  if (!stationsData.value) return [];
+  const list = Array.isArray(stationsData.value) ? stationsData.value : (stationsData.value.data || []);
+  return list as StationItem[];
+});
+
+// Sayfalama (24/sayfa)
+const pageSize = 24;
+const currentPage = ref(1);
+
+const totalPages = computed(() => Math.ceil(stations.value.length / pageSize) || 1);
+
+const paginatedStations = computed(() => {
+  const start = (currentPage.value - 1) * pageSize;
+  return stations.value.slice(start, start + pageSize);
+});
+
+// SEO & Schema.org JSON-LD
+useHead(() => {
+  const count = stations.value.length;
+  const title = `${districtName.value} ${cityName.value} Elektrikli Araç Şarj İstasyonları | elektriklioto.com`;
+  const description = `${districtName.value}, ${cityName.value} genelinde EPDK lisanslı toplam ${count} elektrikli araç şarj istasyonu. ZES, Trugo, Eşarj ve tüm operatörlerin güncel adres ve EPDK sicil bilgileri.`;
+
+  return {
+    title,
+    meta: [
+      { name: 'description', content: description },
+      { property: 'og:title', content: title },
+      { property: 'og:description', content: description },
+      { property: 'og:type', content: 'website' }
+    ],
+    script: [
+      {
+        type: 'application/ld+json',
+        innerHTML: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'ItemList',
+          name: `${districtName.value} ${cityName.value} Şarj İstasyonları`,
+          description,
+          numberOfItems: count,
+          itemListElement: paginatedStations.value.map((st, index) => ({
+            '@type': 'ChargingStation',
+            position: index + 1,
+            name: st.name,
+            identifier: st.istasyon_no,
+            geo: {
+              '@type': 'GeoCoordinates',
+              latitude: st.lat,
+              longitude: st.lon
+            },
+            address: {
+              '@type': 'PostalAddress',
+              addressLocality: st.district || districtName.value,
+              addressRegion: st.city || cityName.value,
+              addressCountry: 'TR'
+            }
+          }))
+        })
+      }
+    ]
+  };
+});
+</script>
+
+<template>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full space-y-8">
+    <!-- Breadcrumb -->
+    <nav class="flex items-center gap-1.5 text-xs text-text-secondary" aria-label="Breadcrumb">
+      <NuxtLink to="/" class="hover:text-primary touch-target-min flex items-center">Ana Sayfa</NuxtLink>
+      <ChevronRight class="w-3.5 h-3.5 text-border-strong" />
+      <NuxtLink :to="`/${cityParam}/sarj-istasyonlari`" class="hover:text-primary touch-target-min flex items-center">
+        {{ cityName }} Şarj İstasyonları
+      </NuxtLink>
+      <ChevronRight class="w-3.5 h-3.5 text-border-strong" />
+      <span class="text-text-primary font-medium">{{ districtName }}</span>
+    </nav>
+
+    <!-- Başlık ve Özet Bloğu -->
+    <header class="bg-bg-surface border border-border-default rounded-xl p-6 sm:p-8 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-6">
+      <div class="space-y-2">
+        <h1 class="text-2xl sm:text-3xl font-bold text-text-primary tracking-tight">
+          {{ districtName }} ({{ cityName }}) Elektrikli Araç Şarj İstasyonları
+        </h1>
+        <p class="text-sm text-text-secondary max-w-2xl leading-relaxed">
+          {{ districtName }}, {{ cityName }} genelinde EPDK siciline kayıtlı toplam
+          <strong class="text-text-primary font-semibold">{{ stations.length }}</strong>
+          şarj istasyonu bulunmaktadır.
+        </p>
+      </div>
+
+      <!-- Haritada Gör Eylem Butonu -->
+      <NuxtLink
+        :to="`/?city=${encodeURIComponent(cityName)}&district=${encodeURIComponent(districtName)}`"
+        class="inline-flex items-center justify-center gap-2 h-12 px-6 rounded-md bg-primary text-on-primary font-semibold text-sm shadow-sm hover:bg-primary-hover active:bg-primary-active touch-target-min transition-all flex-shrink-0 focus-visible:outline-none"
+      >
+        <Map class="w-4 h-4" />
+        <span>{{ districtName }} İstasyonlarını Haritada Gör</span>
+      </NuxtLink>
+    </header>
+
+    <!-- İstasyon Kart Izgarası -->
+    <div v-if="paginatedStations.length > 0" class="space-y-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <StationSummaryCard
+          v-for="st in paginatedStations"
+          :key="st.id"
+          :station="st"
+        />
+      </div>
+
+      <!-- Sayfalama -->
+      <div
+        v-if="totalPages > 1"
+        class="flex items-center justify-center gap-2 pt-6 border-t border-border-default"
+      >
+        <button
+          type="button"
+          @click="currentPage = Math.max(1, currentPage - 1)"
+          :disabled="currentPage === 1"
+          class="h-11 px-4 rounded-md border border-border-default bg-bg-surface text-text-primary text-xs font-semibold flex items-center gap-1 disabled:opacity-40 disabled:cursor-not-allowed hover:bg-bg-subdued touch-target-min"
+        >
+          <ChevronLeft class="w-4 h-4" />
+          <span>Önceki</span>
+        </button>
+
+        <span class="text-xs font-medium text-text-secondary px-3">
+          Sayfa {{ currentPage }} / {{ totalPages }}
+        </span>
+
+        <button
+          type="button"
+          @click="currentPage = Math.min(totalPages, currentPage + 1)"
+          :disabled="currentPage === totalPages"
+          class="h-11 px-4 rounded-md border border-border-default bg-bg-surface text-text-primary text-xs font-semibold flex items-center gap-1 disabled:opacity-40 disabled:cursor-not-allowed hover:bg-bg-subdued touch-target-min"
+        >
+          <span>Sonraki</span>
+          <ChevronRight class="w-4 h-4" />
+        </button>
+      </div>
+    </div>
+
+    <!-- Boş Durum -->
+    <div v-else class="p-12 text-center bg-bg-surface border border-border-default rounded-xl space-y-3">
+      <AlertCircle class="w-10 h-10 text-text-muted mx-auto" />
+      <h2 class="text-lg font-bold text-text-primary">Bu ilçede kayıtlı istasyon bulunamadı</h2>
+      <p class="text-xs text-text-secondary max-w-md mx-auto">
+        {{ districtName }} ilçesinde EPDK siciline kayıtlı şarj istasyonu bulunamadı.
+      </p>
+      <NuxtLink
+        :to="`/${cityParam}/sarj-istasyonlari`"
+        class="inline-flex items-center gap-2 px-4 py-2 bg-primary text-on-primary rounded-md text-xs font-semibold touch-target-min"
+      >
+        <ArrowLeft class="w-4 h-4" />
+        {{ cityName }} Genelindeki İstasyonları Görüntüle
+      </NuxtLink>
+    </div>
+
+    <!-- Yasal EMP Dipnot Bildirimi -->
+    <footer class="pt-8 border-t border-border-default text-center text-xs text-text-muted space-y-1">
+      <p>Veri Kaynağı: EPDK Sicil Kaydı (Eylül 2026)</p>
+      <p>
+        elektriklioto.com lisanslı şarj operatörü değildir. Şarj başlatma ve faturalandırma ilgili operatörün sorumluluğundadır.
+      </p>
+    </footer>
+  </div>
+</template>

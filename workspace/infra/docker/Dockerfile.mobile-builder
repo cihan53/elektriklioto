@@ -1,0 +1,54 @@
+
+# ==============================================================================
+# elektriklioto.com - Flutter & Android Mobil Derleme Ortamı (CI/CD Container)
+# Sprint: S6 — Mobil CI/CD ve Build Dağıtımı
+# ==============================================================================
+
+FROM ubuntu:22.04
+
+ENV DEBIAN_FRONTEND=noninteractive \
+    LANG=en_US.UTF-8 \
+    LANGUAGE=en_US:en \
+    LC_ALL=en_US.UTF-8
+
+# Temel bağımlılıklar ve OpenJDK 17 kurulumu
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    bash \
+    curl \
+    git \
+    unzip \
+    xz-utils \
+    zip \
+    libglu1-mesa \
+    openjdk-17-jdk-headless \
+    ca-certificates \
+    locales && \
+    locale-gen en_US.UTF-8 && \
+    rm -rf /var/lib/apt/lists/*
+
+# Ortam Değişkenleri
+ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64 \
+    ANDROID_HOME=/opt/android-sdk \
+    FLUTTER_HOME=/opt/flutter \
+    PATH="/usr/lib/jvm/java-17-openjdk-amd64/bin:/opt/android-sdk/cmdline-tools/latest/bin:/opt/android-sdk/platform-tools:/opt/flutter/bin:/opt/flutter/bin/cache/dart-sdk/bin:${PATH}"
+
+# Android SDK Command-line Tools kurulumu
+RUN mkdir -p ${ANDROID_HOME}/cmdline-tools && \
+    curl -o /tmp/cmdline-tools.zip https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip && \
+    unzip -q /tmp/cmdline-tools.zip -d ${ANDROID_HOME}/cmdline-tools && \
+    mv ${ANDROID_HOME}/cmdline-tools/cmdline-tools ${ANDROID_HOME}/cmdline-tools/latest && \
+    rm /tmp/cmdline-tools.zip
+
+# Android SDK Lisanslarını kabul et ve bileşenleri kur
+RUN yes | sdkmanager --licenses && \
+    sdkmanager "platform-tools" "platforms;android-34" "build-tools;34.0.0"
+
+# Flutter 3.27.1 Stable SDK kurulumu
+RUN git clone -b 3.27.1 --depth 1 https://github.com/flutter/flutter.git ${FLUTTER_HOME} && \
+    flutter config --no-analytics && \
+    flutter precache --android
+
+# Çalışma dizini
+WORKDIR /app
+
+CMD ["flutter", "doctor", "-v"]
