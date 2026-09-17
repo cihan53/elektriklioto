@@ -18,7 +18,7 @@ let dbInstance: PostgresJsDatabase<typeof schema> | null = null;
 
 export function getDb(): PostgresJsDatabase<typeof schema> {
   if (!dbInstance) {
-    if (!config.databaseUrl || config.databaseUrl.includes('localhost:5432')) {
+    if (!config.databaseUrl || config.databaseUrl === 'in-memory') {
       throw new Error('PostgreSQL bağlantısı yapılandırılmadı, in-memory mod devrede');
     }
     try {
@@ -30,8 +30,8 @@ export function getDb(): PostgresJsDatabase<typeof schema> {
         connect_timeout: 10,
       });
       dbInstance = drizzle(client, { schema });
-    } catch (err) {
-      throw new Error('PostgreSQL başlatılamadı');
+    } catch (err: any) {
+      throw new Error(`PostgreSQL başlatılamadı: ${err?.message || err}`);
     }
   }
   return dbInstance!;

@@ -45,10 +45,9 @@ fi
 # 3. Parametreleri Belirleme
 echo -e "\n${BLUE}2/6 · Veritabanı ve Kullanıcı Bilgileri${NC}"
 
-DEFAULT_DB="elektriklioto"
+DEFAULT_DB="elektriklioto_istasyon"
 DEFAULT_USER="elektriklioto_user"
-# 16 karakter rastgele güvenli şifre
-DEFAULT_PASS="$(openssl rand -hex 8 2>/dev/null || echo 'ElkOto_2026_Secure!')"
+DEFAULT_PASS='i=J?Rflmij$45Fe3'
 DEFAULT_PORT="5432"
 DEFAULT_HOST="127.0.0.1"
 
@@ -130,8 +129,9 @@ if [ -f "$SEED_SQL" ]; then
     echo -e "${GREEN}✓ İstasyonlar ve soketler veritabanına aktarıldı.${NC}"
 fi
 
-# 8. .env Dosyasını Güncelleme
-DATABASE_URL="postgres://${DB_USER}:${DB_PASS}@${DEFAULT_HOST}:${DB_PORT}/${DB_NAME}"
+# 8. .env Dosyasını Güncelleme (Şifredeki ?, =, $ gibi özel karakterler için URL-encoding)
+ENCODED_PASS="$($PYTHON_BIN -c "import sys, urllib.parse; print(urllib.parse.quote_plus(sys.argv[1]))" "$DB_PASS")"
+DATABASE_URL="postgres://${DB_USER}:${ENCODED_PASS}@${DEFAULT_HOST}:${DB_PORT}/${DB_NAME}"
 
 ENV_FILE="$ROOT_DIR/.env"
 if [ ! -f "$ENV_FILE" ]; then
