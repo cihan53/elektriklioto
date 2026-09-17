@@ -108,10 +108,14 @@ export PORT=4000
 export HOST=127.0.0.1
 export NODE_ENV=production
 
-log "Backend başlatılıyor: nohup $NODE_BIN cpanel_api_entry.cjs..."
-nohup "$NODE_BIN" cpanel_api_entry.cjs </dev/null >> "$LOG_FILE" 2>&1 &
+log "Backend başlatılıyor: $NODE_BIN cpanel_api_entry.cjs..."
+if which setsid >/dev/null 2>&1; then
+    setsid "$NODE_BIN" cpanel_api_entry.cjs </dev/null >> "$LOG_FILE" 2>&1 &
+else
+    nohup "$NODE_BIN" cpanel_api_entry.cjs </dev/null >> "$LOG_FILE" 2>&1 &
+fi
 NEW_PID=$!
-disown $NEW_PID 2>/dev/null || true
+disown -h $NEW_PID 2>/dev/null || disown $NEW_PID 2>/dev/null || true
 echo "$NEW_PID" > "$PID_FILE"
 log "Backend API arka planda başlatıldı (PID: $NEW_PID)."
 
