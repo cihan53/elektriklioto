@@ -91,6 +91,9 @@ fi
 
 # 3. Ortam Değişkenleri ve Başlatma
 cd "$ROOT_DIR"
+ln -sfn "$ROOT_DIR/workspace/src/backend/node_modules" "$ROOT_DIR/node_modules"
+ln -sfn "$ROOT_DIR/workspace/src/backend/package.json" "$ROOT_DIR/package.json"
+export NODE_PATH="$ROOT_DIR/workspace/src/backend/node_modules:$ROOT_DIR/node_modules"
 export PORT=4000
 export HOST=127.0.0.1
 export NODE_ENV=production

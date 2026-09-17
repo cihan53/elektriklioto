@@ -5,6 +5,24 @@
 
 const path = require('path');
 const fs = require('fs');
+const { pathToFileURL } = require('url');
+
+// Root dizinde node_modules ve package.json sembolik bağını garanti et
+const rootNodeModules = path.resolve(__dirname, 'node_modules');
+const backendNodeModules = path.resolve(__dirname, 'workspace/src/backend/node_modules');
+if (!fs.existsSync(rootNodeModules) && fs.existsSync(backendNodeModules)) {
+  try {
+    fs.symlinkSync('workspace/src/backend/node_modules', rootNodeModules, 'junction');
+  } catch (e) {}
+}
+
+const rootPackageJson = path.resolve(__dirname, 'package.json');
+const backendPackageJson = path.resolve(__dirname, 'workspace/src/backend/package.json');
+if (!fs.existsSync(rootPackageJson) && fs.existsSync(backendPackageJson)) {
+  try {
+    fs.symlinkSync('workspace/src/backend/package.json', rootPackageJson);
+  } catch (e) {}
+}
 
 // .env dosyasını yükle (varsa)
 const envPath = path.resolve(__dirname, '.env');
@@ -20,6 +38,7 @@ if (fs.existsSync(envPath)) {
 process.env.PORT = process.env.PORT || '4000';
 process.env.HOST = process.env.HOST || '127.0.0.1';
 process.env.NODE_ENV = process.env.NODE_ENV || 'production';
+process.env.NODE_PATH = [backendNodeModules, rootNodeModules].join(path.delimiter);
 
 console.log(`[cPanel API] Fastify API Başlatılıyor... PORT: ${process.env.PORT}, NODE_ENV: ${process.env.NODE_ENV}`);
 
@@ -32,7 +51,7 @@ if (!fs.existsSync(apiServerPath)) {
   process.exit(1);
 }
 
-import(apiServerPath)
+import(pathToFileURL(apiServerPath).href)
   .then(() => {
     console.log('[cPanel API] Fastify API sunucusu başarıyla yüklendi.');
   })
@@ -40,3 +59,4 @@ import(apiServerPath)
     console.error('[cPanel API Hata] Fastify sunucusu başlatılamadı:', err);
     process.exit(1);
   });
+
