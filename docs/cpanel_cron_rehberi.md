@@ -32,7 +32,7 @@ Sunucu trafiğinin en düşük olduğu gece saatleri önerilir:
 Aşağıdaki komutu cPanel'deki **Komut (Command)** kutusuna yapıştırınız:
 
 ```bash
-/bin/bash /home/elektriklioto/app/scripts/cron_daily_sync.sh
+/bin/bash /home/elektriklioto/app/server-scripts/cron_daily_sync.sh
 ```
 
 ---
@@ -43,7 +43,7 @@ Cronjob'ı beklemeden komutun çalıştığını SSH terminalinizden test etmek 
 
 ```bash
 cd /home/elektriklioto/app
-./scripts/cron_daily_sync.sh
+./server-scripts/cron_daily_sync.sh
 ```
 
 ### Log Çıktısını İzleme:

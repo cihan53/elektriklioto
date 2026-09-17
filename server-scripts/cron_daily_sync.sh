@@ -51,39 +51,42 @@ log "Kullanılan Python: $PYTHON_BIN ($($PYTHON_BIN --version 2>&1))"
 cd "$ROOT_DIR"
 
 log "ETL Pipeline (import_cpo_stations.py) çalıştırılıyor..."
-if $PYTHON_BIN scripts/import_cpo_stations.py >> "$LOG_FILE" 2>&1; then
+if $PYTHON_BIN server-scripts/import_cpo_stations.py >> "$LOG_FILE" 2>&1; then
     log "ETL Pipeline başarıyla tamamlandı."
 else
     log "UYARI: ETL Pipeline çalışırken bir sorun oluştu! Log dosyasını inceleyiniz."
 fi
 
 # 3. Güncellenen Verinin Boyut ve Durum Kontrolü
-OUTPUT_JSON="$ROOT_DIR/workspace/src/backend/src/data/cpo_stations.json"
-if [ -f "$OUTPUT_JSON" ]; then
-    STATION_COUNT=$($PYTHON_BIN -c "import json; data=json.load(open('$OUTPUT_JSON')); print(len(data))" 2>/dev/null || echo "Bilinmiyor")
-    FILE_SIZE=$(ls -lh "$OUTPUT_JSON" | awk '{print $5}')
-    log "Güncel İstasyon Veri Havuzu: $OUTPUT_JSON"
-    log "Toplam Aktif İstasyon Sayısı: $STATION_COUNT (Dosya Boyutu: $FILE_SIZE)"
+DATA_FILE="$ROOT_DIR/workspace/src/backend/src/data/cpo_stations.json"
+if [ -f "$DATA_FILE" ]; then
+    FILE_SIZE=$(du -h "$DATA_FILE" | cut -f1)
+    STATION_COUNT=$($PYTHON_BIN -c "import json; data=json.load(open('$DATA_FILE')); print(len(data))" 2>/dev/null || echo "Bilinmiyor")
+    log "Güncel İstasyon Dosyası: $FILE_SIZE ($STATION_COUNT istasyon hazır)"
 else
-    log "UYARI: Çıktı dosyası ($OUTPUT_JSON) bulunamadı!"
+    log "UYARI: cpo_stations.json dosyası bulunamadı!"
 fi
 
-# 4. API Servisini Yeniden Başlat (Bellek-içi önbelleği tazelemesi için)
-mkdir -p "$ROOT_DIR/tmp"
-touch "$ROOT_DIR/tmp/restart.txt"
-if [ -f "$ROOT_DIR/scripts/start_backend.sh" ]; then
-    bash "$ROOT_DIR/scripts/start_backend.sh" >> "$LOG_FILE" 2>&1 || true
-fi
-log "cPanel Passenger ve Backend API tazelendi (start_backend.sh / tmp/restart.txt)."
+# 4. cPanel Passenger Yeniden Başlatma (Zero-downtime reload)
+TMP_DIR="$ROOT_DIR/tmp"
+mkdir -p "$TMP_DIR"
+touch "$TMP_DIR/restart.txt"
 
-# 5. Log Dosyası Boyut Sınırlandırması (10.000 satırı aşarsa son 5.000 satırı tut)
+# Frontend SSR için de restart bayrağı bırak (varsa)
+if [ -d "$ROOT_DIR/workspace/src/frontend/tmp" ]; then
+    touch "$ROOT_DIR/workspace/src/frontend/tmp/restart.txt"
+fi
+
+log "cPanel Passenger uygulaması yeniden başlatıldı (restart.txt)."
+
+# 5. Log Temizliği (Log dosyası 5 MB'ı geçerse son 1000 satırı tut)
 if [ -f "$LOG_FILE" ]; then
-    LINE_COUNT=$(wc -l < "$LOG_FILE")
-    if [ "$LINE_COUNT" -gt 10000 ]; then
-        tail -n 5000 "$LOG_FILE" > "$LOG_FILE.tmp" && mv "$LOG_FILE.tmp" "$LOG_FILE"
-        log "Log dosyası rotasyonu yapıldı (son 5.000 satır saklandı)."
+    FILE_BYTES=$(wc -c < "$LOG_FILE")
+    if [ "$FILE_BYTES" -gt 5242880 ]; then
+        tail -n 1000 "$LOG_FILE" > "$LOG_FILE.tmp" && mv "$LOG_FILE.tmp" "$LOG_FILE"
+        log "Log dosyası rotasyona tabi tutuldu (5 MB sınırı aşıldı)."
     fi
 fi
 
-log "Günlük İstasyon Senkronizasyonu Başarıyla Tamamlandı."
+log "Günlük Senkronizasyon İşlemi Tamamlandı."
 log "========================================================"

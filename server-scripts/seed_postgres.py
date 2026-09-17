@@ -24,7 +24,7 @@ DATA_CANDIDATES = [
     ROOT / "istasyonlar.json"
 ]
 
-OUTPUT_SQL = ROOT / "scripts" / "seed_data.sql"
+OUTPUT_SQL = ROOT / "server-scripts" / "seed_data.sql"
 
 
 def sql_escape(val) -> str:
@@ -151,9 +151,9 @@ def main():
             else:
                 print(f"[!] psql çalıştırma uyarısı: {res.stderr[:200]}")
         except Exception as e:
-            print(f"[i] psql komutu doğrudan çalıştırılamadı ({e}). Dosya 'scripts/seed_data.sql' olarak pgAdmin veya psql için hazır.")
+            print(f"[i] psql komutu doğrudan çalıştırılamadı ({e}). Dosya 'server-scripts/seed_data.sql' olarak pgAdmin veya psql için hazır.")
     else:
-        print("[i] 'scripts/seed_data.sql' dosyası hazırlandı. pgAdmin Query Tool veya psql ile içe aktarabilirsiniz.")
+        print("[i] 'server-scripts/seed_data.sql' dosyası hazırlandı. pgAdmin Query Tool veya psql ile içe aktarabilirsiniz.")
 
 
 if __name__ == "__main__":

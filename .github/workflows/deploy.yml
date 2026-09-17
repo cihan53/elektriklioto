@@ -85,7 +85,7 @@ jobs:
             cpanel_nuxt_entry.cjs \
             .htaccess \
             .env.cpanel.example \
-            scripts/ \
+            server-scripts/ \
             workspace/src/backend/dist \
             workspace/src/backend/node_modules \
             workspace/src/backend/package.json \
@@ -141,11 +141,11 @@ jobs:
             echo "==> public_html güncellendi ve .htaccess uygulandı."
 
             mkdir -p tmp logs
-            chmod +x scripts/*.sh 2>/dev/null || true
-            chmod +x scripts/*.py 2>/dev/null || true
+            chmod +x server-scripts/*.sh 2>/dev/null || true
+            chmod +x server-scripts/*.py 2>/dev/null || true
 
             echo "==> Backend Fastify API servisi başlatılıyor..."
-            bash scripts/start_backend.sh || echo "UYARI: start_backend.sh arka plan başlatma uyarısı verdi."
+            bash server-scripts/start_backend.sh || echo "UYARI: start_backend.sh arka plan başlatma uyarısı verdi."
 
             touch tmp/restart.txt
             echo "==> Dağıtım ve servis başlatma başarıyla tamamlandı: ${{ needs.version_and_release.outputs.new_tag || 'v1.0.0' }}"

@@ -106,7 +106,7 @@ echo -e "${GREEN}✓ Eklentiler ve şema izinleri tanımlandı.${NC}"
 
 # 6. Tablo Şemalarını Oluşturma (schema.sql)
 echo -e "\n${BLUE}5/6 · Tablolar ve İndeksler Kuruluyor (schema.sql)...${NC}"
-SCHEMA_FILE="$ROOT_DIR/scripts/schema.sql"
+SCHEMA_FILE="$SCRIPT_DIR/schema.sql"
 if [ -f "$SCHEMA_FILE" ]; then
     $PSQL_SUPER -d "$DB_NAME" -f "$SCHEMA_FILE" >/dev/null
     echo -e "${GREEN}✓ Tablolar başarıyla oluşturuldu (operator, station, connector vb.).${NC}"
@@ -121,12 +121,18 @@ cd "$ROOT_DIR"
 PYTHON_BIN=".venv/bin/python"
 [ -x "$PYTHON_BIN" ] || PYTHON_BIN="python3"
 
-# seed_data.sql üret ve psql ile bas
-$PYTHON_BIN scripts/seed_postgres.py >/dev/null
-SEED_SQL="$ROOT_DIR/scripts/seed_data.sql"
+# seed_data.sql hazır ise doğrudan yükle, değilse seed_postgres.py ile üret
+SEED_SQL="$SCRIPT_DIR/seed_data.sql"
+if [ ! -f "$SEED_SQL" ]; then
+    echo -e "${YELLOW}seed_data.sql oluşturuluyor...${NC}"
+    $PYTHON_BIN "$SCRIPT_DIR/seed_postgres.py" >/dev/null 2>&1 || true
+fi
+
 if [ -f "$SEED_SQL" ]; then
     $PSQL_SUPER -d "$DB_NAME" -f "$SEED_SQL" >/dev/null
     echo -e "${GREEN}✓ İstasyonlar ve soketler veritabanına aktarıldı.${NC}"
+else
+    echo -e "${YELLOW}Uyarı: seed_data.sql bulunamadı, tohumlama adımı atlandı.${NC}"
 fi
 
 # 8. .env Dosyasını Güncelleme (Şifredeki ?, =, $ gibi özel karakterler için URL-encoding)
