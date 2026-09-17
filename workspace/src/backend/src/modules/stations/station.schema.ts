@@ -30,7 +30,22 @@ export const StationSummarySchema = Type.Object({
   district: Type.String(),
   operator_id: Type.Integer(),
   operator_name: Type.String(),
+  operator: Type.Optional(OperatorSummarySchema),
   is_flagged_defective: Type.Boolean(),
+});
+
+export const ClusterItemSchema = Type.Object({
+  cluster_id: Type.String(),
+  count: Type.Integer(),
+  lat: Type.Number(),
+  lon: Type.Number(),
+});
+
+export const StationsResponseSchema = Type.Object({
+  type: Type.String(),
+  zoom: Type.Number(),
+  count: Type.Integer(),
+  data: Type.Array(Type.Any()),
 });
 
 export const StationDetailResponseSchema = Type.Object({

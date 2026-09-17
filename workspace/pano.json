@@ -1109,11 +1109,62 @@
       "planned_start": "2026-09-17",
       "planned_end": "2026-09-17",
       "_summary_printed": true
+    },
+    {
+      "id": "S10",
+      "name": "Müşteri Denetimi & Saha Onarımları (TALEP-010)",
+      "goal": "Site sahibinin ilettiği 1 adet müşteri talebinin çözülmesi ve UAT ile kabul edilmesi.",
+      "planned_days": 1,
+      "tasks": [
+        {
+          "id": "S10-T1",
+          "title": "[TALEP-010] Aramalar ve istasyon kayıtları veritabanından gelmiyor, veritabanı tabloları boş görünüyor",
+          "description": "Müşteri Talebi: Müşteri Geri Bildirimi: Halen aramalar kayıtlar veri tabanından gelmiyor, veritabanı ne işe yarıyor, kontrol ettiğinde tablolar boş görünüyor der. PostgreSQL/PostGIS veritabanı ile backend station/search servisleri arasındaki entegrasyonun kurulması, istasyon ve soket verilerinin veritabanına işlenmesi ve aramaların doğrudan veritabanı sorgularından beslenmesi gerekiyor.\nÇözüm Planı: workspace/docs/cozum_planlari/TALEP-010.md",
+          "role": "backend_engineer",
+          "phase": "develop",
+          "outputs": [
+            "workspace/src/backend/src/modules/",
+            "workspace/src/backend/src/app.ts"
+          ],
+          "depends_on": [],
+          "talep_id": "TALEP-010",
+          "status": "DONE",
+          "attempts": 1,
+          "note": "",
+          "started_at": 1789678897.628396,
+          "finished_at": 1789679518.4822998,
+          "duration_s": 620.9
+        },
+        {
+          "id": "S10-T2",
+          "title": "[TALEP-010] Müşteri Kabulü & UAT Doğrulama Denetimi",
+          "description": "TALEP-010 için yapılan düzeltmenin canlı sistemde çalıştığını ve 0 konsol hatası olduğunu doğrula.",
+          "role": "uat_auditor",
+          "phase": "test",
+          "outputs": [
+            "workspace/docs/uat_kabul_raporu.md"
+          ],
+          "depends_on": [
+            "S10-T1"
+          ],
+          "talep_id": "TALEP-010",
+          "status": "RUNNING",
+          "attempts": 1,
+          "note": "",
+          "started_at": 1789679518.485253
+        }
+      ],
+      "order": 9,
+      "status": "READY",
+      "actual_start": "2026-09-18T00:01:37",
+      "actual_end": null,
+      "planned_start": "2026-09-18",
+      "planned_end": "2026-09-18"
     }
   ],
   "created_at": "2026-09-06T17:56:01",
-  "baseline_end": "2026-09-23",
-  "updated_at": "2026-09-17T22:43:57",
+  "baseline_end": "2026-09-18",
+  "updated_at": "2026-09-18T00:11:58",
   "_runtime": {
     "done_outputs": []
   }

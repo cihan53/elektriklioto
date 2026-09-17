@@ -8,6 +8,7 @@ import {
   StationSummarySchema,
   StationQuerySchema,
   StationSearchResponseSchema,
+  StationsResponseSchema,
 } from './station.schema.js';
 import { gadmService } from '../gadm/gadm.service.js';
 import {
@@ -137,7 +138,7 @@ export const stationRoutes: FastifyPluginAsync = async (fastify) => {
         tags: ['Stations'],
         querystring: StationQuerySchema,
         response: {
-          200: Type.Array(StationSummarySchema),
+          200: Type.Union([StationsResponseSchema, Type.Array(StationSummarySchema)]),
         },
       },
     },
