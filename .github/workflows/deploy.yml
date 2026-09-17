@@ -65,17 +65,18 @@ jobs:
             fi
 
             echo "==> Proje dizinine ($APP_DIR) gidiliyor..."
-            if [ ! -d "$APP_DIR" ]; then
-              echo "HATA: Proje dizini ($APP_DIR) bulunamadı! Lütfen sunucuda dizini oluşturup git clone yapınız."
-              exit 1
-            fi
+            mkdir -p "$APP_DIR"
             cd "$APP_DIR"
 
-            echo "==> Conflict (çakışma) önleyici güncelleme yapılıyor..."
-            # Sunucuda dosya izinleri veya yerel önbelleklerden kaynaklanan conflict'leri
-            # temizleyerek doğrudan hedef daldaki haline eşitler.
-            git fetch origin ${{ github.ref_name }}
-            git reset --hard origin/${{ github.ref_name }}
+            if [ ! -d ".git" ]; then
+              echo "==> İlk kurulum: Git deposu klonlanıyor..."
+              git clone -b ${{ github.ref_name }} https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git .
+            else
+              echo "==> Conflict (çakışma) önleyici güncelleme yapılıyor..."
+              git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git || true
+              git fetch origin ${{ github.ref_name }}
+              git reset --hard origin/${{ github.ref_name }}
+            fi
 
             echo "==> Dağıtım betiği (.github/scripts/deploy.sh) çalıştırılıyor..."
             bash .github/scripts/deploy.sh
