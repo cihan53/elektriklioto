@@ -114,8 +114,9 @@ if [ -d "$PROJ_DIR/workspace/src/frontend/tmp" ]; then
 fi
 
 # Betik izinlerini tazele
-chmod +x "$PROJ_DIR/scripts/cron_daily_sync.sh" 2>/dev/null || true
-chmod +x "$PROJ_DIR/scripts/import_cpo_stations.py" 2>/dev/null || true
+chmod +x "$PROJ_DIR/server-scripts/cron_daily_sync.sh" 2>/dev/null || true
+chmod +x "$PROJ_DIR/server-scripts/import_cpo_stations.py" 2>/dev/null || true
+chmod +x "$PROJ_DIR/server-scripts/"*.sh 2>/dev/null || true
 
 echo "========================================================"
 echo "  Dağıtım ve Yeniden Başlatma Başarıyla Tamamlandı!"
