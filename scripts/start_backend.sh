@@ -8,6 +8,9 @@
 
 set -e
 
+# Dosya tanıtıcı sınırını genişlet (CloudLinux EMFILE hatasını önler)
+ulimit -n 4096 2>/dev/null || ulimit -n 2048 2>/dev/null || true
+
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ROOT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
 PID_FILE="$ROOT_DIR/tmp/backend.pid"
