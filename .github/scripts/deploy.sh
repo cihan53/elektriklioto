@@ -9,27 +9,65 @@ echo "========================================================"
 PROJ_DIR="$(pwd)"
 echo "==> Proje dizini: $PROJ_DIR"
 
-# 1. cPanel Ortamında Node.js ve npm Yollarının Tespiti
-export PATH="/opt/cpanel/ea-nodejs20/bin:/opt/cpanel/ea-nodejs18/bin:$HOME/nodevenv/app/20/bin:$HOME/nodevenv/app/18/bin:$HOME/.nvm/versions/node/$(ls $HOME/.nvm/versions/node 2>/dev/null | tail -n 1)/bin:$HOME/bin:$PATH"
+# 1. Modern Node.js (>= 18) Tespiti ve Hazırlanması
+find_modern_node() {
+    local candidates=(
+        "/opt/cpanel/ea-nodejs22/bin/node"
+        "/opt/cpanel/ea-nodejs20/bin/node"
+        "/opt/cpanel/ea-nodejs18/bin/node"
+        "/opt/alt/alt-nodejs22/root/usr/bin/node"
+        "/opt/alt/alt-nodejs20/root/usr/bin/node"
+        "/opt/alt/alt-nodejs18/root/usr/bin/node"
+        "$HOME/.local/node20/bin/node"
+        "$HOME/.nvm/versions/node/$(ls $HOME/.nvm/versions/node 2>/dev/null | tail -n 1)/bin/node"
+        "$(which node 2>/dev/null || true)"
+    )
 
-NODE_BIN=""
-if which node >/dev/null 2>&1; then
-    NODE_BIN="$(which node)"
-elif [ -f /usr/local/bin/node ]; then
-    NODE_BIN="/usr/local/bin/node"
+    for cand in "${candidates[@]}"; do
+        if [ -n "$cand" ] && [ -x "$cand" ]; then
+            local ver
+            ver="$($cand -v 2>/dev/null || true)"
+            local major
+            major=$(echo "$ver" | sed -E 's/^v([0-9]+).*/\1/')
+            if [ -n "$major" ] && [ "$major" -ge 18 ]; then
+                echo "$cand"
+                return 0
+            fi
+        fi
+    done
+    return 1
+}
+
+NODE_BIN="$(find_modern_node || true)"
+
+# Eğer sistemde modern Node.js yoksa kullanıcı dizinine Node v20 LTS indir
+if [ -z "$NODE_BIN" ]; then
+    echo "==> Sistemde modern Node.js (>= 18) bulunamadı. Kullanıcı dizinine ($HOME/.local/node20) Node.js v20 LTS kuruluyor..."
+    mkdir -p "$HOME/.local"
+    NODE_TAR="node-v20.18.0-linux-x64.tar.gz"
+    NODE_URL="https://nodejs.org/dist/v20.18.0/$NODE_TAR"
+    
+    cd "$HOME/.local"
+    if curl -fsSL "$NODE_URL" -o "$NODE_TAR"; then
+        tar -xzf "$NODE_TAR"
+        rm -rf node20
+        mv node-v20.18.0-linux-x64 node20
+        rm -f "$NODE_TAR"
+        echo "==> Node.js v20 LTS başarıyla kuruldu."
+    else
+        echo "HATA: Node.js v20 indirilemedi!"
+        exit 1
+    fi
+    cd "$PROJ_DIR"
+    NODE_BIN="$HOME/.local/node20/bin/node"
 fi
 
-NPM_BIN=""
-if which npm >/dev/null 2>&1; then
+NODE_DIR="$(dirname "$NODE_BIN")"
+export PATH="$NODE_DIR:$PATH"
+NPM_BIN="$NODE_DIR/npm"
+
+if [ ! -x "$NPM_BIN" ]; then
     NPM_BIN="$(which npm)"
-elif [ -f /usr/local/bin/npm ]; then
-    NPM_BIN="/usr/local/bin/npm"
-fi
-
-if [ -z "$NODE_BIN" ] || [ -z "$NPM_BIN" ]; then
-    echo "HATA: Node.js veya npm sistemde bulunamadı!"
-    echo "Lütfen cPanel 'Setup Node.js App' üzerinden Node.js ortamını etkinleştirdiğinizden emin olunuz."
-    exit 1
 fi
 
 echo "==> Kullanılan Node: $NODE_BIN ($($NODE_BIN -v))"
