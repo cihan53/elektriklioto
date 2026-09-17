@@ -33,31 +33,29 @@ export const routeBridgeRoutes: FastifyPluginAsync = async (fastify) => {
   );
 
   // Rota Çözümleme
-  const decodeHandler = async (request: any) => {
-    const { payload } = request.params;
-    const decoded = routeBridgeService.decodeRoute(payload);
-    return {
-      version: decoded.version,
-      stops: decoded.stops,
-      expires_at: decoded.expires_at,
-      is_valid: true,
-    };
-  };
-
-  const decodeRouteSchema = {
-    schema: {
-      description: 'Base64URL rota payloadını doğrular ve istasyon duraklarını döner.',
-      tags: ['Route Bridge'],
-      params: Type.Object({
-        payload: Type.String(),
-      }),
-      response: {
-        200: RouteDetailResponseSchema,
+  app.get(
+    '/r/:payload',
+    {
+      schema: {
+        description: 'Base64URL rota payloadını doğrular ve istasyon duraklarını döner.',
+        tags: ['Route Bridge'],
+        params: Type.Object({
+          payload: Type.String(),
+        }),
+        response: {
+          200: RouteDetailResponseSchema,
+        },
       },
     },
-  };
-
-  app.get('/r/:payload', decodeRouteSchema, decodeHandler);
-  app.get('/api/v1/routes/bridge/decode/:payload', decodeRouteSchema, decodeHandler);
-  app.get('/api/v1/route-bridge/decode/:payload', decodeRouteSchema, decodeHandler);
+    async (request) => {
+      const { payload } = request.params;
+      const decoded = routeBridgeService.decodeRoute(payload);
+      return {
+        version: decoded.version,
+        stops: decoded.stops,
+        expires_at: decoded.expires_at,
+        is_valid: true,
+      };
+    }
+  );
 };

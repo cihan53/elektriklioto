@@ -395,6 +395,33 @@
         "Bash(mkdir:*)",
         "Bash(env:*)"
       ]
+    },
+    {
+      "id": "recovery_sentinel",
+      "title": "Süreç, Kurtarma ve Dağıtım Nöbetçisi",
+      "system_prompt": "Stüdyo açılışında ve çalışma esnasında 'İşler yarım kaldı mı?' ve 'Deploy yarım kaldı mı?' denetimini icra edersin. Çöken veya yetim kalan pano görevlerini tespit eder ve sıraya alırsın. Kod tabanında geliştirilmiş ancak henüz canlıya aktarılmamış (uncommitted/unpushed) değişiklikleri ve çözülen müşteri taleplerini tespit edip, paketleyerek GitHub Actions CI/CD hattına (origin/master) pushlarsın. 'Yarım kalan işler ve deploy tamamlandı' raporu ile sistemi tam senkron tutarsın.",
+      "inputs": [
+        "workspace/pano.json",
+        "workspace/docs/musteri_talepleri.json"
+      ],
+      "outputs": [
+        "workspace/docs/kurtarma_ve_dagitim_gunlugu.md"
+      ],
+      "stage": "build",
+      "backend": "agy",
+      "model": "gemini-3.8-flash-high",
+      "max_words": 1200,
+      "tools": [
+        "Read",
+        "Glob",
+        "Grep",
+        "Bash(git status:*)",
+        "Bash(git log:*)",
+        "Bash(git diff:*)",
+        "Bash(git add:*)",
+        "Bash(git commit:*)",
+        "Bash(git push:*)"
+      ]
     }
   ]
 }

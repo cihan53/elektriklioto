@@ -20,7 +20,7 @@ export const FreshnessBadgeSchema = Type.Object({
 });
 
 export const StationSummarySchema = Type.Object({
-  id: Type.String(),
+  id: Type.String({ format: 'uuid' }),
   istasyon_no: Type.String(),
   slug: Type.String(),
   name: Type.String(),
@@ -30,38 +30,11 @@ export const StationSummarySchema = Type.Object({
   district: Type.String(),
   operator_id: Type.Integer(),
   operator_name: Type.String(),
-  operator: Type.Optional(OperatorSummarySchema),
   is_flagged_defective: Type.Boolean(),
-  connector_types: Type.Optional(Type.Union([Type.Array(Type.String()), Type.Null()])),
-  power_kw: Type.Optional(Type.Union([Type.Number(), Type.Null()])),
-  current_tariff: Type.Optional(Type.Union([Type.String(), Type.Null()])),
-  occupancy_status: Type.Optional(Type.Union([Type.String(), Type.Null()])),
-});
-
-export const ClusterSummarySchema = Type.Object({
-  cluster_id: Type.String(),
-  city: Type.String(),
-  count: Type.Integer(),
-  lat: Type.Number(),
-  lon: Type.Number(),
-});
-
-export const StationsClusterResponseSchema = Type.Object({
-  type: Type.Literal('clusters'),
-  zoom: Type.Number(),
-  count: Type.Integer(),
-  data: Type.Array(ClusterSummarySchema),
-});
-
-export const StationsListResponseSchema = Type.Object({
-  type: Type.Literal('stations'),
-  zoom: Type.Number(),
-  count: Type.Integer(),
-  data: Type.Array(StationSummarySchema),
 });
 
 export const StationDetailResponseSchema = Type.Object({
-  id: Type.String(),
+  id: Type.String({ format: 'uuid' }),
   istasyon_no: Type.String(),
   slug: Type.String(),
   name: Type.String(),
@@ -85,7 +58,32 @@ export const StationDetailResponseSchema = Type.Object({
 
 export const StationQuerySchema = Type.Object({
   bbox: Type.Optional(Type.String({ description: 'minLon,minLat,maxLon,maxLat' })),
-  zoom: Type.Optional(Type.Union([Type.Number(), Type.String()])),
+  zoom: Type.Optional(Type.Number({ default: 12 })),
   operator: Type.Optional(Type.String()),
+  city: Type.Optional(Type.String()),
+  district: Type.Optional(Type.String()),
+  q: Type.Optional(Type.String()),
 });
 
+export const StationSearchResponseSchema = Type.Object({
+  query: Type.String(),
+  matched_region: Type.Optional(
+    Type.Object({
+      type: Type.String(),
+      name: Type.String(),
+      province: Type.String(),
+      district: Type.Union([Type.String(), Type.Null()]),
+      center: Type.Object({
+        lat: Type.Number(),
+        lon: Type.Number(),
+      }),
+      bbox: Type.Object({
+        min_lon: Type.Number(),
+        min_lat: Type.Number(),
+        max_lon: Type.Number(),
+        max_lat: Type.Number(),
+      }),
+    })
+  ),
+  stations: Type.Array(StationSummarySchema),
+});

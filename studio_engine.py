@@ -1468,6 +1468,8 @@ def execute_task(org: dict, task: dict, sprint: dict, brief: str, board: dict,
         try:
             sys.path.insert(0, str(ROOT / "scripts"))
             import musteri_talepleri as MT
+            import importlib
+            importlib.reload(MT)
             if task.get("phase") == "test":
                 MT.guncelle(task["talep_id"], durum="COZULDU",
                             studio_notu=f"Görev {task['id']} başarıyla tamamlandı ve UAT testinden geçti.")
@@ -1680,6 +1682,14 @@ def run_board(org: dict, brief: str, once: bool = False,
               max_tasks: int = 0, max_cost: float = 0.0,
               interactive: bool = False) -> int:
     """Panoyu ilerletir. once=True ise yalnızca bir görev yürütür (tick)."""
+    # 0. Süreç, Kurtarma ve Dağıtım Nöbetçisi Ajanı (Failover & Deploy Recovery)
+    try:
+        sys.path.insert(0, str(ROOT / "scripts"))
+        import recovery_sentinel as RS
+        RS.RecoverySentinelAgent(verbose=True).denetle_ve_kurtar(oto_push=True)
+    except Exception as e:
+        print(f"  [!] Kurtarma Ajanı uyarısı: {e}")
+
     board = B.load()
     # 1. Yarım kalan / hata veren süreçleri otomatik kurtar
     kurtarilan = otomatik_kurtar_ve_temizle(board)

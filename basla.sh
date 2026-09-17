@@ -57,6 +57,9 @@ if idx.exists() and idx.read_text().strip():
     print(f"Toplam Token  : {(tin + tout):,}")
 PYEOF
       exit 0 ;;
+  --kurtar|--deploy|--recovery)
+      $PY scripts/recovery_sentinel.py
+      exit 0 ;;
   --canli|--dev)
       exec ./canli.sh ;;
   --test-izle)
@@ -204,17 +207,14 @@ if [ "$SADECE_KONTROL" = "1" ]; then
   exit 0
 fi
 
-# ---------------------------------------------------------------- oto-kurtarma ve müşteri talepleri senkronizasyonu
+# ---------------------------------------------------------------- 1. Kurtarma ve Dağıtım Nöbetçisi (Failover & Deploy Sentinel)
+$PY scripts/recovery_sentinel.py
+
+# ---------------------------------------------------------------- 2. Müşteri Talepleri Senkronizasyonu
 $PY - <<'PYEOF'
 import sys
 sys.path.insert(0, "scripts")
 try:
-    import studio_engine as SE
-    import studio_board as B
-    board = B.load()
-    kurtarilan = SE.otomatik_kurtar_ve_temizle(board)
-    if kurtarilan > 0:
-        print(f"  [🔄] Önceki oturumdan kalan {kurtarilan} adet yarım/hatalı görev sıraya alındı.")
     import studio_yetkilisi as SY
     eklenen = SY.otomatik_musteri_talepleri_senkronize_et()
     if eklenen > 0:

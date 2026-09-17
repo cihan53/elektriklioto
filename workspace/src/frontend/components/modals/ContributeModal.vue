@@ -15,6 +15,7 @@ const emit = defineEmits<{
 }>();
 
 const { showToast } = useToast();
+const isTeleportDisabled = import.meta.env?.MODE === 'test' || (typeof process !== 'undefined' && process.env?.NODE_ENV === 'test');
 
 const selectedSocket = ref<string>('CCS');
 const selectedPower = ref<string>('120 kW');
@@ -35,83 +36,85 @@ const handleSubmit = () => {
 </script>
 
 <template>
-  <div
-    v-if="isOpen && station"
-    class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
-    role="dialog"
-    aria-modal="true"
-    aria-labelledby="contribute-modal-title"
-  >
+  <Teleport to="body" :disabled="isTeleportDisabled">
     <div
-      class="w-full max-w-md bg-bg-surface border border-border-default rounded-xl shadow-2xl p-6 relative flex flex-col"
+      v-if="isOpen && station"
+      class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="contribute-modal-title"
     >
-      <button
-        type="button"
-        @click="emit('close')"
-        class="absolute top-4 right-4 touch-target-min flex items-center justify-center text-text-secondary hover:text-text-primary rounded-md focus-visible:outline-none"
-        aria-label="Modalı Kapat"
+      <div
+        class="w-full max-w-md bg-bg-surface border border-border-default rounded-xl shadow-2xl p-6 relative flex flex-col"
       >
-        <X class="w-5 h-5" />
-      </button>
-
-      <div class="flex items-center gap-2 text-primary mb-1">
-        <PlusCircle class="w-5 h-5" />
-        <h3 id="contribute-modal-title" class="text-base font-bold text-text-primary">
-          İstasyon Bilgisi Ekle
-        </h3>
-      </div>
-      <p class="text-xs text-text-secondary mb-4 leading-relaxed">
-        <strong class="text-text-primary">{{ station.name }}</strong> için soket veya güç bilgisi ekleyerek topluluğa destek olun.
-      </p>
-
-      <form @submit.prevent="handleSubmit" class="space-y-4">
-        <!-- Soket Tipi -->
-        <div>
-          <label class="block text-xs font-semibold text-text-primary mb-1.5">Soket Tipi</label>
-          <div class="space-y-2">
-            <label
-              v-for="opt in socketOptions"
-              :key="opt"
-              class="flex items-center gap-2 p-2.5 rounded-md border border-border-default bg-bg-subdued text-xs text-text-primary cursor-pointer hover:bg-border-default touch-target-min"
-            >
-              <input
-                type="radio"
-                name="socket"
-                :value="opt"
-                v-model="selectedSocket"
-                class="text-primary focus:ring-primary"
-              />
-              <span>{{ opt }}</span>
-            </label>
-          </div>
-        </div>
-
-        <!-- Tahmini Şarj Gücü -->
-        <div>
-          <label class="block text-xs font-semibold text-text-primary mb-1.5">Tahmini Şarj Gücü</label>
-          <div class="flex flex-wrap gap-2">
-            <button
-              v-for="p in powerOptions"
-              :key="p"
-              type="button"
-              @click="selectedPower = p"
-              class="px-3 py-1.5 rounded-full text-xs font-medium border touch-target-min"
-              :class="selectedPower === p ? 'bg-primary text-on-primary border-primary' : 'bg-bg-subdued border-border-default text-text-secondary'"
-            >
-              {{ p }}
-            </button>
-          </div>
-        </div>
-
-        <!-- Gönder Butonu -->
         <button
-          type="submit"
-          :disabled="isSubmitting"
-          class="w-full h-11 rounded-md bg-primary text-on-primary text-xs font-semibold flex items-center justify-center gap-2 hover:bg-primary-hover active:bg-primary-active touch-target-min focus-visible:outline-none"
+          type="button"
+          @click="emit('close')"
+          class="absolute top-4 right-4 touch-target-min flex items-center justify-center text-text-secondary hover:text-text-primary rounded-md focus-visible:outline-none"
+          aria-label="Modalı Kapat"
         >
-          <span>{{ isSubmitting ? 'Gönderiliyor...' : 'Bilgileri İncelemeye Gönder' }}</span>
+          <X class="w-5 h-5" />
         </button>
-      </form>
+
+        <div class="flex items-center gap-2 text-primary mb-1">
+          <PlusCircle class="w-5 h-5" />
+          <h3 id="contribute-modal-title" class="text-base font-bold text-text-primary">
+            İstasyon Bilgisi Ekle
+          </h3>
+        </div>
+        <p class="text-xs text-text-secondary mb-4 leading-relaxed">
+          <strong class="text-text-primary">{{ station.name }}</strong> için soket veya güç bilgisi ekleyerek topluluğa destek olun.
+        </p>
+
+        <form @submit.prevent="handleSubmit" class="space-y-4">
+          <!-- Soket Tipi -->
+          <div>
+            <label class="block text-xs font-semibold text-text-primary mb-1.5">Soket Tipi</label>
+            <div class="space-y-2">
+              <label
+                v-for="opt in socketOptions"
+                :key="opt"
+                class="flex items-center gap-2 p-2.5 rounded-md border border-border-default bg-bg-subdued text-xs text-text-primary cursor-pointer hover:bg-border-default touch-target-min"
+              >
+                <input
+                  type="radio"
+                  name="socket"
+                  :value="opt"
+                  v-model="selectedSocket"
+                  class="text-primary focus:ring-primary"
+                />
+                <span>{{ opt }}</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Tahmini Şarj Gücü -->
+          <div>
+            <label class="block text-xs font-semibold text-text-primary mb-1.5">Tahmini Şarj Gücü</label>
+            <div class="flex flex-wrap gap-2">
+              <button
+                v-for="p in powerOptions"
+                :key="p"
+                type="button"
+                @click="selectedPower = p"
+                class="px-3 py-1.5 rounded-full text-xs font-medium border touch-target-min transition-colors"
+                :class="selectedPower === p ? 'bg-primary text-on-primary border-primary' : 'bg-bg-subdued border-border-default text-text-secondary'"
+              >
+                {{ p }}
+              </button>
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            :disabled="isSubmitting"
+            class="w-full h-11 rounded-md bg-primary hover:bg-primary-hover text-on-primary font-semibold text-xs shadow flex items-center justify-center gap-2 touch-target-min transition-colors focus-visible:outline-none"
+          >
+            <Zap class="w-4 h-4" />
+            <span>{{ isSubmitting ? 'Gönderiliyor...' : 'Bilgileri İncelemeye Gönder' }}</span>
+          </button>
+        </form>
+      </div>
     </div>
-  </div>
+  </Teleport>
 </template>

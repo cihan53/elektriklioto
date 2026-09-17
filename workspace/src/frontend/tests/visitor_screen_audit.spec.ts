@@ -2,6 +2,7 @@ import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { mount } from '@vue/test-utils';
 import HeaderNav from '../components/common/HeaderNav.vue';
 import SourceHealthModal from '../components/modals/SourceHealthModal.vue';
+import AboutModal from '../components/modals/AboutModal.vue';
 import SourceHealthBanner from '../components/common/SourceHealthBanner.vue';
 import ToastContainer from '../components/common/ToastContainer.vue';
 import FilterChips from '../components/map/FilterChips.vue';
@@ -100,6 +101,12 @@ describe('Ziyaretçi Ekran ve Gezinim Denetimi (Visitor Screen Audit Suite)', ()
     const healthBtn = wrapper.find('button[aria-label="Veri Kaynakları Sağlık Durumu"]');
     expect(healthBtn.exists()).toBe(true);
     await healthBtn.trigger('click');
+
+    // 5. Hakkında & Yasal Bilgiler Butonu ve Dizin Linki (TALEP-009)
+    expect(hrefs).toContain('/hakkimizda');
+    const aboutBtn = wrapper.find('button[aria-label="Hakkında ve Yasal Bilgiler"]');
+    expect(aboutBtn.exists()).toBe(true);
+    await aboutBtn.trigger('click');
   });
 
   // =========================================================================
@@ -130,6 +137,52 @@ describe('Ziyaretçi Ekran ve Gezinim Denetimi (Visitor Screen Audit Suite)', ()
   it('SCR-01.3: SourceHealthBanner - Kesinti durumunda butonlar tepki vermeli ve detay açmalıdır', async () => {
     const wrapper = mount(SourceHealthBanner);
     expect(wrapper.exists()).toBe(true);
+  });
+
+
+  // =========================================================================
+  // 2.1. HAKKINDA VE YASAL BİLGİLER MODALI (TALEP-009)
+  // =========================================================================
+  it('SCR-ABOUT: AboutModal (TALEP-009) - Hakkında modalı açılmalı, sekmeler gezilmeli ve kapatılabilmelidir', async () => {
+    const wrapper = mount(AboutModal, {
+      props: {
+        isOpen: true
+      },
+      global: {
+        stubs: {
+          NuxtLink: {
+            template: '<a :href="to"><slot /></a>',
+            props: ['to']
+          }
+        }
+      }
+    });
+
+    expect(wrapper.find('#about-modal-title').text()).toContain('Hakkında & Yasal Bilgiler');
+    expect(wrapper.text()).toContain('e-Mobilite Asistanı ve Bilgi Hub');
+
+    // Sekmeler arası geçiş
+    const buttons = wrapper.findAll('button');
+    const yasalTab = buttons.find(b => b.text().includes('Yasal Statü'));
+    expect(yasalTab).toBeDefined();
+    await yasalTab!.trigger('click');
+    expect(wrapper.text()).toContain('Zorunlu EMP Beyanı');
+
+    const kvkkTab = buttons.find(b => b.text().includes('KVKK & Gizlilik'));
+    expect(kvkkTab).toBeDefined();
+    await kvkkTab!.trigger('click');
+    expect(wrapper.text()).toContain('Sıfır Konum Saklama İlkesi');
+
+    const surumTab = buttons.find(b => b.text().includes('Canlı Sürüm'));
+    expect(surumTab).toBeDefined();
+    await surumTab!.trigger('click');
+    expect(wrapper.text()).toContain('v1.0.0-faz1');
+
+    // Kapat butonu
+    const closeBtn = wrapper.find('button[aria-label="Kapat"]');
+    expect(closeBtn.exists()).toBe(true);
+    await closeBtn.trigger('click');
+    expect(wrapper.emitted('close')).toHaveLength(1);
   });
 
   // =========================================================================

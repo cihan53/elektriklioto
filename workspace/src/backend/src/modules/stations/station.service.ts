@@ -1,23 +1,11 @@
 
-import { readFileSync, existsSync } from 'fs';
-import { fileURLToPath } from 'url';
-import { dirname, join } from 'path';
 import { deepLinkService } from '../deeplink/deeplink.service.js';
 import { operatorService } from '../operators/operator.service.js';
 import { sourceHealthService } from '../worker/source-health.service.js';
-import { toSlug } from '../../utils/unicode.js';
-import { validateBBox, getMaxSpanForZoom } from '../../utils/geo.js';
+import { gadmService } from '../gadm/gadm.service.js';
+import { toSlug, foldTurkishCharacters } from '../../utils/unicode.js';
+import { validateBBox } from '../../utils/geo.js';
 import { BadRequestError } from '../../utils/errors.js';
-
-const getDirname = () => {
-  if (typeof __dirname !== 'undefined') return __dirname;
-  try {
-    return dirname(fileURLToPath(import.meta.url));
-  } catch {
-    return process.cwd();
-  }
-};
-const __dirname_resolved = getDirname();
 
 export interface StationModel {
   id: string;
@@ -30,15 +18,10 @@ export interface StationModel {
   lat: number;
   lon: number;
   operator_id: number;
-  operator_name?: string;
   is_flagged_defective: boolean;
   defect_report_count: number;
   updated_at: Date;
   raw_metadata?: Record<string, unknown> | null;
-  connector_types?: string[] | null;
-  power_kw?: number | null;
-  current_tariff?: string | null;
-  occupancy_status?: string | null;
 }
 
 const DEFAULT_STATIONS: StationModel[] = [
@@ -108,42 +91,15 @@ export const stationRepository = {
   stations: new Map<string, StationModel>(),
 
   initDefaults() {
-    this.clear();
-
-    // 1. CPO gerçek istasyon verisini yükle
-    try {
-      const candidates = [
-        join(__dirname_resolved, '../../data/cpo_stations.json'),
-        join(process.cwd(), 'src/data/cpo_stations.json'),
-        join(process.cwd(), 'data/cpo_stations.json'),
-        join(process.cwd(), 'workspace/src/backend/src/data/cpo_stations.json'),
-      ];
-      for (const p of candidates) {
-        if (existsSync(p)) {
-          const raw = readFileSync(p, 'utf-8');
-          const list = JSON.parse(raw) as StationModel[];
-          this.seed(list);
-          break;
-        }
-      }
-    } catch (err) {
-      console.warn('Failed to load cpo_stations.json:', err);
-    }
-
-    // 2. Test ve varsayılan istasyonları üstüne yükle (test tutarlılığı için)
     this.seed(DEFAULT_STATIONS);
   },
 
   seed(stationList: StationModel[]) {
     for (const s of stationList) {
-      const item: StationModel = {
-        ...s,
-        updated_at: s.updated_at instanceof Date ? s.updated_at : new Date(s.updated_at || Date.now()),
-      };
-      this.stations.set(item.id, item);
-      this.stations.set(item.slug, item);
-      this.stations.set(item.istasyon_no, item);
-      this.stations.set(toSlug(item.slug), item);
+      this.stations.set(s.id, s);
+      this.stations.set(s.slug, s);
+      this.stations.set(s.istasyon_no, s);
+      this.stations.set(toSlug(s.slug), s);
     }
   },
 
@@ -185,6 +141,30 @@ export const stationRepository = {
     return result;
   },
 
+  async findByRegion(citySlug?: string, districtSlug?: string, operatorSlug?: string): Promise<StationModel[]> {
+    const result: StationModel[] = [];
+    const unique = new Set<string>();
+
+    const normCity = citySlug ? toSlug(citySlug) : undefined;
+    const normDistrict = districtSlug ? toSlug(districtSlug) : undefined;
+
+    for (const s of this.stations.values()) {
+      if (unique.has(s.id)) continue;
+      unique.add(s.id);
+
+      if (normCity && toSlug(s.city) !== normCity) continue;
+      if (normDistrict && toSlug(s.district) !== normDistrict) continue;
+
+      if (operatorSlug) {
+        const op = operatorService.getBySlug(operatorSlug);
+        if (!op || s.operator_id !== op.id) continue;
+      }
+
+      result.push(s);
+    }
+    return result;
+  },
+
   async markDefective(stationId: string, defective: boolean): Promise<void> {
     const s = this.stations.get(stationId);
     if (s) {
@@ -204,7 +184,7 @@ export class StationService {
 
     const op = operatorService.getById(station.operator_id) || {
       id: station.operator_id,
-      name: station.operator_name || 'Bilinmeyen Operatör',
+      name: 'Bilinmeyen Operatör',
       slug: 'bilinmeyen',
       deep_link_config: null,
       is_active: true,
@@ -231,83 +211,28 @@ export class StationService {
         deep_link_config: op.deep_link_config,
       },
       deep_link: deepLink,
-      connector_types: station.connector_types ?? null,
-      power_kw: station.power_kw !== undefined && station.power_kw !== null ? Number(station.power_kw) : null,
-      current_tariff: station.current_tariff ?? null,
-      occupancy_status: station.occupancy_status ?? null,
+      // Faz 1 zorunlu kısıt: NULL veri modeli
+      connector_types: null,
+      power_kw: null,
+      current_tariff: null,
+      occupancy_status: null,
       // S5 Veri Tazeliği Rozeti (US-18)
       data_freshness: sourceHealthService.formatFreshness(station.updated_at),
     };
   }
 
-  public async getStationsInViewport(bboxStr?: string, zoom = 12, operatorSlug?: string) {
-    let filteredStations: StationModel[] = [];
-
-    if (bboxStr) {
-      const parts = bboxStr.split(',').map((p) => parseFloat(p.trim()));
-      if (parts.length !== 4 || parts.some((p) => isNaN(p))) {
-        throw new BadRequestError('BBox formatı geçersiz. minLon,minLat,maxLon,maxLat beklenmektedir.');
-      }
-
-      const [minLon, minLat, maxLon, maxLat] = parts;
-      const maxSpan = getMaxSpanForZoom(zoom);
-      if (!validateBBox(minLon, minLat, maxLon, maxLat, maxSpan)) {
-        throw new BadRequestError(`BBox sınırları geçersiz veya izin verilen maksimum alan (${maxSpan} derece) aşıldı.`);
-      }
-
-      filteredStations = await stationRepository.findByBBox(minLon, minLat, maxLon, maxLat, operatorSlug);
-    } else {
-      const unique = new Map<string, StationModel>();
-      for (const s of stationRepository.stations.values()) {
-        if (operatorSlug) {
-          const op = operatorService.getBySlug(operatorSlug);
-          if (op && s.operator_id === op.id) {
-            unique.set(s.id, s);
-          }
-        } else {
-          unique.set(s.id, s);
-        }
-      }
-      filteredStations = Array.from(unique.values());
-    }
-
-    if (zoom < 10) {
-      const cityMap = new Map<string, { count: number; latSum: number; lonSum: number }>();
-      for (const s of filteredStations) {
-        const c = s.city || 'Diğer';
-        const entry = cityMap.get(c) || { count: 0, latSum: 0, lonSum: 0 };
-        entry.count += 1;
-        entry.latSum += Number(s.lat);
-        entry.lonSum += Number(s.lon);
-        cityMap.set(c, entry);
-      }
-
-      const clusters = Array.from(cityMap.entries()).map(([city, v]) => ({
-        cluster_id: `cluster-${toSlug(city)}`,
-        city,
-        count: v.count,
-        lat: Number((v.latSum / v.count).toFixed(6)),
-        lon: Number((v.lonSum / v.count).toFixed(6)),
-      }));
-
-      return {
-        type: 'clusters' as const,
-        zoom,
-        count: clusters.length,
-        data: clusters,
-      };
-    }
-
-    const stationData = filteredStations.map((s) => {
-      const op = operatorService.getById(s.operator_id) || {
-        id: s.operator_id,
-        name: s.operator_name || 'Bilinmeyen Operatör',
-        slug: 'bilinmeyen',
-        deep_link_config: null,
-        is_active: true,
-      };
-
-      return {
+  public async getStationsInViewport(
+    bboxStr?: string,
+    zoom = 12,
+    operatorSlug?: string,
+    city?: string,
+    district?: string,
+    q?: string
+  ) {
+    // 1. Şehir / İlçe veya Geocode Metni ile Filtreleme
+    if (city || district) {
+      const stations = await stationRepository.findByRegion(city, district, operatorSlug);
+      return stations.map((s) => ({
         id: s.id,
         istasyon_no: s.istasyon_no,
         slug: s.slug,
@@ -317,25 +242,161 @@ export class StationService {
         city: s.city,
         district: s.district,
         operator_id: s.operator_id,
-        operator_name: s.operator_name || op.name,
-        operator: {
-          id: op.id,
-          name: op.name,
-          slug: op.slug,
-        },
+        operator_name: operatorService.getById(s.operator_id)?.name || 'Bilinmeyen',
         is_flagged_defective: Boolean(s.is_flagged_defective),
-        connector_types: s.connector_types ?? null,
-        power_kw: s.power_kw !== undefined && s.power_kw !== null ? Number(s.power_kw) : null,
-        current_tariff: s.current_tariff ?? null,
-        occupancy_status: s.occupancy_status ?? null,
+      }));
+    }
+
+    if (q && q.trim().length > 0) {
+      try {
+        const geoResult = gadmService.geocode(q);
+        if (geoResult.type === 'neighborhood' || geoResult.type === 'district') {
+          const stations = await stationRepository.findByRegion(geoResult.province, geoResult.district || undefined, operatorSlug);
+          if (stations.length > 0) {
+            return stations.map((s) => ({
+              id: s.id,
+              istasyon_no: s.istasyon_no,
+              slug: s.slug,
+              name: s.name,
+              lat: Number(s.lat),
+              lon: Number(s.lon),
+              city: s.city,
+              district: s.district,
+              operator_id: s.operator_id,
+              operator_name: operatorService.getById(s.operator_id)?.name || 'Bilinmeyen',
+              is_flagged_defective: Boolean(s.is_flagged_defective),
+            }));
+          }
+        }
+      } catch {
+        // Geocode bulunamazsa standart akışa devam et
+      }
+    }
+
+    // 2. Standart BBox Sorgusu
+    if (!bboxStr) {
+      const unique = new Map<string, StationModel>();
+      for (const s of stationRepository.stations.values()) {
+        if (operatorSlug) {
+          const op = operatorService.getBySlug(operatorSlug);
+          if (!op || s.operator_id !== op.id) continue;
+        }
+        unique.set(s.id, s);
+      }
+
+      return Array.from(unique.values()).map((s) => ({
+        id: s.id,
+        istasyon_no: s.istasyon_no,
+        slug: s.slug,
+        name: s.name,
+        lat: Number(s.lat),
+        lon: Number(s.lon),
+        city: s.city,
+        district: s.district,
+        operator_id: s.operator_id,
+        operator_name: operatorService.getById(s.operator_id)?.name || 'Bilinmeyen',
+        is_flagged_defective: Boolean(s.is_flagged_defective),
+      }));
+    }
+
+    const parts = bboxStr.split(',').map((p) => parseFloat(p.trim()));
+    if (parts.length !== 4 || parts.some((p) => isNaN(p))) {
+      throw new BadRequestError('BBox formatı geçersiz. minLon,minLat,maxLon,maxLat beklenmektedir.');
+    }
+
+    const [minLon, minLat, maxLon, maxLat] = parts;
+    if (!validateBBox(minLon, minLat, maxLon, maxLat)) {
+      throw new BadRequestError('BBox sınırları geçersiz veya izin verilen maksimum alan (0.5 derece) aşıldı.');
+    }
+
+    const stations = await stationRepository.findByBBox(minLon, minLat, maxLon, maxLat, operatorSlug);
+
+    return stations.map((s) => ({
+      id: s.id,
+      istasyon_no: s.istasyon_no,
+      slug: s.slug,
+      name: s.name,
+      lat: Number(s.lat),
+      lon: Number(s.lon),
+      city: s.city,
+      district: s.district,
+      operator_id: s.operator_id,
+      operator_name: operatorService.getById(s.operator_id)?.name || 'Bilinmeyen',
+      is_flagged_defective: Boolean(s.is_flagged_defective),
+    }));
+  }
+
+  /**
+   * Harita Arama (GADM CBS Entegrasyonlu)
+   */
+  public async searchStations(query: string) {
+    if (!query || query.trim().length === 0) {
+      throw new BadRequestError('Arama terimi zorunludur.');
+    }
+
+    let matchedRegion: {
+      type: string;
+      name: string;
+      province: string;
+      district: string | null;
+      center: { lat: number; lon: number };
+      bbox: { min_lon: number; min_lat: number; max_lon: number; max_lat: number };
+    } | undefined = undefined;
+
+    try {
+      const geo = gadmService.geocode(query);
+      matchedRegion = {
+        type: geo.type,
+        name: geo.name,
+        province: geo.province,
+        district: geo.district,
+        center: geo.coordinates,
+        bbox: geo.bbox,
       };
-    });
+    } catch {
+      // Bölge eşleşmezse devam et
+    }
+
+    const qFolded = foldTurkishCharacters(query.trim());
+    const unique = new Map<string, StationModel>();
+
+    for (const s of stationRepository.stations.values()) {
+      if (unique.has(s.id)) continue;
+
+      const matchesRegion =
+        matchedRegion &&
+        (toSlug(s.city) === toSlug(matchedRegion.province) ||
+          (matchedRegion.district && toSlug(s.district) === toSlug(matchedRegion.district)));
+
+      const matchesText =
+        foldTurkishCharacters(s.name).includes(qFolded) ||
+        foldTurkishCharacters(s.address).includes(qFolded) ||
+        foldTurkishCharacters(s.city).includes(qFolded) ||
+        foldTurkishCharacters(s.district).includes(qFolded);
+
+      if (matchesRegion || matchesText) {
+        unique.set(s.id, s);
+      }
+    }
+
+    const stations = Array.from(unique.values()).map((s) => ({
+      id: s.id,
+      istasyon_no: s.istasyon_no,
+      slug: s.slug,
+      name: s.name,
+      lat: Number(s.lat),
+      lon: Number(s.lon),
+      city: s.city,
+      district: s.district,
+      operator_id: s.operator_id,
+      operator_name: operatorService.getById(s.operator_id)?.name || 'Bilinmeyen',
+      is_flagged_defective: Boolean(s.is_flagged_defective),
+    }));
 
     return {
-      type: 'stations' as const,
-      zoom,
-      count: stationData.length,
-      data: stationData,
+      query,
+      matched_region: matchedRegion,
+      stations,
     };
   }
 }

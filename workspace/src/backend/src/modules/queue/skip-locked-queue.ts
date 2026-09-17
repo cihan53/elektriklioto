@@ -187,7 +187,6 @@ export class SkipLockedQueue {
     if (!this.useInMemory) {
       try {
         const db = getDb();
-        // İşin mevcut durumunu ve attempts sayısını kontrol et
         const existing = await this.getJobById(jobId);
         if (existing) {
           const isRetryable = existing.attempts < existing.max_attempts;

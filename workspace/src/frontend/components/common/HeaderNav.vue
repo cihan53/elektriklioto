@@ -1,13 +1,16 @@
 
 <script setup lang="ts">
+import { ref } from 'vue';
 import { useTheme } from '~/composables/useTheme';
 import { useSourceHealth } from '~/composables/useSourceHealth';
-import { Zap, Sun, Moon, Monitor, Map, Activity } from 'lucide-vue-next';
+import { Zap, Sun, Moon, Monitor, Map, Activity, Info } from 'lucide-vue-next';
 import SourceHealthModal from '~/components/modals/SourceHealthModal.vue';
+import AboutModal from '~/components/modals/AboutModal.vue';
 import GoogleAnalytics from '~/components/common/GoogleAnalytics.vue';
 
 const { currentTheme, applyTheme } = useTheme();
 const { isModalOpen, hasOutage, openModal, closeModal } = useSourceHealth();
+const isAboutModalOpen = ref(false);
 
 const toggleTheme = () => {
   if (currentTheme.value === 'system') applyTheme('light');
@@ -83,11 +86,31 @@ const toggleTheme = () => {
         >
           Trugo
         </NuxtLink>
+        <NuxtLink
+          to="/hakkimizda"
+          class="px-3 py-1.5 rounded-md hover:text-text-primary hover:bg-bg-subdued touch-target-min flex items-center gap-1.5 transition-colors"
+          active-class="text-primary font-semibold"
+        >
+          <Info class="w-4 h-4" />
+          <span>Hakkında</span>
+        </NuxtLink>
       </nav>
     </div>
 
     <!-- Navigasyon ve Kontroller -->
-    <div class="flex items-center gap-3">
+    <div class="flex items-center gap-2 sm:gap-3">
+      <!-- Hakkında & Yasal Modal Butonu (TALEP-009) -->
+      <button
+        type="button"
+        @click="isAboutModalOpen = true"
+        class="touch-target-min px-2.5 py-1.5 rounded-md border border-border-default bg-bg-subdued text-text-secondary hover:text-text-primary hover:bg-border-default flex items-center gap-1.5 text-xs font-medium transition-colors focus-visible:outline-none"
+        title="Hakkında, Sözleşmeler, KVKK ve Canlı Sürüm (TALEP-009)"
+        aria-label="Hakkında ve Yasal Bilgiler"
+      >
+        <Info class="w-3.5 h-3.5 text-primary" />
+        <span class="hidden sm:inline">Hakkında</span>
+      </button>
+
       <!-- Veri Kaynakları Sağlık Durumu Butonu (US-18) -->
       <button
         type="button"
@@ -101,33 +124,27 @@ const toggleTheme = () => {
           :class="hasOutage ? 'bg-warning animate-pulse' : 'bg-success'"
         ></span>
         <Activity class="w-3.5 h-3.5 text-text-secondary" />
-        <span class="hidden md:inline">Kaynak Sağlığı</span>
+        <span class="hidden sm:inline">Kaynaklar</span>
       </button>
 
-      <!-- EMP Lisans Rozeti (Masaüstü) -->
-      <span
-        class="hidden lg:inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-bg-subdued text-text-secondary border border-border-default"
-      >
-        <span class="w-2 h-2 rounded-full bg-success"></span>
-        e-Mobilite Asistanı
-      </span>
-
-      <!-- Tema Değiştirici -->
+      <!-- Tema Seçici Buton -->
       <button
         type="button"
         @click="toggleTheme"
-        class="touch-target-min px-2.5 py-1.5 rounded-md border border-border-default bg-bg-subdued text-text-secondary hover:text-text-primary hover:bg-border-default flex items-center gap-1.5 text-xs font-medium transition-colors focus-visible:outline-none"
+        class="touch-target-min p-2 rounded-md border border-border-default bg-bg-subdued text-text-secondary hover:text-text-primary hover:bg-border-default flex items-center justify-center transition-colors focus-visible:outline-none"
         :title="`Tema: ${currentTheme}`"
         aria-label="Tema Değiştir"
       >
         <Sun v-if="currentTheme === 'light'" class="w-4 h-4 text-warning" />
         <Moon v-else-if="currentTheme === 'dark'" class="w-4 h-4 text-primary" />
-        <Monitor v-else class="w-4 h-4" />
-        <span class="hidden sm:inline capitalize">{{ currentTheme }}</span>
+        <Monitor v-else class="w-4 h-4 text-text-secondary" />
       </button>
     </div>
 
-    <!-- Header içi Sağlık Modalı -->
+    <!-- Sağlık Durumu Modal Entegrasyonu -->
     <SourceHealthModal :is-open="isModalOpen" @close="closeModal" />
+
+    <!-- Hakkında ve Yasal Bilgiler Modal Entegrasyonu (TALEP-009) -->
+    <AboutModal :is-open="isAboutModalOpen" @close="isAboutModalOpen = false" />
   </header>
 </template>

@@ -223,7 +223,7 @@ def otomatik_musteri_talepleri_senkronize_et() -> int:
     for t in talepler:
         tid = t.get("id")
         durum = t.get("durum", "BEKLEMEDE")
-        if durum in ("BEKLEMEDE", "PLANLANDI") and tid not in mevcut_talep_idler:
+        if durum not in ("COZULDU", "IPTAL") and tid not in mevcut_talep_idler:
             # Planı yoksa önce plan çıkar
             if not t.get("cozum_plani"):
                 cozum_plani_olustur(tid)

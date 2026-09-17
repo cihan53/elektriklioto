@@ -8,6 +8,7 @@ Müşteri (site sahibi/denetçi) bildirimlerini JSON ve Markdown olarak yönetir
 
 import json
 import os
+import subprocess
 import sys
 from datetime import datetime
 from pathlib import Path

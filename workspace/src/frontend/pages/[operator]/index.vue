@@ -98,59 +98,81 @@ useHead(() => {
           </p>
 
           <!-- İstatistik Rozetleri -->
-          <div class="flex items-center gap-2 pt-1 flex-wrap">
-            <span class="inline-flex items-center px-2.5 py-1 rounded bg-bg-subdued border border-border-default text-xs font-semibold text-text-primary">
-              {{ stations.length }} Kayıtlı İstasyon
+          <div class="flex flex-wrap items-center gap-2 pt-1">
+            <span class="inline-flex items-center px-2.5 py-0.5 rounded bg-bg-subdued border border-border-strong text-xs font-medium text-text-primary">
+              {{ stations.length }} İstasyon Gösteriliyor
             </span>
-            <span class="inline-flex items-center px-2.5 py-1 rounded bg-success-subdued text-success text-xs font-semibold">
-              Aktif EPDK Lisansı
+            <span class="inline-flex items-center px-2.5 py-0.5 rounded bg-success-subdued text-success text-xs font-medium">
+              Aktif Lisans
             </span>
           </div>
         </div>
       </div>
 
-      <!-- Ağ Haritası Aksiyon Butonu -->
-      <NuxtLink
-        :to="`/?operator=${encodeURIComponent(operatorParam)}`"
-        class="inline-flex items-center justify-center gap-2 h-12 px-6 rounded-md bg-primary text-on-primary font-semibold text-sm shadow-sm hover:bg-primary-hover active:bg-primary-active touch-target-min transition-all flex-shrink-0 focus-visible:outline-none"
-      >
-        <Map class="w-4 h-4" />
-        <span>{{ operatorTitle }} İstasyonlarını Haritada Filtrele</span>
-      </NuxtLink>
+      <!-- Ağ Haritası Filtreleme Aksiyonu -->
+      <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+        <NuxtLink
+          :to="`/?operator=${encodeURIComponent(operatorParam)}`"
+          class="h-11 px-5 rounded-md bg-primary text-on-primary font-semibold text-xs shadow-sm hover:bg-primary-hover active:bg-primary-active flex items-center justify-center gap-2 touch-target-min transition-all"
+        >
+          <Map class="w-4 h-4" />
+          <span>Ağ Haritasında Filtrele</span>
+        </NuxtLink>
+
+        <a
+          v-if="operator?.website_url"
+          :href="operator.website_url"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="h-11 px-4 rounded-md border border-border-strong bg-bg-surface hover:bg-bg-subdued text-text-primary font-semibold text-xs flex items-center justify-center gap-1.5 touch-target-min transition-colors"
+        >
+          <span>Resmî Web Sitesi</span>
+          <ExternalLink class="w-3.5 h-3.5 text-text-secondary" />
+        </a>
+      </div>
     </header>
 
-    <!-- İstasyon Kart Izgarası -->
-    <div v-if="stations.length > 0" class="space-y-4">
-      <h2 class="text-lg font-bold text-text-primary">
-        {{ operatorTitle }} İstasyon Kataloğu
-      </h2>
+    <!-- İstasyon Kartları Izgarası (3 Kolon) -->
+    <section class="space-y-4">
+      <div class="flex items-center justify-between">
+        <h2 class="text-lg font-bold text-text-primary">
+          Kayıtlı Şarj Noktaları
+        </h2>
+        <span class="text-xs text-text-secondary">
+          Toplam {{ stations.length }} nokta
+        </span>
+      </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div v-if="stations.length > 0" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <StationSummaryCard
-          v-for="st in stations"
-          :key="st.id"
-          :station="st"
+          v-for="station in stations"
+          :key="station.id"
+          :station="station"
         />
       </div>
-    </div>
 
-    <!-- Boş Durum -->
-    <div v-else class="p-12 text-center bg-bg-surface border border-border-default rounded-xl space-y-3">
-      <Building2 class="w-10 h-10 text-text-muted mx-auto" />
-      <h2 class="text-lg font-bold text-text-primary">İstasyon kaydı bulunamadı</h2>
-      <p class="text-xs text-text-secondary max-w-md mx-auto">
-        Bu operatöre ait aktif istasyon kaydı henüz sisteme işlenmemiş veya filtrelerle eşleşmedi.
-      </p>
-      <NuxtLink
-        to="/"
-        class="inline-flex items-center gap-2 px-4 py-2 bg-primary text-on-primary rounded-md text-xs font-semibold touch-target-min"
+      <!-- Boş Durum -->
+      <div
+        v-else
+        class="p-12 text-center bg-bg-surface border border-border-default rounded-xl shadow-sm space-y-3"
       >
-        <ArrowLeft class="w-4 h-4" />
-        Haritaya Dön
-      </NuxtLink>
-    </div>
+        <p class="text-sm font-semibold text-text-primary">
+          Bu operatöre ait aktif istasyon kaydı henüz işlenmemiştir.
+        </p>
+        <p class="text-xs text-text-secondary">
+          Harita üzerinde diğer operatörlerin şarj noktalarını inceleyebilirsiniz.
+        </p>
+        <NuxtLink
+          to="/"
+          class="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-primary text-on-primary text-xs font-semibold touch-target-min"
+        >
+          <ArrowLeft class="w-4 h-4" />
+          Haritayı Aç
+        </NuxtLink>
+      </div>
+    </section>
 
-    <!-- Yasal EMP Dipnot Bildirimi -->
+    <!-- Zorunlu Yasal EMP Uyarısı -->
     <footer class="pt-8 border-t border-border-default text-center text-xs text-text-muted space-y-1">
       <p>Veri Kaynağı: EPDK Sicil Kaydı (Eylül 2026)</p>
       <p>

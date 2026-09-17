@@ -59,10 +59,6 @@ export class WorkerService {
     });
   }
 
-  /**
-   * Sıradaki tek bir işi kuyruktan çeker ve işler.
-   * @returns boolean - Bir iş işlendiyse true, kuyruk boşsa false
-   */
   public async processNextJob(): Promise<boolean> {
     const job = await skipLockedQueue.acquireNextJob(this.workerId);
     if (!job) {
@@ -84,9 +80,6 @@ export class WorkerService {
     }
   }
 
-  /**
-   * Kuyruktaki tüm uygun işleri tek seferde boşalana kadar işler (test ve senkron çalışma için).
-   */
   public async runBatch(maxJobs = 50): Promise<number> {
     let processed = 0;
     while (processed < maxJobs) {
@@ -97,9 +90,6 @@ export class WorkerService {
     return processed;
   }
 
-  /**
-   * Worker sürecini sürekli dinleme döngüsünde başlatır.
-   */
   public start(pollIntervalMs = 1000): void {
     if (this.isRunning) return;
     this.isRunning = true;

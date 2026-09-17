@@ -109,7 +109,6 @@ export class ReportService {
     this.reports.push(report);
 
     // 6. Arıza Eşik Değeri ve Dinamik Etiketleme (US-14 / T-01)
-    // Son 2 saatteki bağımsız, bastırılmamış tasdikli ihbarlar sayılır
     const activeCount = this.getActiveReportCount(station.id);
     const shouldFlagDefective = activeCount >= config.reportDefectThreshold;
 
@@ -129,7 +128,6 @@ export class ReportService {
 
   public getActiveReportCount(stationId: string): number {
     const windowStart = new Date(Date.now() - config.reportWindowMinutes * 60 * 1000);
-    // Tekil ve bastırılmamış (shadow-banned olmayan) cihaz ihbarları
     const activeReports = this.reports.filter(
       (r) =>
         r.station_id === stationId &&

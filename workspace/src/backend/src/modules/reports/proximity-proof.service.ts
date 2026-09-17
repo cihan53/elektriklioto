@@ -18,7 +18,7 @@ export interface VerifyResult {
 
 export class ProximityProofService {
   private secret: string;
-  private usedNonces = new Map<string, number>(); // nonce -> expireAt
+  private usedNonces = new Map<string, number>();
 
   constructor(secret = config.proximitySecret) {
     this.secret = secret;
@@ -58,7 +58,6 @@ export class ProximityProofService {
     let matched = false;
 
     for (const window of candidateWindows) {
-      // Protokol varyasyonları (Doğrudan birleşim ve iki noktalı birleşim)
       const candidates = [
         `${stationId}${deviceUid}${window}${nonce}`,
         `${stationId}:${deviceUid}:${window}:${nonce}`,

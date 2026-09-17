@@ -15,7 +15,7 @@ export interface CPOSyncResult {
 /**
  * CPO Veri Senkronizasyon Servisi (US-17)
  * 
- * Circuit Breaker ve Undici HTTP İstemcisi üzerinden dış CPO uç noktalarından
+ * Circuit Breaker ve HTTP İstemcisi üzerinden dış CPO uç noktalarından
  * istasyon durum verilerini çeker ve istasyonların updated_at zaman damgasını günceller.
  */
 export class CPOSyncService {
@@ -31,14 +31,12 @@ export class CPOSyncService {
       let data: any;
 
       if (mockDataFetcher) {
-        // Testler veya mock entegrasyonlar için doğrudan circuit breaker üzerinden yürüt
         data = await circuitBreakerService.execute(sourceName, mockDataFetcher);
       } else {
         const response = await aggregatorHttpClient.fetchWithCircuitBreaker(sourceName, endpointUrl);
         data = response.data;
       }
 
-      // Veri başarıyla çekildiğinde istasyonların güncellenmesi
       let updatedCount = 0;
       for (const s of stationRepository.stations.values()) {
         if (s.operator_id === operatorId) {
