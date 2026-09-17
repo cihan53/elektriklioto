@@ -9,8 +9,15 @@ import { toSlug } from '../../utils/unicode.js';
 import { validateBBox, getMaxSpanForZoom } from '../../utils/geo.js';
 import { BadRequestError } from '../../utils/errors.js';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const getDirname = () => {
+  if (typeof __dirname !== 'undefined') return __dirname;
+  try {
+    return dirname(fileURLToPath(import.meta.url));
+  } catch {
+    return process.cwd();
+  }
+};
+const __dirname_resolved = getDirname();
 
 export interface StationModel {
   id: string;
@@ -106,7 +113,7 @@ export const stationRepository = {
     // 1. CPO gerçek istasyon verisini yükle
     try {
       const candidates = [
-        join(__dirname, '../../data/cpo_stations.json'),
+        join(__dirname_resolved, '../../data/cpo_stations.json'),
         join(process.cwd(), 'src/data/cpo_stations.json'),
         join(process.cwd(), 'data/cpo_stations.json'),
         join(process.cwd(), 'workspace/src/backend/src/data/cpo_stations.json'),
