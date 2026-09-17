@@ -12,6 +12,8 @@ import { healthRoutes } from './modules/health/health.routes.js';
 import { gadmRoutes } from './modules/gadm/gadm.routes.js';
 import { ProblemDetails } from './types/route-bridge.js';
 import { AppError } from './utils/errors.js';
+import { ensureDatabaseSeeded } from './modules/stations/station.service.js';
+import { operatorService } from './modules/operators/operator.service.js';
 
 export async function buildApp(): Promise<FastifyInstance> {
   const app = Fastify({
@@ -142,6 +144,14 @@ export async function buildApp(): Promise<FastifyInstance> {
   await app.register(healthRoutes, { prefix: '/api/v1/health' });
   await app.register(gadmRoutes, { prefix: '/api/v1/gadm' });
   await app.register(gadmRoutes, { prefix: '/api/v1/geo' });
+
+  // TALEP-010: PostgreSQL/PostGIS veritabanı ile istasyon ve soket entegrasyonu (otomatik tohumlama)
+  try {
+    await operatorService.syncWithDb();
+    await ensureDatabaseSeeded();
+  } catch {
+    // Veritabanı bağlantısı henüz hazır değilse veya test ortamındaysa açılışı engelleme
+  }
 
   return app;
 }

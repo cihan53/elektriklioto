@@ -1,6 +1,6 @@
 {
-  "son_guncelleme": "2026-09-17T22:43:57.204847",
-  "toplam_talep": 9,
+  "son_guncelleme": "2026-09-18T00:10:49.287981",
+  "toplam_talep": 12,
   "talepler": [
     {
       "id": "TALEP-001",
@@ -402,6 +402,117 @@
           "zaman": "2026-09-17 22:07",
           "eylem": "Durum güncellendi: COZULDU",
           "durum": "COZULDU"
+        }
+      ]
+    },
+    {
+      "id": "TALEP-010",
+      "tarih": "2026-09-18 00:01",
+      "tur": "HATA",
+      "oncelik": "KRITIK",
+      "baslik": "Aramalar ve istasyon kayıtları veritabanından gelmiyor, veritabanı tabloları boş görünüyor",
+      "aciklama": "Müşteri Geri Bildirimi: Halen aramalar kayıtlar veri tabanından gelmiyor, veritabanı ne işe yarıyor, kontrol ettiğinde tablolar boş görünüyor der. PostgreSQL/PostGIS veritabanı ile backend station/search servisleri arasındaki entegrasyonun kurulması, istasyon ve soket verilerinin veritabanına işlenmesi ve aramaların doğrudan veritabanı sorgularından beslenmesi gerekiyor.",
+      "sayfa_url": "/api/v1/stations",
+      "durum": "GELISTIRILIYOR",
+      "gorevli_rol": "backend_engineer",
+      "studio_notu": "Sprint S10 panosuna eklendi (S10-T1 ve S10-T2). Geliştirme başladı.",
+      "cozum_plani": "workspace/docs/cozum_planlari/TALEP-010.md",
+      "github_issue_number": 10,
+      "github_issue_url": "https://github.com/cihan53/elektriklioto/issues/10",
+      "gecmis": [
+        {
+          "zaman": "2026-09-18 00:01",
+          "eylem": "Kayıt oluşturuldu",
+          "durum": "BEKLEMEDE"
+        },
+        {
+          "zaman": "2026-09-18 00:01",
+          "eylem": "GitHub Issue oluşturuldu: #10",
+          "durum": "BEKLEMEDE"
+        },
+        {
+          "zaman": "2026-09-18 00:01",
+          "eylem": "Durum güncellendi: PLANLANDI",
+          "durum": "PLANLANDI"
+        },
+        {
+          "zaman": "2026-09-18 00:01",
+          "eylem": "Durum güncellendi: GELISTIRILIYOR",
+          "durum": "GELISTIRILIYOR"
+        }
+      ]
+    },
+    {
+      "id": "TALEP-011",
+      "tarih": "2026-09-18 00:05",
+      "tur": "HATA",
+      "oncelik": "NORMAL",
+      "baslik": "Top menüde 2 tane Hakkında butonu görünüyor (Sağdaki buton korunmalı, mükerrer olan kaldırılmalı)",
+      "aciklama": "Müşteri Geri Bildirimi: Top menüde 2 tane hakkında butonu göründüğünü söylüyor. Ayrıca hakkında butonu sağda olanı doğru diyor. Header/menü alanındaki çift Hakkında butonu incelenerek sol veya orta alanda mükerrer görünen kaldırılmalı, sağ taraftaki doğru Hakkında butonu korunmalıdır.",
+      "sayfa_url": "/",
+      "durum": "GELISTIRILIYOR",
+      "gorevli_rol": "web_engineer",
+      "studio_notu": "Sprint S11 panosuna eklendi (S11-T1 ve S11-T2). Geliştirme başladı.",
+      "cozum_plani": "workspace/docs/cozum_planlari/TALEP-011.md",
+      "github_issue_number": 11,
+      "github_issue_url": "https://github.com/cihan53/elektriklioto/issues/11",
+      "gecmis": [
+        {
+          "zaman": "2026-09-18 00:05",
+          "eylem": "Kayıt oluşturuldu",
+          "durum": "BEKLEMEDE"
+        },
+        {
+          "zaman": "2026-09-18 00:05",
+          "eylem": "GitHub Issue oluşturuldu: #11",
+          "durum": "BEKLEMEDE"
+        },
+        {
+          "zaman": "2026-09-18 00:05",
+          "eylem": "Durum güncellendi: PLANLANDI",
+          "durum": "PLANLANDI"
+        },
+        {
+          "zaman": "2026-09-18 00:05",
+          "eylem": "Durum güncellendi: GELISTIRILIYOR",
+          "durum": "GELISTIRILIYOR"
+        }
+      ]
+    },
+    {
+      "id": "TALEP-012",
+      "tarih": "2026-09-18 00:10",
+      "tur": "ISTEK",
+      "oncelik": "YUKSEK",
+      "baslik": "Yeni deploy çıktığında açık sayfalarda güncelleme uyarısı çıkması ve 20 saniyede otomatik yenilenmesi",
+      "aciklama": "Müşteri Talebi: Eğer bir deploy çıkarsa tüm açık olan sayfaların uyarı verip yenilenmesini istesin kullanıcıdan, eğer 20sn içinde cevap vermez ise yinede yenilesin. Frontend tarafında periyodik sürüm kontrolü (version/build hash polling) yapılarak yeni deploy algılandığında kullanıcıya 'Yeni sürüm yayınlandı, sayfa güncelleniyor (20s)' geri sayımlı modal/toast gösterilmeli, 'Şimdi Yenile' butonu sunulmalı ve 20 saniye dolduğunda otomatik reload yapılmalıdır.",
+      "sayfa_url": "/",
+      "durum": "GELISTIRILIYOR",
+      "gorevli_rol": "devops_engineer",
+      "studio_notu": "Sprint S12 panosuna eklendi (S12-T1 ve S12-T2). Geliştirme başladı.",
+      "cozum_plani": "workspace/docs/cozum_planlari/TALEP-012.md",
+      "github_issue_number": 12,
+      "github_issue_url": "https://github.com/cihan53/elektriklioto/issues/12",
+      "gecmis": [
+        {
+          "zaman": "2026-09-18 00:10",
+          "eylem": "Kayıt oluşturuldu",
+          "durum": "BEKLEMEDE"
+        },
+        {
+          "zaman": "2026-09-18 00:10",
+          "eylem": "GitHub Issue oluşturuldu: #12",
+          "durum": "BEKLEMEDE"
+        },
+        {
+          "zaman": "2026-09-18 00:10",
+          "eylem": "Durum güncellendi: PLANLANDI",
+          "durum": "PLANLANDI"
+        },
+        {
+          "zaman": "2026-09-18 00:10",
+          "eylem": "Durum güncellendi: GELISTIRILIYOR",
+          "durum": "GELISTIRILIYOR"
         }
       ]
     }

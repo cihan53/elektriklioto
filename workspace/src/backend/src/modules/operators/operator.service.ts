@@ -1,5 +1,7 @@
 
 import { toSlug } from '../../utils/unicode.js';
+import { getDb } from '../../db/index.js';
+import { operators } from '../../db/schema/operators.js';
 
 export interface OperatorDto {
   id: number;
@@ -24,6 +26,33 @@ const DEFAULT_OPERATORS: OperatorDto[] = [
 
 export class OperatorService {
   private operators: OperatorDto[] = [...DEFAULT_OPERATORS];
+
+  constructor() {
+    this.syncWithDb().catch(() => {});
+  }
+
+  public async syncWithDb(): Promise<void> {
+    try {
+      const db = getDb();
+      const rows = await db.select().from(operators);
+      if (rows && rows.length > 0) {
+        const opMap = new Map<number, OperatorDto>();
+        for (const def of DEFAULT_OPERATORS) {
+          opMap.set(def.id, def);
+        }
+        for (const r of rows) {
+          opMap.set(r.id, {
+            id: r.id,
+            slug: r.slug,
+            name: r.name,
+            is_active: r.is_active,
+            deep_link_config: r.deep_link_config as any,
+          });
+        }
+        this.operators = Array.from(opMap.values());
+      }
+    } catch {}
+  }
 
   public getAll(): OperatorDto[] {
     return this.operators;
