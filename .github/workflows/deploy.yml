@@ -69,7 +69,7 @@ jobs:
         run: |
           echo "==> Frontend bağımlılıkları kuruluyor ve derleniyor..."
           cd workspace/src/frontend
-          npm install
+          npm install --ignore-scripts
           npm run build
 
       - name: Package Deployment Archive
