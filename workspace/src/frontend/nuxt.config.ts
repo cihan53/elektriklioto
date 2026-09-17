@@ -54,7 +54,7 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      apiBase: process.env.NUXT_PUBLIC_API_BASE || 'http://localhost:3001/api/v1',
+      apiBase: process.env.NUXT_PUBLIC_API_BASE || '/api/v1',
       mapTileUrl: process.env.NUXT_PUBLIC_MAP_TILE_URL || 'https://tile.openstreetmap.org/{z}/{x}/{y}.png'
     }
   },
