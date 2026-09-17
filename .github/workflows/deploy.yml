@@ -69,8 +69,13 @@ jobs:
             APP_DIR="${APP_DIR/#\~/$HOME}"
             echo "==> Proje hedef dizini: $APP_DIR"
 
-            mkdir -p "$APP_DIR"
+            if ! mkdir -p "$APP_DIR" 2>/dev/null; then
+              echo "UYARI: Hedef dizin oluşturulamadı, varsayılan $HOME/app dizini kullanılıyor..."
+              APP_DIR="$HOME/app"
+              mkdir -p "$APP_DIR"
+            fi
             cd "$APP_DIR"
+            echo "==> Aktif çalışma dizini: $(pwd)"
 
             if [ ! -d ".git" ]; then
               echo "==> İlk kurulum: Git deposu klonlanıyor..."
