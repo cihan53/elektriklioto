@@ -695,12 +695,12 @@
             "workspace/docs/ziyaretci_ekran_denetimi.md"
           ],
           "depends_on": [],
-          "status": "FAILED",
+          "status": "DONE",
           "attempts": 1,
-          "note": "agy hata bildirdi (metin üretilmedi): API error (attempt 1): UNAVAILABLE (code 503): No capacity available for model gemini-3.8-flash-high on the server",
-          "started_at": 1789578992.470788,
-          "finished_at": 1789580796.182703,
-          "duration_s": 1803.7
+          "note": "yerel testler geçti",
+          "started_at": 1789642544.459261,
+          "finished_at": 1789642733.956531,
+          "duration_s": 189.5
         },
         {
           "id": "S7-T2",
@@ -714,9 +714,12 @@
           "depends_on": [
             "S7-T1"
           ],
-          "status": "BLOCKED",
-          "attempts": 0,
-          "note": "bağımlı olduğu görev başarısız"
+          "status": "DONE",
+          "attempts": 1,
+          "note": "yerel testler geçti",
+          "started_at": 1789642733.958362,
+          "finished_at": 1789642831.7573068,
+          "duration_s": 97.8
         },
         {
           "id": "S7-T3",
@@ -730,9 +733,12 @@
           "depends_on": [
             "S7-T2"
           ],
-          "status": "TODO",
-          "attempts": 0,
-          "note": ""
+          "status": "DONE",
+          "attempts": 1,
+          "note": "",
+          "started_at": 1789642831.759041,
+          "finished_at": 1789643147.7540941,
+          "duration_s": 316.0
         },
         {
           "id": "S7-T4",
@@ -746,22 +752,113 @@
           "depends_on": [
             "S7-T3"
           ],
-          "status": "TODO",
+          "status": "DONE",
+          "attempts": 1,
+          "note": "canlı UAT hata tespit edildi",
+          "started_at": 1789649535.755904,
+          "finished_at": 1789651330.6376681,
+          "duration_s": 1794.9
+        }
+      ],
+      "order": 6,
+      "status": "DONE",
+      "actual_start": "2026-09-16T20:16:32",
+      "actual_end": "2026-09-17T16:22:10",
+      "planned_start": "2026-09-16",
+      "planned_end": "2026-09-17",
+      "_summary_printed": true
+    },
+    {
+      "id": "S8",
+      "name": "Müşteri Denetimi & Saha Onarımları (TALEP-002, TALEP-003)",
+      "goal": "Site sahibinin ilettiği 2 adet müşteri talebinin çözülmesi ve UAT ile kabul edilmesi.",
+      "planned_days": 2,
+      "tasks": [
+        {
+          "id": "S8-T1",
+          "title": "[TALEP-002] google analytics hesabım var kodu G-BKMTW8EH4K trafiği izleye bilmem için bunun siteye eklenmesi gerekiyor",
+          "description": "Müşteri Talebi: google analytics hesabım var kodu G-BKMTW8EH4K trafiği izleye bilmem için bunun siteye eklenmesi gerekiyor\nÇözüm Planı: workspace/docs/cozum_planlari/TALEP-002.md",
+          "role": "web_engineer",
+          "phase": "develop",
+          "outputs": [
+            "workspace/src/frontend/components/",
+            "workspace/src/frontend/pages/"
+          ],
+          "depends_on": [],
+          "talep_id": "TALEP-002",
+          "status": "DONE",
+          "attempts": 1,
+          "note": "",
+          "started_at": 1789651330.640482,
+          "finished_at": 1789651844.634809,
+          "duration_s": 514.0
+        },
+        {
+          "id": "S8-T2",
+          "title": "[TALEP-002] Müşteri Kabulü & UAT Doğrulama Denetimi",
+          "description": "TALEP-002 için yapılan düzeltmenin canlı sistemde çalıştığını ve 0 konsol hatası olduğunu doğrula.",
+          "role": "uat_auditor",
+          "phase": "test",
+          "outputs": [
+            "workspace/docs/uat_kabul_raporu.md"
+          ],
+          "depends_on": [
+            "S8-T1"
+          ],
+          "talep_id": "TALEP-002",
+          "status": "RUNNING",
+          "attempts": 1,
+          "note": "",
+          "started_at": 1789659296.2709792
+        },
+        {
+          "id": "S8-T3",
+          "title": "[TALEP-003] Haritada Voltrun istasyonlarının soket tipi yanlış görünüyor",
+          "description": "Müşteri Talebi: İstasyon detayında AC Tip 2 yerine CCS yazıyor.\nÇözüm Planı: workspace/docs/cozum_planlari/TALEP-003.md",
+          "role": "web_engineer",
+          "phase": "develop",
+          "outputs": [
+            "workspace/src/frontend/components/",
+            "workspace/src/frontend/pages/"
+          ],
+          "depends_on": [],
+          "talep_id": "TALEP-003",
+          "status": "DONE",
+          "attempts": 1,
+          "note": "",
+          "started_at": 1789651844.637245,
+          "finished_at": 1789652601.339273,
+          "duration_s": 756.7
+        },
+        {
+          "id": "S8-T4",
+          "title": "[TALEP-003] Müşteri Kabulü & UAT Doğrulama Denetimi",
+          "description": "TALEP-003 için yapılan düzeltmenin canlı sistemde çalıştığını ve 0 konsol hatası olduğunu doğrula.",
+          "role": "uat_auditor",
+          "phase": "test",
+          "outputs": [
+            "workspace/docs/uat_kabul_raporu.md"
+          ],
+          "depends_on": [
+            "S8-T3"
+          ],
+          "talep_id": "TALEP-003",
+          "status": "READY",
           "attempts": 0,
           "note": ""
         }
       ],
-      "order": 6,
-      "status": "BLOCKED",
-      "actual_start": "2026-09-16T20:16:32",
+      "order": 7,
+      "status": "READY",
+      "actual_start": "2026-09-17T16:22:10",
       "actual_end": null,
-      "planned_start": "2026-09-17",
+      "planned_start": "2026-09-18",
       "planned_end": "2026-09-19"
     }
   ],
   "created_at": "2026-09-06T17:56:01",
-  "baseline_end": "2026-09-19",
-  "updated_at": "2026-09-16T20:46:36",
+  "baseline_end": "2026-09-21",
+  "updated_at": "2026-09-17T18:34:56",
   "_runtime": {
     "done_outputs": []
   }

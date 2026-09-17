@@ -7,6 +7,7 @@
 #   ./basla.sh --izle       sadece kontrol ekranını açar
 #   ./basla.sh --durum      tek satırlık durum özeti (ekran açmadan)
 #
+#   ./basla.sh --musteri    müşteri denetim masasını (istek/şikayet) açar
 #   ./basla.sh --onayla     günlük kota dolduğunda bir tur daha izin ver
 #   ./basla.sh --onayla 5   bugün için 5 görevlik ek kota tanı
 #
@@ -64,6 +65,8 @@ PYEOF
   --incele|--review)
       $PY studio_engine.py --review
       exit 0 ;;
+  --musteri|--talep|--talepler)
+      exec ./musteri.sh "${@:2}" ;;
   --izle)   exec $PY studio_ctl.py ;;
   --onayla)
       $PY - "$@" <<'PYEOF'
@@ -101,7 +104,7 @@ try:
     cur = json.loads((root/"workspace/.trace/current.json").read_text())
 except Exception:
     pass
-if cur.get("role"):
+if alive and cur.get("role"):
     el = int(time.time() - cur.get("started_at", time.time()))
     print(f"Şu an  : {cur['role']} -> {cur['target']}  ({el//60}dk {el%60}s)")
 pano = root/"workspace/pano.json"
@@ -200,6 +203,25 @@ if [ "$SADECE_KONTROL" = "1" ]; then
   echo; grn "Her şey hazır. Başlatmak için: ./basla.sh"
   exit 0
 fi
+
+# ---------------------------------------------------------------- oto-kurtarma ve müşteri talepleri senkronizasyonu
+$PY - <<'PYEOF'
+import sys
+sys.path.insert(0, "scripts")
+try:
+    import studio_engine as SE
+    import studio_board as B
+    board = B.load()
+    kurtarilan = SE.otomatik_kurtar_ve_temizle(board)
+    if kurtarilan > 0:
+        print(f"  [🔄] Önceki oturumdan kalan {kurtarilan} adet yarım/hatalı görev sıraya alındı.")
+    import studio_yetkilisi as SY
+    eklenen = SY.otomatik_musteri_talepleri_senkronize_et()
+    if eklenen > 0:
+        print(f"  [✓] {eklenen} adet müşteri talebi algılandı ve sprint panosuna eklendi.")
+except Exception as e:
+    pass
+PYEOF
 
 # ---------------------------------------------------------------- çalıştır
 echo

@@ -14,7 +14,8 @@ import {
   AlertTriangle,
   HelpCircle,
   Clock,
-  Activity
+  Activity,
+  Zap
 } from 'lucide-vue-next';
 
 const props = defineProps<{
@@ -33,47 +34,95 @@ const { calculateDistanceKm } = useUserLocation();
 const { showToast } = useToast();
 const { formatFreshnessText } = useSourceHealth();
 
+// Mesafe Gösterimi (Yalnızca istemci tarafında GPS izni varsa in-memory hesaplanır)
 const distanceText = computed(() => {
   if (!props.station) return null;
-  const d = calculateDistanceKm(props.station.lat, props.station.lon);
-  return d !== null ? `~${d} km` : null;
+  const km = calculateDistanceKm(props.station.lat, props.station.lon);
+  if (km === null) return null;
+  if (km < 1) return `~${Math.round(km * 1000)} m`;
+  return `~${km.toFixed(1)} km`;
 });
 
-// S5 US-18: 24 Saat Veri Tazeliği Rozeti
+// S5 US-18: 24 Saat Kuralına Göre Veri Tazeliği Bilgisi
 const freshnessInfo = computed(() => {
-  if (props.station?.data_freshness) {
+  if (!props.station) return { is_stale: false, last_updated_text: '' };
+  if (props.station.data_freshness) {
     return props.station.data_freshness;
   }
-  return formatFreshnessText(props.station?.updated_at);
+  return formatFreshnessText(props.station.updated_at);
 });
 
-// Deep-Link & Clipboard Fallback Mekanizması
-const handlePrimaryAction = () => {
-  if (!props.station) return;
+// Birincil Aksiyon: Operatör Derin Bağlantısı veya Pano Fallback
+// TALEP-003: Voltrun istasyonlarının soket tipi 'AC Tip 2' olarak gösterilmelidir (CCS yerine)
+const formatConnectorType = (ct: string, st?: StationItem | null): string => {
+  if (!ct) return '';
+  const opName = (st?.operator?.name || (st as any)?.operator_name || '').toLowerCase();
+  const opSlug = (st?.operator?.slug || '').toLowerCase();
+  const isVoltrun = opName.includes('voltrun') || opSlug.includes('voltrun');
 
-  const istasyonNo = props.station.istasyon_no || '';
-  const op = props.station.operator;
-
-  // Web masaüstü ortamında istasyon kodu panoya kopyalanır ve 4 sn toast verilir.
-  if (import.meta.client) {
-    if (navigator.clipboard) {
-      navigator.clipboard.writeText(istasyonNo).catch(() => {});
-    }
-
-    showToast(
-      `İstasyon kodu (${istasyonNo}) kopyalandı! Operatör uygulamasında arama kutusuna yapıştırabilirsiniz.`,
-      'info',
-      4000
-    );
-
-    const targetUrl =
-      props.station.deep_link?.universal_link_url ||
-      op?.deep_link_config?.web_url ||
-      op?.website_url ||
-      `https://www.google.com/search?q=${encodeURIComponent(op.name + ' şarj istasyonu')}`;
-
-    window.open(targetUrl, '_blank', 'noopener,noreferrer');
+  // Müşteri Talebi: Voltrun istasyonlarında soket tipi AC Tip 2 olmalıdır
+  if (isVoltrun) {
+    return 'AC Tip 2';
   }
+
+  // Genel temiz soket adı gösterimi
+  if (ct === 'CCS2' || ct === 'cCCS2' || ct === 'CCS') return 'CCS';
+  if (ct === 'Type 2' || ct === 'sType2' || ct === 'cType2' || ct === 'Type2') return 'AC Tip 2';
+  return ct;
+};
+
+const displayConnectors = computed(() => {
+  if (!props.station) return [];
+  const opName = (props.station.operator?.name || (props.station as any)?.operator_name || '').toLowerCase();
+  const opSlug = (props.station.operator?.slug || '').toLowerCase();
+  const isVoltrun = opName.includes('voltrun') || opSlug.includes('voltrun');
+
+  // Faz 1 Zorunlu Kısıt: Soket verisi ve güç verisi ikisi de yoksa uydurulamaz, boş kalır
+  if (!props.station.connector_types && !props.station.power_kw) {
+    return [];
+  }
+
+  if (isVoltrun) {
+    // Voltrun istasyonlarında soket tipi her zaman AC Tip 2 olarak gösterilir
+    return ['AC Tip 2'];
+  }
+
+  if (!props.station.connector_types) {
+    return [];
+  }
+
+  const raw = Array.isArray(props.station.connector_types)
+    ? props.station.connector_types
+    : [props.station.connector_types].filter(Boolean);
+
+  const mapped = raw.map(ct => formatConnectorType(String(ct), props.station)).filter(Boolean);
+  return Array.from(new Set(mapped));
+});
+
+const handlePrimaryAction = () => {
+  if (!props.station || !import.meta.client) return;
+
+  const op = props.station.operator;
+  const istasyonNo = props.station.istasyon_no;
+
+  // Masaüstü Web: Pano Fallback + Operatör Web Sitesi Yönlendirmesi
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(istasyonNo).catch(() => {});
+  }
+
+  showToast(
+    `İstasyon kodu (${istasyonNo}) kopyalandı! Operatör uygulamasında arama kutusuna yapıştırabilirsiniz.`,
+    'info',
+    4000
+  );
+
+  const targetUrl =
+    props.station.deep_link?.universal_link_url ||
+    op?.deep_link_config?.web_url ||
+    op?.website_url ||
+    `https://www.google.com/search?q=${encodeURIComponent(op.name + ' şarj istasyonu')}`;
+
+  window.open(targetUrl, '_blank', 'noopener,noreferrer');
 };
 
 const handleDirections = () => {
@@ -187,7 +236,7 @@ const handleDirections = () => {
         </div>
       </div>
 
-      <!-- Faz 1 Eksik Veri Alanı (Zorunlu Kısıt: Soket, Güç, Tarife, Doluluk Boş Durumu) -->
+      <!-- Soket ve Güç Bilgileri (Zenginleştirilmiş veya Faz 1 Boş Veri Durumu) -->
       <div class="my-3 p-3.5 rounded-lg bg-bg-subdued border border-border-default space-y-2.5">
         <div class="flex items-center justify-between">
           <span class="text-xs font-semibold text-text-primary">Soket ve Güç Bilgileri</span>
@@ -200,14 +249,43 @@ const handleDirections = () => {
           </button>
         </div>
 
-        <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded text-xs font-medium bg-missing-bg text-missing-text border border-border-default">
-          <HelpCircle class="w-3.5 h-3.5" />
-          <span>Operatör Verisi Bekleniyor</span>
+        <!-- Soket / Güç Verisi Varsa Göster -->
+        <div v-if="(displayConnectors.length > 0) || station.power_kw" class="space-y-2">
+          <div class="flex flex-wrap items-center gap-1.5">
+            <span
+              v-for="(ct, cidx) in displayConnectors"
+              :key="cidx"
+              class="inline-flex items-center gap-1 px-2.5 py-1 rounded text-xs font-semibold bg-primary/10 text-primary border border-primary/20"
+            >
+              <Zap class="w-3.5 h-3.5" />
+              <span>{{ ct }}</span>
+            </span>
+            <span
+              v-if="station.power_kw"
+              class="inline-flex items-center gap-1 px-2.5 py-1 rounded text-xs font-semibold bg-bg-surface text-text-primary border border-border-strong"
+            >
+              <span>{{ station.power_kw }} kW</span>
+            </span>
+          </div>
+
+          <div class="text-[11px] text-text-secondary space-y-1 pt-1 border-t border-border-default/60">
+            <p v-if="station.current_tariff">Tarife: <span class="font-semibold text-text-primary">{{ station.current_tariff }}</span></p>
+            <p v-else>Tarife: <span class="text-text-muted">Operatör Verisi Bekleniyor</span></p>
+            <p>Canlı Doluluk: <span class="text-text-muted">{{ station.status || 'Canlı durum verisi henüz açılmadı' }}</span></p>
+          </div>
         </div>
 
-        <div class="text-[11px] text-text-secondary space-y-1 pt-1 border-t border-border-default/60">
-          <p>Tarife: <span class="text-text-muted">Operatör Verisi Bekleniyor</span></p>
-          <p>Canlı Doluluk: <span class="text-text-muted">Canlı durum verisi henüz açılmadı</span></p>
+        <!-- Faz 1 Eksik Veri Alanı (Zorunlu Kısıt: Soket Boş Durumu) -->
+        <div v-else class="space-y-2">
+          <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded text-xs font-medium bg-missing-bg text-missing-text border border-border-default">
+            <HelpCircle class="w-3.5 h-3.5" />
+            <span>Operatör Verisi Bekleniyor</span>
+          </div>
+
+          <div class="text-[11px] text-text-secondary space-y-1 pt-1 border-t border-border-default/60">
+            <p>Tarife: <span class="text-text-muted">Operatör Verisi Bekleniyor</span></p>
+            <p>Canlı Doluluk: <span class="text-text-muted">Canlı durum verisi henüz açılmadı</span></p>
+          </div>
         </div>
       </div>
 
@@ -219,22 +297,23 @@ const handleDirections = () => {
           @click="handlePrimaryAction"
           class="w-full h-12 rounded-md bg-primary text-on-primary text-sm font-semibold flex items-center justify-center gap-2 shadow-sm hover:bg-primary-hover active:bg-primary-active touch-target-min transition-all focus-visible:outline-none"
         >
+          <span>Operatör Web Sitesine Git</span>
           <ExternalLink class="w-4 h-4" />
-          <span>Operatör Web Sitesine Git ↗</span>
         </button>
 
-        <p class="text-[11px] text-text-secondary text-center leading-tight">
+        <!-- Masaüstü İkincil Bilgi -->
+        <p class="text-[11px] text-text-muted text-center leading-snug">
           Masaüstü ortamında doğrudan şarj başlatılamaz; operatör web sitesine gidebilir veya QR ile telefona aktarabilirsiniz.
         </p>
 
-        <!-- İkincil Aksiyonlar: Yol Tarifi Al & Telefona Aktar -->
+        <!-- İkincil Butonlar: Yol Tarifi & Telefona Aktar -->
         <div class="grid grid-cols-2 gap-2 pt-1">
           <button
             type="button"
             @click="handleDirections"
             class="h-11 rounded-md border border-border-strong bg-bg-subdued hover:bg-border-default text-text-primary text-xs font-semibold flex items-center justify-center gap-1.5 touch-target-min transition-colors focus-visible:outline-none"
           >
-            <Navigation class="w-3.5 h-3.5 text-primary" />
+            <Navigation class="w-4 h-4 text-primary" />
             <span>Yol Tarifi</span>
           </button>
 
@@ -243,31 +322,25 @@ const handleDirections = () => {
             @click="emit('openQrBridge', station)"
             class="h-11 rounded-md border border-border-strong bg-bg-subdued hover:bg-border-default text-text-primary text-xs font-semibold flex items-center justify-center gap-1.5 touch-target-min transition-colors focus-visible:outline-none"
           >
-            <QrCode class="w-3.5 h-3.5 text-primary" />
+            <QrCode class="w-4 h-4 text-text-secondary" />
             <span>Telefona Aktar</span>
           </button>
         </div>
-      </div>
 
-      <!-- Arıza Bildir Bağlantı Butonu (SCR-06) -->
-      <div class="pt-2 text-center border-t border-border-default">
+        <!-- Arıza Bildir Butonu (Kitle Kaynaklı) -->
         <button
           type="button"
           @click="emit('openReport', station)"
-          class="text-xs text-text-secondary hover:text-danger inline-flex items-center gap-1 py-1 touch-target-min transition-colors"
+          class="w-full text-center text-xs text-text-secondary hover:text-danger pt-2 touch-target-min transition-colors"
         >
-          <AlertTriangle class="w-3.5 h-3.5" />
-          <span>İstasyonla ilgili bir sorun mu var? Arıza Bildir</span>
+          İstasyonla ilgili bir sorun mu var? <strong class="underline font-semibold">Arıza Bildir</strong>
         </button>
       </div>
 
-      <!-- Dipnot & Yasal EMP Beyanı & Veri Tazelik Bildirimi (Zorunlu Kısıt) -->
-      <div class="mt-auto pt-6 text-[10px] text-text-muted space-y-1 leading-relaxed border-t border-border-default/60">
+      <!-- Veri Kaynağı & EMP Yasal Uyarısı (Zorunlu Kısıt) -->
+      <div class="mt-auto pt-4 border-t border-border-default text-[11px] text-text-muted space-y-1">
         <p>Veri Kaynağı: EPDK Sicil Kaydı (Eylül 2026)</p>
-        <p v-if="freshnessInfo.is_stale" class="text-text-secondary font-medium">
-          Veri Tazeliği: {{ freshnessInfo.last_updated_text }}
-        </p>
-        <p>
+        <p class="leading-relaxed">
           elektriklioto.com lisanslı şarj operatörü değildir. Şarj başlatma ve faturalandırma ilgili operatörün sorumluluğundadır.
         </p>
       </div>

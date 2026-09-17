@@ -24,9 +24,12 @@ const payloadParam = (route.params.payload as string) || '';
 const isCopied = ref(false);
 
 // Backend Route Bridge Decode API Çağrısı
-const { data: routeData, error } = await useFetch<any>(
-  `${config.public.apiBase}/routes/bridge/decode/${encodeURIComponent(payloadParam)}`
-);
+const decodeUrl = computed(() => {
+  const base = (config.public.apiBase || '/api/v1').replace(/\/+$/, '');
+  return `${base}/routes/bridge/decode/${encodeURIComponent(payloadParam)}`;
+});
+
+const { data: routeData, error } = await useFetch<any>(decodeUrl);
 
 const decoded = computed<RouteBridgeDecodedResponse | null>(() => {
   if (!routeData.value) return null;
@@ -151,7 +154,7 @@ useHead(() => {
           <div class="space-y-2">
             <div
               v-for="(stop, idx) in decoded.stops"
-              :key="stop.station_id || idx"
+              :key="(typeof stop === 'object' && stop ? (stop as any).station_id : null) || idx"
               class="p-4 rounded-xl bg-bg-surface border border-border-default shadow-sm flex items-start gap-3"
             >
               <div class="w-7 h-7 rounded-full bg-primary/10 text-primary flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">
@@ -161,16 +164,20 @@ useHead(() => {
               <div class="flex-1 space-y-1">
                 <div class="flex items-center justify-between gap-2">
                   <h3 class="text-sm font-bold text-text-primary">
-                    {{ stop.name || 'Şarj Durağı' }}
+                    {{ (typeof stop === 'object' && stop && (stop as any).name) ? (stop as any).name : (typeof stop === 'string' ? `Durak: ${stop}` : `Şarj Durağı ${idx + 1}`) }}
                   </h3>
-                  <span class="text-[11px] font-semibold text-text-secondary uppercase">
-                    {{ stop.operator_slug }}
+                  <span v-if="typeof stop === 'object' && stop && (stop as any).operator_slug" class="text-[11px] font-semibold text-text-secondary uppercase">
+                    {{ (stop as any).operator_slug }}
                   </span>
                 </div>
 
-                <div class="flex items-center gap-1 text-xs text-text-secondary">
+                <div v-if="typeof stop === 'object' && stop && (stop as any).lat != null && (stop as any).lon != null" class="flex items-center gap-1 text-xs text-text-secondary">
                   <MapPin class="w-3.5 h-3.5 flex-shrink-0" />
-                  <span>{{ stop.lat.toFixed(4) }}, {{ stop.lon.toFixed(4) }}</span>
+                  <span>{{ Number((stop as any).lat).toFixed(4) }}, {{ Number((stop as any).lon).toFixed(4) }}</span>
+                </div>
+                <div v-else-if="typeof stop === 'string'" class="flex items-center gap-1 text-xs text-text-muted">
+                  <MapPin class="w-3.5 h-3.5 flex-shrink-0" />
+                  <span>İstasyon Kodu / ID: {{ stop }}</span>
                 </div>
               </div>
             </div>

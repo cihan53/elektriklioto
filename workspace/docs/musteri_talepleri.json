@@ -1,0 +1,117 @@
+{
+  "son_guncelleme": "2026-09-17T13:50:19.031962",
+  "toplam_talep": 3,
+  "talepler": [
+    {
+      "id": "TALEP-001",
+      "tarih": "2026-09-17 13:45",
+      "tur": "HATA",
+      "oncelik": "NORMAL",
+      "baslik": "Haritada filtre butonuna basınca liste senkronize olmuyor",
+      "aciklama": "Filtrelerde AC seçildiğinde haritadaki pinler güncelleniyor ancak alt liste görünümü eski istasyonları göstermeye devam ediyor.",
+      "sayfa_url": "/",
+      "durum": "COZULDU",
+      "gorevli_rol": "web_engineer",
+      "studio_notu": "2026-09-17 13:45 itibarıyla ekip tarafından çözüldü ve müşteri onayına sunuldu.",
+      "cozum_plani": "workspace/docs/cozum_planlari/TALEP-001.md",
+      "github_issue_number": 1,
+      "github_issue_url": "https://github.com/cihan53/elektriklioto/issues/1",
+      "gecmis": [
+        {
+          "zaman": "2026-09-17 13:45",
+          "eylem": "Kayıt oluşturuldu",
+          "durum": "BEKLEMEDE"
+        },
+        {
+          "zaman": "2026-09-17 13:45",
+          "eylem": "GitHub Issue oluşturuldu: #1",
+          "durum": "BEKLEMEDE"
+        },
+        {
+          "zaman": "2026-09-17 13:45",
+          "eylem": "Durum güncellendi: PLANLANDI",
+          "durum": "PLANLANDI"
+        },
+        {
+          "zaman": "2026-09-17 13:45",
+          "eylem": "Durum güncellendi: COZULDU",
+          "durum": "COZULDU"
+        }
+      ]
+    },
+    {
+      "id": "TALEP-002",
+      "tarih": "2026-09-17 13:47",
+      "tur": "HATA",
+      "oncelik": "NORMAL",
+      "baslik": "google analytics hesabım var kodu G-BKMTW8EH4K trafiği izleye bilmem için bunun siteye eklenmesi gerekiyor",
+      "aciklama": "google analytics hesabım var kodu G-BKMTW8EH4K trafiği izleye bilmem için bunun siteye eklenmesi gerekiyor",
+      "sayfa_url": "/",
+      "durum": "GELISTIRILIYOR",
+      "gorevli_rol": "web_engineer",
+      "studio_notu": "Sprint S8 panosuna eklendi (S8-T1 ve S8-T2). Geliştirme başladı.",
+      "cozum_plani": "workspace/docs/cozum_planlari/TALEP-002.md",
+      "github_issue_number": 2,
+      "github_issue_url": "https://github.com/cihan53/elektriklioto/issues/2",
+      "gecmis": [
+        {
+          "zaman": "2026-09-17 13:47",
+          "eylem": "Kayıt oluşturuldu",
+          "durum": "BEKLEMEDE"
+        },
+        {
+          "zaman": "2026-09-17 13:47",
+          "eylem": "GitHub Issue oluşturuldu: #2",
+          "durum": "BEKLEMEDE"
+        },
+        {
+          "zaman": "2026-09-17 13:50",
+          "eylem": "Durum güncellendi: PLANLANDI",
+          "durum": "PLANLANDI"
+        },
+        {
+          "zaman": "2026-09-17 13:50",
+          "eylem": "Durum güncellendi: GELISTIRILIYOR",
+          "durum": "GELISTIRILIYOR"
+        }
+      ]
+    },
+    {
+      "id": "TALEP-003",
+      "tarih": "2026-09-17 13:50",
+      "tur": "HATA",
+      "oncelik": "NORMAL",
+      "baslik": "Haritada Voltrun istasyonlarının soket tipi yanlış görünüyor",
+      "aciklama": "İstasyon detayında AC Tip 2 yerine CCS yazıyor.",
+      "sayfa_url": "/",
+      "durum": "GELISTIRILIYOR",
+      "gorevli_rol": "web_engineer",
+      "studio_notu": "Sprint S8 panosuna eklendi (S8-T3 ve S8-T4). Geliştirme başladı.",
+      "cozum_plani": "workspace/docs/cozum_planlari/TALEP-003.md",
+      "github_issue_number": 3,
+      "github_issue_url": "https://github.com/cihan53/elektriklioto/issues/3",
+      "gecmis": [
+        {
+          "zaman": "2026-09-17 13:50",
+          "eylem": "Kayıt oluşturuldu",
+          "durum": "BEKLEMEDE"
+        },
+        {
+          "zaman": "2026-09-17 13:50",
+          "eylem": "GitHub Issue oluşturuldu: #3",
+          "durum": "BEKLEMEDE"
+        },
+        {
+          "zaman": "2026-09-17 13:50",
+          "eylem": "Durum güncellendi: PLANLANDI",
+          "durum": "PLANLANDI"
+        },
+        {
+          "zaman": "2026-09-17 13:50",
+          "eylem": "Durum güncellendi: GELISTIRILIYOR",
+          "durum": "GELISTIRILIYOR"
+        }
+      ]
+    }
+  ]
+}

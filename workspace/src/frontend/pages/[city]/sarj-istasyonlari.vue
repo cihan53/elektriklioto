@@ -47,8 +47,7 @@ const districtOptions = computed(() => {
     'ankara': [
       { name: 'Çankaya', slug: 'cankaya' },
       { name: 'Yenimahalle', slug: 'yenimahalle' },
-      { name: 'Etimesgut', slug: 'etimesgut' },
-      { name: 'Keçiören', slug: 'kecioren' }
+      { name: 'Etimesgut', slug: 'etimesgut' }
     ],
     'izmir': [
       { name: 'Konak', slug: 'konak' },

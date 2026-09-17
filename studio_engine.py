@@ -493,6 +493,8 @@ LIMIT_PATTERNS = (
     "agent execution terminated due to error", "terminated due to error",
     "status\": \"error\"", "status\":\"error\"", "hata koduyla çıktı (1)",
     "internal error", "temporarily unavailable", "connection reset",
+    "unavailable", "503", "no capacity available", "capacity", "resource exhausted",
+    "service unavailable", "model overloaded",
 )
 MAX_WAIT = int(os.getenv("STUDIO_MAX_WAIT", "18000"))   # varsayılan 5 saat
 WAIT_STEP = 20
@@ -1460,6 +1462,17 @@ def execute_task(org: dict, task: dict, sprint: dict, brief: str, board: dict,
     # Gerçek ortam doğrulaması / çalıştırma rehberi
     note = verify_task_execution(task, sprint, interactive=interactive)
     B.mark(board, task["id"], B.DONE, note=note)
+
+    # Müşteri talebi görevi ise durumu otomatik güncelle
+    if task.get("talep_id"):
+        try:
+            sys.path.insert(0, str(ROOT / "scripts"))
+            import musteri_talepleri as MT
+            if task.get("phase") == "test":
+                MT.guncelle(task["talep_id"], durum="COZULDU",
+                            studio_notu=f"Görev {task['id']} başarıyla tamamlandı ve UAT testinden geçti.")
+        except Exception:
+            pass
     return True
 
 
@@ -1631,11 +1644,55 @@ Bu faz tamamlandığında sistem canlı UAT ve ziyaretçi testlerini geçmiş ol
     return 0
 
 
+def otomatik_kurtar_ve_temizle(board: dict) -> int:
+    """Yarım kalan, çöken veya önceki oturumlarda hata veren (FAILED / BLOCKED)
+    görevleri kontrol eder; yetimleri ve geçici API hatası (503 / kapasite / ağ)
+    alan görevleri otomatik olarak kurtarıp tekrar sıraya (TODO) alır.
+    Kurtarılan görev sayısını döner.
+    """
+    changed = False
+    kurtarilan = 0
+    # 1. Yetim kalan RUNNING görevler
+    if B.recover_orphans(board):
+        changed = True
+
+    # 2. FAILED ve BLOCKED görevler (Örn: Model 503 kapasite hatası, geçici ağ hatası)
+    for s in board.get("sprints", []):
+        for t in s.get("tasks", []):
+            if t.get("status") in (B.FAILED, B.BLOCKED):
+                old_status = t.get("status")
+                note = t.get("note", "")
+                t["status"] = B.TODO
+                t["attempts"] = 0
+                t["note"] = f"[Oto-Kurtarma] Önceki {old_status} temizlendi: {note[:50]}..."
+                changed = True
+                kurtarilan += 1
+                print(f"  [🔄 OTO-KURTARMA] {t['id']} ({t.get('role')}) tekrar sıraya alındı.")
+
+    if changed:
+        B.normalize(board)
+        B.refresh(board)
+        B.save(board)
+    return kurtarilan
+
+
 def run_board(org: dict, brief: str, once: bool = False,
               max_tasks: int = 0, max_cost: float = 0.0,
               interactive: bool = False) -> int:
     """Panoyu ilerletir. once=True ise yalnızca bir görev yürütür (tick)."""
     board = B.load()
+    # 1. Yarım kalan / hata veren süreçleri otomatik kurtar
+    kurtarilan = otomatik_kurtar_ve_temizle(board)
+    if kurtarilan > 0:
+        print(f"[i] Önceki oturumdan yarım kalan / hata veren {kurtarilan} görev otomatik kurtarıldı.")
+
+    # 2. Müşteri talepleri otomatik algılama ve senkronizasyon
+    try:
+        sys.path.insert(0, str(ROOT / "scripts"))
+        import studio_yetkilisi as SY
+        SY.otomatik_musteri_talepleri_senkronize_et()
+    except Exception:
+        pass
     B.recover_orphans(board)
     B.refresh(board)
 
@@ -1696,21 +1753,51 @@ def run_board(org: dict, brief: str, once: bool = False,
                       f"{sprint['planned_start']}; takvime saygı modunda erken başlatılmıyor.")
                 break
         if task is None:
-            p = B.progress(board)
-            if p["done"] + p["failed"] + p["blocked"] >= p["total"]:
-                print("\n[LİDERLİK KONTROLÜ] Panodaki mevcut görevler kapandı. CTO ve Product Owner eksik ve faz incelemesi yapıyor...")
-                added = autonomous_gap_review_and_phasing(org, brief, board)
-                if added > 0:
-                    print(f"  [✓] {added} yeni sprint fazı planlandı ve panoya eklendi. Normal akış devam ediyor...\n")
+            # Bekleyen yeni müşteri talebi var mı kontrol et ve panoya ekle
+            try:
+                sys.path.insert(0, str(ROOT / "scripts"))
+                import studio_yetkilisi as SY
+                if SY.otomatik_musteri_talepleri_senkronize_et() > 0:
                     B.refresh(board)
                     B.save(board)
                     continue
-                else:
-                    print("\n🎉 Panodaki tüm görevler kapandı ve liderlik onayı tamamlandı.")
-            else:
-                print("\n[BEKLİYOR] Şu an hazır görev yok "
-                      "(önceki sprint kapanmamış ya da bağımlılık bekliyor).")
-            break
+            except Exception:
+                pass
+
+            # 2. Panoda bloke veya başarısız kalmış görevleri oto-kurtar
+            if otomatik_kurtar_ve_temizle(board) > 0:
+                B.refresh(board)
+                B.save(board)
+                continue
+
+            p = B.progress(board)
+            if p["done"] >= p["total"] and p["total"] > 0:
+                if not getattr(run_board, "_leadership_checked", False):
+                    run_board._leadership_checked = True
+                    print("\n[LİDERLİK KONTROLÜ] Panodaki mevcut görevler kapandı. CTO ve Product Owner eksik ve faz incelemesi yapıyor...")
+                    added = autonomous_gap_review_and_phasing(org, brief, board)
+                    if added > 0:
+                        print(f"  [✓] {added} yeni sprint fazı planlandı ve panoya eklendi. Normal akış devam ediyor...\n")
+                        B.refresh(board)
+                        B.save(board)
+                        continue
+
+            if once:
+                print("\n[i] Tek seferlik koşu: hazır görev yok, çıkılıyor.")
+                break
+
+            # 3. SÜREKLİ NÖBET & DİNLEME DÖNGÜSÜ (Shell kapanana kadar ayakta kalır)
+            idle_counter = getattr(run_board, "_idle_counter", 0) + 1
+            run_board._idle_counter = idle_counter
+            if idle_counter % 6 == 1:
+                cur_time = time.strftime("%H:%M:%S")
+                print(f"\n[💤 AYAKTA VE DİNLİYOR] ({cur_time}) Aktif işler tamamlandı.")
+                print("   Yeni bir müşteri talebi geldiğinde ('./musteri.sh') sistem otomatik olarak algılayıp çözecektir.")
+                print("   (Durdurmak için kontrol ekranında 's' tuşuna basın veya './basla.sh --durdur' yapın)")
+
+            time.sleep(5)
+            board = B.load()
+            continue
 
         B.mark(board, task["id"], B.RUNNING)
         B.save(board)
