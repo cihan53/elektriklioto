@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-09-18T09:03:31.068962",
+  "son_guncelleme": "2026-09-18T09:46:22.674237",
   "toplam_talep": 13,
   "talepler": [
     {
@@ -455,9 +455,9 @@
       "baslik": "Top menüde 2 tane Hakkında butonu görünüyor (Sağdaki buton korunmalı, mükerrer olan kaldırılmalı)",
       "aciklama": "Müşteri Geri Bildirimi: Top menüde 2 tane hakkında butonu göründüğünü söylüyor. Ayrıca hakkında butonu sağda olanı doğru diyor. Header/menü alanındaki çift Hakkında butonu incelenerek sol veya orta alanda mükerrer görünen kaldırılmalı, sağ taraftaki doğru Hakkında butonu korunmalıdır.",
       "sayfa_url": "/",
-      "durum": "GELISTIRILIYOR",
+      "durum": "COZULDU",
       "gorevli_rol": "web_engineer",
-      "studio_notu": "Sprint S11 panosuna eklendi (S11-T1 ve S11-T2). Geliştirme başladı.",
+      "studio_notu": "Görev S11-T2 başarıyla tamamlandı ve UAT testinden geçti.",
       "cozum_plani": "workspace/docs/cozum_planlari/TALEP-011.md",
       "github_issue_number": 11,
       "github_issue_url": "https://github.com/cihan53/elektriklioto/issues/11",
@@ -51866,6 +51866,11 @@
           "zaman": "2026-09-18 09:03",
           "eylem": "Durum güncellendi: GELISTIRILIYOR",
           "durum": "GELISTIRILIYOR"
+        },
+        {
+          "zaman": "2026-09-18 09:46",
+          "eylem": "Durum güncellendi: COZULDU",
+          "durum": "COZULDU"
         }
       ],
       "faz_id": "FAZ-1",

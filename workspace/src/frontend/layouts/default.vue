@@ -1,8 +1,8 @@
-
 <script setup lang="ts">
 import { onMounted } from 'vue';
 import HeaderNav from '~/components/common/HeaderNav.vue';
 import ToastContainer from '~/components/common/ToastContainer.vue';
+import UpdateNotificationModal from '~/components/modals/UpdateNotificationModal.vue';
 import { useTheme } from '~/composables/useTheme';
 
 const { initTheme } = useTheme();
@@ -24,5 +24,8 @@ onMounted(() => {
 
     <!-- Global Toast Bildirimleri -->
     <ToastContainer />
+
+    <!-- Yeni Deploy / Sürüm Bildirim Modalı (TALEP-012) -->
+    <UpdateNotificationModal />
   </div>
 </template>

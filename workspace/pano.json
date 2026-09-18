@@ -1202,19 +1202,22 @@
             "S11-T1"
           ],
           "talep_id": "TALEP-011",
-          "status": "RUNNING",
+          "status": "DONE",
           "attempts": 1,
-          "note": "",
-          "started_at": 1789713781.543156
+          "note": "canlı UAT hata tespit edildi",
+          "started_at": 1789713781.543156,
+          "finished_at": 1789713975.4923918,
+          "duration_s": 193.9
         }
       ],
       "order": 10,
-      "status": "READY",
+      "status": "DONE",
       "actual_start": "2026-09-18T09:03:37",
-      "actual_end": null,
-      "planned_start": "2026-09-19",
-      "planned_end": "2026-09-21",
-      "faz_id": "FAZ-1"
+      "actual_end": "2026-09-18T09:46:22",
+      "planned_start": "2026-09-18",
+      "planned_end": "2026-09-18",
+      "faz_id": "FAZ-1",
+      "_summary_printed": true
     },
     {
       "id": "S12",
@@ -1235,9 +1238,12 @@
           ],
           "depends_on": [],
           "talep_id": "TALEP-012",
-          "status": "TODO",
-          "attempts": 0,
-          "note": ""
+          "status": "DONE",
+          "attempts": 1,
+          "note": "",
+          "started_at": 1789713982.6974132,
+          "finished_at": 1789714710.9470022,
+          "duration_s": 728.2
         },
         {
           "id": "S12-T2",
@@ -1252,7 +1258,7 @@
             "S12-T1"
           ],
           "talep_id": "TALEP-012",
-          "status": "TODO",
+          "status": "READY",
           "attempts": 0,
           "note": ""
         },
@@ -1268,9 +1274,12 @@
           ],
           "depends_on": [],
           "talep_id": "TALEP-013",
-          "status": "TODO",
+          "status": "READY",
           "attempts": 0,
-          "note": ""
+          "note": "[Kurtarma Ajanı] Otomatik olarak sıraya alındı",
+          "started_at": 1789714710.950422,
+          "finished_at": 1789718509.377174,
+          "duration_s": 3798.4
         },
         {
           "id": "S12-T4",
@@ -1287,21 +1296,21 @@
           "talep_id": "TALEP-013",
           "status": "TODO",
           "attempts": 0,
-          "note": ""
+          "note": "[Kurtarma Ajanı] Otomatik olarak sıraya alındı"
         }
       ],
       "order": 11,
-      "status": "TODO",
+      "status": "READY",
       "note": "Faz 1 tamamlanıp onaylanmadan Faz 2 başlatılamaz.",
-      "actual_start": null,
+      "actual_start": "2026-09-18T09:46:22",
       "actual_end": null,
-      "planned_start": "2026-09-22",
-      "planned_end": "2026-09-25"
+      "planned_start": "2026-09-19",
+      "planned_end": "2026-09-21"
     }
   ],
   "created_at": "2026-09-06T17:56:01",
   "baseline_end": "2026-09-21",
-  "updated_at": "2026-09-18T09:43:01",
+  "updated_at": "2026-09-18T14:39:21",
   "_runtime": {
     "done_outputs": []
   }

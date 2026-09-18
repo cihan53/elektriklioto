@@ -1,6 +1,6 @@
 # elektriklioto.com — Müşteri Denetim & Talep Havuzu
 
-> **Son Güncelleme:** 2026-09-18 09:03  
+> **Son Güncelleme:** 2026-09-18 09:46  
 > **Toplam Bildirim:** 13  
 
 Bu doküman, site sahibinin / müşterinin yaptığı denetimler sonucunda iletilen istek, hata ve geri bildirimleri içerir.
@@ -11,9 +11,9 @@ Bu doküman, site sahibinin / müşterinin yaptığı denetimler sonucunda ileti
 
 | ID | Tür | Öncelik | Durum | Başlık | Ekran / URL | İlgili Rol | GitHub Issue | Plan |
 |---|---|---|---|---|---|---|---|---|
-| **TALEP-013** | Yeni İstek / Özellik | Normal (P3) | 🔨 Geliştiriliyor | Yapılan güncellemeler, çözülen hatalar ve sürüm geçmişi için Değişiklik Günlüğü (Changelog / Sürüm Notları) ekranı | `/guncellemeler` | `web_engineer` | [#13](https://github.com/cihan53/elektriklioto/issues/13) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-013.md) |
-| **TALEP-012** | Yeni İstek / Özellik | Yüksek (P2) | 🔨 Geliştiriliyor | Yeni deploy çıktığında açık sayfalarda güncelleme uyarısı çıkması ve 20 saniyede otomatik yenilenmesi | `/` | `devops_engineer` | [#12](https://github.com/cihan53/elektriklioto/issues/12) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-012.md) |
-| **TALEP-011** | Hata / Bug | Normal (P3) | 🔨 Geliştiriliyor | Top menüde 2 tane Hakkında butonu görünüyor (Sağdaki buton korunmalı, mükerrer olan kaldırılmalı) | `/` | `web_engineer` | [#11](https://github.com/cihan53/elektriklioto/issues/11) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-011.md) |
+| **TALEP-013** | Yeni İstek / Özellik | Normal (P3) | 📦 Faz Bekliyor | Yapılan güncellemeler, çözülen hatalar ve sürüm geçmişi için Değişiklik Günlüğü (Changelog / Sürüm Notları) ekranı | `/guncellemeler` | `web_engineer` | [#13](https://github.com/cihan53/elektriklioto/issues/13) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-013.md) |
+| **TALEP-012** | Yeni İstek / Özellik | Yüksek (P2) | 📦 Faz Bekliyor | Yeni deploy çıktığında açık sayfalarda güncelleme uyarısı çıkması ve 20 saniyede otomatik yenilenmesi | `/` | `devops_engineer` | [#12](https://github.com/cihan53/elektriklioto/issues/12) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-012.md) |
+| **TALEP-011** | Hata / Bug | Normal (P3) | ✅ Çözüldü | Top menüde 2 tane Hakkında butonu görünüyor (Sağdaki buton korunmalı, mükerrer olan kaldırılmalı) | `/` | `web_engineer` | [#11](https://github.com/cihan53/elektriklioto/issues/11) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-011.md) |
 | **TALEP-010** | Hata / Bug | Kritik (P1) | ✅ Çözüldü | Aramalar ve istasyon kayıtları veritabanından gelmiyor, veritabanı tabloları boş görünüyor | `/api/v1/stations` | `backend_engineer` | [#10](https://github.com/cihan53/elektriklioto/issues/10) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-010.md) |
 | **TALEP-009** | Yeni İstek / Özellik | Normal (P3) | ✅ Çözüldü | Hakkında, Kullanıcı Sözleşmeleri, Gizlilik Politikası ve Canlı Sürüm Bilgileri Paneli / Sayfası | `/hakkimizda` | `web_engineer` | [#9](https://github.com/cihan53/elektriklioto/issues/9) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-009.md) |
 | **TALEP-008** | Hata / Bug | Kritik (P1) | ✅ Çözüldü | Harita pinleri ve kümeleme baloncuklarının modal pencerelerin (QrBridgeModal vb.) üzerine taşması (z-index katman çakışması) | `/` | `web_engineer` | [#8](https://github.com/cihan53/elektriklioto/issues/8) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-008.md) |
@@ -29,7 +29,7 @@ Bu doküman, site sahibinin / müşterinin yaptığı denetimler sonucunda ileti
 
 ## 2. Talep Detayları ve Geri Bildirim Notları
 
-### [TALEP-013] Yapılan güncellemeler, çözülen hatalar ve sürüm geçmişi için Değişiklik Günlüğü (Changelog / Sürüm Notları) ekranı (🔨 Geliştiriliyor)
+### [TALEP-013] Yapılan güncellemeler, çözülen hatalar ve sürüm geçmişi için Değişiklik Günlüğü (Changelog / Sürüm Notları) ekranı (📦 Faz Bekliyor)
 - **Bildirim Tarihi:** 2026-09-18 09:03
 - **Tür / Öncelik:** Yeni İstek / Özellik / Normal (P3)
 - **İlgili Ekran / Sayfa:** `/guncellemeler`
@@ -45,7 +45,7 @@ Bu doküman, site sahibinin / müşterinin yaptığı denetimler sonucunda ileti
 - 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-013.md](workspace/docs/cozum_planlari/TALEP-013.md)
 
 ---
-### [TALEP-012] Yeni deploy çıktığında açık sayfalarda güncelleme uyarısı çıkması ve 20 saniyede otomatik yenilenmesi (🔨 Geliştiriliyor)
+### [TALEP-012] Yeni deploy çıktığında açık sayfalarda güncelleme uyarısı çıkması ve 20 saniyede otomatik yenilenmesi (📦 Faz Bekliyor)
 - **Bildirim Tarihi:** 2026-09-18 00:10
 - **Tür / Öncelik:** Yeni İstek / Özellik / Yüksek (P2)
 - **İlgili Ekran / Sayfa:** `/`
@@ -61,7 +61,7 @@ Bu doküman, site sahibinin / müşterinin yaptığı denetimler sonucunda ileti
 - 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-012.md](workspace/docs/cozum_planlari/TALEP-012.md)
 
 ---
-### [TALEP-011] Top menüde 2 tane Hakkında butonu görünüyor (Sağdaki buton korunmalı, mükerrer olan kaldırılmalı) (🔨 Geliştiriliyor)
+### [TALEP-011] Top menüde 2 tane Hakkında butonu görünüyor (Sağdaki buton korunmalı, mükerrer olan kaldırılmalı) (✅ Çözüldü)
 - **Bildirim Tarihi:** 2026-09-18 00:05
 - **Tür / Öncelik:** Hata / Bug / Normal (P3)
 - **İlgili Ekran / Sayfa:** `/`
@@ -72,7 +72,7 @@ Bu doküman, site sahibinin / müşterinin yaptığı denetimler sonucunda ileti
 > Müşteri Geri Bildirimi: Top menüde 2 tane hakkında butonu göründüğünü söylüyor. Ayrıca hakkında butonu sağda olanı doğru diyor. Header/menü alanındaki çift Hakkında butonu incelenerek sol veya orta alanda mükerrer görünen kaldırılmalı, sağ taraftaki doğru Hakkında butonu korunmalıdır.
 
 **Studio Yetkilisi Notu:**
-> Sprint S11 panosuna eklendi (S11-T1 ve S11-T2). Geliştirme başladı.
+> Görev S11-T2 başarıyla tamamlandı ve UAT testinden geçti.
 
 - 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-011.md](workspace/docs/cozum_planlari/TALEP-011.md)
 
