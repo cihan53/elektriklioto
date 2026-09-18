@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-09-18T17:28:02.830521",
+  "son_guncelleme": "2026-09-18T17:51:50.078160",
   "toplam_talep": 15,
   "talepler": [
     {
@@ -103362,9 +103362,9 @@
       "baslik": "Cron senkronizasyon scripti istasyon bilgilerini alamıyor (0 istasyon hazır)",
       "aciklama": "Müşteri log kaydını iletti: Sunucuda cron ile çalışan günlük istasyon senkronizasyon scripti (import_cpo_stations.py) 0 istasyon üretiyor:\n[2026-09-18 02:00:01] Günlük İstasyon Senkronizasyonu Başlatıldı.\n[2026-09-18 02:00:01] Proje Dizini: /home/elektriklioto/app\n[2026-09-18 02:00:02] Kullanılan Python: /usr/bin/python3 (Python 3.6.8)\n[2026-09-18 02:00:02] ETL Pipeline (import_cpo_stations.py) çalıştırılıyor...\n[2026-09-18 02:00:02] ETL Pipeline başarıyla tamamlandı.\n[2026-09-18 02:00:02] Güncel İstasyon Dosyası: 4.0K (0 istasyon hazır)\n[2026-09-18 02:00:02] cPanel Passenger uygulaması yeniden başlatıldı (restart.txt).\n[2026-09-18 02:00:02] Günlük Senkronizasyon İşlemi Tamamlandı.\nİstasyon verisi çekilemiyor veya Python sürümü/bağımlılık/kaynak hatası nedeniyle 0 kayıt üretiliyor.",
       "sayfa_url": "/cron/sync",
-      "durum": "GELISTIRILIYOR",
+      "durum": "COZULDU",
       "gorevli_rol": "devops_engineer",
-      "studio_notu": "Sprint S13 panosuna eklendi (S13-T1 ve S13-T2). Geliştirme başladı.",
+      "studio_notu": "Görev S13-T2 başarıyla tamamlandı ve UAT testinden geçti.",
       "cozum_plani": "workspace/docs/cozum_planlari/TALEP-014.md",
       "github_issue_number": 14,
       "github_issue_url": "https://github.com/cihan53/elektriklioto/issues/14",
@@ -130928,6 +130928,11 @@
           "zaman": "2026-09-18 17:28",
           "eylem": "Durum güncellendi: GELISTIRILIYOR",
           "durum": "GELISTIRILIYOR"
+        },
+        {
+          "zaman": "2026-09-18 17:51",
+          "eylem": "Durum güncellendi: COZULDU",
+          "durum": "COZULDU"
         }
       ],
       "faz_id": "FAZ-1",
