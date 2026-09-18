@@ -99,23 +99,17 @@ fi
 
 # 7. Yerel Flutter SDK Durumu ve Mimari Raporlama
 echo -n "7. Yerel Flutter/Dart SDK Durumu... "
-if command -v flutter >/dev/null 2>&1; then
-  if flutter --version >/dev/null 2>&1; then
-    echo -e "${GREEN}AKTİF (Yerel SDK çalışıyor)${NC}"
-  else
-    echo -e "${YELLOW}BOZUK ('Exec format error' - Mimari çatışması)${NC}"
-    echo -e "   ${YELLOW}Not: Çözüm için README.md Bölüm 2.2 yönergelerini uygulayın veya Docker builder kullanın.${NC}"
-  fi
+if command -v flutter >/dev/null 2>&1 && flutter --version >/dev/null 2>&1; then
+  echo -e "${GREEN}ÇALIŞIYOR ($(flutter --version | head -n 1))${NC}"
 else
-  echo -e "${YELLOW}YOK (PATH üzerinde bulunamadı)${NC}"
+  echo -e "${YELLOW}BOZUK (Exec format error — Dockerized build önerilir)${NC}"
 fi
 
-# 8. Sonuç Özeti
-echo -e "${CYAN}===================================================================${NC}"
+echo -e "\n${CYAN}===================================================================${NC}"
 if [ $FAILED_CHECKS -eq 0 ]; then
-  echo -e "${GREEN}🎉 TEBRİKLER: Sprint 6 Mobil CI/CD ve Build Dağıtım Altyapısı Eksiksiz Hazır!${NC}"
+  echo -e "${GREEN}🎉 Tüm Sprint 6 Mobil CI/CD & Build Dağıtım Denetimleri Başarılı!${NC}"
   exit 0
 else
-  echo -e "${RED}❌ UYARI: $FAILED_CHECKS adet kontrol başarısız oldu.${NC}"
+  echo -e "${RED}❌ $FAILED_CHECKS adet mobil denetim başarısız oldu!${NC}"
   exit 1
 fi

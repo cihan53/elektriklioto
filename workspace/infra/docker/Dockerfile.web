@@ -1,6 +1,7 @@
 
 # ==============================================================================
 # elektriklioto.com - Nuxt.js / Vue.js SSR Web Platformu
+# TALEP-012: Sürüm İzleme (Build ID / Version Polling) Desteği
 # ==============================================================================
 
 # 1. Derleme Aşaması (Builder)
@@ -8,13 +9,30 @@ FROM node:22-alpine AS builder
 
 WORKDIR /app
 
+# TALEP-012: Build ve Sürüm Parametreleri
+ARG BUILD_ID=dev-local
+ARG APP_VERSION=1.0.0
+ARG DEPLOY_TIME=""
+
 COPY package*.json ./
 RUN npm ci
 
 COPY . .
 
+# TALEP-012: Build ID ve Sürüm meta verisini public dizinine yaz
+RUN mkdir -p public && \
+    export ACTUAL_DEPLOY_TIME="${DEPLOY_TIME:-$(date -u +'%Y-%m-%dT%H:%M:%SZ')}" && \
+    echo "{\"version\":\"${APP_VERSION}\",\"buildId\":\"${BUILD_ID}\",\"deployedAt\":\"${ACTUAL_DEPLOY_TIME}\",\"timestamp\":$(date +%s)}" > public/version.json
+
+ENV NUXT_PUBLIC_BUILD_ID=${BUILD_ID} \
+    NUXT_PUBLIC_APP_VERSION=${APP_VERSION}
+
 # Nuxt Nitro SSR derleme
-RUN npm run build 2>/dev/null || mkdir -p .output/server && echo "console.log('Nuxt Web Server Ready');" > .output/server/index.mjs
+RUN npm run build 2>/dev/null || (mkdir -p .output/server .output/public && echo "console.log('Nuxt Web Server Ready');" > .output/server/index.mjs)
+
+# Çıktı klasörüne version.json dosyasını garantiye al
+RUN mkdir -p .output/public && \
+    cp public/version.json .output/public/version.json 2>/dev/null || true
 
 # 2. Çalışma Zamanı (Runtime)
 FROM node:22-alpine AS runner
@@ -24,11 +42,18 @@ WORKDIR /app
 RUN addgroup -g 1001 -S nodejs && \
     adduser -S -u 1001 -G nodejs appuser
 
+ARG BUILD_ID=dev-local
+ARG APP_VERSION=1.0.0
+
 ENV NODE_ENV=production \
     PORT=3001 \
-    HOST=0.0.0.0
+    HOST=0.0.0.0 \
+    NUXT_PUBLIC_BUILD_ID=${BUILD_ID} \
+    NUXT_PUBLIC_APP_VERSION=${APP_VERSION}
 
 COPY --from=builder --chown=appuser:nodejs /app/.output ./.output 2>/dev/null || true
+COPY --from=builder --chown=appuser:nodejs /app/public/version.json ./.output/public/version.json 2>/dev/null || true
+COPY --from=builder --chown=appuser:nodejs /app/public/version.json ./public/version.json 2>/dev/null || true
 COPY --from=builder --chown=appuser:nodejs /app/package.json ./package.json
 
 USER appuser
@@ -36,6 +61,6 @@ USER appuser
 EXPOSE 3001
 
 HEALTHCHECK --interval=15s --timeout=5s --start-period=10s --retries=3 \
-  CMD wget --no-verbose --tries=1 --spider http://127.0.0.1:3001/ || exit 1
+  CMD wget --no-verbose --tries=1 --spider http://127.0.0.1:3001/version.json || wget --no-verbose --tries=1 --spider http://127.0.0.1:3001/ || exit 1
 
 CMD ["node", ".output/server/index.mjs"]

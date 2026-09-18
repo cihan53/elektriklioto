@@ -69,14 +69,17 @@ services:
 
   web:
     build:
-      context: ../src
-      dockerfile: ../infra/docker/Dockerfile.web
+      context: ../src/frontend
+      dockerfile: ../../infra/docker/Dockerfile.web
+      args:
+        BUILD_ID: ${BUILD_ID:-dev-local}
     container_name: elektriklioto-web
     restart: unless-stopped
     environment:
       NODE_ENV: development
       PORT: 3001
       NUXT_PUBLIC_API_BASE: http://localhost:3000
+      NUXT_PUBLIC_BUILD_ID: ${BUILD_ID:-dev-local}
     ports:
       - "3001:3001"
     depends_on:

@@ -1,7 +1,7 @@
 # elektriklioto.com — Müşteri Denetim & Talep Havuzu
 
-> **Son Güncelleme:** 2026-09-18 08:58  
-> **Toplam Bildirim:** 12  
+> **Son Güncelleme:** 2026-09-18 09:03  
+> **Toplam Bildirim:** 13  
 
 Bu doküman, site sahibinin / müşterinin yaptığı denetimler sonucunda iletilen istek, hata ve geri bildirimleri içerir.
 
@@ -11,6 +11,7 @@ Bu doküman, site sahibinin / müşterinin yaptığı denetimler sonucunda ileti
 
 | ID | Tür | Öncelik | Durum | Başlık | Ekran / URL | İlgili Rol | GitHub Issue | Plan |
 |---|---|---|---|---|---|---|---|---|
+| **TALEP-013** | Yeni İstek / Özellik | Normal (P3) | 🔨 Geliştiriliyor | Yapılan güncellemeler, çözülen hatalar ve sürüm geçmişi için Değişiklik Günlüğü (Changelog / Sürüm Notları) ekranı | `/guncellemeler` | `web_engineer` | [#13](https://github.com/cihan53/elektriklioto/issues/13) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-013.md) |
 | **TALEP-012** | Yeni İstek / Özellik | Yüksek (P2) | 🔨 Geliştiriliyor | Yeni deploy çıktığında açık sayfalarda güncelleme uyarısı çıkması ve 20 saniyede otomatik yenilenmesi | `/` | `devops_engineer` | [#12](https://github.com/cihan53/elektriklioto/issues/12) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-012.md) |
 | **TALEP-011** | Hata / Bug | Normal (P3) | 🔨 Geliştiriliyor | Top menüde 2 tane Hakkında butonu görünüyor (Sağdaki buton korunmalı, mükerrer olan kaldırılmalı) | `/` | `web_engineer` | [#11](https://github.com/cihan53/elektriklioto/issues/11) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-011.md) |
 | **TALEP-010** | Hata / Bug | Kritik (P1) | ✅ Çözüldü | Aramalar ve istasyon kayıtları veritabanından gelmiyor, veritabanı tabloları boş görünüyor | `/api/v1/stations` | `backend_engineer` | [#10](https://github.com/cihan53/elektriklioto/issues/10) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-010.md) |
@@ -28,6 +29,22 @@ Bu doküman, site sahibinin / müşterinin yaptığı denetimler sonucunda ileti
 
 ## 2. Talep Detayları ve Geri Bildirim Notları
 
+### [TALEP-013] Yapılan güncellemeler, çözülen hatalar ve sürüm geçmişi için Değişiklik Günlüğü (Changelog / Sürüm Notları) ekranı (🔨 Geliştiriliyor)
+- **Bildirim Tarihi:** 2026-09-18 09:03
+- **Tür / Öncelik:** Yeni İstek / Özellik / Normal (P3)
+- **İlgili Ekran / Sayfa:** `/guncellemeler`
+- **Görevli Rol:** `web_engineer`
+- 🐙 **GitHub Issue:** [#13](https://github.com/cihan53/elektriklioto/issues/13)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Müşteri Talebi: Ekran üzerinde hangi güncellemelerin yapıldığı, bug'ların çözüldüğünü anlayamıyorum, bunun için bir ekran hazırlanabilir mi? Uygulamada çözülen müşteri taleplerini (TALEP-001..TALEP-012), giderilen hataları, eklenen özellikleri ve SemVer sürüm etiketlerini (v0.7.1 vb.) tarih ve kategorilerine göre şık bir zaman çizelgesi / kart yapısıyla sunan 'Sürüm Notları & Güncellemeler' (/guncellemeler veya modal) ekranı hazırlanmalıdır.
+
+**Studio Yetkilisi Notu:**
+> Sprint S11 panosuna eklendi (S11-T5 ve S11-T6). Geliştirme başladı.
+
+- 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-013.md](workspace/docs/cozum_planlari/TALEP-013.md)
+
+---
 ### [TALEP-012] Yeni deploy çıktığında açık sayfalarda güncelleme uyarısı çıkması ve 20 saniyede otomatik yenilenmesi (🔨 Geliştiriliyor)
 - **Bildirim Tarihi:** 2026-09-18 00:10
 - **Tür / Öncelik:** Yeni İstek / Özellik / Yüksek (P2)
