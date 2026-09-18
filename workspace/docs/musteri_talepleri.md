@@ -1,7 +1,7 @@
 # elektriklioto.com — Müşteri Denetim & Talep Havuzu
 
-> **Son Güncelleme:** 2026-09-18 14:58  
-> **Toplam Bildirim:** 14  
+> **Son Güncelleme:** 2026-09-18 17:28  
+> **Toplam Bildirim:** 15  
 
 Bu doküman, site sahibinin / müşterinin yaptığı denetimler sonucunda iletilen istek, hata ve geri bildirimleri içerir.
 
@@ -11,8 +11,9 @@ Bu doküman, site sahibinin / müşterinin yaptığı denetimler sonucunda ileti
 
 | ID | Tür | Öncelik | Durum | Başlık | Ekran / URL | İlgili Rol | GitHub Issue | Plan |
 |---|---|---|---|---|---|---|---|---|
-| **TALEP-014** | Hata / Bug | Normal (P3) | ⏳ Beklemede | Cron senkronizasyon scripti istasyon bilgilerini alamıyor (0 istasyon hazır) | `/cron/sync` | `None` | [#14](https://github.com/cihan53/elektriklioto/issues/14) | — |
-| **TALEP-013** | Yeni İstek / Özellik | Normal (P3) | 📦 Faz Bekliyor | Yapılan güncellemeler, çözülen hatalar ve sürüm geçmişi için Değişiklik Günlüğü (Changelog / Sürüm Notları) ekranı | `/guncellemeler` | `web_engineer` | [#13](https://github.com/cihan53/elektriklioto/issues/13) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-013.md) |
+| **TALEP-015** | Yeni İstek / Özellik | Normal (P3) | 🔨 Geliştiriliyor | EPDK ve CPO Kamu/Açık Kaynaklarından Canlı İstasyon Senkronizasyonu | `/cron/sync` | `backend_engineer` | [#15](https://github.com/cihan53/elektriklioto/issues/15) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-015.md) |
+| **TALEP-014** | Hata / Bug | Normal (P3) | 🔨 Geliştiriliyor | Cron senkronizasyon scripti istasyon bilgilerini alamıyor (0 istasyon hazır) | `/cron/sync` | `devops_engineer` | [#14](https://github.com/cihan53/elektriklioto/issues/14) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-014.md) |
+| **TALEP-013** | Yeni İstek / Özellik | Normal (P3) | ✅ Çözüldü | Yapılan güncellemeler, çözülen hatalar ve sürüm geçmişi için Değişiklik Günlüğü (Changelog / Sürüm Notları) ekranı | `/guncellemeler` | `web_engineer` | [#13](https://github.com/cihan53/elektriklioto/issues/13) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-013.md) |
 | **TALEP-012** | Yeni İstek / Özellik | Yüksek (P2) | ✅ Çözüldü | Yeni deploy çıktığında açık sayfalarda güncelleme uyarısı çıkması ve 20 saniyede otomatik yenilenmesi | `/` | `devops_engineer` | [#12](https://github.com/cihan53/elektriklioto/issues/12) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-012.md) |
 | **TALEP-011** | Hata / Bug | Normal (P3) | ✅ Çözüldü | Top menüde 2 tane Hakkında butonu görünüyor (Sağdaki buton korunmalı, mükerrer olan kaldırılmalı) | `/` | `web_engineer` | [#11](https://github.com/cihan53/elektriklioto/issues/11) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-011.md) |
 | **TALEP-010** | Hata / Bug | Kritik (P1) | ✅ Çözüldü | Aramalar ve istasyon kayıtları veritabanından gelmiyor, veritabanı tabloları boş görünüyor | `/api/v1/stations` | `backend_engineer` | [#10](https://github.com/cihan53/elektriklioto/issues/10) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-010.md) |
@@ -30,11 +31,27 @@ Bu doküman, site sahibinin / müşterinin yaptığı denetimler sonucunda ileti
 
 ## 2. Talep Detayları ve Geri Bildirim Notları
 
-### [TALEP-014] Cron senkronizasyon scripti istasyon bilgilerini alamıyor (0 istasyon hazır) (⏳ Beklemede)
+### [TALEP-015] EPDK ve CPO Kamu/Açık Kaynaklarından Canlı İstasyon Senkronizasyonu (🔨 Geliştiriliyor)
+- **Bildirim Tarihi:** 2026-09-18 17:21
+- **Tür / Öncelik:** Yeni İstek / Özellik / Normal (P3)
+- **İlgili Ekran / Sayfa:** `/cron/sync`
+- **Görevli Rol:** `backend_engineer`
+- 🐙 **GitHub Issue:** [#15](https://github.com/cihan53/elektriklioto/issues/15)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Müşteri isteği: İstasyon senkronizasyonu için EPDK web sitesi/listesi (public) kullanılmalı, ayrıca firmaların her biri (ZES, Trugo, Eşarj, Voltrun vb.) için istasyon bilgilerinin çekileceği açık servis/endpoint adresleri tespit edilip cron mekanizmasına bağlanmalı.
+
+**Studio Yetkilisi Notu:**
+> Sprint S13 panosuna eklendi (S13-T3 ve S13-T4). Geliştirme başladı.
+
+- 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-015.md](workspace/docs/cozum_planlari/TALEP-015.md)
+
+---
+### [TALEP-014] Cron senkronizasyon scripti istasyon bilgilerini alamıyor (0 istasyon hazır) (🔨 Geliştiriliyor)
 - **Bildirim Tarihi:** 2026-09-18 14:41
 - **Tür / Öncelik:** Hata / Bug / Normal (P3)
 - **İlgili Ekran / Sayfa:** `/cron/sync`
-- **Görevli Rol:** `None`
+- **Görevli Rol:** `devops_engineer`
 - 🐙 **GitHub Issue:** [#14](https://github.com/cihan53/elektriklioto/issues/14)
 
 **Müşteri Açıklaması / Hata Adımları:**
@@ -49,8 +66,13 @@ Bu doküman, site sahibinin / müşterinin yaptığı denetimler sonucunda ileti
 [2026-09-18 02:00:02] Günlük Senkronizasyon İşlemi Tamamlandı.
 İstasyon verisi çekilemiyor veya Python sürümü/bağımlılık/kaynak hatası nedeniyle 0 kayıt üretiliyor.
 
+**Studio Yetkilisi Notu:**
+> Sprint S13 panosuna eklendi (S13-T1 ve S13-T2). Geliştirme başladı.
+
+- 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-014.md](workspace/docs/cozum_planlari/TALEP-014.md)
+
 ---
-### [TALEP-013] Yapılan güncellemeler, çözülen hatalar ve sürüm geçmişi için Değişiklik Günlüğü (Changelog / Sürüm Notları) ekranı (📦 Faz Bekliyor)
+### [TALEP-013] Yapılan güncellemeler, çözülen hatalar ve sürüm geçmişi için Değişiklik Günlüğü (Changelog / Sürüm Notları) ekranı (✅ Çözüldü)
 - **Bildirim Tarihi:** 2026-09-18 09:03
 - **Tür / Öncelik:** Yeni İstek / Özellik / Normal (P3)
 - **İlgili Ekran / Sayfa:** `/guncellemeler`
@@ -61,7 +83,7 @@ Bu doküman, site sahibinin / müşterinin yaptığı denetimler sonucunda ileti
 > Müşteri Talebi: Ekran üzerinde hangi güncellemelerin yapıldığı, bug'ların çözüldüğünü anlayamıyorum, bunun için bir ekran hazırlanabilir mi? Uygulamada çözülen müşteri taleplerini (TALEP-001..TALEP-012), giderilen hataları, eklenen özellikleri ve SemVer sürüm etiketlerini (v0.7.1 vb.) tarih ve kategorilerine göre şık bir zaman çizelgesi / kart yapısıyla sunan 'Sürüm Notları & Güncellemeler' (/guncellemeler veya modal) ekranı hazırlanmalıdır.
 
 **Studio Yetkilisi Notu:**
-> Sprint S11 panosuna eklendi (S11-T5 ve S11-T6). Geliştirme başladı.
+> Görev S12-T4 başarıyla tamamlandı ve UAT testinden geçti.
 
 - 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-013.md](workspace/docs/cozum_planlari/TALEP-013.md)
 
