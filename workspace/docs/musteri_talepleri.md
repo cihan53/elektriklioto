@@ -1,6 +1,6 @@
 # elektriklioto.com — Müşteri Denetim & Talep Havuzu
 
-> **Son Güncelleme:** 2026-09-18 14:41  
+> **Son Güncelleme:** 2026-09-18 14:58  
 > **Toplam Bildirim:** 14  
 
 Bu doküman, site sahibinin / müşterinin yaptığı denetimler sonucunda iletilen istek, hata ve geri bildirimleri içerir.
@@ -13,7 +13,7 @@ Bu doküman, site sahibinin / müşterinin yaptığı denetimler sonucunda ileti
 |---|---|---|---|---|---|---|---|---|
 | **TALEP-014** | Hata / Bug | Normal (P3) | ⏳ Beklemede | Cron senkronizasyon scripti istasyon bilgilerini alamıyor (0 istasyon hazır) | `/cron/sync` | `None` | [#14](https://github.com/cihan53/elektriklioto/issues/14) | — |
 | **TALEP-013** | Yeni İstek / Özellik | Normal (P3) | 📦 Faz Bekliyor | Yapılan güncellemeler, çözülen hatalar ve sürüm geçmişi için Değişiklik Günlüğü (Changelog / Sürüm Notları) ekranı | `/guncellemeler` | `web_engineer` | [#13](https://github.com/cihan53/elektriklioto/issues/13) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-013.md) |
-| **TALEP-012** | Yeni İstek / Özellik | Yüksek (P2) | 📦 Faz Bekliyor | Yeni deploy çıktığında açık sayfalarda güncelleme uyarısı çıkması ve 20 saniyede otomatik yenilenmesi | `/` | `devops_engineer` | [#12](https://github.com/cihan53/elektriklioto/issues/12) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-012.md) |
+| **TALEP-012** | Yeni İstek / Özellik | Yüksek (P2) | ✅ Çözüldü | Yeni deploy çıktığında açık sayfalarda güncelleme uyarısı çıkması ve 20 saniyede otomatik yenilenmesi | `/` | `devops_engineer` | [#12](https://github.com/cihan53/elektriklioto/issues/12) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-012.md) |
 | **TALEP-011** | Hata / Bug | Normal (P3) | ✅ Çözüldü | Top menüde 2 tane Hakkında butonu görünüyor (Sağdaki buton korunmalı, mükerrer olan kaldırılmalı) | `/` | `web_engineer` | [#11](https://github.com/cihan53/elektriklioto/issues/11) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-011.md) |
 | **TALEP-010** | Hata / Bug | Kritik (P1) | ✅ Çözüldü | Aramalar ve istasyon kayıtları veritabanından gelmiyor, veritabanı tabloları boş görünüyor | `/api/v1/stations` | `backend_engineer` | [#10](https://github.com/cihan53/elektriklioto/issues/10) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-010.md) |
 | **TALEP-009** | Yeni İstek / Özellik | Normal (P3) | ✅ Çözüldü | Hakkında, Kullanıcı Sözleşmeleri, Gizlilik Politikası ve Canlı Sürüm Bilgileri Paneli / Sayfası | `/hakkimizda` | `web_engineer` | [#9](https://github.com/cihan53/elektriklioto/issues/9) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-009.md) |
@@ -66,7 +66,7 @@ Bu doküman, site sahibinin / müşterinin yaptığı denetimler sonucunda ileti
 - 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-013.md](workspace/docs/cozum_planlari/TALEP-013.md)
 
 ---
-### [TALEP-012] Yeni deploy çıktığında açık sayfalarda güncelleme uyarısı çıkması ve 20 saniyede otomatik yenilenmesi (📦 Faz Bekliyor)
+### [TALEP-012] Yeni deploy çıktığında açık sayfalarda güncelleme uyarısı çıkması ve 20 saniyede otomatik yenilenmesi (✅ Çözüldü)
 - **Bildirim Tarihi:** 2026-09-18 00:10
 - **Tür / Öncelik:** Yeni İstek / Özellik / Yüksek (P2)
 - **İlgili Ekran / Sayfa:** `/`
@@ -77,7 +77,7 @@ Bu doküman, site sahibinin / müşterinin yaptığı denetimler sonucunda ileti
 > Müşteri Talebi: Eğer bir deploy çıkarsa tüm açık olan sayfaların uyarı verip yenilenmesini istesin kullanıcıdan, eğer 20sn içinde cevap vermez ise yinede yenilesin. Frontend tarafında periyodik sürüm kontrolü (version/build hash polling) yapılarak yeni deploy algılandığında kullanıcıya 'Yeni sürüm yayınlandı, sayfa güncelleniyor (20s)' geri sayımlı modal/toast gösterilmeli, 'Şimdi Yenile' butonu sunulmalı ve 20 saniye dolduğunda otomatik reload yapılmalıdır.
 
 **Studio Yetkilisi Notu:**
-> Sprint S11 panosuna eklendi (S11-T3 ve S11-T4). Geliştirme başladı.
+> Görev S12-T2 başarıyla tamamlandı ve UAT testinden geçti.
 
 - 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-012.md](workspace/docs/cozum_planlari/TALEP-012.md)
 
