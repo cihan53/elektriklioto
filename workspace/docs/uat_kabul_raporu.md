@@ -1,17 +1,17 @@
 # Kullanıcı Kabul Testi (UAT) ve Saha Doğrulama Raporu: elektriklioto.com (Faz 1)
 
-> **Belge Sürümü:** 1.1.0-faz1  
+> **Belge Sürümü:** 1.2.0-faz1  
 > **Nihai Karar (Verdict):** APPROVED (KULLANICI KABUL TESTLERİ BAŞARIYLA GEÇTİ)  
 > **Rol:** Kullanıcı Kabul Testi (UAT) ve Saha Doğrulama  
 > **Test Ortamı:** Canlı Web Haritası (`http://localhost:3000`), Fastify Backend API (`http://localhost:3001`), Docker PostGIS (`localhost:5432`)  
-> **Test Yöntemi:** Playwright Headless Chromium E2E Test Paketi (`workspace/tests/e2e_uat_runner.mjs`) & Canlı Ağ ve Konsol İzleme  
+> **Test Yöntemi:** Playwright Headless Chromium E2E Test Paketi (`workspace/tests/e2e_uat_runner.mjs`) & Canlı Ağ/Konsol İzleme  
 > **Doğruluk Kaynakları:** `proje_kapsami.md`, `workspace/docs/kabul_kriterleri.md`, `workspace/docs/ekran_envanteri.md`, `workspace/docs/ux_akislari.md`, `workspace/docs/test_raporu.md`
 
 ---
 
 ## 1. Zorunlu Kısıtlar, Çatışmalar ve Varsayımlar
 
-Aşağıdaki maddeler sistemin kesin kararları ve temel kısıtlarıdır; tüm UAT adımları bu sınırlar gözetilerek icra edilmiştir:
+Aşağıdaki maddeler sistemin kesin kararları ve temel kısıtlarıdır; tüm UAT adımları bu sınırlar gözetilerek canlı ortamda icra edilmiştir:
 
 - **Alan Adı ve Marka:** `elektriklioto.com` tüm web, API (`api.elektriklioto.com`) ve mobil varlıkların tek çatısıdır (zorunlu).
 - **Web Çatısı:** Nuxt.js / Vue.js (SSR/SSG uyumlu) Fastify API'sini tüketir (zorunlu).
@@ -28,13 +28,13 @@ Aşağıdaki maddeler sistemin kesin kararları ve temel kısıtlarıdır; tüm 
 - **Tohum Veri:** EPDK 16.788 istasyon ve 179 marka içeren `istasyonlar.json` kanonik çapadır (`ŞRJ/xxxx`); `lat`/`lon` mevcut kabul edilir, geocoding yapılmaz (zorunlu).
 - **Eksik Veri Modeli:** Soket tipi, güç, tarife ve canlı doluluk verisi Faz 1 başlangıcında YOKTUR; şema bu alanları `NULL` kabul eder; arayüz boşken de anlamlı görünmek zorundadır; uydurma veri girilemez (zorunlu).
 
-> **ÇATIŞMA:** "Mobil istemci Flutter ile geliştirilecektir. (zorunlu)" kısıtı teknik olarak imkânsızdır. Ortam raporunda `flutter` ve `dart` komutları "Exec format error" nedeniyle BOZUK durumdadır. İstemcinin geliştirilebilmesi için derleme ortamının onarımı zorunludur.
+> **ÇATIŞMA:** "Mobil istemci Flutter ile geliştirilecektir. (zorunlu)" kısıtı teknik olarak imkânsızdır. Ortam raporunda `flutter` ve `dart` komutları "Exec format error" nedeniyle BOZUK durumdadır. İstemcinin geliştirilebilmesi için onarım gereklidir.
 
 > **ÇATIŞMA:** "Paket yöneticisi tekliği: Ortamda pnpm 10.20.0 ölçülmüştür" kısıtı ortam gerçeğiyle uyuşmamaktadır. Güncel ortam raporunda `pnpm` YOK olarak listelenmiştir. Paylaşımlı workspace mimarisi için KURULUM GEREKİYOR: pnpm.
 
-> **Varsayım:** Canlı UAT testleri, ortamda kurulu Node v22, Playwright headless Chromium otomasyonu ve yerel canlı servisler (`localhost:3000` Nuxt 3 SSR istemcisi ve `localhost:3001` Fastify backend API) üzerinde icra edilmiştir.
+> **Varsayım:** Canlı UAT testleri, ortamda kurulu Node v22, Playwright headless Chromium otomasyonu ve yerel canlı servisler (`localhost:3000` Nuxt 3 SSR istemcisi, `localhost:3001` Fastify backend API ve `localhost:5432` Docker PostGIS) üzerinde tam entegrasyonla icra edilmiştir.
 
-> **Varsayım:** Mobil istemci ortamdaki SDK çatışması nedeniyle CI ortamında test edilmek üzere bırakılmış, Faz 1 web haritası ve REST API uç noktaları canlı portlar üzerinden doğrulanmıştır.
+> **Varsayım:** Mobil istemci ortamdaki SDK çatışması nedeniyle CI ortamında test edilmek üzere bırakılmış; web harita arayüzü masaüstü standart görünümünde (1920x1080) test edilerek kullanıcı deneyimi uçtan uca doğrulanmıştır.
 
 ---
 
@@ -43,7 +43,7 @@ Aşağıdaki maddeler sistemin kesin kararları ve temel kısıtlarıdır; tüm 
 Canlı çalışan sistem üzerinde (`http://localhost:3000` ve `http://localhost:3001`) Playwright E2E test paketi (`workspace/tests/e2e_uat_runner.mjs`) ile icra edilen kullanıcı kabul testleri sonucunda 5 temel UAT adımının tamamı eksiksiz başarıyla geçmiştir.
 
 - **Nihai Hüküm:** **VERDICT: APPROVED (KABUL EDİLDİ)**
-- **Gerekçe:** Canlı web haritasına bağlanılmış, Türkiye genelinde 106 kümeleme dairesi tespit edilmiş, İstanbul kümesine tıklanarak zoom 11 seviyesinde haritaya 544 istasyon pini düşürülmüş, pin tıklamasıyla detay paneli ve pano kopyalama aksiyonu doğrulanmış, tarayıcı konsolunda sıfır `TypeError` ve ağda sıfır `400 Bad Request` ile süreç tamamlanmıştır.
+- **Gerekçe:** Canlı web haritasına bağlanılmış, Türkiye genelinde 106 kümeleme dairesi tespit edilmiş, İstanbul kümesine tıklanarak zoom 11 seviyesinde haritaya 544 tekil istasyon pini düşürülmüş (Hedef: 500+), pin tıklamasıyla detay paneli ve pano kopyalama aksiyonu doğrulanmış, tarayıcı konsolunda sıfır `TypeError` ve ağ trafiğinde sıfır `400 Bad Request` ile süreç tamamlanmıştır.
 
 ---
 
@@ -63,7 +63,7 @@ Canlı çalışan sistem üzerinde (`http://localhost:3000` ve `http://localhost
 
 ### 4.1. Adım 1: Canlı Harita Bağlantısı (localhost:3000 & 3001)
 - **Bağlantı URL:** `http://localhost:3000/` (Nuxt 3 SSR) ve `http://localhost:3001/api/v1` (Fastify API).
-- **Gözlem:** Web istemcisi HTTP 200 ile 18ms içinde ilk baytı aldı. HTML içinde SSR hydration hatası veya `window` tanımsızlık çökmesi yaşanmadı; MapLibre tuvali `<ClientOnly>` izolasyonunda pürüzsüz yüklendi.
+- **Gözlem:** Web istemcisi HTTP 200 ile ilk baytı aldı. HTML içinde SSR hydration hatası veya `window` tanımsızlık çökmesi yaşanmadı; MapLibre tuvali `<ClientOnly>` izolasyonunda pürüzsüz yüklendi.
 
 ### 4.2. Adım 2: Kümeleme (Clustering) Doğrulaması (Zoom 6)
 - **Sorgu:** `GET /api/v1/stations?bbox=25.82845,37.39904,39.89095,42.37728&zoom=6`
@@ -78,8 +78,8 @@ Canlı çalışan sistem üzerinde (`http://localhost:3000` ve `http://localhost
 - **Seçilen İstasyon:** `DoubleTree by Hilton İstanbul Moda — ZES` (EPDK: `ŞRJ/19473`, Slug: `kadikoy-moda-zes-1`).
 - **Detay Paneli:** Sol yan panel (380px) 200ms animasyonla açıldı (`isOpen: true`).
 - **Veri Alanları Denetimi:**
-  - *Operatör Adı:* `ZES` (Doğru).
-  - *EPDK Kodu:* `ŞRJ/19473` (Doğru).
+  - *Operatör Adı:* `ZES` (Doğrulandı).
+  - *EPDK Kodu:* `ŞRJ/19473` (Doğrulandı).
   - *Soket Tipi & Güç (kW):* `null` -> Nötr gri rozette `Operatör Verisi Bekleniyor` ve `+ Bilgi Ekle` butonu gösterildi (Sahte mock veri girilmediği doğrulandı).
   - *Tarife & Doluluk:* `null` -> `Operatör Verisi Bekleniyor` ve `Canlı durum verisi henüz açılmadı` metinleri gösterildi.
 - **Derin Bağlantı (Deep-Link) Aksiyonu:** "Operatör Web Sitesine Git ↗" butonuna tıklandı. İstasyon kodu (`ŞRJ/19473`) işletim sistemi panosuna (clipboard) kopyalandı ve kullanıcıya toast bildirimi gösterildi.
