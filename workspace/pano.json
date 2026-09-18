@@ -1332,8 +1332,9 @@
           "depends_on": [],
           "talep_id": "TALEP-014",
           "status": "READY",
-          "attempts": 0,
-          "note": ""
+          "attempts": 1,
+          "note": " [yetim durumdan kurtarıldı]",
+          "started_at": 1789741701.0803251
         },
         {
           "id": "S13-T2",
@@ -1388,7 +1389,7 @@
       ],
       "order": 12,
       "status": "READY",
-      "actual_start": null,
+      "actual_start": "2026-09-18T17:28:21",
       "actual_end": null,
       "planned_start": "2026-09-19",
       "planned_end": "2026-09-20"
@@ -1396,7 +1397,7 @@
   ],
   "created_at": "2026-09-06T17:56:01",
   "baseline_end": "2026-09-20",
-  "updated_at": "2026-09-18T17:28:04",
+  "updated_at": "2026-09-18T17:29:34",
   "_runtime": {
     "done_outputs": []
   }
