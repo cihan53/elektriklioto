@@ -1,14 +1,15 @@
+
 #!/usr/bin/env bash
 # ==============================================================================
 # elektriklioto.com - Günlük Şarj İstasyonları Veri Senkronizasyonu (Cronjob)
-# Sprint: S13 — Müşteri Denetimi & Saha Onarımları (TALEP-014)
+# Sprint: S13 — TALEP-014 Sıfır İstasyon Hatası Onarımı & Kurtarma Kalkanı
 # ==============================================================================
 # Bu betik her gece cPanel Cron Jobs tarafından tetiklenir.
 # ZES, Trugo, Voltrun, Eşarj ve EPDK veri kaynaklarını derleyip
 # backend veri havuzunu günceller ve servisi sessizce yeniden başlatır.
 # ==============================================================================
 
-set -euo pipefail
+set -e
 
 # Betiğin bulunduğu dizinden proje kök dizinine geç
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -18,7 +19,7 @@ LOG_FILE="$LOG_DIR/cron_daily_sync.log"
 
 mkdir -p "$LOG_DIR"
 
-# cPanel ve sistem PATH genişletmesi
+# cPanel PATH genişletmesi (Python3 ve Node yolları)
 export PATH="/usr/local/bin:/usr/bin:/bin:$HOME/bin:$PATH"
 
 log() {
@@ -29,30 +30,22 @@ log "========================================================"
 log "Günlük İstasyon Senkronizasyonu Başlatıldı."
 log "Proje Dizini: $ROOT_DIR"
 
-# 1. Python 3 Yorumlayıcısının Tespiti (cPanel EA, Alt-Python, Virtualenv ve Sistem)
+# 1. Python 3 Yorumlayıcısının Tespiti (Öncelikli Modern Python ve Virtualenv Desteği)
 PYTHON_BIN=""
 CANDIDATE_PYTHONS=(
     "$ROOT_DIR/.venv/bin/python3"
-    "$ROOT_DIR/.venv/bin/python"
     "$ROOT_DIR/venv/bin/python3"
-    "$ROOT_DIR/venv/bin/python"
     "$HOME/virtualenv/app/3.11/bin/python3"
     "$HOME/virtualenv/app/3.10/bin/python3"
     "$HOME/virtualenv/app/3.9/bin/python3"
+    "/opt/cpanel/ea-python311/root/usr/bin/python3"
+    "/opt/cpanel/ea-python310/root/usr/bin/python3"
     "/opt/alt/python311/bin/python3"
     "/opt/alt/python310/bin/python3"
     "/opt/alt/python39/bin/python3"
-    "/opt/alt/python38/bin/python3"
-    "/opt/cpanel/ea-python311/bin/python3"
-    "/opt/cpanel/ea-python310/bin/python3"
-    "/opt/cpanel/ea-python39/bin/python3"
     "/usr/local/bin/python3.11"
     "/usr/local/bin/python3.10"
-    "/usr/local/bin/python3.9"
     "/usr/local/bin/python3"
-    "$(which python3.11 2>/dev/null || true)"
-    "$(which python3.10 2>/dev/null || true)"
-    "$(which python3.9 2>/dev/null || true)"
     "/usr/bin/python3"
 )
 
@@ -89,27 +82,33 @@ fi
 # 3. Güncellenen Verinin Boyut ve Durum Kontrolü (TALEP-014 Güvenlik Doğrulaması)
 DATA_FILE="$ROOT_DIR/workspace/src/backend/src/data/cpo_stations.json"
 BAK_FILE="$ROOT_DIR/workspace/src/backend/src/data/cpo_stations.json.bak"
+SEED_FILE="$ROOT_DIR/server-scripts/data/cpo_stations.json"
 
 STATION_COUNT=0
 if [ -f "$DATA_FILE" ]; then
     STATION_COUNT=$("$PYTHON_BIN" -c "import json; data=json.load(open('$DATA_FILE', encoding='utf-8')); print(len(data))" 2>/dev/null || echo "0")
 fi
 
-if [ "$STATION_COUNT" -gt 0 ]; then
+# Sıfır İstasyon Kalkanı: Eğer 0 kayıt tespit edilirse veya dosya yoksa kurtarma mekanizması devreye girer
+if [ "$STATION_COUNT" = "0" ] || [ "$STATION_COUNT" = "Bilinmiyor" ] || [ ! -f "$DATA_FILE" ]; then
+    log "UYARI: cpo_stations.json içinde 0 istasyon tespit edildi! Kurtarma mekanizması çalıştırılıyor..."
+    mkdir -p "$(dirname "$DATA_FILE")"
+    if [ -f "$BAK_FILE" ] && [ $(wc -c < "$BAK_FILE") -gt 1000 ]; then
+        cp -f "$BAK_FILE" "$DATA_FILE"
+        log "Kurtarma: cpo_stations.json.bak yedeğinden geri yüklendi."
+    elif [ -f "$SEED_FILE" ] && [ $(wc -c < "$SEED_FILE") -gt 1000 ]; then
+        cp -f "$SEED_FILE" "$DATA_FILE"
+        log "Kurtarma: server-scripts/data/cpo_stations.json tohum dosyasından geri yüklendi."
+    fi
+    STATION_COUNT=$("$PYTHON_BIN" -c "import json; data=json.load(open('$DATA_FILE', encoding='utf-8')); print(len(data))" 2>/dev/null || echo "0")
+fi
+
+if [ -f "$DATA_FILE" ] && [ "$STATION_COUNT" -gt 0 ]; then
     FILE_SIZE=$(du -h "$DATA_FILE" 2>/dev/null | cut -f1 || echo "Bilinmiyor")
     log "ETL Pipeline başarıyla tamamlandı."
     log "Güncel İstasyon Dosyası: $FILE_SIZE ($STATION_COUNT istasyon hazır)"
 else
-    log "UYARI: Güncel veri dosyasında 0 istasyon tespit edildi!"
-    if [ -f "$BAK_FILE" ]; then
-        log "Güvenlik kalkanı: Mevcut yedek (cpo_stations.json.bak) geri yükleniyor..."
-        cp "$BAK_FILE" "$DATA_FILE"
-        STATION_COUNT=$("$PYTHON_BIN" -c "import json; data=json.load(open('$DATA_FILE', encoding='utf-8')); print(len(data))" 2>/dev/null || echo "0")
-        FILE_SIZE=$(du -h "$DATA_FILE" 2>/dev/null | cut -f1 || echo "Bilinmiyor")
-        log "Yedekten Geri Yüklendi: $FILE_SIZE ($STATION_COUNT istasyon hazır)"
-    else
-        log "HATA: Yedek dosya da bulunamadı! Lütfen logları ve veri kaynaklarını kontrol ediniz."
-    fi
+    log "HATA: cpo_stations.json dosyası hiçbir kaynaktan temin edilemedi!"
 fi
 
 # 4. cPanel Passenger Yeniden Başlatma (Zero-downtime reload)

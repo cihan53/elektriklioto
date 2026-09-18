@@ -87,6 +87,7 @@ jobs:
             .env.cpanel.example \
             server-scripts/ \
             workspace/src/backend/dist \
+            workspace/src/backend/src/data \
             workspace/src/backend/node_modules \
             workspace/src/backend/package.json \
             workspace/src/frontend/.output

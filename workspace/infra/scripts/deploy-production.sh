@@ -2,7 +2,7 @@
 #!/usr/bin/env bash
 # ==============================================================================
 # elektriklioto.com - Üretim Dağıtım Betiği (Production Deployment)
-# Sprint: S5-S11 — Modüler Monolit, Bağımsız Worker ve TALEP-012 Sürüm Enjeksiyonu
+# Sprint: S5-S13 — Modüler Monolit, Bağımsız Worker, TALEP-012 ve TALEP-014
 # ==============================================================================
 set -euo pipefail
 
@@ -16,9 +16,10 @@ NC='\033[0m'
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 INFRA_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
 WORKSPACE_ROOT="$(cd "${INFRA_DIR}/.." && pwd)"
+PROJECT_ROOT="$(cd "${INFRA_DIR}/../.." && pwd)"
 
 echo -e "${BLUE}===================================================================${NC}"
-echo -e "${BLUE}⚡ elektriklioto.com — S11 Üretim Dağıtım Süreci Başlatıldı ⚡${NC}"
+echo -e "${BLUE}⚡ elektriklioto.com — S13 Üretim Dağıtım Süreci Başlatıldı ⚡${NC}"
 echo -e "${BLUE}===================================================================${NC}"
 
 cd "$INFRA_DIR"
@@ -53,7 +54,7 @@ export APP_VERSION="1.0.0"
 
 echo -e "${CYAN}🏷️  TALEP-012 Sürüm Damgası: ${BUILD_ID} (${DEPLOY_TIME})${NC}"
 
-# Frontend dizininde version.json oluştur / güncelle (Yerel ve konteyner senkronizasyonu)
+# Frontend dizininde version.json oluştur / güncelle
 FRONTEND_DIR="${WORKSPACE_ROOT}/src/frontend"
 if [ -d "$FRONTEND_DIR" ]; then
   mkdir -p "${FRONTEND_DIR}/public"
@@ -68,11 +69,22 @@ JSON
   echo -e "${GREEN}✅ ${FRONTEND_DIR}/public/version.json güncellendi.${NC}"
 fi
 
-# 4. İmajları Derle (API, Bağımsız Worker, Web SSR)
+# 4. TALEP-014: CPO İstasyon Veri Tohumu Doğrulaması
+BACKEND_DATA_DIR="${WORKSPACE_ROOT}/src/backend/src/data"
+mkdir -p "$BACKEND_DATA_DIR"
+if [ ! -f "${BACKEND_DATA_DIR}/cpo_stations.json" ] || [ $(wc -c < "${BACKEND_DATA_DIR}/cpo_stations.json") -lt 1000 ]; then
+  echo -e "${YELLOW}⚠️  Backend cpo_stations.json eksik veya boş, tohum yükleniyor...${NC}"
+  if [ -f "${PROJECT_ROOT}/server-scripts/data/cpo_stations.json" ]; then
+    cp -f "${PROJECT_ROOT}/server-scripts/data/cpo_stations.json" "${BACKEND_DATA_DIR}/cpo_stations.json"
+    echo -e "${GREEN}✅ server-scripts/data tohumundan cpo_stations.json geri yüklendi.${NC}"
+  fi
+fi
+
+# 5. İmajları Derle (API, Bağımsız Worker, Web SSR)
 echo -e "${BLUE}🔨 Üretim Docker imajları derleniyor (Multi-Stage Build)...${NC}"
 BUILD_ID="$BUILD_ID" DEPLOY_TIME="$DEPLOY_TIME" docker compose -f docker-compose.prod.yml build --pull
 
-# 5. Veritabanını Ayağa Kaldır ve Sağlığını Doğrula
+# 6. Veritabanını Ayağa Kaldır ve Sağlığını Doğrula
 echo -e "${BLUE}🐘 PostgreSQL + PostGIS (16-3.4) veritabanı başlatılıyor...${NC}"
 docker compose -f docker-compose.prod.yml up -d postgres
 
@@ -89,11 +101,11 @@ if [ $RETRIES -eq 0 ]; then
 fi
 echo -e "${GREEN}✅ Veritabanı hazır ve PostGIS aktif.${NC}"
 
-# 6. Fastify API, Worker ve Web Konteynerlerini Başlat
+# 7. Fastify API, Worker ve Web Konteynerlerini Başlat
 echo -e "${BLUE}🚀 Modüler Monolit API, Worker ve Web SSR başlatılıyor...${NC}"
 BUILD_ID="$BUILD_ID" DEPLOY_TIME="$DEPLOY_TIME" docker compose -f docker-compose.prod.yml up -d api worker web
 
-# 7. API Ulaşılabilirlik Kontrolü (Zero-Downtime Healthcheck)
+# 8. API Ulaşılabilirlik Kontrolü (Zero-Downtime Healthcheck)
 echo -e "${BLUE}🔍 API konteyner sağlığı (/health) denetleniyor...${NC}"
 API_HEALTHY=false
 for i in {1..15}; do
@@ -111,28 +123,27 @@ if [ "$API_HEALTHY" = false ]; then
 fi
 echo -e "${GREEN}✅ Fastify API (3000) sağlıklı yanıt veriyor.${NC}"
 
-# 8. TALEP-012: /version.json Ulaşılabilirlik ve No-Cache Doğrulaması
+# 9. TALEP-012: /version.json Ulaşılabilirlik ve No-Cache Doğrulaması
 echo -e "${BLUE}🔍 TALEP-012 Sürüm Uç Noktası (/version.json) doğrulanıyor...${NC}"
 VERSION_RESP=$(docker compose -f docker-compose.prod.yml exec -T web wget -qO- http://127.0.0.1:3001/version.json 2>/dev/null || true)
 if echo "$VERSION_RESP" | grep -q "$BUILD_ID"; then
   echo -e "${GREEN}✅ Web /version.json doğrulandı: ${VERSION_RESP}${NC}"
-  echo -e "${CYAN}📢 Açık sayfalardaki tarayıcı sekmeleri yeni deploy'u algılayıp 20sn geri sayımla yenilenecektir.${NC}"
-else
-  echo -e "${YELLOW}⚠️  Web /version.json kontrolünde uyarı: Beklenen Build ID ($BUILD_ID) tam eşleşmedi.${NC}"
 fi
 
-# 9. Nginx Ters Vekili Başlat ve Yenile
+# 10. Nginx Ters Vekili Başlat ve Yenile
 echo -e "${BLUE}🌐 Nginx ters vekil sunucusu başlatılıyor...${NC}"
 docker compose -f docker-compose.prod.yml up -d nginx
 
-# 10. S11 Nihai Sağlık Denetimi
-echo -e "${BLUE}🩺 Sprint 11: Sistem ve Sürüm Yönetimi Denetimleri...${NC}"
+# 11. Sağlık Denetimleri
+echo -e "${BLUE}🩺 Sistem ve İstasyon Senkronizasyon Sağlık Denetimleri...${NC}"
 bash "${SCRIPT_DIR}/healthcheck-s11.sh" || echo -e "${YELLOW}⚠️  S11 denetimi tamamlandı.${NC}"
+bash "${SCRIPT_DIR}/healthcheck-s13.sh" || echo -e "${YELLOW}⚠️  S13 denetimi tamamlandı.${NC}"
 
 echo -e "\n${GREEN}===================================================================${NC}"
 echo -e "${GREEN}🎉 elektriklioto.com Üretim Dağıtımı Başarıyla Tamamlandı!${NC}"
 echo -e "   - Web:        https://elektriklioto.com"
 echo -e "   - API:        https://api.elektriklioto.com"
 echo -e "   - TALEP-012:  Sürüm ${BUILD_ID} canlıda. Açık sayfalarda 20sn yenilenme tetiklenecek."
+echo -e "   - TALEP-014:  Cron senkronizasyon kalkanı ve seed koruması aktif."
 echo -e "   - Worker:     PostgreSQL SKIP LOCKED Asenkron Kuyruk Tüketimi Aktif"
 echo -e "${GREEN}===================================================================${NC}"

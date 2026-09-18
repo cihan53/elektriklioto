@@ -1,5 +1,6 @@
 
 import { circuitBreakerService, CircuitStatusString } from './circuit-breaker.service.js';
+import { CPO_ENDPOINTS } from './cpo-endpoints.js';
 
 export interface SourceHealthRecord {
   id: number;
@@ -20,10 +21,11 @@ export interface FreshnessInfo {
 }
 
 /**
- * Veri Kaynağı Sağlık İzleme ve Tazelik Servisi (US-18)
+ * Veri Kaynağı Sağlık İzleme ve Tazelik Servisi (US-18, TALEP-015)
  * 
  * - 24 saattir veri gelmeyen kaynakları izole eder ve raporlar.
  * - İstasyonlar için "Son güncelleme: X gün/saat önce" rozet metni üretir.
+ * - CPO ve EPDK kamu açık servislerinin anlık erişilebilirlik ve Circuit Breaker durumunu takip eder.
  * - Kaynak kesintilerinde platformun %100 kesintisiz çalışmasını garanti eder.
  */
 export class SourceHealthService {
@@ -74,7 +76,7 @@ export class SourceHealthService {
         source_name: 'EPDK Kamusal Sorgu Ucu',
         endpoint_url: 'https://epdk.gov.tr/api/sarj/istasyonlar',
         consecutive_failures: 0,
-        last_successful_sync: new Date(Date.now() - 25 * 60 * 60 * 1000),
+        last_successful_sync: new Date(Date.now() - 25 * 60 * 60 * 1000), // 25 saat önce (bayat kaynak testi için)
         last_attempt_at: new Date(),
         last_error: 'Bağlantı zaman aşımı',
         is_healthy: false,
@@ -89,6 +91,28 @@ export class SourceHealthService {
     }
   }
 
+  /**
+   * CPO_ENDPOINTS kataloğundaki tüm açık servisleri sağlık tablosuna kaydeder.
+   */
+  public registerAllCpoEndpoints(): void {
+    for (const ep of CPO_ENDPOINTS) {
+      if (!this.sources.has(ep.sourceName)) {
+        this.sources.set(ep.sourceName, {
+          id: ep.id,
+          operator_id: ep.operatorId,
+          source_name: ep.sourceName,
+          endpoint_url: ep.primaryUrl,
+          consecutive_failures: 0,
+          last_successful_sync: new Date(),
+          last_attempt_at: new Date(),
+          last_error: null,
+          is_healthy: true,
+          circuit_state: circuitBreakerService.getState(ep.sourceName),
+        });
+      }
+    }
+  }
+
   public registerSource(record: Omit<SourceHealthRecord, 'circuit_state'>): void {
     this.sources.set(record.source_name, {
       ...record,
@@ -100,91 +124,115 @@ export class SourceHealthService {
     const s = this.sources.get(sourceName);
     const now = new Date();
     if (s) {
-      s.consecutive_failures = 0;
       s.last_successful_sync = now;
       s.last_attempt_at = now;
+      s.consecutive_failures = 0;
       s.last_error = null;
       s.is_healthy = true;
       s.circuit_state = circuitBreakerService.getState(sourceName);
+    } else {
+      this.sources.set(sourceName, {
+        id: this.sources.size + 1,
+        operator_id: 1,
+        source_name: sourceName,
+        endpoint_url: '',
+        circuit_state: circuitBreakerService.getState(sourceName),
+        consecutive_failures: 0,
+        last_successful_sync: now,
+        last_attempt_at: now,
+        last_error: null,
+        is_healthy: true,
+      });
     }
   }
 
-  public recordFailure(sourceName: string, error: string): void {
+  public recordFailure(sourceName: string, errorMsg: string): void {
     const s = this.sources.get(sourceName);
     const now = new Date();
     if (s) {
-      s.consecutive_failures += 1;
       s.last_attempt_at = now;
-      s.last_error = error;
+      s.consecutive_failures += 1;
+      s.last_error = errorMsg;
       s.circuit_state = circuitBreakerService.getState(sourceName);
-      if (s.consecutive_failures >= 5 || s.circuit_state === 'OPEN') {
+      if (s.consecutive_failures >= 3) {
         s.is_healthy = false;
       }
+    } else {
+      this.sources.set(sourceName, {
+        id: this.sources.size + 1,
+        operator_id: 1,
+        source_name: sourceName,
+        endpoint_url: '',
+        circuit_state: circuitBreakerService.getState(sourceName),
+        consecutive_failures: 1,
+        last_successful_sync: null,
+        last_attempt_at: now,
+        last_error: errorMsg,
+        is_healthy: false,
+      });
     }
   }
 
   public getAllSources(): SourceHealthRecord[] {
     const list: SourceHealthRecord[] = [];
     for (const s of this.sources.values()) {
-      s.circuit_state = circuitBreakerService.getState(s.source_name);
-      list.push({ ...s });
+      list.push({
+        ...s,
+        circuit_state: circuitBreakerService.getState(s.source_name),
+      });
     }
     return list;
   }
 
-  /**
-   * 24 saattir başarılı güncelleme alınamayan kaynakları listeler (US-18)
-   */
   public getStaleSources(thresholdHours = 24): SourceHealthRecord[] {
     const thresholdMs = thresholdHours * 60 * 60 * 1000;
     const now = Date.now();
     const stale: SourceHealthRecord[] = [];
 
     for (const s of this.sources.values()) {
-      if (!s.last_successful_sync || now - s.last_successful_sync.getTime() > thresholdMs) {
+      if (!s.last_successful_sync) {
+        stale.push({ ...s, circuit_state: circuitBreakerService.getState(s.source_name) });
+      } else if (now - s.last_successful_sync.getTime() > thresholdMs) {
         stale.push({ ...s, circuit_state: circuitBreakerService.getState(s.source_name) });
       }
     }
+
     return stale;
   }
 
   /**
-   * İstasyonun son güncellenme zamanına göre tazelik rozeti üretir (US-18).
-   * 24 saatten eski ise "Son güncelleme: X gün/saat önce" nötr gri rozeti üretilir.
+   * İstasyonlar için "Son güncelleme: X gün/saat önce" rozet metni üretir (US-18).
    */
-  public formatFreshness(updatedAtDate: Date | string | null | undefined, now = new Date()): FreshnessInfo {
-    if (!updatedAtDate) {
+  public formatFreshness(updatedAt: Date | null, referenceDate = new Date()): FreshnessInfo {
+    if (!updatedAt) {
       return {
         is_stale: true,
         last_updated_text: 'Operatör Verisi Bekleniyor',
       };
     }
 
-    const date = updatedAtDate instanceof Date ? updatedAtDate : new Date(updatedAtDate);
-    const diffMs = Math.max(0, now.getTime() - date.getTime());
+    const diffMs = referenceDate.getTime() - updatedAt.getTime();
     const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
     const diffDays = Math.floor(diffHours / 24);
 
-    const isStale = diffHours >= 24;
+    if (diffHours < 1) {
+      return {
+        is_stale: false,
+        last_updated_text: 'Son güncelleme: Az önce',
+      };
+    }
 
-    let text: string;
-    if (diffDays >= 1) {
-      text = `Son güncelleme: ${diffDays} gün önce`;
-    } else if (diffHours >= 1) {
-      text = `Son güncelleme: ${diffHours} saat önce`;
-    } else {
-      text = 'Son güncelleme: az önce';
+    if (diffHours < 24) {
+      return {
+        is_stale: false,
+        last_updated_text: `Son güncelleme: ${diffHours} saat önce`,
+      };
     }
 
     return {
-      is_stale: isStale,
-      last_updated_text: text,
+      is_stale: true,
+      last_updated_text: `Son güncelleme: ${diffDays} gün önce`,
     };
-  }
-
-  public clear(): void {
-    this.sources.clear();
-    this.initDefaultSources();
   }
 }
 

@@ -1331,10 +1331,12 @@
           ],
           "depends_on": [],
           "talep_id": "TALEP-014",
-          "status": "READY",
-          "attempts": 1,
-          "note": " [yetim durumdan kurtarıldı]",
-          "started_at": 1789741701.0803251
+          "status": "DONE",
+          "attempts": 2,
+          "note": "altyapı konfigürasyonu hazır",
+          "started_at": 1789741780.328099,
+          "finished_at": 1789742366.014553,
+          "duration_s": 585.7
         },
         {
           "id": "S13-T2",
@@ -1349,9 +1351,10 @@
             "S13-T1"
           ],
           "talep_id": "TALEP-014",
-          "status": "TODO",
-          "attempts": 0,
-          "note": ""
+          "status": "RUNNING",
+          "attempts": 1,
+          "note": "",
+          "started_at": 1789742883.291617
         },
         {
           "id": "S13-T3",
@@ -1365,9 +1368,12 @@
           ],
           "depends_on": [],
           "talep_id": "TALEP-015",
-          "status": "READY",
-          "attempts": 0,
-          "note": ""
+          "status": "DONE",
+          "attempts": 1,
+          "note": "",
+          "started_at": 1789742366.0168178,
+          "finished_at": 1789742883.287423,
+          "duration_s": 517.3
         },
         {
           "id": "S13-T4",
@@ -1382,7 +1388,7 @@
             "S13-T3"
           ],
           "talep_id": "TALEP-015",
-          "status": "TODO",
+          "status": "READY",
           "attempts": 0,
           "note": ""
         }
@@ -1397,7 +1403,7 @@
   ],
   "created_at": "2026-09-06T17:56:01",
   "baseline_end": "2026-09-20",
-  "updated_at": "2026-09-18T17:29:34",
+  "updated_at": "2026-09-18T17:48:03",
   "_runtime": {
     "done_outputs": []
   }

@@ -1,3 +1,4 @@
+
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
@@ -180,6 +181,7 @@ def load_json_dataset(candidate_names, remote_urls=None):
     search_dirs = [
         ROOT,
         ROOT / "server-scripts",
+        ROOT / "server-scripts/data",
         ROOT / "scripts",
         ROOT / "data",
         ROOT / "workspace/src/backend/src/data",
