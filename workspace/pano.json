@@ -1297,24 +1297,106 @@
             "S12-T3"
           ],
           "talep_id": "TALEP-013",
-          "status": "RUNNING",
+          "status": "DONE",
           "attempts": 1,
-          "note": "[Kurtarma Ajanı] Otomatik olarak sıraya alındı",
-          "started_at": 1789732729.611521
+          "note": "canlı UAT hata tespit edildi",
+          "started_at": 1789732729.611521,
+          "finished_at": 1789732889.5814369,
+          "duration_s": 160.0
         }
       ],
       "order": 11,
-      "status": "READY",
+      "status": "DONE",
       "note": "Faz 1 tamamlanıp onaylanmadan Faz 2 başlatılamaz.",
       "actual_start": "2026-09-18T09:46:22",
+      "actual_end": "2026-09-18T15:01:37",
+      "planned_start": "2026-09-18",
+      "planned_end": "2026-09-18",
+      "_summary_printed": true
+    },
+    {
+      "id": "S13",
+      "name": "Müşteri Denetimi & Saha Onarımları (TALEP-014, TALEP-015)",
+      "goal": "Site sahibinin ilettiği 2 adet müşteri talebinin çözülmesi ve UAT ile kabul edilmesi.",
+      "planned_days": 2,
+      "tasks": [
+        {
+          "id": "S13-T1",
+          "title": "[TALEP-014] Cron senkronizasyon scripti istasyon bilgilerini alamıyor (0 istasyon hazır)",
+          "description": "Müşteri Talebi: Müşteri log kaydını iletti: Sunucuda cron ile çalışan günlük istasyon senkronizasyon scripti (import_cpo_stations.py) 0 istasyon üretiyor:\n[2026-09-18 02:00:01] Günlük İstasyon Senkronizasyonu Başlatıldı.\n[2026-09-18 02:00:01] Proje Dizini: /home/elektriklioto/app\n[2026-09-18 02:00:02] Kullanılan Python: /usr/bin/python3 (Python 3.6.8)\n[2026-09-18 02:00:02] ETL Pipeline (import_cpo_stations.py) çalıştırılıyor...\n[2026-09-18 02:00:02] ETL Pipeline başarıyla tamamlandı.\n[2026-09-18 02:00:02] Güncel İstasyon Dosyası: 4.0K (0 istasyon hazır)\n[2026-09-18 02:00:02] cPanel Passenger uygulaması yeniden başlatıldı (restart.txt).\n[2026-09-18 02:00:02] Günlük Senkronizasyon İşlemi Tamamlandı.\nİstasyon verisi çekilemiyor veya Python sürümü/bağımlılık/kaynak hatası nedeniyle 0 kayıt üretiliyor.\nÇözüm Planı: workspace/docs/cozum_planlari/TALEP-014.md",
+          "role": "devops_engineer",
+          "phase": "develop",
+          "outputs": [
+            "workspace/infra/"
+          ],
+          "depends_on": [],
+          "talep_id": "TALEP-014",
+          "status": "READY",
+          "attempts": 0,
+          "note": ""
+        },
+        {
+          "id": "S13-T2",
+          "title": "[TALEP-014] Müşteri Kabulü & UAT Doğrulama Denetimi",
+          "description": "TALEP-014 için yapılan düzeltmenin canlı sistemde çalıştığını ve 0 konsol hatası olduğunu doğrula.",
+          "role": "uat_auditor",
+          "phase": "test",
+          "outputs": [
+            "workspace/docs/uat_kabul_raporu.md"
+          ],
+          "depends_on": [
+            "S13-T1"
+          ],
+          "talep_id": "TALEP-014",
+          "status": "TODO",
+          "attempts": 0,
+          "note": ""
+        },
+        {
+          "id": "S13-T3",
+          "title": "[TALEP-015] EPDK ve CPO Kamu/Açık Kaynaklarından Canlı İstasyon Senkronizasyonu",
+          "description": "Müşteri Talebi: Müşteri isteği: İstasyon senkronizasyonu için EPDK web sitesi/listesi (public) kullanılmalı, ayrıca firmaların her biri (ZES, Trugo, Eşarj, Voltrun vb.) için istasyon bilgilerinin çekileceği açık servis/endpoint adresleri tespit edilip cron mekanizmasına bağlanmalı.\nÇözüm Planı: workspace/docs/cozum_planlari/TALEP-015.md",
+          "role": "backend_engineer",
+          "phase": "develop",
+          "outputs": [
+            "workspace/src/backend/src/modules/",
+            "workspace/src/backend/src/app.ts"
+          ],
+          "depends_on": [],
+          "talep_id": "TALEP-015",
+          "status": "READY",
+          "attempts": 0,
+          "note": ""
+        },
+        {
+          "id": "S13-T4",
+          "title": "[TALEP-015] Müşteri Kabulü & UAT Doğrulama Denetimi",
+          "description": "TALEP-015 için yapılan düzeltmenin canlı sistemde çalıştığını ve 0 konsol hatası olduğunu doğrula.",
+          "role": "uat_auditor",
+          "phase": "test",
+          "outputs": [
+            "workspace/docs/uat_kabul_raporu.md"
+          ],
+          "depends_on": [
+            "S13-T3"
+          ],
+          "talep_id": "TALEP-015",
+          "status": "TODO",
+          "attempts": 0,
+          "note": ""
+        }
+      ],
+      "order": 12,
+      "status": "READY",
+      "actual_start": null,
       "actual_end": null,
       "planned_start": "2026-09-19",
-      "planned_end": "2026-09-21"
+      "planned_end": "2026-09-20"
     }
   ],
   "created_at": "2026-09-06T17:56:01",
-  "baseline_end": "2026-09-21",
-  "updated_at": "2026-09-18T14:58:49",
+  "baseline_end": "2026-09-20",
+  "updated_at": "2026-09-18T17:28:04",
   "_runtime": {
     "done_outputs": []
   }
