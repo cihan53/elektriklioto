@@ -1,6 +1,6 @@
 {
-  "son_guncelleme": "2026-09-18T09:46:22.674237",
-  "toplam_talep": 13,
+  "son_guncelleme": "2026-09-18T14:41:47.493943",
+  "toplam_talep": 14,
   "talepler": [
     {
       "id": "TALEP-001",
@@ -103343,6 +103343,35 @@
       ],
       "faz_id": "FAZ-2",
       "triage_notu": "Faz 2 Özelliği: Değişiklik Günlüğü (Changelog / Sürüm Notları) ekranı."
+    },
+    {
+      "id": "TALEP-014",
+      "tarih": "2026-09-18 14:41",
+      "tur": "HATA",
+      "oncelik": "NORMAL",
+      "baslik": "Cron senkronizasyon scripti istasyon bilgilerini alamıyor (0 istasyon hazır)",
+      "aciklama": "Müşteri log kaydını iletti: Sunucuda cron ile çalışan günlük istasyon senkronizasyon scripti (import_cpo_stations.py) 0 istasyon üretiyor:\n[2026-09-18 02:00:01] Günlük İstasyon Senkronizasyonu Başlatıldı.\n[2026-09-18 02:00:01] Proje Dizini: /home/elektriklioto/app\n[2026-09-18 02:00:02] Kullanılan Python: /usr/bin/python3 (Python 3.6.8)\n[2026-09-18 02:00:02] ETL Pipeline (import_cpo_stations.py) çalıştırılıyor...\n[2026-09-18 02:00:02] ETL Pipeline başarıyla tamamlandı.\n[2026-09-18 02:00:02] Güncel İstasyon Dosyası: 4.0K (0 istasyon hazır)\n[2026-09-18 02:00:02] cPanel Passenger uygulaması yeniden başlatıldı (restart.txt).\n[2026-09-18 02:00:02] Günlük Senkronizasyon İşlemi Tamamlandı.\nİstasyon verisi çekilemiyor veya Python sürümü/bağımlılık/kaynak hatası nedeniyle 0 kayıt üretiliyor.",
+      "sayfa_url": "/cron/sync",
+      "durum": "BEKLEMEDE",
+      "gorevli_rol": null,
+      "studio_notu": null,
+      "cozum_plani": null,
+      "github_issue_number": 14,
+      "github_issue_url": "https://github.com/cihan53/elektriklioto/issues/14",
+      "gecmis": [
+        {
+          "zaman": "2026-09-18 14:41",
+          "eylem": "Kayıt oluşturuldu",
+          "durum": "BEKLEMEDE"
+        },
+        {
+          "zaman": "2026-09-18 14:41",
+          "eylem": "GitHub Issue oluşturuldu: #14",
+          "durum": "BEKLEMEDE"
+        }
+      ],
+      "faz_id": "FAZ-2",
+      "efor": "ORTA"
     }
   ]
 }

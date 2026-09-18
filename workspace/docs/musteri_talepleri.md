@@ -1,7 +1,7 @@
 # elektriklioto.com — Müşteri Denetim & Talep Havuzu
 
-> **Son Güncelleme:** 2026-09-18 09:46  
-> **Toplam Bildirim:** 13  
+> **Son Güncelleme:** 2026-09-18 14:41  
+> **Toplam Bildirim:** 14  
 
 Bu doküman, site sahibinin / müşterinin yaptığı denetimler sonucunda iletilen istek, hata ve geri bildirimleri içerir.
 
@@ -11,6 +11,7 @@ Bu doküman, site sahibinin / müşterinin yaptığı denetimler sonucunda ileti
 
 | ID | Tür | Öncelik | Durum | Başlık | Ekran / URL | İlgili Rol | GitHub Issue | Plan |
 |---|---|---|---|---|---|---|---|---|
+| **TALEP-014** | Hata / Bug | Normal (P3) | ⏳ Beklemede | Cron senkronizasyon scripti istasyon bilgilerini alamıyor (0 istasyon hazır) | `/cron/sync` | `None` | [#14](https://github.com/cihan53/elektriklioto/issues/14) | — |
 | **TALEP-013** | Yeni İstek / Özellik | Normal (P3) | 📦 Faz Bekliyor | Yapılan güncellemeler, çözülen hatalar ve sürüm geçmişi için Değişiklik Günlüğü (Changelog / Sürüm Notları) ekranı | `/guncellemeler` | `web_engineer` | [#13](https://github.com/cihan53/elektriklioto/issues/13) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-013.md) |
 | **TALEP-012** | Yeni İstek / Özellik | Yüksek (P2) | 📦 Faz Bekliyor | Yeni deploy çıktığında açık sayfalarda güncelleme uyarısı çıkması ve 20 saniyede otomatik yenilenmesi | `/` | `devops_engineer` | [#12](https://github.com/cihan53/elektriklioto/issues/12) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-012.md) |
 | **TALEP-011** | Hata / Bug | Normal (P3) | ✅ Çözüldü | Top menüde 2 tane Hakkında butonu görünüyor (Sağdaki buton korunmalı, mükerrer olan kaldırılmalı) | `/` | `web_engineer` | [#11](https://github.com/cihan53/elektriklioto/issues/11) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-011.md) |
@@ -29,6 +30,26 @@ Bu doküman, site sahibinin / müşterinin yaptığı denetimler sonucunda ileti
 
 ## 2. Talep Detayları ve Geri Bildirim Notları
 
+### [TALEP-014] Cron senkronizasyon scripti istasyon bilgilerini alamıyor (0 istasyon hazır) (⏳ Beklemede)
+- **Bildirim Tarihi:** 2026-09-18 14:41
+- **Tür / Öncelik:** Hata / Bug / Normal (P3)
+- **İlgili Ekran / Sayfa:** `/cron/sync`
+- **Görevli Rol:** `None`
+- 🐙 **GitHub Issue:** [#14](https://github.com/cihan53/elektriklioto/issues/14)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Müşteri log kaydını iletti: Sunucuda cron ile çalışan günlük istasyon senkronizasyon scripti (import_cpo_stations.py) 0 istasyon üretiyor:
+[2026-09-18 02:00:01] Günlük İstasyon Senkronizasyonu Başlatıldı.
+[2026-09-18 02:00:01] Proje Dizini: /home/elektriklioto/app
+[2026-09-18 02:00:02] Kullanılan Python: /usr/bin/python3 (Python 3.6.8)
+[2026-09-18 02:00:02] ETL Pipeline (import_cpo_stations.py) çalıştırılıyor...
+[2026-09-18 02:00:02] ETL Pipeline başarıyla tamamlandı.
+[2026-09-18 02:00:02] Güncel İstasyon Dosyası: 4.0K (0 istasyon hazır)
+[2026-09-18 02:00:02] cPanel Passenger uygulaması yeniden başlatıldı (restart.txt).
+[2026-09-18 02:00:02] Günlük Senkronizasyon İşlemi Tamamlandı.
+İstasyon verisi çekilemiyor veya Python sürümü/bağımlılık/kaynak hatası nedeniyle 0 kayıt üretiliyor.
+
+---
 ### [TALEP-013] Yapılan güncellemeler, çözülen hatalar ve sürüm geçmişi için Değişiklik Günlüğü (Changelog / Sürüm Notları) ekranı (📦 Faz Bekliyor)
 - **Bildirim Tarihi:** 2026-09-18 09:03
 - **Tür / Öncelik:** Yeni İstek / Özellik / Normal (P3)

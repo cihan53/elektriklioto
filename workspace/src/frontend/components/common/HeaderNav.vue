@@ -3,14 +3,16 @@
 import { ref } from 'vue';
 import { useTheme } from '~/composables/useTheme';
 import { useSourceHealth } from '~/composables/useSourceHealth';
-import { Zap, Sun, Moon, Monitor, Map, Activity, Info } from 'lucide-vue-next';
+import { Zap, Sun, Moon, Monitor, Map, Activity, Info, Sparkles } from 'lucide-vue-next';
 import SourceHealthModal from '~/components/modals/SourceHealthModal.vue';
 import AboutModal from '~/components/modals/AboutModal.vue';
+import ChangelogModal from '~/components/modals/ChangelogModal.vue';
 import GoogleAnalytics from '~/components/common/GoogleAnalytics.vue';
 
 const { currentTheme, applyTheme } = useTheme();
 const { isModalOpen, hasOutage, openModal, closeModal } = useSourceHealth();
 const isAboutModalOpen = ref(false);
+const isChangelogModalOpen = ref(false);
 
 const toggleTheme = () => {
   if (currentTheme.value === 'system') applyTheme('light');
@@ -87,16 +89,36 @@ const toggleTheme = () => {
         >
           Trugo
         </NuxtLink>
+        <NuxtLink
+          to="/guncellemeler"
+          class="px-3 py-1.5 rounded-md hover:text-text-primary hover:bg-bg-subdued touch-target-min transition-colors flex items-center gap-1.5"
+          active-class="text-primary font-semibold"
+        >
+          <Sparkles class="w-3.5 h-3.5 text-primary" />
+          <span>Güncellemeler</span>
+        </NuxtLink>
       </nav>
     </div>
 
     <!-- Navigasyon ve Kontroller -->
     <div class="flex items-center gap-2 sm:gap-3">
+      <!-- Sürüm Notları / Değişiklik Günlüğü Butonu (TALEP-013) -->
+      <button
+        type="button"
+        @click="isChangelogModalOpen = true"
+        class="touch-target-min px-2.5 py-1.5 rounded-md border border-border-default bg-bg-subdued text-text-secondary hover:text-text-primary hover:bg-border-default flex items-center gap-1.5 text-xs font-medium transition-colors focus-visible:outline-none cursor-pointer"
+        title="Sürüm Notları ve Değişiklik Günlüğü (TALEP-013)"
+        aria-label="Sürüm Notları ve Güncellemeler"
+      >
+        <Sparkles class="w-3.5 h-3.5 text-primary" />
+        <span class="hidden sm:inline">Güncellemeler</span>
+      </button>
+
       <!-- Hakkında & Yasal Modal Butonu (TALEP-009 & TALEP-011: Doğru ve onaylı sağ buton) -->
       <button
         type="button"
         @click="isAboutModalOpen = true"
-        class="touch-target-min px-2.5 py-1.5 rounded-md border border-border-default bg-bg-subdued text-text-secondary hover:text-text-primary hover:bg-border-default flex items-center gap-1.5 text-xs font-medium transition-colors focus-visible:outline-none"
+        class="touch-target-min px-2.5 py-1.5 rounded-md border border-border-default bg-bg-subdued text-text-secondary hover:text-text-primary hover:bg-border-default flex items-center gap-1.5 text-xs font-medium transition-colors focus-visible:outline-none cursor-pointer"
         title="Hakkında, Sözleşmeler, KVKK ve Canlı Sürüm (TALEP-009)"
         aria-label="Hakkında ve Yasal Bilgiler"
       >
@@ -108,7 +130,7 @@ const toggleTheme = () => {
       <button
         type="button"
         @click="openModal"
-        class="touch-target-min px-2.5 py-1.5 rounded-md border border-border-default bg-bg-subdued text-text-secondary hover:text-text-primary hover:bg-border-default flex items-center gap-1.5 text-xs font-medium transition-colors focus-visible:outline-none"
+        class="touch-target-min px-2.5 py-1.5 rounded-md border border-border-default bg-bg-subdued text-text-secondary hover:text-text-primary hover:bg-border-default flex items-center gap-1.5 text-xs font-medium transition-colors focus-visible:outline-none cursor-pointer"
         title="Veri Kaynakları Sağlık Durumu (US-18)"
         aria-label="Veri Kaynakları Sağlık Durumu"
       >
@@ -124,7 +146,7 @@ const toggleTheme = () => {
       <button
         type="button"
         @click="toggleTheme"
-        class="touch-target-min p-2 rounded-md border border-border-default bg-bg-subdued text-text-secondary hover:text-text-primary hover:bg-border-default flex items-center justify-center transition-colors focus-visible:outline-none"
+        class="touch-target-min p-2 rounded-md border border-border-default bg-bg-subdued text-text-secondary hover:text-text-primary hover:bg-border-default flex items-center justify-center transition-colors focus-visible:outline-none cursor-pointer"
         :title="`Tema: ${currentTheme}`"
         aria-label="Tema Değiştir"
       >
@@ -139,5 +161,8 @@ const toggleTheme = () => {
 
     <!-- Hakkında ve Yasal Bilgiler Modal Entegrasyonu (TALEP-009) -->
     <AboutModal :is-open="isAboutModalOpen" @close="isAboutModalOpen = false" />
+
+    <!-- Sürüm Notları / Değişiklik Günlüğü Modal Entegrasyonu (TALEP-013) -->
+    <ChangelogModal :is-open="isChangelogModalOpen" @close="isChangelogModalOpen = false" />
   </header>
 </template>

@@ -100,203 +100,134 @@ onUnmounted(() => {
             <button
               type="button"
               @click="emit('close')"
-              class="touch-target-min flex items-center justify-center text-text-secondary hover:text-text-primary rounded-md p-1.5 focus-visible:outline-none transition-colors"
+              class="w-8 h-8 rounded-lg border border-border-default bg-bg-subdued text-text-secondary hover:text-text-primary hover:bg-border-default flex items-center justify-center transition-colors touch-target-min focus-visible:outline-none cursor-pointer"
               aria-label="Kapat"
+              title="Kapat"
             >
-              <X class="w-5 h-5" />
+              <X class="w-4 h-4" />
             </button>
           </div>
 
-          <!-- Sekme Butonları -->
-          <div class="px-4 py-2 border-b border-border-default bg-bg-subdued flex items-center gap-1.5 overflow-x-auto scrollbar-none">
+          <!-- Sekme Başlıkları -->
+          <div class="flex border-b border-border-default bg-bg-subdued/50 px-3 overflow-x-auto">
             <button
-              v-for="t in tabs"
-              :key="t.key"
+              v-for="tab in tabs"
+              :key="tab.key"
               type="button"
-              @click="activeTab = t.key"
-              class="px-3 py-1.5 rounded-md text-xs font-medium whitespace-nowrap transition-colors flex items-center gap-1.5 touch-target-min focus-visible:outline-none"
-              :class="
-                activeTab === t.key
-                  ? 'bg-bg-surface text-primary shadow-sm font-semibold border border-border-default'
-                  : 'text-text-secondary hover:text-text-primary hover:bg-bg-surface/50'
-              "
+              @click="activeTab = tab.key"
+              class="touch-target-min px-3 py-2.5 text-xs font-semibold flex items-center gap-2 border-b-2 transition-all whitespace-nowrap cursor-pointer focus-visible:outline-none"
+              :class="[
+                activeTab === tab.key
+                  ? 'border-primary text-primary bg-bg-surface'
+                  : 'border-transparent text-text-secondary hover:text-text-primary hover:bg-bg-subdued'
+              ]"
             >
-              <component :is="t.icon" class="w-3.5 h-3.5" />
-              <span>{{ t.label }}</span>
+              <component :is="tab.icon" class="w-3.5 h-3.5" />
+              <span>{{ tab.label }}</span>
             </button>
           </div>
 
-          <!-- Sekme İçerikleri (Kaydırılabilir Alan) -->
-          <div class="p-5 overflow-y-auto space-y-4 text-xs leading-relaxed text-text-secondary">
-            <!-- 1. Misyon & Vizyon -->
-            <div v-if="activeTab === 'misyon'" class="space-y-4">
-              <div class="p-4 rounded-lg bg-bg-subdued border border-border-default space-y-2">
-                <div class="flex items-center gap-2 text-primary font-bold text-sm">
-                  <Sparkles class="w-4 h-4" />
-                  <span>Tek Haritada 179 Lisanslı Operatör</span>
-                </div>
+          <!-- Modal İçeriği (Sekmeler) -->
+          <div class="p-5 overflow-y-auto flex-1 text-xs space-y-4">
+            <!-- 1. Misyon Sekmesi -->
+            <div v-if="activeTab === 'misyon'" class="space-y-3.5">
+              <div class="p-3.5 rounded-lg bg-primary/5 border border-primary/20 space-y-2">
+                <h3 class="font-bold text-sm text-text-primary flex items-center gap-2">
+                  <Zap class="w-4 h-4 text-primary" />
+                  <span>Sürücü Odaklı e-Mobilite Hub'ı</span>
+                </h3>
                 <p class="text-text-secondary leading-relaxed">
-                  elektriklioto.com, elektrikli araç (EV) sürücülerinin sahada onlarca farklı şarj operatörü (CPO) için 30-35 ayrı mobil uygulama yüklemek ve yolda kaybolmak zorunda kalması krizini çözen merkezi bir <strong class="text-text-primary">e-Mobilite Asistanı ve Bilgi Hub'ıdır</strong>.
+                  elektriklioto.com, elektrikli araç (EV) sürücülerinin 30'dan fazla farklı operatör uygulaması arasında kaybolmasını önlemek, tek haritada tüm şarj ağlarını şeffafça sunmak için tasarlanmış bağımsız bir asistan platformdur.
                 </p>
               </div>
 
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
-                <div class="p-3.5 rounded-lg border border-border-default bg-bg-surface space-y-1.5">
-                  <div class="flex items-center gap-2 text-text-primary font-semibold">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div class="p-3 rounded-lg border border-border-default bg-bg-surface space-y-1.5">
+                  <div class="flex items-center gap-1.5 font-semibold text-text-primary text-xs">
                     <CheckCircle2 class="w-4 h-4 text-success" />
-                    <span>Tek Harita Arayüzü</span>
+                    <span>16.788 İstasyon & 179 Marka</span>
                   </div>
                   <p class="text-text-secondary text-[11px] leading-relaxed">
-                    ZES, Trugo, Eşarj, Voltrun ve 175+ diğer operatörün istasyonlarını tek bir haritada akıcı ve responsive olarak sunar.
+                    EPDK resmi lisanslı şarj ağı işletmecilerinin tüm istasyonları tek çatı altında taranabilir.
                   </p>
                 </div>
 
-                <div class="p-3.5 rounded-lg border border-border-default bg-bg-surface space-y-1.5">
-                  <div class="flex items-center gap-2 text-text-primary font-semibold">
+                <div class="p-3 rounded-lg border border-border-default bg-bg-surface space-y-1.5">
+                  <div class="flex items-center gap-1.5 font-semibold text-text-primary text-xs">
                     <CheckCircle2 class="w-4 h-4 text-success" />
-                    <span>Akıllı Derin Bağlantı</span>
+                    <span>Akıllı Derin Bağlantı (Deep-Link)</span>
                   </div>
                   <p class="text-text-secondary text-[11px] leading-relaxed">
-                    İlgili operatörün mobil uygulamasına hedef soket parametresiyle doğrudan atlar; uygulama yoksa panoya kopyalar.
-                  </p>
-                </div>
-
-                <div class="p-3.5 rounded-lg border border-border-default bg-bg-surface space-y-1.5">
-                  <div class="flex items-center gap-2 text-text-primary font-semibold">
-                    <CheckCircle2 class="w-4 h-4 text-success" />
-                    <span>Kitle-Kaynaklı Arıza Teyidi</span>
-                  </div>
-                  <p class="text-text-secondary text-[11px] leading-relaxed">
-                    Kullanıcı bildirimleri ve 50m yakınlık kanıtı (proximity proof) ile çalışmayan veya işgal edilmiş (ICEing) soketleri işaretler.
-                  </p>
-                </div>
-
-                <div class="p-3.5 rounded-lg border border-border-default bg-bg-surface space-y-1.5">
-                  <div class="flex items-center gap-2 text-text-primary font-semibold">
-                    <CheckCircle2 class="w-4 h-4 text-success" />
-                    <span>Sıfır Hesap Zorunluluğu</span>
-                  </div>
-                  <p class="text-text-secondary text-[11px] leading-relaxed">
-                    Harita keşfi, arama, filtreleme ve istasyon inceleme için hesap açma zorunluluğu yoktur; KVKK yüzeyi asgaridedir.
+                    Şarj başlatmak istediğinizde doğrudan ilgili operatörün uygulamasına soket kimliğiyle köprü kurulur.
                   </p>
                 </div>
               </div>
             </div>
 
-            <!-- 2. Kullanım Koşulları & Yasal Statü -->
-            <div v-else-if="activeTab === 'sozlesmeler'" class="space-y-4">
-              <div class="p-4 rounded-lg bg-warning-subdued border border-warning/30 space-y-2">
-                <div class="flex items-center gap-2 text-warning font-bold text-sm">
-                  <AlertCircle class="w-4 h-4 flex-shrink-0" />
-                  <span>Yasal Uyarı & Lisans Sınırı (Zorunlu EMP Beyanı)</span>
+            <!-- 2. Yasal Statü & Lisans Sınırı -->
+            <div v-else-if="activeTab === 'sozlesmeler'" class="space-y-3.5">
+              <div class="p-3.5 rounded-lg bg-warning/10 border border-warning/30 space-y-2">
+                <div class="flex items-center gap-2 text-warning font-bold text-xs">
+                  <AlertCircle class="w-4 h-4" />
+                  <span>Zorunlu EMP Beyanı & Yasal Konumlandırma</span>
                 </div>
-                <p class="text-text-primary text-xs leading-relaxed">
-                  Platform hiçbir aşamada lisanslı şarj operatörü değildir. EPDK lisansına tabi elektrik enerjisi satışı, şarj hizmeti bedeli tahsilatı ve faturalama yapmaz. Yasal olarak bağımsız bir e-Mobilite Hizmet Sağlayıcısı (EMP) adayı ve bilgi platformudur.
+                <p class="text-text-primary text-xs leading-relaxed font-medium">
+                  elektriklioto.com hiçbir aşamada kendisini EPDK lisanslı bir "Şarj Ağı İşletmecisi" veya elektrik satıcısı olarak konumlandıramaz.
+                </p>
+                <p class="text-text-secondary text-[11px] leading-relaxed">
+                  Platformumuz yasal olarak bağımsız bir e-Mobilite Hizmet Sağlayıcısı (EMP) ve bilgilendirme asistanıdır. Elektrik satışı, faturalandırma ve şarj donanımı yönetimi doğrudan ilgili lisanslı operatörün sorumluluğundadır.
                 </p>
               </div>
 
-              <div class="space-y-2.5">
-                <div class="p-3 rounded-lg border border-border-default bg-bg-surface space-y-1">
-                  <h3 class="font-bold text-text-primary text-xs flex items-center gap-1.5">
-                    <FileText class="w-3.5 h-3.5 text-primary" />
-                    <span>Operatör ve İstasyon Sorumluluğu</span>
-                  </h3>
-                  <p class="text-text-secondary text-[11px] leading-relaxed">
-                    Fiziksel şarj operasyonu, soket güvenliği, elektrik tedariki ve nihai ücretlendirme işlemi tamamen ilgili CPO'nun (Şarj Ağı İşletmecisi) sorumluluğundadır. elektriklioto.com yalnızca operasyonel yönlendirme ve bilgi sağlama köprüsü kurar.
-                  </p>
-                </div>
-
-                <div class="p-3 rounded-lg border border-border-default bg-bg-surface space-y-1">
-                  <h3 class="font-bold text-text-primary text-xs flex items-center gap-1.5">
-                    <FileText class="w-3.5 h-3.5 text-primary" />
-                    <span>Tarife ve Fiyat Bilgileri</span>
-                  </h3>
-                  <p class="text-text-secondary text-[11px] leading-relaxed">
-                    Sitede sunulan tarife bilgileri kamusal açık veri ve CPO uç noktalarından derlenmiş olup bilgi amaçlıdır. Nihai ve bağlayıcı tarife, şarj başlatma anında operatör uygulamasında gösterilen tarifedir.
-                  </p>
-                </div>
-
-                <div class="p-3 rounded-lg border border-border-default bg-bg-surface space-y-1">
-                  <h3 class="font-bold text-text-primary text-xs flex items-center gap-1.5">
-                    <FileText class="w-3.5 h-3.5 text-primary" />
-                    <span>Topluluk Katkı Kuralları</span>
-                  </h3>
-                  <p class="text-text-secondary text-[11px] leading-relaxed">
-                    Kullanıcılar tarafından yapılan arıza ihbarları ve veri katkıları sistem moderasyonundan geçer. Yanıltıcı bildirimler bot koruma algoritmaları ve IP rate-limiting ile engellenir.
-                  </p>
-                </div>
+              <div class="space-y-2 text-text-secondary leading-relaxed text-[11px]">
+                <h4 class="font-bold text-text-primary text-xs">Kullanım Şartları Özeti</h4>
+                <ul class="list-disc pl-4 space-y-1">
+                  <li>Haritada gösterilen veriler resmi kamu kayıtları ve kitle kaynaklı sürücü bildirimleriyle derlenmektedir.</li>
+                  <li>Tarife ve fiyatlar bilgi amaçlıdır; bağlayıcı nihai tarife ilgili operatörün faturasında geçerlidir.</li>
+                  <li>Ödeme işlemleri sitemiz üzerinden yapılmaz; operatörün resmi uygulamasına yönlendirilirsiniz.</li>
+                </ul>
               </div>
             </div>
 
-            <!-- 3. KVKK & Konum Gizliliği -->
-            <div v-else-if="activeTab === 'kvkk'" class="space-y-4">
-              <div class="p-4 rounded-lg bg-success-subdued border border-success/30 space-y-2">
-                <div class="flex items-center gap-2 text-success font-bold text-sm">
-                  <Lock class="w-4 h-4 flex-shrink-0" />
-                  <span>Sıfır Konum Saklama İlkesi (Zero Location Storage)</span>
+            <!-- 3. KVKK ve Konum Gizliliği -->
+            <div v-else-if="activeTab === 'kvkk'" class="space-y-3.5">
+              <div class="p-3.5 rounded-lg bg-success/10 border border-success/30 space-y-2">
+                <div class="flex items-center gap-2 text-success font-bold text-xs">
+                  <Lock class="w-4 h-4" />
+                  <span>Sıfır Konum Saklama İlkesi (Zero-GPS Storage)</span>
                 </div>
-                <p class="text-text-primary text-xs leading-relaxed">
-                  Kullanıcıların GPS koordinatları sunucuda kesinlikle saklanmaz, diske yazılmaz ve veritabanında tutulamaz. KVKK ve GDPR uyumu donanım seviyesinde korunur.
+                <p class="text-text-primary text-xs leading-relaxed font-medium">
+                  Kullanıcılarımızın GPS konumu kesinlikle sunucularımızda saklanmaz, kaydedilmez veya profillenmez.
                 </p>
               </div>
 
-              <div class="space-y-2.5">
-                <div class="p-3 rounded-lg border border-border-default bg-bg-surface space-y-1">
-                  <h3 class="font-bold text-text-primary text-xs flex items-center gap-1.5">
-                    <MapPin class="w-3.5 h-3.5 text-primary" />
-                    <span>Geçici (In-Memory) İşleme</span>
-                  </h3>
-                  <p class="text-text-secondary text-[11px] leading-relaxed">
-                    Tarayıcıda verilen konum izni yalnızca istemci belleğinde (in-memory) haritayı merkezlemek ve en yakın istasyon mesafesini yerel olarak hesaplamak için anlık kullanılır.
-                  </p>
-                </div>
-
-                <div class="p-3 rounded-lg border border-border-default bg-bg-surface space-y-1">
-                  <h3 class="font-bold text-text-primary text-xs flex items-center gap-1.5">
-                    <Shield class="w-3.5 h-3.5 text-primary" />
-                    <span>Proximity Proof Kriptografik Kanıt</span>
-                  </h3>
-                  <p class="text-text-secondary text-[11px] leading-relaxed">
-                    Arıza bildirimi gönderilirken sunucuya ham GPS koordinatınız iletilmez; istemcinin istasyona 50 metre yakınında olduğunu doğrulayan tek kullanımlık süreli bir kanıt (HMAC proof) iletilir.
-                  </p>
-                </div>
-
-                <div class="p-3 rounded-lg border border-border-default bg-bg-surface space-y-1">
-                  <h3 class="font-bold text-text-primary text-xs flex items-center gap-1.5">
-                    <Layers class="w-3.5 h-3.5 text-primary" />
-                    <span>Geçmiş Seyahat ve Güzergah Kaydı Yasaktır</span>
-                  </h3>
-                  <p class="text-text-secondary text-[11px] leading-relaxed">
-                    Sunucu tarafında kullanıcıya veya cihaza bağlı geçmiş rota, koordinat veya konum kaydı tutulması teknik mimari sözleşmesi gereğince engellenmiştir.
-                  </p>
-                </div>
+              <div class="space-y-2 text-text-secondary text-[11px] leading-relaxed">
+                <h4 class="font-bold text-text-primary text-xs">Gizlilik Taahhütlerimiz:</h4>
+                <ul class="list-disc pl-4 space-y-1">
+                  <li><strong>Geçici Bellek (In-Memory):</strong> Anlık GPS koordinatınız sadece tarayıcınızda/cihazınızda en yakın istasyonu harita üzerinde göstermek için anlık işlenir.</li>
+                  <li><strong>Hesapsız Kullanım:</strong> Haritayı kullanmak, filtrelemek ve arama yapmak için üye olmanız veya kişisel veri paylaşmanız gerekmez.</li>
+                  <li><strong>Güvenli Doğrulama:</strong> Arıza bildirimlerinde konumunuz gönderilmez; mesafe cihazınızda hesaplanıp tek kullanımlık kriptografik kanıt üretilir.</li>
+                </ul>
               </div>
             </div>
 
-            <!-- 4. Veri Kaynakları -->
-            <div v-else-if="activeTab === 'kaynaklar'" class="space-y-4">
-              <div class="p-4 rounded-lg bg-bg-subdued border border-border-default space-y-2">
-                <div class="flex items-center gap-2 text-primary font-bold text-sm">
+            <!-- 4. Veri Kaynakları & Tazelik -->
+            <div v-else-if="activeTab === 'kaynaklar'" class="space-y-3.5">
+              <div class="p-3.5 rounded-lg bg-bg-subdued border border-border-default space-y-2">
+                <div class="flex items-center gap-2 text-primary font-bold text-xs">
                   <Database class="w-4 h-4" />
-                  <span>EPDK Sicil Verisi & CPO Entegrasyonları</span>
+                  <span>EPDK Kanonik İstasyon Çapası</span>
                 </div>
                 <p class="text-text-secondary text-xs leading-relaxed">
-                  Platformdaki 16.788 şarj istasyonu resmî <strong class="text-text-primary">EPDK Şarj İstasyonları Sorgulama Sistemi</strong>'nden tohumlanmıştır. Resmî sicil numaraları (<code class="font-mono text-primary font-semibold">ŞRJ/xxxx</code>) kanonik istasyon kimliğinin değişmez çapasıdır.
+                  Veritabanımız, Enerji Piyasası Düzenleme Kurumu (EPDK) Şarj İstasyonları Sorgulama Sistemi'nden derlenen 16.788 resmi istasyon sicil kaydını içerir.
                 </p>
               </div>
 
-              <div class="space-y-2.5">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                 <div class="p-3 rounded-lg border border-border-default bg-bg-surface space-y-1">
-                  <h3 class="font-bold text-text-primary text-xs">179 Lisanslı Şarj Operatörü</h3>
+                  <h3 class="font-bold text-text-primary text-xs">Kanonik Kimlik</h3>
                   <p class="text-text-secondary text-[11px] leading-relaxed">
-                    EPDK siciline kayıtlı tüm operatörlerin kurumsal unvanları, marka eşanlamlıları ve derin bağlantı (deep-link) şemaları normalize edilerek yönetilir.
-                  </p>
-                </div>
-
-                <div class="p-3 rounded-lg border border-border-default bg-bg-surface space-y-1">
-                  <h3 class="font-bold text-text-primary text-xs">Açık Veri Uçları & Circuit Breaker</h3>
-                  <p class="text-text-secondary text-[11px] leading-relaxed">
-                    Dış CPO veri uçlarından çekilen anlık doluluk ve tarife güncellemeleri, kaynakların kesintiye uğraması durumunda platformu çökertmeyen devre kesici (Circuit Breaker) mimarisiyle korunur.
+                    Her istasyon resmi <strong>ŞRJ/xxxx</strong> sicil numarası ile doğrulanmıştır.
                   </p>
                 </div>
 
@@ -329,7 +260,7 @@ onUnmounted(() => {
 
                 <div class="p-3 rounded-lg border border-border-default bg-bg-surface">
                   <span class="text-[11px] text-text-muted block">Build / Dağıtım Kimliği:</span>
-                  <span class="font-semibold text-xs text-text-primary">build 102 (2026-09-17)</span>
+                  <span class="font-semibold text-xs text-text-primary">build 102 (2026-09-18)</span>
                 </div>
 
                 <div class="p-3 rounded-lg border border-border-default bg-bg-surface">
@@ -361,6 +292,18 @@ onUnmounted(() => {
                 <span class="font-bold text-sm text-primary">elektriklioto.com</span>
                 <span class="text-[11px] text-text-secondary block mt-0.5">API: api.elektriklioto.com</span>
               </div>
+
+              <div class="p-3 rounded-lg border border-primary/20 bg-primary/5 text-center">
+                <a
+                  href="/guncellemeler"
+                  @click="emit('close')"
+                  class="text-xs font-bold text-primary hover:underline flex items-center justify-center gap-1.5 touch-target-min"
+                >
+                  <Sparkles class="w-4 h-4" />
+                  <span>Sürüm Notları & Değişiklik Günlüğü (/guncellemeler)</span>
+                  <ExternalLink class="w-3.5 h-3.5" />
+                </a>
+              </div>
             </div>
           </div>
 
@@ -378,7 +321,7 @@ onUnmounted(() => {
             <button
               type="button"
               @click="emit('close')"
-              class="touch-target-min px-4 py-2 rounded-md bg-bg-surface border border-border-strong text-xs font-semibold text-text-primary hover:bg-border-default transition-colors focus-visible:outline-none shadow-sm"
+              class="touch-target-min px-4 py-2 rounded-md bg-bg-surface border border-border-strong text-xs font-semibold text-text-primary hover:bg-border-default transition-colors focus-visible:outline-none shadow-sm cursor-pointer"
             >
               Anladım, Kapat
             </button>
