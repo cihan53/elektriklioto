@@ -2,7 +2,7 @@
 #!/usr/bin/env bash
 # ==============================================================================
 # elektriklioto.com - Tek Tıkla Başlatıcı (On-Click Dev Launcher)
-# Sprint: S1-S11 — Veritabanı, Backend API, Worker, Web SSR ve Sürüm Yönetimi
+# Sprint: S1-S13 — Veritabanı, Backend API, Worker, Web SSR ve Sürüm Yönetimi
 # ==============================================================================
 set -euo pipefail
 
@@ -21,7 +21,7 @@ FRONTEND_DIR="${WORKSPACE_ROOT}/src/frontend"
 MOBILE_DIR="${WORKSPACE_ROOT}/src/mobile"
 
 echo -e "${CYAN}===================================================================${NC}"
-echo -e "${CYAN}⚡ elektriklioto.com — Tek Tıkla Geliştirici Başlatıcısı (S1-S11) ⚡${NC}"
+echo -e "${CYAN}⚡ elektriklioto.com — Tek Tıkla Geliştirici Başlatıcısı (S1-S13) ⚡${NC}"
 echo -e "${CYAN}===================================================================${NC}"
 
 # 1. Port Temizleme Fonksiyonu
@@ -101,6 +101,15 @@ if [ -d "$BACKEND_DIR" ]; then
     (cd "$BACKEND_DIR" && $PKG_MANAGER install)
   fi
   
+  # CPO İstasyon Veri Tohumu Denetimi (TALEP-014)
+  if [ ! -f "${BACKEND_DIR}/src/data/cpo_stations.json" ]; then
+    mkdir -p "${BACKEND_DIR}/src/data"
+    if [ -f "${WORKSPACE_ROOT}/../server-scripts/data/cpo_stations.json" ]; then
+      cp -f "${WORKSPACE_ROOT}/../server-scripts/data/cpo_stations.json" "${BACKEND_DIR}/src/data/cpo_stations.json"
+      echo -e "${GREEN}✅ CPO istasyon veri tohumu backend veri dizinine kopyalandı.${NC}"
+    fi
+  fi
+  
   echo -e "${BLUE}🔨 Backend TypeScript derleniyor...${NC}"
   (cd "$BACKEND_DIR" && $PKG_MANAGER run build)
 fi
@@ -119,130 +128,71 @@ if [ ! -f "${SCRIPT_DIR}/env/.env" ]; then
   cp "${SCRIPT_DIR}/env/.env.example" "${SCRIPT_DIR}/env/.env"
 fi
 
-if [ ! -f "${SCRIPT_DIR}/env/.env.mobile" ] && [ -f "${SCRIPT_DIR}/env/.env.mobile.example" ]; then
-  echo -e "${YELLOW}⚙️  env/.env.mobile oluşturuluyor...${NC}"
-  cp "${SCRIPT_DIR}/env/.env.mobile.example" "${SCRIPT_DIR}/env/.env.mobile"
-fi
-
-# TALEP-012: Yerel Geliştirme Sürüm Dosyası (version.json) Hazırlığı
-DEV_BUILD_ID="dev-$(date +%s)"
-export NUXT_PUBLIC_BUILD_ID="$DEV_BUILD_ID"
-
+# 7. TALEP-012: Yerel Geliştirme Sürüm Dosyasını Hazırla
 if [ -d "$FRONTEND_DIR" ]; then
   mkdir -p "${FRONTEND_DIR}/public"
   cat << JSON > "${FRONTEND_DIR}/public/version.json"
 {
   "version": "1.0.0-dev",
-  "buildId": "${DEV_BUILD_ID}",
+  "buildId": "dev-local",
   "deployedAt": "$(date -u +"%Y-%m-%dT%H:%M:%SZ")",
   "timestamp": $(date +%s)
 }
 JSON
-  echo -e "${GREEN}✅ TALEP-012 Sürüm dosyası hazırlandı: ${FRONTEND_DIR}/public/version.json (${DEV_BUILD_ID})${NC}"
+  echo -e "${GREEN}✅ Geliştirici version.json dosyası hazırlandı.${NC}"
 fi
 
-# 7. PostGIS Konteynerini Başlat
-echo -e "${PURPLE}🐘 PostgreSQL + PostGIS konteyneri başlatılıyor...${NC}"
+# 8. PostgreSQL + PostGIS Konteynerini Başlat
+echo -e "${BLUE}🐘 PostgreSQL + PostGIS (16-3.4) başlatılıyor...${NC}"
 docker compose -f "${SCRIPT_DIR}/docker-compose.yml" up -d postgres
 
-echo -e "${BLUE}⏳ Veritabanı hazır olana kadar bekleniyor (pg_isready)...${NC}"
-RETRIES=30
-until docker compose -f "${SCRIPT_DIR}/docker-compose.yml" exec -T postgres pg_isready -U postgres -d elektriklioto >/dev/null 2>&1 || [ $RETRIES -eq 0 ]; do
-  echo -e "${YELLOW}Veritabanı bekleniyor ($RETRIES)...${NC}"
+echo -e "${BLUE}⏳ Veritabanı bağlantısı bekleniyor...${NC}"
+RETRIES=20
+until docker compose -f "${SCRIPT_DIR}/docker-compose.yml" exec -T postgres pg_isready -U postgres >/dev/null 2>&1 || [ $RETRIES -eq 0 ]; do
   sleep 1
   RETRIES=$((RETRIES - 1))
 done
 
 if [ $RETRIES -eq 0 ]; then
-  echo -e "${RED}❌ Veritabanı 30 saniye içinde hazır hale gelemedi!${NC}"
+  echo -e "${RED}❌ HATA: PostgreSQL konteyneri başlatılamadı veya zaman aşımına uğradı!${NC}"
   exit 1
 fi
-echo -e "${GREEN}✅ PostgreSQL + PostGIS (postgis/postgis:16-3.4) hazır!${NC}"
+echo -e "${GREEN}✅ PostgreSQL + PostGIS veritabanı hazır (Port: 5432).${NC}"
 
-# 8. Servisleri Paralel Ayağa Kaldır
-echo -e "${CYAN}🚀 Fastify API, Asenkron Worker ve Nuxt Web servisleri paralel başlatılıyor...${NC}"
+# 9. Servisleri Paralel Ayağa Kaldır
+echo -e "${PURPLE}🚀 Servisler başlatılıyor...${NC}"
 
-# 8.1. Fastify API Servisi (:3000)
-(
-  cd "$BACKEND_DIR"
-  export PORT=3000
-  export HOST=0.0.0.0
-  export DATABASE_URL="postgres://postgres:postgres@localhost:5432/elektriklioto"
-  echo -e "${GREEN}[API] Fastify API başlatılıyor (http://localhost:3000)...${NC}"
-  node dist/server.js 2>&1 | sed -e "s/^/${GREEN}[API] ${NC}/"
-) &
-PIDS+=($!)
+# A) Fastify Backend API (:3000)
+if [ -d "$BACKEND_DIR" ]; then
+  echo -e "${CYAN}▶️  Fastify API Sunucusu (Port 3000) başlatılıyor...${NC}"
+  (cd "$BACKEND_DIR" && $PKG_MANAGER run dev) &
+  PIDS+=($!)
+fi
 
-# 8.2. Bağımsız Asenkron Worker Süreci
-(
-  cd "$BACKEND_DIR"
-  export DATABASE_URL="postgres://postgres:postgres@localhost:5432/elektriklioto"
-  export WORKER_POLL_INTERVAL_MS=1000
-  export CB_FAILURE_THRESHOLD=5
-  export CB_COOLDOWN_MS=900000
-  echo -e "${PURPLE}[WORKER] Bağımsız worker süreci başlatılıyor...${NC}"
-  node dist/worker.js 2>&1 | sed -e "s/^/${PURPLE}[WORKER] ${NC}/"
-) &
-PIDS+=($!)
+# B) Bağımsız Worker Süreci
+if [ -d "$BACKEND_DIR" ]; then
+  echo -e "${CYAN}▶️  Aggregator Worker Süreci başlatılıyor...${NC}"
+  (cd "$BACKEND_DIR" && $PKG_MANAGER run worker:dev) &
+  PIDS+=($!)
+fi
 
-# 8.3. Nuxt 3 Web SSR Servisi (:3001)
-(
-  echo -e "${BLUE}[WEB] Nuxt SSR / Web arayüzü başlatılıyor (http://localhost:3001)...${NC}"
-  if [ -d "$FRONTEND_DIR" ]; then
-    cd "$FRONTEND_DIR"
-    export PORT=3001
-    npm run dev -- --port 3001 2>&1 | sed -e "s/^/${BLUE}[WEB] ${NC}/"
-  elif [ -d "${WORKSPACE_ROOT}/src/web" ]; then
-    cd "${WORKSPACE_ROOT}/src/web"
-    export PORT=3001
-    npm run dev -- --port 3001 2>&1 | sed -e "s/^/${BLUE}[WEB] ${NC}/"
-  else
-    mkdir -p /tmp/elektriklioto-web-stub
-    cat << 'HTML' > /tmp/elektriklioto-web-stub/index.html
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-  <meta charset="utf-8">
-  <title>elektriklioto.com - Web Geliştirme Önizleme</title>
-  <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #0b0f19; color: #f3f4f6; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
-    .card { background: #111827; border: 1px solid #1f2937; padding: 2.5rem; border-radius: 1rem; max-width: 500px; text-align: center; }
-    h1 { color: #10b981; font-size: 1.5rem; margin-bottom: 0.5rem; }
-    p { color: #9ca3af; font-size: 0.95rem; line-height: 1.5; }
-    .badge { display: inline-block; background: #374151; color: #d1d5db; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.8rem; margin-top: 1rem; }
-  </style>
-</head>
-<body>
-  <div class="card">
-    <h1>⚡ elektriklioto.com</h1>
-    <p>Web Platformu (Nuxt 3 SSR) geliştirme modunda aktif.</p>
-    <p>Fastify API: <code>http://localhost:3000/health</code></p>
-    <p>TALEP-012 Versiyon: <code>http://localhost:3001/version.json</code></p>
-    <div class="badge">S11 Sürüm Kontrolü & Canlı Yenileme Aktif</div>
-  </div>
-</body>
-</html>
-HTML
-    cd /tmp/elektriklioto-web-stub
-    npx -y serve -l 3001 -s . 2>&1 | sed -e "s/^/${BLUE}[WEB] ${NC}/"
-  fi
-) &
-PIDS+=($!)
+# C) Nuxt 3 Web SSR İstemcisi (:3001)
+if [ -d "$FRONTEND_DIR" ]; then
+  echo -e "${CYAN}▶️  Nuxt 3 Web İstemcisi (Port 3001) başlatılıyor...${NC}"
+  (cd "$FRONTEND_DIR" && $PKG_MANAGER run dev) &
+  PIDS+=($!)
+fi
 
-# 9. Servis Bilgilendirme Kartı
-sleep 3
+# 10. Başlangıç Özeti ve Sağlık Uç Noktaları
 echo -e "\n${GREEN}===================================================================${NC}"
-echo -e "${GREEN}🎉 elektriklioto.com tüm servisleriyle paralel ayağa kalktı!${NC}"
-echo -e "   - 🌐 Fastify API:       http://localhost:3000"
-echo -e "   - 📖 API Swagger Docs:  http://localhost:3000/documentation"
-echo -e "   - 📊 API Kaynak Sağlık: http://localhost:3000/api/v1/health/sources"
-echo -e "   - 📥 Kuyruk Durumu:     http://localhost:3000/api/v1/health/queue"
-echo -e "   - 💻 Web Platformu:     http://localhost:3001"
-echo -e "   - 🔄 TALEP-012 Sürüm:   http://localhost:3001/version.json"
-echo -e "   - 📱 Mobil Android:     ./scripts/build-mobile-android.sh [dev|staging|prod]"
-echo -e "   - 🍎 Mobil iOS:         ./scripts/build-mobile-ios.sh [dev|staging|prod]"
-echo -e "   - 🐘 PostgreSQL:        localhost:5432 (DB: elektriklioto)"
-echo -e "${GREEN}===================================================================${NC}"
-echo -e "${YELLOW}Durdurmak için Ctrl+C tuşlarına basınız...${NC}\n"
+echo -e "${GREEN}🎉 Tüm sistem servisleri başarıyla ayağa kaldırıldı!${NC}"
+echo -e "   - 🌐 Web İstemcisi:     http://localhost:3001"
+echo -e "   - ⚡ Fastify API:       http://localhost:3000"
+echo -e "   - 🩺 API Sağlık:        http://localhost:3000/health"
+echo -e "   - 🐘 PostgreSQL:        localhost:5432 (Kullanıcı: postgres, DB: elektriklioto)"
+echo -e "   - 🏷️  TALEP-012 Version: http://localhost:3001/version.json"
+echo -e "   - 🛑 Çıkış Yapmak İçin:  Ctrl + C"
+echo -e "${GREEN}===================================================================${NC}\n"
 
+# Süreçleri canlı tut
 wait

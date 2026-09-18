@@ -1,6 +1,6 @@
 # Kullanıcı Kabul Testi (UAT) ve Canlı Saha Doğrulama Raporu: elektriklioto.com (Faz 1)
 
-> **Belge Sürümü:** 1.3.0-faz1  
+> **Belge Sürümü:** 1.4.0-faz1  
 > **Nihai Karar (Verdict):** APPROVED (KULLANICI KABUL TESTLERİ BAŞARIYLA GEÇTİ)  
 > **Rol:** Kullanıcı Kabul Testi (UAT) ve Saha Doğrulama  
 > **Test Ortamı:** Canlı Nuxt 3 Web Haritası (`http://localhost:3000`), Fastify Backend API (`http://localhost:3001`), Docker PostGIS (`localhost:5432`)  

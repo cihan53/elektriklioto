@@ -78,7 +78,7 @@ fi
 echo -n "5. Canlı HTTP /version.json uç noktası (varsa)... "
 HTTP_RESP=$(curl -s -w "\n%{http_code}" "${WEB_BASE}/version.json" 2>/dev/null || echo -e "\n000")
 HTTP_CODE=$(echo "$HTTP_RESP" | tail -n 1)
-HTTP_BODY=$(echo "$HTTP_RESP" | head -n -1)
+HTTP_BODY=$(echo "$HTTP_RESP" | sed '$d')
 
 if [ "$HTTP_CODE" -eq 200 ]; then
   echo -e "${GREEN}BAŞARILI (HTTP 200)${NC}"
