@@ -1390,23 +1390,26 @@
             "S13-T3"
           ],
           "talep_id": "TALEP-015",
-          "status": "RUNNING",
+          "status": "DONE",
           "attempts": 1,
-          "note": "",
-          "started_at": 1789743110.1022809
+          "note": "canlı UAT hata tespit edildi",
+          "started_at": 1789743110.1022809,
+          "finished_at": 1789743314.7967649,
+          "duration_s": 204.7
         }
       ],
       "order": 12,
-      "status": "READY",
+      "status": "DONE",
       "actual_start": "2026-09-18T17:28:21",
-      "actual_end": null,
-      "planned_start": "2026-09-19",
-      "planned_end": "2026-09-20"
+      "actual_end": "2026-09-18T17:55:22",
+      "planned_start": "2026-09-18",
+      "planned_end": "2026-09-18",
+      "_summary_printed": true
     }
   ],
   "created_at": "2026-09-06T17:56:01",
   "baseline_end": "2026-09-20",
-  "updated_at": "2026-09-18T17:51:50",
+  "updated_at": "2026-09-18T17:55:22",
   "_runtime": {
     "done_outputs": []
   }

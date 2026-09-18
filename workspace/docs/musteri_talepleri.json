@@ -1,6 +1,6 @@
 {
-  "son_guncelleme": "2026-09-18T17:51:50.078160",
-  "toplam_talep": 15,
+  "son_guncelleme": "2026-09-18T18:32:46.972051",
+  "toplam_talep": 16,
   "talepler": [
     {
       "id": "TALEP-001",
@@ -130946,9 +130946,9 @@
       "baslik": "EPDK ve CPO Kamu/Açık Kaynaklarından Canlı İstasyon Senkronizasyonu",
       "aciklama": "Müşteri isteği: İstasyon senkronizasyonu için EPDK web sitesi/listesi (public) kullanılmalı, ayrıca firmaların her biri (ZES, Trugo, Eşarj, Voltrun vb.) için istasyon bilgilerinin çekileceği açık servis/endpoint adresleri tespit edilip cron mekanizmasına bağlanmalı.",
       "sayfa_url": "/cron/sync",
-      "durum": "GELISTIRILIYOR",
+      "durum": "COZULDU",
       "gorevli_rol": "backend_engineer",
-      "studio_notu": "Sprint S13 panosuna eklendi (S13-T3 ve S13-T4). Geliştirme başladı.",
+      "studio_notu": "Görev S13-T4 başarıyla tamamlandı ve UAT testinden geçti.",
       "cozum_plani": "workspace/docs/cozum_planlari/TALEP-015.md",
       "github_issue_number": 15,
       "github_issue_url": "https://github.com/cihan53/elektriklioto/issues/15",
@@ -130997,11 +130997,46 @@
           "zaman": "2026-09-18 17:28",
           "eylem": "Durum güncellendi: GELISTIRILIYOR",
           "durum": "GELISTIRILIYOR"
+        },
+        {
+          "zaman": "2026-09-18 17:55",
+          "eylem": "Durum güncellendi: COZULDU",
+          "durum": "COZULDU"
         }
       ],
       "faz_id": "FAZ-1",
       "efor": "ORTA",
       "triage_notu": "Karar Verici Onayı: FAZ-2 kapsamına aktarıldı. Faz 1 tamamlandıktan sonra geliştirilecek."
+    },
+    {
+      "id": "TALEP-016",
+      "tarih": "2026-09-18 18:32",
+      "tur": "UX",
+      "oncelik": "NORMAL",
+      "baslik": "Hakkımızda modal içeriğinin önceki versiyondaki haline döndürülmesi",
+      "aciklama": "Müşteri geri bildirimi: Hakkımızda modalının içeriğinin bir önceki versiyonda daha güzel ve kapsamlı olduğunu belirtti. İçerik ve tasarımın önceki versiyon seviyesine getirilmesi veya geri alınması talep ediliyor.",
+      "sayfa_url": "/",
+      "durum": "DEGERLENDIRMEDE",
+      "gorevli_rol": null,
+      "studio_notu": null,
+      "cozum_plani": null,
+      "github_issue_number": 16,
+      "github_issue_url": "https://github.com/cihan53/elektriklioto/issues/16",
+      "gecmis": [
+        {
+          "zaman": "2026-09-18 18:32",
+          "eylem": "Kayıt oluşturuldu",
+          "durum": "BEKLEMEDE"
+        },
+        {
+          "zaman": "2026-09-18 18:32",
+          "eylem": "GitHub Issue oluşturuldu: #16",
+          "durum": "BEKLEMEDE"
+        }
+      ],
+      "faz_id": "FAZ-1",
+      "efor": "ORTA",
+      "triage_notu": "Yeni Özellik (Feature) olarak sınıflandırıldı. Önerilen Faz: FAZ-1 (Efor: ORTA)."
     }
   ]
 }
