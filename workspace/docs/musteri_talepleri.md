@@ -1,6 +1,6 @@
 # elektriklioto.com — Müşteri Denetim & Talep Havuzu
 
-> **Son Güncelleme:** 2026-09-18 00:10  
+> **Son Güncelleme:** 2026-09-18 08:58  
 > **Toplam Bildirim:** 12  
 
 Bu doküman, site sahibinin / müşterinin yaptığı denetimler sonucunda iletilen istek, hata ve geri bildirimleri içerir.
@@ -13,7 +13,7 @@ Bu doküman, site sahibinin / müşterinin yaptığı denetimler sonucunda ileti
 |---|---|---|---|---|---|---|---|---|
 | **TALEP-012** | Yeni İstek / Özellik | Yüksek (P2) | 🔨 Geliştiriliyor | Yeni deploy çıktığında açık sayfalarda güncelleme uyarısı çıkması ve 20 saniyede otomatik yenilenmesi | `/` | `devops_engineer` | [#12](https://github.com/cihan53/elektriklioto/issues/12) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-012.md) |
 | **TALEP-011** | Hata / Bug | Normal (P3) | 🔨 Geliştiriliyor | Top menüde 2 tane Hakkında butonu görünüyor (Sağdaki buton korunmalı, mükerrer olan kaldırılmalı) | `/` | `web_engineer` | [#11](https://github.com/cihan53/elektriklioto/issues/11) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-011.md) |
-| **TALEP-010** | Hata / Bug | Kritik (P1) | 🔨 Geliştiriliyor | Aramalar ve istasyon kayıtları veritabanından gelmiyor, veritabanı tabloları boş görünüyor | `/api/v1/stations` | `backend_engineer` | [#10](https://github.com/cihan53/elektriklioto/issues/10) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-010.md) |
+| **TALEP-010** | Hata / Bug | Kritik (P1) | ✅ Çözüldü | Aramalar ve istasyon kayıtları veritabanından gelmiyor, veritabanı tabloları boş görünüyor | `/api/v1/stations` | `backend_engineer` | [#10](https://github.com/cihan53/elektriklioto/issues/10) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-010.md) |
 | **TALEP-009** | Yeni İstek / Özellik | Normal (P3) | ✅ Çözüldü | Hakkında, Kullanıcı Sözleşmeleri, Gizlilik Politikası ve Canlı Sürüm Bilgileri Paneli / Sayfası | `/hakkimizda` | `web_engineer` | [#9](https://github.com/cihan53/elektriklioto/issues/9) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-009.md) |
 | **TALEP-008** | Hata / Bug | Kritik (P1) | ✅ Çözüldü | Harita pinleri ve kümeleme baloncuklarının modal pencerelerin (QrBridgeModal vb.) üzerine taşması (z-index katman çakışması) | `/` | `web_engineer` | [#8](https://github.com/cihan53/elektriklioto/issues/8) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-008.md) |
 | **TALEP-007** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | Tüm operatörler açılır menüsü (dropdown) açıldığında menü taşması ve istenmeyen scroll çubuğu oluşması | `/` | `web_engineer` | [#7](https://github.com/cihan53/elektriklioto/issues/7) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-007.md) |
@@ -39,7 +39,7 @@ Bu doküman, site sahibinin / müşterinin yaptığı denetimler sonucunda ileti
 > Müşteri Talebi: Eğer bir deploy çıkarsa tüm açık olan sayfaların uyarı verip yenilenmesini istesin kullanıcıdan, eğer 20sn içinde cevap vermez ise yinede yenilesin. Frontend tarafında periyodik sürüm kontrolü (version/build hash polling) yapılarak yeni deploy algılandığında kullanıcıya 'Yeni sürüm yayınlandı, sayfa güncelleniyor (20s)' geri sayımlı modal/toast gösterilmeli, 'Şimdi Yenile' butonu sunulmalı ve 20 saniye dolduğunda otomatik reload yapılmalıdır.
 
 **Studio Yetkilisi Notu:**
-> Sprint S12 panosuna eklendi (S12-T1 ve S12-T2). Geliştirme başladı.
+> Sprint S11 panosuna eklendi (S11-T3 ve S11-T4). Geliştirme başladı.
 
 - 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-012.md](workspace/docs/cozum_planlari/TALEP-012.md)
 
@@ -60,7 +60,7 @@ Bu doküman, site sahibinin / müşterinin yaptığı denetimler sonucunda ileti
 - 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-011.md](workspace/docs/cozum_planlari/TALEP-011.md)
 
 ---
-### [TALEP-010] Aramalar ve istasyon kayıtları veritabanından gelmiyor, veritabanı tabloları boş görünüyor (🔨 Geliştiriliyor)
+### [TALEP-010] Aramalar ve istasyon kayıtları veritabanından gelmiyor, veritabanı tabloları boş görünüyor (✅ Çözüldü)
 - **Bildirim Tarihi:** 2026-09-18 00:01
 - **Tür / Öncelik:** Hata / Bug / Kritik (P1)
 - **İlgili Ekran / Sayfa:** `/api/v1/stations`
@@ -71,7 +71,7 @@ Bu doküman, site sahibinin / müşterinin yaptığı denetimler sonucunda ileti
 > Müşteri Geri Bildirimi: Halen aramalar kayıtlar veri tabanından gelmiyor, veritabanı ne işe yarıyor, kontrol ettiğinde tablolar boş görünüyor der. PostgreSQL/PostGIS veritabanı ile backend station/search servisleri arasındaki entegrasyonun kurulması, istasyon ve soket verilerinin veritabanına işlenmesi ve aramaların doğrudan veritabanı sorgularından beslenmesi gerekiyor.
 
 **Studio Yetkilisi Notu:**
-> Sprint S10 panosuna eklendi (S10-T1 ve S10-T2). Geliştirme başladı.
+> Görev S10-T2 başarıyla tamamlandı ve UAT testinden geçti.
 
 - 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-010.md](workspace/docs/cozum_planlari/TALEP-010.md)
 
