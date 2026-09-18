@@ -1,7 +1,7 @@
 # elektriklioto.com — Müşteri Denetim & Talep Havuzu
 
-> **Son Güncelleme:** 2026-09-18 17:51  
-> **Toplam Bildirim:** 15  
+> **Son Güncelleme:** 2026-09-18 18:32  
+> **Toplam Bildirim:** 16  
 
 Bu doküman, site sahibinin / müşterinin yaptığı denetimler sonucunda iletilen istek, hata ve geri bildirimleri içerir.
 
@@ -11,7 +11,8 @@ Bu doküman, site sahibinin / müşterinin yaptığı denetimler sonucunda ileti
 
 | ID | Tür | Öncelik | Durum | Başlık | Ekran / URL | İlgili Rol | GitHub Issue | Plan |
 |---|---|---|---|---|---|---|---|---|
-| **TALEP-015** | Yeni İstek / Özellik | Normal (P3) | 🔨 Geliştiriliyor | EPDK ve CPO Kamu/Açık Kaynaklarından Canlı İstasyon Senkronizasyonu | `/cron/sync` | `backend_engineer` | [#15](https://github.com/cihan53/elektriklioto/issues/15) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-015.md) |
+| **TALEP-016** | Tasarım & Kullanıcı Deneyimi | Normal (P3) | ⚖️ Değerlendirmede (Triage) | Hakkımızda modal içeriğinin önceki versiyondaki haline döndürülmesi | `/` | `None` | [#16](https://github.com/cihan53/elektriklioto/issues/16) | — |
+| **TALEP-015** | Yeni İstek / Özellik | Normal (P3) | ✅ Çözüldü | EPDK ve CPO Kamu/Açık Kaynaklarından Canlı İstasyon Senkronizasyonu | `/cron/sync` | `backend_engineer` | [#15](https://github.com/cihan53/elektriklioto/issues/15) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-015.md) |
 | **TALEP-014** | Hata / Bug | Normal (P3) | ✅ Çözüldü | Cron senkronizasyon scripti istasyon bilgilerini alamıyor (0 istasyon hazır) | `/cron/sync` | `devops_engineer` | [#14](https://github.com/cihan53/elektriklioto/issues/14) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-014.md) |
 | **TALEP-013** | Yeni İstek / Özellik | Normal (P3) | ✅ Çözüldü | Yapılan güncellemeler, çözülen hatalar ve sürüm geçmişi için Değişiklik Günlüğü (Changelog / Sürüm Notları) ekranı | `/guncellemeler` | `web_engineer` | [#13](https://github.com/cihan53/elektriklioto/issues/13) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-013.md) |
 | **TALEP-012** | Yeni İstek / Özellik | Yüksek (P2) | ✅ Çözüldü | Yeni deploy çıktığında açık sayfalarda güncelleme uyarısı çıkması ve 20 saniyede otomatik yenilenmesi | `/` | `devops_engineer` | [#12](https://github.com/cihan53/elektriklioto/issues/12) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-012.md) |
@@ -31,7 +32,18 @@ Bu doküman, site sahibinin / müşterinin yaptığı denetimler sonucunda ileti
 
 ## 2. Talep Detayları ve Geri Bildirim Notları
 
-### [TALEP-015] EPDK ve CPO Kamu/Açık Kaynaklarından Canlı İstasyon Senkronizasyonu (🔨 Geliştiriliyor)
+### [TALEP-016] Hakkımızda modal içeriğinin önceki versiyondaki haline döndürülmesi (⚖️ Değerlendirmede (Triage))
+- **Bildirim Tarihi:** 2026-09-18 18:32
+- **Tür / Öncelik:** Tasarım & Kullanıcı Deneyimi / Normal (P3)
+- **İlgili Ekran / Sayfa:** `/`
+- **Görevli Rol:** `None`
+- 🐙 **GitHub Issue:** [#16](https://github.com/cihan53/elektriklioto/issues/16)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Müşteri geri bildirimi: Hakkımızda modalının içeriğinin bir önceki versiyonda daha güzel ve kapsamlı olduğunu belirtti. İçerik ve tasarımın önceki versiyon seviyesine getirilmesi veya geri alınması talep ediliyor.
+
+---
+### [TALEP-015] EPDK ve CPO Kamu/Açık Kaynaklarından Canlı İstasyon Senkronizasyonu (✅ Çözüldü)
 - **Bildirim Tarihi:** 2026-09-18 17:21
 - **Tür / Öncelik:** Yeni İstek / Özellik / Normal (P3)
 - **İlgili Ekran / Sayfa:** `/cron/sync`
@@ -42,7 +54,7 @@ Bu doküman, site sahibinin / müşterinin yaptığı denetimler sonucunda ileti
 > Müşteri isteği: İstasyon senkronizasyonu için EPDK web sitesi/listesi (public) kullanılmalı, ayrıca firmaların her biri (ZES, Trugo, Eşarj, Voltrun vb.) için istasyon bilgilerinin çekileceği açık servis/endpoint adresleri tespit edilip cron mekanizmasına bağlanmalı.
 
 **Studio Yetkilisi Notu:**
-> Sprint S13 panosuna eklendi (S13-T3 ve S13-T4). Geliştirme başladı.
+> Görev S13-T4 başarıyla tamamlandı ve UAT testinden geçti.
 
 - 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-015.md](workspace/docs/cozum_planlari/TALEP-015.md)
 
