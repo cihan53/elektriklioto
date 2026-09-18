@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-09-18T14:41:47.493943",
+  "son_guncelleme": "2026-09-18T14:58:49.589559",
   "toplam_talep": 14,
   "talepler": [
     {
@@ -51884,9 +51884,9 @@
       "baslik": "Yeni deploy çıktığında açık sayfalarda güncelleme uyarısı çıkması ve 20 saniyede otomatik yenilenmesi",
       "aciklama": "Müşteri Talebi: Eğer bir deploy çıkarsa tüm açık olan sayfaların uyarı verip yenilenmesini istesin kullanıcıdan, eğer 20sn içinde cevap vermez ise yinede yenilesin. Frontend tarafında periyodik sürüm kontrolü (version/build hash polling) yapılarak yeni deploy algılandığında kullanıcıya 'Yeni sürüm yayınlandı, sayfa güncelleniyor (20s)' geri sayımlı modal/toast gösterilmeli, 'Şimdi Yenile' butonu sunulmalı ve 20 saniye dolduğunda otomatik reload yapılmalıdır.",
       "sayfa_url": "/",
-      "durum": "FAZ_BEKLIYOR",
+      "durum": "COZULDU",
       "gorevli_rol": "devops_engineer",
-      "studio_notu": "Sprint S11 panosuna eklendi (S11-T3 ve S11-T4). Geliştirme başladı.",
+      "studio_notu": "Görev S12-T2 başarıyla tamamlandı ve UAT testinden geçti.",
       "cozum_plani": "workspace/docs/cozum_planlari/TALEP-012.md",
       "github_issue_number": 12,
       "github_issue_url": "https://github.com/cihan53/elektriklioto/issues/12",
@@ -103295,6 +103295,11 @@
           "zaman": "2026-09-18 09:03",
           "eylem": "Durum güncellendi: GELISTIRILIYOR",
           "durum": "GELISTIRILIYOR"
+        },
+        {
+          "zaman": "2026-09-18 14:58",
+          "eylem": "Durum güncellendi: COZULDU",
+          "durum": "COZULDU"
         }
       ],
       "faz_id": "FAZ-2",

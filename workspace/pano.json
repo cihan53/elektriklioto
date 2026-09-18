@@ -1258,10 +1258,12 @@
             "S12-T1"
           ],
           "talep_id": "TALEP-012",
-          "status": "RUNNING",
+          "status": "DONE",
           "attempts": 1,
-          "note": "",
-          "started_at": 1789732596.256568
+          "note": "canlı UAT hata tespit edildi",
+          "started_at": 1789732596.256568,
+          "finished_at": 1789732722.549068,
+          "duration_s": 126.3
         },
         {
           "id": "S12-T3",
@@ -1295,9 +1297,10 @@
             "S12-T3"
           ],
           "talep_id": "TALEP-013",
-          "status": "READY",
-          "attempts": 0,
-          "note": "[Kurtarma Ajanı] Otomatik olarak sıraya alındı"
+          "status": "RUNNING",
+          "attempts": 1,
+          "note": "[Kurtarma Ajanı] Otomatik olarak sıraya alındı",
+          "started_at": 1789732729.611521
         }
       ],
       "order": 11,
@@ -1311,7 +1314,7 @@
   ],
   "created_at": "2026-09-06T17:56:01",
   "baseline_end": "2026-09-21",
-  "updated_at": "2026-09-18T14:56:36",
+  "updated_at": "2026-09-18T14:58:49",
   "_runtime": {
     "done_outputs": []
   }
