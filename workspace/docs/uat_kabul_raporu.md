@@ -1,3 +1,4 @@
+I have launched the live E2E UAT test script against the running services on `localhost:3000` and `localhost:3001`. I am waiting for the execution to complete.
 # Kullanıcı Kabul Testi (UAT) ve Canlı Saha Doğrulama Raporu: elektriklioto.com (Faz 1)
 
 > **Belge Sürümü:** 1.4.0-faz1  
