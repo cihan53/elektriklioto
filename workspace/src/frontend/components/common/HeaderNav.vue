@@ -42,6 +42,7 @@ const toggleTheme = () => {
       </NuxtLink>
 
       <!-- Masaüstü Hızlı Dizin Menüsü (SCR-03 SEO Dizin Bağlantıları) -->
+      <!-- TALEP-011: Orta menüdeki mükerrer Hakkında bağlantısı kaldırıldı, sağdaki doğru modal butonu korundu -->
       <nav class="hidden lg:flex items-center gap-1 text-sm font-medium text-text-secondary">
         <NuxtLink
           to="/"
@@ -86,20 +87,12 @@ const toggleTheme = () => {
         >
           Trugo
         </NuxtLink>
-        <NuxtLink
-          to="/hakkimizda"
-          class="px-3 py-1.5 rounded-md hover:text-text-primary hover:bg-bg-subdued touch-target-min flex items-center gap-1.5 transition-colors"
-          active-class="text-primary font-semibold"
-        >
-          <Info class="w-4 h-4" />
-          <span>Hakkında</span>
-        </NuxtLink>
       </nav>
     </div>
 
     <!-- Navigasyon ve Kontroller -->
     <div class="flex items-center gap-2 sm:gap-3">
-      <!-- Hakkında & Yasal Modal Butonu (TALEP-009) -->
+      <!-- Hakkında & Yasal Modal Butonu (TALEP-009 & TALEP-011: Doğru ve onaylı sağ buton) -->
       <button
         type="button"
         @click="isAboutModalOpen = true"

@@ -1,0 +1,30 @@
+{
+  "fazlar": [
+    {
+      "id": "FAZ-1",
+      "ad": "Çekirdek Platform, Arama ve Canlı Yayına Alma (MVP)",
+      "aciklama": "Harita, BBox keşfi, istasyon detayları, GADM CBS sınırları ve canlıya alma stabilizasyonu.",
+      "durum": "AKTIF",
+      "hedef_tarih": "2026-09-18",
+      "kilitli": false
+    },
+    {
+      "id": "FAZ-2",
+      "ad": "Sürüm Yönetimi, Değişiklik Günlüğü ve Kullanıcı Bildirimleri",
+      "aciklama": "Yeni sürüm çıktığında 20s otomatik sayfa yenileme, /guncellemeler (changelog) ekranı ve sürüm izleme.",
+      "durum": "PLANLANDI",
+      "hedef_tarih": "2026-09-25",
+      "kilitli": true,
+      "onkosul_faz": "FAZ-1"
+    },
+    {
+      "id": "FAZ-3",
+      "ad": "CPO Derin Entegrasyon, Rota Optimizasyonu & Rezervasyon",
+      "aciklama": "Şarj istasyonu doluluk oranları, rota planlama ve operatör rezervasyon entegrasyonları.",
+      "durum": "PLANLANDI",
+      "hedef_tarih": "2026-10-10",
+      "kilitli": true,
+      "onkosul_faz": "FAZ-2"
+    }
+  ]
+}

@@ -145,7 +145,6 @@ const TURKEY_81_CITIES: Record<string, [number, number]> = {
   'malatya': [38.3552, 38.3552],
   'manisa': [27.4260, 38.6191],
   'mardin': [40.7420, 37.3212],
-  'mersin': [34.6415, 36.8121],
   'mugla': [28.3636, 37.2153],
   'mus': [41.5064, 38.7432],
   'nevsehir': [34.7144, 38.6244],

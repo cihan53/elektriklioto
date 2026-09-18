@@ -1,7 +1,7 @@
 
 # ==============================================================================
 # elektriklioto.com - Üretim (Production) Compose Yapılandırması
-# Sprint: S5-S6 — Modüler Monolit ve Bağımsız Asenkron Worker Dağıtımı
+# Sprint: S5-S11 — Modüler Monolit, Bağımsız Worker ve Sürüm Yönetimi (TALEP-012)
 # ==============================================================================
 services:
   postgres:
@@ -99,8 +99,12 @@ services:
 
   web:
     build:
-      context: ../src
-      dockerfile: ../infra/docker/Dockerfile.web
+      context: ../src/frontend
+      dockerfile: ../../infra/docker/Dockerfile.web
+      args:
+        BUILD_ID: ${BUILD_ID:-prod-latest}
+        APP_VERSION: ${APP_VERSION:-1.0.0}
+        DEPLOY_TIME: ${DEPLOY_TIME:-}
     container_name: elektriklioto-web-prod
     restart: always
     env_file:
@@ -109,6 +113,7 @@ services:
       NODE_ENV: production
       PORT: 3001
       NUXT_PUBLIC_API_BASE: https://api.elektriklioto.com
+      NUXT_PUBLIC_BUILD_ID: ${BUILD_ID:-prod-latest}
     depends_on:
       - api
     networks:

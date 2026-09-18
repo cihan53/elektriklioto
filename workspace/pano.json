@@ -1163,11 +1163,144 @@
       "planned_start": "2026-09-18",
       "planned_end": "2026-09-18",
       "_summary_printed": true
+    },
+    {
+      "id": "S11",
+      "name": "[FAZ-1] Top Menü Mükerrer Buton Düzeltmesi (TALEP-011)",
+      "goal": "Faz 1 stabilizasyonu: Top menüdeki mükerrer Hakkında butonunun kaldırılması ve UAT kabulü.",
+      "planned_days": 3,
+      "tasks": [
+        {
+          "id": "S11-T1",
+          "title": "[TALEP-011] Top menüde 2 tane Hakkında butonu görünüyor (Sağdaki buton korunmalı, mükerrer olan kaldırılmalı)",
+          "description": "Müşteri Talebi: Müşteri Geri Bildirimi: Top menüde 2 tane hakkında butonu göründüğünü söylüyor. Ayrıca hakkında butonu sağda olanı doğru diyor. Header/menü alanındaki çift Hakkında butonu incelenerek sol veya orta alanda mükerrer görünen kaldırılmalı, sağ taraftaki doğru Hakkında butonu korunmalıdır.\nÇözüm Planı: workspace/docs/cozum_planlari/TALEP-011.md",
+          "role": "web_engineer",
+          "phase": "develop",
+          "outputs": [
+            "workspace/src/frontend/components/",
+            "workspace/src/frontend/pages/"
+          ],
+          "depends_on": [],
+          "talep_id": "TALEP-011",
+          "status": "DONE",
+          "attempts": 1,
+          "note": "",
+          "started_at": 1789711417.7271638,
+          "finished_at": 1789711962.8793442,
+          "duration_s": 545.2
+        },
+        {
+          "id": "S11-T2",
+          "title": "[TALEP-011] Müşteri Kabulü & UAT Doğrulama Denetimi",
+          "description": "TALEP-011 için yapılan düzeltmenin canlı sistemde çalıştığını ve 0 konsol hatası olduğunu doğrula.",
+          "role": "uat_auditor",
+          "phase": "test",
+          "outputs": [
+            "workspace/docs/uat_kabul_raporu.md"
+          ],
+          "depends_on": [
+            "S11-T1"
+          ],
+          "talep_id": "TALEP-011",
+          "status": "READY",
+          "attempts": 0,
+          "note": ""
+        }
+      ],
+      "order": 10,
+      "status": "READY",
+      "actual_start": "2026-09-18T09:03:37",
+      "actual_end": null,
+      "planned_start": "2026-09-19",
+      "planned_end": "2026-09-21",
+      "faz_id": "FAZ-1"
+    },
+    {
+      "id": "S12",
+      "name": "[FAZ-2] Sürüm Yönetimi ve Değişiklik Günlüğü (TALEP-012, TALEP-013)",
+      "goal": "Faz 2 geliştirmeleri: Yeni deploy sonrası 20s otomatik yenileme ve /guncellemeler ekranı.",
+      "faz_id": "FAZ-2",
+      "planned_days": 3,
+      "tasks": [
+        {
+          "id": "S12-T1",
+          "title": "[TALEP-012] Yeni deploy çıktığında açık sayfalarda güncelleme uyarısı çıkması ve 20 saniyede otomatik yenilenmesi",
+          "description": "Müşteri Talebi: Deploy çıktığında 20s geri sayımlı modal ve yenileme mekanizması.\nÇözüm Planı: workspace/docs/cozum_planlari/TALEP-012.md",
+          "role": "web_engineer",
+          "phase": "develop",
+          "outputs": [
+            "workspace/src/frontend/components/",
+            "workspace/src/frontend/composables/"
+          ],
+          "depends_on": [],
+          "talep_id": "TALEP-012",
+          "status": "TODO",
+          "attempts": 0,
+          "note": ""
+        },
+        {
+          "id": "S12-T2",
+          "title": "[TALEP-012] Müşteri Kabulü & UAT Doğrulama Denetimi",
+          "description": "TALEP-012 canlı sistemde çalıştığını doğrula.",
+          "role": "uat_auditor",
+          "phase": "test",
+          "outputs": [
+            "workspace/docs/uat_kabul_raporu.md"
+          ],
+          "depends_on": [
+            "S12-T1"
+          ],
+          "talep_id": "TALEP-012",
+          "status": "TODO",
+          "attempts": 0,
+          "note": ""
+        },
+        {
+          "id": "S12-T3",
+          "title": "[TALEP-013] Değişiklik Günlüğü (Changelog / Sürüm Notları) ekranı",
+          "description": "Müşteri Talebi: /guncellemeler sayfası veya modalı ile sürüm notlarının listelenmesi.\nÇözüm Planı: workspace/docs/cozum_planlari/TALEP-013.md",
+          "role": "web_engineer",
+          "phase": "develop",
+          "outputs": [
+            "workspace/src/frontend/components/",
+            "workspace/src/frontend/pages/"
+          ],
+          "depends_on": [],
+          "talep_id": "TALEP-013",
+          "status": "TODO",
+          "attempts": 0,
+          "note": ""
+        },
+        {
+          "id": "S12-T4",
+          "title": "[TALEP-013] Müşteri Kabulü & UAT Doğrulama Denetimi",
+          "description": "TALEP-013 canlı sistemde çalıştığını doğrula.",
+          "role": "uat_auditor",
+          "phase": "test",
+          "outputs": [
+            "workspace/docs/uat_kabul_raporu.md"
+          ],
+          "depends_on": [
+            "S12-T3"
+          ],
+          "talep_id": "TALEP-013",
+          "status": "TODO",
+          "attempts": 0,
+          "note": ""
+        }
+      ],
+      "order": 11,
+      "status": "BLOCKED",
+      "note": "Faz 1 tamamlanıp onaylanmadan Faz 2 başlatılamaz.",
+      "actual_start": null,
+      "actual_end": null,
+      "planned_start": "2026-09-22",
+      "planned_end": "2026-09-25"
     }
   ],
   "created_at": "2026-09-06T17:56:01",
-  "baseline_end": "2026-09-18",
-  "updated_at": "2026-09-18T08:58:33",
+  "baseline_end": "2026-09-21",
+  "updated_at": "2026-09-18T09:12:42",
   "_runtime": {
     "done_outputs": []
   }

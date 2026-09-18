@@ -218,23 +218,34 @@ def otomatik_musteri_talepleri_senkronize_et() -> int:
         if m:
             mevcut_talep_idler.add(m.group(0))
 
-    # Henüz panoya girmemiş açık/bekleyen talepler
+    # Yalnızca aktif faza ait onaylanmış talepler ve acil HATA (Bug) bildirimleri sprinte alınır
     isleme_alinacaklar = []
     for t in talepler:
         tid = t.get("id")
         durum = t.get("durum", "BEKLEMEDE")
-        if durum not in ("COZULDU", "IPTAL") and tid not in mevcut_talep_idler:
-            # Planı yoksa önce plan çıkar
-            if not t.get("cozum_plani"):
-                cozum_plani_olustur(tid)
-                t = MT.getir(tid) or t
-            isleme_alinacaklar.append(t)
+        tur = t.get("tur", "HATA").upper()
+        faz_id = t.get("faz_id", "FAZ-1")
+
+        if durum in ("COZULDU", "IPTAL", "DEGERLENDIRMEDE", "FAZ_BEKLIYOR"):
+            continue
+        if tid in mevcut_talep_idler:
+            continue
+
+        # Sadece HATA olanlar veya Faz 1 onaylı olanlar aktif sprinte girebilir
+        if tur != "HATA" and faz_id != "FAZ-1":
+            continue
+
+        # Planı yoksa önce plan çıkar
+        if not t.get("cozum_plani"):
+            cozum_plani_olustur(tid)
+            t = MT.getir(tid) or t
+        isleme_alinacaklar.append(t)
 
     if not isleme_alinacaklar:
         return 0
 
-    print(f"\n⚡ [MÜŞTERİ TALEPLERİ OTOMATİK SENKRONİZASYONU]")
-    print(f"  {len(isleme_alinacaklar)} adet müşteri talebi panoya görev olarak dönüştürülüyor...")
+    print(f"\n⚡ [MÜŞTERİ TALEPLERİ SENKRONİZASYONU (TRIAGE ONAYLI)]")
+    print(f"  {len(isleme_alinacaklar)} adet talep aktif sprint panosuna ekleniyor...")
 
     sid = f"S{len(board.get('sprints', [])) + 1}"
     tasks = []
@@ -243,8 +254,13 @@ def otomatik_musteri_talepleri_senkronize_et() -> int:
     for t in isleme_alinacaklar:
         tid = t["id"]
         rol = t.get("gorevli_rol") or "web_engineer"
-        _, dosyalar, _ = tespit_et_rol_ve_bilesen(t)
+        _, ham_dosyalar, _ = tespit_et_rol_ve_bilesen(t)
         plan_dosyasi = t.get("cozum_plani") or f"workspace/docs/cozum_planlari/{tid}.md"
+
+        # Çıktı yollarının mutlak olarak workspace/ altında kaldığını garanti et
+        guvenli_dosyalar = [d for d in ham_dosyalar if d.startswith("workspace/")]
+        if not guvenli_dosyalar:
+            guvenli_dosyalar = ["workspace/src/frontend/"]
 
         # 1. Geliştirme Görevi
         dev_task_id = f"{sid}-T{task_counter}"
@@ -255,7 +271,7 @@ def otomatik_musteri_talepleri_senkronize_et() -> int:
             "description": f"Müşteri Talebi: {t.get('aciklama')}\nÇözüm Planı: {plan_dosyasi}",
             "role": rol,
             "phase": "develop",
-            "outputs": dosyalar[:2] if dosyalar else ["workspace/src/frontend/"],
+            "outputs": guvenli_dosyalar[:2],
             "depends_on": [],
             "talep_id": tid
         }

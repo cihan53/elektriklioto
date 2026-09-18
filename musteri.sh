@@ -95,6 +95,22 @@ case "${1:-}" in
     echo "  ./musteri.sh --planla [TALEP-ID]      Studio yetkilisini tetikleyip çözüm planı çıkartır"
     echo "  ./musteri.sh --hepsini-planla        Bekleyen tüm talepleri planlar"
     echo "  ./musteri.sh --cozuldu [TALEP-ID]    Talebi çözüldü olarak onaylar"
+    echo "  ./musteri.sh --triage                Karar verici triage ve fazlama denetimini çalıştırır"
+    echo "  ./musteri.sh --fazlar                Yol haritası fazlarını ve durumlarını listeler"
+    echo "  ./musteri.sh --ata [ID] [FAZ]        Talebi belirtilen faza aktarır (örn: --ata TALEP-012 FAZ-2)"
+    exit 0
+    ;;
+  --triage|--karar)
+    $PY scripts/karar_verici_triage.py --liste
+    exit 0
+    ;;
+  --fazlar)
+    $PY scripts/karar_verici_triage.py --liste
+    exit 0
+    ;;
+  --ata)
+    [ -z "${2:-}" ] && { echo -e "${RED}Talep ID gerekli!${NC}"; exit 1; }
+    $PY scripts/karar_verici_triage.py --ata "$2" --faz "${3:-FAZ-2}"
     exit 0
     ;;
   --liste)
@@ -143,9 +159,10 @@ while true; do
   echo -e "  ${CYAN}4)${NC} 🧠 Studio Yetkilisini Çağır (Bekleyenleri Çözüm İçin Planla)"
   echo -e "  ${CYAN}5)${NC} 🌐 Canlı Test Ortamını Başlat (Nuxt & Fastify)"
   echo -e "  ${CYAN}6)${NC} 📑 Talep Havuzu Dosyasını Aç (musteri_talepleri.md)"
+  echo -e "  ${CYAN}7)${NC} ⚖️  Karar Verici Masası (Triage, Fazlama & Onay)"
   echo -e "  ${CYAN}0)${NC} Çıkış"
   echo
-  read -r -p "Seçiminiz [0-6]: " SECIM
+  read -r -p "Seçiminiz [0-7]: " SECIM
 
   case "$SECIM" in
     1)
@@ -186,6 +203,21 @@ while true; do
     6)
       echo -e "\n${GREEN}workspace/docs/musteri_talepleri.md açılıyor:${NC}"
       cat workspace/docs/musteri_talepleri.md 2>/dev/null || echo "Dosya henüz boş."
+      echo
+      read -r -p "Devam etmek için Enter'a basın..." _
+      ;;
+    7)
+      header
+      $PY scripts/karar_verici_triage.py --liste
+      echo
+      echo -e "${YELLOW}Talebi bir faza atamak ister misiniz? (Örn: TALEP-012 FAZ-2)${NC}"
+      read -r -p "Talep ID ve Hedef Faz (Boş geçmek için Enter): " ATAMA_GIRDI
+      if [ -n "$ATAMA_GIRDI" ]; then
+        T_ID=$(echo "$ATAMA_GIRDI" | awk '{print $1}')
+        F_ID=$(echo "$ATAMA_GIRDI" | awk '{print $2}')
+        [ -z "$F_ID" ] && F_ID="FAZ-2"
+        $PY scripts/karar_verici_triage.py --ata "$T_ID" --faz "$F_ID"
+      fi
       echo
       read -r -p "Devam etmek için Enter'a basın..." _
       ;;

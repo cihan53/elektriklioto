@@ -42,6 +42,8 @@ ONCELIKLER = {
 }
 
 DURUMLAR = {
+    "DEGERLENDIRMEDE": "⚖️ Değerlendirmede (Triage)",
+    "FAZ_BEKLIYOR": "📦 Faz Bekliyor",
     "BEKLEMEDE": "⏳ Beklemede",
     "PLANLANDI": "📋 Planlandı",
     "GELISTIRILIYOR": "🔨 Geliştiriliyor",
@@ -207,19 +209,38 @@ def yeni_talep(tur: str, baslik: str, aciklama: str, oncelik: str = "NORMAL", sa
     data["talepler"] = mevcut
     save_data(data)
 
-    # Otomatik Planlama, GitHub Yorumu ve Sprint Panosuna (pano.json) Aktarım
+    # Otomatik Triage ve Planlama (Hata vs Özellik Ayrımı)
     try:
         sys.path.insert(0, str(ROOT))
         sys.path.insert(0, str(ROOT / "scripts"))
+        import karar_verici_triage as KVT
         import studio_yetkilisi as SY
         import studio_board as B
-        print(f"  ⚡ Studio Yetkilisi otomatik çözüm planı hazırlıyor ({talep_id})...")
-        SY.cozum_plani_olustur(talep_id)
-        SY.otomatik_musteri_talepleri_senkronize_et()
-        B.ledger_approve(gorev=2)
-        print(f"  ✓ {talep_id} otomatik planlandı ve Sprint Panosuna (pano.json) eklendi!")
+
+        analiz = KVT.talep_analiz_et(yeni)
+        yeni["faz_id"] = analiz["onerilen_faz"]
+        yeni["efor"] = analiz["efor"]
+
+        if analiz["gercek_tur"] == "HATA":
+            yeni["durum"] = "BEKLEMEDE"
+            print(f"  ⚡ [BUG/HOTFIX HATTI] Hata tespit edildi, çözüm planı hazırlanıyor ({talep_id})...")
+            SY.cozum_plani_olustur(talep_id)
+            SY.otomatik_musteri_talepleri_senkronize_et()
+            B.ledger_approve(gorev=2)
+            print(f"  ✓ {talep_id} (Hata) aktif sprint panosuna stabilizasyon görevi olarak eklendi!")
+        else:
+            yeni["durum"] = "DEGERLENDIRMEDE"
+            yeni["triage_notu"] = f"Yeni Özellik (Feature) olarak sınıflandırıldı. Önerilen Faz: {analiz['onerilen_faz']} (Efor: {analiz['efor']})."
+            print(f"  ⚖️  [KARAR VERİCİ TRİAGE] Yeni Özellik (Feature) algılandı: {talep_id}")
+            print(f"      • Doğrudan aktif sprinte eklenmedi (kapsam genişlemesi önlendi).")
+            print(f"      • Atanan Havuz: {analiz['onerilen_faz']} Backlog (Efor: {analiz['efor']}, Süre: {analiz['tahmini_sure']})")
+            print(f"      • Faz 1 hataları kapandıktan sonra karar verici onayı ile devreye girecektir.")
+            SY.cozum_plani_olustur(talep_id)
+
+        # Güncel alanları kaydet
+        save_data(data)
     except Exception as e:
-        print(f"  [UYARI] Otomatik planlama tetiklenirken hata: {e}")
+        print(f"  [UYARI] Triage / Planlama tetiklenirken hata: {e}")
 
     return yeni
 

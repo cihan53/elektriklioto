@@ -2,7 +2,7 @@
 #!/usr/bin/env bash
 # ==============================================================================
 # elektriklioto.com - Tek Tıkla Başlatıcı (On-Click Dev Launcher)
-# Sprint: S1-S6 — Veritabanı, Backend API, Worker, Web ve Mobil Entegrasyonu
+# Sprint: S1-S11 — Veritabanı, Backend API, Worker, Web SSR ve Sürüm Yönetimi
 # ==============================================================================
 set -euo pipefail
 
@@ -17,10 +17,11 @@ NC='\033[0m'
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 WORKSPACE_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
 BACKEND_DIR="${WORKSPACE_ROOT}/src/backend"
+FRONTEND_DIR="${WORKSPACE_ROOT}/src/frontend"
 MOBILE_DIR="${WORKSPACE_ROOT}/src/mobile"
 
 echo -e "${CYAN}===================================================================${NC}"
-echo -e "${CYAN}⚡ elektriklioto.com — Tek Tıkla Geliştirici Başlatıcısı (S1-S6) ⚡${NC}"
+echo -e "${CYAN}⚡ elektriklioto.com — Tek Tıkla Geliştirici Başlatıcısı (S1-S11) ⚡${NC}"
 echo -e "${CYAN}===================================================================${NC}"
 
 # 1. Port Temizleme Fonksiyonu
@@ -104,7 +105,15 @@ if [ -d "$BACKEND_DIR" ]; then
   (cd "$BACKEND_DIR" && $PKG_MANAGER run build)
 fi
 
-# 6. Ortam Dosyasını Hazırla
+# Frontend bağımlılıkları denetimi
+if [ -d "$FRONTEND_DIR" ]; then
+  if [ ! -d "${FRONTEND_DIR}/node_modules" ]; then
+    echo -e "${YELLOW}📦 Frontend bağımlılıkları eksik, kuruluyor (${PKG_MANAGER})...${NC}"
+    (cd "$FRONTEND_DIR" && $PKG_MANAGER install)
+  fi
+fi
+
+# 6. Ortam Dosyalarını Hazırla
 if [ ! -f "${SCRIPT_DIR}/env/.env" ]; then
   echo -e "${YELLOW}⚙️  env/.env bulunamadı. env/.env.example kopyalanıyor...${NC}"
   cp "${SCRIPT_DIR}/env/.env.example" "${SCRIPT_DIR}/env/.env"
@@ -113,6 +122,23 @@ fi
 if [ ! -f "${SCRIPT_DIR}/env/.env.mobile" ] && [ -f "${SCRIPT_DIR}/env/.env.mobile.example" ]; then
   echo -e "${YELLOW}⚙️  env/.env.mobile oluşturuluyor...${NC}"
   cp "${SCRIPT_DIR}/env/.env.mobile.example" "${SCRIPT_DIR}/env/.env.mobile"
+fi
+
+# TALEP-012: Yerel Geliştirme Sürüm Dosyası (version.json) Hazırlığı
+DEV_BUILD_ID="dev-$(date +%s)"
+export NUXT_PUBLIC_BUILD_ID="$DEV_BUILD_ID"
+
+if [ -d "$FRONTEND_DIR" ]; then
+  mkdir -p "${FRONTEND_DIR}/public"
+  cat << JSON > "${FRONTEND_DIR}/public/version.json"
+{
+  "version": "1.0.0-dev",
+  "buildId": "${DEV_BUILD_ID}",
+  "deployedAt": "$(date -u +"%Y-%m-%dT%H:%M:%SZ")",
+  "timestamp": $(date +%s)
+}
+JSON
+  echo -e "${GREEN}✅ TALEP-012 Sürüm dosyası hazırlandı: ${FRONTEND_DIR}/public/version.json (${DEV_BUILD_ID})${NC}"
 fi
 
 # 7. PostGIS Konteynerini Başlat
@@ -134,7 +160,7 @@ fi
 echo -e "${GREEN}✅ PostgreSQL + PostGIS (postgis/postgis:16-3.4) hazır!${NC}"
 
 # 8. Servisleri Paralel Ayağa Kaldır
-echo -e "${CYAN}🚀 Fastify API, Asenkron Worker ve Web servisleri paralel başlatılıyor...${NC}"
+echo -e "${CYAN}🚀 Fastify API, Asenkron Worker ve Nuxt Web servisleri paralel başlatılıyor...${NC}"
 
 # 8.1. Fastify API Servisi (:3000)
 (
@@ -159,11 +185,16 @@ PIDS+=($!)
 ) &
 PIDS+=($!)
 
-# 8.3. Web Ön Yüz / Simülasyon Servisi (:3001)
+# 8.3. Nuxt 3 Web SSR Servisi (:3001)
 (
   echo -e "${BLUE}[WEB] Nuxt SSR / Web arayüzü başlatılıyor (http://localhost:3001)...${NC}"
-  if [ -d "${WORKSPACE_ROOT}/src/web" ]; then
+  if [ -d "$FRONTEND_DIR" ]; then
+    cd "$FRONTEND_DIR"
+    export PORT=3001
+    npm run dev -- --port 3001 2>&1 | sed -e "s/^/${BLUE}[WEB] ${NC}/"
+  elif [ -d "${WORKSPACE_ROOT}/src/web" ]; then
     cd "${WORKSPACE_ROOT}/src/web"
+    export PORT=3001
     npm run dev -- --port 3001 2>&1 | sed -e "s/^/${BLUE}[WEB] ${NC}/"
   else
     mkdir -p /tmp/elektriklioto-web-stub
@@ -186,7 +217,8 @@ PIDS+=($!)
     <h1>⚡ elektriklioto.com</h1>
     <p>Web Platformu (Nuxt 3 SSR) geliştirme modunda aktif.</p>
     <p>Fastify API: <code>http://localhost:3000/health</code></p>
-    <div class="badge">S6 Mobil CI/CD & Build Hazır</div>
+    <p>TALEP-012 Versiyon: <code>http://localhost:3001/version.json</code></p>
+    <div class="badge">S11 Sürüm Kontrolü & Canlı Yenileme Aktif</div>
   </div>
 </body>
 </html>
@@ -206,6 +238,7 @@ echo -e "   - 📖 API Swagger Docs:  http://localhost:3000/documentation"
 echo -e "   - 📊 API Kaynak Sağlık: http://localhost:3000/api/v1/health/sources"
 echo -e "   - 📥 Kuyruk Durumu:     http://localhost:3000/api/v1/health/queue"
 echo -e "   - 💻 Web Platformu:     http://localhost:3001"
+echo -e "   - 🔄 TALEP-012 Sürüm:   http://localhost:3001/version.json"
 echo -e "   - 📱 Mobil Android:     ./scripts/build-mobile-android.sh [dev|staging|prod]"
 echo -e "   - 🍎 Mobil iOS:         ./scripts/build-mobile-ios.sh [dev|staging|prod]"
 echo -e "   - 🐘 PostgreSQL:        localhost:5432 (DB: elektriklioto)"

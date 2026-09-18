@@ -102,8 +102,8 @@ describe('Ziyaretçi Ekran ve Gezinim Denetimi (Visitor Screen Audit Suite)', ()
     expect(healthBtn.exists()).toBe(true);
     await healthBtn.trigger('click');
 
-    // 5. Hakkında & Yasal Bilgiler Butonu ve Dizin Linki (TALEP-009)
-    expect(hrefs).toContain('/hakkimizda');
+    // 5. Hakkında & Yasal Bilgiler Butonu (TALEP-009 & TALEP-011: Mükerrer nav linki kaldırıldı, sağdaki buton korundu)
+    expect(hrefs).not.toContain('/hakkimizda');
     const aboutBtn = wrapper.find('button[aria-label="Hakkında ve Yasal Bilgiler"]');
     expect(aboutBtn.exists()).toBe(true);
     await aboutBtn.trigger('click');

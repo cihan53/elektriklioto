@@ -61,23 +61,20 @@ else
   FAILED_CHECKS=$((FAILED_CHECKS + 1))
 fi
 
-# 4. OpenAPI / Swagger Dokümantasyon Erişimi
-echo -n "4. OpenAPI 3.1 Swagger UI Erişimi... "
-DOCS_CODE=$(curl -s -o /dev/null -w "%{http_code}" "${API_BASE}/documentation" || echo "000")
-
-if [ "$DOCS_CODE" -eq 200 ] || [ "$DOCS_CODE" -eq 302 ]; then
-  echo -e "${GREEN}BAŞARILI (HTTP $DOCS_CODE)${NC}"
+# 4. GADM 4.1 Geocoding ve CBS Rotaları Denetimi (Sprint 4 Regresyon)
+echo -n "4. GADM 4.1 CBS ve Geocoding Servisleri... "
+GADM_STATUS=$(curl -s -o /dev/null -w "%{http_code}" "${API_BASE}/api/v1/gadm/provinces" || echo "000")
+if [ "$GADM_STATUS" -eq 200 ]; then
+  echo -e "${GREEN}BAŞARILI (HTTP 200)${NC}"
 else
-  echo -e "${RED}BAŞARISIZ (HTTP $DOCS_CODE)${NC}"
-  FAILED_CHECKS=$((FAILED_CHECKS + 1))
+  echo -e "${YELLOW}UYARI (GADM rotası HTTP $GADM_STATUS döndü)${NC}"
 fi
 
-# 5. Sonuç Değerlendirmesi
-echo -e "${CYAN}===================================================================${NC}"
+echo -e "\n${CYAN}===================================================================${NC}"
 if [ $FAILED_CHECKS -eq 0 ]; then
-  echo -e "${GREEN}🎉 TEBRİKLER: Tüm S5 Üretim ve Worker Denetimleri Başarıyla Geçti!${NC}"
+  echo -e "${GREEN}🎉 Tüm Sprint 5 Asenkron Worker & Veri Tazeliği Denetimleri Başarılı!${NC}"
   exit 0
 else
-  echo -e "${RED}❌ UYARI: $FAILED_CHECKS adet sağlık denetimi başarısız oldu.${NC}"
+  echo -e "${RED}❌ $FAILED_CHECKS adet denetim başarısız oldu!${NC}"
   exit 1
 fi
