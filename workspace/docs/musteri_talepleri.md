@@ -1,7 +1,7 @@
 # elektriklioto.com — Müşteri Denetim & Talep Havuzu
 
-> **Son Güncelleme:** 2026-09-18 18:34  
-> **Toplam Bildirim:** 16  
+> **Son Güncelleme:** 2026-09-19 16:15  
+> **Toplam Bildirim:** 17  
 
 Bu doküman, site sahibinin / müşterinin yaptığı denetimler sonucunda iletilen istek, hata ve geri bildirimleri içerir.
 
@@ -11,6 +11,7 @@ Bu doküman, site sahibinin / müşterinin yaptığı denetimler sonucunda ileti
 
 | ID | Tür | Öncelik | Durum | Başlık | Ekran / URL | İlgili Rol | GitHub Issue | Plan |
 |---|---|---|---|---|---|---|---|---|
+| **TALEP-017** | Yeni İstek / Özellik | Normal (P3) | 📋 Planlandı | Canlı Kaynak Entegrasyonu: EPDK ve Voltrun verilerini gerçek sitelerden çek | `/data-pipeline` | `data_engineer` | [#17](https://github.com/cihan53/elektriklioto/issues/17) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-017.md) |
 | **TALEP-016** | Tasarım & Kullanıcı Deneyimi | Normal (P3) | 🔨 Geliştiriliyor | Hakkımızda modal içeriğinin önceki versiyondaki haline döndürülmesi | `/` | `ui_designer` | [#16](https://github.com/cihan53/elektriklioto/issues/16) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-016.md) |
 | **TALEP-015** | Yeni İstek / Özellik | Normal (P3) | ✅ Çözüldü | EPDK ve CPO Kamu/Açık Kaynaklarından Canlı İstasyon Senkronizasyonu | `/cron/sync` | `backend_engineer` | [#15](https://github.com/cihan53/elektriklioto/issues/15) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-015.md) |
 | **TALEP-014** | Hata / Bug | Normal (P3) | ✅ Çözüldü | Cron senkronizasyon scripti istasyon bilgilerini alamıyor (0 istasyon hazır) | `/cron/sync` | `devops_engineer` | [#14](https://github.com/cihan53/elektriklioto/issues/14) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-014.md) |
@@ -32,6 +33,22 @@ Bu doküman, site sahibinin / müşterinin yaptığı denetimler sonucunda ileti
 
 ## 2. Talep Detayları ve Geri Bildirim Notları
 
+### [TALEP-017] Canlı Kaynak Entegrasyonu: EPDK ve Voltrun verilerini gerçek sitelerden çek (📋 Planlandı)
+- **Bildirim Tarihi:** 2026-09-19 16:09
+- **Tür / Öncelik:** Yeni İstek / Özellik / Normal (P3)
+- **İlgili Ekran / Sayfa:** `/data-pipeline`
+- **Görevli Rol:** `data_engineer`
+- 🐙 **GitHub Issue:** [#17](https://github.com/cihan53/elektriklioto/issues/17)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Şu an import_cpo_stations.py, Voltrun ve ZES verilerini GitHub raw URL'lerinden (statik), EPDK verilerini de yine GitHub'daki eski bir dosyadan çekiyor. Müşteri isteği: (1) EPDK verileri doğrudan EPDK resmi sitesinden (epdk_scraper.py altyapısı kullanılarak) çekilmeli, (2) Voltrun istasyonları Voltrun'ın kendi API'sinden çekilmeli, (3) curl_input.txt dosyası her kaynağın cURL komutlarını 'kaynak: curl ...' formatında tutacak, ileride ZES ve diğer CPO'lar da eklenecek.
+
+**Studio Yetkilisi Notu:**
+> Talep Studio Yetkilisi v2.0 tarafından analiz edildi. Kategori: [data_engineer] Veri & ETL Mühendisi (Python Pipeline & Scraper). AI danışma: Evet Çözüm planı oluşturuldu: 'workspace/docs/cozum_planlari/TALEP-017.md'.
+
+- 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-017.md](workspace/docs/cozum_planlari/TALEP-017.md)
+
+---
 ### [TALEP-016] Hakkımızda modal içeriğinin önceki versiyondaki haline döndürülmesi (🔨 Geliştiriliyor)
 - **Bildirim Tarihi:** 2026-09-18 18:32
 - **Tür / Öncelik:** Tasarım & Kullanıcı Deneyimi / Normal (P3)

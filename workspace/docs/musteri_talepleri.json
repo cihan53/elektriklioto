@@ -1,6 +1,6 @@
 {
-  "son_guncelleme": "2026-09-18T18:34:51.768136",
-  "toplam_talep": 16,
+  "son_guncelleme": "2026-09-19T16:15:37.624177",
+  "toplam_talep": 17,
   "talepler": [
     {
       "id": "TALEP-001",
@@ -131057,6 +131057,46 @@
       "faz_id": "FAZ-1",
       "efor": "ORTA",
       "triage_notu": "Karar Verici Onayı: FAZ-1 kapsamına aktarıldı. Faz 1 tamamlandıktan sonra geliştirilecek."
+    },
+    {
+      "id": "TALEP-017",
+      "tarih": "2026-09-19 16:09",
+      "tur": "ISTEK",
+      "oncelik": "NORMAL",
+      "baslik": "Canlı Kaynak Entegrasyonu: EPDK ve Voltrun verilerini gerçek sitelerden çek",
+      "aciklama": "Şu an import_cpo_stations.py, Voltrun ve ZES verilerini GitHub raw URL'lerinden (statik), EPDK verilerini de yine GitHub'daki eski bir dosyadan çekiyor. Müşteri isteği: (1) EPDK verileri doğrudan EPDK resmi sitesinden (epdk_scraper.py altyapısı kullanılarak) çekilmeli, (2) Voltrun istasyonları Voltrun'ın kendi API'sinden çekilmeli, (3) curl_input.txt dosyası her kaynağın cURL komutlarını 'kaynak: curl ...' formatında tutacak, ileride ZES ve diğer CPO'lar da eklenecek.",
+      "sayfa_url": "/data-pipeline",
+      "durum": "PLANLANDI",
+      "gorevli_rol": "data_engineer",
+      "studio_notu": "Talep Studio Yetkilisi v2.0 tarafından analiz edildi. Kategori: [data_engineer] Veri & ETL Mühendisi (Python Pipeline & Scraper). AI danışma: Evet Çözüm planı oluşturuldu: 'workspace/docs/cozum_planlari/TALEP-017.md'.",
+      "cozum_plani": "workspace/docs/cozum_planlari/TALEP-017.md",
+      "github_issue_number": 17,
+      "github_issue_url": "https://github.com/cihan53/elektriklioto/issues/17",
+      "gecmis": [
+        {
+          "zaman": "2026-09-19 16:09",
+          "eylem": "Kayıt oluşturuldu",
+          "durum": "BEKLEMEDE"
+        },
+        {
+          "zaman": "2026-09-19 16:09",
+          "eylem": "GitHub Issue oluşturuldu: #17",
+          "durum": "BEKLEMEDE"
+        },
+        {
+          "zaman": "2026-09-19 16:09",
+          "eylem": "Durum güncellendi: PLANLANDI",
+          "durum": "PLANLANDI"
+        },
+        {
+          "zaman": "2026-09-19 16:15",
+          "eylem": "Durum güncellendi: PLANLANDI",
+          "durum": "PLANLANDI"
+        }
+      ],
+      "faz_id": "FAZ-3",
+      "efor": "ORTA",
+      "triage_notu": "Yeni Özellik (Feature) olarak sınıflandırıldı. Önerilen Faz: FAZ-3 (Efor: ORTA)."
     }
   ]
 }
