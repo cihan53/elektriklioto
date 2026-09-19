@@ -1405,11 +1405,64 @@
       "planned_start": "2026-09-18",
       "planned_end": "2026-09-18",
       "_summary_printed": true
+    },
+    {
+      "id": "S14",
+      "name": "Müşteri Denetimi & Saha Onarımları (TALEP-016)",
+      "goal": "Site sahibinin ilettiği 1 adet müşteri talebinin çözülmesi ve UAT ile kabul edilmesi.",
+      "planned_days": 1,
+      "tasks": [
+        {
+          "id": "S14-T1",
+          "title": "[TALEP-016] Hakkımızda modal içeriğinin önceki versiyondaki haline döndürülmesi",
+          "description": "Müşteri Talebi: Müşteri geri bildirimi: Hakkımızda modalının içeriğinin bir önceki versiyonda daha güzel ve kapsamlı olduğunu belirtti. İçerik ve tasarımın önceki versiyon seviyesine getirilmesi veya geri alınması talep ediliyor.\nÇözüm Planı: workspace/docs/cozum_planlari/TALEP-016.md",
+          "role": "ui_designer",
+          "phase": "develop",
+          "outputs": [
+            "workspace/src/frontend/assets/",
+            "workspace/src/frontend/tailwind.config.js"
+          ],
+          "depends_on": [],
+          "talep_id": "TALEP-016",
+          "status": "DONE",
+          "attempts": 1,
+          "note": "",
+          "started_at": 1789745693.855553,
+          "finished_at": 1789746020.423618,
+          "duration_s": 326.6
+        },
+        {
+          "id": "S14-T2",
+          "title": "[TALEP-016] Müşteri Kabulü & UAT Doğrulama Denetimi",
+          "description": "TALEP-016 için yapılan düzeltmenin canlı sistemde çalıştığını ve 0 konsol hatası olduğunu doğrula.",
+          "role": "uat_auditor",
+          "phase": "test",
+          "outputs": [
+            "workspace/docs/uat_kabul_raporu.md"
+          ],
+          "depends_on": [
+            "S14-T1"
+          ],
+          "talep_id": "TALEP-016",
+          "status": "READY",
+          "attempts": 0,
+          "note": "[Kurtarma Ajanı] Otomatik olarak sıraya alındı",
+          "started_at": 1789746020.426543,
+          "finished_at": 1789749853.03248,
+          "duration_s": 3832.6
+        }
+      ],
+      "order": 13,
+      "status": "READY",
+      "actual_start": "2026-09-18T18:34:53",
+      "actual_end": null,
+      "planned_start": "2026-09-19",
+      "planned_end": "2026-09-19"
     }
   ],
   "created_at": "2026-09-06T17:56:01",
-  "baseline_end": "2026-09-20",
-  "updated_at": "2026-09-18T17:55:22",
+  "baseline_end": "2026-09-19",
+  "updated_at": "2026-09-19T15:44:52",
   "_runtime": {
     "done_outputs": []
   }
