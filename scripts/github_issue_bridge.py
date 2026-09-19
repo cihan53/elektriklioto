@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
 scripts/github_issue_bridge.py
-elektriklioto.com — GitHub Issues & Project Management Entegrasyonu
+Digital Software Studio — GitHub Issues & Project Management Entegrasyonu
 
-Müşterinin (site sahibi) açtığı her talep ve hata bildirimi için
-cihan53/elektriklioto deposunda otomatik GitHub Issue açar, çözüm planlarını
+Müşterinin (proje sahibi) açtığı her talep ve hata bildirimi için
+bağlı GitHub deposunda otomatik GitHub Issue açar, çözüm planlarını
 yoruma ekler ve tamamlandığında issue'yu kapatır.
 """
 
@@ -73,7 +73,7 @@ def github_issue_olustur(talep: dict) -> tuple[int, str] | None:
 | Alan | Bilgi |
 |---|---|
 | **Talep ID** | `{tid}` |
-| **Bildiren** | elektriklioto.com Sahibi (Müşteri Denetçisi) |
+| **Bildiren** | Proje Sahibi (Müşteri Denetçisi) |
 | **Tarih** | {talep.get('tarih')} |
 | **Tür** | {tur} |
 | **Öncelik** | {talep.get('oncelik')} |
@@ -83,7 +83,7 @@ def github_issue_olustur(talep: dict) -> tuple[int, str] | None:
 > {talep.get('aciklama', 'Açıklama belirtilmedi.')}
 
 ---
-*Bu Issue `musteri.sh` CLI ve elektriklioto Sanal Stüdyo yönetim motoru tarafından otomatik oluşturulmuştur.*
+*Bu Issue `musteri.sh` CLI ve Digital Software Studio yönetim motoru tarafından otomatik oluşturulmuştur.*
 """
 
     labels = etiket_hazirla(tur, talep.get("oncelik", "NORMAL"))
@@ -102,7 +102,7 @@ def github_issue_olustur(talep: dict) -> tuple[int, str] | None:
 
         if res.returncode == 0:
             url = res.stdout.strip()
-            # URL formatı: https://github.com/cihan53/elektriklioto/issues/1
+            # URL formatı: https://github.com/org/repo/issues/1
             try:
                 num = int(url.rstrip("/").split("/")[-1])
             except Exception:

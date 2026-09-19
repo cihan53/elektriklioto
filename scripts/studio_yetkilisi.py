@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
 scripts/studio_yetkilisi.py
-elektriklioto.com — Studio Yetkilisi & Çözüm Koordinasyon Motoru
+Digital Software Studio — Studio Yetkilisi & Çözüm Koordinasyon Motoru
 
-Müşterinin (site sahibi) ilettiği istek ve hataları inceler, teknik ve mimari
+Müşterinin (proje sahibi) ilettiği istek ve hataları inceler, teknik ve mimari
 kök neden analizini yapar, sorumlu ekibi (Web, Backend, Data, DevOps, QA vb.)
 görevlendirir ve adım adım çözüm planı oluşturur.
 
@@ -44,33 +44,31 @@ KATEGORILER = [
         "anahtar_kelimeler": [
             "scraper", "crawler", "etl", "pipeline", "import", "curl",
             "veri çek", "veri al", "veri kaynağı", "kaynak", "epdk",
-            "voltrun", "zes", "cpo", "istasyon verisi", "json çek",
-            "api entegrasyon", "data-pipeline", "istasyonlar.json",
+            "api entegrasyon", "data-pipeline",
             "curl_input", "fetch", "download", "sync", "senkron",
             "canlı kaynak", "gerçek siteden", "web sitesinden",
         ],
         "dosyalar": [
-            "server-scripts/import_cpo_stations.py",
-            "epdk_scraper.py",
-            "curl_input.txt",
+            "scripts/",
             "server-scripts/",
+            "curl_input.txt",
         ],
         "plan_asamalari": """\
 ### Aşama A: Kaynak & Ortam Analizi (`data_engineer`)
-- `curl_input.txt` dosyasını incele — hangi kaynaklar (`epdk:`, `voltrun:`, `zes:`) tanımlı?
-- `epdk_scraper.py` içindeki `parse_curl_command()` ve session yönetimini gözden geçir.
-- `server-scripts/import_cpo_stations.py`'deki mevcut `load_json_dataset()` kaynak öncelik zincirini anla.
+- `curl_input.txt` dosyasını incele — hangi kaynaklar tanımlı (`kaynak: curl ...` formatı)?
+- İlgili scraper/fetcher scriptlerinin session ve auth yönetimini gözden geçir.
+- Mevcut `load_json_dataset()` veya eşdeğeri kaynak öncelik zincirini anla.
 
 ### Aşama B: Kodlama & Entegrasyon (`data_engineer`)
 - `curl_input.txt`'i multi-source (`kaynak: curl ...`) formatında okuyacak bir parser modülü yaz/güncelle.
 - Her kaynak için (`epdk`, `voltrun`, `zes`) ayrı bir scraper/fetcher fonksiyonu tanımla veya güncelle.
-- `import_cpo_stations.py`'de GitHub raw URL fallback'i son sıraya al; önce yerel JSON, sonra canlı API denensin.
+- Kaynak fallback zincirini güncelle: önce yerel cache, sonra canlı API, en son statik fallback.
 - Session süresi dolduğunda sistem açıkça uyarsın ve `curl_input.txt` güncellemesini rehberlik etsin.
 
 ### Aşama C: Test & Doğrulama (`data_engineer` + `qa_lead`)
 - Test verisiyle tüm kaynak zincirini uçtan uca çalıştır.
 - Boş veri gelmesi durumunda mevcut `cpo_stations.json`'ın EZİLMEDİĞİNİ doğrula (sıfır-kayıt kalkanı).
-- `epdk_sarj_istasyonlari.json` çıktısının `import_cpo_stations.py` tarafından doğru okunduğunu kontrol et.\
+- Scraper çıktı JSON dosyasının pipeline tarafından doğru okunduğunu kontrol et.\
 """,
         "kabul_kriterleri": [
             "EPDK verisi doğrudan EPDK sitesinden (`epdk_scraper.py` aracılığıyla) çekiliyor.",
@@ -389,7 +387,7 @@ def cozum_plani_olustur(talep_id: str) -> str:
     plan_md = f"""# Studio Yetkilisi Çözüm Planı: {talep_id}
 
 > **Talep:** [{talep_id}] {talep.get('baslik')}  
-> **Müşteri / Bildiren:** elektriklioto.com Sahibi  
+> **Müşteri / Bildiren:** Proje Sahibi  
 > **Bildirim Tarihi:** {talep.get('tarih')}  
 > **Öncelik:** {talep.get('oncelik')} | **Tür:** {talep.get('tur')}  
 > **Koordinatör:** Studio Yetkilisi & Teknik Liderlik  
@@ -400,7 +398,7 @@ def cozum_plani_olustur(talep_id: str) -> str:
 
 ## 1. Müşteri Talebi ve Problem Tanımı
 
-Müşteri (site sahibi) denetimi sırasında aşağıdaki durumu tespit etti:
+Müşteri (proje sahibi) denetimi sırasında aşağıdaki durumu tespit etti:
 
 > **Açıklama:**  
 > {talep.get('aciklama')}

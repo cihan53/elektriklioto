@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 scripts/recovery_sentinel.py
-elektriklioto.com — Süreç, Kurtarma ve Dağıtım Nöbetçisi Ajanı (Recovery & Sentinel Agent)
+Digital Software Studio — Süreç, Kurtarma ve Dağıtım Nöbetçisi Ajanı (Recovery & Sentinel Agent)
 
 Bu ajan, stüdyo açılırken veya çalışma sırasında:
 1. "İşler yarım kaldı mı?" denetimi yapar: Çöken/yarım kalan görevleri (RUNNING, FAILED, BLOCKED) tespit edip kurtarır.
@@ -244,15 +244,23 @@ class RecoverySentinelAgent:
                     else:
                         self.log("ℹ️", f"Commit detayı: {commit_res.stdout.strip() or commit_res.stderr.strip()}")
 
-                # origin/master'a pushla
-                self.log("🚀", "origin/master dalına pushlanıyor (CI/CD tetikleniyor)...")
+                # Aktif branch'e pushla
+                branch_cmd = subprocess.run(
+                    ["git", "rev-parse", "--abbrev-ref", "HEAD"],
+                    cwd=self.root, capture_output=True, text=True
+                )
+                branch = branch_cmd.stdout.strip() if branch_cmd.returncode == 0 else "main"
+                if not branch or branch == "HEAD":
+                    branch = "main"
+
+                self.log("🚀", f"origin/{branch} dalına pushlanıyor (CI/CD tetikleniyor)...")
                 push_res = subprocess.run(
-                    ["git", "push", "origin", "master"],
+                    ["git", "push", "origin", branch],
                     cwd=self.root, capture_output=True, text=True, timeout=30
                 )
                 if push_res.returncode == 0:
-                    self.log("🎉", "BAŞARILI! Tüm yarım kalan değişiklikler GitHub origin/master dalına aktarıldı.")
-                    self.log("🚀", "GitHub Actions CI/CD pipeline'ı devreye girdi ve cPanel canlı dağıtımı başladı!")
+                    self.log("🎉", f"BAŞARILI! Tüm yarım kalan değişiklikler GitHub origin/{branch} dalına aktarıldı.")
+                    self.log("🚀", "GitHub Actions CI/CD pipeline'ı devreye girdi ve otomatik canlı dağıtımı tetiklendi!")
                 else:
                     self.log("⚠️", f"Push işlemi sırasında hata/uyarı: {push_res.stderr.strip()[:200]}")
 

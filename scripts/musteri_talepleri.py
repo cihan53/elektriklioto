@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
 scripts/musteri_talepleri.py
-elektriklioto.com — Müşteri İstek & Şikayet Takip Motoru
+Digital Software Studio — Müşteri İstek & Şikayet Takip Motoru
 
-Müşteri (site sahibi/denetçi) bildirimlerini JSON ve Markdown olarak yönetir.
+Müşteri (proje sahibi/denetçi) bildirimlerini JSON ve Markdown olarak yönetir.
 """
 
 import json
@@ -83,12 +83,12 @@ def render_markdown(data: dict):
     now_str = datetime.now().strftime("%Y-%m-%d %H:%M")
 
     md = [
-        "# elektriklioto.com — Müşteri Denetim & Talep Havuzu",
+        "# Digital Software Studio — Müşteri Denetim & Talep Havuzu",
         "",
         f"> **Son Güncelleme:** {now_str}  ",
         f"> **Toplam Bildirim:** {len(talepler)}  ",
         "",
-        "Bu doküman, site sahibinin / müşterinin yaptığı denetimler sonucunda iletilen istek, hata ve geri bildirimleri içerir.",
+        "Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda iletilen istek, hata ve geri bildirimleri içerir.",
         "",
         "---",
         "",

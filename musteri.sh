@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # ==============================================================================
-#  elektriklioto.com — Müşteri Denetim & Geri Bildirim Masası
-#  Site Sahibi / Denetçi ile Studio Ekibi Arasındaki Köprü
+#  Digital Software Studio — Müşteri Denetim & Geri Bildirim Masası
+#  Proje Sahibi / Denetçi ile Studio Ekibi Arasındaki Köprü
 # ==============================================================================
 
 set -eo pipefail
@@ -23,8 +23,8 @@ NC='\033[0m' # No Color
 header() {
   clear 2>/dev/null || true
   echo -e "${CYAN}╔══════════════════════════════════════════════════════════════════════╗${NC}"
-  echo -e "${CYAN}║${NC}   ⚡ ${BOLD}elektriklioto.com — Müşteri Denetim & Geri Bildirim Masası${NC}       ${CYAN}║${NC}"
-  echo -e "${CYAN}║${NC}   ${DIM}Rol: Site Sahibi / Ürün Denetçisi${NC}                                  ${CYAN}║${NC}"
+  echo -e "${CYAN}║${NC}   ⚡ ${BOLD}Digital Software Studio — Müşteri Denetim & Geri Bildirim Masası${NC}   ${CYAN}║${NC}"
+  echo -e "${CYAN}║${NC}   ${DIM}Rol: Proje Sahibi / Ürün Denetçisi${NC}                                 ${CYAN}║${NC}"
   echo -e "${CYAN}╚══════════════════════════════════════════════════════════════════════╝${NC}"
   echo
 }

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 scripts/karar_verici_triage.py
-elektriklioto.com — Karar Verici Triage & Fazlama Motoru (Product Owner & CTO)
+Digital Software Studio — Karar Verici Triage & Fazlama Motoru (Product Owner & CTO)
 
 Bu motor:
 1. Gelen müşteri bildirimlerini inceler: Hata (Bug) mı, yeni Özellik (Feature / Change Request) mi?
