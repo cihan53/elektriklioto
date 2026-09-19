@@ -1,6 +1,7 @@
 
 /* elektriklioto.com Tasarım Sistemi Tokenları (WCAG 2.1 AA Doğrulanmış) */
 :root {
+  /* Renk Paleti - Açık Tema (Light) */
   --color-bg-base: #F8FAFC;
   --color-bg-surface: #FFFFFF;
   --color-bg-elevated: #FFFFFF;
@@ -33,6 +34,7 @@
   --color-missing-text: #334155;
   --color-missing-bg: #E2E8F0;
 
+  /* Boşluk Skalası (Spacing - 4px/8px grid) */
   --spacing-1: 4px;
   --spacing-2: 8px;
   --spacing-3: 12px;
@@ -42,6 +44,7 @@
   --spacing-8: 32px;
   --spacing-12: 48px;
 
+  /* Köşe Yarıçapları (Border Radius) */
   --radius-none: 0px;
   --radius-sm: 4px;
   --radius-md: 8px;
@@ -49,6 +52,7 @@
   --radius-xl: 16px;
   --radius-full: 9999px;
 
+  /* Gölgeler (Elevation / Shadows - Light Mode) */
   --shadow-none: none;
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08);
@@ -57,6 +61,7 @@
 }
 
 .dark {
+  /* Renk Paleti - Koyu Tema (Dark - OLED Uyumlu) */
   --color-bg-base: #0B0F19;
   --color-bg-surface: #0F172A;
   --color-bg-elevated: #1E293B;
@@ -89,13 +94,14 @@
   --color-missing-text: #CBD5E1;
   --color-missing-bg: #334155;
 
+  /* Gölgeler (Elevation / Shadows - Dark Mode) */
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.6);
   --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.7);
 }
 
-/* Zorunlu WCAG 2.1 AA Klavye Odak Halkası */
+/* Zorunlu WCAG 2.1 AA Klavye Odak Halkası (Kontrast ≥ 3:1) */
 :focus-visible {
   outline: 3px solid var(--color-focus-ring);
   outline-offset: 2px;

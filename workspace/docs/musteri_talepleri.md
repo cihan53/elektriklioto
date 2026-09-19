@@ -1,6 +1,6 @@
 # elektriklioto.com — Müşteri Denetim & Talep Havuzu
 
-> **Son Güncelleme:** 2026-09-18 18:32  
+> **Son Güncelleme:** 2026-09-18 18:34  
 > **Toplam Bildirim:** 16  
 
 Bu doküman, site sahibinin / müşterinin yaptığı denetimler sonucunda iletilen istek, hata ve geri bildirimleri içerir.
@@ -11,7 +11,7 @@ Bu doküman, site sahibinin / müşterinin yaptığı denetimler sonucunda ileti
 
 | ID | Tür | Öncelik | Durum | Başlık | Ekran / URL | İlgili Rol | GitHub Issue | Plan |
 |---|---|---|---|---|---|---|---|---|
-| **TALEP-016** | Tasarım & Kullanıcı Deneyimi | Normal (P3) | ⚖️ Değerlendirmede (Triage) | Hakkımızda modal içeriğinin önceki versiyondaki haline döndürülmesi | `/` | `None` | [#16](https://github.com/cihan53/elektriklioto/issues/16) | — |
+| **TALEP-016** | Tasarım & Kullanıcı Deneyimi | Normal (P3) | 🔨 Geliştiriliyor | Hakkımızda modal içeriğinin önceki versiyondaki haline döndürülmesi | `/` | `ui_designer` | [#16](https://github.com/cihan53/elektriklioto/issues/16) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-016.md) |
 | **TALEP-015** | Yeni İstek / Özellik | Normal (P3) | ✅ Çözüldü | EPDK ve CPO Kamu/Açık Kaynaklarından Canlı İstasyon Senkronizasyonu | `/cron/sync` | `backend_engineer` | [#15](https://github.com/cihan53/elektriklioto/issues/15) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-015.md) |
 | **TALEP-014** | Hata / Bug | Normal (P3) | ✅ Çözüldü | Cron senkronizasyon scripti istasyon bilgilerini alamıyor (0 istasyon hazır) | `/cron/sync` | `devops_engineer` | [#14](https://github.com/cihan53/elektriklioto/issues/14) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-014.md) |
 | **TALEP-013** | Yeni İstek / Özellik | Normal (P3) | ✅ Çözüldü | Yapılan güncellemeler, çözülen hatalar ve sürüm geçmişi için Değişiklik Günlüğü (Changelog / Sürüm Notları) ekranı | `/guncellemeler` | `web_engineer` | [#13](https://github.com/cihan53/elektriklioto/issues/13) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-013.md) |
@@ -32,15 +32,20 @@ Bu doküman, site sahibinin / müşterinin yaptığı denetimler sonucunda ileti
 
 ## 2. Talep Detayları ve Geri Bildirim Notları
 
-### [TALEP-016] Hakkımızda modal içeriğinin önceki versiyondaki haline döndürülmesi (⚖️ Değerlendirmede (Triage))
+### [TALEP-016] Hakkımızda modal içeriğinin önceki versiyondaki haline döndürülmesi (🔨 Geliştiriliyor)
 - **Bildirim Tarihi:** 2026-09-18 18:32
 - **Tür / Öncelik:** Tasarım & Kullanıcı Deneyimi / Normal (P3)
 - **İlgili Ekran / Sayfa:** `/`
-- **Görevli Rol:** `None`
+- **Görevli Rol:** `ui_designer`
 - 🐙 **GitHub Issue:** [#16](https://github.com/cihan53/elektriklioto/issues/16)
 
 **Müşteri Açıklaması / Hata Adımları:**
 > Müşteri geri bildirimi: Hakkımızda modalının içeriğinin bir önceki versiyonda daha güzel ve kapsamlı olduğunu belirtti. İçerik ve tasarımın önceki versiyon seviyesine getirilmesi veya geri alınması talep ediliyor.
+
+**Studio Yetkilisi Notu:**
+> Sprint S14 panosuna eklendi (S14-T1 ve S14-T2). Geliştirme başladı.
+
+- 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-016.md](workspace/docs/cozum_planlari/TALEP-016.md)
 
 ---
 ### [TALEP-015] EPDK ve CPO Kamu/Açık Kaynaklarından Canlı İstasyon Senkronizasyonu (✅ Çözüldü)

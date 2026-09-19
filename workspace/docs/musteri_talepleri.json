@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-09-18T18:32:46.972051",
+  "son_guncelleme": "2026-09-18T18:34:51.768136",
   "toplam_talep": 16,
   "talepler": [
     {
@@ -131016,10 +131016,10 @@
       "baslik": "Hakkımızda modal içeriğinin önceki versiyondaki haline döndürülmesi",
       "aciklama": "Müşteri geri bildirimi: Hakkımızda modalının içeriğinin bir önceki versiyonda daha güzel ve kapsamlı olduğunu belirtti. İçerik ve tasarımın önceki versiyon seviyesine getirilmesi veya geri alınması talep ediliyor.",
       "sayfa_url": "/",
-      "durum": "DEGERLENDIRMEDE",
-      "gorevli_rol": null,
-      "studio_notu": null,
-      "cozum_plani": null,
+      "durum": "GELISTIRILIYOR",
+      "gorevli_rol": "ui_designer",
+      "studio_notu": "Sprint S14 panosuna eklendi (S14-T1 ve S14-T2). Geliştirme başladı.",
+      "cozum_plani": "workspace/docs/cozum_planlari/TALEP-016.md",
       "github_issue_number": 16,
       "github_issue_url": "https://github.com/cihan53/elektriklioto/issues/16",
       "gecmis": [
@@ -131032,11 +131032,31 @@
           "zaman": "2026-09-18 18:32",
           "eylem": "GitHub Issue oluşturuldu: #16",
           "durum": "BEKLEMEDE"
+        },
+        {
+          "zaman": "2026-09-18 18:34",
+          "eylem": "Triage Kararı: FAZ_BEKLIYOR (FAZ-1)",
+          "durum": "FAZ_BEKLIYOR"
+        },
+        {
+          "zaman": "2026-09-18 18:34",
+          "eylem": "Durum güncellendi: BEKLEMEDE",
+          "durum": "BEKLEMEDE"
+        },
+        {
+          "zaman": "2026-09-18 18:34",
+          "eylem": "Durum güncellendi: PLANLANDI",
+          "durum": "PLANLANDI"
+        },
+        {
+          "zaman": "2026-09-18 18:34",
+          "eylem": "Durum güncellendi: GELISTIRILIYOR",
+          "durum": "GELISTIRILIYOR"
         }
       ],
       "faz_id": "FAZ-1",
       "efor": "ORTA",
-      "triage_notu": "Yeni Özellik (Feature) olarak sınıflandırıldı. Önerilen Faz: FAZ-1 (Efor: ORTA)."
+      "triage_notu": "Karar Verici Onayı: FAZ-1 kapsamına aktarıldı. Faz 1 tamamlandıktan sonra geliştirilecek."
     }
   ]
 }
