@@ -1,9 +1,9 @@
-# elektriklioto.com — Müşteri Denetim & Talep Havuzu
+# Digital Software Studio — Müşteri Denetim & Talep Havuzu
 
-> **Son Güncelleme:** 2026-09-19 16:15  
+> **Son Güncelleme:** 2026-09-20 16:11  
 > **Toplam Bildirim:** 17  
 
-Bu doküman, site sahibinin / müşterinin yaptığı denetimler sonucunda iletilen istek, hata ve geri bildirimleri içerir.
+Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda iletilen istek, hata ve geri bildirimleri içerir.
 
 ---
 
@@ -11,29 +11,29 @@ Bu doküman, site sahibinin / müşterinin yaptığı denetimler sonucunda ileti
 
 | ID | Tür | Öncelik | Durum | Başlık | Ekran / URL | İlgili Rol | GitHub Issue | Plan |
 |---|---|---|---|---|---|---|---|---|
-| **TALEP-017** | Yeni İstek / Özellik | Normal (P3) | 📋 Planlandı | Canlı Kaynak Entegrasyonu: EPDK ve Voltrun verilerini gerçek sitelerden çek | `/data-pipeline` | `data_engineer` | [#17](https://github.com/cihan53/elektriklioto/issues/17) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-017.md) |
-| **TALEP-016** | Tasarım & Kullanıcı Deneyimi | Normal (P3) | 🔨 Geliştiriliyor | Hakkımızda modal içeriğinin önceki versiyondaki haline döndürülmesi | `/` | `ui_designer` | [#16](https://github.com/cihan53/elektriklioto/issues/16) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-016.md) |
-| **TALEP-015** | Yeni İstek / Özellik | Normal (P3) | ✅ Çözüldü | EPDK ve CPO Kamu/Açık Kaynaklarından Canlı İstasyon Senkronizasyonu | `/cron/sync` | `backend_engineer` | [#15](https://github.com/cihan53/elektriklioto/issues/15) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-015.md) |
-| **TALEP-014** | Hata / Bug | Normal (P3) | ✅ Çözüldü | Cron senkronizasyon scripti istasyon bilgilerini alamıyor (0 istasyon hazır) | `/cron/sync` | `devops_engineer` | [#14](https://github.com/cihan53/elektriklioto/issues/14) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-014.md) |
-| **TALEP-013** | Yeni İstek / Özellik | Normal (P3) | ✅ Çözüldü | Yapılan güncellemeler, çözülen hatalar ve sürüm geçmişi için Değişiklik Günlüğü (Changelog / Sürüm Notları) ekranı | `/guncellemeler` | `web_engineer` | [#13](https://github.com/cihan53/elektriklioto/issues/13) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-013.md) |
-| **TALEP-012** | Yeni İstek / Özellik | Yüksek (P2) | ✅ Çözüldü | Yeni deploy çıktığında açık sayfalarda güncelleme uyarısı çıkması ve 20 saniyede otomatik yenilenmesi | `/` | `devops_engineer` | [#12](https://github.com/cihan53/elektriklioto/issues/12) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-012.md) |
-| **TALEP-011** | Hata / Bug | Normal (P3) | ✅ Çözüldü | Top menüde 2 tane Hakkında butonu görünüyor (Sağdaki buton korunmalı, mükerrer olan kaldırılmalı) | `/` | `web_engineer` | [#11](https://github.com/cihan53/elektriklioto/issues/11) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-011.md) |
-| **TALEP-010** | Hata / Bug | Kritik (P1) | ✅ Çözüldü | Aramalar ve istasyon kayıtları veritabanından gelmiyor, veritabanı tabloları boş görünüyor | `/api/v1/stations` | `backend_engineer` | [#10](https://github.com/cihan53/elektriklioto/issues/10) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-010.md) |
-| **TALEP-009** | Yeni İstek / Özellik | Normal (P3) | ✅ Çözüldü | Hakkında, Kullanıcı Sözleşmeleri, Gizlilik Politikası ve Canlı Sürüm Bilgileri Paneli / Sayfası | `/hakkimizda` | `web_engineer` | [#9](https://github.com/cihan53/elektriklioto/issues/9) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-009.md) |
-| **TALEP-008** | Hata / Bug | Kritik (P1) | ✅ Çözüldü | Harita pinleri ve kümeleme baloncuklarının modal pencerelerin (QrBridgeModal vb.) üzerine taşması (z-index katman çakışması) | `/` | `web_engineer` | [#8](https://github.com/cihan53/elektriklioto/issues/8) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-008.md) |
-| **TALEP-007** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | Tüm operatörler açılır menüsü (dropdown) açıldığında menü taşması ve istenmeyen scroll çubuğu oluşması | `/` | `web_engineer` | [#7](https://github.com/cihan53/elektriklioto/issues/7) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-007.md) |
-| **TALEP-006** | Hata / Bug | Kritik (P1) | ✅ Çözüldü | Konum izni verildiğinde kullanıcının anlık konumunu gösteren mavi nokta/baloncuk eksik | `/harita` | `web_engineer` | [#6](https://github.com/cihan53/elektriklioto/issues/6) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-006.md) |
-| **TALEP-005** | Yeni İstek / Özellik | Yüksek (P2) | ✅ Çözüldü | GADM 4.1 Türkiye resmi il, ilçe ve mahalle koordinatlarının entegrasyonu | `/harita` | `backend_engineer` | [#5](https://github.com/cihan53/elektriklioto/issues/5) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-005.md) |
-| **TALEP-004** | Yeni İstek / Özellik | Yüksek (P2) | ✅ Çözüldü | Arama kutusunda ilçe, il ve istasyon araması ve harita odaklanması | `/` | `web_engineer` | [#4](https://github.com/cihan53/elektriklioto/issues/4) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-004.md) |
-| **TALEP-003** | Hata / Bug | Normal (P3) | ✅ Çözüldü | Haritada Voltrun istasyonlarının soket tipi yanlış görünüyor | `/` | `web_engineer` | [#3](https://github.com/cihan53/elektriklioto/issues/3) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-003.md) |
-| **TALEP-002** | Hata / Bug | Normal (P3) | ✅ Çözüldü | google analytics hesabım var kodu G-BKMTW8EH4K trafiği izleye bilmem için bunun siteye eklenmesi gerekiyor | `/` | `web_engineer` | [#2](https://github.com/cihan53/elektriklioto/issues/2) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-002.md) |
-| **TALEP-001** | Hata / Bug | Normal (P3) | ✅ Çözüldü | Haritada filtre butonuna basınca liste senkronize olmuyor | `/` | `web_engineer` | [#1](https://github.com/cihan53/elektriklioto/issues/1) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-001.md) |
+| **TALEP-017** | Yeni İstek / Özellik | Normal (P3) | 🔨 Geliştiriliyor | Canlı Kaynak Entegrasyonu: EPDK ve Voltrun verilerini gerçek sitelerden çek | `/data-pipeline` | `data_engineer` | [#17](https://github.com/cihan53/elektriklioto/issues/17) | — |
+| **TALEP-016** | Tasarım & Kullanıcı Deneyimi | Normal (P3) | 🔨 Geliştiriliyor | Hakkımızda modal içeriğinin önceki versiyondaki haline döndürülmesi | `/` | `ui_designer` | [#16](https://github.com/cihan53/elektriklioto/issues/16) | — |
+| **TALEP-015** | Yeni İstek / Özellik | Normal (P3) | ✅ Çözüldü | EPDK ve CPO Kamu/Açık Kaynaklarından Canlı İstasyon Senkronizasyonu | `/cron/sync` | `backend_engineer` | [#15](https://github.com/cihan53/elektriklioto/issues/15) | — |
+| **TALEP-014** | Hata / Bug | Normal (P3) | ✅ Çözüldü | Cron senkronizasyon scripti istasyon bilgilerini alamıyor (0 istasyon hazır) | `/cron/sync` | `devops_engineer` | [#14](https://github.com/cihan53/elektriklioto/issues/14) | — |
+| **TALEP-013** | Yeni İstek / Özellik | Normal (P3) | ✅ Çözüldü | Yapılan güncellemeler, çözülen hatalar ve sürüm geçmişi için Değişiklik Günlüğü (Changelog / Sürüm Notları) ekranı | `/guncellemeler` | `web_engineer` | [#13](https://github.com/cihan53/elektriklioto/issues/13) | — |
+| **TALEP-012** | Yeni İstek / Özellik | Yüksek (P2) | ✅ Çözüldü | Yeni deploy çıktığında açık sayfalarda güncelleme uyarısı çıkması ve 20 saniyede otomatik yenilenmesi | `/` | `devops_engineer` | [#12](https://github.com/cihan53/elektriklioto/issues/12) | — |
+| **TALEP-011** | Hata / Bug | Normal (P3) | ✅ Çözüldü | Top menüde 2 tane Hakkında butonu görünüyor (Sağdaki buton korunmalı, mükerrer olan kaldırılmalı) | `/` | `web_engineer` | [#11](https://github.com/cihan53/elektriklioto/issues/11) | — |
+| **TALEP-010** | Hata / Bug | Kritik (P1) | ✅ Çözüldü | Aramalar ve istasyon kayıtları veritabanından gelmiyor, veritabanı tabloları boş görünüyor | `/api/v1/stations` | `backend_engineer` | [#10](https://github.com/cihan53/elektriklioto/issues/10) | — |
+| **TALEP-009** | Yeni İstek / Özellik | Normal (P3) | ✅ Çözüldü | Hakkında, Kullanıcı Sözleşmeleri, Gizlilik Politikası ve Canlı Sürüm Bilgileri Paneli / Sayfası | `/hakkimizda` | `web_engineer` | [#9](https://github.com/cihan53/elektriklioto/issues/9) | — |
+| **TALEP-008** | Hata / Bug | Kritik (P1) | ✅ Çözüldü | Harita pinleri ve kümeleme baloncuklarının modal pencerelerin (QrBridgeModal vb.) üzerine taşması (z-index katman çakışması) | `/` | `web_engineer` | [#8](https://github.com/cihan53/elektriklioto/issues/8) | — |
+| **TALEP-007** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | Tüm operatörler açılır menüsü (dropdown) açıldığında menü taşması ve istenmeyen scroll çubuğu oluşması | `/` | `web_engineer` | [#7](https://github.com/cihan53/elektriklioto/issues/7) | — |
+| **TALEP-006** | Hata / Bug | Kritik (P1) | ✅ Çözüldü | Konum izni verildiğinde kullanıcının anlık konumunu gösteren mavi nokta/baloncuk eksik | `/harita` | `web_engineer` | [#6](https://github.com/cihan53/elektriklioto/issues/6) | — |
+| **TALEP-005** | Yeni İstek / Özellik | Yüksek (P2) | ✅ Çözüldü | GADM 4.1 Türkiye resmi il, ilçe ve mahalle koordinatlarının entegrasyonu | `/harita` | `backend_engineer` | [#5](https://github.com/cihan53/elektriklioto/issues/5) | — |
+| **TALEP-004** | Yeni İstek / Özellik | Yüksek (P2) | ✅ Çözüldü | Arama kutusunda ilçe, il ve istasyon araması ve harita odaklanması | `/` | `web_engineer` | [#4](https://github.com/cihan53/elektriklioto/issues/4) | — |
+| **TALEP-003** | Hata / Bug | Normal (P3) | ✅ Çözüldü | Haritada Voltrun istasyonlarının soket tipi yanlış görünüyor | `/` | `web_engineer` | [#3](https://github.com/cihan53/elektriklioto/issues/3) | — |
+| **TALEP-002** | Hata / Bug | Normal (P3) | ✅ Çözüldü | google analytics hesabım var kodu G-BKMTW8EH4K trafiği izleye bilmem için bunun siteye eklenmesi gerekiyor | `/` | `web_engineer` | [#2](https://github.com/cihan53/elektriklioto/issues/2) | — |
+| **TALEP-001** | Hata / Bug | Normal (P3) | ✅ Çözüldü | Haritada filtre butonuna basınca liste senkronize olmuyor | `/` | `web_engineer` | [#1](https://github.com/cihan53/elektriklioto/issues/1) | — |
 
 ---
 
 ## 2. Talep Detayları ve Geri Bildirim Notları
 
-### [TALEP-017] Canlı Kaynak Entegrasyonu: EPDK ve Voltrun verilerini gerçek sitelerden çek (📋 Planlandı)
+### [TALEP-017] Canlı Kaynak Entegrasyonu: EPDK ve Voltrun verilerini gerçek sitelerden çek (🔨 Geliştiriliyor)
 - **Bildirim Tarihi:** 2026-09-19 16:09
 - **Tür / Öncelik:** Yeni İstek / Özellik / Normal (P3)
 - **İlgili Ekran / Sayfa:** `/data-pipeline`
@@ -44,9 +44,7 @@ Bu doküman, site sahibinin / müşterinin yaptığı denetimler sonucunda ileti
 > Şu an import_cpo_stations.py, Voltrun ve ZES verilerini GitHub raw URL'lerinden (statik), EPDK verilerini de yine GitHub'daki eski bir dosyadan çekiyor. Müşteri isteği: (1) EPDK verileri doğrudan EPDK resmi sitesinden (epdk_scraper.py altyapısı kullanılarak) çekilmeli, (2) Voltrun istasyonları Voltrun'ın kendi API'sinden çekilmeli, (3) curl_input.txt dosyası her kaynağın cURL komutlarını 'kaynak: curl ...' formatında tutacak, ileride ZES ve diğer CPO'lar da eklenecek.
 
 **Studio Yetkilisi Notu:**
-> Talep Studio Yetkilisi v2.0 tarafından analiz edildi. Kategori: [data_engineer] Veri & ETL Mühendisi (Python Pipeline & Scraper). AI danışma: Evet Çözüm planı oluşturuldu: 'workspace/docs/cozum_planlari/TALEP-017.md'.
-
-- 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-017.md](workspace/docs/cozum_planlari/TALEP-017.md)
+> Sprint S15 panosuna eklendi (S15-T1 ve S15-T2). Görevli rol: data_engineer. Geliştirme başladı.
 
 ---
 ### [TALEP-016] Hakkımızda modal içeriğinin önceki versiyondaki haline döndürülmesi (🔨 Geliştiriliyor)
@@ -62,8 +60,6 @@ Bu doküman, site sahibinin / müşterinin yaptığı denetimler sonucunda ileti
 **Studio Yetkilisi Notu:**
 > Sprint S14 panosuna eklendi (S14-T1 ve S14-T2). Geliştirme başladı.
 
-- 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-016.md](workspace/docs/cozum_planlari/TALEP-016.md)
-
 ---
 ### [TALEP-015] EPDK ve CPO Kamu/Açık Kaynaklarından Canlı İstasyon Senkronizasyonu (✅ Çözüldü)
 - **Bildirim Tarihi:** 2026-09-18 17:21
@@ -77,8 +73,6 @@ Bu doküman, site sahibinin / müşterinin yaptığı denetimler sonucunda ileti
 
 **Studio Yetkilisi Notu:**
 > Görev S13-T4 başarıyla tamamlandı ve UAT testinden geçti.
-
-- 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-015.md](workspace/docs/cozum_planlari/TALEP-015.md)
 
 ---
 ### [TALEP-014] Cron senkronizasyon scripti istasyon bilgilerini alamıyor (0 istasyon hazır) (✅ Çözüldü)
@@ -103,8 +97,6 @@ Bu doküman, site sahibinin / müşterinin yaptığı denetimler sonucunda ileti
 **Studio Yetkilisi Notu:**
 > Görev S13-T2 başarıyla tamamlandı ve UAT testinden geçti.
 
-- 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-014.md](workspace/docs/cozum_planlari/TALEP-014.md)
-
 ---
 ### [TALEP-013] Yapılan güncellemeler, çözülen hatalar ve sürüm geçmişi için Değişiklik Günlüğü (Changelog / Sürüm Notları) ekranı (✅ Çözüldü)
 - **Bildirim Tarihi:** 2026-09-18 09:03
@@ -118,8 +110,6 @@ Bu doküman, site sahibinin / müşterinin yaptığı denetimler sonucunda ileti
 
 **Studio Yetkilisi Notu:**
 > Görev S12-T4 başarıyla tamamlandı ve UAT testinden geçti.
-
-- 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-013.md](workspace/docs/cozum_planlari/TALEP-013.md)
 
 ---
 ### [TALEP-012] Yeni deploy çıktığında açık sayfalarda güncelleme uyarısı çıkması ve 20 saniyede otomatik yenilenmesi (✅ Çözüldü)
@@ -135,8 +125,6 @@ Bu doküman, site sahibinin / müşterinin yaptığı denetimler sonucunda ileti
 **Studio Yetkilisi Notu:**
 > Görev S12-T2 başarıyla tamamlandı ve UAT testinden geçti.
 
-- 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-012.md](workspace/docs/cozum_planlari/TALEP-012.md)
-
 ---
 ### [TALEP-011] Top menüde 2 tane Hakkında butonu görünüyor (Sağdaki buton korunmalı, mükerrer olan kaldırılmalı) (✅ Çözüldü)
 - **Bildirim Tarihi:** 2026-09-18 00:05
@@ -150,8 +138,6 @@ Bu doküman, site sahibinin / müşterinin yaptığı denetimler sonucunda ileti
 
 **Studio Yetkilisi Notu:**
 > Görev S11-T2 başarıyla tamamlandı ve UAT testinden geçti.
-
-- 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-011.md](workspace/docs/cozum_planlari/TALEP-011.md)
 
 ---
 ### [TALEP-010] Aramalar ve istasyon kayıtları veritabanından gelmiyor, veritabanı tabloları boş görünüyor (✅ Çözüldü)
@@ -167,8 +153,6 @@ Bu doküman, site sahibinin / müşterinin yaptığı denetimler sonucunda ileti
 **Studio Yetkilisi Notu:**
 > Görev S10-T2 başarıyla tamamlandı ve UAT testinden geçti.
 
-- 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-010.md](workspace/docs/cozum_planlari/TALEP-010.md)
-
 ---
 ### [TALEP-009] Hakkında, Kullanıcı Sözleşmeleri, Gizlilik Politikası ve Canlı Sürüm Bilgileri Paneli / Sayfası (✅ Çözüldü)
 - **Bildirim Tarihi:** 2026-09-17 20:10
@@ -182,8 +166,6 @@ Bu doküman, site sahibinin / müşterinin yaptığı denetimler sonucunda ileti
 
 **Studio Yetkilisi Notu:**
 > Görev S9-T12 başarıyla tamamlandı ve UAT testinden geçti.
-
-- 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-009.md](workspace/docs/cozum_planlari/TALEP-009.md)
 
 ---
 ### [TALEP-008] Harita pinleri ve kümeleme baloncuklarının modal pencerelerin (QrBridgeModal vb.) üzerine taşması (z-index katman çakışması) (✅ Çözüldü)
@@ -199,8 +181,6 @@ Bu doküman, site sahibinin / müşterinin yaptığı denetimler sonucunda ileti
 **Studio Yetkilisi Notu:**
 > Görev S9-T10 başarıyla tamamlandı ve UAT testinden geçti.
 
-- 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-008.md](workspace/docs/cozum_planlari/TALEP-008.md)
-
 ---
 ### [TALEP-007] Tüm operatörler açılır menüsü (dropdown) açıldığında menü taşması ve istenmeyen scroll çubuğu oluşması (✅ Çözüldü)
 - **Bildirim Tarihi:** 2026-09-17 19:19
@@ -214,8 +194,6 @@ Bu doküman, site sahibinin / müşterinin yaptığı denetimler sonucunda ileti
 
 **Studio Yetkilisi Notu:**
 > Görev S9-T8 başarıyla tamamlandı ve UAT testinden geçti.
-
-- 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-007.md](workspace/docs/cozum_planlari/TALEP-007.md)
 
 ---
 ### [TALEP-006] Konum izni verildiğinde kullanıcının anlık konumunu gösteren mavi nokta/baloncuk eksik (✅ Çözüldü)
@@ -231,8 +209,6 @@ Bu doküman, site sahibinin / müşterinin yaptığı denetimler sonucunda ileti
 **Studio Yetkilisi Notu:**
 > Görev S9-T6 başarıyla tamamlandı ve UAT testinden geçti.
 
-- 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-006.md](workspace/docs/cozum_planlari/TALEP-006.md)
-
 ---
 ### [TALEP-005] GADM 4.1 Türkiye resmi il, ilçe ve mahalle koordinatlarının entegrasyonu (✅ Çözüldü)
 - **Bildirim Tarihi:** 2026-09-17 19:13
@@ -246,8 +222,6 @@ Bu doküman, site sahibinin / müşterinin yaptığı denetimler sonucunda ileti
 
 **Studio Yetkilisi Notu:**
 > Görev S9-T4 başarıyla tamamlandı ve UAT testinden geçti.
-
-- 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-005.md](workspace/docs/cozum_planlari/TALEP-005.md)
 
 ---
 ### [TALEP-004] Arama kutusunda ilçe, il ve istasyon araması ve harita odaklanması (✅ Çözüldü)
@@ -263,8 +237,6 @@ Bu doküman, site sahibinin / müşterinin yaptığı denetimler sonucunda ileti
 **Studio Yetkilisi Notu:**
 > Görev S9-T2 başarıyla tamamlandı ve UAT testinden geçti.
 
-- 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-004.md](workspace/docs/cozum_planlari/TALEP-004.md)
-
 ---
 ### [TALEP-003] Haritada Voltrun istasyonlarının soket tipi yanlış görünüyor (✅ Çözüldü)
 - **Bildirim Tarihi:** 2026-09-17 13:50
@@ -278,8 +250,6 @@ Bu doküman, site sahibinin / müşterinin yaptığı denetimler sonucunda ileti
 
 **Studio Yetkilisi Notu:**
 > Görev S8-T4 başarıyla tamamlandı ve UAT testinden geçti.
-
-- 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-003.md](workspace/docs/cozum_planlari/TALEP-003.md)
 
 ---
 ### [TALEP-002] google analytics hesabım var kodu G-BKMTW8EH4K trafiği izleye bilmem için bunun siteye eklenmesi gerekiyor (✅ Çözüldü)
@@ -295,8 +265,6 @@ Bu doküman, site sahibinin / müşterinin yaptığı denetimler sonucunda ileti
 **Studio Yetkilisi Notu:**
 > Görev S8-T2 başarıyla tamamlandı ve UAT testinden geçti.
 
-- 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-002.md](workspace/docs/cozum_planlari/TALEP-002.md)
-
 ---
 ### [TALEP-001] Haritada filtre butonuna basınca liste senkronize olmuyor (✅ Çözüldü)
 - **Bildirim Tarihi:** 2026-09-17 13:45
@@ -310,7 +278,5 @@ Bu doküman, site sahibinin / müşterinin yaptığı denetimler sonucunda ileti
 
 **Studio Yetkilisi Notu:**
 > 2026-09-17 13:45 itibarıyla ekip tarafından çözüldü ve müşteri onayına sunuldu.
-
-- 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-001.md](workspace/docs/cozum_planlari/TALEP-001.md)
 
 ---
