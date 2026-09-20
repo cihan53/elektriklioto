@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-09-19T16:15:37.624177",
+  "son_guncelleme": "2026-09-20T16:11:47.667829",
   "toplam_talep": 17,
   "talepler": [
     {
@@ -13,7 +13,6 @@
       "durum": "COZULDU",
       "gorevli_rol": "web_engineer",
       "studio_notu": "2026-09-17 13:45 itibarıyla ekip tarafından çözüldü ve müşteri onayına sunuldu.",
-      "cozum_plani": "workspace/docs/cozum_planlari/TALEP-001.md",
       "github_issue_number": 1,
       "github_issue_url": "https://github.com/cihan53/elektriklioto/issues/1",
       "gecmis": [
@@ -50,7 +49,6 @@
       "durum": "COZULDU",
       "gorevli_rol": "web_engineer",
       "studio_notu": "Görev S8-T2 başarıyla tamamlandı ve UAT testinden geçti.",
-      "cozum_plani": "workspace/docs/cozum_planlari/TALEP-002.md",
       "github_issue_number": 2,
       "github_issue_url": "https://github.com/cihan53/elektriklioto/issues/2",
       "gecmis": [
@@ -92,7 +90,6 @@
       "durum": "COZULDU",
       "gorevli_rol": "web_engineer",
       "studio_notu": "Görev S8-T4 başarıyla tamamlandı ve UAT testinden geçti.",
-      "cozum_plani": "workspace/docs/cozum_planlari/TALEP-003.md",
       "github_issue_number": 3,
       "github_issue_url": "https://github.com/cihan53/elektriklioto/issues/3",
       "gecmis": [
@@ -134,7 +131,6 @@
       "durum": "COZULDU",
       "gorevli_rol": "web_engineer",
       "studio_notu": "Görev S9-T2 başarıyla tamamlandı ve UAT testinden geçti.",
-      "cozum_plani": "workspace/docs/cozum_planlari/TALEP-004.md",
       "github_issue_number": 4,
       "github_issue_url": "https://github.com/cihan53/elektriklioto/issues/4",
       "gecmis": [
@@ -181,7 +177,6 @@
       "durum": "COZULDU",
       "gorevli_rol": "backend_engineer",
       "studio_notu": "Görev S9-T4 başarıyla tamamlandı ve UAT testinden geçti.",
-      "cozum_plani": "workspace/docs/cozum_planlari/TALEP-005.md",
       "github_issue_number": 5,
       "github_issue_url": "https://github.com/cihan53/elektriklioto/issues/5",
       "gecmis": [
@@ -228,7 +223,6 @@
       "durum": "COZULDU",
       "gorevli_rol": "web_engineer",
       "studio_notu": "Görev S9-T6 başarıyla tamamlandı ve UAT testinden geçti.",
-      "cozum_plani": "workspace/docs/cozum_planlari/TALEP-006.md",
       "github_issue_number": 6,
       "github_issue_url": "https://github.com/cihan53/elektriklioto/issues/6",
       "gecmis": [
@@ -275,7 +269,6 @@
       "durum": "COZULDU",
       "gorevli_rol": "web_engineer",
       "studio_notu": "Görev S9-T8 başarıyla tamamlandı ve UAT testinden geçti.",
-      "cozum_plani": "workspace/docs/cozum_planlari/TALEP-007.md",
       "github_issue_number": 7,
       "github_issue_url": "https://github.com/cihan53/elektriklioto/issues/7",
       "gecmis": [
@@ -322,7 +315,6 @@
       "durum": "COZULDU",
       "gorevli_rol": "web_engineer",
       "studio_notu": "Görev S9-T10 başarıyla tamamlandı ve UAT testinden geçti.",
-      "cozum_plani": "workspace/docs/cozum_planlari/TALEP-008.md",
       "github_issue_number": 8,
       "github_issue_url": "https://github.com/cihan53/elektriklioto/issues/8",
       "gecmis": [
@@ -369,7 +361,6 @@
       "durum": "COZULDU",
       "gorevli_rol": "web_engineer",
       "studio_notu": "Görev S9-T12 başarıyla tamamlandı ve UAT testinden geçti.",
-      "cozum_plani": "workspace/docs/cozum_planlari/TALEP-009.md",
       "github_issue_number": 9,
       "github_issue_url": "https://github.com/cihan53/elektriklioto/issues/9",
       "gecmis": [
@@ -416,7 +407,6 @@
       "durum": "COZULDU",
       "gorevli_rol": "backend_engineer",
       "studio_notu": "Görev S10-T2 başarıyla tamamlandı ve UAT testinden geçti.",
-      "cozum_plani": "workspace/docs/cozum_planlari/TALEP-010.md",
       "github_issue_number": 10,
       "github_issue_url": "https://github.com/cihan53/elektriklioto/issues/10",
       "gecmis": [
@@ -458,7 +448,6 @@
       "durum": "COZULDU",
       "gorevli_rol": "web_engineer",
       "studio_notu": "Görev S11-T2 başarıyla tamamlandı ve UAT testinden geçti.",
-      "cozum_plani": "workspace/docs/cozum_planlari/TALEP-011.md",
       "github_issue_number": 11,
       "github_issue_url": "https://github.com/cihan53/elektriklioto/issues/11",
       "gecmis": [
@@ -51872,9 +51861,7 @@
           "eylem": "Durum güncellendi: COZULDU",
           "durum": "COZULDU"
         }
-      ],
-      "faz_id": "FAZ-1",
-      "triage_notu": "Faz 1 Hotfix: Mükerrer menü butonu düzeltmesi."
+      ]
     },
     {
       "id": "TALEP-012",
@@ -51887,7 +51874,6 @@
       "durum": "COZULDU",
       "gorevli_rol": "devops_engineer",
       "studio_notu": "Görev S12-T2 başarıyla tamamlandı ve UAT testinden geçti.",
-      "cozum_plani": "workspace/docs/cozum_planlari/TALEP-012.md",
       "github_issue_number": 12,
       "github_issue_url": "https://github.com/cihan53/elektriklioto/issues/12",
       "gecmis": [
@@ -103301,9 +103287,7 @@
           "eylem": "Durum güncellendi: COZULDU",
           "durum": "COZULDU"
         }
-      ],
-      "faz_id": "FAZ-2",
-      "triage_notu": "Faz 2 Özelliği: Yeni sürüm çıktığında 20s otomatik sayfa yenileme."
+      ]
     },
     {
       "id": "TALEP-013",
@@ -103316,7 +103300,6 @@
       "durum": "COZULDU",
       "gorevli_rol": "web_engineer",
       "studio_notu": "Görev S12-T4 başarıyla tamamlandı ve UAT testinden geçti.",
-      "cozum_plani": "workspace/docs/cozum_planlari/TALEP-013.md",
       "github_issue_number": 13,
       "github_issue_url": "https://github.com/cihan53/elektriklioto/issues/13",
       "gecmis": [
@@ -103350,9 +103333,7 @@
           "eylem": "Durum güncellendi: COZULDU",
           "durum": "COZULDU"
         }
-      ],
-      "faz_id": "FAZ-2",
-      "triage_notu": "Faz 2 Özelliği: Değişiklik Günlüğü (Changelog / Sürüm Notları) ekranı."
+      ]
     },
     {
       "id": "TALEP-014",
@@ -103365,7 +103346,6 @@
       "durum": "COZULDU",
       "gorevli_rol": "devops_engineer",
       "studio_notu": "Görev S13-T2 başarıyla tamamlandı ve UAT testinden geçti.",
-      "cozum_plani": "workspace/docs/cozum_planlari/TALEP-014.md",
       "github_issue_number": 14,
       "github_issue_url": "https://github.com/cihan53/elektriklioto/issues/14",
       "gecmis": [
@@ -130934,9 +130914,7 @@
           "eylem": "Durum güncellendi: COZULDU",
           "durum": "COZULDU"
         }
-      ],
-      "faz_id": "FAZ-1",
-      "efor": "ORTA"
+      ]
     },
     {
       "id": "TALEP-015",
@@ -130949,7 +130927,6 @@
       "durum": "COZULDU",
       "gorevli_rol": "backend_engineer",
       "studio_notu": "Görev S13-T4 başarıyla tamamlandı ve UAT testinden geçti.",
-      "cozum_plani": "workspace/docs/cozum_planlari/TALEP-015.md",
       "github_issue_number": 15,
       "github_issue_url": "https://github.com/cihan53/elektriklioto/issues/15",
       "gecmis": [
@@ -131003,10 +130980,7 @@
           "eylem": "Durum güncellendi: COZULDU",
           "durum": "COZULDU"
         }
-      ],
-      "faz_id": "FAZ-1",
-      "efor": "ORTA",
-      "triage_notu": "Karar Verici Onayı: FAZ-2 kapsamına aktarıldı. Faz 1 tamamlandıktan sonra geliştirilecek."
+      ]
     },
     {
       "id": "TALEP-016",
@@ -131019,7 +130993,6 @@
       "durum": "GELISTIRILIYOR",
       "gorevli_rol": "ui_designer",
       "studio_notu": "Sprint S14 panosuna eklendi (S14-T1 ve S14-T2). Geliştirme başladı.",
-      "cozum_plani": "workspace/docs/cozum_planlari/TALEP-016.md",
       "github_issue_number": 16,
       "github_issue_url": "https://github.com/cihan53/elektriklioto/issues/16",
       "gecmis": [
@@ -131053,10 +131026,7 @@
           "eylem": "Durum güncellendi: GELISTIRILIYOR",
           "durum": "GELISTIRILIYOR"
         }
-      ],
-      "faz_id": "FAZ-1",
-      "efor": "ORTA",
-      "triage_notu": "Karar Verici Onayı: FAZ-1 kapsamına aktarıldı. Faz 1 tamamlandıktan sonra geliştirilecek."
+      ]
     },
     {
       "id": "TALEP-017",
@@ -131066,10 +131036,9 @@
       "baslik": "Canlı Kaynak Entegrasyonu: EPDK ve Voltrun verilerini gerçek sitelerden çek",
       "aciklama": "Şu an import_cpo_stations.py, Voltrun ve ZES verilerini GitHub raw URL'lerinden (statik), EPDK verilerini de yine GitHub'daki eski bir dosyadan çekiyor. Müşteri isteği: (1) EPDK verileri doğrudan EPDK resmi sitesinden (epdk_scraper.py altyapısı kullanılarak) çekilmeli, (2) Voltrun istasyonları Voltrun'ın kendi API'sinden çekilmeli, (3) curl_input.txt dosyası her kaynağın cURL komutlarını 'kaynak: curl ...' formatında tutacak, ileride ZES ve diğer CPO'lar da eklenecek.",
       "sayfa_url": "/data-pipeline",
-      "durum": "PLANLANDI",
+      "durum": "GELISTIRILIYOR",
       "gorevli_rol": "data_engineer",
-      "studio_notu": "Talep Studio Yetkilisi v2.0 tarafından analiz edildi. Kategori: [data_engineer] Veri & ETL Mühendisi (Python Pipeline & Scraper). AI danışma: Evet Çözüm planı oluşturuldu: 'workspace/docs/cozum_planlari/TALEP-017.md'.",
-      "cozum_plani": "workspace/docs/cozum_planlari/TALEP-017.md",
+      "studio_notu": "Sprint S15 panosuna eklendi (S15-T1 ve S15-T2). Görevli rol: data_engineer. Geliştirme başladı.",
       "github_issue_number": 17,
       "github_issue_url": "https://github.com/cihan53/elektriklioto/issues/17",
       "gecmis": [
@@ -131092,11 +131061,18 @@
           "zaman": "2026-09-19 16:15",
           "eylem": "Durum güncellendi: PLANLANDI",
           "durum": "PLANLANDI"
+        },
+        {
+          "zaman": "2026-09-20 16:11",
+          "eylem": "Durum güncellendi: PLANLANDI",
+          "durum": "PLANLANDI"
+        },
+        {
+          "zaman": "2026-09-20 16:11",
+          "eylem": "Durum güncellendi: GELISTIRILIYOR",
+          "durum": "GELISTIRILIYOR"
         }
-      ],
-      "faz_id": "FAZ-3",
-      "efor": "ORTA",
-      "triage_notu": "Yeni Özellik (Feature) olarak sınıflandırıldı. Önerilen Faz: FAZ-3 (Efor: ORTA)."
+      ]
     }
   ]
 }

@@ -1444,25 +1444,71 @@
             "S14-T1"
           ],
           "talep_id": "TALEP-016",
-          "status": "FAILED",
-          "attempts": 1,
-          "note": "agy hata koduyla çıktı (3): error: agent executor error: generating and executing: request failed: Post \"https://daily-cloudcode-pa.googleapis.com/v1internal:streamGenerateContent?alt=sse\": write tcp ",
+          "status": "READY",
+          "attempts": 0,
+          "note": "[Kurtarma Ajanı] Otomatik olarak sıraya alındı",
           "started_at": 1789821898.633255,
           "finished_at": 1789822542.170093,
           "duration_s": 643.5
         }
       ],
       "order": 13,
-      "status": "BLOCKED",
+      "status": "READY",
       "actual_start": "2026-09-18T18:34:53",
       "actual_end": null,
-      "planned_start": "2026-09-19",
-      "planned_end": "2026-09-19"
+      "planned_start": "2026-09-20",
+      "planned_end": "2026-09-20"
+    },
+    {
+      "id": "S15",
+      "name": "Müşteri Denetimi & Saha Onarımları (TALEP-017)",
+      "goal": "Site sahibinin ilettiği 1 adet müşteri talebinin çözülmesi ve UAT ile kabul edilmesi.",
+      "planned_days": 1,
+      "tasks": [
+        {
+          "id": "S15-T1",
+          "title": "[TALEP-017] Canlı Kaynak Entegrasyonu: EPDK ve Voltrun verilerini gerçek sitelerden çek",
+          "description": "Müşteri Talebi: Şu an import_cpo_stations.py, Voltrun ve ZES verilerini GitHub raw URL'lerinden (statik), EPDK verilerini de yine GitHub'daki eski bir dosyadan çekiyor. Müşteri isteği: (1) EPDK verileri doğrudan EPDK resmi sitesinden (epdk_scraper.py altyapısı kullanılarak) çekilmeli, (2) Voltrun istasyonları Voltrun'ın kendi API'sinden çekilmeli, (3) curl_input.txt dosyası her kaynağın cURL komutlarını 'kaynak: curl ...' formatında tutacak, ileride ZES ve diğer CPO'lar da eklenecek.\nÇözüm Planı: workspace/docs/cozum_planlari/TALEP-017.md",
+          "role": "data_engineer",
+          "phase": "develop",
+          "outputs": [
+            "workspace/src/frontend/"
+          ],
+          "depends_on": [],
+          "talep_id": "TALEP-017",
+          "status": "TODO",
+          "attempts": 0,
+          "note": ""
+        },
+        {
+          "id": "S15-T2",
+          "title": "[TALEP-017] Müşteri Kabulü & UAT Doğrulama Denetimi",
+          "description": "TALEP-017 için yapılan düzeltmenin sistemde çalıştığını ve kabul kriterlerini karşıladığını doğrula.",
+          "role": "uat_auditor",
+          "phase": "test",
+          "outputs": [
+            "workspace/docs/uat_kabul_raporu.md"
+          ],
+          "depends_on": [
+            "S15-T1"
+          ],
+          "talep_id": "TALEP-017",
+          "status": "TODO",
+          "attempts": 0,
+          "note": ""
+        }
+      ],
+      "order": 14,
+      "status": "TODO",
+      "actual_start": null,
+      "actual_end": null,
+      "planned_start": "2026-09-21",
+      "planned_end": "2026-09-21"
     }
   ],
   "created_at": "2026-09-06T17:56:01",
-  "baseline_end": "2026-09-19",
-  "updated_at": "2026-09-19T15:55:42",
+  "baseline_end": "2026-09-21",
+  "updated_at": "2026-09-20T16:11:49",
   "_runtime": {
     "done_outputs": []
   }
