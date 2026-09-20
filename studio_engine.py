@@ -1543,13 +1543,13 @@ def autonomous_gap_review_and_phasing(org: dict, brief: str, board: dict) -> int
         new_sprint = {
             "id": s_id,
             "name": "Ziyaretçi Deneyimi ve 100% Ekran/Buton Etkileşim Denetimi",
-            "goal": "Tüm web rotalarının (harita, operatör, şehir dizini, QR yönlendirme) ve interaktif elemanların (butonlar, modallar, filtreler) ziyaretçi gözüyle uçtan uca doğrulanması.",
+            "goal": "Tüm uygulama rotalarının ve interaktif elemanların (butonlar, modallar, formlar, listeler) ziyaretçi gözüyle uçtan uca doğrulanması.",
             "planned_days": 3,
             "tasks": [
                 {
                     "id": f"{s_id}-T1",
                     "title": "Tüm Rotalar ve Ekranların Ziyaretçi Gözüyle Taranması",
-                    "description": "Harita, arama, operatör sayfaları, şehir rehberi ve QR köprü ekranlarının render sağlığı",
+                    "description": "Tüm temel sayfa, modül ve ekranların render sağlığı ve konsol hatasızlığının taranması",
                     "role": "screen_visitor_tester",
                     "phase": "test",
                     "outputs": ["workspace/docs/ziyaretci_ekran_denetimi.md"],
@@ -1558,7 +1558,7 @@ def autonomous_gap_review_and_phasing(org: dict, brief: str, board: dict) -> int
                 {
                     "id": f"{s_id}-T2",
                     "title": "Arayüz Buton, Filtre ve Modal Etkileşim Denetimi",
-                    "description": "Harita filtreleri, detay paneli butonları, rota köprüsü ve form modallarının tıklanma testi",
+                    "description": "Arayüz filtreleri, işlem butonları, modal formlar ve yönlendirmelerin tıklanma testi",
                     "role": "screen_visitor_tester",
                     "phase": "test",
                     "outputs": ["workspace/docs/bug_raporlari.md"],
@@ -1597,14 +1597,13 @@ def autonomous_gap_review_and_phasing(org: dict, brief: str, board: dict) -> int
 
 1. **İzole Test Bias (Yapay Doğrulama Tuzağı):** Önceki aşamalarda birim testler geçmesine karşın, kullanıcının gerçek bir ziyaretçi gibi her sayfayı gezmesi, her butona basması ve modalları açıp kapatması simüle edilmemiştir.
 2. **Kapsanması Gereken Rotalar:**
-   - `/` : Ana Harita, BBox keşfi, Arama Kutusu, Filtre Çipleri, Sağlık Banner'ı
-   - `/[operator]` & `/[operator]/[slug]` : CPO marka ve istasyon dizini
-   - `/[city]/sarj-istasyonlari` : İl ve ilçe bazlı SEO istasyon kataloğu
-   - `/r/[payload]` : QR Kod rota köprüsü ve derin bağlantı yönlendirmesi
+   - `/` : Ana ekran ve genel modül görünümleri
+   - Dinamik detay ve katalog sayfaları
+   - İşlem, profil ve yönetim modülleri
 3. **Kapsanması Gereken Etkileşimler:**
-   - Filtre butonları (AC/DC, Güç, Ücretsiz, Operatör)
-   - İstasyon Detay Paneli: "Yol Tarifi Al", "Uygulamayı Aç", "Arıza Bildir"
-   - Modallar: `IssueReportModal`, `QrBridgeModal`, `SourceHealthModal`, `ContributeModal`
+   - Arama ve filtre butonları
+   - Aksiyon ve detay butonları
+   - Modallar ve form alanları
    - Tarayıcı Konsolu: Sıfır hata (0 TypeError, 0 Uncaught) garantisi.
 
 ---
