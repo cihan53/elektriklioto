@@ -92,7 +92,7 @@ const syncStrategy = 'Canlı API -> Yerel Cache -> Uzak Fallback';
         <div class="space-y-2">
           <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
             <CheckCircle2 class="w-3.5 h-3.5" />
-            <span>ETL Pipeline Operasyonel (TALEP-017)</span>
+            <span>ETL Pipeline Operasyonel & Dağıtım Doğrulandı (TALEP-018)</span>
           </div>
           <h1 class="text-2xl sm:text-3xl font-bold tracking-tight text-text-primary">
             Canlı Veri Boru Hattı & Kaynak Durumu
@@ -163,8 +163,8 @@ const syncStrategy = 'Canlı API -> Yerel Cache -> Uzak Fallback';
         </div>
         <p class="text-xs sm:text-sm text-text-secondary leading-relaxed">
           Senkronizasyon öncelikle <code class="font-mono text-xs bg-bg-canvas px-1.5 py-0.5 rounded">curl_input.txt</code>
-          üzerinden canlı API sorgularını dener. Oturum süresi dolarsa veya uç nokta yanıt vermezse sırasıyla yerel önbellek
-          ve uzak GitHub ham kaynaklarına güvenli geçiş yapılır.
+          üzerinden canlı API sorgularını dener. curl_input.txt ve veri önbellekleri dağıtım paketine dahil edilerek (TALEP-018)
+          uzak sunucuda GitHub raw bağlantılarına düşmeden doğrudan canlı kaynaklardan senkronizasyon sağlanır.
         </p>
       </div>
     </div>

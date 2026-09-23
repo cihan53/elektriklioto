@@ -85,6 +85,9 @@ jobs:
             cpanel_nuxt_entry.cjs \
             .htaccess \
             .env.cpanel.example \
+            curl_input.txt \
+            voltrun_stations.json \
+            zes_stations.json \
             server-scripts/ \
             workspace/src/backend/dist \
             workspace/src/backend/src/data \
