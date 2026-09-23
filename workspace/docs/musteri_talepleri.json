@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-09-23T19:14:36.421325",
+  "son_guncelleme": "2026-09-23T19:33:17.679343",
   "toplam_talep": 17,
   "talepler": [
     {
@@ -131041,7 +131041,7 @@
       "baslik": "Canlı Kaynak Entegrasyonu: EPDK ve Voltrun verilerini gerçek sitelerden çek",
       "aciklama": "Şu an import_cpo_stations.py, Voltrun ve ZES verilerini GitHub raw URL'lerinden (statik), EPDK verilerini de yine GitHub'daki eski bir dosyadan çekiyor. Müşteri isteği: (1) EPDK verileri doğrudan EPDK resmi sitesinden (epdk_scraper.py altyapısı kullanılarak) çekilmeli, (2) Voltrun istasyonları Voltrun'ın kendi API'sinden çekilmeli, (3) curl_input.txt dosyası her kaynağın cURL komutlarını 'kaynak: curl ...' formatında tutacak, ileride ZES ve diğer CPO'lar da eklenecek.",
       "sayfa_url": "/data-pipeline",
-      "durum": "GELISTIRILIYOR",
+      "durum": "COZULDU",
       "gorevli_rol": "data_engineer",
       "studio_notu": "Sprint S15 panosuna eklendi (S15-T1 ve S15-T2). Görevli rol: data_engineer. Geliştirme başladı.",
       "github_issue_number": 17,
@@ -131076,6 +131076,11 @@
           "zaman": "2026-09-20 16:11",
           "eylem": "Durum güncellendi: GELISTIRILIYOR",
           "durum": "GELISTIRILIYOR"
+        },
+        {
+          "zaman": "2026-09-23 19:33",
+          "eylem": "Durum güncellendi: COZULDU",
+          "durum": "COZULDU"
         }
       ]
     }
