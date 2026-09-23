@@ -7,6 +7,7 @@ EPDK web sitesindeki (JSF / PrimeFaces) şarj istasyonları listesini sayfa sayf
 (500'er kayıt) indirerek JSON ve CSV formatına dönüştürür.
 Sunucuya aşırı yük bindirmemek (anti-DDOS) için istekler arasına 20 saniye gecikme koyar.
 Kesinti durumunda kaldığı yerden devam edebilmesi için checkpoint (ara kayıt) mekanizması içerir.
+Sıfır harici bağımlılık: requests veya bs4 yoksa standart kütüphane (urllib, html.parser) ile çalışır.
 """
 
 import sys
@@ -15,12 +16,28 @@ import re
 import time
 import json
 import csv
+import ssl
+import gzip
+import zlib
 import argparse
 import urllib.parse
+import urllib.request
+from html.parser import HTMLParser
 from pathlib import Path
 from datetime import datetime
-import requests
-from bs4 import BeautifulSoup
+
+# Opsiyonel harici kütüphaneler (varsa kullanılır, yoksa standart kütüphane devrededir)
+try:
+    import requests
+    RequestException = requests.RequestException
+except ImportError:
+    requests = None
+    RequestException = Exception
+
+try:
+    from bs4 import BeautifulSoup
+except ImportError:
+    BeautifulSoup = None
 
 
 DEFAULT_URL = (
@@ -32,6 +49,47 @@ DEFAULT_ROWS = 500  # sayfa başı kayıt sayısı
 TOTAL_ESTIMATED = 16788
 
 
+def split_curl_sources(file_content: str) -> dict:
+    """
+    curl_input.txt dosyasını kaynak bazlı ayrıştırır.
+    Desteklenen format:
+      epdk: curl 'https://...'
+      voltrun: curl 'https://...'
+      zes: curl 'https://...'
+    """
+    sources = {}
+    current_source = None
+    current_lines = []
+
+    if not file_content:
+        return sources
+
+    lines = file_content.strip().splitlines()
+    for line in lines:
+        stripped = line.strip()
+        if not stripped or stripped.startswith("#"):
+            continue
+
+        m = re.match(r"^([a-zA-Z0-9_-]+)\s*:\s*(.*)$", stripped)
+        if m and (m.group(2).startswith("curl") or not m.group(2)):
+            if current_source and current_lines:
+                sources[current_source] = "\n".join(current_lines).strip()
+            current_source = m.group(1).lower()
+            rest = m.group(2).strip()
+            current_lines = [rest] if rest else []
+        else:
+            if current_source:
+                current_lines.append(line)
+            else:
+                current_source = "epdk"
+                current_lines.append(line)
+
+    if current_source and current_lines:
+        sources[current_source] = "\n".join(current_lines).strip()
+
+    return sources
+
+
 def parse_curl_command(curl_text: str) -> dict:
     """cURL komut metninden URL, Cookie, User-Agent ve ViewState değerlerini ayıklar."""
     info = {
@@ -40,6 +98,14 @@ def parse_curl_command(curl_text: str) -> dict:
         "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:155.0) Gecko/20100101 Firefox/155.0",
         "view_state": "",
     }
+
+    if not curl_text:
+        return info
+
+    # Çoklu kaynak desteği: Eğer metin birden fazla kaynak içeriyorsa 'epdk' bloğunu al
+    sources = split_curl_sources(curl_text)
+    if "epdk" in sources:
+        curl_text = sources["epdk"]
 
     # URL tespiti
     url_m = re.search(r"curl\s+['\"]?([^'\"\s]+)['\"]?", curl_text)
@@ -69,6 +135,44 @@ def parse_curl_command(curl_text: str) -> dict:
     return info
 
 
+class PrimeFacesHTMLTableParser(HTMLParser):
+    """Standart Python HTMLParser ile PrimeFaces JSF tablo satırlarını ayrıştırır."""
+    def __init__(self):
+        super().__init__()
+        self.rows = []
+        self.current_row = None
+        self.current_cell = None
+        self.in_empty = False
+
+    def handle_starttag(self, tag, attrs):
+        attr_dict = dict(attrs)
+        classes = attr_dict.get("class", "").split()
+        if tag == "tr":
+            if any("empty-message" in c for c in classes):
+                self.in_empty = True
+                self.current_row = None
+            else:
+                self.in_empty = False
+                self.current_row = []
+        elif tag == "td" and self.current_row is not None and not self.in_empty:
+            self.current_cell = []
+
+    def handle_endtag(self, tag):
+        if tag == "tr":
+            if self.current_row is not None and len(self.current_row) >= 8:
+                self.rows.append(self.current_row)
+            self.current_row = None
+            self.in_empty = False
+        elif tag == "td":
+            if self.current_cell is not None and self.current_row is not None:
+                self.current_row.append(" ".join("".join(self.current_cell).split()))
+                self.current_cell = None
+
+    def handle_data(self, data):
+        if self.current_cell is not None:
+            self.current_cell.append(data)
+
+
 def parse_table_xml(xml_content: str):
     """
     JSF Partial-response XML'ini ayrıştırır.
@@ -85,7 +189,7 @@ def parse_table_xml(xml_content: str):
         return None, new_view_state, "SESSION_EXPIRED"
 
     # Tablo HTML'ini bul
-    table_soup = None
+    html_data = None
     update_m = re.search(
         r'<update id="sarjIstasyonuOzetSorguSonucu:sarjIstasyonuList"><!\[CDATA\[(.*?)\]\]></update>',
         xml_content,
@@ -93,44 +197,119 @@ def parse_table_xml(xml_content: str):
     )
     if update_m:
         html_data = update_m.group(1)
-        table_soup = BeautifulSoup(html_data, "html.parser")
-    else:
-        # Doğrudan BeautifulSoup ile ara
-        soup = BeautifulSoup(xml_content, "html.parser")
-        update_node = soup.find("update", {"id": "sarjIstasyonuOzetSorguSonucu:sarjIstasyonuList"})
-        if update_node:
-            table_soup = BeautifulSoup(update_node.text, "html.parser")
 
-    if not table_soup:
+    if not html_data:
+        if BeautifulSoup:
+            soup = BeautifulSoup(xml_content, "html.parser")
+            update_node = soup.find("update", {"id": "sarjIstasyonuOzetSorguSonucu:sarjIstasyonuList"})
+            if update_node:
+                html_data = update_node.text
+
+    if not html_data:
         return [], new_view_state, "NO_TABLE_UPDATE"
 
+    if "Kayıt Bulunamadı" in html_data:
+        return [], new_view_state, "OK"
+
     rows = []
-    # Primefaces satırlarını tara
-    tr_elements = table_soup.find_all("tr")
-    for tr in tr_elements:
-        # Boş mesaj kontrolü
-        classes = tr.get("class", [])
-        if any("empty-message" in c for c in classes):
-            continue
-
-        tds = tr.find_all("td")
-        if not tds or len(tds) < 8:
-            continue
-
-        cells = [td.get_text(separator=" ", strip=True) for td in tds]
-        record = {
-            "istasyon_no": cells[0],
-            "istasyon_adi": cells[1],
-            "hizmet_sekli": cells[2],
-            "marka": cells[3],
-            "sarj_agi_isletmecisi": cells[4],
-            "sarj_istasyonu_isletmecisi": cells[5],
-            "adres": cells[6],
-            "soket_bilgileri": cells[7],
-        }
-        rows.append(record)
+    if BeautifulSoup:
+        table_soup = BeautifulSoup(html_data, "html.parser")
+        tr_elements = table_soup.find_all("tr")
+        for tr in tr_elements:
+            classes = tr.get("class", [])
+            if any("empty-message" in c for c in classes):
+                continue
+            tds = tr.find_all("td")
+            if not tds or len(tds) < 8:
+                continue
+            cells = [td.get_text(separator=" ", strip=True) for td in tds]
+            record = {
+                "istasyon_no": cells[0],
+                "istasyon_adi": cells[1],
+                "hizmet_sekli": cells[2],
+                "marka": cells[3],
+                "sarj_agi_isletmecisi": cells[4],
+                "sarj_istasyonu_isletmecisi": cells[5],
+                "adres": cells[6],
+                "soket_bilgileri": cells[7],
+            }
+            rows.append(record)
+    else:
+        parser = PrimeFacesHTMLTableParser()
+        parser.feed(html_data)
+        for cells in parser.rows:
+            if len(cells) >= 8:
+                record = {
+                    "istasyon_no": cells[0],
+                    "istasyon_adi": cells[1],
+                    "hizmet_sekli": cells[2],
+                    "marka": cells[3],
+                    "sarj_agi_isletmecisi": cells[4],
+                    "sarj_istasyonu_isletmecisi": cells[5],
+                    "adres": cells[6],
+                    "soket_bilgileri": cells[7],
+                }
+                rows.append(record)
 
     return rows, new_view_state, "OK"
+
+
+class StandardHttpSession:
+    """Python urllib tabanlı oturum yöneticisi (requests alternatifi, sıfır kütüphane bağımlılığı)."""
+    def __init__(self):
+        self.headers = {}
+
+    def post(self, url, headers=None, data=None, timeout=45):
+        ctx = ssl.create_default_context()
+        ctx.check_hostname = False
+        ctx.verify_mode = ssl.CERT_NONE
+
+        req_headers = dict(self.headers)
+        if headers:
+            req_headers.update(headers)
+        if "Accept-Encoding" in req_headers:
+            req_headers["Accept-Encoding"] = "gzip, deflate"
+
+        encoded_data = None
+        if data is not None:
+            if isinstance(data, dict):
+                encoded_data = urllib.parse.urlencode(data).encode("utf-8")
+            elif isinstance(data, str):
+                encoded_data = data.encode("utf-8")
+            elif isinstance(data, bytes):
+                encoded_data = data
+
+        req = urllib.request.Request(url, data=encoded_data, headers=req_headers, method="POST")
+
+        class SimpleResponse:
+            def __init__(self, code, text):
+                self.status_code = code
+                self.text = text
+                self.encoding = "utf-8"
+
+        try:
+            with urllib.request.urlopen(req, timeout=timeout, context=ctx) as resp:
+                raw_bytes = resp.read()
+                encoding = resp.headers.get("Content-Encoding", "").lower()
+                if "gzip" in encoding:
+                    try:
+                        raw_bytes = gzip.decompress(raw_bytes)
+                    except Exception:
+                        pass
+                elif "deflate" in encoding:
+                    try:
+                        raw_bytes = zlib.decompress(raw_bytes)
+                    except Exception:
+                        pass
+                text = raw_bytes.decode("utf-8", errors="replace")
+                return SimpleResponse(resp.status, text)
+        except urllib.error.HTTPError as e:
+            err_text = ""
+            try:
+                err_text = e.read().decode("utf-8", errors="replace")
+            except Exception:
+                pass
+            return SimpleResponse(e.code, err_text)
 
 
 def wait_with_countdown(seconds: int):
@@ -154,11 +333,11 @@ def prompt_for_fresh_credentials(current_curl_file: str = "curl_input.txt") -> d
     print("2. F12 Ağ (Network) sekmesinde 'sarjIstasyonuOzetSorgula.xhtml' isteğine sağ tıklayıp")
     print("   'Copy as cURL' (cURL olarak kopyala) seçin.")
     print(f"3. Kopyalanan komutu '{current_curl_file}' dosyasına yapıştırıp kaydedin.")
+    print("   (Çoklu kaynak kullanıyorsanız 'epdk: curl ...' formatında tutunuz)")
     print("   VEYA aşağıya yapıştırıp [ENTER] tuşuna basın.")
     print("=" * 70)
 
     if not sys.stdin.isatty():
-        # Non-interactive environment
         print(f"🛑 Etkileşimsiz ortam tespit edildi. Lütfen '{current_curl_file}' dosyasını güncel cURL komutunuzla güncelleyip betiği yeniden çalıştırın.")
         sys.exit(1)
 
@@ -168,7 +347,6 @@ def prompt_for_fresh_credentials(current_curl_file: str = "curl_input.txt") -> d
         while True:
             line = input()
             if not line.strip() and not pasted_lines:
-                # Dosyayı tekrar oku
                 if os.path.exists(current_curl_file):
                     with open(current_curl_file, "r", encoding="utf-8") as f:
                         file_content = f.read()
@@ -180,7 +358,6 @@ def prompt_for_fresh_credentials(current_curl_file: str = "curl_input.txt") -> d
             if not line.strip() and pasted_lines:
                 break
             pasted_lines.append(line)
-            # Tek satırlık curl geldiyse doğrudan bitir
             if len(pasted_lines) == 1 and pasted_lines[0].strip().startswith("curl ") and "--data" in pasted_lines[0]:
                 break
     except (EOFError, KeyboardInterrupt):
@@ -188,10 +365,20 @@ def prompt_for_fresh_credentials(current_curl_file: str = "curl_input.txt") -> d
         sys.exit(1)
 
     full_text = "\n".join(pasted_lines)
-    # curl_input.txt dosyasını da güncelle
     try:
-        with open(current_curl_file, "w", encoding="utf-8") as f:
-            f.write(full_text)
+        if os.path.exists(current_curl_file):
+            with open(current_curl_file, "r", encoding="utf-8") as f:
+                existing = f.read()
+            sources = split_curl_sources(existing)
+            sources["epdk"] = full_text
+            new_file_content = []
+            for src, cmd in sources.items():
+                new_file_content.append(f"{src}: {cmd}\n")
+            with open(current_curl_file, "w", encoding="utf-8") as f:
+                f.write("\n".join(new_file_content))
+        else:
+            with open(current_curl_file, "w", encoding="utf-8") as f:
+                f.write(f"epdk: {full_text}\n")
         print(f"💾 '{current_curl_file}' güncellendi.")
     except Exception:
         pass
@@ -201,7 +388,6 @@ def prompt_for_fresh_credentials(current_curl_file: str = "curl_input.txt") -> d
 
 def save_merged_outputs(all_records: list, output_json: str, output_csv: str):
     """Tüm kayıtları JSON ve CSV olarak kaydeder."""
-    # Tekil markaları ve istatistiklerini hesapla
     brand_stats = {}
     for r in all_records:
         marka = (r.get("marka") or "").strip()
@@ -228,7 +414,6 @@ def save_merged_outputs(all_records: list, output_json: str, output_csv: str):
     ]
     marka_listesi = sorted(list(brand_stats.keys()))
 
-    # JSON Kayıt
     output_data = {
         "metadata": {
             "kayit_sayisi": len(all_records),
@@ -244,7 +429,6 @@ def save_merged_outputs(all_records: list, output_json: str, output_csv: str):
     with open(output_json, "w", encoding="utf-8") as f:
         json.dump(output_data, f, ensure_ascii=False, indent=2)
 
-    # CSV Kayıt
     if output_csv and all_records:
         fieldnames = [
             "istasyon_no",
@@ -314,13 +498,11 @@ def main():
                 pass
 
     total_downloaded_records = []
-    # Var olan kayıtları sıralı ekle
     for first_idx in sorted(existing_pages.keys()):
         total_downloaded_records.extend(existing_pages[first_idx])
 
     if existing_pages:
         print(f"📂 Checkpoint bulundu: {len(existing_pages)} sayfa önceden indirilmiş ({len(total_downloaded_records)} kayıt).")
-        # Eğer son sayfa (kayıt sayısı < args.rows) zaten indirilmişse işlem tamamlanmıştır
         for p_first, p_recs in existing_pages.items():
             if 0 < len(p_recs) < args.rows:
                 print("🏁 Zaten son sayfa daha önceden indirilmiş. Tüm veriler eksiksiz!")
@@ -334,7 +516,7 @@ def main():
                 return
 
     # Oturum hazırlığı
-    session = requests.Session()
+    session = requests.Session() if requests is not None else StandardHttpSession()
     first = 0
     page_num = 1
     total_pages_est = (TOTAL_ESTIMATED + args.rows - 1) // args.rows
@@ -350,7 +532,6 @@ def main():
     consecutive_empty = 0
 
     while True:
-        # Eğer bu sayfa zaten indirilmişse atla
         if first in existing_pages:
             p_len = len(existing_pages[first])
             print(f"⏩ [Sayfa {page_num}/{total_pages_est}] first={first}: Daha önce indirilmiş ({p_len} kayıt), atlanıyor.")
@@ -409,7 +590,6 @@ def main():
         while not success and retry_count < 3:
             try:
                 resp = session.post(url, headers=headers, data=payload, timeout=45)
-                resp.encoding = "utf-8"
 
                 if resp.status_code != 200:
                     print(f"⚠️ HTTP {resp.status_code} hatası! Yeniden deneniyor ({retry_count + 1}/3)...")
@@ -437,11 +617,9 @@ def main():
                     retry_count += 1
                     continue
 
-                # Başarıyla kayıt alındı
                 success = True
                 print(f"✅ [Sayfa {page_num}] {len(records)} kayıt çekildi.")
 
-                # Checkpoint kaydet
                 page_file = checkpoint_path / f"page_{page_num:03d}_first_{first}.json"
                 with open(page_file, "w", encoding="utf-8") as pf:
                     json.dump(
@@ -461,11 +639,9 @@ def main():
                 existing_pages[first] = records
                 total_downloaded_records.extend(records)
 
-                # Güncel toplamı ana dosyaya her sayfada kaydet (veri kaybı önleme)
                 save_merged_outputs(total_downloaded_records, args.output, args.output_csv)
                 print(f"   📊 Toplam biriken kayıt: {len(total_downloaded_records)}")
 
-                # Bitiş kontrolü
                 if len(records) == 0:
                     consecutive_empty += 1
                     if consecutive_empty >= 1:
@@ -480,8 +656,12 @@ def main():
                     is_finished = True
                     break
 
-            except requests.RequestException as e:
+            except RequestException as e:
                 print(f"⚠️ Bağlantı hatası: {e}. 10 sn sonra yeniden denenecek ({retry_count + 1}/3)...")
+                time.sleep(10)
+                retry_count += 1
+            except Exception as e:
+                print(f"⚠️ Beklenmeyen hata: {e}. 10 sn sonra yeniden denenecek ({retry_count + 1}/3)...")
                 time.sleep(10)
                 retry_count += 1
 
@@ -498,11 +678,9 @@ def main():
         first += args.rows
         page_num += 1
 
-        # Sayfalar arası DDOS önleme beklemesi
         if args.delay > 0:
             wait_with_countdown(args.delay)
 
-    # Son çıktı kaydı
     save_merged_outputs(total_downloaded_records, args.output, args.output_csv)
 
     print("\n" + "=" * 70)

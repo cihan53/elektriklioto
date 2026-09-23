@@ -5,13 +5,14 @@ ETL Pipeline: Normalizes ZES and Voltrun CPO datasets into canonical StationMode
 Matches with EPDK istasyonlar.json where applicable.
 Outputs: workspace/src/backend/src/data/cpo_stations.json
 
-Sprint: S13 — Müşteri Denetimi & Saha Onarımları (TALEP-014)
+Sprint: S15 — Canlı Kaynak Entegrasyonu (TALEP-017)
 Özellikler:
 1. Python 3.6+ tam geriye uyumluluk (CentOS 7, cPanel ve modern Linux ortamları).
-2. Çoklu yol arama (Multi-path dataset discovery): ROOT, server-scripts, data, dist ve backend klasörleri.
-3. Uzak kaynak (Remote HTTPS) fallback mekanizması (urllib tabanlı, harici kütüphane bağımlılığı sıfır).
-4. Sıfır-kayıt güvenlik kalkanı: Boş veri durumunda asla mevcut cpo_stations.json ezilmez.
-5. Atomik dosya yazma (.tmp -> rename) ve otomatik geri dönüş (.bak) koruması.
+2. Çoklu kaynaklı cURL entegrasyonu (Multi-source cURL parser: 'kaynak: curl ...').
+3. Canlı API önceliği: Voltrun ve EPDK için canlı uç noktalar, ardından yerel cache ve uzak GitHub fallback.
+4. Oturum sonlanma uyarı ve yönlendirme mekanizması (Session expiry guidance).
+5. Sıfır-kayıt güvenlik kalkanı: Boş veri durumunda asla mevcut cpo_stations.json ezilmez.
+6. Atomik dosya yazma (.tmp -> rename) ve otomatik geri dönüş (.bak) koruması.
 """
 
 import os
@@ -20,6 +21,12 @@ import json
 import re
 import uuid
 import ssl
+import gzip
+import zlib
+import shlex
+import urllib.request
+import urllib.parse
+from html.parser import HTMLParser
 from pathlib import Path
 
 # Python 3.6+ Path resolve
@@ -31,6 +38,268 @@ try:
     BACKEND_DATA_DIR.mkdir(parents=True, exist_ok=True)
 except Exception:
     pass
+
+# ==============================================================================
+# 1. Multi-source cURL Parser ve Canlı İstek Modülü (TALEP-017)
+# ==============================================================================
+
+def split_curl_sources(file_content: str) -> dict:
+    """
+    curl_input.txt dosyasını kaynak bazlı ayrıştırır.
+    Desteklenen format:
+      epdk: curl 'https://...'
+      voltrun: curl 'https://...'
+      zes: curl 'https://...'
+    Kaynak öneki yoksa geriye dönük uyumluluk için 'epdk' kabul edilir.
+    """
+    sources = {}
+    current_source = None
+    current_lines = []
+
+    if not file_content:
+        return sources
+
+    lines = file_content.strip().splitlines()
+    for line in lines:
+        stripped = line.strip()
+        if not stripped or stripped.startswith("#"):
+            continue
+
+        m = re.match(r"^([a-zA-Z0-9_-]+)\s*:\s*(.*)$", stripped)
+        if m and (m.group(2).startswith("curl") or not m.group(2)):
+            if current_source and current_lines:
+                sources[current_source] = "\n".join(current_lines).strip()
+            current_source = m.group(1).lower()
+            rest = m.group(2).strip()
+            current_lines = [rest] if rest else []
+        else:
+            if current_source:
+                current_lines.append(line)
+            else:
+                current_source = "epdk"
+                current_lines.append(line)
+
+    if current_source and current_lines:
+        sources[current_source] = "\n".join(current_lines).strip()
+
+    return sources
+
+def parse_curl_command(curl_text: str) -> dict:
+    """
+    Tek bir cURL komut metnini URL, HTTP methodu, başlıklar, body ve parametrelere ayrıştırır.
+    """
+    info = {
+        "url": "",
+        "method": "GET",
+        "headers": {},
+        "body": None,
+        "data_params": {},
+        "cookie": "",
+        "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:155.0) Gecko/20100101 Firefox/155.0",
+        "view_state": "",
+        "raw_curl": curl_text.strip() if curl_text else ""
+    }
+
+    if not curl_text:
+        return info
+
+    cleaned = re.sub(r'\\\r?\n\s*', ' ', curl_text.strip())
+
+    try:
+        tokens = shlex.split(cleaned)
+    except Exception:
+        tokens = cleaned.split()
+
+    i = 0
+    while i < len(tokens):
+        t = tokens[i]
+
+        if t == "curl":
+            i += 1
+            continue
+
+        if t in ("-X", "--request") and i + 1 < len(tokens):
+            info["method"] = tokens[i + 1].upper()
+            i += 2
+            continue
+
+        if t in ("-H", "--header") and i + 1 < len(tokens):
+            hdr = tokens[i + 1]
+            if ":" in hdr:
+                k, v = hdr.split(":", 1)
+                k = k.strip()
+                v = v.strip()
+                info["headers"][k] = v
+                kl = k.lower()
+                if kl == "cookie":
+                    info["cookie"] = v
+                elif kl == "user-agent":
+                    info["user_agent"] = v
+            i += 2
+            continue
+
+        if t in ("-d", "--data", "--data-raw", "--data-binary", "--data-ascii") and i + 1 < len(tokens):
+            info["body"] = tokens[i + 1]
+            if info["method"] == "GET":
+                info["method"] = "POST"
+            i += 2
+            continue
+
+        if (t.startswith("http://") or t.startswith("https://")) and not info["url"]:
+            info["url"] = t.strip("'\"")
+            i += 1
+            continue
+
+        i += 1
+
+    if info["body"]:
+        try:
+            params = urllib.parse.parse_qs(info["body"])
+            info["data_params"] = {k: v[0] for k, v in params.items() if v}
+            if "javax.faces.ViewState" in params and params["javax.faces.ViewState"]:
+                info["view_state"] = params["javax.faces.ViewState"][0]
+        except Exception:
+            pass
+
+    return info
+
+def execute_curl(parsed_curl: dict, timeout: int = 15):
+    """
+    Ayrıştırılmış cURL komutunu urllib ile çalıştırır.
+    Dönüş: (data, error_message)
+    """
+    url = parsed_curl.get("url")
+    if not url:
+        return None, "cURL komutunda URL bulunamadı."
+
+    method = parsed_curl.get("method", "GET").upper()
+    headers = dict(parsed_curl.get("headers", {}))
+    body = parsed_curl.get("body")
+
+    data_bytes = None
+    if body is not None:
+        if isinstance(body, str):
+            data_bytes = body.encode("utf-8")
+        elif isinstance(body, bytes):
+            data_bytes = body
+
+    if "Accept-Encoding" in headers:
+        headers["Accept-Encoding"] = "gzip, deflate"
+
+    ctx = ssl.create_default_context()
+    ctx.check_hostname = False
+    ctx.verify_mode = ssl.CERT_NONE
+
+    req = urllib.request.Request(url, data=data_bytes, headers=headers, method=method)
+
+    try:
+        with urllib.request.urlopen(req, timeout=timeout, context=ctx) as resp:
+            raw_bytes = resp.read()
+            encoding = resp.headers.get("Content-Encoding", "").lower()
+            if "gzip" in encoding:
+                try:
+                    raw_bytes = gzip.decompress(raw_bytes)
+                except Exception:
+                    pass
+            elif "deflate" in encoding:
+                try:
+                    raw_bytes = zlib.decompress(raw_bytes)
+                except Exception:
+                    pass
+
+            text = raw_bytes.decode("utf-8", errors="replace")
+
+            try:
+                data = json.loads(text)
+                return data, None
+            except json.JSONDecodeError:
+                return text, None
+
+    except urllib.error.HTTPError as e:
+        return None, "HTTP {}: {}".format(e.code, e.reason)
+    except urllib.error.URLError as e:
+        return None, "Ağ Hatası: {}".format(e.reason)
+    except Exception as e:
+        return None, "İstek Hatası: {}".format(str(e))
+
+class PrimeFacesHTMLTableParser(HTMLParser):
+    """JSF / PrimeFaces tablo satırlarını HTML'den parse eder."""
+    def __init__(self):
+        super().__init__()
+        self.rows = []
+        self.current_row = None
+        self.current_cell = None
+        self.in_empty = False
+
+    def handle_starttag(self, tag, attrs):
+        attr_dict = dict(attrs)
+        classes = attr_dict.get("class", "").split()
+        if tag == "tr":
+            if any("empty-message" in c for c in classes):
+                self.in_empty = True
+                self.current_row = None
+            else:
+                self.in_empty = False
+                self.current_row = []
+        elif tag == "td" and self.current_row is not None and not self.in_empty:
+            self.current_cell = []
+
+    def handle_endtag(self, tag):
+        if tag == "tr":
+            if self.current_row is not None and len(self.current_row) >= 8:
+                self.rows.append(self.current_row)
+            self.current_row = None
+            self.in_empty = False
+        elif tag == "td":
+            if self.current_cell is not None and self.current_row is not None:
+                self.current_row.append(" ".join("".join(self.current_cell).split()))
+                self.current_cell = None
+
+    def handle_data(self, data):
+        if self.current_cell is not None:
+            self.current_cell.append(data)
+
+def parse_epdk_partial_response(xml_content: str):
+    """EPDK JSF partial-response XML çıktısını parse eder."""
+    if not xml_content or not isinstance(xml_content, str):
+        return [], "INVALID_XML"
+
+    if "could not be restored" in xml_content or "ViewExpiredException" in xml_content:
+        return [], "SESSION_EXPIRED"
+
+    update_m = re.search(
+        r'<update id="sarjIstasyonuOzetSorguSonucu:sarjIstasyonuList"><!\[CDATA\[(.*?)\]\]></update>',
+        xml_content,
+        re.DOTALL,
+    )
+    if not update_m:
+        return [], "NO_TABLE_UPDATE"
+
+    html_data = update_m.group(1)
+    if "Kayıt Bulunamadı" in html_data:
+        return [], "EMPTY"
+
+    parser = PrimeFacesHTMLTableParser()
+    parser.feed(html_data)
+
+    records = []
+    for cells in parser.rows:
+        if len(cells) >= 8:
+            records.append({
+                "istasyon_no": cells[0],
+                "istasyon_adi": cells[1],
+                "hizmet_sekli": cells[2],
+                "marka": cells[3],
+                "sarj_agi_isletmecisi": cells[4],
+                "sarj_istasyonu_isletmecisi": cells[5],
+                "adres": cells[6],
+                "soket_bilgileri": cells[7],
+            })
+    return records, "OK"
+
+# ==============================================================================
+# 2. Coğrafi ve Metin Normalizasyon Fonksiyonları
+# ==============================================================================
 
 TURKISH_MAP = {
     'ı': 'i', 'İ': 'i', 'I': 'i', 'ş': 's', 'Ş': 's',
@@ -131,7 +400,7 @@ def extract_city_district_from_address(address, lat=None, lon=None):
         if lat and lon:
             return find_nearest_province(lat, lon), ""
         return "İstanbul", ""
-    
+
     upper_addr = str(address).upper()
     for c_upper in TURKISH_CITIES:
         if re.search(r'\b' + re.escape(c_upper) + r'\b', upper_addr):
@@ -142,14 +411,16 @@ def extract_city_district_from_address(address, lat=None, lon=None):
 
     return "İstanbul", ""
 
+# ==============================================================================
+# 3. Veri Seti Arama ve Uzak Yedekleme Fonksiyonları
+# ==============================================================================
+
 def fetch_remote_json(urls, timeout=15):
     """Python urllib ile uzak JSON verisini güvenle çeker."""
-    import urllib.request
-    
     headers = {
         "User-Agent": "Mozilla/5.0 (compatible; elektriklioto-sync/1.0; +https://elektriklioto.com)"
     }
-    
+
     ctx = ssl.create_default_context()
     try:
         ctx.check_hostname = False
@@ -225,7 +496,6 @@ def save_stations_atomically(stations):
     bak_path = BACKEND_DATA_DIR / "cpo_stations.json.bak"
     tmp_path = BACKEND_DATA_DIR / "cpo_stations.json.tmp"
 
-    # 1. Mevcut geçerli dosyayı yedekle
     if output_path.exists() and output_path.stat().st_size > 100:
         try:
             with open(str(output_path), 'r', encoding='utf-8') as src, open(str(bak_path), 'w', encoding='utf-8') as dst:
@@ -234,16 +504,13 @@ def save_stations_atomically(stations):
         except Exception as e:
             print("  [!] Yedekleme uyarısı: {}".format(e))
 
-    # 2. Geçici dosyaya yaz
     content = json.dumps(stations, indent=2, ensure_ascii=False)
     with open(str(tmp_path), 'w', encoding='utf-8') as f:
         f.write(content)
 
-    # 3. Geçici dosyanın doğruluğunu teyit et
     if not tmp_path.exists() or tmp_path.stat().st_size < 100:
         raise RuntimeError("Geçici dosya yazımı başarısız veya dosya boş!")
 
-    # 4. Atomik olarak hedef dosyanın üzerine taşı
     if sys.platform == "win32":
         if output_path.exists():
             os.remove(str(output_path))
@@ -251,7 +518,6 @@ def save_stations_atomically(stations):
     else:
         os.replace(str(tmp_path), str(output_path))
 
-    # 5. dist/data klasörü varsa oraya da kopyala
     try:
         BACKEND_DIST_DIR.mkdir(parents=True, exist_ok=True)
         dist_out = BACKEND_DIST_DIR / "cpo_stations.json"
@@ -267,38 +533,146 @@ def save_stations_atomically(stations):
     ))
     return 0
 
+# ==============================================================================
+# 4. Ana Pipeline Senkronizasyon Akışı
+# ==============================================================================
+
 def main():
     print("========================================================")
-    print("ETL Pipeline: CPO ve EPDK İstasyon Senkronizasyonu Başladı")
+    print("ETL Pipeline: CPO ve EPDK İstasyon Senkronizasyonu Başladı (TALEP-017)")
     print("========================================================")
 
-    voltrun_raw = load_json_dataset(
-        candidate_names=["voltrun_stations.json", "voltrun.json"],
-        remote_urls=[
-            "https://raw.githubusercontent.com/cihan53/elektriklioto/master/voltrun_stations.json",
-            "https://raw.githubusercontent.com/cihan53/elektriklioto/main/voltrun_stations.json",
-        ]
-    ) or []
+    # 1. curl_input.txt dosyasını ara ve yükle (Çoklu Kaynak Formatı)
+    curl_input_candidates = [
+        ROOT / "curl_input.txt",
+        Path.cwd() / "curl_input.txt",
+        ROOT / "server-scripts/curl_input.txt",
+        Path(__file__).resolve().parent / "curl_input.txt"
+    ]
+    curl_sources = {}
+    for cand in curl_input_candidates:
+        if cand.exists() and cand.is_file() and cand.stat().st_size > 10:
+            try:
+                with open(str(cand), "r", encoding="utf-8") as f:
+                    curl_sources = split_curl_sources(f.read())
+                print("  ✓ curl_input.txt yüklendi: {} ({} kaynak tespit edildi: {})".format(
+                    cand.name, len(curl_sources), list(curl_sources.keys())
+                ))
+                break
+            except Exception as e:
+                print("  [!] curl_input.txt okunamadı ({}): {}".format(cand, e))
 
-    zes_raw_input = load_json_dataset(
-        candidate_names=["zes_stations.json", "zes.json"],
-        remote_urls=[
-            "https://raw.githubusercontent.com/cihan53/elektriklioto/master/zes_stations.json",
-            "https://raw.githubusercontent.com/cihan53/elektriklioto/main/zes_stations.json",
-        ]
-    ) or {}
+    # Gelecek CPO genişlemeleri için yeni kaynakları bildir
+    known_keys = {"epdk", "voltrun", "zes"}
+    for k in curl_sources:
+        if k not in known_keys:
+            print("  [i] Yeni dinamik kaynak tanımlı: '{}' (Gelecek CPO entegrasyonuna hazır).".format(k))
 
-    zes_raw = zes_raw_input.get("stations", []) if isinstance(zes_raw_input, dict) else (zes_raw_input if isinstance(zes_raw_input, list) else [])
+    # 2. VOLTRUN İSTASYONLARI (Canlı API -> Yerel Dosya -> Uzak GitHub Fallback)
+    voltrun_raw = []
+    if "voltrun" in curl_sources:
+        print("  [i] Voltrun canlı API sorgulanıyor (curl_input.txt)...")
+        parsed_v = parse_curl_command(curl_sources["voltrun"])
+        v_data, v_err = execute_curl(parsed_v, timeout=15)
+        if v_data:
+            if isinstance(v_data, list) and len(v_data) > 0:
+                voltrun_raw = v_data
+            elif isinstance(v_data, dict):
+                if "data" in v_data and isinstance(v_data["data"], list) and len(v_data["data"]) > 0:
+                    voltrun_raw = v_data["data"]
+                elif "stations" in v_data and isinstance(v_data["stations"], list) and len(v_data["stations"]) > 0:
+                    voltrun_raw = v_data["stations"]
 
-    epdk_raw_input = load_json_dataset(
-        candidate_names=["istasyonlar.json", "epdk_sarj_istasyonlari.json", "epdk.json"],
-        remote_urls=[
-            "https://raw.githubusercontent.com/cihan53/elektriklioto/master/istasyonlar.json",
-            "https://raw.githubusercontent.com/cihan53/elektriklioto/main/istasyonlar.json",
-        ]
-    ) or {}
+        if voltrun_raw:
+            print("  ✓ Voltrun canlı API'sinden {} istasyon başarıyla çekildi.".format(len(voltrun_raw)))
+        else:
+            print("  ⚠️ UYARI: Voltrun canlı API isteği yanıt vermedi veya boş döndü (Hata: {}).".format(v_err or "Veri boş"))
+            print("      curl_input.txt içindeki 'voltrun:' satırındaki uç noktayı ve parametreleri güncelleyebilirsiniz.")
+            print("      -> Yerel önbellek / statik yedek zincirine geçiliyor...")
 
-    epdk_raw = epdk_raw_input.get("istasyonlar", []) if isinstance(epdk_raw_input, dict) else (epdk_raw_input if isinstance(epdk_raw_input, list) else [])
+    if not voltrun_raw:
+        voltrun_raw = load_json_dataset(
+            candidate_names=["voltrun_stations.json", "voltrun.json"],
+            remote_urls=[
+                "https://raw.githubusercontent.com/cihan53/elektriklioto/master/voltrun_stations.json",
+                "https://raw.githubusercontent.com/cihan53/elektriklioto/main/voltrun_stations.json",
+            ]
+        ) or []
+
+    # 3. ZES İSTASYONLARI (Canlı API -> Yerel Dosya -> Uzak GitHub Fallback)
+    zes_raw = []
+    if "zes" in curl_sources:
+        print("  [i] ZES canlı API sorgulanıyor (curl_input.txt)...")
+        parsed_z = parse_curl_command(curl_sources["zes"])
+        z_data, z_err = execute_curl(parsed_z, timeout=15)
+        if z_data:
+            if isinstance(z_data, dict) and "stations" in z_data and isinstance(z_data["stations"], list):
+                zes_raw = z_data["stations"]
+            elif isinstance(z_data, list):
+                zes_raw = z_data
+        if zes_raw:
+            print("  ✓ ZES canlı API'sinden {} istasyon başarıyla çekildi.".format(len(zes_raw)))
+        else:
+            print("  ⚠️ UYARI: ZES canlı API isteği yanıt vermedi (Hata: {}).".format(z_err or "Veri boş"))
+            print("      -> Yerel önbellek / statik yedek zincirine geçiliyor...")
+
+    if not zes_raw:
+        zes_raw_input = load_json_dataset(
+            candidate_names=["zes_stations.json", "zes.json"],
+            remote_urls=[
+                "https://raw.githubusercontent.com/cihan53/elektriklioto/master/zes_stations.json",
+                "https://raw.githubusercontent.com/cihan53/elektriklioto/main/zes_stations.json",
+            ]
+        ) or {}
+        zes_raw = zes_raw_input.get("stations", []) if isinstance(zes_raw_input, dict) else (zes_raw_input if isinstance(zes_raw_input, list) else [])
+
+    # 4. EPDK İSTASYONLARI (Canlı EPDK Portalı -> Yerel Checkpoint/JSON -> Uzak GitHub Fallback)
+    epdk_raw = []
+    if "epdk" in curl_sources:
+        print("  [i] EPDK resmi portalı canlı denetleniyor (curl_input.txt)...")
+        parsed_ep = parse_curl_command(curl_sources["epdk"])
+        ep_data, ep_err = execute_curl(parsed_ep, timeout=15)
+        if ep_data and isinstance(ep_data, str):
+            ep_records, ep_status = parse_epdk_partial_response(ep_data)
+            if ep_status == "OK" and len(ep_records) > 0:
+                print("  ✓ EPDK resmi sitesinden canlı {} istasyon başarıyla çekildi.".format(len(ep_records)))
+                epdk_raw = ep_records
+            elif ep_status == "SESSION_EXPIRED":
+                print("  ⚠️ UYARI: EPDK web oturumunun süresi dolmuş (Session / View Expired).")
+                print("      epdk_scraper.py çalıştırılarak veya curl_input.txt içindeki 'epdk:' satırı güncellenerek canlı oturum tazelenebilir.")
+                print("      -> Yerel veri deposu (istasyonlar.json / epdk_checkpoints) kullanılıyor...")
+            elif ep_status in ("EMPTY", "NO_TABLE_UPDATE"):
+                print("  ⚠️ UYARI: EPDK canlı sorgusundan aktif kayıt dönmedi (0 kayıt).")
+                print("      -> Yerel veri deposu (istasyonlar.json / epdk_checkpoints) kullanılıyor...")
+        elif ep_err:
+            print("  ⚠️ UYARI: EPDK canlı portal isteği başarısız oldu ({}).".format(ep_err))
+            print("      -> Yerel veri deposuna geçiliyor...")
+
+    if not epdk_raw:
+        # Checkpoint'leri kontrol et
+        chk_dir = ROOT / "epdk_checkpoints"
+        if chk_dir.exists():
+            chk_records = []
+            for pf in sorted(chk_dir.glob("page_*.json")):
+                try:
+                    with open(str(pf), "r", encoding="utf-8") as f:
+                        pdata = json.load(f)
+                        chk_records.extend(pdata.get("records", []))
+                except Exception:
+                    pass
+            if len(chk_records) >= 1000:
+                print("  ✓ EPDK checkpoint klasöründen {} istasyon yüklendi.".format(len(chk_records)))
+                epdk_raw = chk_records
+
+    if not epdk_raw:
+        epdk_raw_input = load_json_dataset(
+            candidate_names=["istasyonlar.json", "epdk_sarj_istasyonlari.json", "epdk.json"],
+            remote_urls=[
+                "https://raw.githubusercontent.com/cihan53/elektriklioto/master/istasyonlar.json",
+                "https://raw.githubusercontent.com/cihan53/elektriklioto/main/istasyonlar.json",
+            ]
+        ) or {}
+        epdk_raw = epdk_raw_input.get("istasyonlar", []) if isinstance(epdk_raw_input, dict) else (epdk_raw_input if isinstance(epdk_raw_input, list) else [])
 
     print("Yüklenen ham kayıtlar: Voltrun: {}, ZES: {}, EPDK: {}".format(
         len(voltrun_raw), len(zes_raw), len(epdk_raw)
