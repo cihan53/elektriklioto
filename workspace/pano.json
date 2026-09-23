@@ -1497,23 +1497,72 @@
             "S15-T1"
           ],
           "talep_id": "TALEP-017",
-          "status": "RUNNING",
+          "status": "DONE",
           "attempts": 1,
-          "note": "",
-          "started_at": 1790181383.213748
+          "note": "canlı UAT hata tespit edildi",
+          "started_at": 1790181383.213748,
+          "finished_at": 1790183190.9868412,
+          "duration_s": 1807.8
         }
       ],
       "order": 14,
-      "status": "READY",
+      "status": "DONE",
       "actual_start": "2026-09-23T19:14:36",
+      "actual_end": "2026-09-23T20:06:37",
+      "planned_start": "2026-09-23",
+      "planned_end": "2026-09-23",
+      "_summary_printed": true
+    },
+    {
+      "id": "S16",
+      "name": "Müşteri Denetimi & Saha Onarımları (TALEP-018)",
+      "goal": "Site sahibinin ilettiği 1 adet müşteri talebinin çözülmesi ve UAT ile kabul edilmesi.",
+      "planned_days": 1,
+      "tasks": [
+        {
+          "id": "S16-T1",
+          "title": "[TALEP-018] TALEP-017 Eksik İş Kapanışı: curl_input.txt deploy paketinde olmadığı için canlı kaynaklar yerine GitHub raw'a fallback yapılıyor",
+          "description": "Müşteri Talebi: Müşteri sahada (uzak sunucuda) cron senkronizasyonunu test ettiğinde sistemin canlı API uç noktaları yerine https://raw.githubusercontent.com/... adreslerine fallback yaptığı görüldü. Nedeni: curl_input.txt dosyasının .github/workflows/deploy.yml içerisindeki deploy_package.tar.gz arşivine dahil edilmemiş olması. Studio ajanlarının bu eksikliği yerel UAT aşamasında deploy zincirini denetleyerek tespit etmesi ve sunucuya aktarılmasını sağlaması gerekirdi. Düzeltme: 1) deploy.yml paketine curl_input.txt dosyasının eklenmesi, 2) sunucuya dağıtımın sağlanması, 3) sunucuda cron_daily_sync.sh çalıştırıldığında GitHub raw linklerine düşmeden canlı kaynaklardan veri çekildiğinin doğrulanması.\nÇözüm Planı: workspace/docs/cozum_planlari/TALEP-018.md",
+          "role": "data_engineer",
+          "phase": "develop",
+          "outputs": [
+            "workspace/src/frontend/"
+          ],
+          "depends_on": [],
+          "talep_id": "TALEP-018",
+          "status": "READY",
+          "attempts": 0,
+          "note": ""
+        },
+        {
+          "id": "S16-T2",
+          "title": "[TALEP-018] Müşteri Kabulü & UAT Doğrulama Denetimi",
+          "description": "TALEP-018 için yapılan düzeltmenin sistemde çalıştığını ve kabul kriterlerini karşıladığını doğrula.",
+          "role": "uat_auditor",
+          "phase": "test",
+          "outputs": [
+            "workspace/docs/uat_kabul_raporu.md"
+          ],
+          "depends_on": [
+            "S16-T1"
+          ],
+          "talep_id": "TALEP-018",
+          "status": "TODO",
+          "attempts": 0,
+          "note": ""
+        }
+      ],
+      "order": 15,
+      "status": "READY",
+      "actual_start": null,
       "actual_end": null,
       "planned_start": "2026-09-24",
       "planned_end": "2026-09-24"
     }
   ],
   "created_at": "2026-09-06T17:56:01",
-  "baseline_end": "2026-09-21",
-  "updated_at": "2026-09-23T19:36:23",
+  "baseline_end": "2026-09-24",
+  "updated_at": "2026-09-23T20:28:05",
   "_runtime": {
     "done_outputs": []
   }

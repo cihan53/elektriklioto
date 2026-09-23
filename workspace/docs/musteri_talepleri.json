@@ -1,6 +1,6 @@
 {
-  "son_guncelleme": "2026-09-23T19:33:17.679343",
-  "toplam_talep": 17,
+  "son_guncelleme": "2026-09-23T20:28:05.163477",
+  "toplam_talep": 18,
   "talepler": [
     {
       "id": "TALEP-001",
@@ -131043,7 +131043,7 @@
       "sayfa_url": "/data-pipeline",
       "durum": "COZULDU",
       "gorevli_rol": "data_engineer",
-      "studio_notu": "Sprint S15 panosuna eklendi (S15-T1 ve S15-T2). Görevli rol: data_engineer. Geliştirme başladı.",
+      "studio_notu": "Görev S15-T2 başarıyla tamamlandı ve UAT testinden geçti.",
       "github_issue_number": 17,
       "github_issue_url": "https://github.com/cihan53/elektriklioto/issues/17",
       "gecmis": [
@@ -131081,8 +131081,42 @@
           "zaman": "2026-09-23 19:33",
           "eylem": "Durum güncellendi: COZULDU",
           "durum": "COZULDU"
+        },
+        {
+          "zaman": "2026-09-23 20:06",
+          "eylem": "Durum güncellendi: COZULDU",
+          "durum": "COZULDU"
         }
       ]
+    },
+    {
+      "id": "TALEP-018",
+      "tarih": "2026-09-23 20:26",
+      "tur": "HATA",
+      "oncelik": "YUKSEK",
+      "baslik": "TALEP-017 Eksik İş Kapanışı: curl_input.txt deploy paketinde olmadığı için canlı kaynaklar yerine GitHub raw'a fallback yapılıyor",
+      "aciklama": "Müşteri sahada (uzak sunucuda) cron senkronizasyonunu test ettiğinde sistemin canlı API uç noktaları yerine https://raw.githubusercontent.com/... adreslerine fallback yaptığı görüldü. Nedeni: curl_input.txt dosyasının .github/workflows/deploy.yml içerisindeki deploy_package.tar.gz arşivine dahil edilmemiş olması. Studio ajanlarının bu eksikliği yerel UAT aşamasında deploy zincirini denetleyerek tespit etmesi ve sunucuya aktarılmasını sağlaması gerekirdi. Düzeltme: 1) deploy.yml paketine curl_input.txt dosyasının eklenmesi, 2) sunucuya dağıtımın sağlanması, 3) sunucuda cron_daily_sync.sh çalıştırıldığında GitHub raw linklerine düşmeden canlı kaynaklardan veri çekildiğinin doğrulanması.",
+      "sayfa_url": "/server-scripts/deploy",
+      "durum": "BEKLEMEDE",
+      "gorevli_rol": null,
+      "studio_notu": null,
+      "cozum_plani": null,
+      "github_issue_number": 19,
+      "github_issue_url": "https://github.com/cihan53/elektriklioto/issues/19",
+      "gecmis": [
+        {
+          "zaman": "2026-09-23 20:26",
+          "eylem": "Kayıt oluşturuldu",
+          "durum": "BEKLEMEDE"
+        },
+        {
+          "zaman": "2026-09-23 20:26",
+          "eylem": "GitHub Issue oluşturuldu: #19",
+          "durum": "BEKLEMEDE"
+        }
+      ],
+      "faz_id": "FAZ-2",
+      "efor": "ORTA"
     }
   ]
 }
