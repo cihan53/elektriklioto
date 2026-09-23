@@ -1,6 +1,6 @@
 # Digital Software Studio — Müşteri Denetim & Talep Havuzu
 
-> **Son Güncelleme:** 2026-09-23 19:14  
+> **Son Güncelleme:** 2026-09-23 19:33  
 > **Toplam Bildirim:** 17  
 
 Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda iletilen istek, hata ve geri bildirimleri içerir.
@@ -11,7 +11,7 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 
 | ID | Tür | Öncelik | Durum | Başlık | Ekran / URL | İlgili Rol | GitHub Issue | Plan |
 |---|---|---|---|---|---|---|---|---|
-| **TALEP-017** | Yeni İstek / Özellik | Normal (P3) | 🔨 Geliştiriliyor | Canlı Kaynak Entegrasyonu: EPDK ve Voltrun verilerini gerçek sitelerden çek | `/data-pipeline` | `data_engineer` | [#17](https://github.com/cihan53/elektriklioto/issues/17) | — |
+| **TALEP-017** | Yeni İstek / Özellik | Normal (P3) | ✅ Çözüldü | Canlı Kaynak Entegrasyonu: EPDK ve Voltrun verilerini gerçek sitelerden çek | `/data-pipeline` | `data_engineer` | [#17](https://github.com/cihan53/elektriklioto/issues/17) | — |
 | **TALEP-016** | Tasarım & Kullanıcı Deneyimi | Normal (P3) | ✅ Çözüldü | Hakkımızda modal içeriğinin önceki versiyondaki haline döndürülmesi | `/` | `ui_designer` | [#16](https://github.com/cihan53/elektriklioto/issues/16) | — |
 | **TALEP-015** | Yeni İstek / Özellik | Normal (P3) | ✅ Çözüldü | EPDK ve CPO Kamu/Açık Kaynaklarından Canlı İstasyon Senkronizasyonu | `/cron/sync` | `backend_engineer` | [#15](https://github.com/cihan53/elektriklioto/issues/15) | — |
 | **TALEP-014** | Hata / Bug | Normal (P3) | ✅ Çözüldü | Cron senkronizasyon scripti istasyon bilgilerini alamıyor (0 istasyon hazır) | `/cron/sync` | `devops_engineer` | [#14](https://github.com/cihan53/elektriklioto/issues/14) | — |
@@ -33,7 +33,7 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 
 ## 2. Talep Detayları ve Geri Bildirim Notları
 
-### [TALEP-017] Canlı Kaynak Entegrasyonu: EPDK ve Voltrun verilerini gerçek sitelerden çek (🔨 Geliştiriliyor)
+### [TALEP-017] Canlı Kaynak Entegrasyonu: EPDK ve Voltrun verilerini gerçek sitelerden çek (✅ Çözüldü)
 - **Bildirim Tarihi:** 2026-09-19 16:09
 - **Tür / Öncelik:** Yeni İstek / Özellik / Normal (P3)
 - **İlgili Ekran / Sayfa:** `/data-pipeline`
