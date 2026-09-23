@@ -3,8 +3,268 @@
   "first": 4000,
   "rows": 500,
   "count": 500,
-  "timestamp": "2026-09-06T14:29:22.292410",
+  "timestamp": "2026-09-23T22:25:30.866970",
   "records": [
+    {
+      "istasyon_no": "ŞRJ/8268",
+      "istasyon_adi": "Koyuncular Petrol",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "zes",
+      "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "adres": "İshakuşağı Mahallesi Yunak Caddesi No:1842/1 Çeltik / KONYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/8296",
+      "istasyon_adi": "Anemon Otel Samsun",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "zes",
+      "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "adres": "Yeni Mahallesi Çarşamba Caddesi No:52 Canik / SAMSUN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/8305",
+      "istasyon_adi": "Aydın Kipa AVM",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "zes",
+      "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "adres": "Cumhuriyet Mahallesi No:1 Efeler / AYDIN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/8306",
+      "istasyon_adi": "Batıhan Otel",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "zes",
+      "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "adres": "Yavansu Mahallesi No:2 Karacakoca Plaj Kümesi Kuşadası / AYDIN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/8307",
+      "istasyon_adi": "Batıhan Vadi",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "zes",
+      "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "adres": "Bayraklı Dede Mahallesi Bahçecik Sokağı No:43 Kuşadası / AYDIN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/8308",
+      "istasyon_adi": "BC Otel",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "zes",
+      "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "adres": "Körfez Mahallesi 5010 Sokağı No:3 Atakum / SAMSUN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/8313",
+      "istasyon_adi": "Özak Göktürk Toplu Yapı Site Yönetimi",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "zes",
+      "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "adres": "Göktürk Merkez Mahallesi Köprübaşı Caddesi No:7 Eyüpsultan / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/8316",
+      "istasyon_adi": "TP Menzil Petrol Van",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "zes",
+      "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "adres": "Süphan Mahallesi D300 Edremit / VAN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/8318",
+      "istasyon_adi": "Türkiye Vakıflar Bankası Genel Müdürlüğü",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "zes",
+      "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "adres": "Finanskent Mahallesi Finans Sokağı No:40 Ümraniye / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/281",
+      "istasyon_adi": "Çifteler Belediyesi",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "zes",
+      "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "adres": "Sakarya Mahallesi Hastane Caddesi 76 Sokağı Çifteler / ESKİŞEHİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/283",
+      "istasyon_adi": "Alp Petrol",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "zes",
+      "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "adres": "Cerenler Mahallesi Başaran Ulusoy Caddesi No:4 Çavdarhisar / KÜTAHYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/292",
+      "istasyon_adi": "Alpu Belediyesi Eskişehir",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "zes",
+      "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "adres": "Fevzipaşa Mahallesi Kurtuluş Caddesi No:5 Alpu / ESKİŞEHİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/293",
+      "istasyon_adi": "Aypa Dinlenme Tesisleri Isparta",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "zes",
+      "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "adres": "Kükürt Mahallesi 110 Sokağı No:4 Keçiborlu / ISPARTA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/295",
+      "istasyon_adi": "Balcılar Petrol",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "zes",
+      "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "adres": "Zafer Mahallesi İnönü Caddesi No:10 İnhisar / BİLECİK",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/297",
+      "istasyon_adi": "Bilecik İçmeler Tesisi",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "zes",
+      "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "adres": "Selçik Mah, Mahallesi Adapazarı - Bilecik Yolu Osmaneli / BİLECİK",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/299",
+      "istasyon_adi": "Domaniç Belediyesi",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "zes",
+      "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "adres": "Karşıyaka Mahallesi Ahmet Yesevi Caddesi No:1 Otogar Domaniç / KÜTAHYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/300",
+      "istasyon_adi": "Emet Taşıyıcılar Kooperatifi",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "zes",
+      "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "adres": "Esentepe Mahallesi Tavşanlı Alanı Caddesi No:1 /1 Emet / KÜTAHYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/301",
+      "istasyon_adi": "Erden Akaryakıt",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "zes",
+      "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "adres": "Köprübaşı Mahallesi Eskişehir Yolu Caddesi No:10 Beylikova / ESKİŞEHİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/306",
+      "istasyon_adi": "Frig Tanıtım Evi",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "zes",
+      "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "adres": "Sofça Mahallesi Merkez / KÜTAHYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/308",
+      "istasyon_adi": "Gediz Petrol Kütahya",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "zes",
+      "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "adres": "Ova Mahallesi Çeltikçi Köyü, Gediz Yolu Gediz / KÜTAHYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/310",
+      "istasyon_adi": "Han Belediyesi",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "zes",
+      "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "adres": "Hüsrevpaşa Mahallesi Cumhuriyet Meydanı Caddesi No:1 Han / ESKİŞEHİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/311",
+      "istasyon_adi": "Hisarcık ve Havalisi Motorlu Taşıyıcılar Kooperatifi",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "zes",
+      "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "adres": "82. Yıl Mahallesi Emet Caddesi No:7 /1 Hisarcık / KÜTAHYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/313",
+      "istasyon_adi": "İhsaniye Belediyesi",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "zes",
+      "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "adres": "Cumhuriyet Mahallesi İhsaniye / AFYONKARAHİSAR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/315",
+      "istasyon_adi": "Kaptan Dinlenme Tesisleri",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "zes",
+      "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "adres": "Bozanköyü Mahallesi Dazkırı / AFYONKARAHİSAR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/318",
+      "istasyon_adi": "Mahmudiye Belediyesi",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "zes",
+      "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "adres": "Orta Mahallesi Eskişehir Caddesi No:124 Mahmudiye / ESKİŞEHİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/321",
+      "istasyon_adi": "Malaman Petrol",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "zes",
+      "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "adres": "Selimiye Köyü Mahallesi Şehit Eren Bülbül Caddesi No:8 /1 Mücavir Mevkii Osmaneli / BİLECİK",
+      "soket_bilgileri": ""
+    },
     {
       "istasyon_no": "ŞRJ/322",
       "istasyon_adi": "Marpark Cafer Usta Dinlenme Tesisleri",
@@ -22,7 +282,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Mayıslar Mahallesi Mayıslar Caddesi  No:25 Sarıcakaya / ESKİŞEHİR",
+      "adres": "Mayıslar Mahallesi Mayıslar Caddesi No:25 Sarıcakaya / ESKİŞEHİR",
       "soket_bilgileri": ""
     },
     {
@@ -32,7 +292,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Camikebir Mahallesi Cumhuriyet Caddesi  No:40 Mihalıççık / ESKİŞEHİR",
+      "adres": "Camikebir Mahallesi Cumhuriyet Caddesi No:40 Mihalıççık / ESKİŞEHİR",
       "soket_bilgileri": ""
     },
     {
@@ -42,7 +302,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Cumhuriyet Mahallesi Kütahya Caddesi  No:63 Aslanapa / KÜTAHYA",
+      "adres": "Cumhuriyet Mahallesi Kütahya Caddesi No:63 Aslanapa / KÜTAHYA",
       "soket_bilgileri": ""
     },
     {
@@ -52,7 +312,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Erbab Mahallesi  Sakaryabaşı Çifteler / ESKİŞEHİR",
+      "adres": "Erbab Mahallesi Sakaryabaşı Çifteler / ESKİŞEHİR",
       "soket_bilgileri": ""
     },
     {
@@ -62,7 +322,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "İkiçeşme Mahallesi Afyon Caddesi  No:49 Seyitgazi / ESKİŞEHİR",
+      "adres": "İkiçeşme Mahallesi Afyon Caddesi No:49 Seyitgazi / ESKİŞEHİR",
       "soket_bilgileri": ""
     },
     {
@@ -72,7 +332,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kırka Mahallesi Mustafa Kemal Caddesi  No:117 Seyitgazi / ESKİŞEHİR",
+      "adres": "Kırka Mahallesi Mustafa Kemal Caddesi No:117 Seyitgazi / ESKİŞEHİR",
       "soket_bilgileri": ""
     },
     {
@@ -92,7 +352,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Çukurköy Mahallesi Mendere Caddesi  No:98 Tavşanlı / KÜTAHYA",
+      "adres": "Çukurköy Mahallesi Mendere Caddesi No:98 Tavşanlı / KÜTAHYA",
       "soket_bilgileri": ""
     },
     {
@@ -112,7 +372,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Çınarlı Mahallesi Hasan Mevsuf Caddesi  No:31 /1  Dardanos Mevkii Merkez / ÇANAKKALE",
+      "adres": "Çınarlı Mahallesi Hasan Mevsuf Caddesi No:31 /1 Dardanos Mevkii Merkez / ÇANAKKALE",
       "soket_bilgileri": ""
     },
     {
@@ -122,7 +382,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Sırakapılar Mahallesi 1581. Sokağı  No:4 Merkezefendi / DENİZLİ",
+      "adres": "Sırakapılar Mahallesi 1581. Sokağı No:4 Merkezefendi / DENİZLİ",
       "soket_bilgileri": ""
     },
     {
@@ -132,7 +392,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Aşağı Dere Mahallesi Aşağı Dere Sokağı  No:324 /1 Honaz / DENİZLİ",
+      "adres": "Aşağı Dere Mahallesi Aşağı Dere Sokağı No:324 /1 Honaz / DENİZLİ",
       "soket_bilgileri": ""
     },
     {
@@ -142,7 +402,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Cumhuriyet Mahallesi  No:180 Didim / AYDIN",
+      "adres": "Cumhuriyet Mahallesi No:180 Didim / AYDIN",
       "soket_bilgileri": ""
     },
     {
@@ -152,7 +412,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Cumhuriyet Mahallesi  No:180 Didim / AYDIN",
+      "adres": "Cumhuriyet Mahallesi No:180 Didim / AYDIN",
       "soket_bilgileri": ""
     },
     {
@@ -162,7 +422,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yavansu Mahallesi Karaova Plajı Sokağı  No:4 Kuşadası / AYDIN",
+      "adres": "Yavansu Mahallesi Karaova Plajı Sokağı No:4 Kuşadası / AYDIN",
       "soket_bilgileri": ""
     },
     {
@@ -172,7 +432,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Çamlık Mahallesi Karadeniz Caddesi 548. Sokağı  No:2 Didim / AYDIN",
+      "adres": "Çamlık Mahallesi Karadeniz Caddesi 548. Sokağı No:2 Didim / AYDIN",
       "soket_bilgileri": ""
     },
     {
@@ -182,7 +442,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Cumhuriyet Mahallesi  No:14 Çine / AYDIN",
+      "adres": "Cumhuriyet Mahallesi No:14 Çine / AYDIN",
       "soket_bilgileri": ""
     },
     {
@@ -202,7 +462,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Karşıyaka Mahallesi 2394 Sokağı  No:4 /1 Pamukkale / DENİZLİ",
+      "adres": "Karşıyaka Mahallesi 2394 Sokağı No:4 /1 Pamukkale / DENİZLİ",
       "soket_bilgileri": ""
     },
     {
@@ -212,7 +472,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Gökpınar Mahallesi  No:185 Merkezefendi / DENİZLİ",
+      "adres": "Gökpınar Mahallesi No:185 Merkezefendi / DENİZLİ",
       "soket_bilgileri": ""
     },
     {
@@ -222,7 +482,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "KARAKÖY GAYRİMENKUL YATIRIMLARI ANONİM ŞİRKETİ",
-      "adres": "Güzelhisar Mahallesi 35. Sokağı  No:5 /A Efeler / AYDIN",
+      "adres": "Güzelhisar Mahallesi 35. Sokağı No:5 /A Efeler / AYDIN",
       "soket_bilgileri": ""
     },
     {
@@ -232,7 +492,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Gökpınar Mahallesi  No:185 Merkezefendi / DENİZLİ",
+      "adres": "Gökpınar Mahallesi No:185 Merkezefendi / DENİZLİ",
       "soket_bilgileri": ""
     },
     {
@@ -242,7 +502,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Ortaklar Mahallesi  No:58 Germencik / AYDIN",
+      "adres": "Ortaklar Mahallesi No:58 Germencik / AYDIN",
       "soket_bilgileri": ""
     },
     {
@@ -252,7 +512,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yavansu Mahallesi  No:120 Kuşadası / AYDIN",
+      "adres": "Yavansu Mahallesi No:120 Kuşadası / AYDIN",
       "soket_bilgileri": ""
     },
     {
@@ -262,7 +522,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Site Mahallesi Tesisler Caddesi  No:43  Yeni Turizm Yolu Aksu / ANTALYA",
+      "adres": "Site Mahallesi Tesisler Caddesi No:43 Yeni Turizm Yolu Aksu / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -272,7 +532,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Macun Mahallesi  Antalya-ısparta Karayolu Üzeri 2.km Aksu / ANTALYA",
+      "adres": "Macun Mahallesi Antalya-ısparta Karayolu Üzeri 2.km Aksu / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -282,7 +542,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Side Mahallesi 651. Sokağı  No:6 Manavgat / ANTALYA",
+      "adres": "Side Mahallesi 651. Sokağı No:6 Manavgat / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -292,7 +552,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kemerağzı Mahallesi  No:384 /A Aksu / ANTALYA",
+      "adres": "Kemerağzı Mahallesi No:384 /A Aksu / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -302,7 +562,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Side Mahallesi  No:1 Manavgat / ANTALYA",
+      "adres": "Side Mahallesi No:1 Manavgat / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -312,7 +572,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kemerağzı Mahallesi  No:44 Aksu / ANTALYA",
+      "adres": "Kemerağzı Mahallesi No:44 Aksu / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -332,7 +592,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Ermelek Mahallesi 2272 Aydın Sokağı  No:107 Muratpaşa / ANTALYA",
+      "adres": "Ermelek Mahallesi 2272 Aydın Sokağı No:107 Muratpaşa / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -342,7 +602,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Güzeloba Mahallesi  No:30 Muratpaşa / ANTALYA",
+      "adres": "Güzeloba Mahallesi No:30 Muratpaşa / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -352,7 +612,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kızılağaç Mahallesi  No:195  Kızılağaç Manavgat / ANTALYA",
+      "adres": "Kızılağaç Mahallesi No:195 Kızılağaç Manavgat / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -362,7 +622,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Evren Mahallesi 30. Sokağı  No:3 Manavgat / ANTALYA",
+      "adres": "Evren Mahallesi 30. Sokağı No:3 Manavgat / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -372,7 +632,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kundu Mahallesi  No:432 /1 Aksu / ANTALYA",
+      "adres": "Kundu Mahallesi No:432 /1 Aksu / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -382,7 +642,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "İncekum Mahallesi  Yeni Camii Alanya / ANTALYA",
+      "adres": "İncekum Mahallesi Yeni Camii Alanya / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -392,7 +652,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Konaklı Mahallesi Karda Sokağı  No:8 Alanya / ANTALYA",
+      "adres": "Konaklı Mahallesi Karda Sokağı No:8 Alanya / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -402,7 +662,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Ilıca Mahallesi Sahil Caddesi  No:24 Manavgat / ANTALYA",
+      "adres": "Ilıca Mahallesi Sahil Caddesi No:24 Manavgat / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -412,7 +672,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Gürsu Mahallesi 318 Sokağı  No:15 Konyaaltı / ANTALYA",
+      "adres": "Gürsu Mahallesi 318 Sokağı No:15 Konyaaltı / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -422,7 +682,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yukarıkökdere Mahallesi  No:35 /B Eğirdir / ISPARTA",
+      "adres": "Yukarıkökdere Mahallesi No:35 /B Eğirdir / ISPARTA",
       "soket_bilgileri": ""
     },
     {
@@ -432,7 +692,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Belek Mahallesi İskele Caddesi  No:10 /A Serik / ANTALYA",
+      "adres": "Belek Mahallesi İskele Caddesi No:10 /A Serik / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -442,7 +702,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Belek Mahallesi Kongre Caddesi  No:12 /A Serik / ANTALYA",
+      "adres": "Belek Mahallesi Kongre Caddesi No:12 /A Serik / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -452,7 +712,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kemerağzı Mahallesi  No:360 Aksu / ANTALYA",
+      "adres": "Kemerağzı Mahallesi No:360 Aksu / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -462,7 +722,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Burdur-antalya Yolu Mahallesi  Burdur-antalya Yolu Bucak / BURDUR",
+      "adres": "Burdur-antalya Yolu Mahallesi Burdur-antalya Yolu Bucak / BURDUR",
       "soket_bilgileri": ""
     },
     {
@@ -472,7 +732,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Konaklı Mahallesi Kordon Sokağı  No:10 Alanya / ANTALYA",
+      "adres": "Konaklı Mahallesi Kordon Sokağı No:10 Alanya / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -482,7 +742,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kemerağzı Mahallesi  No:72 Aksu / ANTALYA",
+      "adres": "Kemerağzı Mahallesi No:72 Aksu / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -492,7 +752,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Side Mahallesi  No:5 Manavgat / ANTALYA",
+      "adres": "Side Mahallesi No:5 Manavgat / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -502,7 +762,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Türkler Mahallesi Şükrü Sipahioğlu Caddesi  No:12 Alanya / ANTALYA",
+      "adres": "Türkler Mahallesi Şükrü Sipahioğlu Caddesi No:12 Alanya / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -512,7 +772,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kalkan Mahallesi Cumhuriyet Caddesi  No:80 Kaş / ANTALYA",
+      "adres": "Kalkan Mahallesi Cumhuriyet Caddesi No:80 Kaş / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -522,7 +782,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Side Mahallesi 656. Sokağı  No:4 Manavgat / ANTALYA",
+      "adres": "Side Mahallesi 656. Sokağı No:4 Manavgat / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -532,7 +792,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kızılot Mahallesi  No:11 /1  Kızılot Manavgat / ANTALYA",
+      "adres": "Kızılot Mahallesi No:11 /1 Kızılot Manavgat / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -542,7 +802,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Sancak Mahallesi Fesleğenli Sokağı  No:11 /A Manavgat / ANTALYA",
+      "adres": "Sancak Mahallesi Fesleğenli Sokağı No:11 /A Manavgat / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -552,7 +812,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kışla Mahallesi 53. Sokağı  No:4 /A Muratpaşa / ANTALYA",
+      "adres": "Kışla Mahallesi 53. Sokağı No:4 /A Muratpaşa / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -562,7 +822,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Belek Mahallesi Çamlık Caddesi  No:16 /1 Serik / ANTALYA",
+      "adres": "Belek Mahallesi Çamlık Caddesi No:16 /1 Serik / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -572,7 +832,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Tosnur Mahallesi 7. Sokağı  No:1 Alanya / ANTALYA",
+      "adres": "Tosnur Mahallesi 7. Sokağı No:1 Alanya / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -582,7 +842,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kundu Mahallesi  No:442 Aksu / ANTALYA",
+      "adres": "Kundu Mahallesi No:442 Aksu / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -592,7 +852,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Teomanpaşa Mahallesi  No:297 Kepez / ANTALYA",
+      "adres": "Teomanpaşa Mahallesi No:297 Kepez / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -602,7 +862,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Güzeloba Mahallesi  No:36 Muratpaşa / ANTALYA",
+      "adres": "Güzeloba Mahallesi No:36 Muratpaşa / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -612,7 +872,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kolatlar Mahallesi Milli Eğemenlik Caddesi  No:61 /A Finike / ANTALYA",
+      "adres": "Kolatlar Mahallesi Milli Eğemenlik Caddesi No:61 /A Finike / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -622,7 +882,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Sanayi Mahallesi 104. Caddesi  No:147 Merkez / ISPARTA",
+      "adres": "Sanayi Mahallesi 104. Caddesi No:147 Merkez / ISPARTA",
       "soket_bilgileri": ""
     },
     {
@@ -632,7 +892,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Börkelek Mahallesi  Kahramanmaraş Adıyaman Yolu Merkez / ADIYAMAN",
+      "adres": "Börkelek Mahallesi Kahramanmaraş Adıyaman Yolu Merkez / ADIYAMAN",
       "soket_bilgileri": ""
     },
     {
@@ -642,7 +902,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Gayberli Mahallesi 2833. Sokağı  No:3 Onikişubat / KAHRAMANMARAŞ",
+      "adres": "Gayberli Mahallesi 2833. Sokağı No:3 Onikişubat / KAHRAMANMARAŞ",
       "soket_bilgileri": ""
     },
     {
@@ -652,7 +912,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Siteler Mahallesi  No:1 Merkez / ADIYAMAN",
+      "adres": "Siteler Mahallesi No:1 Merkez / ADIYAMAN",
       "soket_bilgileri": ""
     },
     {
@@ -672,7 +932,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kayalık Mahallesi H.mansur Caddesi  No:275 /A Merkez / ADIYAMAN",
+      "adres": "Kayalık Mahallesi H.mansur Caddesi No:275 /A Merkez / ADIYAMAN",
       "soket_bilgileri": ""
     },
     {
@@ -682,7 +942,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Atatürk Mahallesi Sedef Caddesi  No:1 /1 Ataşehir / İSTANBUL",
+      "adres": "Atatürk Mahallesi Sedef Caddesi No:1 /1 Ataşehir / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -692,7 +952,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "İçeren Köy Mahallesi Değirmenyolu Caddesi  No:27 /A Ataşehir / İSTANBUL",
+      "adres": "İçeren Köy Mahallesi Değirmenyolu Caddesi No:27 /A Ataşehir / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -712,7 +972,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Merkez Mahallesi Çavuşbaşı Caddesi  No:93 Çekmeköy / İSTANBUL",
+      "adres": "Merkez Mahallesi Çavuşbaşı Caddesi No:93 Çekmeköy / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -722,7 +982,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kozyatağı Mahallesi Değirmen Sokağı  No:16 /A Kadıköy / İSTANBUL",
+      "adres": "Kozyatağı Mahallesi Değirmen Sokağı No:16 /A Kadıköy / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -732,7 +992,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Zühtüpaşa Mahallesi Reşitpaşa Sokağı  No:32 Kadıköy / İSTANBUL",
+      "adres": "Zühtüpaşa Mahallesi Reşitpaşa Sokağı No:32 Kadıköy / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -742,7 +1002,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Esenyalı Mahallesi Gölet Sokağı  No:3 /A Pendik / İSTANBUL",
+      "adres": "Esenyalı Mahallesi Gölet Sokağı No:3 /A Pendik / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -752,7 +1012,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Gülsuyu Mahallesi Başacar Sokağı  No:15 /A Maltepe / İSTANBUL",
+      "adres": "Gülsuyu Mahallesi Başacar Sokağı No:15 /A Maltepe / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -762,7 +1022,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Acıbadem Mahallesi Alidede Sokağı  No:4 Kadıköy / İSTANBUL",
+      "adres": "Acıbadem Mahallesi Alidede Sokağı No:4 Kadıköy / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -772,7 +1032,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yenişehir Mahallesi Millet Caddesi  No:31 Pendik / İSTANBUL",
+      "adres": "Yenişehir Mahallesi Millet Caddesi No:31 Pendik / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -782,7 +1042,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kaynarca Mahallesi  No:33 Pendik / İSTANBUL",
+      "adres": "Kaynarca Mahallesi No:33 Pendik / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -792,7 +1052,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Armağan Evelr Mahallesi Akdeniz Caddesi Dere Sokağı  No:153 Ümraniye / İSTANBUL",
+      "adres": "Armağan Evelr Mahallesi Akdeniz Caddesi Dere Sokağı No:153 Ümraniye / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -802,7 +1062,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "İçeren Köy Mahallesi Değirmenyolu Caddesi  No:39 /C Ataşehir / İSTANBUL",
+      "adres": "İçeren Köy Mahallesi Değirmenyolu Caddesi No:39 /C Ataşehir / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -812,7 +1072,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Sahil Köy Mahallesi Kozalı Caddesi  No:23 Şile / İSTANBUL",
+      "adres": "Sahil Köy Mahallesi Kozalı Caddesi No:23 Şile / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -822,7 +1082,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kaynarca Mahallesi Çeşni Sokağı  No:5 Pendik / İSTANBUL",
+      "adres": "Kaynarca Mahallesi Çeşni Sokağı No:5 Pendik / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -832,7 +1092,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Sırapınar Mahallesi Cömert Sokağı  No:7 /9 Çekmeköy / İSTANBUL",
+      "adres": "Sırapınar Mahallesi Cömert Sokağı No:7 /9 Çekmeköy / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -842,7 +1102,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Cevizli Mahallesi Turgay Yolu Caddesi  No:59 Maltepe / İSTANBUL",
+      "adres": "Cevizli Mahallesi Turgay Yolu Caddesi No:59 Maltepe / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -852,7 +1112,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Finans Kent Mahallesi Finans Caddesi  No:5 /B Ümraniye / İSTANBUL",
+      "adres": "Finans Kent Mahallesi Finans Caddesi No:5 /B Ümraniye / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -862,7 +1122,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Esen Şehir Mahallesi Kanuni Sokağı  No:2 /A Ümraniye / İSTANBUL",
+      "adres": "Esen Şehir Mahallesi Kanuni Sokağı No:2 /A Ümraniye / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -872,7 +1132,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kaptanlı Derya Caddesi  No:37 Kartal / İSTANBUL",
+      "adres": "Kaptanlı Derya Caddesi No:37 Kartal / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -882,7 +1142,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Aydınevler Mahallesi İnönü Caddesi  No:20 /B Maltepe / İSTANBUL",
+      "adres": "Aydınevler Mahallesi İnönü Caddesi No:20 /B Maltepe / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -892,7 +1152,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kurtköy Mahallesi Ankara Caddesi  No:400 /A Pendik / İSTANBUL",
+      "adres": "Kurtköy Mahallesi Ankara Caddesi No:400 /A Pendik / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -902,7 +1162,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kordonboyu Mahallesi  No:53 Kartal / İSTANBUL",
+      "adres": "Kordonboyu Mahallesi No:53 Kartal / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -912,7 +1172,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Halilefendi Mahallesi Artvin Caddesi  No:77 Merkez / ARDAHAN",
+      "adres": "Halilefendi Mahallesi Artvin Caddesi No:77 Merkez / ARDAHAN",
       "soket_bilgileri": ""
     },
     {
@@ -922,7 +1182,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Erzurum Karayolu Mahallesi  Erzurum Karayolu Üzeri Tedaş Karşısı Merkez / ERZİNCAN",
+      "adres": "Erzurum Karayolu Mahallesi Erzurum Karayolu Üzeri Tedaş Karşısı Merkez / ERZİNCAN",
       "soket_bilgileri": ""
     },
     {
@@ -932,7 +1192,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yunusemre Mahallesi Kayat Tesisleri Sokağı  No:3 Palandöken / ERZURUM",
+      "adres": "Yunusemre Mahallesi Kayat Tesisleri Sokağı No:3 Palandöken / ERZURUM",
       "soket_bilgileri": ""
     },
     {
@@ -942,7 +1202,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Çiftepınar Mahallesi Rıfkıbaşkaya Caddesi  No:17 Doğubayazıt / AĞRI",
+      "adres": "Çiftepınar Mahallesi Rıfkıbaşkaya Caddesi No:17 Doğubayazıt / AĞRI",
       "soket_bilgileri": ""
     },
     {
@@ -952,7 +1212,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Konaklı Mahallesi Kazım Karabekir Caddesi  No:143 Merkez / IĞDIR",
+      "adres": "Konaklı Mahallesi Kazım Karabekir Caddesi No:143 Merkez / IĞDIR",
       "soket_bilgileri": ""
     },
     {
@@ -962,7 +1222,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "14 Kasım Mahallesi Nihat Polat Caddesi  No:54 /A Merkez / IĞDIR",
+      "adres": "14 Kasım Mahallesi Nihat Polat Caddesi No:54 /A Merkez / IĞDIR",
       "soket_bilgileri": ""
     },
     {
@@ -972,7 +1232,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kızıl Gedik Fabrika Sahası Mahallesi  Akpınar Köyü Yerköy / YOZGAT",
+      "adres": "Kızıl Gedik Fabrika Sahası Mahallesi Akpınar Köyü Yerköy / YOZGAT",
       "soket_bilgileri": ""
     },
     {
@@ -982,7 +1242,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yeniyurt Mahallesi  No:40 /A Merkez / TOKAT",
+      "adres": "Yeniyurt Mahallesi No:40 /A Merkez / TOKAT",
       "soket_bilgileri": ""
     },
     {
@@ -992,7 +1252,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yeni Mahallesi  No:172 /1 Sorgun / YOZGAT",
+      "adres": "Yeni Mahallesi No:172 /1 Sorgun / YOZGAT",
       "soket_bilgileri": ""
     },
     {
@@ -1002,7 +1262,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Gülseren Mahallesi Plevne Sokağı  No:172 Mamak / ANKARA",
+      "adres": "Gülseren Mahallesi Plevne Sokağı No:172 Mamak / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -1012,7 +1272,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kavaklıdere Mahallesi Konur Sokağı  No:60 Çankaya / ANKARA",
+      "adres": "Kavaklıdere Mahallesi Konur Sokağı No:60 Çankaya / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -1042,7 +1302,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Anafatalar Mahallesi İstiklal Caddesi  No:20 Altındağ / ANKARA",
+      "adres": "Anafatalar Mahallesi İstiklal Caddesi No:20 Altındağ / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -1052,7 +1312,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Beştepe Mahallesi Yaşam Caddesi  No:7 /B Yenimahalle / ANKARA",
+      "adres": "Beştepe Mahallesi Yaşam Caddesi No:7 /B Yenimahalle / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -1062,7 +1322,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Aktekke Mahallesi Yalçın Caddesi  No:2 /7 Merkez / KASTAMONU",
+      "adres": "Aktekke Mahallesi Yalçın Caddesi No:2 /7 Merkez / KASTAMONU",
       "soket_bilgileri": ""
     },
     {
@@ -1072,7 +1332,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Alacaatlı Mahallesi  No:1  Alacaatlı Köy Yolu Çankaya / ANKARA",
+      "adres": "Alacaatlı Mahallesi No:1 Alacaatlı Köy Yolu Çankaya / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -1082,7 +1342,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Saraçlar Mahallesi Stadyum Caddesi Merkez Yol Sokağı  No:40 /A Merkez / KASTAMONU",
+      "adres": "Saraçlar Mahallesi Stadyum Caddesi Merkez Yol Sokağı No:40 /A Merkez / KASTAMONU",
       "soket_bilgileri": ""
     },
     {
@@ -1092,7 +1352,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Bayraktepe Mahallesi Bağdat Caddesi  No:2 Yahşihan / KIRIKKALE",
+      "adres": "Bayraktepe Mahallesi Bağdat Caddesi No:2 Yahşihan / KIRIKKALE",
       "soket_bilgileri": ""
     },
     {
@@ -1102,7 +1362,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kavaklıdere Mahallesi Tunus Caddesi  No:20 Çankaya / ANKARA",
+      "adres": "Kavaklıdere Mahallesi Tunus Caddesi No:20 Çankaya / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -1112,7 +1372,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Önçebeci Mahallesi Ziya Gökalp Caddesi  No:58 Çankaya / ANKARA",
+      "adres": "Önçebeci Mahallesi Ziya Gökalp Caddesi No:58 Çankaya / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -1122,7 +1382,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Karşıyaka Mahallesi  Harmanyolu 4.km Gölbaşı / ANKARA",
+      "adres": "Karşıyaka Mahallesi Harmanyolu 4.km Gölbaşı / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -1132,7 +1392,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Mehmet Akif Ersoy Mahallesi Bağdat Caddesi 286. Sokağı  No:60 /B Yenimahalle / ANKARA",
+      "adres": "Mehmet Akif Ersoy Mahallesi Bağdat Caddesi 286. Sokağı No:60 /B Yenimahalle / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -1142,7 +1402,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Hacı Veli Mahallesi Ankara Caddesi  No:1 Ayaş / ANKARA",
+      "adres": "Hacı Veli Mahallesi Ankara Caddesi No:1 Ayaş / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -1152,7 +1412,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Uğur Mumcu Caddesi Kuleli Sokağı  No:40 Çankaya / ANKARA",
+      "adres": "Uğur Mumcu Caddesi Kuleli Sokağı No:40 Çankaya / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -1162,7 +1422,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Çamlıca Mahallesi 145. Caddesi  No:16 Yenimahalle / ANKARA",
+      "adres": "Çamlıca Mahallesi 145. Caddesi No:16 Yenimahalle / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -1172,7 +1432,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Oğulbey Mahallesi  No:244  Oğulbey Küme Evleri Gölbaşı / ANKARA",
+      "adres": "Oğulbey Mahallesi No:244 Oğulbey Küme Evleri Gölbaşı / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -1182,7 +1442,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Saraçlar Mahallesi  Ankara Çubuk Yolu 13.km Akyurt / ANKARA",
+      "adres": "Saraçlar Mahallesi Ankara Çubuk Yolu 13.km Akyurt / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -1192,7 +1452,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Bahçekapı Mahallesi Dumlupınar Caddesi 2510. Sokağı  No:1 Etimesgut / ANKARA",
+      "adres": "Bahçekapı Mahallesi Dumlupınar Caddesi 2510. Sokağı No:1 Etimesgut / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -1202,7 +1462,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Mehmet Akif Ersoy Mahallesi 299. Sokağı  No:13 Yenimahalle / ANKARA",
+      "adres": "Mehmet Akif Ersoy Mahallesi 299. Sokağı No:13 Yenimahalle / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -1212,7 +1472,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Uzungöl Mahallesi Fatih Caddesi  No:36 Çaykara / TRABZON",
+      "adres": "Uzungöl Mahallesi Fatih Caddesi No:36 Çaykara / TRABZON",
       "soket_bilgileri": ""
     },
     {
@@ -1222,7 +1482,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Maden Mahallesi Küçük Ev Sokağı  No:20 Piraziz / GİRESUN",
+      "adres": "Maden Mahallesi Küçük Ev Sokağı No:20 Piraziz / GİRESUN",
       "soket_bilgileri": ""
     },
     {
@@ -1232,7 +1492,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yeşilvadi Mahallesi Yeni Mardin Yolu Caddesi  No:307 Sur / DİYARBAKIR",
+      "adres": "Yeşilvadi Mahallesi Yeni Mardin Yolu Caddesi No:307 Sur / DİYARBAKIR",
       "soket_bilgileri": ""
     },
     {
@@ -1242,7 +1502,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Köprübaşı Mahallesi  No:545 Sur / DİYARBAKIR",
+      "adres": "Köprübaşı Mahallesi No:545 Sur / DİYARBAKIR",
       "soket_bilgileri": ""
     },
     {
@@ -1252,7 +1512,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Mardin-batman Mahallesi  Mardin-batman Otoyol 4.kmu Midyat / MARDİN",
+      "adres": "Mardin-batman Mahallesi Mardin-batman Otoyol 4.kmu Midyat / MARDİN",
       "soket_bilgileri": ""
     },
     {
@@ -1262,7 +1522,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Dökmetaş Mahallesi  No:429 Kayapınar / DİYARBAKIR",
+      "adres": "Dökmetaş Mahallesi No:429 Kayapınar / DİYARBAKIR",
       "soket_bilgileri": ""
     },
     {
@@ -1272,7 +1532,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Bayındır Mahallesi  No:54 Merkez / BATMAN",
+      "adres": "Bayındır Mahallesi No:54 Merkez / BATMAN",
       "soket_bilgileri": ""
     },
     {
@@ -1282,7 +1542,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Doğan Mahallesi Eyhmusa Caddesi  No:22 Merkez / SİİRT",
+      "adres": "Doğan Mahallesi Eyhmusa Caddesi No:22 Merkez / SİİRT",
       "soket_bilgileri": ""
     },
     {
@@ -1292,7 +1552,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yakınca Mahallesi Mehmet Akif Ersoy Caddesi  No:27 Yeşilyurt / MALATYA",
+      "adres": "Yakınca Mahallesi Mehmet Akif Ersoy Caddesi No:27 Yeşilyurt / MALATYA",
       "soket_bilgileri": ""
     },
     {
@@ -1302,7 +1562,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Şifa Mahallesi İnönü Caddesi  No:144 Battalgazi / MALATYA",
+      "adres": "Şifa Mahallesi İnönü Caddesi No:144 Battalgazi / MALATYA",
       "soket_bilgileri": ""
     },
     {
@@ -1312,7 +1572,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kaleönü Saray Mahallesi Elazığ Muş Yolu Caddesi  No:103 Merkez / BİNGÖL",
+      "adres": "Kaleönü Saray Mahallesi Elazığ Muş Yolu Caddesi No:103 Merkez / BİNGÖL",
       "soket_bilgileri": ""
     },
     {
@@ -1322,7 +1582,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Akpınar Mahallesi  No:41 Merkez / ELAZIĞ",
+      "adres": "Akpınar Mahallesi No:41 Merkez / ELAZIĞ",
       "soket_bilgileri": ""
     },
     {
@@ -1332,7 +1592,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kıraç Mahallesi Bingöl 2 Caddesi  No:28 /1 Merkez / ELAZIĞ",
+      "adres": "Kıraç Mahallesi Bingöl 2 Caddesi No:28 /1 Merkez / ELAZIĞ",
       "soket_bilgileri": ""
     },
     {
@@ -1342,7 +1602,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Ataşehir Mahallesi 800/2. Sokağı  No:2 Çiğli / İZMİR",
+      "adres": "Ataşehir Mahallesi 800/2. Sokağı No:2 Çiğli / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -1352,7 +1612,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yeniköy Mahallesi  No:2  Foça-izmir Karayolu Foça / İZMİR",
+      "adres": "Yeniköy Mahallesi No:2 Foça-izmir Karayolu Foça / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -1362,7 +1622,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yenikent Mahallesi Samanyolu Sokağı  No:6 Urla / İZMİR",
+      "adres": "Yenikent Mahallesi Samanyolu Sokağı No:6 Urla / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -1372,7 +1632,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kemalpaşa Mahallesi 7419/12. Sokağı  No:60 Bornova / İZMİR",
+      "adres": "Kemalpaşa Mahallesi 7419/12. Sokağı No:60 Bornova / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -1382,7 +1642,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Atatürk Mahallesi Sahil Caddesi  No:53 Menderes / İZMİR",
+      "adres": "Atatürk Mahallesi Sahil Caddesi No:53 Menderes / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -1392,7 +1652,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Sakarya Mahallesi  No:133 Çeşme / İZMİR",
+      "adres": "Sakarya Mahallesi No:133 Çeşme / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -1402,7 +1662,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Salimbey Mahallesi Atatürk Caddesi  No:43 /1 Dikili / İZMİR",
+      "adres": "Salimbey Mahallesi Atatürk Caddesi No:43 /1 Dikili / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -1412,7 +1672,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Ardıç Mahallesi 5431/1 Sokağı  No:5 Çeşme / İZMİR",
+      "adres": "Ardıç Mahallesi 5431/1 Sokağı No:5 Çeşme / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -1432,7 +1692,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Alaçatı Mahallesi 13002 Sokağı  No:11 Çeşme / İZMİR",
+      "adres": "Alaçatı Mahallesi 13002 Sokağı No:11 Çeşme / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -1442,7 +1702,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "İsabey Mahallesi  Aydın Karayolu Üzeri Sarapçık Selçuk / İZMİR",
+      "adres": "İsabey Mahallesi Aydın Karayolu Üzeri Sarapçık Selçuk / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -1452,7 +1712,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Gölcükler Mahallesi 901. Sokağı  No:38  İstasyon Menderes / İZMİR",
+      "adres": "Gölcükler Mahallesi 901. Sokağı No:38 İstasyon Menderes / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -1462,7 +1722,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Eşrefpaşa Mahallesi Eşrefpaşa Caddesi  No:408 Konak / İZMİR",
+      "adres": "Eşrefpaşa Mahallesi Eşrefpaşa Caddesi No:408 Konak / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -1472,7 +1732,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Çapak Mahallesi Özgörkey Caddesi  No:5 Torbalı / İZMİR",
+      "adres": "Çapak Mahallesi Özgörkey Caddesi No:5 Torbalı / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -1482,7 +1742,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Atatürk Mahallesi  No:16  Pamucak Selçuk / İZMİR",
+      "adres": "Atatürk Mahallesi No:16 Pamucak Selçuk / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -1492,7 +1752,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yenişehir Mahallesi İşçiler Caddesi  No:126 Konak / İZMİR",
+      "adres": "Yenişehir Mahallesi İşçiler Caddesi No:126 Konak / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -1502,7 +1762,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kemalpaşa Caddesi  No:9 /A  Madenaltı Mevki Yolu Kemalpaşa / İZMİR",
+      "adres": "Kemalpaşa Caddesi No:9 /A Madenaltı Mevki Yolu Kemalpaşa / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -1512,7 +1772,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Mavişehir Mahallesi 2040. Sokağı  No:35 Karşıyaka / İZMİR",
+      "adres": "Mavişehir Mahallesi 2040. Sokağı No:35 Karşıyaka / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -1522,7 +1782,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Dokuzeylül Mahallesi Akçay Caddesi  No:277 Gaziemir / İZMİR",
+      "adres": "Dokuzeylül Mahallesi Akçay Caddesi No:277 Gaziemir / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -1532,7 +1792,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Cumhuriyet Mahallesi 3026. Sokağı  No:11 Menderes / İZMİR",
+      "adres": "Cumhuriyet Mahallesi 3026. Sokağı No:11 Menderes / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -1542,7 +1802,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Ahmet Besim Uyal Caddesi  No:54 Urla / İZMİR",
+      "adres": "Ahmet Besim Uyal Caddesi No:54 Urla / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -1552,7 +1812,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "2.inönü Mahallesi Musaanter Sokağı  No:43 Narlıdere / İZMİR",
+      "adres": "2.inönü Mahallesi Musaanter Sokağı No:43 Narlıdere / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -1562,7 +1822,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Hambar Mahallesi Ankara Yolu Caddesi  No:603 Melikgazi / KAYSERİ",
+      "adres": "Hambar Mahallesi Ankara Yolu Caddesi No:603 Melikgazi / KAYSERİ",
       "soket_bilgileri": ""
     },
     {
@@ -1572,7 +1832,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Hisarcık Mahallesi  No:163  Tekir Yayalası Küme Evleri Melikgazi / KAYSERİ",
+      "adres": "Hisarcık Mahallesi No:163 Tekir Yayalası Küme Evleri Melikgazi / KAYSERİ",
       "soket_bilgileri": ""
     },
     {
@@ -1582,7 +1842,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Akkent Mahallesi  No:50  6.km Merkez / ÇORUM",
+      "adres": "Akkent Mahallesi No:50 6.km Merkez / ÇORUM",
       "soket_bilgileri": ""
     },
     {
@@ -1592,7 +1852,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Cumhuriyet Mahallesi 515. Sokağı  No:7 /1 Vezirköprü / SAMSUN",
+      "adres": "Cumhuriyet Mahallesi 515. Sokağı No:7 /1 Vezirköprü / SAMSUN",
       "soket_bilgileri": ""
     },
     {
@@ -1602,7 +1862,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Uskumru Köy Mahallesi Kilyos Caddesi  No:274 Sarıyer / İSTANBUL",
+      "adres": "Uskumru Köy Mahallesi Kilyos Caddesi No:274 Sarıyer / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -1612,7 +1872,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Mirgan Mahallesi Sakıp Sabancı Caddesi  No:5 /1 Sarıyer / İSTANBUL",
+      "adres": "Mirgan Mahallesi Sakıp Sabancı Caddesi No:5 /1 Sarıyer / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -1622,7 +1882,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Sultan Selim Mahallesi Eski Büyükdere Caddesi  No:55 Kağıthane / İSTANBUL",
+      "adres": "Sultan Selim Mahallesi Eski Büyükdere Caddesi No:55 Kağıthane / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -1632,7 +1892,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Bebek Mahallesi Cevdet Paşa Caddesi  No:60 Beşiktaş / İSTANBUL",
+      "adres": "Bebek Mahallesi Cevdet Paşa Caddesi No:60 Beşiktaş / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -1642,7 +1902,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Gayrettepe Mahallesi Yıldızposta Caddesi  No:50 Beşiktaş / İSTANBUL",
+      "adres": "Gayrettepe Mahallesi Yıldızposta Caddesi No:50 Beşiktaş / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -1662,7 +1922,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Maslak Mahallesi Sanatkarlar Sokağı  No:2 /A Sarıyer / İSTANBUL",
+      "adres": "Maslak Mahallesi Sanatkarlar Sokağı No:2 /A Sarıyer / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -1672,7 +1932,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Murat Bey Mahallesi Kara Toprak Caddesi  No:19 /A Çatalca / İSTANBUL",
+      "adres": "Murat Bey Mahallesi Kara Toprak Caddesi No:19 /A Çatalca / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -1682,7 +1942,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Göktürk Mahallesi Cumhuriyet Caddesi  No:10 Eyüpsultan / İSTANBUL",
+      "adres": "Göktürk Mahallesi Cumhuriyet Caddesi No:10 Eyüpsultan / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -1692,7 +1952,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yeni Bosna Merkez Mahallesi Değirmen Bahçe Caddesi  No:15 Bahçelievler / İSTANBUL",
+      "adres": "Yeni Bosna Merkez Mahallesi Değirmen Bahçe Caddesi No:15 Bahçelievler / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -1702,7 +1962,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yeni Bosna Merkez Mahallesi Yalçınkoreş Caddesi  No:14 Bahçelievler / İSTANBUL",
+      "adres": "Yeni Bosna Merkez Mahallesi Yalçınkoreş Caddesi No:14 Bahçelievler / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -1712,7 +1972,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Defterdar Mahallesi Fetih Çelebi Caddesi  No:45 Eyüpsultan / İSTANBUL",
+      "adres": "Defterdar Mahallesi Fetih Çelebi Caddesi No:45 Eyüpsultan / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -1722,7 +1982,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Ahmet Adnan Saygun Mahallesi Canan Sokağı  No:5 Beşiktaş / İSTANBUL",
+      "adres": "Ahmet Adnan Saygun Mahallesi Canan Sokağı No:5 Beşiktaş / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -1732,7 +1992,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yeni Mahallesi Yalı Caddesi  No:54 Büyükçekmece / İSTANBUL",
+      "adres": "Yeni Mahallesi Yalı Caddesi No:54 Büyükçekmece / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -1742,7 +2002,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Ortaköy Mahallesi Dereboy Caddesi  No:2 Beşiktaş / İSTANBUL",
+      "adres": "Ortaköy Mahallesi Dereboy Caddesi No:2 Beşiktaş / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -1752,7 +2012,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Sakarya Mahallesi Silahtarağa Caddesi  No:87 Eyüpsultan / İSTANBUL",
+      "adres": "Sakarya Mahallesi Silahtarağa Caddesi No:87 Eyüpsultan / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -1762,7 +2022,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Oyakkent 2. Etap Site Yönetimi Mahallesi  Oyakkent 2. Etap Site Yönetimi Başakşehir / İSTANBUL",
+      "adres": "Oyakkent 2. Etap Site Yönetimi Mahallesi Oyakkent 2. Etap Site Yönetimi Başakşehir / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -1772,7 +2032,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "KARAKÖY GAYRİMENKUL YATIRIMLARI ANONİM ŞİRKETİ",
-      "adres": "Beştelsiz Mahallesi Prof.muammer Aksoy Caddesi  No:38 Zeytinburnu / İSTANBUL",
+      "adres": "Beştelsiz Mahallesi Prof.muammer Aksoy Caddesi No:38 Zeytinburnu / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -1782,7 +2042,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Sütlüce Mahallesi İmrahor Caddesi  No:12 Beyoğlu / İSTANBUL",
+      "adres": "Sütlüce Mahallesi İmrahor Caddesi No:12 Beyoğlu / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -1792,7 +2052,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Mehmet Akif Mahallesi 3.inönü Caddesi  No:96 /1 Küçükçekmece / İSTANBUL",
+      "adres": "Mehmet Akif Mahallesi 3.inönü Caddesi No:96 /1 Küçükçekmece / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -1802,7 +2062,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Güzeltepe Mahallesi Maraşalfevziçakmak Caddesi  No:158 Eyüpsultan / İSTANBUL",
+      "adres": "Güzeltepe Mahallesi Maraşalfevziçakmak Caddesi No:158 Eyüpsultan / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -1812,7 +2072,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "İstinye Mahallesi Sarıyer Caddesi  No:68 Sarıyer / İSTANBUL",
+      "adres": "İstinye Mahallesi Sarıyer Caddesi No:68 Sarıyer / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -1822,7 +2082,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yenibosna Mahallesi Değirmen Bahçe Caddesi 1.asena Sokağı  No:9 Bahçelievler / İSTANBUL",
+      "adres": "Yenibosna Mahallesi Değirmen Bahçe Caddesi 1.asena Sokağı No:9 Bahçelievler / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -1832,7 +2092,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Gümüşsuyu Mahallesi Sıraevler Caddesi  No:13 Beyoğlu / İSTANBUL",
+      "adres": "Gümüşsuyu Mahallesi Sıraevler Caddesi No:13 Beyoğlu / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -1842,7 +2102,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yeşilpınar Mahallesi Şht.metin Kaya Sokağı  No:11 Eyüpsultan / İSTANBUL",
+      "adres": "Yeşilpınar Mahallesi Şht.metin Kaya Sokağı No:11 Eyüpsultan / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -1852,7 +2112,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Fatih Mahallesi  No:8 /A/1  D-100 Kuzey Yanyolu Küçükçekmece Gölü Kenarı E-5 Karayolu Üzeri Küçükçekmece / İSTANBUL",
+      "adres": "Fatih Mahallesi No:8 /A/1 D-100 Kuzey Yanyolu Küçükçekmece Gölü Kenarı E-5 Karayolu Üzeri Küçükçekmece / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -1872,7 +2132,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Abdurrahman Mahallesi Talatpaşa Caddesi  No:59 Merkez / EDİRNE",
+      "adres": "Abdurrahman Mahallesi Talatpaşa Caddesi No:59 Merkez / EDİRNE",
       "soket_bilgileri": ""
     },
     {
@@ -1882,7 +2142,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Akaraağaç Mahallesi Lozan Caddesi  No:6 Merkez / EDİRNE",
+      "adres": "Akaraağaç Mahallesi Lozan Caddesi No:6 Merkez / EDİRNE",
       "soket_bilgileri": ""
     },
     {
@@ -1892,7 +2152,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Babademirtaş Mahallesi Çubukcular Sokağı  No:1 Merkez / EDİRNE",
+      "adres": "Babademirtaş Mahallesi Çubukcular Sokağı No:1 Merkez / EDİRNE",
       "soket_bilgileri": ""
     },
     {
@@ -1912,7 +2172,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Adnan Menderes Mahallesi Ufuk Sokağı  No:7 Merkez / YALOVA",
+      "adres": "Adnan Menderes Mahallesi Ufuk Sokağı No:7 Merkez / YALOVA",
       "soket_bilgileri": ""
     },
     {
@@ -1922,7 +2182,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yiğitler Mahallesi C-13 Sokağı  No:103 /123 Yıldırım / BURSA",
+      "adres": "Yiğitler Mahallesi C-13 Sokağı No:103 /123 Yıldırım / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -1932,7 +2192,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Sinana Bey Mahallesi 15.metal Sokağı  No:8 İnegöl / BURSA",
+      "adres": "Sinana Bey Mahallesi 15.metal Sokağı No:8 İnegöl / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -1942,7 +2202,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "İstanbul Caddesi  Asmekerkez Yanı Osmangazi / BURSA",
+      "adres": "İstanbul Caddesi Asmekerkez Yanı Osmangazi / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -1952,7 +2212,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Paşa Alanı Mahallesi Bandırma Caddesi  No:126 /A Karesi / BALIKESİR",
+      "adres": "Paşa Alanı Mahallesi Bandırma Caddesi No:126 /A Karesi / BALIKESİR",
       "soket_bilgileri": ""
     },
     {
@@ -1962,7 +2222,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Hamidiye Mahallesi  Akçay Asfaltı Edremit / BALIKESİR",
+      "adres": "Hamidiye Mahallesi Akçay Asfaltı Edremit / BALIKESİR",
       "soket_bilgileri": ""
     },
     {
@@ -1972,7 +2232,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Hürriyet Mahallesi Karınca Caddesi  No:11 Burhaniye / BALIKESİR",
+      "adres": "Hürriyet Mahallesi Karınca Caddesi No:11 Burhaniye / BALIKESİR",
       "soket_bilgileri": ""
     },
     {
@@ -1982,7 +2242,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Çekirge Mahallesi Çekirge Caddesi  No:79 Osmangazi / BURSA",
+      "adres": "Çekirge Mahallesi Çekirge Caddesi No:79 Osmangazi / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -1992,7 +2252,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "17 Eylül Mahallesi Atatürk Caddesi  No:86 Bandırma / BALIKESİR",
+      "adres": "17 Eylül Mahallesi Atatürk Caddesi No:86 Bandırma / BALIKESİR",
       "soket_bilgileri": ""
     },
     {
@@ -2002,7 +2262,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Küçük Köy Mahallesi  No:116 Ayvalık / BALIKESİR",
+      "adres": "Küçük Köy Mahallesi No:116 Ayvalık / BALIKESİR",
       "soket_bilgileri": ""
     },
     {
@@ -2012,7 +2272,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Alaşar Köy Mahallesi Yeni Yalova Caddesi  No:543 Osmangazi / BURSA",
+      "adres": "Alaşar Köy Mahallesi Yeni Yalova Caddesi No:543 Osmangazi / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -2022,7 +2282,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Çamlıca Mahallesi Lefkoşe Caddesi  No:104 Nilüfer / BURSA",
+      "adres": "Çamlıca Mahallesi Lefkoşe Caddesi No:104 Nilüfer / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -2032,7 +2292,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Boğazkent Mahallesi Atatürk Caddesi  No:2 Merkez / ÇANAKKALE",
+      "adres": "Boğazkent Mahallesi Atatürk Caddesi No:2 Merkez / ÇANAKKALE",
       "soket_bilgileri": ""
     },
     {
@@ -2042,7 +2302,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Gökçedere Mahallesi Sıcaksu Caddesi  No:1 /3 Termal / YALOVA",
+      "adres": "Gökçedere Mahallesi Sıcaksu Caddesi No:1 /3 Termal / YALOVA",
       "soket_bilgileri": ""
     },
     {
@@ -2062,7 +2322,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kirazlı Mahallesi  2.gelişim Bölgesi Osmangazi / BURSA",
+      "adres": "Kirazlı Mahallesi 2.gelişim Bölgesi Osmangazi / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -2072,7 +2332,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Küçük Köy Mahallesi 6. Caddesi  No:9 Ayvalık / BALIKESİR",
+      "adres": "Küçük Köy Mahallesi 6. Caddesi No:9 Ayvalık / BALIKESİR",
       "soket_bilgileri": ""
     },
     {
@@ -2082,7 +2342,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Tatkabaklı Mahallesi Balıkesir Caddesi  No:14 Mustafakemalpaşa / BURSA",
+      "adres": "Tatkabaklı Mahallesi Balıkesir Caddesi No:14 Mustafakemalpaşa / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -2092,7 +2352,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Güre Köyü Mahallesi  Güre Köyü Yolu Edremit / BALIKESİR",
+      "adres": "Güre Köyü Mahallesi Güre Köyü Yolu Edremit / BALIKESİR",
       "soket_bilgileri": ""
     },
     {
@@ -2102,7 +2362,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "İsmetpaşa Mahallesi Çınarlıdere Caddesi  No:11 Eceabat / ÇANAKKALE",
+      "adres": "İsmetpaşa Mahallesi Çınarlıdere Caddesi No:11 Eceabat / ÇANAKKALE",
       "soket_bilgileri": ""
     },
     {
@@ -2112,7 +2372,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Panayır Mahallesi 1.şentürk Sokağı  No:1 Osmangazi / BURSA",
+      "adres": "Panayır Mahallesi 1.şentürk Sokağı No:1 Osmangazi / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -2122,7 +2382,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Hürriyet Mahallesi Melih Pabuççuoğlu Sokağı  No:2 /1 Burhaniye / BALIKESİR",
+      "adres": "Hürriyet Mahallesi Melih Pabuççuoğlu Sokağı No:2 /1 Burhaniye / BALIKESİR",
       "soket_bilgileri": ""
     },
     {
@@ -2132,7 +2392,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Bolu Abant Yolu 6.km Mahallesi  Açalan Merkez / BOLU",
+      "adres": "Bolu Abant Yolu 6.km Mahallesi Açalan Merkez / BOLU",
       "soket_bilgileri": ""
     },
     {
@@ -2152,7 +2412,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yavuzselim Mahallesi Kurtköy Caddesi Bağ Sokağı  No:35 Sapanca / SAKARYA",
+      "adres": "Yavuzselim Mahallesi Kurtköy Caddesi Bağ Sokağı No:35 Sapanca / SAKARYA",
       "soket_bilgileri": ""
     },
     {
@@ -2162,7 +2422,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Deniz Mahallesi  No:2 Derince / KOCAELİ",
+      "adres": "Deniz Mahallesi No:2 Derince / KOCAELİ",
       "soket_bilgileri": ""
     },
     {
@@ -2172,7 +2432,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Fatih Mahallesi Kökez Caddesi  No:23 Merkez / BOLU",
+      "adres": "Fatih Mahallesi Kökez Caddesi No:23 Merkez / BOLU",
       "soket_bilgileri": ""
     },
     {
@@ -2182,7 +2442,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Paşaköy Mahallesi Eski İstanbul Caddesi  No:73 Merkez / BOLU",
+      "adres": "Paşaköy Mahallesi Eski İstanbul Caddesi No:73 Merkez / BOLU",
       "soket_bilgileri": ""
     },
     {
@@ -2192,7 +2452,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Gökpınar Yaylası Mahallesi  No:1  Gökpınar Yayla Yolu Merkez / BOLU",
+      "adres": "Gökpınar Yaylası Mahallesi No:1 Gökpınar Yayla Yolu Merkez / BOLU",
       "soket_bilgileri": ""
     },
     {
@@ -2202,7 +2462,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Fatih Sultan Mehmet Mahallesi  No:2  Kent Meydanı Kartepe / KOCAELİ",
+      "adres": "Fatih Sultan Mehmet Mahallesi No:2 Kent Meydanı Kartepe / KOCAELİ",
       "soket_bilgileri": ""
     },
     {
@@ -2212,7 +2472,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Arifbey Mahallesi Atatürk Caddesi  No:139 Arifiye / SAKARYA",
+      "adres": "Arifbey Mahallesi Atatürk Caddesi No:139 Arifiye / SAKARYA",
       "soket_bilgileri": ""
     },
     {
@@ -2222,7 +2482,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yeni Mahallesi Ürgüp Caddesi  No:11 Ürgüp / NEVŞEHİR",
+      "adres": "Yeni Mahallesi Ürgüp Caddesi No:11 Ürgüp / NEVŞEHİR",
       "soket_bilgileri": ""
     },
     {
@@ -2232,7 +2492,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Işıklar Mahallesi Akifbey Sokağı  No:3 Selçuklu / KONYA",
+      "adres": "Işıklar Mahallesi Akifbey Sokağı No:3 Selçuklu / KONYA",
       "soket_bilgileri": ""
     },
     {
@@ -2242,7 +2502,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Atakent Mahallesi  No:143 Ereğli / KONYA",
+      "adres": "Atakent Mahallesi No:143 Ereğli / KONYA",
       "soket_bilgileri": ""
     },
     {
@@ -2252,7 +2512,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Han Tepesi Mahallesi  Hantepesi E-90 Karayolu Ereğli / KONYA",
+      "adres": "Han Tepesi Mahallesi Hantepesi E-90 Karayolu Ereğli / KONYA",
       "soket_bilgileri": ""
     },
     {
@@ -2262,7 +2522,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Şeker Mahallesi Çevreyolu Caddesi  No:36 Selçuklu / KONYA",
+      "adres": "Şeker Mahallesi Çevreyolu Caddesi No:36 Selçuklu / KONYA",
       "soket_bilgileri": ""
     },
     {
@@ -2272,7 +2532,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Karaaslan 100. Mahallesi Çizgi Sokağı  No:14 Karatay / KONYA",
+      "adres": "Karaaslan 100. Mahallesi Çizgi Sokağı No:14 Karatay / KONYA",
       "soket_bilgileri": ""
     },
     {
@@ -2292,7 +2552,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Aziziye Mahallesi Köprübaşı Caddesi  No:10 Karatay / KONYA",
+      "adres": "Aziziye Mahallesi Köprübaşı Caddesi No:10 Karatay / KONYA",
       "soket_bilgileri": ""
     },
     {
@@ -2312,7 +2572,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "İsmail Mahallesi 21867. Sokağı  No:80 /B/A Karatay / KONYA",
+      "adres": "İsmail Mahallesi 21867. Sokağı No:80 /B/A Karatay / KONYA",
       "soket_bilgileri": ""
     },
     {
@@ -2332,7 +2592,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Horozluhan Mahallesi Yeni İstanbul Caddesi  No:58 /A Selçuklu / KONYA",
+      "adres": "Horozluhan Mahallesi Yeni İstanbul Caddesi No:58 /A Selçuklu / KONYA",
       "soket_bilgileri": ""
     },
     {
@@ -2342,7 +2602,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Bahçelievler Mahallesi Nevşehir Caddesi  No:1  Karataş Ürgüp / NEVŞEHİR",
+      "adres": "Bahçelievler Mahallesi Nevşehir Caddesi No:1 Karataş Ürgüp / NEVŞEHİR",
       "soket_bilgileri": ""
     },
     {
@@ -2362,7 +2622,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yazır Mahallesi Fadıl Sokağı  No:12 Selçuklu / KONYA",
+      "adres": "Yazır Mahallesi Fadıl Sokağı No:12 Selçuklu / KONYA",
       "soket_bilgileri": ""
     },
     {
@@ -2372,7 +2632,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Sulutaş Mahallesi  Sille Baraj  Sulutaş Selçuklu / KONYA",
+      "adres": "Sulutaş Mahallesi Sille Baraj Sulutaş Selçuklu / KONYA",
       "soket_bilgileri": ""
     },
     {
@@ -2382,7 +2642,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Silli Mahallesi  Silli Seyir Tepesi Selçuklu / KONYA",
+      "adres": "Silli Mahallesi Silli Seyir Tepesi Selçuklu / KONYA",
       "soket_bilgileri": ""
     },
     {
@@ -2392,7 +2652,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Bosna Hersek Mahallesi Osmanlı Caddesi  No:1 /H Selçuklu / KONYA",
+      "adres": "Bosna Hersek Mahallesi Osmanlı Caddesi No:1 /H Selçuklu / KONYA",
       "soket_bilgileri": ""
     },
     {
@@ -2412,7 +2672,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Eğribayat Mahallesi  No:502 Selçuklu / KONYA",
+      "adres": "Eğribayat Mahallesi No:502 Selçuklu / KONYA",
       "soket_bilgileri": ""
     },
     {
@@ -2422,7 +2682,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Fatih Mahallesi Zafer Caddesi  No:124 Karapınar / KONYA",
+      "adres": "Fatih Mahallesi Zafer Caddesi No:124 Karapınar / KONYA",
       "soket_bilgileri": ""
     },
     {
@@ -2432,7 +2692,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yeni Mahallesi  No:19  Otoban Çıkışı Seyhan / ADANA",
+      "adres": "Yeni Mahallesi No:19 Otoban Çıkışı Seyhan / ADANA",
       "soket_bilgileri": ""
     },
     {
@@ -2442,7 +2702,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Başak Mahallesi  No:180 /B Yüreğir / ADANA",
+      "adres": "Başak Mahallesi No:180 /B Yüreğir / ADANA",
       "soket_bilgileri": ""
     },
     {
@@ -2452,7 +2712,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Iğıdır Mahallesi Iğıdır Sokağı  No:585 /A Akdeniz / MERSİN",
+      "adres": "Iğıdır Mahallesi Iğıdır Sokağı No:585 /A Akdeniz / MERSİN",
       "soket_bilgileri": ""
     },
     {
@@ -2462,7 +2722,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Atatürk Mahallesi  No:20 Mezitli / MERSİN",
+      "adres": "Atatürk Mahallesi No:20 Mezitli / MERSİN",
       "soket_bilgileri": ""
     },
     {
@@ -2472,7 +2732,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "50. Mahallesi A.kaya Mutlu Caddesi  No:14 /A Yenişehir / MERSİN",
+      "adres": "50. Mahallesi A.kaya Mutlu Caddesi No:14 /A Yenişehir / MERSİN",
       "soket_bilgileri": ""
     },
     {
@@ -2482,7 +2742,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kızkalesi Mahallesi Kirazlı Caddesi  No:45 /A Erdemli / MERSİN",
+      "adres": "Kızkalesi Mahallesi Kirazlı Caddesi No:45 /A Erdemli / MERSİN",
       "soket_bilgileri": ""
     },
     {
@@ -2492,7 +2752,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Reşat Bey Mahallesi Adalet Caddesi  No:20 Seyhan / ADANA",
+      "adres": "Reşat Bey Mahallesi Adalet Caddesi No:20 Seyhan / ADANA",
       "soket_bilgileri": ""
     },
     {
@@ -2502,7 +2762,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Akkent Mahallesi  No:759 /312 Yenişehir / MERSİN",
+      "adres": "Akkent Mahallesi No:759 /312 Yenişehir / MERSİN",
       "soket_bilgileri": ""
     },
     {
@@ -2512,7 +2772,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kayalıbağ Mahallesi  No:17 /A Seyhan / ADANA",
+      "adres": "Kayalıbağ Mahallesi No:17 /A Seyhan / ADANA",
       "soket_bilgileri": ""
     },
     {
@@ -2522,7 +2782,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yalı Evleri Mahallesi 1620 Sokağı  No:12 /A Anamur / MERSİN",
+      "adres": "Yalı Evleri Mahallesi 1620 Sokağı No:12 /A Anamur / MERSİN",
       "soket_bilgileri": ""
     },
     {
@@ -2542,7 +2802,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Şiremir Çavuş Mahallesi Çavuş Caddesi  No:6 Merkez / BARTIN",
+      "adres": "Şiremir Çavuş Mahallesi Çavuş Caddesi No:6 Merkez / BARTIN",
       "soket_bilgileri": ""
     },
     {
@@ -2552,7 +2812,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yeni Mahallesi Adnan Kahveci Caddesi  No:21 Yenipazar / BİLECİK",
+      "adres": "Yeni Mahallesi Adnan Kahveci Caddesi No:21 Yenipazar / BİLECİK",
       "soket_bilgileri": ""
     },
     {
@@ -2562,7 +2822,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Dilaver Mahallesi  No:11  Eskibaş Değirmen Yollarıküme Evleri Ulubey / UŞAK",
+      "adres": "Dilaver Mahallesi No:11 Eskibaş Değirmen Yollarıküme Evleri Ulubey / UŞAK",
       "soket_bilgileri": ""
     },
     {
@@ -2572,7 +2832,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Atatürk Mahallesi  No:260 /1 Sivaslı / UŞAK",
+      "adres": "Atatürk Mahallesi No:260 /1 Sivaslı / UŞAK",
       "soket_bilgileri": ""
     },
     {
@@ -2592,7 +2852,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "İnköy Mahallesi  No:54  Eskişehir Karayolu 3.km  İnköy Merkez / KÜTAHYA",
+      "adres": "İnköy Mahallesi No:54 Eskişehir Karayolu 3.km İnköy Merkez / KÜTAHYA",
       "soket_bilgileri": ""
     },
     {
@@ -2602,7 +2862,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Gaybi Efendi Mahallesi Uğur Gökcan Caddesi  No:1 /D Merkez / KÜTAHYA",
+      "adres": "Gaybi Efendi Mahallesi Uğur Gökcan Caddesi No:1 /D Merkez / KÜTAHYA",
       "soket_bilgileri": ""
     },
     {
@@ -2622,7 +2882,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Bölücek Mahallesi  Kütahya Tavşanlı Otoyolu Merkez / KÜTAHYA",
+      "adres": "Bölücek Mahallesi Kütahya Tavşanlı Otoyolu Merkez / KÜTAHYA",
       "soket_bilgileri": ""
     },
     {
@@ -2632,7 +2892,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Esentepe Mahallesi Başaranlar Caddesi  No:13  Yayla Bağı İhsaniye / AFYONKARAHİSAR",
+      "adres": "Esentepe Mahallesi Başaranlar Caddesi No:13 Yayla Bağı İhsaniye / AFYONKARAHİSAR",
       "soket_bilgileri": ""
     },
     {
@@ -2662,7 +2922,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Esentepe Mahallesi Gül Sokağı  No:14 İhsaniye / AFYONKARAHİSAR",
+      "adres": "Esentepe Mahallesi Gül Sokağı No:14 İhsaniye / AFYONKARAHİSAR",
       "soket_bilgileri": ""
     },
     {
@@ -2672,7 +2932,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Şafak Mahallesi Hasan Yalın Caddesi  No:51 Hocalar / AFYONKARAHİSAR",
+      "adres": "Şafak Mahallesi Hasan Yalın Caddesi No:51 Hocalar / AFYONKARAHİSAR",
       "soket_bilgileri": ""
     },
     {
@@ -2692,7 +2952,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Bağdat Mahallesi Afyon Caddesi  No:198 /1  Akören Sinanpaşa / AFYONKARAHİSAR",
+      "adres": "Bağdat Mahallesi Afyon Caddesi No:198 /1 Akören Sinanpaşa / AFYONKARAHİSAR",
       "soket_bilgileri": ""
     },
     {
@@ -2702,7 +2962,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Öğretmenler Mahallesi  No:5 Sinanpaşa / AFYONKARAHİSAR",
+      "adres": "Öğretmenler Mahallesi No:5 Sinanpaşa / AFYONKARAHİSAR",
       "soket_bilgileri": ""
     },
     {
@@ -2712,7 +2972,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Cumhuriyet Mahallesi Arpacık Sokağı  No:12 /1  Cumhuriyet İhsaniye / AFYONKARAHİSAR",
+      "adres": "Cumhuriyet Mahallesi Arpacık Sokağı No:12 /1 Cumhuriyet İhsaniye / AFYONKARAHİSAR",
       "soket_bilgileri": ""
     },
     {
@@ -2722,7 +2982,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Bağdat Mahallesi Uşak Caddesi  No:86 Sinanpaşa / AFYONKARAHİSAR",
+      "adres": "Bağdat Mahallesi Uşak Caddesi No:86 Sinanpaşa / AFYONKARAHİSAR",
       "soket_bilgileri": ""
     },
     {
@@ -2732,7 +2992,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yenibağlar Mahallesi Hacı Hüsnü Sokağı  No:64 Tepebaşı / ESKİŞEHİR",
+      "adres": "Yenibağlar Mahallesi Hacı Hüsnü Sokağı No:64 Tepebaşı / ESKİŞEHİR",
       "soket_bilgileri": ""
     },
     {
@@ -2742,7 +3002,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Aşağısöğütönü Mahallesi  No:634  Bursa Eskişehir Yolu Tepebaşı / ESKİŞEHİR",
+      "adres": "Aşağısöğütönü Mahallesi No:634 Bursa Eskişehir Yolu Tepebaşı / ESKİŞEHİR",
       "soket_bilgileri": ""
     },
     {
@@ -2752,7 +3012,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Çamlıca Mahallesi Mustafa Paşa Sokağı  No:61 Tepebaşı / ESKİŞEHİR",
+      "adres": "Çamlıca Mahallesi Mustafa Paşa Sokağı No:61 Tepebaşı / ESKİŞEHİR",
       "soket_bilgileri": ""
     },
     {
@@ -2762,7 +3022,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yeniakçayır Mahallesi  No:550 Tepebaşı / ESKİŞEHİR",
+      "adres": "Yeniakçayır Mahallesi No:550 Tepebaşı / ESKİŞEHİR",
       "soket_bilgileri": ""
     },
     {
@@ -2772,7 +3032,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "71 Evler Mahallesi  No:114 /2 Odunpazarı / ESKİŞEHİR",
+      "adres": "71 Evler Mahallesi No:114 /2 Odunpazarı / ESKİŞEHİR",
       "soket_bilgileri": ""
     },
     {
@@ -2782,7 +3042,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Esentepe Mahallesi  No:360 Tepebaşı / ESKİŞEHİR",
+      "adres": "Esentepe Mahallesi No:360 Tepebaşı / ESKİŞEHİR",
       "soket_bilgileri": ""
     },
     {
@@ -2792,7 +3052,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Eskibağlar Mahallesi  No:21 Tepebaşı / ESKİŞEHİR",
+      "adres": "Eskibağlar Mahallesi No:21 Tepebaşı / ESKİŞEHİR",
       "soket_bilgileri": ""
     },
     {
@@ -2802,7 +3062,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yahnikapan Mahallesi  No:546  Yahnikapan Odunpazarı / ESKİŞEHİR",
+      "adres": "Yahnikapan Mahallesi No:546 Yahnikapan Odunpazarı / ESKİŞEHİR",
       "soket_bilgileri": ""
     },
     {
@@ -2812,7 +3072,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yeni  Bağlar Mahallesi Uludağ Sokağı  No:10 Tepebaşı / ESKİŞEHİR",
+      "adres": "Yeni Bağlar Mahallesi Uludağ Sokağı No:10 Tepebaşı / ESKİŞEHİR",
       "soket_bilgileri": ""
     },
     {
@@ -2822,7 +3082,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Honudiye Mahallesi 734. Sokağı  No:8 Tepebaşı / ESKİŞEHİR",
+      "adres": "Honudiye Mahallesi 734. Sokağı No:8 Tepebaşı / ESKİŞEHİR",
       "soket_bilgileri": ""
     },
     {
@@ -2832,7 +3092,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "75.yıl Mahallesi  No:1 /A6 Odunpazarı / ESKİŞEHİR",
+      "adres": "75.yıl Mahallesi No:1 /A6 Odunpazarı / ESKİŞEHİR",
       "soket_bilgileri": ""
     },
     {
@@ -2842,7 +3102,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Büyükdere Mahallesi Bayraktepe Sokağı  No:4 Tepebaşı / ESKİŞEHİR",
+      "adres": "Büyükdere Mahallesi Bayraktepe Sokağı No:4 Tepebaşı / ESKİŞEHİR",
       "soket_bilgileri": ""
     },
     {
@@ -2852,7 +3112,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Eskibağlar Mahallesi Ulugün Sokağı  No:7 Tepebaşı / ESKİŞEHİR",
+      "adres": "Eskibağlar Mahallesi Ulugün Sokağı No:7 Tepebaşı / ESKİŞEHİR",
       "soket_bilgileri": ""
     },
     {
@@ -2862,7 +3122,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "KARAKÖY GAYRİMENKUL YATIRIMLARI ANONİM ŞİRKETİ",
-      "adres": "Arifiye Mahallesi Belediye Sokağı  No:8 /4 Odunpazarı / ESKİŞEHİR",
+      "adres": "Arifiye Mahallesi Belediye Sokağı No:8 /4 Odunpazarı / ESKİŞEHİR",
       "soket_bilgileri": ""
     },
     {
@@ -2882,7 +3142,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Uluönder Mahallesi  No:96 /B/8 Tepebaşı / ESKİŞEHİR",
+      "adres": "Uluönder Mahallesi No:96 /B/8 Tepebaşı / ESKİŞEHİR",
       "soket_bilgileri": ""
     },
     {
@@ -2892,7 +3152,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kabakum Mahallesi İzmir Çanakkale Yolu Caddesi  No:18 /A Dikili / İZMİR",
+      "adres": "Kabakum Mahallesi İzmir Çanakkale Yolu Caddesi No:18 /A Dikili / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -2902,7 +3162,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Fatih Mahallesi  No:303 Bergama / İZMİR",
+      "adres": "Fatih Mahallesi No:303 Bergama / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -2912,7 +3172,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Cumhuriyet Mahallesi 313. Sokağı  No:22 Dikili / İZMİR",
+      "adres": "Cumhuriyet Mahallesi 313. Sokağı No:22 Dikili / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -2922,7 +3182,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Bostancı Mahallesi  No:17  Bataklar Küme Evleri Edremit / BALIKESİR",
+      "adres": "Bostancı Mahallesi No:17 Bataklar Küme Evleri Edremit / BALIKESİR",
       "soket_bilgileri": ""
     },
     {
@@ -2932,7 +3192,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Zeytinli Mahallesi Arifkalıpsızoğlu Caddesi  No:148 Erdek / BALIKESİR",
+      "adres": "Zeytinli Mahallesi Arifkalıpsızoğlu Caddesi No:148 Erdek / BALIKESİR",
       "soket_bilgileri": ""
     },
     {
@@ -2942,7 +3202,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Mescit Mahallesi  No:32 /1  Edremit Balıkesir Yolu Havran / BALIKESİR",
+      "adres": "Mescit Mahallesi No:32 /1 Edremit Balıkesir Yolu Havran / BALIKESİR",
       "soket_bilgileri": ""
     },
     {
@@ -2952,7 +3212,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Camicedit Mahallesi A.refik Paşa Caddesi  Pazaryeri Sındırgı / BALIKESİR",
+      "adres": "Camicedit Mahallesi A.refik Paşa Caddesi Pazaryeri Sındırgı / BALIKESİR",
       "soket_bilgileri": ""
     },
     {
@@ -2962,7 +3222,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Camicedit Mahallesi Cumhuriyet Caddesi  No:1 Sındırgı / BALIKESİR",
+      "adres": "Camicedit Mahallesi Cumhuriyet Caddesi No:1 Sındırgı / BALIKESİR",
       "soket_bilgileri": ""
     },
     {
@@ -2972,7 +3232,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kızıklı Mahallesi  No:3  Kumtepe Küme Evleri Burhaniye / BALIKESİR",
+      "adres": "Kızıklı Mahallesi No:3 Kumtepe Küme Evleri Burhaniye / BALIKESİR",
       "soket_bilgileri": ""
     },
     {
@@ -2982,7 +3242,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "75.yıl Mahallesi Van Sokağı  No:2  Emko Sanayi Sitesi Odunpazarı / ESKİŞEHİR",
+      "adres": "75.yıl Mahallesi Van Sokağı No:2 Emko Sanayi Sitesi Odunpazarı / ESKİŞEHİR",
       "soket_bilgileri": ""
     },
     {
@@ -2992,7 +3252,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Doğanca Mahallesi  No:122  Doğanca Küme Evleri Mahmudiye / ESKİŞEHİR",
+      "adres": "Doğanca Mahallesi No:122 Doğanca Küme Evleri Mahmudiye / ESKİŞEHİR",
       "soket_bilgileri": ""
     },
     {
@@ -3002,7 +3262,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "75.yıl Mahallesi  No:1 /D BLOK  Emko Sanayi Sitesi Odunpazarı / ESKİŞEHİR",
+      "adres": "75.yıl Mahallesi No:1 /D BLOK Emko Sanayi Sitesi Odunpazarı / ESKİŞEHİR",
       "soket_bilgileri": ""
     },
     {
@@ -3012,7 +3272,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "19 Mayıs Mahallesi 19 Mayıs Caddesi  No:6 Şişli / İSTANBUL",
+      "adres": "19 Mayıs Mahallesi 19 Mayıs Caddesi No:6 Şişli / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -3022,7 +3282,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Maslak Mahallesi Dereboyu 2 Caddesi  No:6 /1 Sarıyer / İSTANBUL",
+      "adres": "Maslak Mahallesi Dereboyu 2 Caddesi No:6 /1 Sarıyer / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -3032,7 +3292,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Maslak Mahallesi Anka Sokağı  No:5 Sarıyer / İSTANBUL",
+      "adres": "Maslak Mahallesi Anka Sokağı No:5 Sarıyer / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -3042,7 +3302,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "19 Mayıs Mahallesi 19 Mayıs Caddesi  No:2 Şişli / İSTANBUL",
+      "adres": "19 Mayıs Mahallesi 19 Mayıs Caddesi No:2 Şişli / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -3052,7 +3312,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Turgutreis Mahallesi  Kemer Bodrum / MUĞLA",
+      "adres": "Turgutreis Mahallesi Kemer Bodrum / MUĞLA",
       "soket_bilgileri": ""
     },
     {
@@ -3062,7 +3322,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kadıkalesi Mahallesi  Kadıkalesi Bodrum / MUĞLA",
+      "adres": "Kadıkalesi Mahallesi Kadıkalesi Bodrum / MUĞLA",
       "soket_bilgileri": ""
     },
     {
@@ -3072,7 +3332,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yalıkavak Mahallesi Tilkicik Caddesi Demirci Sokağı  No:7 Bodrum / MUĞLA",
+      "adres": "Yalıkavak Mahallesi Tilkicik Caddesi Demirci Sokağı No:7 Bodrum / MUĞLA",
       "soket_bilgileri": ""
     },
     {
@@ -3082,7 +3342,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Gündoğdu Mahallesi  Gündoğdu Bodrum / MUĞLA",
+      "adres": "Gündoğdu Mahallesi Gündoğdu Bodrum / MUĞLA",
       "soket_bilgileri": ""
     },
     {
@@ -3092,7 +3352,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Eskiçeşme Mahallesi Cafer Paşa Caddesi  No:30 Bodrum / MUĞLA",
+      "adres": "Eskiçeşme Mahallesi Cafer Paşa Caddesi No:30 Bodrum / MUĞLA",
       "soket_bilgileri": ""
     },
     {
@@ -3102,7 +3362,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "İskele Mahallesi 30. Sokağı  No:5  Koru Mandalya Datça / MUĞLA",
+      "adres": "İskele Mahallesi 30. Sokağı No:5 Koru Mandalya Datça / MUĞLA",
       "soket_bilgileri": ""
     },
     {
@@ -3112,7 +3372,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "İskele Mahallesi  No:1  Çevre Yolu Datça / MUĞLA",
+      "adres": "İskele Mahallesi No:1 Çevre Yolu Datça / MUĞLA",
       "soket_bilgileri": ""
     },
     {
@@ -3122,7 +3382,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Doğanca Mahallesi  No:94 /A  Sahil  Doğanca Tirebolu / GİRESUN",
+      "adres": "Doğanca Mahallesi No:94 /A Sahil Doğanca Tirebolu / GİRESUN",
       "soket_bilgileri": ""
     },
     {
@@ -3132,7 +3392,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Eskiçeşme Mahallesi Büyük İskender Caddesi  No:13 Bodrum / MUĞLA",
+      "adres": "Eskiçeşme Mahallesi Büyük İskender Caddesi No:13 Bodrum / MUĞLA",
       "soket_bilgileri": ""
     },
     {
@@ -3142,7 +3402,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Konacık Mahallesi Bekiroğlu Caddesi  No:10 Bodrum / MUĞLA",
+      "adres": "Konacık Mahallesi Bekiroğlu Caddesi No:10 Bodrum / MUĞLA",
       "soket_bilgileri": ""
     },
     {
@@ -3152,7 +3412,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Göl Köy Mahallesi 78. Caddesi 325. Sokağı  No:7 Bodrum / MUĞLA",
+      "adres": "Göl Köy Mahallesi 78. Caddesi 325. Sokağı No:7 Bodrum / MUĞLA",
       "soket_bilgileri": ""
     },
     {
@@ -3162,7 +3422,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kemer Mahallesi  No:115  Kemer Bodrum / MUĞLA",
+      "adres": "Kemer Mahallesi No:115 Kemer Bodrum / MUĞLA",
       "soket_bilgileri": ""
     },
     {
@@ -3172,7 +3432,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Akyarlar Mahallesi 4275. Sokağı  No:52 Bodrum / MUĞLA",
+      "adres": "Akyarlar Mahallesi 4275. Sokağı No:52 Bodrum / MUĞLA",
       "soket_bilgileri": ""
     },
     {
@@ -3182,7 +3442,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Köklük Mahallesi Karallı Sokağı  No:5 Yatağan / MUĞLA",
+      "adres": "Köklük Mahallesi Karallı Sokağı No:5 Yatağan / MUĞLA",
       "soket_bilgileri": ""
     },
     {
@@ -3192,7 +3452,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Dirmil Mahallesi Tilkicik Caddesi  No:89 Bodrum / MUĞLA",
+      "adres": "Dirmil Mahallesi Tilkicik Caddesi No:89 Bodrum / MUĞLA",
       "soket_bilgileri": ""
     },
     {
@@ -3202,7 +3462,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Datça Marmara Karayolu Mahallesi  Kızlanatı Köse Kesik Datça / MUĞLA",
+      "adres": "Datça Marmara Karayolu Mahallesi Kızlanatı Köse Kesik Datça / MUĞLA",
       "soket_bilgileri": ""
     },
     {
@@ -3212,7 +3472,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yeniköy Mahallesi Kıbrıs Şehitleri Caddesi  No:112 Bodrum / MUĞLA",
+      "adres": "Yeniköy Mahallesi Kıbrıs Şehitleri Caddesi No:112 Bodrum / MUĞLA",
       "soket_bilgileri": ""
     },
     {
@@ -3232,7 +3492,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Akyaka Mahallesi Lütfiye Sakıcı Caddesi  No:4 Ula / MUĞLA",
+      "adres": "Akyaka Mahallesi Lütfiye Sakıcı Caddesi No:4 Ula / MUĞLA",
       "soket_bilgileri": ""
     },
     {
@@ -3242,7 +3502,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Turgutreis Mahallesi Gümüşlük Caddesi  No:297 Bodrum / MUĞLA",
+      "adres": "Turgutreis Mahallesi Gümüşlük Caddesi No:297 Bodrum / MUĞLA",
       "soket_bilgileri": ""
     },
     {
@@ -3252,7 +3512,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Beylerbeyi Mahallesi Beylerbeyi Küme Evleri Sokağı  No:547  Volvo Blok Sarayköy / DENİZLİ",
+      "adres": "Beylerbeyi Mahallesi Beylerbeyi Küme Evleri Sokağı No:547 Volvo Blok Sarayköy / DENİZLİ",
       "soket_bilgileri": ""
     },
     {
@@ -3262,7 +3522,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kosova Mahallesi Yeni İstanbul Caddesi  No:224 Selçuklu / KONYA",
+      "adres": "Kosova Mahallesi Yeni İstanbul Caddesi No:224 Selçuklu / KONYA",
       "soket_bilgileri": ""
     },
     {
@@ -3282,7 +3542,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Karaburun Mahallesi 1025. Sokağı  No:6  Karaburun Alanya / ANTALYA",
+      "adres": "Karaburun Mahallesi 1025. Sokağı No:6 Karaburun Alanya / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -3292,7 +3552,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Büyükdere Mahallesi  No:190 Odunpazarı / ESKİŞEHİR",
+      "adres": "Büyükdere Mahallesi No:190 Odunpazarı / ESKİŞEHİR",
       "soket_bilgileri": ""
     },
     {
@@ -3302,7 +3562,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Üstünler Mahallesi  Konya-antalya Yeni Yolu Üzeri Petrol Ofisi Beyşehir / KONYA",
+      "adres": "Üstünler Mahallesi Konya-antalya Yeni Yolu Üzeri Petrol Ofisi Beyşehir / KONYA",
       "soket_bilgileri": ""
     },
     {
@@ -3312,7 +3572,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yeni Mahallesi Çayırören Köyü Sokağı  Merkez Gerede / BOLU",
+      "adres": "Yeni Mahallesi Çayırören Köyü Sokağı Merkez Gerede / BOLU",
       "soket_bilgileri": ""
     },
     {
@@ -3322,7 +3582,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Mustafa Kemal Paşa Mahallesi Hükümet Caddesi  No:11 Fatsa / ORDU",
+      "adres": "Mustafa Kemal Paşa Mahallesi Hükümet Caddesi No:11 Fatsa / ORDU",
       "soket_bilgileri": ""
     },
     {
@@ -3332,7 +3592,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Sinanbey Mahallesi 1. Caddesi  No:64 /A İnegöl / BURSA",
+      "adres": "Sinanbey Mahallesi 1. Caddesi No:64 /A İnegöl / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -3342,7 +3602,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "İspat Cami Mahallesi Akıncı Sokağı  No:1A Keşan / EDİRNE",
+      "adres": "İspat Cami Mahallesi Akıncı Sokağı No:1A Keşan / EDİRNE",
       "soket_bilgileri": ""
     },
     {
@@ -3352,7 +3612,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Cumali Mahallesi Antalya Caddesi  No:11 Serik / ANTALYA",
+      "adres": "Cumali Mahallesi Antalya Caddesi No:11 Serik / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -3362,7 +3622,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Abdurrahman Nafiz Gürman, Mahallesi  E-5 Merter Yolu Sapağı Güngören / İSTANBUL",
+      "adres": "Abdurrahman Nafiz Gürman, Mahallesi E-5 Merter Yolu Sapağı Güngören / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -3372,7 +3632,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Huzur Mahallesi Mobilya Vadi Caddesi  No:2 İnegöl / BURSA",
+      "adres": "Huzur Mahallesi Mobilya Vadi Caddesi No:2 İnegöl / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -3382,7 +3642,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ÇAKALOĞLU TURİSTİK TESİSLERİ PETROL TİCARET SANAYİ LİMİTED ŞİRKETİ",
-      "adres": "Hıdırbeyli Mahallesi Aydın-izmir Asfalt Caddesi  No:41 /1 Germencik / AYDIN",
+      "adres": "Hıdırbeyli Mahallesi Aydın-izmir Asfalt Caddesi No:41 /1 Germencik / AYDIN",
       "soket_bilgileri": ""
     },
     {
@@ -3392,7 +3652,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Karaçam Mahallesi  Oksijen O266 İzmir Yönü Savaştepe / BALIKESİR",
+      "adres": "Karaçam Mahallesi Oksijen O266 İzmir Yönü Savaştepe / BALIKESİR",
       "soket_bilgileri": ""
     },
     {
@@ -3412,7 +3672,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yırca Caddesi  No:222 Soma / MANİSA",
+      "adres": "Yırca Caddesi No:222 Soma / MANİSA",
       "soket_bilgileri": ""
     },
     {
@@ -3422,7 +3682,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yırca Caddesi  No:221  Bursa İzmir Otoyolu Soma / MANİSA",
+      "adres": "Yırca Caddesi No:221 Bursa İzmir Otoyolu Soma / MANİSA",
       "soket_bilgileri": ""
     },
     {
@@ -3442,7 +3702,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Balabancık Mahallesi 1675 Caddesi  No:65  Malkara Çanakkale Otoyolu Malkara / TEKİRDAĞ",
+      "adres": "Balabancık Mahallesi 1675 Caddesi No:65 Malkara Çanakkale Otoyolu Malkara / TEKİRDAĞ",
       "soket_bilgileri": ""
     },
     {
@@ -3452,7 +3712,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Balabancık Mahallesi Malkara Çanakkale Otoyolu Caddesi 1675 Sokağı  No:65 Malkara / TEKİRDAĞ",
+      "adres": "Balabancık Mahallesi Malkara Çanakkale Otoyolu Caddesi 1675 Sokağı No:65 Malkara / TEKİRDAĞ",
       "soket_bilgileri": ""
     },
     {
@@ -3462,7 +3722,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "İstinye Mahallesi İstinye Caddesi  No:65  A-b-c Yolu Sarıyer / İSTANBUL",
+      "adres": "İstinye Mahallesi İstinye Caddesi No:65 A-b-c Yolu Sarıyer / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -3472,7 +3732,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Erzene Mahallesi Ankara Caddesi  No:180 Bornova / İZMİR",
+      "adres": "Erzene Mahallesi Ankara Caddesi No:180 Bornova / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -3482,7 +3742,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Barbaros Mahallesi Ataşehir Sokağı  No:216 Ataşehir / İSTANBUL",
+      "adres": "Barbaros Mahallesi Ataşehir Sokağı No:216 Ataşehir / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -3492,7 +3752,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "1. Murat Mahallesi Talat Paşa Caddesi  No:80 Merkez / EDİRNE",
+      "adres": "1. Murat Mahallesi Talat Paşa Caddesi No:80 Merkez / EDİRNE",
       "soket_bilgileri": ""
     },
     {
@@ -3502,7 +3762,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Boyalık Mahallesi 3197 Sokağı  No:15 Çeşme / İZMİR",
+      "adres": "Boyalık Mahallesi 3197 Sokağı No:15 Çeşme / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -3512,7 +3772,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Uzunkuyu Mahallesi  No:8  Çeşme Otoyolu Uzunkuyu Mevkii Urla / İZMİR",
+      "adres": "Uzunkuyu Mahallesi No:8 Çeşme Otoyolu Uzunkuyu Mevkii Urla / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -3532,7 +3792,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Fatih Mahallesi Gazi Mustafa Caddesi  No:11 Büyükçekmece / İSTANBUL",
+      "adres": "Fatih Mahallesi Gazi Mustafa Caddesi No:11 Büyükçekmece / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -3542,7 +3802,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kordonboyu Mahallesi Ankara Caddesi  No:147 /6 Kartal / İSTANBUL",
+      "adres": "Kordonboyu Mahallesi Ankara Caddesi No:147 /6 Kartal / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -3552,7 +3812,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Ören Mahallesi  No:163 Milas / MUĞLA",
+      "adres": "Ören Mahallesi No:163 Milas / MUĞLA",
       "soket_bilgileri": ""
     },
     {
@@ -3562,7 +3822,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Alaçatı Mahallesi 18001. Sokağı  No:3 Çeşme / İZMİR",
+      "adres": "Alaçatı Mahallesi 18001. Sokağı No:3 Çeşme / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -3572,7 +3832,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kazım Karabekir Mahallesi Şht.ömer Faydalı Caddesi  No:233 Merkez / YALOVA",
+      "adres": "Kazım Karabekir Mahallesi Şht.ömer Faydalı Caddesi No:233 Merkez / YALOVA",
       "soket_bilgileri": ""
     },
     {
@@ -3592,7 +3852,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Onur Mahallesi Turhan Cemal Bekirer Sokağı  No:379 Seyhan / ADANA",
+      "adres": "Onur Mahallesi Turhan Cemal Bekirer Sokağı No:379 Seyhan / ADANA",
       "soket_bilgileri": ""
     },
     {
@@ -3612,7 +3872,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Aşağıpelitözü Mahallesi Çankırı-ankara Karayolu 18.km Sokağı  Sülüklü Mevkii Merkez / ÇANKIRI",
+      "adres": "Aşağıpelitözü Mahallesi Çankırı-ankara Karayolu 18.km Sokağı Sülüklü Mevkii Merkez / ÇANKIRI",
       "soket_bilgileri": ""
     },
     {
@@ -3622,7 +3882,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Gazi Mahallesi  No:27  1. Küçük Sanayi Sitesi Küme Evleri Babadağ / DENİZLİ",
+      "adres": "Gazi Mahallesi No:27 1. Küçük Sanayi Sitesi Küme Evleri Babadağ / DENİZLİ",
       "soket_bilgileri": ""
     },
     {
@@ -3632,7 +3892,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Zekeriyaköy Mahallesi  4 Mevsim Evleri Sarıyer / İSTANBUL",
+      "adres": "Zekeriyaköy Mahallesi 4 Mevsim Evleri Sarıyer / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -3652,7 +3912,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Çobanlar Mahallesi  Kaç Yolu Seydikemer / MUĞLA",
+      "adres": "Çobanlar Mahallesi Kaç Yolu Seydikemer / MUĞLA",
       "soket_bilgileri": ""
     },
     {
@@ -3662,7 +3922,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Aratol Bahçeli Mahallesi Nescmettin Erbakan Caddesi  No:42 Merkez / AKSARAY",
+      "adres": "Aratol Bahçeli Mahallesi Nescmettin Erbakan Caddesi No:42 Merkez / AKSARAY",
       "soket_bilgileri": ""
     },
     {
@@ -3682,7 +3942,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Uzunyalı Mahallesi  No:103 Kemalpaşa / ARTVİN",
+      "adres": "Uzunyalı Mahallesi No:103 Kemalpaşa / ARTVİN",
       "soket_bilgileri": ""
     },
     {
@@ -3692,7 +3952,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Karacaören Mahallesi  Karacaören Köyü Pamuklu Mevkii Bucak / BURDUR",
+      "adres": "Karacaören Mahallesi Karacaören Köyü Pamuklu Mevkii Bucak / BURDUR",
       "soket_bilgileri": ""
     },
     {
@@ -3702,7 +3962,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Hamidiye Mahallesi  No:136 Gemlik / BURSA",
+      "adres": "Hamidiye Mahallesi No:136 Gemlik / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -3712,7 +3972,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Nilüferköy Mahallesi Nilüfer Caddesi  No:34 Osmangazi / BURSA",
+      "adres": "Nilüferköy Mahallesi Nilüfer Caddesi No:34 Osmangazi / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -3722,7 +3982,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kocasinan Mahallesi E-5 Karayolu Caddesi  No:27 Merkez / EDİRNE",
+      "adres": "Kocasinan Mahallesi E-5 Karayolu Caddesi No:27 Merkez / EDİRNE",
       "soket_bilgileri": ""
     },
     {
@@ -3742,7 +4002,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Acarlar Mahallesi 7 Sokağı  No:41 Beykoz / İSTANBUL",
+      "adres": "Acarlar Mahallesi 7 Sokağı No:41 Beykoz / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -3752,7 +4012,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kaleiçi Mahallesi Hanice Caddesi  No:4 Çatalca / İSTANBUL",
+      "adres": "Kaleiçi Mahallesi Hanice Caddesi No:4 Çatalca / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -3772,7 +4032,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Hacı İsa Mahallesi  No:374 Menderes / İZMİR",
+      "adres": "Hacı İsa Mahallesi No:374 Menderes / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -3782,7 +4042,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Emrez Mahallesi Akçay Caddesi  No:58 Gaziemir / İZMİR",
+      "adres": "Emrez Mahallesi Akçay Caddesi No:58 Gaziemir / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -3792,7 +4052,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Zengen Mahallesi Aksaray Çevre Yolu Caddesi  No:147 Ereğli / KONYA",
+      "adres": "Zengen Mahallesi Aksaray Çevre Yolu Caddesi No:147 Ereğli / KONYA",
       "soket_bilgileri": ""
     },
     {
@@ -3802,7 +4062,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Zafer Mahallesi Kayseri Yolu 1 Caddesi  No:2 Merkez / NİĞDE",
+      "adres": "Zafer Mahallesi Kayseri Yolu 1 Caddesi No:2 Merkez / NİĞDE",
       "soket_bilgileri": ""
     },
     {
@@ -3812,7 +4072,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yüceler Mahallesi Aşağıorta Sokağı  No:12 Ünye / ORDU",
+      "adres": "Yüceler Mahallesi Aşağıorta Sokağı No:12 Ünye / ORDU",
       "soket_bilgileri": ""
     },
     {
@@ -3822,7 +4082,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Konak Mahallesi  No:230 Cizre / ŞIRNAK",
+      "adres": "Konak Mahallesi No:230 Cizre / ŞIRNAK",
       "soket_bilgileri": ""
     },
     {
@@ -3832,7 +4092,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Pazarcık Mahallesi  No:1/1  Ayvacık Mevkii Küme Evleri Saray / TEKİRDAĞ",
+      "adres": "Pazarcık Mahallesi No:1/1 Ayvacık Mevkii Küme Evleri Saray / TEKİRDAĞ",
       "soket_bilgileri": ""
     },
     {
@@ -3842,7 +4102,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Dürbinar Mahallesi Adnan Menderes Caddesi  No:114/A Akçaabat / TRABZON",
+      "adres": "Dürbinar Mahallesi Adnan Menderes Caddesi No:114/A Akçaabat / TRABZON",
       "soket_bilgileri": ""
     },
     {
@@ -3852,7 +4112,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yalı Mahallesi Sahil Caddesi  No:104 Ortahisar / TRABZON",
+      "adres": "Yalı Mahallesi Sahil Caddesi No:104 Ortahisar / TRABZON",
       "soket_bilgileri": ""
     },
     {
@@ -3862,7 +4122,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Agah Efendi Mahallesi  No:155 Sorgun / YOZGAT",
+      "adres": "Agah Efendi Mahallesi No:155 Sorgun / YOZGAT",
       "soket_bilgileri": ""
     },
     {
@@ -3872,7 +4132,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Ergenekon Mahallesi Ankara Asfaltı Caddesi  No:84 Turgutlu / MANİSA",
+      "adres": "Ergenekon Mahallesi Ankara Asfaltı Caddesi No:84 Turgutlu / MANİSA",
       "soket_bilgileri": ""
     },
     {
@@ -3882,7 +4142,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Evrenos Mahallesi  No:34  Evrenos Küme Evler Yunusemre / MANİSA",
+      "adres": "Evrenos Mahallesi No:34 Evrenos Küme Evler Yunusemre / MANİSA",
       "soket_bilgileri": ""
     },
     {
@@ -3902,7 +4162,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Ağızkarahan Caddesi  No:8 Merkez / AKSARAY",
+      "adres": "Ağızkarahan Caddesi No:8 Merkez / AKSARAY",
       "soket_bilgileri": ""
     },
     {
@@ -3912,7 +4172,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Hamidiye Mahallesi  İzmir Çanakkale Otoyolu Edremit / BALIKESİR",
+      "adres": "Hamidiye Mahallesi İzmir Çanakkale Otoyolu Edremit / BALIKESİR",
       "soket_bilgileri": ""
     },
     {
@@ -3922,7 +4182,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Çitli Mahallesi Çitli-ankara Yolu Caddesi  No:142/A İnegöl / BURSA",
+      "adres": "Çitli Mahallesi Çitli-ankara Yolu Caddesi No:142/A İnegöl / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -3932,7 +4192,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Saraylar Mahallesi Ankara Caddesi  No:12 Merkez / KIRŞEHİR",
+      "adres": "Saraylar Mahallesi Ankara Caddesi No:12 Merkez / KIRŞEHİR",
       "soket_bilgileri": ""
     },
     {
@@ -3942,7 +4202,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Sakyatan Mahallesi Konya Ereğli Caddesi  No:211 Karatay / KONYA",
+      "adres": "Sakyatan Mahallesi Konya Ereğli Caddesi No:211 Karatay / KONYA",
       "soket_bilgileri": ""
     },
     {
@@ -3962,7 +4222,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Üniversite Mahallesi Civan Sokağı  No:1 Avcılar / İSTANBUL",
+      "adres": "Üniversite Mahallesi Civan Sokağı No:1 Avcılar / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -3972,7 +4232,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Bağcılar Mahallesi Mimar Sinan Caddesi  No:35 Bağcılar / İSTANBUL",
+      "adres": "Bağcılar Mahallesi Mimar Sinan Caddesi No:35 Bağcılar / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -3982,7 +4242,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Şenlikköy Mahallesi Yeşilköy Halkalı Caddesi  No:93-93/1 Bakırköy / İSTANBUL",
+      "adres": "Şenlikköy Mahallesi Yeşilköy Halkalı Caddesi No:93-93/1 Bakırköy / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -3992,7 +4252,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Gayrettepe Mahallesi Prof. Dr. Bülent Tarcan Caddesi  No:1 Beşiktaş / İSTANBUL",
+      "adres": "Gayrettepe Mahallesi Prof. Dr. Bülent Tarcan Caddesi No:1 Beşiktaş / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -4002,7 +4262,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kemal Paşa Mahallesi Şirvanizade Sokağı  No:7 Fatih / İSTANBUL",
+      "adres": "Kemal Paşa Mahallesi Şirvanizade Sokağı No:7 Fatih / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -4012,7 +4272,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Akçay Caddesi  No:253/3 Gaziemir / İZMİR",
+      "adres": "Akçay Caddesi No:253/3 Gaziemir / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -4022,7 +4282,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Bostanlı Mahallesi  No:28 Karşıyaka / İZMİR",
+      "adres": "Bostanlı Mahallesi No:28 Karşıyaka / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -4032,7 +4292,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "İlkbahar Caddesi  No:38  Yeni Hükümet Konağı Osmangazi / BURSA",
+      "adres": "İlkbahar Caddesi No:38 Yeni Hükümet Konağı Osmangazi / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -4042,7 +4302,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "İstanbul Caddesi  No:477/2 Osmangazi / BURSA",
+      "adres": "İstanbul Caddesi No:477/2 Osmangazi / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -4052,7 +4312,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Alemdar Mahallesi Hacı Bayram Caddesi  No:1 Osmangazi / BURSA",
+      "adres": "Alemdar Mahallesi Hacı Bayram Caddesi No:1 Osmangazi / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -4062,7 +4322,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kükürtlü Mahallesi  Çekirge Meydanı Osmangazi / BURSA",
+      "adres": "Kükürtlü Mahallesi Çekirge Meydanı Osmangazi / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -4072,7 +4332,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Vanimehmet Mahallesi Yapıcı Sokağı  No:1 Kestel / BURSA",
+      "adres": "Vanimehmet Mahallesi Yapıcı Sokağı No:1 Kestel / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -4082,7 +4342,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Alaaddinbey Mahallesi Ayfatma Caddesi  No:11B Nilüfer / BURSA",
+      "adres": "Alaaddinbey Mahallesi Ayfatma Caddesi No:11B Nilüfer / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -4092,7 +4352,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Doğruca Mahallesi  No:416  Balıkesir Asfaltı Bandırma / BALIKESİR",
+      "adres": "Doğruca Mahallesi No:416 Balıkesir Asfaltı Bandırma / BALIKESİR",
       "soket_bilgileri": ""
     },
     {
@@ -4102,7 +4362,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yunus Emre Mahallesi  No:3 Mustafakemalpaşa / BURSA",
+      "adres": "Yunus Emre Mahallesi No:3 Mustafakemalpaşa / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -4112,7 +4372,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Cumhuriyet Mahallesi Nilüfer Hatun Caddesi  No:114A/1 Nilüfer / BURSA",
+      "adres": "Cumhuriyet Mahallesi Nilüfer Hatun Caddesi No:114A/1 Nilüfer / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -4122,7 +4382,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yeniköy Mahallesi Yeniköy Caddesi  No:1/2 İnegöl / BURSA",
+      "adres": "Yeniköy Mahallesi Yeniköy Caddesi No:1/2 İnegöl / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -4132,7 +4392,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kulaca Mahallesi  Ankara Yolu Üzeri 3. Km İnegöl / BURSA",
+      "adres": "Kulaca Mahallesi Ankara Yolu Üzeri 3. Km İnegöl / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -4142,7 +4402,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Cumhuriyet Mahallesi Gül Caddesi  No:198  Bulvar Park D Blok Gemlik / BURSA",
+      "adres": "Cumhuriyet Mahallesi Gül Caddesi No:198 Bulvar Park D Blok Gemlik / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -4152,7 +4412,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kazım Karabekir Mahallesi Termal Yolu Sokağı  No:3 Merkez / YALOVA",
+      "adres": "Kazım Karabekir Mahallesi Termal Yolu Sokağı No:3 Merkez / YALOVA",
       "soket_bilgileri": ""
     },
     {
@@ -4162,7 +4422,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Ayvatlar Mahallesi  Değirmenboğazı Bandırma / BALIKESİR",
+      "adres": "Ayvatlar Mahallesi Değirmenboğazı Bandırma / BALIKESİR",
       "soket_bilgileri": ""
     },
     {
@@ -4172,7 +4432,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Şenlikköy Mahallesi Halkalı Caddesi  No:93-93/1 Bakırköy / İSTANBUL",
+      "adres": "Şenlikköy Mahallesi Halkalı Caddesi No:93-93/1 Bakırköy / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -4182,7 +4442,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Alacaatlı Mahallesi Alacaatlı Sokağı  No:15 Çankaya / ANKARA",
+      "adres": "Alacaatlı Mahallesi Alacaatlı Sokağı No:15 Çankaya / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -4192,7 +4452,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Göksu Mahallesi Erzurum Kongresi Sokağı  No:9 Etimesgut / ANKARA",
+      "adres": "Göksu Mahallesi Erzurum Kongresi Sokağı No:9 Etimesgut / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -4202,7 +4462,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Oğulbey Mahallesi Oğulbey Sokağı  No:222 Gölbaşı / ANKARA",
+      "adres": "Oğulbey Mahallesi Oğulbey Sokağı No:222 Gölbaşı / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -4212,7 +4472,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Site Mahallesi Şenol Güneş Sokağı  No:74 Ümraniye / İSTANBUL",
+      "adres": "Site Mahallesi Şenol Güneş Sokağı No:74 Ümraniye / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -4222,7 +4482,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Etiler Nispetiye Mahallesi Tepecik Yolu Caddesi  No:14 Beşiktaş / İSTANBUL",
+      "adres": "Etiler Nispetiye Mahallesi Tepecik Yolu Caddesi No:14 Beşiktaş / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -4232,7 +4492,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Mahmut Bey Mahallesi  No:5  Taş Ocağı Yolu Bağcılar / İSTANBUL",
+      "adres": "Mahmut Bey Mahallesi No:5 Taş Ocağı Yolu Bağcılar / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -4252,7 +4512,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Güven Mahallesi  No:89 Güngören / İSTANBUL",
+      "adres": "Güven Mahallesi No:89 Güngören / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -4262,7 +4522,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Batıkent Mahallesi Prof.dr.nusret Fişek Caddesi  No:4 Tepebaşı / ESKİŞEHİR",
+      "adres": "Batıkent Mahallesi Prof.dr.nusret Fişek Caddesi No:4 Tepebaşı / ESKİŞEHİR",
       "soket_bilgileri": ""
     },
     {
@@ -4282,7 +4542,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kuvay-i Milliye Mahallesi  No:284 /A  Kuvay-i Milliye Anıt Yunusemre / MANİSA",
+      "adres": "Kuvay-i Milliye Mahallesi No:284 /A Kuvay-i Milliye Anıt Yunusemre / MANİSA",
       "soket_bilgileri": ""
     },
     {
@@ -4292,7 +4552,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Selimiye Mahallesi  No:17 /2 Manavgat / ANTALYA",
+      "adres": "Selimiye Mahallesi No:17 /2 Manavgat / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -4302,7 +4562,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Tarabya Mahallesi Haydar Aliyev Caddesi  No:154 Sarıyer / İSTANBUL",
+      "adres": "Tarabya Mahallesi Haydar Aliyev Caddesi No:154 Sarıyer / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -4312,7 +4572,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yeni Mahallesi General Ali İhsan Türkkan Caddesi  No:80 Silivri / İSTANBUL",
+      "adres": "Yeni Mahallesi General Ali İhsan Türkkan Caddesi No:80 Silivri / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -4322,7 +4582,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Hatipköy Mahallesi Kemal Çelebi Caddesi  No:1 İzmit / KOCAELİ",
+      "adres": "Hatipköy Mahallesi Kemal Çelebi Caddesi No:1 İzmit / KOCAELİ",
       "soket_bilgileri": ""
     },
     {
@@ -4332,7 +4592,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "İstasyon Mahallesi 1458 Sokağı  No:1 Gebze / KOCAELİ",
+      "adres": "İstasyon Mahallesi 1458 Sokağı No:1 Gebze / KOCAELİ",
       "soket_bilgileri": ""
     },
     {
@@ -4352,7 +4612,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Muallim Mahallesi Deniz Caddesi  No:143 Gebze / KOCAELİ",
+      "adres": "Muallim Mahallesi Deniz Caddesi No:143 Gebze / KOCAELİ",
       "soket_bilgileri": ""
     },
     {
@@ -4362,7 +4622,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Ali Paşa Mahallesi Alipaşa, Salih Omurtak Caddesi  No:9 Çorlu / TEKİRDAĞ",
+      "adres": "Ali Paşa Mahallesi Alipaşa, Salih Omurtak Caddesi No:9 Çorlu / TEKİRDAĞ",
       "soket_bilgileri": ""
     },
     {
@@ -4372,7 +4632,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Batıkent Mahallesi Kapıkule Sokağı  No:1 Tepebaşı / ESKİŞEHİR",
+      "adres": "Batıkent Mahallesi Kapıkule Sokağı No:1 Tepebaşı / ESKİŞEHİR",
       "soket_bilgileri": ""
     },
     {
@@ -4382,7 +4642,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Ahmet Remzi Yüreğit Mahallesi Erdal Acet Caddesi  No:1 /333 Seyhan / ADANA",
+      "adres": "Ahmet Remzi Yüreğit Mahallesi Erdal Acet Caddesi No:1 /333 Seyhan / ADANA",
       "soket_bilgileri": ""
     },
     {
@@ -4392,7 +4652,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Matıkent Mahallesi Geven Sokağı  No:1 Tepebaşı / ESKİŞEHİR",
+      "adres": "Matıkent Mahallesi Geven Sokağı No:1 Tepebaşı / ESKİŞEHİR",
       "soket_bilgileri": ""
     },
     {
@@ -4402,7 +4662,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Çaldağ Mahallesi Erguvan Sokağı  No:10 Haymana / ANKARA",
+      "adres": "Çaldağ Mahallesi Erguvan Sokağı No:10 Haymana / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -4412,7 +4672,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Turnasuyu Mahallesi Yalı Sokağı  No:89 Gülyalı / ORDU",
+      "adres": "Turnasuyu Mahallesi Yalı Sokağı No:89 Gülyalı / ORDU",
       "soket_bilgileri": ""
     },
     {
@@ -4422,7 +4682,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Adnan Kahveci Mahallesi  No:116 Beylikdüzü / İSTANBUL",
+      "adres": "Adnan Kahveci Mahallesi No:116 Beylikdüzü / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -4432,7 +4692,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yakınca Mahallesi 2 Caddesi 3 Sokağı  No:237 Yeşilyurt / MALATYA",
+      "adres": "Yakınca Mahallesi 2 Caddesi 3 Sokağı No:237 Yeşilyurt / MALATYA",
       "soket_bilgileri": ""
     },
     {
@@ -4442,7 +4702,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Dokuz Eylül Mahallesi  Havalimanı Gaziemir / İZMİR",
+      "adres": "Dokuz Eylül Mahallesi Havalimanı Gaziemir / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -4452,7 +4712,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Dokuz Eylül Mahallesi  Havalimanı Gaziemir / İZMİR",
+      "adres": "Dokuz Eylül Mahallesi Havalimanı Gaziemir / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -4462,7 +4722,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kurtuluş Mahallesi Deniz Yolu Caddesi  No:2 Alaşehir / MANİSA",
+      "adres": "Kurtuluş Mahallesi Deniz Yolu Caddesi No:2 Alaşehir / MANİSA",
       "soket_bilgileri": ""
     },
     {
@@ -4472,7 +4732,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Saray Mahallesi Küçüksu Sokağı  No:64 Ümraniye / İSTANBUL",
+      "adres": "Saray Mahallesi Küçüksu Sokağı No:64 Ümraniye / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -4482,7 +4742,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Mimar Sinan Merkez Mahallesi İskele Caddesi  No:28 Büyükçekmece / İSTANBUL",
+      "adres": "Mimar Sinan Merkez Mahallesi İskele Caddesi No:28 Büyükçekmece / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -4492,7 +4752,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Sancak Mahallesi Veysel Karani Caddesi  No:6 Selçuklu / KONYA",
+      "adres": "Sancak Mahallesi Veysel Karani Caddesi No:6 Selçuklu / KONYA",
       "soket_bilgileri": ""
     },
     {
@@ -4502,7 +4762,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Musalla Mahallesi 1016 Sokağı  No:2/24 Çeşme / İZMİR",
+      "adres": "Musalla Mahallesi 1016 Sokağı No:2/24 Çeşme / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -4512,7 +4772,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Davutlar Mahallesi Adnan Kahveci Caddesi  No:87 Kuşadası / AYDIN",
+      "adres": "Davutlar Mahallesi Adnan Kahveci Caddesi No:87 Kuşadası / AYDIN",
       "soket_bilgileri": ""
     },
     {
@@ -4522,7 +4782,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Gümbet Mahallesi Adnan Menderes Caddesi  No:2 Bodrum / MUĞLA",
+      "adres": "Gümbet Mahallesi Adnan Menderes Caddesi No:2 Bodrum / MUĞLA",
       "soket_bilgileri": ""
     },
     {
@@ -4532,7 +4792,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Topkapı Mahallesi Çayır Meydanı Caddesi  No:43 Fatih / İSTANBUL",
+      "adres": "Topkapı Mahallesi Çayır Meydanı Caddesi No:43 Fatih / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -4542,7 +4802,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Titreyengöl Caddesi  Side Manavgat / ANTALYA",
+      "adres": "Titreyengöl Caddesi Side Manavgat / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -4552,7 +4812,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Bahçelievler Mahallesi Ertokuş Caddesi  No:3 Merkez / ISPARTA",
+      "adres": "Bahçelievler Mahallesi Ertokuş Caddesi No:3 Merkez / ISPARTA",
       "soket_bilgileri": ""
     },
     {
@@ -4562,7 +4822,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Numune Mahallesi Eyyüp Sultan Sokağı  No:1 İskenderun / HATAY",
+      "adres": "Numune Mahallesi Eyyüp Sultan Sokağı No:1 İskenderun / HATAY",
       "soket_bilgileri": ""
     },
     {
@@ -4572,7 +4832,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yayla Mahallesi Vatan Sokağı  No:72 Tuzla / İSTANBUL",
+      "adres": "Yayla Mahallesi Vatan Sokağı No:72 Tuzla / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -4582,7 +4842,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Ziya Gökalp Mahallesi  No:112 Başakşehir / İSTANBUL",
+      "adres": "Ziya Gökalp Mahallesi No:112 Başakşehir / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -4592,7 +4852,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Halide Edip Adıvar Mahallesi Akar Caddesi  No:6 Şişli / İSTANBUL",
+      "adres": "Halide Edip Adıvar Mahallesi Akar Caddesi No:6 Şişli / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -4602,7 +4862,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "YETKİNCAN GIDA VE İNŞAAT SANAYİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Uzunçiftlik Mahallesi Akmeşe Yolu Caddesi  No:30 Kartepe / KOCAELİ",
+      "adres": "Uzunçiftlik Mahallesi Akmeşe Yolu Caddesi No:30 Kartepe / KOCAELİ",
       "soket_bilgileri": ""
     },
     {
@@ -4612,7 +4872,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Ovacık Mahallesi  No:34  D-100 Karayolu Başiskele / KOCAELİ",
+      "adres": "Ovacık Mahallesi No:34 D-100 Karayolu Başiskele / KOCAELİ",
       "soket_bilgileri": ""
     },
     {
@@ -4622,7 +4882,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Uludağ 1. Gelişim Bölgesi Mahallesi  Uludağ 1. Gelişim Bölgesi Osmangazi / BURSA",
+      "adres": "Uludağ 1. Gelişim Bölgesi Mahallesi Uludağ 1. Gelişim Bölgesi Osmangazi / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -4632,7 +4892,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yenibağlar Mahallesi Eti Caddesi  No:28 A /2 Tepebaşı / ESKİŞEHİR",
+      "adres": "Yenibağlar Mahallesi Eti Caddesi No:28 A /2 Tepebaşı / ESKİŞEHİR",
       "soket_bilgileri": ""
     },
     {
@@ -4642,7 +4902,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Santral Garaj Mahallesi  No:5 Osmangazi / BURSA",
+      "adres": "Santral Garaj Mahallesi No:5 Osmangazi / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -4652,7 +4912,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yaylapazarı Caddesi  No:157/A Ermenek / KARAMAN",
+      "adres": "Yaylapazarı Caddesi No:157/A Ermenek / KARAMAN",
       "soket_bilgileri": ""
     },
     {
@@ -4662,7 +4922,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Orhangazi Mahallesi Konuralp 330 Caddesi  No:133 Merkez / DÜZCE",
+      "adres": "Orhangazi Mahallesi Konuralp 330 Caddesi No:133 Merkez / DÜZCE",
       "soket_bilgileri": ""
     },
     {
@@ -4672,7 +4932,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Eskikale Mahallesi Tabakhamam Caddesi  No:55 Akşehir / KONYA",
+      "adres": "Eskikale Mahallesi Tabakhamam Caddesi No:55 Akşehir / KONYA",
       "soket_bilgileri": ""
     },
     {
@@ -4682,7 +4942,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Çekirge Mahallesi Çekirge Caddesi  No:81 Osmangazi / BURSA",
+      "adres": "Çekirge Mahallesi Çekirge Caddesi No:81 Osmangazi / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -4702,7 +4962,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EDİRNE SERVİS VE OTOMOTİV ANONİM ŞİRKETİ",
-      "adres": "Kocasinan Mahallesi  No:127/2 Merkez / EDİRNE",
+      "adres": "Kocasinan Mahallesi No:127/2 Merkez / EDİRNE",
       "soket_bilgileri": ""
     },
     {
@@ -4712,7 +4972,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Konak Mahallesi Lefkoşe Caddesi  No:7 Nilüfer / BURSA",
+      "adres": "Konak Mahallesi Lefkoşe Caddesi No:7 Nilüfer / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -4722,7 +4982,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Topçular Mahallesi Osman Gazi Caddesi  No:2 Eyüpsultan / İSTANBUL",
+      "adres": "Topçular Mahallesi Osman Gazi Caddesi No:2 Eyüpsultan / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -4732,7 +4992,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Ulusum Caddesi  No:28  West İstanbul Marina Beylikdüzü / İSTANBUL",
+      "adres": "Ulusum Caddesi No:28 West İstanbul Marina Beylikdüzü / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -4742,267 +5002,7 @@
       "marka": "zes",
       "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Şafak Mahallesi 5001 Sokağı  No:98  Akdeniz Sanayi Sitesi Kepez / ANTALYA",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/10504",
-      "istasyon_adi": "Axis AVM Kağıthane",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "zes",
-      "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Merkez Mahallesi Cendere Caddesi  No:28 Kağıthane / İSTANBUL",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/8853",
-      "istasyon_adi": "Gürün Aktaş Otel",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "zes",
-      "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Pınarönü Mahallesi  No:225 Gürün / SİVAS",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/8792",
-      "istasyon_adi": "Esentepe Petrol",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "zes",
-      "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Doyran Mahallesi  Kızılcahöyük Merkez / ADIYAMAN",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/8791",
-      "istasyon_adi": "Bera Akaryakıt",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "zes",
-      "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Sümerevleri Mah. Mahallesi Eski Besni Cad Caddesi  No:146 Merkez / ADIYAMAN",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/857",
-      "istasyon_adi": "Memoil Hacıbaba Petrol Gaziantep",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "zes",
-      "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "E-90 Karayolu Üzeri Mahallesi  Almaşar Mevkii 9.km Birecik / ŞANLIURFA",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/7462",
-      "istasyon_adi": "Kocayusuf Restaurant",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "zes",
-      "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Derebahçe Mahallesi Girne Sokağı  No:94 Belen / HATAY",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/296",
-      "istasyon_adi": "Berrak Petrol",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "zes",
-      "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Cumhuriyet Mahallesi Cumhuriyet Caddesi  No:118 Altıntaş / KÜTAHYA",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/2568",
-      "istasyon_adi": "Villa Lycus Otel",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "zes",
-      "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Karahayit Mahallesi  No:17 Pamukkale / DENİZLİ",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/2263",
-      "istasyon_adi": "Cihan Petrol Niğde",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "zes",
-      "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kemalpaşa Mahallesi Adana - Ankara Yolu Caddesi  No:133 Ulukışla / NİĞDE",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/8091",
-      "istasyon_adi": "Historia AVM",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "zes",
-      "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "İskenderpaşa Mahallesi  No:2 Fatih / İSTANBUL",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/760",
-      "istasyon_adi": "Park Türk Kadıköy",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "zes",
-      "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "KARAKÖY GAYRİMENKUL YATIRIMLARI ANONİM ŞİRKETİ",
-      "adres": "Rasim Paşa Mahallesi Söğütlü Çeşme Caddesi  No:133 Kadıköy / İSTANBUL",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/1011",
-      "istasyon_adi": "Park Türk Özcan Ekmekçi İstanbul",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "zes",
-      "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "KARAKÖY GAYRİMENKUL YATIRIMLARI ANONİM ŞİRKETİ",
-      "adres": "Kocatepe Mahallesi Abdülhakhamit Caddesi  No:25 Beyoğlu / İSTANBUL",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/11075",
-      "istasyon_adi": "Torbalı Tınaztepe Hastanesi",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "zes",
-      "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Tepeköy Mahallesi Aydın Caddesi  No:336/1 Torbalı / İZMİR",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/10837",
-      "istasyon_adi": "Zeruj Port AVM",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "zes",
-      "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kazlıçeşme Mahallesi Asım Kazancıgil Caddesi  No:9 Zeytinburnu / İSTANBUL",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/8856",
-      "istasyon_adi": "Bol Et Mangal Akçabat Köfte",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "zes",
-      "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kümbet Hatun Mahallesi  No:71/1  Çevreyolu Merzifon / AMASYA",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/6551",
-      "istasyon_adi": "Taşpet Petrol",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "zes",
-      "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Sazlıca Köyü Mahallesi Çorum Karayolu 5. Km İlemi Çayırı Caddesi  No:4 Merzifon / AMASYA",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/11111",
-      "istasyon_adi": "Club Anastasia Otel",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "zes",
-      "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Hatipirimi Mahallesi 133 Sokağı  No:9 Marmaris / MUĞLA",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/11113",
-      "istasyon_adi": "Garanti BBVA Çiftçi Towers",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "zes",
-      "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Nisbetiye Mahallesi  Çiftçi Towers Beşiktaş / İSTANBUL",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/11116",
-      "istasyon_adi": "Susesi Petrol",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "zes",
-      "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "SUSESİ GIDA PETROL VE TURİZM İŞLETMELERİ A.Ş.",
-      "adres": "Kocasinan Mahallesi E-5 Karayolu Caddesi  No:54 Merkez / EDİRNE",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/9247",
-      "istasyon_adi": "Borusan İlkokulu",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "zes",
-      "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Hisar Mahallesi Kına Sokağı  No:16 Gemlik / BURSA",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/2696",
-      "istasyon_adi": "Ommer Hotel",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "zes",
-      "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Selimiye Mahallesi  No:425 Melikgazi / KAYSERİ",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/1678",
-      "istasyon_adi": "Viaport Marina Tuzla",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "zes",
-      "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Cami Mahallesi Balıkçılar Sokağı  No:20 Tuzla / İSTANBUL",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/7509",
-      "istasyon_adi": "Anemon Mardin Otel",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "zes",
-      "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yenikent Mahallesi 9153 Sokağı  No:11  Mardin Hava Alanı Karşısı Kızıltepe / MARDİN",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/1642",
-      "istasyon_adi": "Hünkar Restoran",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "zes",
-      "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Dolunay Mahallesi Sahil Yolu Caddesi  No:209 Fatsa / ORDU",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/1674",
-      "istasyon_adi": "Metrogarden AVM Ümraniye",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "zes",
-      "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Necip Fazıl Mahallesi Alemdağ Caddesi  No:940 Ümraniye / İSTANBUL",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/7852",
-      "istasyon_adi": "Svalinn Hotel",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "zes",
-      "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
-      "adres": "Gazi Mahallesi Akçay Caddesi  No:172 Gaziemir / İZMİR",
+      "adres": "Şafak Mahallesi 5001 Sokağı No:98 Akdeniz Sanayi Sitesi Kepez / ANTALYA",
       "soket_bilgileri": ""
     }
   ]

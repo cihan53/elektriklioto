@@ -24,6 +24,7 @@ import ssl
 import gzip
 import zlib
 import shlex
+import time
 import urllib.request
 import urllib.parse
 from html.parser import HTMLParser
@@ -296,6 +297,120 @@ def parse_epdk_partial_response(xml_content: str):
                 "soket_bilgileri": cells[7],
             })
     return records, "OK"
+
+EPDK_TABLE_ID = "sarjIstasyonuOzetSorguSonucu:sarjIstasyonuList"
+EPDK_PAGE_ROWS = 500
+EPDK_PAGE_DELAY = int(os.environ.get("EPDK_PAGE_DELAY", "20"))  # anti-DDOS, epdk_scraper.py ile aynı
+EPDK_MAX_PAGES = 100
+EPDK_DEFAULT_COLUMN_ORDER = ",".join(
+    "{}:j_idt{}".format(EPDK_TABLE_ID, n) for n in (64, 67, 70, 73, 76, 79, 82, 86)
+)
+
+def extract_epdk_view_state(xml_content):
+    """Partial-response içindeki güncel javax.faces.ViewState değerini döndürür."""
+    m = re.search(
+        r'<update id="[^"]*javax\.faces\.ViewState[^"]*"><!\[CDATA\[(.*?)\]\]></update>',
+        xml_content or "",
+        re.DOTALL,
+    )
+    return m.group(1).strip() if m else None
+
+def build_epdk_page_payload(view_state, first, rows, column_order):
+    """PrimeFaces DataTable sayfalama isteğinin gövdesi (epdk_scraper.py ile aynı alanlar)."""
+    t = EPDK_TABLE_ID
+    return {
+        "javax.faces.partial.ajax": "true",
+        "javax.faces.source": t,
+        "javax.faces.partial.execute": t,
+        "javax.faces.partial.render": t,
+        t: t,
+        t + "_pagination": "true",
+        t + "_first": str(first),
+        t + "_rows": str(rows),
+        t + "_skipChildren": "true",
+        t + "_encodeFeature": "true",
+        "sarjIstasyonuOzetSorguSonucu": "sarjIstasyonuOzetSorguSonucu",
+        t + "_rppDD": str(rows),
+        t + "_selection": "",
+        t + "_columnOrder": column_order,
+        "javax.faces.ViewState": view_state,
+    }
+
+def fetch_epdk_all_pages(parsed_curl, rows=EPDK_PAGE_ROWS, delay=EPDK_PAGE_DELAY):
+    """
+    EPDK tablosunu 500'erli sayfalar halinde sonuna kadar çeker.
+    Tek istek yalnızca ilk sayfayı (500 kayıt) döndürdüğü için tüm sayfalar gezilir.
+    Dönüş: (records, status, complete) — complete=True yalnızca son sayfaya ulaşıldıysa.
+    """
+    view_state = parsed_curl.get("view_state")
+    if not view_state:
+        return [], "NO_VIEWSTATE", False
+    column_order = (parsed_curl.get("data_params") or {}).get(
+        EPDK_TABLE_ID + "_columnOrder", EPDK_DEFAULT_COLUMN_ORDER
+    )
+
+    records = []
+    first = 0
+    for page in range(1, EPDK_MAX_PAGES + 1):
+        req = dict(parsed_curl)
+        req["method"] = "POST"
+        req["body"] = urllib.parse.urlencode(build_epdk_page_payload(view_state, first, rows, column_order))
+        data, err = execute_curl(req, timeout=45)
+        if err or not isinstance(data, str):
+            return records, err or "INVALID_RESPONSE", False
+
+        page_records, status = parse_epdk_partial_response(data)
+        if status == "EMPTY":
+            # İlk sayfanın boş gelmesi EPDK'da sorgu bağlamının (oturumun) kaybolduğu anlamına gelir.
+            return (records, "OK", True) if records else ([], "EMPTY", False)
+        if status != "OK":
+            return records, status, False
+
+        view_state = extract_epdk_view_state(data) or view_state
+        records.extend(page_records)
+        print("      Sayfa {} (first={}): {} kayıt (toplam {})".format(page, first, len(page_records), len(records)))
+
+        if len(page_records) < rows:
+            return records, "OK", True
+        first += rows
+        if delay > 0:
+            time.sleep(delay)
+    return records, "MAX_PAGES", False
+
+def load_epdk_checkpoints(chk_dir):
+    records = []
+    if chk_dir.exists():
+        for pf in sorted(chk_dir.glob("page_*.json")):
+            try:
+                with open(str(pf), "r", encoding="utf-8") as f:
+                    records.extend(json.load(f).get("records", []))
+            except Exception:
+                pass
+    return records
+
+def save_epdk_checkpoints(chk_dir, records, rows=EPDK_PAGE_ROWS):
+    """Tam çekilen EPDK verisini epdk_scraper.py ile aynı formatta checkpoint olarak yazar."""
+    from datetime import datetime
+    tmp_dir = chk_dir.parent / (chk_dir.name + ".tmp")
+    try:
+        tmp_dir.mkdir(parents=True, exist_ok=True)
+        for old in tmp_dir.glob("page_*.json"):
+            old.unlink()
+        now = datetime.now().isoformat()
+        for idx, first in enumerate(range(0, len(records), rows), start=1):
+            chunk = records[first:first + rows]
+            with open(str(tmp_dir / "page_{:03d}_first_{}.json".format(idx, first)), "w", encoding="utf-8") as f:
+                json.dump({"page": idx, "first": first, "rows": rows, "count": len(chunk),
+                           "timestamp": now, "records": chunk}, f, ensure_ascii=False, indent=2)
+        chk_dir.mkdir(parents=True, exist_ok=True)
+        for old in chk_dir.glob("page_*.json"):
+            old.unlink()
+        for pf in tmp_dir.glob("page_*.json"):
+            pf.rename(chk_dir / pf.name)
+        tmp_dir.rmdir()
+        print("  ✓ EPDK checkpoint'leri güncellendi: {} ({} kayıt).".format(chk_dir, len(records)))
+    except Exception as e:
+        print("  [!] EPDK checkpoint'leri yazılamadı: {}".format(e))
 
 # ==============================================================================
 # 2. Coğrafi ve Metin Normalizasyon Fonksiyonları
@@ -627,42 +742,40 @@ def main():
         zes_raw = zes_raw_input.get("stations", []) if isinstance(zes_raw_input, dict) else (zes_raw_input if isinstance(zes_raw_input, list) else [])
 
     # 4. EPDK İSTASYONLARI (Canlı EPDK Portalı -> Yerel Checkpoint/JSON -> Uzak GitHub Fallback)
+    # Canlı sonuç yalnızca TÜM sayfalar çekildiyse kullanılır; yarım sonuç (örn. sadece ilk 500)
+    # checkpoint'teki tam veri setinin yerine asla geçmez. EPDK_LIVE=0 canlı denemeyi atlar.
     epdk_raw = []
-    if "epdk" in curl_sources:
-        print("  [i] EPDK resmi portalı canlı denetleniyor (curl_input.txt)...")
+    chk_dir = ROOT / "epdk_checkpoints"
+    chk_records = load_epdk_checkpoints(chk_dir)
+    if "epdk" in curl_sources and os.environ.get("EPDK_LIVE", "1") != "0":
+        print("  [i] EPDK resmi portalı canlı denetleniyor (curl_input.txt, {}'erli sayfalar, {} sn ara)...".format(
+            EPDK_PAGE_ROWS, EPDK_PAGE_DELAY))
         parsed_ep = parse_curl_command(curl_sources["epdk"])
-        ep_data, ep_err = execute_curl(parsed_ep, timeout=15)
-        if ep_data and isinstance(ep_data, str):
-            ep_records, ep_status = parse_epdk_partial_response(ep_data)
-            if ep_status == "OK" and len(ep_records) > 0:
-                print("  ✓ EPDK resmi sitesinden canlı {} istasyon başarıyla çekildi.".format(len(ep_records)))
+        ep_records, ep_status, ep_complete = fetch_epdk_all_pages(parsed_ep)
+        if ep_complete and ep_records:
+            if chk_records and len(ep_records) < len(chk_records) * 0.5:
+                print("  ⚠️ UYARI: Canlı EPDK sonucu ({}) checkpoint'in ({}) yarısından az; sorgu filtreli olabilir.".format(
+                    len(ep_records), len(chk_records)))
+                print("      -> Checkpoint verisi korunuyor.")
+            else:
+                print("  ✓ EPDK resmi sitesinden canlı {} istasyon başarıyla çekildi (tüm sayfalar).".format(len(ep_records)))
                 epdk_raw = ep_records
-            elif ep_status == "SESSION_EXPIRED":
-                print("  ⚠️ UYARI: EPDK web oturumunun süresi dolmuş (Session / View Expired).")
-                print("      epdk_scraper.py çalıştırılarak veya curl_input.txt içindeki 'epdk:' satırı güncellenerek canlı oturum tazelenebilir.")
-                print("      -> Yerel veri deposu (istasyonlar.json / epdk_checkpoints) kullanılıyor...")
-            elif ep_status in ("EMPTY", "NO_TABLE_UPDATE"):
-                print("  ⚠️ UYARI: EPDK canlı sorgusundan aktif kayıt dönmedi (0 kayıt).")
-                print("      -> Yerel veri deposu (istasyonlar.json / epdk_checkpoints) kullanılıyor...")
-        elif ep_err:
-            print("  ⚠️ UYARI: EPDK canlı portal isteği başarısız oldu ({}).".format(ep_err))
-            print("      -> Yerel veri deposuna geçiliyor...")
+                save_epdk_checkpoints(chk_dir, ep_records)
+        elif ep_status in ("SESSION_EXPIRED", "NO_TABLE_UPDATE", "EMPTY"):
+            # Süresi dolan oturumda EPDK çoğu zaman ViewExpired yerine tablosuz bir yanıt döner.
+            print("  ⚠️ UYARI: EPDK web oturumu geçersiz veya süresi dolmuş (durum: {}).".format(ep_status))
+            print("      epdk_scraper.py çalıştırılarak veya curl_input.txt içindeki 'epdk:' satırı güncellenerek canlı oturum tazelenebilir.")
+        elif ep_records:
+            print("  ⚠️ UYARI: EPDK canlı çekimi yarıda kaldı ({} kayıt, durum: {}); yarım veri kullanılmıyor.".format(
+                len(ep_records), ep_status))
+        else:
+            print("  ⚠️ UYARI: EPDK canlı portal isteği başarısız oldu ({}).".format(ep_status))
+        if not epdk_raw:
+            print("      -> Yerel veri deposu (epdk_checkpoints / istasyonlar.json) kullanılıyor...")
 
-    if not epdk_raw:
-        # Checkpoint'leri kontrol et
-        chk_dir = ROOT / "epdk_checkpoints"
-        if chk_dir.exists():
-            chk_records = []
-            for pf in sorted(chk_dir.glob("page_*.json")):
-                try:
-                    with open(str(pf), "r", encoding="utf-8") as f:
-                        pdata = json.load(f)
-                        chk_records.extend(pdata.get("records", []))
-                except Exception:
-                    pass
-            if len(chk_records) >= 1000:
-                print("  ✓ EPDK checkpoint klasöründen {} istasyon yüklendi.".format(len(chk_records)))
-                epdk_raw = chk_records
+    if not epdk_raw and len(chk_records) >= 1000:
+        print("  ✓ EPDK checkpoint klasöründen {} istasyon yüklendi.".format(len(chk_records)))
+        epdk_raw = chk_records
 
     if not epdk_raw:
         epdk_raw_input = load_json_dataset(

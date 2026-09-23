@@ -3,8 +3,338 @@
   "first": 6500,
   "rows": 500,
   "count": 500,
-  "timestamp": "2026-09-06T14:30:41.704083",
+  "timestamp": "2026-09-23T22:25:30.866970",
   "records": [
+    {
+      "istasyon_no": "ŞRJ/1655",
+      "istasyon_adi": "ŞARJON BURULAŞ OSMANGAZİ METRO İSTASYONU BATI ÇIKIŞI OTOPARKI",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ŞARJON",
+      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "adres": "Çırpan Mahallesi Okul Sokağı No:NO: 173 Osmangazi / BURSA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/1735",
+      "istasyon_adi": "ŞARJON MERT MARİNE TUZLA",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ŞARJON",
+      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "adres": "Evliya Çelebi Mahallesi Nazan Sokağı No:12 Tuzla / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/2481",
+      "istasyon_adi": "ŞARJON ESBAŞ EGE SERBEST BÖLGE",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ŞARJON",
+      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "adres": "Esbaş Serbest Bölge Mahallesi Zafer Sokağı No:No:144/1 /Kapı No:1 Kümeevleri Gaziemir / İZMİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/2928",
+      "istasyon_adi": "ŞARJON SAPANCA BAMBOOLOW RESORT",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ŞARJON",
+      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "adres": "Yanık Mahallesi Tanık Orta Sokağı No:No:28/1 Sapanca / SAKARYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/3391",
+      "istasyon_adi": "ŞARJON MEYDAN OTOPARK",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ŞARJON",
+      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "adres": "Beştelsiz Mahallesi 71. Sokağı No:No:5 Otopark Zeytinburnu / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/3392",
+      "istasyon_adi": "ŞARJON TEPEKULE TMMOB",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ŞARJON",
+      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "adres": "Tepekule Mahallesi Anadolu Caddesi No:No:40 Bayraklı / İZMİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/4249",
+      "istasyon_adi": "ŞARJON EKİNOX ARMADA GAYRİMENKUL",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ŞARJON",
+      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "adres": "Kazımdirik Mahallesi 372/33 Sokağı No:NO:14 Bornova / İZMİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/6058",
+      "istasyon_adi": "ŞARJON URLA BAMBOO AVM",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ŞARJON",
+      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "adres": "Yenikent Mahallesi Samanyolu Sokağı No:6 Urla / İZMİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/6179",
+      "istasyon_adi": "ŞARJON ATAKUM BELEDİYE BAŞKANLIĞI GENÇLİK MERKEZİ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ŞARJON",
+      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "adres": "Cumhuriyet Mah. Caddesi 48. Sokak Sokağı No:No:4/1/1 Atakum / SAMSUN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/6182",
+      "istasyon_adi": "ŞARJON ATAKUM BELEDİYESİ BANDA ACEH HALI SAHA",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ŞARJON",
+      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "adres": "Cumhuriyet Mahallesi Mahallesi 48.sokak Sokağı No:No:10 Atakum / SAMSUN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/6201",
+      "istasyon_adi": "ŞARJON CANSU TATİL KÖYÜ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ŞARJON",
+      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "adres": "Soğuksu Mah. Mahallesi Çiftlik Caddesi Caddesi Asma Sk. Sokağı No:No:2 Cansu Alabalık Tesisleri Kartepe / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/6369",
+      "istasyon_adi": "ŞARJON MAŞUKİYE MANZARA RESTAURANT",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ŞARJON",
+      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "adres": "Maşukiye Mahallesi Mahallesi Kartepe Caddesi Caddesi Manzara Restaurant Kartepe / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/6372",
+      "istasyon_adi": "ŞARJON ATAKUM BELEDİYESİ NİKAH SALONU",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ŞARJON",
+      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "adres": "Mimar Sinan Mahallesi Mahallesi 151. Sokak Sokağı No:No:1/1 Atakum / SAMSUN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/6675",
+      "istasyon_adi": "ŞARJON MAŞUKİYE YAZICI KÖY EVİ RESTAURANT ŞARJ İSTASYONU",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ŞARJON",
+      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "adres": "Maşukiye Mahallesi Ardıçlı Sokağı No:6 Kartepe / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/6687",
+      "istasyon_adi": "ŞARJON OTO 98 ŞARJ İSTASYONU",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ŞARJON",
+      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "adres": "Esentepe Mahallesi İnönü Sokağı No:167/4/41 Kartal / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/7208",
+      "istasyon_adi": "ŞARJON ATAKUM BELEDİYESİ ANA HİZMET BİNASI",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ŞARJON",
+      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "adres": "Mimar Sinan Mahallesi No:114 Atakum / SAMSUN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/8035",
+      "istasyon_adi": "ŞARJON ALPET PAZAR ESKİÇIRAK ŞARJ İSTASYONU",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ŞARJON",
+      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "adres": "Hamidiye Köyü Mahallesi Kaçkar Sokağı No:64 Pazar / RİZE",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/7932",
+      "istasyon_adi": "ŞARJON ALPET PAZAR ESKİÇIRAK ŞARJ İSTASYONU-2",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ŞARJON",
+      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "adres": "Hamidiye Köyü Mahallesi Kaçkar Sokağı No:64 Pazar / RİZE",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/8199",
+      "istasyon_adi": "Şarjon Alpet Ardeşen Eskiçırak",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ŞARJON",
+      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "adres": "Elmalık Mahallesi No:21 Ayder Yolu Küme Evler Ardeşen / RİZE",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/8198",
+      "istasyon_adi": "Şarjon The Old Apprentice Ardeşen Eskiçırak",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ŞARJON",
+      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "adres": "Elmalık Mahallesi No:22 Ayder Yolu Küme Evler Ardeşen / RİZE",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/3821",
+      "istasyon_adi": "ŞARJON KARDOST",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ŞARJON",
+      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "adres": "Canbalı Mahallesi Karacabey / BURSA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/9546",
+      "istasyon_adi": "ŞARJON ŞİLE AĞVA ŞARJ İSTASYONU",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ŞARJON",
+      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "adres": "Ağva Merkez Mahallesi Yakuplu Sokağı No:53/1 Şile / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/9866",
+      "istasyon_adi": "ŞARJON VEFA KONUTLARI-2 ŞARJ İSTASYONU",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ŞARJON",
+      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "adres": "Hadımköy Mahallesi Adnan Menderes Caddesi No:39-41 Arnavutköy / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/10144",
+      "istasyon_adi": "ŞARJON ZEYTİNBURNU BELEDİYESİ BELGRADKAPI-2 ŞARJ İSTASYONU",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ŞARJON",
+      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "adres": "Kazlıçeşme Mahallesi Belgrat Kapı Yolu Sokağı No:7 Zeytinburnu / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/10693",
+      "istasyon_adi": "ŞARJON YAZICILAR RESTORAN ŞARJ İSTASYONU",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ŞARJON",
+      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "adres": "Maşukiye Mahallesi Alabalık Sokağı No:19 Kartepe / KOCAELİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/10905",
+      "istasyon_adi": "ŞARJON Soyak Palmiye Evleri C3 Blok",
+      "hizmet_sekli": "Özel",
+      "marka": "ŞARJON",
+      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "adres": "Site Mahallesi Atay Sokağı No:43 Ümraniye / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/10906",
+      "istasyon_adi": "ŞARJON Soyak Palmiye Evleri C4 Blok",
+      "hizmet_sekli": "Özel",
+      "marka": "ŞARJON",
+      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "adres": "Site Mahallesi Atay Sokağı No:43 Ümraniye / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/10908",
+      "istasyon_adi": "ŞARJON Soyak Palmiye Evleri Yönetim A1 Blok",
+      "hizmet_sekli": "Özel",
+      "marka": "ŞARJON",
+      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "adres": "Site Mahallesi Atay Sokağı No:43 Ümraniye / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/10950",
+      "istasyon_adi": "ŞARJON ORKA LOTUS BEACH ŞARJ İSTASYONU",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ŞARJON",
+      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "adres": "İçmeler Mahallesi Atatürk Caddesi No:56 Marmaris / MUĞLA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/10980",
+      "istasyon_adi": "ŞARJON Millet Bahçesi Zeytinburnu Belediyesi Şarj İstasyonu",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ŞARJON",
+      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "adres": "Beştelsiz Mahallesi Prof. Dr. Muammer Aksoy Caddesi No:32 Zeytinburnu / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/10992",
+      "istasyon_adi": "ŞARJON Merkezefendi Kütüphanesi Zeytinburnu Belediyesi Şarj İstasyonu",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ŞARJON",
+      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "adres": "Merkezefendi Mahallesi Mevlevihane Caddesi Zeytinburnu / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/11706",
+      "istasyon_adi": "SALI PAZARI KAFETERYA ÖDEMİŞ BELEDİYESİ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ŞARJON",
+      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "adres": "Anafartalar Mahallesi No:1 Ödemiş / İZMİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/11707",
+      "istasyon_adi": "Eski Otogar Ödemiş Belediyesi",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ŞARJON",
+      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "adres": "Cumhuriyet Mahallesi No:1 Ödemiş / İZMİR",
+      "soket_bilgileri": ""
+    },
     {
       "istasyon_no": "ŞRJ/1640",
       "istasyon_adi": "ŞARJON BURULAŞ MUDANYA TEKEL OTOPARK",
@@ -12,7 +342,7 @@
       "marka": "ŞARJON",
       "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Ömerbey Mahallesi  Eski Tekel Deposu Otopark Mudanya / BURSA",
+      "adres": "Ömerbey Mahallesi Eski Tekel Deposu Otopark Mudanya / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -22,7 +352,7 @@
       "marka": "ŞARJON",
       "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Topçullar Mahallesi  No:178 İzmit / KOCAELİ",
+      "adres": "Topçullar Mahallesi No:178 İzmit / KOCAELİ",
       "soket_bilgileri": ""
     },
     {
@@ -32,7 +362,7 @@
       "marka": "ŞARJON",
       "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Zümrütevler Mahallesi Mercan Sokağı  No:5-13 Maltepe / İSTANBUL",
+      "adres": "Zümrütevler Mahallesi Mercan Sokağı No:5-13 Maltepe / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -42,7 +372,7 @@
       "marka": "ŞARJON",
       "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Gaziler Mahallesi Issıkgöl Caddesi  No:138 Gebze / KOCAELİ",
+      "adres": "Gaziler Mahallesi Issıkgöl Caddesi No:138 Gebze / KOCAELİ",
       "soket_bilgileri": ""
     },
     {
@@ -52,7 +382,7 @@
       "marka": "ŞARJON",
       "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Merdivenköy Mahallesi Bora Sokağı  No:1/3 Kadıköy / İSTANBUL",
+      "adres": "Merdivenköy Mahallesi Bora Sokağı No:1/3 Kadıköy / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -62,7 +392,7 @@
       "marka": "ŞARJON",
       "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Harmandere Mahallesi Petek Sokağı  No:16 Pendik / İSTANBUL",
+      "adres": "Harmandere Mahallesi Petek Sokağı No:16 Pendik / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -72,7 +402,7 @@
       "marka": "ŞARJON",
       "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Harmandere Mahallesi Petek Sokağı  No:16 Pendik / İSTANBUL",
+      "adres": "Harmandere Mahallesi Petek Sokağı No:16 Pendik / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -82,7 +412,7 @@
       "marka": "ŞARJON",
       "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yenişehir Mahallesi Sümbül Sokağı  No:10 Pendik / İSTANBUL",
+      "adres": "Yenişehir Mahallesi Sümbül Sokağı No:10 Pendik / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -92,7 +422,7 @@
       "marka": "ŞARJON",
       "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yenişehir Mahallesi Sümbül Sokağı  No:10 Pendik / İSTANBUL",
+      "adres": "Yenişehir Mahallesi Sümbül Sokağı No:10 Pendik / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -102,7 +432,7 @@
       "marka": "ŞARJON",
       "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yenidoğan Mevki Mahallesi 114 Sokağı  No:72/A  Doğanlı Kaynaşlı / DÜZCE",
+      "adres": "Yenidoğan Mevki Mahallesi 114 Sokağı No:72/A Doğanlı Kaynaşlı / DÜZCE",
       "soket_bilgileri": ""
     },
     {
@@ -112,7 +442,7 @@
       "marka": "ŞARJON",
       "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Adil Mahallesi Hamidiye Sokağı  No:D Blok Sultanbeyli / İSTANBUL",
+      "adres": "Adil Mahallesi Hamidiye Sokağı No:D Blok Sultanbeyli / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -142,7 +472,7 @@
       "marka": "ŞARJON",
       "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Evka 3 Mahallesi Şehit Taha Carım Sokağı  No:2 Bornova / İZMİR",
+      "adres": "Evka 3 Mahallesi Şehit Taha Carım Sokağı No:2 Bornova / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -152,7 +482,7 @@
       "marka": "ŞARJON",
       "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Aydınevler Mahallesi Sakinler Sokağı  No:24 Maltepe / İSTANBUL",
+      "adres": "Aydınevler Mahallesi Sakinler Sokağı No:24 Maltepe / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -172,7 +502,7 @@
       "marka": "ŞARJON",
       "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Veliefendi Mahallesi Prof. Dr. Turan Güneş Caddesi  No:1 Zeytinburnu / İSTANBUL",
+      "adres": "Veliefendi Mahallesi Prof. Dr. Turan Güneş Caddesi No:1 Zeytinburnu / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -182,7 +512,7 @@
       "marka": "ŞARJON",
       "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kayıhan Mahallesi Yeni Cumhuriyet Caddesi  No:NO:25 Osmangazi / BURSA",
+      "adres": "Kayıhan Mahallesi Yeni Cumhuriyet Caddesi No:NO:25 Osmangazi / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -192,7 +522,7 @@
       "marka": "ŞARJON",
       "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Burulaş Hocaalizede Otoparkı Mahallesi  No:MO:10 Osmangazi / BURSA",
+      "adres": "Burulaş Hocaalizede Otoparkı Mahallesi No:MO:10 Osmangazi / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -202,7 +532,7 @@
       "marka": "ŞARJON",
       "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Alacaatlı Mahallesi 4750 Sokağı  No:29 Çankaya / ANKARA",
+      "adres": "Alacaatlı Mahallesi 4750 Sokağı No:29 Çankaya / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -212,7 +542,7 @@
       "marka": "ŞARJON",
       "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kazlıçeşme Mahallesi Belgrat Kapı Yolu Sokağı  No:7 Zeytinburnu / İSTANBUL",
+      "adres": "Kazlıçeşme Mahallesi Belgrat Kapı Yolu Sokağı No:7 Zeytinburnu / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -222,7 +552,7 @@
       "marka": "ŞARJON",
       "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Gökalp Mahallesi Prof. Dr. Muammer Aksoy Caddesi  No:75 Zeytinburnu / İSTANBUL",
+      "adres": "Gökalp Mahallesi Prof. Dr. Muammer Aksoy Caddesi No:75 Zeytinburnu / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -232,7 +562,7 @@
       "marka": "ŞARJON",
       "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yıldırım Mahallesi İzmir-çanakkale Asfaltı Caddesi  No:No:26/1 Menemen / İZMİR",
+      "adres": "Yıldırım Mahallesi İzmir-çanakkale Asfaltı Caddesi No:No:26/1 Menemen / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -242,7 +572,7 @@
       "marka": "ŞARJON",
       "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Mithat Paşa Caddesi  No:447 Narlıdere / İZMİR",
+      "adres": "Mithat Paşa Caddesi No:447 Narlıdere / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -252,7 +582,7 @@
       "marka": "ŞARJON",
       "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Irmak Mahallesi 717 Sokağı  No:4 Gaziemir / İZMİR",
+      "adres": "Irmak Mahallesi 717 Sokağı No:4 Gaziemir / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -262,7 +592,7 @@
       "marka": "ŞARJON",
       "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Meclis Mahallesi Teraziler Sokağı  No:29 Sancaktepe / İSTANBUL",
+      "adres": "Meclis Mahallesi Teraziler Sokağı No:29 Sancaktepe / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -282,7 +612,7 @@
       "marka": "ŞARJON",
       "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Irmak Mahallesi 717 Sokağı  No:2 Gaziemir / İZMİR",
+      "adres": "Irmak Mahallesi 717 Sokağı No:2 Gaziemir / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -292,7 +622,7 @@
       "marka": "ŞARJON",
       "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yenikale Mahallesi Şehit Onur Akarsu Caddesi  No:12 Narlıdere / İZMİR",
+      "adres": "Yenikale Mahallesi Şehit Onur Akarsu Caddesi No:12 Narlıdere / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -302,7 +632,7 @@
       "marka": "ŞARJON",
       "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Çamtepe Mahallesi Çağrı Sokağı  No:9 Narlıdere / İZMİR",
+      "adres": "Çamtepe Mahallesi Çağrı Sokağı No:9 Narlıdere / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -332,7 +662,7 @@
       "marka": "ŞARJON",
       "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Erenköy Mahallesi Şemsettin Günaltay Caddesi  No:163 Kadıköy / İSTANBUL",
+      "adres": "Erenköy Mahallesi Şemsettin Günaltay Caddesi No:163 Kadıköy / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -342,7 +672,7 @@
       "marka": "ŞARJON",
       "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kaşüstü Mahallesi Muratlı Caddesi  No:100/A Yomra / TRABZON",
+      "adres": "Kaşüstü Mahallesi Muratlı Caddesi No:100/A Yomra / TRABZON",
       "soket_bilgileri": ""
     },
     {
@@ -402,7 +732,7 @@
       "marka": "ŞARJON",
       "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Gölevi Mahallesi Okul Mevkii Sokağı  No:24/C Ünye / ORDU",
+      "adres": "Gölevi Mahallesi Okul Mevkii Sokağı No:24/C Ünye / ORDU",
       "soket_bilgileri": ""
     },
     {
@@ -422,7 +752,7 @@
       "marka": "ŞARJON",
       "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yeni Mahallesi  No:192 Çine / AYDIN",
+      "adres": "Yeni Mahallesi No:192 Çine / AYDIN",
       "soket_bilgileri": ""
     },
     {
@@ -432,7 +762,7 @@
       "marka": "ŞARJON",
       "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Site Mahallesi Atay Sokağı  No:43 Ümraniye / İSTANBUL",
+      "adres": "Site Mahallesi Atay Sokağı No:43 Ümraniye / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -452,17 +782,7 @@
       "marka": "ŞARJON",
       "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kazlıçeşme Mahallesi Abay Caddesi  No:165 Zeytinburnu / İSTANBUL",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/21532",
-      "istasyon_adi": "Demircioğlu Camping",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ŞARJON",
-      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Mecidiye Mahallesi Keşan / EDİRNE",
+      "adres": "Kazlıçeşme Mahallesi Abay Caddesi No:165 Zeytinburnu / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -492,7 +812,7 @@
       "marka": "ŞARJON",
       "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Atatürk Mahallesi Yudum Sokağı  No:4 Ünye / ORDU",
+      "adres": "Atatürk Mahallesi Yudum Sokağı No:4 Ünye / ORDU",
       "soket_bilgileri": ""
     },
     {
@@ -512,7 +832,7 @@
       "marka": "ŞARJON",
       "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Beştelsiz Mahallesi Semiha Şakir Caddesi  No:2/1 Zeytinburnu / İSTANBUL",
+      "adres": "Beştelsiz Mahallesi Semiha Şakir Caddesi No:2/1 Zeytinburnu / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -552,7 +872,7 @@
       "marka": "ŞARJON",
       "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "İnönü Mahallesi 6718 Sokağı  No:49 Karşıyaka / İZMİR",
+      "adres": "İnönü Mahallesi 6718 Sokağı No:49 Karşıyaka / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -562,7 +882,7 @@
       "marka": "ŞARJON",
       "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yassıören Mahallesi Eski Edirne Asfaltı Caddesi  No:1849 Arnavutköy / İSTANBUL",
+      "adres": "Yassıören Mahallesi Eski Edirne Asfaltı Caddesi No:1849 Arnavutköy / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -572,7 +892,7 @@
       "marka": "ŞARJON",
       "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Maltepe Mahallesi Askeri Fırın Sokağı  No:1 Zeytinburnu / İSTANBUL",
+      "adres": "Maltepe Mahallesi Askeri Fırın Sokağı No:1 Zeytinburnu / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -582,7 +902,27 @@
       "marka": "ŞARJON",
       "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "LİSA GIDA OTO KİRALAMA TURİZM İNŞAAT TARIM HAYVANCILIK ENERJİ ARITMA SANAYİ VE TİCARET LTD.ŞTİ.",
-      "adres": "Bahriye Üçok Mahallesi Rüştü Şardağ Caddesi  No:50/1 Karşıyaka / İZMİR",
+      "adres": "Bahriye Üçok Mahallesi Rüştü Şardağ Caddesi No:50/1 Karşıyaka / İZMİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/23656",
+      "istasyon_adi": "Ilıca Mahallesi",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ŞARJON",
+      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "adres": "Ilıca Mahallesi Işıl Sokağı No:2463 Narlıdere / İZMİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/4434",
+      "istasyon_adi": "Bir Mekanik",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ŞARJON",
+      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
+      "adres": "Sanayi Mahallesi Kozalı Sokağı No:F BLOK NO: 10F İÇ KAPI NO: 7 İzmit / KOCAELİ",
       "soket_bilgileri": ""
     },
     {
@@ -602,7 +942,7 @@
       "marka": "turuncu mühendislik",
       "sarj_agi_isletmecisi": "TURUNCU MÜHENDİSLİK ELEKTRİK TAAH.SAN.VE DIŞ TİC. LTD. ŞTİ.",
       "sarj_istasyonu_isletmecisi": "TURUNCU MÜHENDİSLİK ELEKTRİK TAAH.SAN.VE DIŞ TİC. LTD. ŞTİ.",
-      "adres": "Yenişehir Mahallesi  No:17AA Merkez / BATMAN",
+      "adres": "Yenişehir Mahallesi No:17AA Merkez / BATMAN",
       "soket_bilgileri": ""
     },
     {
@@ -622,7 +962,7 @@
       "marka": "turuncu mühendislik",
       "sarj_agi_isletmecisi": "TURUNCU MÜHENDİSLİK ELEKTRİK TAAH.SAN.VE DIŞ TİC. LTD. ŞTİ.",
       "sarj_istasyonu_isletmecisi": "TURUNCU MÜHENDİSLİK ELEKTRİK TAAH.SAN.VE DIŞ TİC. LTD. ŞTİ.",
-      "adres": "D955 Caddesi  Suçeken Köyü Hasankeyf / BATMAN",
+      "adres": "D955 Caddesi Suçeken Köyü Hasankeyf / BATMAN",
       "soket_bilgileri": ""
     },
     {
@@ -632,7 +972,7 @@
       "marka": "turuncu mühendislik",
       "sarj_agi_isletmecisi": "TURUNCU MÜHENDİSLİK ELEKTRİK TAAH.SAN.VE DIŞ TİC. LTD. ŞTİ.",
       "sarj_istasyonu_isletmecisi": "TURUNCU MÜHENDİSLİK ELEKTRİK TAAH.SAN.VE DIŞ TİC. LTD. ŞTİ.",
-      "adres": "D955 Caddesi  Suçeken Köyü Hasankeyf / BATMAN",
+      "adres": "D955 Caddesi Suçeken Köyü Hasankeyf / BATMAN",
       "soket_bilgileri": ""
     },
     {
@@ -642,7 +982,7 @@
       "marka": "turuncu mühendislik",
       "sarj_agi_isletmecisi": "TURUNCU MÜHENDİSLİK ELEKTRİK TAAH.SAN.VE DIŞ TİC. LTD. ŞTİ.",
       "sarj_istasyonu_isletmecisi": "TURUNCU MÜHENDİSLİK ELEKTRİK TAAH.SAN.VE DIŞ TİC. LTD. ŞTİ.",
-      "adres": "Obalı Mahallesi  No:13 Bismil / DİYARBAKIR",
+      "adres": "Obalı Mahallesi No:13 Bismil / DİYARBAKIR",
       "soket_bilgileri": ""
     },
     {
@@ -652,7 +992,7 @@
       "marka": "turuncu mühendislik",
       "sarj_agi_isletmecisi": "TURUNCU MÜHENDİSLİK ELEKTRİK TAAH.SAN.VE DIŞ TİC. LTD. ŞTİ.",
       "sarj_istasyonu_isletmecisi": "TURUNCU MÜHENDİSLİK ELEKTRİK TAAH.SAN.VE DIŞ TİC. LTD. ŞTİ.",
-      "adres": "Obalı Mahallesi  No:13 Bismil / DİYARBAKIR",
+      "adres": "Obalı Mahallesi No:13 Bismil / DİYARBAKIR",
       "soket_bilgileri": ""
     },
     {
@@ -702,7 +1042,7 @@
       "marka": "turuncu mühendislik",
       "sarj_agi_isletmecisi": "TURUNCU MÜHENDİSLİK ELEKTRİK TAAH.SAN.VE DIŞ TİC. LTD. ŞTİ.",
       "sarj_istasyonu_isletmecisi": "TURUNCU MÜHENDİSLİK ELEKTRİK TAAH.SAN.VE DIŞ TİC. LTD. ŞTİ.",
-      "adres": "Belde Mahallesi 3233 Sokağı  No:1 Merkez / BATMAN",
+      "adres": "Belde Mahallesi 3233 Sokağı No:1 Merkez / BATMAN",
       "soket_bilgileri": ""
     },
     {
@@ -712,7 +1052,7 @@
       "marka": "turuncu mühendislik",
       "sarj_agi_isletmecisi": "TURUNCU MÜHENDİSLİK ELEKTRİK TAAH.SAN.VE DIŞ TİC. LTD. ŞTİ.",
       "sarj_istasyonu_isletmecisi": "TURUNCU MÜHENDİSLİK ELEKTRİK TAAH.SAN.VE DIŞ TİC. LTD. ŞTİ.",
-      "adres": "Fatih Mahallesi  No:137 Merkez / BATMAN",
+      "adres": "Fatih Mahallesi No:137 Merkez / BATMAN",
       "soket_bilgileri": ""
     },
     {
@@ -722,7 +1062,7 @@
       "marka": "turuncu mühendislik",
       "sarj_agi_isletmecisi": "TURUNCU MÜHENDİSLİK ELEKTRİK TAAH.SAN.VE DIŞ TİC. LTD. ŞTİ.",
       "sarj_istasyonu_isletmecisi": "TURUNCU MÜHENDİSLİK ELEKTRİK TAAH.SAN.VE DIŞ TİC. LTD. ŞTİ.",
-      "adres": "Fatih Mahallesi  No:137 Merkez / BATMAN",
+      "adres": "Fatih Mahallesi No:137 Merkez / BATMAN",
       "soket_bilgileri": ""
     },
     {
@@ -732,7 +1072,7 @@
       "marka": "turuncu mühendislik",
       "sarj_agi_isletmecisi": "TURUNCU MÜHENDİSLİK ELEKTRİK TAAH.SAN.VE DIŞ TİC. LTD. ŞTİ.",
       "sarj_istasyonu_isletmecisi": "TURUNCU MÜHENDİSLİK ELEKTRİK TAAH.SAN.VE DIŞ TİC. LTD. ŞTİ.",
-      "adres": "Fırat Mahallesi Sipan Caddesi  No:33 Kayapınar / DİYARBAKIR",
+      "adres": "Fırat Mahallesi Sipan Caddesi No:33 Kayapınar / DİYARBAKIR",
       "soket_bilgileri": ""
     },
     {
@@ -742,7 +1082,7 @@
       "marka": "turuncu mühendislik",
       "sarj_agi_isletmecisi": "TURUNCU MÜHENDİSLİK ELEKTRİK TAAH.SAN.VE DIŞ TİC. LTD. ŞTİ.",
       "sarj_istasyonu_isletmecisi": "TURUNCU MÜHENDİSLİK ELEKTRİK TAAH.SAN.VE DIŞ TİC. LTD. ŞTİ.",
-      "adres": "Fatih Mahallesi Sipan Caddesi  No:33 Kayapınar / DİYARBAKIR",
+      "adres": "Fatih Mahallesi Sipan Caddesi No:33 Kayapınar / DİYARBAKIR",
       "soket_bilgileri": ""
     },
     {
@@ -752,7 +1092,7 @@
       "marka": "turuncu mühendislik",
       "sarj_agi_isletmecisi": "TURUNCU MÜHENDİSLİK ELEKTRİK TAAH.SAN.VE DIŞ TİC. LTD. ŞTİ.",
       "sarj_istasyonu_isletmecisi": "TURUNCU MÜHENDİSLİK ELEKTRİK TAAH.SAN.VE DIŞ TİC. LTD. ŞTİ.",
-      "adres": "Fırat Mahallesi Sipan Caddesi  No:33 Kayapınar / DİYARBAKIR",
+      "adres": "Fırat Mahallesi Sipan Caddesi No:33 Kayapınar / DİYARBAKIR",
       "soket_bilgileri": ""
     },
     {
@@ -762,7 +1102,7 @@
       "marka": "turuncu mühendislik",
       "sarj_agi_isletmecisi": "TURUNCU MÜHENDİSLİK ELEKTRİK TAAH.SAN.VE DIŞ TİC. LTD. ŞTİ.",
       "sarj_istasyonu_isletmecisi": "TURUNCU MÜHENDİSLİK ELEKTRİK TAAH.SAN.VE DIŞ TİC. LTD. ŞTİ.",
-      "adres": "Fırat Mahallesi Sipan Caddesi  No:33 Kayapınar / DİYARBAKIR",
+      "adres": "Fırat Mahallesi Sipan Caddesi No:33 Kayapınar / DİYARBAKIR",
       "soket_bilgileri": ""
     },
     {
@@ -772,7 +1112,7 @@
       "marka": "turuncu mühendislik",
       "sarj_agi_isletmecisi": "TURUNCU MÜHENDİSLİK ELEKTRİK TAAH.SAN.VE DIŞ TİC. LTD. ŞTİ.",
       "sarj_istasyonu_isletmecisi": "TURUNCU MÜHENDİSLİK ELEKTRİK TAAH.SAN.VE DIŞ TİC. LTD. ŞTİ.",
-      "adres": "Diclekent Mahallesi Mastfroş Caddesi  No:2 Kayapınar / DİYARBAKIR",
+      "adres": "Diclekent Mahallesi Mastfroş Caddesi No:2 Kayapınar / DİYARBAKIR",
       "soket_bilgileri": ""
     },
     {
@@ -782,7 +1122,7 @@
       "marka": "turuncu mühendislik",
       "sarj_agi_isletmecisi": "TURUNCU MÜHENDİSLİK ELEKTRİK TAAH.SAN.VE DIŞ TİC. LTD. ŞTİ.",
       "sarj_istasyonu_isletmecisi": "TURUNCU MÜHENDİSLİK ELEKTRİK TAAH.SAN.VE DIŞ TİC. LTD. ŞTİ.",
-      "adres": "Diclekent Mahallesi Mastfroş Caddesi  No:2 Kayapınar / DİYARBAKIR",
+      "adres": "Diclekent Mahallesi Mastfroş Caddesi No:2 Kayapınar / DİYARBAKIR",
       "soket_bilgileri": ""
     },
     {
@@ -792,7 +1132,7 @@
       "marka": "turuncu mühendislik",
       "sarj_agi_isletmecisi": "TURUNCU MÜHENDİSLİK ELEKTRİK TAAH.SAN.VE DIŞ TİC. LTD. ŞTİ.",
       "sarj_istasyonu_isletmecisi": "TURUNCU MÜHENDİSLİK ELEKTRİK TAAH.SAN.VE DIŞ TİC. LTD. ŞTİ.",
-      "adres": "Diclekent Mahallesi Mastfroş Caddesi  No:2 Kayapınar / DİYARBAKIR",
+      "adres": "Diclekent Mahallesi Mastfroş Caddesi No:2 Kayapınar / DİYARBAKIR",
       "soket_bilgileri": ""
     },
     {
@@ -802,7 +1142,7 @@
       "marka": "turuncu mühendislik",
       "sarj_agi_isletmecisi": "TURUNCU MÜHENDİSLİK ELEKTRİK TAAH.SAN.VE DIŞ TİC. LTD. ŞTİ.",
       "sarj_istasyonu_isletmecisi": "TURUNCU MÜHENDİSLİK ELEKTRİK TAAH.SAN.VE DIŞ TİC. LTD. ŞTİ.",
-      "adres": "Gültepe Mahallesi  No:68 Merkez / BATMAN",
+      "adres": "Gültepe Mahallesi No:68 Merkez / BATMAN",
       "soket_bilgileri": ""
     },
     {
@@ -882,7 +1222,7 @@
       "marka": "turuncu mühendislik",
       "sarj_agi_isletmecisi": "TURUNCU MÜHENDİSLİK ELEKTRİK TAAH.SAN.VE DIŞ TİC. LTD. ŞTİ.",
       "sarj_istasyonu_isletmecisi": "TURUNCU MÜHENDİSLİK ELEKTRİK TAAH.SAN.VE DIŞ TİC. LTD. ŞTİ.",
-      "adres": "Yenişehir Mahallesi Mereto Caddesi  No:22 Merkez / BATMAN",
+      "adres": "Yenişehir Mahallesi Mereto Caddesi No:22 Merkez / BATMAN",
       "soket_bilgileri": ""
     },
     {
@@ -892,7 +1232,7 @@
       "marka": "turuncu mühendislik",
       "sarj_agi_isletmecisi": "TURUNCU MÜHENDİSLİK ELEKTRİK TAAH.SAN.VE DIŞ TİC. LTD. ŞTİ.",
       "sarj_istasyonu_isletmecisi": "TURUNCU MÜHENDİSLİK ELEKTRİK TAAH.SAN.VE DIŞ TİC. LTD. ŞTİ.",
-      "adres": "Yenişehir Mahallesi Mereto Caddesi  No:22 Merkez / BATMAN",
+      "adres": "Yenişehir Mahallesi Mereto Caddesi No:22 Merkez / BATMAN",
       "soket_bilgileri": ""
     },
     {
@@ -902,7 +1242,7 @@
       "marka": "turuncu mühendislik",
       "sarj_agi_isletmecisi": "TURUNCU MÜHENDİSLİK ELEKTRİK TAAH.SAN.VE DIŞ TİC. LTD. ŞTİ.",
       "sarj_istasyonu_isletmecisi": "TURUNCU MÜHENDİSLİK ELEKTRİK TAAH.SAN.VE DIŞ TİC. LTD. ŞTİ.",
-      "adres": "Yenişehir Mahallesi Mereto Caddesi  No:22 Merkez / BATMAN",
+      "adres": "Yenişehir Mahallesi Mereto Caddesi No:22 Merkez / BATMAN",
       "soket_bilgileri": ""
     },
     {
@@ -922,7 +1262,7 @@
       "marka": "turuncu mühendislik",
       "sarj_agi_isletmecisi": "TURUNCU MÜHENDİSLİK ELEKTRİK TAAH.SAN.VE DIŞ TİC. LTD. ŞTİ.",
       "sarj_istasyonu_isletmecisi": "TURUNCU MÜHENDİSLİK ELEKTRİK TAAH.SAN.VE DIŞ TİC. LTD. ŞTİ.",
-      "adres": "Tilmerc Mahallesi 3860 Sokağı  No:16 Merkez / BATMAN",
+      "adres": "Tilmerc Mahallesi 3860 Sokağı No:16 Merkez / BATMAN",
       "soket_bilgileri": ""
     },
     {
@@ -932,7 +1272,7 @@
       "marka": "turuncu mühendislik",
       "sarj_agi_isletmecisi": "TURUNCU MÜHENDİSLİK ELEKTRİK TAAH.SAN.VE DIŞ TİC. LTD. ŞTİ.",
       "sarj_istasyonu_isletmecisi": "TURUNCU MÜHENDİSLİK ELEKTRİK TAAH.SAN.VE DIŞ TİC. LTD. ŞTİ.",
-      "adres": "Kültür Mahallesi  No:243 Merkez / BATMAN",
+      "adres": "Kültür Mahallesi No:243 Merkez / BATMAN",
       "soket_bilgileri": ""
     },
     {
@@ -1002,7 +1342,7 @@
       "marka": "turuncu mühendislik",
       "sarj_agi_isletmecisi": "TURUNCU MÜHENDİSLİK ELEKTRİK TAAH.SAN.VE DIŞ TİC. LTD. ŞTİ.",
       "sarj_istasyonu_isletmecisi": "TURUNCU MÜHENDİSLİK ELEKTRİK TAAH.SAN.VE DIŞ TİC. LTD. ŞTİ.",
-      "adres": "Peyas Mahallesi  No:206 Kayapınar / DİYARBAKIR",
+      "adres": "Peyas Mahallesi No:206 Kayapınar / DİYARBAKIR",
       "soket_bilgileri": ""
     },
     {
@@ -1012,7 +1352,7 @@
       "marka": "turuncu mühendislik",
       "sarj_agi_isletmecisi": "TURUNCU MÜHENDİSLİK ELEKTRİK TAAH.SAN.VE DIŞ TİC. LTD. ŞTİ.",
       "sarj_istasyonu_isletmecisi": "TURUNCU MÜHENDİSLİK ELEKTRİK TAAH.SAN.VE DIŞ TİC. LTD. ŞTİ.",
-      "adres": "Peyas Mahallesi  No:206 Kayapınar / DİYARBAKIR",
+      "adres": "Peyas Mahallesi No:206 Kayapınar / DİYARBAKIR",
       "soket_bilgileri": ""
     },
     {
@@ -1022,7 +1362,7 @@
       "marka": "turuncu mühendislik",
       "sarj_agi_isletmecisi": "TURUNCU MÜHENDİSLİK ELEKTRİK TAAH.SAN.VE DIŞ TİC. LTD. ŞTİ.",
       "sarj_istasyonu_isletmecisi": "TURUNCU MÜHENDİSLİK ELEKTRİK TAAH.SAN.VE DIŞ TİC. LTD. ŞTİ.",
-      "adres": "Peyas Mahallesi  No:206 Kayapınar / DİYARBAKIR",
+      "adres": "Peyas Mahallesi No:206 Kayapınar / DİYARBAKIR",
       "soket_bilgileri": ""
     },
     {
@@ -1032,7 +1372,7 @@
       "marka": "turuncu mühendislik",
       "sarj_agi_isletmecisi": "TURUNCU MÜHENDİSLİK ELEKTRİK TAAH.SAN.VE DIŞ TİC. LTD. ŞTİ.",
       "sarj_istasyonu_isletmecisi": "TURUNCU MÜHENDİSLİK ELEKTRİK TAAH.SAN.VE DIŞ TİC. LTD. ŞTİ.",
-      "adres": "Peyas Mahallesi  No:206 Kayapınar / DİYARBAKIR",
+      "adres": "Peyas Mahallesi No:206 Kayapınar / DİYARBAKIR",
       "soket_bilgileri": ""
     },
     {
@@ -1052,7 +1392,7 @@
       "marka": "turuncu mühendislik",
       "sarj_agi_isletmecisi": "TURUNCU MÜHENDİSLİK ELEKTRİK TAAH.SAN.VE DIŞ TİC. LTD. ŞTİ.",
       "sarj_istasyonu_isletmecisi": "TURUNCU MÜHENDİSLİK ELEKTRİK TAAH.SAN.VE DIŞ TİC. LTD. ŞTİ.",
-      "adres": "Fırat Mahallesi  No:127 Kayapınar / DİYARBAKIR",
+      "adres": "Fırat Mahallesi No:127 Kayapınar / DİYARBAKIR",
       "soket_bilgileri": ""
     },
     {
@@ -1062,7 +1402,7 @@
       "marka": "turuncu mühendislik",
       "sarj_agi_isletmecisi": "TURUNCU MÜHENDİSLİK ELEKTRİK TAAH.SAN.VE DIŞ TİC. LTD. ŞTİ.",
       "sarj_istasyonu_isletmecisi": "ABDULLAH ADLIĞ",
-      "adres": "Belde Mah Mahallesi 3757 Sokağı  No:15/30 Merkez / BATMAN",
+      "adres": "Belde Mah Mahallesi 3757 Sokağı No:15/30 Merkez / BATMAN",
       "soket_bilgileri": ""
     },
     {
@@ -1072,7 +1412,7 @@
       "marka": "turuncu mühendislik",
       "sarj_agi_isletmecisi": "TURUNCU MÜHENDİSLİK ELEKTRİK TAAH.SAN.VE DIŞ TİC. LTD. ŞTİ.",
       "sarj_istasyonu_isletmecisi": "ERZENİA ALIŞVERİŞ MERKEZİ VE OTEL İŞLETMECİLİĞİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Gültepe Mahallesi  No:160 Merkez / BATMAN",
+      "adres": "Gültepe Mahallesi No:160 Merkez / BATMAN",
       "soket_bilgileri": ""
     },
     {
@@ -1082,7 +1422,7 @@
       "marka": "turuncu mühendislik",
       "sarj_agi_isletmecisi": "TURUNCU MÜHENDİSLİK ELEKTRİK TAAH.SAN.VE DIŞ TİC. LTD. ŞTİ.",
       "sarj_istasyonu_isletmecisi": "TURUNCU MÜHENDİSLİK ELEKTRİK TAAH.SAN.VE DIŞ TİC. LTD. ŞTİ.",
-      "adres": "Köseli Mahallesi  Başakşehir Konutları Bismil / DİYARBAKIR",
+      "adres": "Köseli Mahallesi Başakşehir Konutları Bismil / DİYARBAKIR",
       "soket_bilgileri": ""
     },
     {
@@ -1092,7 +1432,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yolçatı Mahallesi  Elmalık Köyü - Highway Outlet Otoparkı Merkez / BOLU",
+      "adres": "Yolçatı Mahallesi Elmalık Köyü - Highway Outlet Otoparkı Merkez / BOLU",
       "soket_bilgileri": ""
     },
     {
@@ -1102,7 +1442,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yeşilyayla Mahallesi  Berceste Güney Dinlenme Tesisleri Gümüşova / DÜZCE",
+      "adres": "Yeşilyayla Mahallesi Berceste Güney Dinlenme Tesisleri Gümüşova / DÜZCE",
       "soket_bilgileri": ""
     },
     {
@@ -1112,7 +1452,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yeşilyayla Mahallesi  Berceste Kuzey Dinlenme Tesisleri Gümüşova / DÜZCE",
+      "adres": "Yeşilyayla Mahallesi Berceste Kuzey Dinlenme Tesisleri Gümüşova / DÜZCE",
       "soket_bilgileri": ""
     },
     {
@@ -1122,7 +1462,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Cumhuriyet Mahallesi  No:42  Shell Akaryakıt İstasyonu Sarayköy / DENİZLİ",
+      "adres": "Cumhuriyet Mahallesi No:42 Shell Akaryakıt İstasyonu Sarayköy / DENİZLİ",
       "soket_bilgileri": ""
     },
     {
@@ -1132,7 +1472,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "İstiklal Mahallesi  No:141  Shell Akaryakıt İstasyonu Honaz / DENİZLİ",
+      "adres": "İstiklal Mahallesi No:141 Shell Akaryakıt İstasyonu Honaz / DENİZLİ",
       "soket_bilgileri": ""
     },
     {
@@ -1142,7 +1482,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Karşıyaka Mahallesi Kabayel Sokağı  No:7 Ünye / ORDU",
+      "adres": "Karşıyaka Mahallesi Kabayel Sokağı No:7 Ünye / ORDU",
       "soket_bilgileri": ""
     },
     {
@@ -1152,7 +1492,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Toybelen Mahallesi  No:136 İlkadım / SAMSUN",
+      "adres": "Toybelen Mahallesi No:136 İlkadım / SAMSUN",
       "soket_bilgileri": ""
     },
     {
@@ -1162,7 +1502,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Sungurlu Mahallesi Yeni Samsun Caddesi  Shell İstasyonu Çarşamba / SAMSUN",
+      "adres": "Sungurlu Mahallesi Yeni Samsun Caddesi Shell İstasyonu Çarşamba / SAMSUN",
       "soket_bilgileri": ""
     },
     {
@@ -1172,7 +1512,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yakacık Mahallesi 1.cad. Caddesi  No:34 Alaçam / SAMSUN",
+      "adres": "Yakacık Mahallesi 1.cad. Caddesi No:34 Alaçam / SAMSUN",
       "soket_bilgileri": ""
     },
     {
@@ -1182,7 +1522,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Emirefendi Mahallesi Fidan Sokağı  No:3 Bafra / SAMSUN",
+      "adres": "Emirefendi Mahallesi Fidan Sokağı No:3 Bafra / SAMSUN",
       "soket_bilgileri": ""
     },
     {
@@ -1192,7 +1532,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Cevdetpaşa Mahallesi  Shell Eren Petrol İpekyolu / VAN",
+      "adres": "Cevdetpaşa Mahallesi Shell Eren Petrol İpekyolu / VAN",
       "soket_bilgileri": ""
     },
     {
@@ -1202,7 +1542,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Şemsibey Mahallesi  Erciş Yolu Üzeri Tuşba / VAN",
+      "adres": "Şemsibey Mahallesi Erciş Yolu Üzeri Tuşba / VAN",
       "soket_bilgileri": ""
     },
     {
@@ -1212,7 +1552,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Körfez Mahallesi  No:30 Atakum / SAMSUN",
+      "adres": "Körfez Mahallesi No:30 Atakum / SAMSUN",
       "soket_bilgileri": ""
     },
     {
@@ -1222,7 +1562,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Göl Mahallesi  No:150  Tem Otoyolu Berceste Tesisi Sapanca / SAKARYA",
+      "adres": "Göl Mahallesi No:150 Tem Otoyolu Berceste Tesisi Sapanca / SAKARYA",
       "soket_bilgileri": ""
     },
     {
@@ -1232,7 +1572,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Ladik Mahallesi  Shell Ladik Petrol İstasyonu Sarayönü / KONYA",
+      "adres": "Ladik Mahallesi Shell Ladik Petrol İstasyonu Sarayönü / KONYA",
       "soket_bilgileri": ""
     },
     {
@@ -1242,7 +1582,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Ulukapı Mahallesi  Konya Manavgat Yolu Seydişehir / KONYA",
+      "adres": "Ulukapı Mahallesi Konya Manavgat Yolu Seydişehir / KONYA",
       "soket_bilgileri": ""
     },
     {
@@ -1252,7 +1592,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Hanlı Sakarya Mahallesi Şehit Onbaşı Zekeriya Gözyuman Caddesi  No:27/A Arifiye / SAKARYA",
+      "adres": "Hanlı Sakarya Mahallesi Şehit Onbaşı Zekeriya Gözyuman Caddesi No:27/A Arifiye / SAKARYA",
       "soket_bilgileri": ""
     },
     {
@@ -1262,7 +1602,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yeni Mahallesi  No:84 Kumluca / ANTALYA",
+      "adres": "Yeni Mahallesi No:84 Kumluca / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -1272,7 +1612,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yolmaçayır Mahallesi  Gedikova Petrol Başkale / VAN",
+      "adres": "Yolmaçayır Mahallesi Gedikova Petrol Başkale / VAN",
       "soket_bilgileri": ""
     },
     {
@@ -1282,7 +1622,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Aladüz Mahallesi Aladüz Sokağı  No:10  Turkish Oil Tesisi Gevaş / VAN",
+      "adres": "Aladüz Mahallesi Aladüz Sokağı No:10 Turkish Oil Tesisi Gevaş / VAN",
       "soket_bilgileri": ""
     },
     {
@@ -1302,7 +1642,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Himmetdede Mahallesi  Kayseri Kırşehir Yolu Kocasinan / KAYSERİ",
+      "adres": "Himmetdede Mahallesi Kayseri Kırşehir Yolu Kocasinan / KAYSERİ",
       "soket_bilgileri": ""
     },
     {
@@ -1312,7 +1652,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yaylacık Mahallesi  Karaköprü Karaköprü / ŞANLIURFA",
+      "adres": "Yaylacık Mahallesi Karaköprü Karaköprü / ŞANLIURFA",
       "soket_bilgileri": ""
     },
     {
@@ -1322,7 +1662,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kaynaklı Mahallesi  Mardin Yolu Üzeri 4. Km Haliliye / ŞANLIURFA",
+      "adres": "Kaynaklı Mahallesi Mardin Yolu Üzeri 4. Km Haliliye / ŞANLIURFA",
       "soket_bilgileri": ""
     },
     {
@@ -1332,7 +1672,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Atatürk Mahallesi Meteoroloji Caddesi  No:19 Haliliye / ŞANLIURFA",
+      "adres": "Atatürk Mahallesi Meteoroloji Caddesi No:19 Haliliye / ŞANLIURFA",
       "soket_bilgileri": ""
     },
     {
@@ -1342,7 +1682,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "İnönü Mahallesi İnönü Caddesi  No:182 Merkez / MALATYA",
+      "adres": "İnönü Mahallesi İnönü Caddesi No:182 Merkez / MALATYA",
       "soket_bilgileri": ""
     },
     {
@@ -1392,7 +1732,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Çamsöğüt Mahallesi  Sivas Yolu 5.km Sorgun / YOZGAT",
+      "adres": "Çamsöğüt Mahallesi Sivas Yolu 5.km Sorgun / YOZGAT",
       "soket_bilgileri": ""
     },
     {
@@ -1412,7 +1752,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "İçmeler Mahallesi Eşiyok Sokağı  No:1 Tuzla / İSTANBUL",
+      "adres": "İçmeler Mahallesi Eşiyok Sokağı No:1 Tuzla / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -1422,7 +1762,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yalı Mahallesi İstanbul Caddesi  No:110 Karasu / SAKARYA",
+      "adres": "Yalı Mahallesi İstanbul Caddesi No:110 Karasu / SAKARYA",
       "soket_bilgileri": ""
     },
     {
@@ -1442,7 +1782,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Sanayi Mahallesi  No:222 Şehitkamil / GAZİANTEP",
+      "adres": "Sanayi Mahallesi No:222 Şehitkamil / GAZİANTEP",
       "soket_bilgileri": ""
     },
     {
@@ -1452,7 +1792,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Sunay Mahallesi  Hasköy Muş Yolu Üzeri Hasköy / MUŞ",
+      "adres": "Sunay Mahallesi Hasköy Muş Yolu Üzeri Hasköy / MUŞ",
       "soket_bilgileri": ""
     },
     {
@@ -1472,7 +1812,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Toptepe Mahallesi  Mardin Şırnak Yolu Merkez / ŞIRNAK",
+      "adres": "Toptepe Mahallesi Mardin Şırnak Yolu Merkez / ŞIRNAK",
       "soket_bilgileri": ""
     },
     {
@@ -1502,7 +1842,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kızılhüyük Mahallesi Gölen Sokağı  No:1 Suruç / ŞANLIURFA",
+      "adres": "Kızılhüyük Mahallesi Gölen Sokağı No:1 Suruç / ŞANLIURFA",
       "soket_bilgileri": ""
     },
     {
@@ -1512,7 +1852,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Konak Mahallesi 1687 Sokağı  No:12 Cizre / ŞIRNAK",
+      "adres": "Konak Mahallesi 1687 Sokağı No:12 Cizre / ŞIRNAK",
       "soket_bilgileri": ""
     },
     {
@@ -1522,7 +1862,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Akalan Mahallesi Ankara Asfaltı Caddesi  No:84/1 Kemalpaşa / İZMİR",
+      "adres": "Akalan Mahallesi Ankara Asfaltı Caddesi No:84/1 Kemalpaşa / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -1532,7 +1872,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Şeyh Şamil Mahallesi Rasim Başar Caddesi  No:3 Merkez / SİVAS",
+      "adres": "Şeyh Şamil Mahallesi Rasim Başar Caddesi No:3 Merkez / SİVAS",
       "soket_bilgileri": ""
     },
     {
@@ -1542,7 +1882,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Söğütlü Mahallesi  Kaşar Tortum / ERZURUM",
+      "adres": "Söğütlü Mahallesi Kaşar Tortum / ERZURUM",
       "soket_bilgileri": ""
     },
     {
@@ -1552,7 +1892,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Şehit Kıvanç Cesur Mahallesi  No:4/1 Çaldıran / VAN",
+      "adres": "Şehit Kıvanç Cesur Mahallesi No:4/1 Çaldıran / VAN",
       "soket_bilgileri": ""
     },
     {
@@ -1562,7 +1902,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Bahçelievler Mahallesi  No:547/14 Anamur / MERSİN",
+      "adres": "Bahçelievler Mahallesi No:547/14 Anamur / MERSİN",
       "soket_bilgileri": ""
     },
     {
@@ -1582,7 +1922,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Davraz Mahallesi Alparslan Türkeş Caddesi  No:81/50 Merkez / ISPARTA",
+      "adres": "Davraz Mahallesi Alparslan Türkeş Caddesi No:81/50 Merkez / ISPARTA",
       "soket_bilgileri": ""
     },
     {
@@ -1592,7 +1932,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Avsallar Mahallesi  Alanya Alanya / ANTALYA",
+      "adres": "Avsallar Mahallesi Alanya Alanya / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -1642,7 +1982,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yolugüzel Mahallesi  Erzurum Ağrı Yolu Merkez / AĞRI",
+      "adres": "Yolugüzel Mahallesi Erzurum Ağrı Yolu Merkez / AĞRI",
       "soket_bilgileri": ""
     },
     {
@@ -1652,7 +1992,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Vatan Mahallesi  Çevreyolu Üstü Doğubayazıt / AĞRI",
+      "adres": "Vatan Mahallesi Çevreyolu Üstü Doğubayazıt / AĞRI",
       "soket_bilgileri": ""
     },
     {
@@ -1662,7 +2002,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Fırat Mahallesi  Erzurum Yolu Üzeri Dsi Karşısı Merkez / AĞRI",
+      "adres": "Fırat Mahallesi Erzurum Yolu Üzeri Dsi Karşısı Merkez / AĞRI",
       "soket_bilgileri": ""
     },
     {
@@ -1712,7 +2052,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yeni Mahallesi Sahil Caddesi  No:71 Edremit / VAN",
+      "adres": "Yeni Mahallesi Sahil Caddesi No:71 Edremit / VAN",
       "soket_bilgileri": ""
     },
     {
@@ -1732,7 +2072,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Uzunkum Mahallesi  Tem Otoyolu Ankara İstikameti Sapanca / SAKARYA",
+      "adres": "Uzunkum Mahallesi Tem Otoyolu Ankara İstikameti Sapanca / SAKARYA",
       "soket_bilgileri": ""
     },
     {
@@ -1742,7 +2082,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "İncivez Mahallesi Milli Egemenlik Sokağı  No:128 Merkez / ZONGULDAK",
+      "adres": "İncivez Mahallesi Milli Egemenlik Sokağı No:128 Merkez / ZONGULDAK",
       "soket_bilgileri": ""
     },
     {
@@ -1752,12 +2092,12 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Osman Kavuncu Mahallesi  No:220  Süleyman Hamurcu İş Merkezi Melikgazi / KAYSERİ",
+      "adres": "Osman Kavuncu Mahallesi No:220 Süleyman Hamurcu İş Merkezi Melikgazi / KAYSERİ",
       "soket_bilgileri": ""
     },
     {
       "istasyon_no": "ŞRJ/7953",
-      "istasyon_adi": "Kırıkkale Çitlekçi  Ankara Yönü",
+      "istasyon_adi": "Kırıkkale Çitlekçi Ankara Yönü",
       "hizmet_sekli": "Halka Açık",
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
@@ -1772,7 +2112,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yeşerti Mahallesi  No:265 Akçakale / ŞANLIURFA",
+      "adres": "Yeşerti Mahallesi No:265 Akçakale / ŞANLIURFA",
       "soket_bilgileri": ""
     },
     {
@@ -1792,7 +2132,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Siirt Yolu Üzeri Mahallesi  Kösetarla Merkez / BATMAN",
+      "adres": "Siirt Yolu Üzeri Mahallesi Kösetarla Merkez / BATMAN",
       "soket_bilgileri": ""
     },
     {
@@ -1822,7 +2162,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Dalbaşı Mahallesi Erzurum Caddesi  No:190 Horasan / ERZURUM",
+      "adres": "Dalbaşı Mahallesi Erzurum Caddesi No:190 Horasan / ERZURUM",
       "soket_bilgileri": ""
     },
     {
@@ -1832,7 +2172,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Sürsürü Mahallesi  No:59 Merkez / ELAZIĞ",
+      "adres": "Sürsürü Mahallesi No:59 Merkez / ELAZIĞ",
       "soket_bilgileri": ""
     },
     {
@@ -1842,7 +2182,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Şahin Mahallesi 3294 Sokağı  No:1 Tarsus / MERSİN",
+      "adres": "Şahin Mahallesi 3294 Sokağı No:1 Tarsus / MERSİN",
       "soket_bilgileri": ""
     },
     {
@@ -1862,7 +2202,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Gölköy Mahallesi  Kocalar Çeltikçi Dinlenme Tesisi İstanbul Yönü Kızılcahamam / ANKARA",
+      "adres": "Gölköy Mahallesi Kocalar Çeltikçi Dinlenme Tesisi İstanbul Yönü Kızılcahamam / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -1902,7 +2242,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Cankurtaran Mahallesi  Denizli Muğla Yolu Merkez / DENİZLİ",
+      "adres": "Cankurtaran Mahallesi Denizli Muğla Yolu Merkez / DENİZLİ",
       "soket_bilgileri": ""
     },
     {
@@ -1912,7 +2252,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kükürt Mahallesi  Isparta Afyon Yolu Keçiborlu / ISPARTA",
+      "adres": "Kükürt Mahallesi Isparta Afyon Yolu Keçiborlu / ISPARTA",
       "soket_bilgileri": ""
     },
     {
@@ -1932,7 +2272,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Saraycık Mahallesi  Bursa Eskişehir Yolu 4. Km Bozüyük / BİLECİK",
+      "adres": "Saraycık Mahallesi Bursa Eskişehir Yolu 4. Km Bozüyük / BİLECİK",
       "soket_bilgileri": ""
     },
     {
@@ -1962,7 +2302,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Sanayi Mahallesi  Trabzon Yeni Otogar Ortahisar / TRABZON",
+      "adres": "Sanayi Mahallesi Trabzon Yeni Otogar Ortahisar / TRABZON",
       "soket_bilgileri": ""
     },
     {
@@ -1972,7 +2312,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Tuzcuzade Mahallesi  No:19/11 Merkez / BAYBURT",
+      "adres": "Tuzcuzade Mahallesi No:19/11 Merkez / BAYBURT",
       "soket_bilgileri": ""
     },
     {
@@ -1982,7 +2322,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "30 Ağustos Mahallesi 7104 Sokağı  No:9 Menemen / İZMİR",
+      "adres": "30 Ağustos Mahallesi 7104 Sokağı No:9 Menemen / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -1992,7 +2332,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Ekinli Mahallesi  Sivar Erzincan Yolu Zara / SİVAS",
+      "adres": "Ekinli Mahallesi Sivar Erzincan Yolu Zara / SİVAS",
       "soket_bilgileri": ""
     },
     {
@@ -2002,7 +2342,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Fevzi Çakmak Mahallesi  No:12 Gemerek / SİVAS",
+      "adres": "Fevzi Çakmak Mahallesi No:12 Gemerek / SİVAS",
       "soket_bilgileri": ""
     },
     {
@@ -2012,7 +2352,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Esenyurt Mahallesi Sivas Kayseri Caddesi  No:3 Merkez / SİVAS",
+      "adres": "Esenyurt Mahallesi Sivas Kayseri Caddesi No:3 Merkez / SİVAS",
       "soket_bilgileri": ""
     },
     {
@@ -2022,7 +2362,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Danişment Gazi Mahallesi Ankara Bulvarı Caddesi  No:8 Merkez / SİVAS",
+      "adres": "Danişment Gazi Mahallesi Ankara Bulvarı Caddesi No:8 Merkez / SİVAS",
       "soket_bilgileri": ""
     },
     {
@@ -2052,7 +2392,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kümbet Hatun Mahallesi  No:45  Çevreyolu Merzifon / AMASYA",
+      "adres": "Kümbet Hatun Mahallesi No:45 Çevreyolu Merzifon / AMASYA",
       "soket_bilgileri": ""
     },
     {
@@ -2062,7 +2402,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Orman Bağları Mahallesi  Köy Hizmetleri Merkez / AMASYA",
+      "adres": "Orman Bağları Mahallesi Köy Hizmetleri Merkez / AMASYA",
       "soket_bilgileri": ""
     },
     {
@@ -2072,7 +2412,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Hacıbayram Mahallesi İstiklal Caddesi  No:275 Suluova / AMASYA",
+      "adres": "Hacıbayram Mahallesi İstiklal Caddesi No:275 Suluova / AMASYA",
       "soket_bilgileri": ""
     },
     {
@@ -2082,7 +2422,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Asarağaç Mahallesi  No:10/2 Tekkeköy / SAMSUN",
+      "adres": "Asarağaç Mahallesi No:10/2 Tekkeköy / SAMSUN",
       "soket_bilgileri": ""
     },
     {
@@ -2102,7 +2442,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Haşim Kılıç Mahallesi  No:13/1 Yerköy / YOZGAT",
+      "adres": "Haşim Kılıç Mahallesi No:13/1 Yerköy / YOZGAT",
       "soket_bilgileri": ""
     },
     {
@@ -2112,7 +2452,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Aşağı Cevak Caddesi  No:7/B Çivril / DENİZLİ",
+      "adres": "Aşağı Cevak Caddesi No:7/B Çivril / DENİZLİ",
       "soket_bilgileri": ""
     },
     {
@@ -2122,7 +2462,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Pınarlar Mahallesi  No:126 Tavas / DENİZLİ",
+      "adres": "Pınarlar Mahallesi No:126 Tavas / DENİZLİ",
       "soket_bilgileri": ""
     },
     {
@@ -2142,7 +2482,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Süleymaniye Mahallesi 108 Sokağı  No:24/A İnegöl / BURSA",
+      "adres": "Süleymaniye Mahallesi 108 Sokağı No:24/A İnegöl / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -2152,7 +2492,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Karakaya Mahallesi  Handeresi Sungurlu / ÇORUM",
+      "adres": "Karakaya Mahallesi Handeresi Sungurlu / ÇORUM",
       "soket_bilgileri": ""
     },
     {
@@ -2162,7 +2502,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Akkent Mahallesi  No:136 Merkez / ÇORUM",
+      "adres": "Akkent Mahallesi No:136 Merkez / ÇORUM",
       "soket_bilgileri": ""
     },
     {
@@ -2172,7 +2512,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Karagalıhanbaba Mahallesi  Adapazarı Düzce Yolu Hendek / SAKARYA",
+      "adres": "Karagalıhanbaba Mahallesi Adapazarı Düzce Yolu Hendek / SAKARYA",
       "soket_bilgileri": ""
     },
     {
@@ -2192,7 +2532,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kayadibi Mahallesi  Ankara Kırıkkale Yolu Elmadağ / ANKARA",
+      "adres": "Kayadibi Mahallesi Ankara Kırıkkale Yolu Elmadağ / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -2212,7 +2552,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yağlıpınar Mahallesi  No:35  Ankara Konya Yolu Gölbaşı / ANKARA",
+      "adres": "Yağlıpınar Mahallesi No:35 Ankara Konya Yolu Gölbaşı / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -2222,7 +2562,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Gecen Mahallesi  No:13/1  Aşağıdüzü Merkez / BARTIN",
+      "adres": "Gecen Mahallesi No:13/1 Aşağıdüzü Merkez / BARTIN",
       "soket_bilgileri": ""
     },
     {
@@ -2232,7 +2572,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Tatlak Mahallesi  Ankara Yönü Çamlıdere / ANKARA",
+      "adres": "Tatlak Mahallesi Ankara Yönü Çamlıdere / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -2242,7 +2582,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Sarıkemer Mahallesi  No:319  Milas Söke Yolu Söke / AYDIN",
+      "adres": "Sarıkemer Mahallesi No:319 Milas Söke Yolu Söke / AYDIN",
       "soket_bilgileri": ""
     },
     {
@@ -2252,7 +2592,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Akçakonak Mahallesi  No:118  Milas Karayolu Söke / AYDIN",
+      "adres": "Akçakonak Mahallesi No:118 Milas Karayolu Söke / AYDIN",
       "soket_bilgileri": ""
     },
     {
@@ -2282,7 +2622,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Bedir Mahallesi Yeni İstanbul Caddesi  No:281 Selçuklu / KONYA",
+      "adres": "Bedir Mahallesi Yeni İstanbul Caddesi No:281 Selçuklu / KONYA",
       "soket_bilgileri": ""
     },
     {
@@ -2292,7 +2632,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Gazi Osman Paşa Mahallesi Konya Ereğli Caddesi  No:330 Karapınar / KONYA",
+      "adres": "Gazi Osman Paşa Mahallesi Konya Ereğli Caddesi No:330 Karapınar / KONYA",
       "soket_bilgileri": ""
     },
     {
@@ -2302,7 +2642,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Karşıyaka Mahallesi Ankara Caddesi  No:1143 Cihanbeyli / KONYA",
+      "adres": "Karşıyaka Mahallesi Ankara Caddesi No:1143 Cihanbeyli / KONYA",
       "soket_bilgileri": ""
     },
     {
@@ -2312,7 +2652,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Akköy Mahallesi Ankara Caddesi  No:1 Altınekin / KONYA",
+      "adres": "Akköy Mahallesi Ankara Caddesi No:1 Altınekin / KONYA",
       "soket_bilgileri": ""
     },
     {
@@ -2322,7 +2662,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Müftü Mahallesi Beyşehir Caddesi  No:32/A Beyşehir / KONYA",
+      "adres": "Müftü Mahallesi Beyşehir Caddesi No:32/A Beyşehir / KONYA",
       "soket_bilgileri": ""
     },
     {
@@ -2332,7 +2672,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Karademir Mahallesi Trabzon Sahil Yolu Caddesi  No:37/1  Soğuksu Tirebolu / GİRESUN",
+      "adres": "Karademir Mahallesi Trabzon Sahil Yolu Caddesi No:37/1 Soğuksu Tirebolu / GİRESUN",
       "soket_bilgileri": ""
     },
     {
@@ -2342,7 +2682,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kozaağaç Mahallesi Kozağaç Caddesi  No:1 Akşehir / KONYA",
+      "adres": "Kozaağaç Mahallesi Kozağaç Caddesi No:1 Akşehir / KONYA",
       "soket_bilgileri": ""
     },
     {
@@ -2352,7 +2692,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kızılan Mahallesi  Marmaris Datça Yolu Datça / MUĞLA",
+      "adres": "Kızılan Mahallesi Marmaris Datça Yolu Datça / MUĞLA",
       "soket_bilgileri": ""
     },
     {
@@ -2372,7 +2712,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Gökova Mahallesi  Muğla Fethiye Ula / MUĞLA",
+      "adres": "Gökova Mahallesi Muğla Fethiye Ula / MUĞLA",
       "soket_bilgileri": ""
     },
     {
@@ -2382,7 +2722,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Atatürk Mahallesi  Muğla Aydın Karayolu Üzeri Menteşe / MUĞLA",
+      "adres": "Atatürk Mahallesi Muğla Aydın Karayolu Üzeri Menteşe / MUĞLA",
       "soket_bilgileri": ""
     },
     {
@@ -2392,7 +2732,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Ayvaşık Mahallesi  No:33/1 Beypazarı / ANKARA",
+      "adres": "Ayvaşık Mahallesi No:33/1 Beypazarı / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -2402,7 +2742,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Gündoğdu Mahallesi Emniyet Caddesi  No:8  Hopa Artvin Yolu Borçka / ARTVİN",
+      "adres": "Gündoğdu Mahallesi Emniyet Caddesi No:8 Hopa Artvin Yolu Borçka / ARTVİN",
       "soket_bilgileri": ""
     },
     {
@@ -2412,7 +2752,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Güzelyalı Mahallesi Şantiye Caddesi  No:28 Bulancak / GİRESUN",
+      "adres": "Güzelyalı Mahallesi Şantiye Caddesi No:28 Bulancak / GİRESUN",
       "soket_bilgileri": ""
     },
     {
@@ -2422,7 +2762,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Turgutalp Mahallesi Bergama Caddesi  No:306 Soma / MANİSA",
+      "adres": "Turgutalp Mahallesi Bergama Caddesi No:306 Soma / MANİSA",
       "soket_bilgileri": ""
     },
     {
@@ -2432,7 +2772,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Ulu Mahallesi  No:44 Osmangazi / BURSA",
+      "adres": "Ulu Mahallesi No:44 Osmangazi / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -2442,7 +2782,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "İsmetpaşa Mahallesi 60. Sokağı  No:6/2B Merkez / ÇANAKKALE",
+      "adres": "İsmetpaşa Mahallesi 60. Sokağı No:6/2B Merkez / ÇANAKKALE",
       "soket_bilgileri": ""
     },
     {
@@ -2452,7 +2792,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kınık Mahallesi  Balıkesir Manisa Yolu Kırkağaç / MANİSA",
+      "adres": "Kınık Mahallesi Balıkesir Manisa Yolu Kırkağaç / MANİSA",
       "soket_bilgileri": ""
     },
     {
@@ -2462,7 +2802,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yıldırım Mahallesi Eğri Kuyu Caddesi  No:34 Eskil / AKSARAY",
+      "adres": "Yıldırım Mahallesi Eğri Kuyu Caddesi No:34 Eskil / AKSARAY",
       "soket_bilgileri": ""
     },
     {
@@ -2472,7 +2812,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Mimar Sinan Mahallesi  Antalya Burdur Yolu Bucak / BURDUR",
+      "adres": "Mimar Sinan Mahallesi Antalya Burdur Yolu Bucak / BURDUR",
       "soket_bilgileri": ""
     },
     {
@@ -2482,7 +2822,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Konak Mahallesi  No:71 Bucak / BURDUR",
+      "adres": "Konak Mahallesi No:71 Bucak / BURDUR",
       "soket_bilgileri": ""
     },
     {
@@ -2492,7 +2832,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "1. Murat Mahallesi Talatpaşa Caddesi  No:22/A Merkez / EDİRNE",
+      "adres": "1. Murat Mahallesi Talatpaşa Caddesi No:22/A Merkez / EDİRNE",
       "soket_bilgileri": ""
     },
     {
@@ -2502,7 +2842,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kazımiye Mahallesi Salih Omurtak Caddesi  No:2 Çorlu / TEKİRDAĞ",
+      "adres": "Kazımiye Mahallesi Salih Omurtak Caddesi No:2 Çorlu / TEKİRDAĞ",
       "soket_bilgileri": ""
     },
     {
@@ -2512,7 +2852,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kılcan Mahallesi  Kayseri Niğde Yolu Yeşilhisar / KAYSERİ",
+      "adres": "Kılcan Mahallesi Kayseri Niğde Yolu Yeşilhisar / KAYSERİ",
       "soket_bilgileri": ""
     },
     {
@@ -2522,7 +2862,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kemal Mahallesi  No:360/2  Kapıkule Yolu Üzeri Merkez / EDİRNE",
+      "adres": "Kemal Mahallesi No:360/2 Kapıkule Yolu Üzeri Merkez / EDİRNE",
       "soket_bilgileri": ""
     },
     {
@@ -2532,7 +2872,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Menevşelik Mahallesi  Antalya Deniz Yolu Çavdır / BURDUR",
+      "adres": "Menevşelik Mahallesi Antalya Deniz Yolu Çavdır / BURDUR",
       "soket_bilgileri": ""
     },
     {
@@ -2542,7 +2882,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Erenler Mahallesi  Ankara Kırıkkale Yolu Yahşihan / KIRIKKALE",
+      "adres": "Erenler Mahallesi Ankara Kırıkkale Yolu Yahşihan / KIRIKKALE",
       "soket_bilgileri": ""
     },
     {
@@ -2562,7 +2902,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Duruca Mahallesi  No:13/1  Mardin Şırnak Yolu Nusaybin / MARDİN",
+      "adres": "Duruca Mahallesi No:13/1 Mardin Şırnak Yolu Nusaybin / MARDİN",
       "soket_bilgileri": ""
     },
     {
@@ -2572,7 +2912,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Şanlıurfa Mahallesi  No:294/1  Şanlıurfa Diyarbakır Yolu Hilvan / ŞANLIURFA",
+      "adres": "Şanlıurfa Mahallesi No:294/1 Şanlıurfa Diyarbakır Yolu Hilvan / ŞANLIURFA",
       "soket_bilgileri": ""
     },
     {
@@ -2592,7 +2932,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Limonluk Mahallesi 36. Caddesi  No:2 Yenişehir / MERSİN",
+      "adres": "Limonluk Mahallesi 36. Caddesi No:2 Yenişehir / MERSİN",
       "soket_bilgileri": ""
     },
     {
@@ -2602,7 +2942,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Akyar Mahallesi Devlet Hastanesi Caddesi  No:5 Merkez / OSMANİYE",
+      "adres": "Akyar Mahallesi Devlet Hastanesi Caddesi No:5 Merkez / OSMANİYE",
       "soket_bilgileri": ""
     },
     {
@@ -2612,7 +2952,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Güzelyurt Mahallesi Zübeyde Hanım Caddesi  No:88 Merkez / NEVŞEHİR",
+      "adres": "Güzelyurt Mahallesi Zübeyde Hanım Caddesi No:88 Merkez / NEVŞEHİR",
       "soket_bilgileri": ""
     },
     {
@@ -2652,7 +2992,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Karagöl Mahallesi Kongre Caddesi  No:46 Merkez / ARDAHAN",
+      "adres": "Karagöl Mahallesi Kongre Caddesi No:46 Merkez / ARDAHAN",
       "soket_bilgileri": ""
     },
     {
@@ -2662,17 +3002,17 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Ankara-istanbul Otoyolu Caddesi  Elmalık Merkez / BOLU",
+      "adres": "Ankara-istanbul Otoyolu Caddesi Elmalık Merkez / BOLU",
       "soket_bilgileri": ""
     },
     {
       "istasyon_no": "ŞRJ/11766",
-      "istasyon_adi": "Shell  Çeşme Şifne",
+      "istasyon_adi": "Shell Çeşme Şifne",
       "hizmet_sekli": "Halka Açık",
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Alaçatı Mahallesi 16078 Sokağı  No:4 Çeşme / İZMİR",
+      "adres": "Alaçatı Mahallesi 16078 Sokağı No:4 Çeşme / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -2682,7 +3022,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yavuz Selim Mahallesi  İstanbul Samsun Yolu Tosya / KASTAMONU",
+      "adres": "Yavuz Selim Mahallesi İstanbul Samsun Yolu Tosya / KASTAMONU",
       "soket_bilgileri": ""
     },
     {
@@ -2692,7 +3032,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Doğakent Mahallesi Sivas Caddesi  No:1 Sorgun / YOZGAT",
+      "adres": "Doğakent Mahallesi Sivas Caddesi No:1 Sorgun / YOZGAT",
       "soket_bilgileri": ""
     },
     {
@@ -2702,7 +3042,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Aşağı Özbağ Mahallesi  Rize Yol Ayrımı İspir / ERZURUM",
+      "adres": "Aşağı Özbağ Mahallesi Rize Yol Ayrımı İspir / ERZURUM",
       "soket_bilgileri": ""
     },
     {
@@ -2712,7 +3052,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Simani Mahallesi  No:167 Merkez / BİNGÖL",
+      "adres": "Simani Mahallesi No:167 Merkez / BİNGÖL",
       "soket_bilgileri": ""
     },
     {
@@ -2722,7 +3062,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Cumhuriyet Mahallesi İncirlik Sokağı  No:110/1 Yüreğir / ADANA",
+      "adres": "Cumhuriyet Mahallesi İncirlik Sokağı No:110/1 Yüreğir / ADANA",
       "soket_bilgileri": ""
     },
     {
@@ -2742,7 +3082,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Bahçeşehir Mahallesi Dr.sadık Ahmet Sokağı  No:33/1 Seyhan / ADANA",
+      "adres": "Bahçeşehir Mahallesi Dr.sadık Ahmet Sokağı No:33/1 Seyhan / ADANA",
       "soket_bilgileri": ""
     },
     {
@@ -2752,7 +3092,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Ahmet Yesevi Mahallesi Yavuzlar Sokağı  No:74 Tercan / ERZİNCAN",
+      "adres": "Ahmet Yesevi Mahallesi Yavuzlar Sokağı No:74 Tercan / ERZİNCAN",
       "soket_bilgileri": ""
     },
     {
@@ -2782,7 +3122,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Gürçayır Mahallesi Kongre Caddesi  No:139/A Merkez / ARDAHAN",
+      "adres": "Gürçayır Mahallesi Kongre Caddesi No:139/A Merkez / ARDAHAN",
       "soket_bilgileri": ""
     },
     {
@@ -2792,7 +3132,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Bahçeşehir Mahallesi  İpekyolu Dinlenme Tesisleri Pozantı / ADANA",
+      "adres": "Bahçeşehir Mahallesi İpekyolu Dinlenme Tesisleri Pozantı / ADANA",
       "soket_bilgileri": ""
     },
     {
@@ -2802,7 +3142,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Altınova Mahallesi  Çiftlik Oltu / ERZURUM",
+      "adres": "Altınova Mahallesi Çiftlik Oltu / ERZURUM",
       "soket_bilgileri": ""
     },
     {
@@ -2812,7 +3152,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Köyceğiz Mahallesi  Muğla Fethiye Yolu Köyceğiz / MUĞLA",
+      "adres": "Köyceğiz Mahallesi Muğla Fethiye Yolu Köyceğiz / MUĞLA",
       "soket_bilgileri": ""
     },
     {
@@ -2822,7 +3162,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Göl Mahallesi  Kocalar Çeltikçi Dinlenme Tesisi İstanbul Yönü Kızılcahamam / ANKARA",
+      "adres": "Göl Mahallesi Kocalar Çeltikçi Dinlenme Tesisi İstanbul Yönü Kızılcahamam / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -2832,7 +3172,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Çalta Mahallesi  Tatlak Kocalar Tesisi Kızılcahamam / ANKARA",
+      "adres": "Çalta Mahallesi Tatlak Kocalar Tesisi Kızılcahamam / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -2842,7 +3182,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Şambayadı Mahallesi  İpekyolu Dinlenme Tesisleri Çukurova / ADANA",
+      "adres": "Şambayadı Mahallesi İpekyolu Dinlenme Tesisleri Çukurova / ADANA",
       "soket_bilgileri": ""
     },
     {
@@ -2852,7 +3192,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Altınşehir Mahallesi İzmir Yolu Caddesi  No:310 Nilüfer / BURSA",
+      "adres": "Altınşehir Mahallesi İzmir Yolu Caddesi No:310 Nilüfer / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -2862,7 +3202,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Gülağzı Mahallesi Haliller Sokağı  Aydın Muğla Yolu Menteşe / MUĞLA",
+      "adres": "Gülağzı Mahallesi Haliller Sokağı Aydın Muğla Yolu Menteşe / MUĞLA",
       "soket_bilgileri": ""
     },
     {
@@ -2882,7 +3222,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Ovacık Mahallesi  No:515  İzmir Ayvalık Yolu Bergama / İZMİR",
+      "adres": "Ovacık Mahallesi No:515 İzmir Ayvalık Yolu Bergama / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -2892,7 +3232,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yenidoğan Mahallesi  Amasya Erzurum Yolu Refahiye / ERZİNCAN",
+      "adres": "Yenidoğan Mahallesi Amasya Erzurum Yolu Refahiye / ERZİNCAN",
       "soket_bilgileri": ""
     },
     {
@@ -2902,7 +3242,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Dağarcık Mahallesi  Antalya Burdur Bucak / BURDUR",
+      "adres": "Dağarcık Mahallesi Antalya Burdur Bucak / BURDUR",
       "soket_bilgileri": ""
     },
     {
@@ -2912,7 +3252,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Böğürtlen Mahallesi  Eski Tempo Tesisleri Karşısı Sivrihisar / ESKİŞEHİR",
+      "adres": "Böğürtlen Mahallesi Eski Tempo Tesisleri Karşısı Sivrihisar / ESKİŞEHİR",
       "soket_bilgileri": ""
     },
     {
@@ -2922,7 +3262,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Ali Ulvi Kurucu Mahallesi Karaman Caddesi  No:1 Meram / KONYA",
+      "adres": "Ali Ulvi Kurucu Mahallesi Karaman Caddesi No:1 Meram / KONYA",
       "soket_bilgileri": ""
     },
     {
@@ -2932,7 +3272,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Gömeç Mahallesi  Kayseri Sivas Yolu Kocasinan / KAYSERİ",
+      "adres": "Gömeç Mahallesi Kayseri Sivas Yolu Kocasinan / KAYSERİ",
       "soket_bilgileri": ""
     },
     {
@@ -2942,7 +3282,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Gücükler Mahallesi  Metro Dinlenme Tesisleri Ankara Yönü Dörtdivan / BOLU",
+      "adres": "Gücükler Mahallesi Metro Dinlenme Tesisleri Ankara Yönü Dörtdivan / BOLU",
       "soket_bilgileri": ""
     },
     {
@@ -2962,7 +3302,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Nişantepe Mahallesi 3 Sokağı  Bucak Merkez Köy Çekmeköy / İSTANBUL",
+      "adres": "Nişantepe Mahallesi 3 Sokağı Bucak Merkez Köy Çekmeköy / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -2972,7 +3312,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kırkmerdiven Göleti Mahallesi Kuzey Marmara Otoyolu Caddesi  Kırkmerdiven Göleti  Çiftealan Köyü Eyüpsultan / İSTANBUL",
+      "adres": "Kırkmerdiven Göleti Mahallesi Kuzey Marmara Otoyolu Caddesi Kırkmerdiven Göleti Çiftealan Köyü Eyüpsultan / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -2982,7 +3322,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kutluca Mahallesi  No:26  Kuzey Marmara Otoyolu Körfez / KOCAELİ",
+      "adres": "Kutluca Mahallesi No:26 Kuzey Marmara Otoyolu Körfez / KOCAELİ",
       "soket_bilgileri": ""
     },
     {
@@ -2992,7 +3332,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kutluca Mahallesi  No:26  Kuzey Marmara Otoyolu Körfez / KOCAELİ",
+      "adres": "Kutluca Mahallesi No:26 Kuzey Marmara Otoyolu Körfez / KOCAELİ",
       "soket_bilgileri": ""
     },
     {
@@ -3002,7 +3342,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ALAYAPIM EL.-ELKT.M.-M.İN.HA.-ŞE.V.B.P.İT.İ.VE İ.S.V.T.L.ŞTİ",
-      "adres": "Fatih Mahallesi Giresun Caddesi  No:10 Şebinkarahisar / GİRESUN",
+      "adres": "Fatih Mahallesi Giresun Caddesi No:10 Şebinkarahisar / GİRESUN",
       "soket_bilgileri": ""
     },
     {
@@ -3012,7 +3352,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Pınarbaşı Mahallesi Aksaray Caddesi  Ankaraniğde Otoyolu 230.km Ankara Yönü Gülağaç / AKSARAY",
+      "adres": "Pınarbaşı Mahallesi Aksaray Caddesi Ankaraniğde Otoyolu 230.km Ankara Yönü Gülağaç / AKSARAY",
       "soket_bilgileri": ""
     },
     {
@@ -3022,7 +3362,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Pınarbaşı Mahallesi Aksaray Caddesi  Ankara Niğde Otoyolu 230.km Gülağaç / AKSARAY",
+      "adres": "Pınarbaşı Mahallesi Aksaray Caddesi Ankara Niğde Otoyolu 230.km Gülağaç / AKSARAY",
       "soket_bilgileri": ""
     },
     {
@@ -3032,7 +3372,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Büyükdamlacık Mahallesi  Ankara-niğde Otoyolu Tuz Gölü Tesisi Şereflikoçhisar / ANKARA",
+      "adres": "Büyükdamlacık Mahallesi Ankara-niğde Otoyolu Tuz Gölü Tesisi Şereflikoçhisar / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -3042,7 +3382,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Büyükdamlacık Mahallesi  No:200  Ankara-niğde Otoyolu Tuz Gölü Tesisi Şereflikoçhisar / ANKARA",
+      "adres": "Büyükdamlacık Mahallesi No:200 Ankara-niğde Otoyolu Tuz Gölü Tesisi Şereflikoçhisar / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -3052,7 +3392,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yeşilköy Mahallesi  Atatürk Havalimanı Bakırköy / İSTANBUL",
+      "adres": "Yeşilköy Mahallesi Atatürk Havalimanı Bakırköy / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -3072,7 +3412,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Akalan Mahallesi Ankara Asfaltı Caddesi  No:84/1 Kemalpaşa / İZMİR",
+      "adres": "Akalan Mahallesi Ankara Asfaltı Caddesi No:84/1 Kemalpaşa / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -3092,7 +3432,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Aşağıçamlıca Mahallesi  No:7  Ardeşen Çamlıhemşin Yolu Çamlıhemşin / RİZE",
+      "adres": "Aşağıçamlıca Mahallesi No:7 Ardeşen Çamlıhemşin Yolu Çamlıhemşin / RİZE",
       "soket_bilgileri": ""
     },
     {
@@ -3102,7 +3442,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yenikent Mahallesi Samanyolu Sokağı  No:6 Urla / İZMİR",
+      "adres": "Yenikent Mahallesi Samanyolu Sokağı No:6 Urla / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -3122,7 +3462,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Boğazköy İstiklal Mahallesi  Fenertepe Sultangazi / İSTANBUL",
+      "adres": "Boğazköy İstiklal Mahallesi Fenertepe Sultangazi / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -3132,7 +3472,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Küllü Mahallesi  No:43/1 Şehitkamil / GAZİANTEP",
+      "adres": "Küllü Mahallesi No:43/1 Şehitkamil / GAZİANTEP",
       "soket_bilgileri": ""
     },
     {
@@ -3142,7 +3482,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Küllü Mahallesi  No:37/1 Şehitkamil / GAZİANTEP",
+      "adres": "Küllü Mahallesi No:37/1 Şehitkamil / GAZİANTEP",
       "soket_bilgileri": ""
     },
     {
@@ -3152,7 +3492,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Koca Sinan Mahallesi E5 Karayolu Caddesi  No:211 Merkez / EDİRNE",
+      "adres": "Koca Sinan Mahallesi E5 Karayolu Caddesi No:211 Merkez / EDİRNE",
       "soket_bilgileri": ""
     },
     {
@@ -3162,7 +3502,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Çiftalan Mahallesi  Çiftalan Servis Alanı Eyüpsultan / İSTANBUL",
+      "adres": "Çiftalan Mahallesi Çiftalan Servis Alanı Eyüpsultan / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -3172,7 +3512,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Bozalan Mahallesi  No:3  Yeni Cizre Şırnak Yolu Cizre / ŞIRNAK",
+      "adres": "Bozalan Mahallesi No:3 Yeni Cizre Şırnak Yolu Cizre / ŞIRNAK",
       "soket_bilgileri": ""
     },
     {
@@ -3182,7 +3522,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kocaeli Mahallesi  No:113  Sarıçal İvrindi / BALIKESİR",
+      "adres": "Kocaeli Mahallesi No:113 Sarıçal İvrindi / BALIKESİR",
       "soket_bilgileri": ""
     },
     {
@@ -3192,7 +3532,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Umurbey Mahallesi Koşuyolu Sokağı  No:2/1 Lapseki / ÇANAKKALE",
+      "adres": "Umurbey Mahallesi Koşuyolu Sokağı No:2/1 Lapseki / ÇANAKKALE",
       "soket_bilgileri": ""
     },
     {
@@ -3202,7 +3542,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Gazi Mahallesi  Sepetçiyeri Mevkii İzmir/çanakkale Yolu Ezine / ÇANAKKALE",
+      "adres": "Gazi Mahallesi Sepetçiyeri Mevkii İzmir/çanakkale Yolu Ezine / ÇANAKKALE",
       "soket_bilgileri": ""
     },
     {
@@ -3212,7 +3552,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Toptepe Mahallesi Hacı Mansur Sokağı  No:3 Canik / SAMSUN",
+      "adres": "Toptepe Mahallesi Hacı Mansur Sokağı No:3 Canik / SAMSUN",
       "soket_bilgileri": ""
     },
     {
@@ -3222,7 +3562,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Mithatpaşa Mahallesi 5511 Sokağı  No:9/1 Akdeniz / MERSİN",
+      "adres": "Mithatpaşa Mahallesi 5511 Sokağı No:9/1 Akdeniz / MERSİN",
       "soket_bilgileri": ""
     },
     {
@@ -3242,7 +3582,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Doğanlık Mahallesi Şehit Kd.bçvş.ömer Halis Demir Caddesi  No:65 Yahşihan / KIRIKKALE",
+      "adres": "Doğanlık Mahallesi Şehit Kd.bçvş.ömer Halis Demir Caddesi No:65 Yahşihan / KIRIKKALE",
       "soket_bilgileri": ""
     },
     {
@@ -3252,7 +3592,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yavuz Selim Mahallesi 38/1 Sokağı  İstanbul Samsun Yolu Tosya / KASTAMONU",
+      "adres": "Yavuz Selim Mahallesi 38/1 Sokağı İstanbul Samsun Yolu Tosya / KASTAMONU",
       "soket_bilgileri": ""
     },
     {
@@ -3262,7 +3602,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Gökçehöyük Mahallesi 1080/1 Sokağı  Ankara Niğde Otoyolu 10.km Gölbaşı / ANKARA",
+      "adres": "Gökçehöyük Mahallesi 1080/1 Sokağı Ankara Niğde Otoyolu 10.km Gölbaşı / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -3272,7 +3612,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Cumalı Mahallesi Atatürk Caddesi  No:125 Serik / ANTALYA",
+      "adres": "Cumalı Mahallesi Atatürk Caddesi No:125 Serik / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -3282,7 +3622,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "İsa Bey Mahallesi  Selçuk-izmir Yanyolu Selçuk / İZMİR",
+      "adres": "İsa Bey Mahallesi Selçuk-izmir Yanyolu Selçuk / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -3292,7 +3632,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Cumhuriyet Mahallesi İlbey Güneş Sokağı  No:17 Yüreğir / ADANA",
+      "adres": "Cumhuriyet Mahallesi İlbey Güneş Sokağı No:17 Yüreğir / ADANA",
       "soket_bilgileri": ""
     },
     {
@@ -3302,7 +3642,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Ziya Gökalp Mahallesi Konya Ereğli Caddesi  No:1995 Ereğli / KONYA",
+      "adres": "Ziya Gökalp Mahallesi Konya Ereğli Caddesi No:1995 Ereğli / KONYA",
       "soket_bilgileri": ""
     },
     {
@@ -3322,7 +3662,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Cumalı Mahallesi Atatürk Caddesi  No:125 Serik / ANTALYA",
+      "adres": "Cumalı Mahallesi Atatürk Caddesi No:125 Serik / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -3332,7 +3672,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Ömerli Mahallesi Kuzey Marmara Yolu Sokağı  No:1/1 Çekmeköy / İSTANBUL",
+      "adres": "Ömerli Mahallesi Kuzey Marmara Yolu Sokağı No:1/1 Çekmeköy / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -3342,7 +3682,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Dumlupınar Mahallesi Eski Besni Caddesi  No:2 Besni / ADIYAMAN",
+      "adres": "Dumlupınar Mahallesi Eski Besni Caddesi No:2 Besni / ADIYAMAN",
       "soket_bilgileri": ""
     },
     {
@@ -3352,7 +3692,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Mimar Sinan Mahallesi Halitpaşa Caddesi  No:133 Merkez / ERZİNCAN",
+      "adres": "Mimar Sinan Mahallesi Halitpaşa Caddesi No:133 Merkez / ERZİNCAN",
       "soket_bilgileri": ""
     },
     {
@@ -3362,7 +3702,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Ortaköy Mahallesi 19 Mayıs Sokağı  No:396/1 Mamak / ANKARA",
+      "adres": "Ortaköy Mahallesi 19 Mayıs Sokağı No:396/1 Mamak / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -3372,7 +3712,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Burhaniye Mahallesi  No:281  D100 Yan Yolu Merkez / DÜZCE",
+      "adres": "Burhaniye Mahallesi No:281 D100 Yan Yolu Merkez / DÜZCE",
       "soket_bilgileri": ""
     },
     {
@@ -3382,7 +3722,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Dikmeli Mahallesi  Adapazarı Bolu Yolu Çilimli / DÜZCE",
+      "adres": "Dikmeli Mahallesi Adapazarı Bolu Yolu Çilimli / DÜZCE",
       "soket_bilgileri": ""
     },
     {
@@ -3392,7 +3732,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Mustafacık Mahallesi  Aksaray Ankara Yolu Şereflikoçhisar / ANKARA",
+      "adres": "Mustafacık Mahallesi Aksaray Ankara Yolu Şereflikoçhisar / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -3402,7 +3742,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Köyceğiz Mahallesi Beyşehir Caddesi  No:258 Meram / KONYA",
+      "adres": "Köyceğiz Mahallesi Beyşehir Caddesi No:258 Meram / KONYA",
       "soket_bilgileri": ""
     },
     {
@@ -3412,7 +3752,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Çiftalan Mahallesi  No:1/8 Eyüpsultan / İSTANBUL",
+      "adres": "Çiftalan Mahallesi No:1/8 Eyüpsultan / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -3422,7 +3762,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Çıkınlar Mahallesi  Ankara Bolu Yolu Kuruçay Mevkii Merkez / BOLU",
+      "adres": "Çıkınlar Mahallesi Ankara Bolu Yolu Kuruçay Mevkii Merkez / BOLU",
       "soket_bilgileri": ""
     },
     {
@@ -3452,7 +3792,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Öğütlü Mahallesi Kenan Oltan Caddesi  No:67 Maçka / TRABZON",
+      "adres": "Öğütlü Mahallesi Kenan Oltan Caddesi No:67 Maçka / TRABZON",
       "soket_bilgileri": ""
     },
     {
@@ -3472,7 +3812,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kanitaht Mahallesi  Karlıova Erzurum Yolu Karlıova / BİNGÖL",
+      "adres": "Kanitaht Mahallesi Karlıova Erzurum Yolu Karlıova / BİNGÖL",
       "soket_bilgileri": ""
     },
     {
@@ -3482,7 +3822,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Cumhuriyet Mahallesi  Tunceli Elazığ Yolu Merkez / TUNCELİ",
+      "adres": "Cumhuriyet Mahallesi Tunceli Elazığ Yolu Merkez / TUNCELİ",
       "soket_bilgileri": ""
     },
     {
@@ -3492,7 +3832,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Akçeşme Mahallesi  No:85  Shell Akaryakıt İstasyonu Merkezefendi / DENİZLİ",
+      "adres": "Akçeşme Mahallesi No:85 Shell Akaryakıt İstasyonu Merkezefendi / DENİZLİ",
       "soket_bilgileri": ""
     },
     {
@@ -3502,7 +3842,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Plevne Mahallesi  No:227  Ankara Ayaş Yolu Sincan / ANKARA",
+      "adres": "Plevne Mahallesi No:227 Ankara Ayaş Yolu Sincan / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -3512,7 +3852,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Cennetyatağı Mahallesi Alparslan Türkeş Caddesi 2 Sokağı  No:1 Edremit / BALIKESİR",
+      "adres": "Cennetyatağı Mahallesi Alparslan Türkeş Caddesi 2 Sokağı No:1 Edremit / BALIKESİR",
       "soket_bilgileri": ""
     },
     {
@@ -3522,7 +3862,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kozluk Mahallesi  Diyarbakır Bitlis Yolu Kozluk / BATMAN",
+      "adres": "Kozluk Mahallesi Diyarbakır Bitlis Yolu Kozluk / BATMAN",
       "soket_bilgileri": ""
     },
     {
@@ -3542,7 +3882,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "İncili Pınar Mahallesi Ali Fuat Cebesoy Sokağı  No:1 Şehitkamil / GAZİANTEP",
+      "adres": "İncili Pınar Mahallesi Ali Fuat Cebesoy Sokağı No:1 Şehitkamil / GAZİANTEP",
       "soket_bilgileri": ""
     },
     {
@@ -3552,7 +3892,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Büyükpınar Mahallesi  No:124  E-90karayolu Üzeri Şehitkamil / GAZİANTEP",
+      "adres": "Büyükpınar Mahallesi No:124 E-90karayolu Üzeri Şehitkamil / GAZİANTEP",
       "soket_bilgileri": ""
     },
     {
@@ -3562,7 +3902,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Battalgazi Mahallesi Paşaköy Sokağı  No:64/1 Sultanbeyli / İSTANBUL",
+      "adres": "Battalgazi Mahallesi Paşaköy Sokağı No:64/1 Sultanbeyli / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -3592,7 +3932,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Anadolufeneri Mahallesi Beykoz Caddesi  No:6/1 Beykoz / İSTANBUL",
+      "adres": "Anadolufeneri Mahallesi Beykoz Caddesi No:6/1 Beykoz / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -3602,7 +3942,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Anadolufeneri Mahallesi Beykoz Caddesi  No:6/2 Beykoz / İSTANBUL",
+      "adres": "Anadolufeneri Mahallesi Beykoz Caddesi No:6/2 Beykoz / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -3612,7 +3952,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yavuz Selim Mahallesi Yıldıztepe Sokağı  No:2/1 Beykoz / İSTANBUL",
+      "adres": "Yavuz Selim Mahallesi Yıldıztepe Sokağı No:2/1 Beykoz / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -3622,7 +3962,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Altınkale Mahallesi  No:293/1 Döşemealtı / ANTALYA",
+      "adres": "Altınkale Mahallesi No:293/1 Döşemealtı / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -3632,7 +3972,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kemalpaşa Mahallesi 7405/2 Sokağı  No:5 Bornova / İZMİR",
+      "adres": "Kemalpaşa Mahallesi 7405/2 Sokağı No:5 Bornova / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -3642,7 +3982,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Ortaköy Mahallesi Philsa Caddesi  No:128 Torbalı / İZMİR",
+      "adres": "Ortaköy Mahallesi Philsa Caddesi No:128 Torbalı / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -3652,7 +3992,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Gücükler Mahallesi  Metro Dinlenme Tesisleri İstanbul Yönü Dörtdivan / BOLU",
+      "adres": "Gücükler Mahallesi Metro Dinlenme Tesisleri İstanbul Yönü Dörtdivan / BOLU",
       "soket_bilgileri": ""
     },
     {
@@ -3662,7 +4002,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Pirinçci Mahallesi  Bi Mola Fenertepe Dinlenme Tesisi Eyüpsultan / İSTANBUL",
+      "adres": "Pirinçci Mahallesi Bi Mola Fenertepe Dinlenme Tesisi Eyüpsultan / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -3672,7 +4012,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Şükrikaya Mahallesi  Gemlik Mudanya Yolu Gemlik / BURSA",
+      "adres": "Şükrikaya Mahallesi Gemlik Mudanya Yolu Gemlik / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -3692,7 +4032,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Akkent Mahallesi Hüseyin Okan Merzeci Caddesi  No:262 Yenişehir / MERSİN",
+      "adres": "Akkent Mahallesi Hüseyin Okan Merzeci Caddesi No:262 Yenişehir / MERSİN",
       "soket_bilgileri": ""
     },
     {
@@ -3702,7 +4042,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Bahçelievler Mahallesi Atatürk Caddesi  No:253 Merkez / ORDU",
+      "adres": "Bahçelievler Mahallesi Atatürk Caddesi No:253 Merkez / ORDU",
       "soket_bilgileri": ""
     },
     {
@@ -3712,7 +4052,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Göksu Mahallesi  No:481 Kepez / ANTALYA",
+      "adres": "Göksu Mahallesi No:481 Kepez / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -3742,7 +4082,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Karakaş Mahallesi Mutlu Sokağı  No:1 Merkez / KIRKLARELİ",
+      "adres": "Karakaş Mahallesi Mutlu Sokağı No:1 Merkez / KIRKLARELİ",
       "soket_bilgileri": ""
     },
     {
@@ -3772,7 +4112,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Esenyurt Mahallesi İpekyolu Caddesi  No:292/1 Yüksekova / HAKKARİ",
+      "adres": "Esenyurt Mahallesi İpekyolu Caddesi No:292/1 Yüksekova / HAKKARİ",
       "soket_bilgileri": ""
     },
     {
@@ -3782,7 +4122,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Santral Mahallesi  Garaj Osmangazi / BURSA",
+      "adres": "Santral Mahallesi Garaj Osmangazi / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -3792,7 +4132,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Numune Evler Mahallesi Abdi İpekçi Sokağı  No:8 Dörtyol / HATAY",
+      "adres": "Numune Evler Mahallesi Abdi İpekçi Sokağı No:8 Dörtyol / HATAY",
       "soket_bilgileri": ""
     },
     {
@@ -3802,7 +4142,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Beşminare Mahallesi  Valilik Merkez / BİTLİS",
+      "adres": "Beşminare Mahallesi Valilik Merkez / BİTLİS",
       "soket_bilgileri": ""
     },
     {
@@ -3812,7 +4152,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Karakeçili Mahallesi Fuar Caddesi  No:2 Merkez / ÇORUM",
+      "adres": "Karakeçili Mahallesi Fuar Caddesi No:2 Merkez / ÇORUM",
       "soket_bilgileri": ""
     },
     {
@@ -3832,7 +4172,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yukarıyurtçu Mahallesi  Yapracık Etimesgut / ANKARA",
+      "adres": "Yukarıyurtçu Mahallesi Yapracık Etimesgut / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -3842,7 +4182,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Alsancak Mahallesi  No:167 Kocasinan / KAYSERİ",
+      "adres": "Alsancak Mahallesi No:167 Kocasinan / KAYSERİ",
       "soket_bilgileri": ""
     },
     {
@@ -3852,7 +4192,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Mimarsinan Mahallesi Çavuşbaşı Caddesi  No:24 Çekmeköy / İSTANBUL",
+      "adres": "Mimarsinan Mahallesi Çavuşbaşı Caddesi No:24 Çekmeköy / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -3862,7 +4202,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Ekşioğlu Mahallesi Şile Yolu Sokağı  No:18A/1 Çekmeköy / İSTANBUL",
+      "adres": "Ekşioğlu Mahallesi Şile Yolu Sokağı No:18A/1 Çekmeköy / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -3872,7 +4212,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Cumhuriyet Mahallesi Malatya Caddesi  Park 23 Avm Otoparkı Merkez / ELAZIĞ",
+      "adres": "Cumhuriyet Mahallesi Malatya Caddesi Park 23 Avm Otoparkı Merkez / ELAZIĞ",
       "soket_bilgileri": ""
     },
     {
@@ -3892,7 +4232,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Şerifali Mahallesi Şehit Sokağı  No:52a Ümraniye / İSTANBUL",
+      "adres": "Şerifali Mahallesi Şehit Sokağı No:52a Ümraniye / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -3902,7 +4242,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Emeribeyazıt Mahallesi Güreli Caddesi  No:10 Menteşe / MUĞLA",
+      "adres": "Emeribeyazıt Mahallesi Güreli Caddesi No:10 Menteşe / MUĞLA",
       "soket_bilgileri": ""
     },
     {
@@ -3912,7 +4252,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "15 Temmuz Mahallesi Üniversite Sokağı  No:320 Şehitkamil / GAZİANTEP",
+      "adres": "15 Temmuz Mahallesi Üniversite Sokağı No:320 Şehitkamil / GAZİANTEP",
       "soket_bilgileri": ""
     },
     {
@@ -3932,7 +4272,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Köprülü Veysipaşa Mahallesi  Aydın Valiliği Efeler / AYDIN",
+      "adres": "Köprülü Veysipaşa Mahallesi Aydın Valiliği Efeler / AYDIN",
       "soket_bilgileri": ""
     },
     {
@@ -3942,7 +4282,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Eskiçeşme Mahallesi Turgut Reis Caddesi  No:211 Bodrum / MUĞLA",
+      "adres": "Eskiçeşme Mahallesi Turgut Reis Caddesi No:211 Bodrum / MUĞLA",
       "soket_bilgileri": ""
     },
     {
@@ -3962,7 +4302,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Çünür Mahallesi  No:185 Merkez / ISPARTA",
+      "adres": "Çünür Mahallesi No:185 Merkez / ISPARTA",
       "soket_bilgileri": ""
     },
     {
@@ -3972,7 +4312,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Adnan Menderes Mahallesi Musa Şahin Sokağı  No:60 Merkez / OSMANİYE",
+      "adres": "Adnan Menderes Mahallesi Musa Şahin Sokağı No:60 Merkez / OSMANİYE",
       "soket_bilgileri": ""
     },
     {
@@ -3992,7 +4332,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kayserili Ahmet Paşa Mahallesi  No:26  Hükümet Konağı Merkez / ÇANAKKALE",
+      "adres": "Kayserili Ahmet Paşa Mahallesi No:26 Hükümet Konağı Merkez / ÇANAKKALE",
       "soket_bilgileri": ""
     },
     {
@@ -4002,7 +4342,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Barbaros Mahallesi Atatürk Caddesi  No:215 Merkez / ÇANAKKALE",
+      "adres": "Barbaros Mahallesi Atatürk Caddesi No:215 Merkez / ÇANAKKALE",
       "soket_bilgileri": ""
     },
     {
@@ -4012,7 +4352,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Muratpaşa Mahallesi  Valilik Yakutiye / ERZURUM",
+      "adres": "Muratpaşa Mahallesi Valilik Yakutiye / ERZURUM",
       "soket_bilgileri": ""
     },
     {
@@ -4042,7 +4382,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "1.osb Mahallesi 2. Cad. Caddesi  No:12 Yeşilyurt / MALATYA",
+      "adres": "1.osb Mahallesi 2. Cad. Caddesi No:12 Yeşilyurt / MALATYA",
       "soket_bilgileri": ""
     },
     {
@@ -4052,7 +4392,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yenidoğan Mahallesi Timuçin Caddesi  No:3 Talas / KAYSERİ",
+      "adres": "Yenidoğan Mahallesi Timuçin Caddesi No:3 Talas / KAYSERİ",
       "soket_bilgileri": ""
     },
     {
@@ -4062,7 +4402,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Esenyurt Mahallesi  No:176 Melikgazi / KAYSERİ",
+      "adres": "Esenyurt Mahallesi No:176 Melikgazi / KAYSERİ",
       "soket_bilgileri": ""
     },
     {
@@ -4082,7 +4422,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Adnan Menderes Mahallesi Adnan Menderes Sokağı  No:59/1 Merkez / OSMANİYE",
+      "adres": "Adnan Menderes Mahallesi Adnan Menderes Sokağı No:59/1 Merkez / OSMANİYE",
       "soket_bilgileri": ""
     },
     {
@@ -4092,7 +4432,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Bağlar Mahallesi Kırk Evler Sokağı  No:11-1 Merkez / IĞDIR",
+      "adres": "Bağlar Mahallesi Kırk Evler Sokağı No:11-1 Merkez / IĞDIR",
       "soket_bilgileri": ""
     },
     {
@@ -4112,7 +4452,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kaleardı Mahallesi Kemal İbni Hümam Caddesi  No:3 Merkez / SİVAS",
+      "adres": "Kaleardı Mahallesi Kemal İbni Hümam Caddesi No:3 Merkez / SİVAS",
       "soket_bilgileri": ""
     },
     {
@@ -4122,7 +4462,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "İnönü Mahallesi  No:321 Ortahisar / TRABZON",
+      "adres": "İnönü Mahallesi No:321 Ortahisar / TRABZON",
       "soket_bilgileri": ""
     },
     {
@@ -4132,7 +4472,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Gültepe Mahallesi  No:60 Merkez / BATMAN",
+      "adres": "Gültepe Mahallesi No:60 Merkez / BATMAN",
       "soket_bilgileri": ""
     },
     {
@@ -4142,7 +4482,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Çarşı Mahallesi Miralay Şükrü Bey Caddesi  Şentepe Merkez / ARTVİN",
+      "adres": "Çarşı Mahallesi Miralay Şükrü Bey Caddesi Şentepe Merkez / ARTVİN",
       "soket_bilgileri": ""
     },
     {
@@ -4152,7 +4492,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Gemilerçekeği Mahallesi  Botanik Bahçesi Merkez / GİRESUN",
+      "adres": "Gemilerçekeği Mahallesi Botanik Bahçesi Merkez / GİRESUN",
       "soket_bilgileri": ""
     },
     {
@@ -4162,7 +4502,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Cumhuriyet Mahallesi  No:36100 Merkez / KARS",
+      "adres": "Cumhuriyet Mahallesi No:36100 Merkez / KARS",
       "soket_bilgileri": ""
     },
     {
@@ -4172,7 +4512,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Camikebir Mahallesi Atatürk Caddesi  Boyabat Belediye Otoparkı Boyabat / SİNOP",
+      "adres": "Camikebir Mahallesi Atatürk Caddesi Boyabat Belediye Otoparkı Boyabat / SİNOP",
       "soket_bilgileri": ""
     },
     {
@@ -4182,7 +4522,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Talaytepe Mahallesi 4005 Caddesi  No:1 Kayapınar / DİYARBAKIR",
+      "adres": "Talaytepe Mahallesi 4005 Caddesi No:1 Kayapınar / DİYARBAKIR",
       "soket_bilgileri": ""
     },
     {
@@ -4192,7 +4532,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Uşak Organize Sanayi Mahallesi 111. Caddesi  No:304/5 Merkez / UŞAK",
+      "adres": "Uşak Organize Sanayi Mahallesi 111. Caddesi No:304/5 Merkez / UŞAK",
       "soket_bilgileri": ""
     },
     {
@@ -4212,7 +4552,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Selimiye Mahallesi  No:425 Melikgazi / KAYSERİ",
+      "adres": "Selimiye Mahallesi No:425 Melikgazi / KAYSERİ",
       "soket_bilgileri": ""
     },
     {
@@ -4222,7 +4562,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Burmalı Mahallesi Dervişpaşa Caddesi  No:8 Merkez / AFYONKARAHİSAR",
+      "adres": "Burmalı Mahallesi Dervişpaşa Caddesi No:8 Merkez / AFYONKARAHİSAR",
       "soket_bilgileri": ""
     },
     {
@@ -4262,7 +4602,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Sırapınar Mahallesi  Shell İstasyonu Çekmeköy / İSTANBUL",
+      "adres": "Sırapınar Mahallesi Shell İstasyonu Çekmeköy / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -4282,7 +4622,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Vali Hüseyin Öğütlen Caddesi  No:2 Balçova / İZMİR",
+      "adres": "Vali Hüseyin Öğütlen Caddesi No:2 Balçova / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -4292,7 +4632,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Gelincik Mahallesi Fatih Caddesi  No:24 Merkez / SİNOP",
+      "adres": "Gelincik Mahallesi Fatih Caddesi No:24 Merkez / SİNOP",
       "soket_bilgileri": ""
     },
     {
@@ -4302,7 +4642,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Bayındır Mahallesi  Köy Hizmetleri 15. Bölge Müdürlüğü Muratpaşa / ANTALYA",
+      "adres": "Bayındır Mahallesi Köy Hizmetleri 15. Bölge Müdürlüğü Muratpaşa / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -4312,7 +4652,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Çepni Mahallesi İnönü Caddesi  No:80 Merkez / ÇORUM",
+      "adres": "Çepni Mahallesi İnönü Caddesi No:80 Merkez / ÇORUM",
       "soket_bilgileri": ""
     },
     {
@@ -4322,7 +4662,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Palandöken Kavşağı Mahallesi  No:3 Palandöken / ERZURUM",
+      "adres": "Palandöken Kavşağı Mahallesi No:3 Palandöken / ERZURUM",
       "soket_bilgileri": ""
     },
     {
@@ -4332,7 +4672,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yenimahalle Mahallesi  No:120 Canik / SAMSUN",
+      "adres": "Yenimahalle Mahallesi No:120 Canik / SAMSUN",
       "soket_bilgileri": ""
     },
     {
@@ -4372,7 +4712,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Ömer Nasuhi Bilmen Mahallesi  No:12 Yakutiye / ERZURUM",
+      "adres": "Ömer Nasuhi Bilmen Mahallesi No:12 Yakutiye / ERZURUM",
       "soket_bilgileri": ""
     },
     {
@@ -4382,7 +4722,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Ömer Nasuhi Bilmen Mahallesi  No:12 Yakutiye / ERZURUM",
+      "adres": "Ömer Nasuhi Bilmen Mahallesi No:12 Yakutiye / ERZURUM",
       "soket_bilgileri": ""
     },
     {
@@ -4392,7 +4732,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Üniversite Mahallesi Milli Egemenlik Caddesi  No:23 Merkez / TRABZON",
+      "adres": "Üniversite Mahallesi Milli Egemenlik Caddesi No:23 Merkez / TRABZON",
       "soket_bilgileri": ""
     },
     {
@@ -4402,7 +4742,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Üniversite Mahallesi Ahmet Suat Özyazıcı Caddesi  No:23 Merkez / TRABZON",
+      "adres": "Üniversite Mahallesi Ahmet Suat Özyazıcı Caddesi No:23 Merkez / TRABZON",
       "soket_bilgileri": ""
     },
     {
@@ -4412,7 +4752,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Piriçelebi Mahallesi Adliye Caddesi  No:10 Merkez / RİZE",
+      "adres": "Piriçelebi Mahallesi Adliye Caddesi No:10 Merkez / RİZE",
       "soket_bilgileri": ""
     },
     {
@@ -4422,7 +4762,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Üniversite Mahallesi Farabi Caddesi  No:64 Merkez / TRABZON",
+      "adres": "Üniversite Mahallesi Farabi Caddesi No:64 Merkez / TRABZON",
       "soket_bilgileri": ""
     },
     {
@@ -4432,7 +4772,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Şair Mahallesi Erdem Beyazıt Caddesi  No:5 Başakşehir / İSTANBUL",
+      "adres": "Şair Mahallesi Erdem Beyazıt Caddesi No:5 Başakşehir / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -4442,7 +4782,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Şair Mahallesi Erdem Beyazıt Caddesi  No:5 Başakşehir / İSTANBUL",
+      "adres": "Şair Mahallesi Erdem Beyazıt Caddesi No:5 Başakşehir / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -4462,7 +4802,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Santral Garaj Mahallesi  Bursa Kent Meydanı Avm Osmangazi / BURSA",
+      "adres": "Santral Garaj Mahallesi Bursa Kent Meydanı Avm Osmangazi / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -4472,7 +4812,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Alaşarköy Mahallesi Terminal Caddesi  No:54 Osmangazi / BURSA",
+      "adres": "Alaşarköy Mahallesi Terminal Caddesi No:54 Osmangazi / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -4482,7 +4822,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Niğde Osb Mahallesi 8. Caddesi  No:7 Merkez / NİĞDE",
+      "adres": "Niğde Osb Mahallesi 8. Caddesi No:7 Merkez / NİĞDE",
       "soket_bilgileri": ""
     },
     {
@@ -4492,7 +4832,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Paşabağı Mahallesi Zafer Caddesi  No:13 Merkez / ŞANLIURFA",
+      "adres": "Paşabağı Mahallesi Zafer Caddesi No:13 Merkez / ŞANLIURFA",
       "soket_bilgileri": ""
     },
     {
@@ -4502,7 +4842,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Gülbaharhatun Mahallesi Kahramanmaraş Caddesi  No:159 Ortahisar / TRABZON",
+      "adres": "Gülbaharhatun Mahallesi Kahramanmaraş Caddesi No:159 Ortahisar / TRABZON",
       "soket_bilgileri": ""
     },
     {
@@ -4512,7 +4852,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Merkez Mahallesi İdris Köşkü Caddesi  No:4 Eyüpsultan / İSTANBUL",
+      "adres": "Merkez Mahallesi İdris Köşkü Caddesi No:4 Eyüpsultan / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -4552,7 +4892,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Emek Mahallesi Namık Kemal Sokağı  No:54/1 Sancaktepe / İSTANBUL",
+      "adres": "Emek Mahallesi Namık Kemal Sokağı No:54/1 Sancaktepe / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -4562,7 +4902,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kumbaba Mahallesi Uygur Sokağı  No:267/1 Şile / İSTANBUL",
+      "adres": "Kumbaba Mahallesi Uygur Sokağı No:267/1 Şile / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -4572,7 +4912,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Elmalıkent Mahallesi Adem Yavuz Sokağı  No:25/1 Ümraniye / İSTANBUL",
+      "adres": "Elmalıkent Mahallesi Adem Yavuz Sokağı No:25/1 Ümraniye / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -4582,7 +4922,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Pınartepe Mahallesi 253 Sokağı  No:8 Beylikdüzü / İSTANBUL",
+      "adres": "Pınartepe Mahallesi 253 Sokağı No:8 Beylikdüzü / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -4602,7 +4942,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kaptanpaşa Mahallesi Darülaceze Caddesi  No:27 Şişli / İSTANBUL",
+      "adres": "Kaptanpaşa Mahallesi Darülaceze Caddesi No:27 Şişli / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -4612,7 +4952,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Mimar Sinan Mahallesi  No:62 /D100 Büyükçekmece / İSTANBUL",
+      "adres": "Mimar Sinan Mahallesi No:62 /D100 Büyükçekmece / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -4622,7 +4962,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Selimiye Mahallesi  No:1/1  Gata Haydarpaşa Eğitim Hastanesi Üsküdar / İSTANBUL",
+      "adres": "Selimiye Mahallesi No:1/1 Gata Haydarpaşa Eğitim Hastanesi Üsküdar / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -4632,7 +4972,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Hacımehmet Mahallesi  Türsan Dinlenme Tesisleri Kaynaşlı / DÜZCE",
+      "adres": "Hacımehmet Mahallesi Türsan Dinlenme Tesisleri Kaynaşlı / DÜZCE",
       "soket_bilgileri": ""
     },
     {
@@ -4642,7 +4982,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Hacımehmet Mahallesi  Türsan Dinlenme Tesisleri Kaynaşlı / DÜZCE",
+      "adres": "Hacımehmet Mahallesi Türsan Dinlenme Tesisleri Kaynaşlı / DÜZCE",
       "soket_bilgileri": ""
     },
     {
@@ -4652,7 +4992,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Akfırat Mahallesi  No:59  Kuzey Marmara Otoyolu Güney Tesisleri Tuzla / İSTANBUL",
+      "adres": "Akfırat Mahallesi No:59 Kuzey Marmara Otoyolu Güney Tesisleri Tuzla / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -4662,347 +5002,7 @@
       "marka": "Trugo",
       "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Akfırat Mahallesi  No:60  Kuzey Marmara Otoyolu Kuzey Tesisleri Tuzla / İSTANBUL",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/8082",
-      "istasyon_adi": "Nakkaş İstanbul Yönü",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "Trugo",
-      "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Nakkaş Mahallesi  No:34  Kuzey Marmara Otoyolu Tekirdağ Yönü Çatalca / İSTANBUL",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/10538",
-      "istasyon_adi": "Nakkaş Ankara Yönü",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "Trugo",
-      "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Nakkaş Mahallesi  No:34  Kuzey Marmara Otoyolu İstanbul Yönü Çatalca / İSTANBUL",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/3802",
-      "istasyon_adi": "Alandüzü Kuzey Marmara Otoyolu (Kuzey)",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "Trugo",
-      "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Alandüzü Mahallesi  Kuzey Marmara Otoyolu Alandüzü Kuzey Mevkiii Adapazarı / SAKARYA",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/3803",
-      "istasyon_adi": "Alandüzü Kuzey Marmara Otoyolu (Güney)",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "Trugo",
-      "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Alandüzü Mahallesi  Kuzey Marmara Otoyolu Alandüzü Güney Mevkiii Adapazarı / SAKARYA",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/11160",
-      "istasyon_adi": "Hotel Suadiye",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "Trugo",
-      "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Suadiye Mahallesi Plaj Yolu Sokağı  No:27 Kadıköy / İSTANBUL",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/10615",
-      "istasyon_adi": "Bursa Namık Kemal",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "Trugo",
-      "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Zafer Mahallesi Ankara Yolu Caddesi  No:1 Osmangazi / BURSA",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/6728",
-      "istasyon_adi": "Bilişim Vadisi Açık Otopark",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "Trugo",
-      "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Muallimköy Mahallesi Deniz Caddesi  No:143 Gebze / KOCAELİ",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/5778",
-      "istasyon_adi": "Bursa Bilim ve Teknoloji Merkezi",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "Trugo",
-      "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Altınova Mahallesi Fuar Caddesi  Dumlupınar Osb Osmangazi / BURSA",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/5892",
-      "istasyon_adi": "Echomar Hastanesi",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "Trugo",
-      "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Müftü Mahallesi Suat Başol Sokağı Ereğli / ZONGULDAK",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/5890",
-      "istasyon_adi": "Crowne Plaza Otel",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "Trugo",
-      "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Macun Mahallesi 171 Sokağı Yenimahalle / ANKARA",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/7867",
-      "istasyon_adi": "Bartın Kemer Köprü",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "Trugo",
-      "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kemerköprü Mahallesi Elmalık Sokağı Merkez / BARTIN",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/5781",
-      "istasyon_adi": "Yalova Limak Termal Otel",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "Trugo",
-      "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Gökçedere Mahallesi Sıcak Su Caddesi Termal / YALOVA",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/3573",
-      "istasyon_adi": "Grand İtimat Otel",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "Trugo",
-      "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Cumhuriyet Mahallesi  No:205  Fevzi Çakmak Bulvarı Yanyolu Merkez / DENİZLİ",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/3754",
-      "istasyon_adi": "Bodrum Yalıkavak Migros",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "Trugo",
-      "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Gökçebel Mahallesi İnönü Caddesi  No:82 Bodrum / MUĞLA",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/6108",
-      "istasyon_adi": "Novotel Konya",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "Trugo",
-      "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Şeker Mahallesi Çevreyolu Caddesi  No:38 Selçuklu / KONYA",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/10474",
-      "istasyon_adi": "Balıkesir Sanayi Odası",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "Trugo",
-      "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Gazi Osman Paşa Osb Mahallesi 11 Caddesi  No:2/B Altıeylül / BALIKESİR",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/6109",
-      "istasyon_adi": "BAYIR DIAMOND OTEL",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "Trugo",
-      "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Musalla Bağları Mahallesi Ahmet Hilmi Nalçacı Caddesi  No:100 Selçuklu / KONYA",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/6138",
-      "istasyon_adi": "Akşehir Özel Park Hayat Hastanesi",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "Trugo",
-      "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "İstasyon Mahallesi  No:119 Akşehir / KONYA",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/6110",
-      "istasyon_adi": "Çağlayanlar Renault Bayi",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "Trugo",
-      "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kındam Mahallesi Ankara-kayseri Caddesi  No:8 Merkez / KIRŞEHİR",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/6641",
-      "istasyon_adi": "Bandırma Ticaret Odası",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "Trugo",
-      "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Paşabayır Mahallesi Mehmet Akif Ersoy Caddesi  No:29/2 Bandırma / BALIKESİR",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/4465",
-      "istasyon_adi": "Total Energies Kazan",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "Trugo",
-      "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Fatih Sultan Mehmet Caddesi  No:363 Kahramankazan / ANKARA",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/4112",
-      "istasyon_adi": "Total Energies İzmit Güney Tesisi",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "Trugo",
-      "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Eseler Mahallesi  Total Energies Güneytesisi İzmit / KOCAELİ",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/4114",
-      "istasyon_adi": "Total Energies İzmit Kuzey Tesisi",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "Trugo",
-      "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Eseler Mahallesi  Total Energies Kuzey Tesisi İzmit / KOCAELİ",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/5854",
-      "istasyon_adi": "Dumlupınar Üniversitesi",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "Trugo",
-      "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Andız Mahallesi  Üniversite Kampüsü Merkez / KÜTAHYA",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/5889",
-      "istasyon_adi": "Lavanta Tepesi Otel",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "Trugo",
-      "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "İstiklal Yerleşkesi Mahallesi  Yakaköy Merkez / BURDUR",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/14905",
-      "istasyon_adi": "Lavanta Tepesi Hotel-2",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "Trugo",
-      "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Değirmenler Mahallesi  No:120/32 Merkez / BURDUR",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/5869",
-      "istasyon_adi": "Tekirdağ YSK AVM",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "Trugo",
-      "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Değirmenaltı Mahallesi Yeşilçay Caddesi Süleymanpaşa / TEKİRDAĞ",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/13876",
-      "istasyon_adi": "Tekirdağ YSK AVM-2",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "Trugo",
-      "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Değirmenaltı Mahallesi Yeşilçay Sokağı  No:24 Süleymanpaşa / TEKİRDAĞ",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/10541",
-      "istasyon_adi": "Aksaray 2M Migros",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "Trugo",
-      "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Ereğlikapı Mahallesi Atatürk Caddesi  No:100 Merkez / AKSARAY",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/10539",
-      "istasyon_adi": "İstanbul Airport AVM",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "Trugo",
-      "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kuleli Mahallesi  Airport Avm Bakırköy / İSTANBUL",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/5750",
-      "istasyon_adi": "Muğla Siteler 2M Migros",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "Trugo",
-      "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Siteler Mahallesi Marmaris / MUĞLA",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/7732",
-      "istasyon_adi": "Çankırı Yunus AVM",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "Trugo",
-      "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Buğday Pazarı Mahallesi Çarşamba Pazarı Caddesi Merkez / ÇANKIRI",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/5852",
-      "istasyon_adi": "Denizli Sanayi Odası",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "Trugo",
-      "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kayalar Mahallesi 6013 Sokağı Merkezefendi / DENİZLİ",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/7821",
-      "istasyon_adi": "Safranbolu Hilton Garden Inn",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "Trugo",
-      "sarj_agi_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "TRUGO AKILLI ŞARJ ÇÖZÜMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yenimahalle Mahallesi Halkevi Sokağı  No:2 Safranbolu / KARABÜK",
+      "adres": "Akfırat Mahallesi No:60 Kuzey Marmara Otoyolu Kuzey Tesisleri Tuzla / İSTANBUL",
       "soket_bilgileri": ""
     }
   ]
