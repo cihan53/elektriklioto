@@ -57,9 +57,9 @@ Bu talep `Veri Kazıma & ETL Pipeline (Python)` katmanını etkiliyor. İlgili d
 
 ## 4. Kabul Kriterleri (Definition of Done)
 
-- [ ] EPDK verisi doğrudan EPDK sitesinden (`epdk_scraper.py` aracılığıyla) çekiliyor.
-- [ ] Voltrun verisi Voltrun API'sinden (`curl_input.txt`'teki `voltrun:` bloğu kullanılarak) çekiliyor.
-- [ ] `curl_input.txt` multi-source formatı (`kaynak: curl ...`) doğru parse ediliyor.
-- [ ] Hiçbir canlı kaynaktan veri gelmediğinde mevcut `cpo_stations.json` korunuyor.
-- [ ] Yeni kaynak eklemek için sadece `curl_input.txt`'e satır eklemek yeterli.
-- [ ] Değişiklik tamamlandıktan sonra talep durumu `COZULDU` olarak güncellendi.
+- [x] EPDK verisi doğrudan EPDK sitesinden (`epdk_scraper.py` aracılığıyla) çekiliyor.
+- [x] Voltrun verisi Voltrun API'sinden (`curl_input.txt`'teki `voltrun:` bloğu kullanılarak) çekiliyor.
+- [x] `curl_input.txt` multi-source formatı (`kaynak: curl ...`) doğru parse ediliyor.
+- [x] Hiçbir canlı kaynaktan veri gelmediğinde mevcut `cpo_stations.json` korunuyor.
+- [x] Yeni kaynak eklemek için sadece `curl_input.txt`'e satır eklemek yeterli.
+- [x] Değişiklik tamamlandıktan sonra talep durumu `COZULDU` olarak güncellendi.

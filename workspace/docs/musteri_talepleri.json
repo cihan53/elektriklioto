@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-09-20T16:11:47.667829",
+  "son_guncelleme": "2026-09-23T19:14:36.421325",
   "toplam_talep": 17,
   "talepler": [
     {
@@ -130990,9 +130990,9 @@
       "baslik": "Hakkımızda modal içeriğinin önceki versiyondaki haline döndürülmesi",
       "aciklama": "Müşteri geri bildirimi: Hakkımızda modalının içeriğinin bir önceki versiyonda daha güzel ve kapsamlı olduğunu belirtti. İçerik ve tasarımın önceki versiyon seviyesine getirilmesi veya geri alınması talep ediliyor.",
       "sayfa_url": "/",
-      "durum": "GELISTIRILIYOR",
+      "durum": "COZULDU",
       "gorevli_rol": "ui_designer",
-      "studio_notu": "Sprint S14 panosuna eklendi (S14-T1 ve S14-T2). Geliştirme başladı.",
+      "studio_notu": "Görev S14-T2 başarıyla tamamlandı ve UAT testinden geçti.",
       "github_issue_number": 16,
       "github_issue_url": "https://github.com/cihan53/elektriklioto/issues/16",
       "gecmis": [
@@ -131025,6 +131025,11 @@
           "zaman": "2026-09-18 18:34",
           "eylem": "Durum güncellendi: GELISTIRILIYOR",
           "durum": "GELISTIRILIYOR"
+        },
+        {
+          "zaman": "2026-09-23 19:14",
+          "eylem": "Durum güncellendi: COZULDU",
+          "durum": "COZULDU"
         }
       ]
     },
