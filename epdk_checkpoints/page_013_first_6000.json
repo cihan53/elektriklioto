@@ -3,8 +3,268 @@
   "first": 6000,
   "rows": 500,
   "count": 500,
-  "timestamp": "2026-09-06T14:30:25.748629",
+  "timestamp": "2026-09-23T22:25:30.866970",
   "records": [
+    {
+      "istasyon_no": "ŞRJ/7463",
+      "istasyon_adi": "ASTORŞARJ HASKÖY BORNOVA ELEKTRİKLİ ARAÇ ŞARJ İSTASYONU",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ASTOR",
+      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Mustafa Kemal Atatürk Mahallesi Yaka Caddesi No:60 Bornova / İZMİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/3882",
+      "istasyon_adi": "ASTORŞARJ SİVAS İVAPARK AVM ELEKTRİKLİ ARAÇ ŞARJ İSTASYONU",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ASTOR",
+      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Gültepe Mahallesi Merkez / SİVAS",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/11266",
+      "istasyon_adi": "ASTORŞARJ ARSIA SUITES",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ASTOR",
+      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Fatih Sultan Mahallesi Üniversite Caddesi No:44 /A Etimesgut / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/6956",
+      "istasyon_adi": "ASTORŞARJ BOZÜYÜK SARAR OUTLET ESKİŞEHİR YÖNÜ ELEKTRİKLİ ARAÇ ŞARJ İSTASYONU",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ASTOR",
+      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Yenidoğan Mahallesi Malhatun Caddesi Bozüyük / BİLECİK",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/3881",
+      "istasyon_adi": "ASTORŞARJ SULTANGAZİ VEGA AVM ELEKTRİKLİ ARAÇ ŞARJ İSTASYONU",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ASTOR",
+      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Yunus Emre Mahallesi No:81 Sultangazi / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/12254",
+      "istasyon_adi": "ASTORŞARJ SİVAS YERLİYURT AKARYAKIT",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ASTOR",
+      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "adres": "İmaret Mahallesi Merkez / SİVAS",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/12550",
+      "istasyon_adi": "ASTORŞARJ TRABZON YAVUZ SELİM OTOPARKI",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ASTOR",
+      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Çarşı Mahallesi Ceviz Altı Sokağı Ortahisar / TRABZON",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/12771",
+      "istasyon_adi": "ASTORŞARJ DÖRTDİVAN METRO ANKARA YÖNÜ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ASTOR",
+      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Karslar Mahallesi No:11 Dörtdivan / BOLU",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/12775",
+      "istasyon_adi": "ASTORŞARJ MENEMEN NAR DİBİ RESTAURANT",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ASTOR",
+      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "adres": "İnönü Mahallesi Dokuz Eylül Caddesi No:61 Menemen / İZMİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/12798",
+      "istasyon_adi": "ASTORŞARJ IYAŞ DİNAR AVM",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ASTOR",
+      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Otogar Mahallesi Dinar / AFYONKARAHİSAR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/12799",
+      "istasyon_adi": "ASTORŞARJ ŞANLIURFA PARK HAYAT GÜNEY",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ASTOR",
+      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Örcünlü Mahallesi Karaköprü / ŞANLIURFA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/12800",
+      "istasyon_adi": "ASTORŞARJ ŞANLIURFA PARK HAYAT KUZEY",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ASTOR",
+      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Örcün Mahallesi Karaköprü / ŞANLIURFA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/12833",
+      "istasyon_adi": "ASTORŞARJ ÇERKEZKÖY GÜNEY METRO DİNLENME TESİSLERİ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ASTOR",
+      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Karamehmet Mahallesi 1711 Caddesi Ergene / TEKİRDAĞ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/7812",
+      "istasyon_adi": "ASTORŞARJ CAN OSMAN DİNLENME TESİSİ ELEKTRİKLİ ARAÇ ŞARJ İSTASYONU",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ASTOR",
+      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Kurşunlu Mahallesi Sivrihisar / ESKİŞEHİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/13067",
+      "istasyon_adi": "ASTORŞARJ O-37 OKSİJEN ORHANGAZİ İSTANBUL YÖNÜ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ASTOR",
+      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Cihanköy Mahallesi Orhangazi / BURSA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/13068",
+      "istasyon_adi": "ASTORŞARJ O-37 OKSİJEN ORHANGAZİ İZMİRYÖNÜ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ASTOR",
+      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Cihanköy Mahallesi Orhangazi / BURSA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/12772",
+      "istasyon_adi": "ASTORŞARJ ECEABAT KUM HOTEL",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ASTOR",
+      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Kabatepe Limanı Mevkii Mahallesi Eceabat / ÇANAKKALE",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/2735",
+      "istasyon_adi": "ASTORŞARJ İKRA PETROL ELEKTRİKLİ ARAÇ ŞARJ İSTASYONU",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ASTOR",
+      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Şeyheliza Mahallesi No:359 Karaköprü / ŞANLIURFA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/13820",
+      "istasyon_adi": "ASTORŞARJ GÜLPINAR ATLI DİNLENME TESİSLERİ ANKARA YÖNÜ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ASTOR",
+      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Pınarbaşı Mahallesi Gülağaç / AKSARAY",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/13821",
+      "istasyon_adi": "ASTORŞARJ GÜLPINAR ATLI DİNLENME TESİSLERİ NİĞDE YÖNÜ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ASTOR",
+      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Pınarbaşı Mahallesi Gülağaç / AKSARAY",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/13883",
+      "istasyon_adi": "ASTORŞARJ BAYZADE METRO DİNLENME TESİSİ İSTANBUL YÖNÜ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ASTOR",
+      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Yukarısoku Mahallesi Merkez / BOLU",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/13884",
+      "istasyon_adi": "ASTORŞARJ BAYZADE METRO DİNLENME TESİSİ ANKARA YÖNÜ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ASTOR",
+      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Yukarısoku Mahallesi Merkez / BOLU",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/13885",
+      "istasyon_adi": "ASTORŞARJ YEDİGÖLLER METRO DİNLENME TESİSİ ANKARA YÖNÜ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ASTOR",
+      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Gidiriş Mahallesi Merkez / BOLU",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/13886",
+      "istasyon_adi": "ASTORŞARJ YEDİGÖLLER METRO DİNLENME TESİSİ İSTANBUL YÖNÜ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ASTOR",
+      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Gidiriş Mahallesi Merkez / BOLU",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/13997",
+      "istasyon_adi": "ASTORŞARJ ÇUKURAMBAR 1071 USTA",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ASTOR",
+      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Kızılırmak Mahallesi 1443 Caddesi No:25/E Çankaya / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/13999",
+      "istasyon_adi": "ASTORŞARJ ÇEKMEKÖY ALKANLAR",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ASTOR",
+      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Cumhuriyet Mahallesi Adnan Menderes Caddesi No:18 Çekmeköy / İSTANBUL",
+      "soket_bilgileri": ""
+    },
     {
       "istasyon_no": "ŞRJ/14000",
       "istasyon_adi": "ASTORŞARJ ÇERKEŞ HENDEK DİNLENME TESİSLERİ",
@@ -13,16 +273,6 @@
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "adres": "İstasyon Mahallesi Çerkeş / ÇANKIRI",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/14001",
-      "istasyon_adi": "ASTORŞARJ KIZILCAHAMAM LUKOİL",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ASTOR",
-      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Yenice İmar Mahallesi Kızılcahamam / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -52,7 +302,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Gazi Mahallesi  No:2 Yenimahalle / ANKARA",
+      "adres": "Gazi Mahallesi No:2 Yenimahalle / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -72,7 +322,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Eğriçam Mahallesi Hüseyin Okan Merzeci Sokağı  No:685 Yenişehir / MERSİN",
+      "adres": "Eğriçam Mahallesi Hüseyin Okan Merzeci Sokağı No:685 Yenişehir / MERSİN",
       "soket_bilgileri": ""
     },
     {
@@ -92,7 +342,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Mehmet Akif Ersoy Mahallesi Bağdat Sokağı  No:60 Yenimahalle / ANKARA",
+      "adres": "Mehmet Akif Ersoy Mahallesi Bağdat Sokağı No:60 Yenimahalle / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -102,7 +352,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Zübeyde Hanım Mahallesi Sebze Bahçeleri Sokağı  No:95 /1 Altındağ / ANKARA",
+      "adres": "Zübeyde Hanım Mahallesi Sebze Bahçeleri Sokağı No:95 /1 Altındağ / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -112,7 +362,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Alacaatlı Mahallesi 3343 Sokağı  No:41 Çankaya / ANKARA",
+      "adres": "Alacaatlı Mahallesi 3343 Sokağı No:41 Çankaya / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -122,7 +372,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Etlik Mahallesi Ayvalı Caddesi  No:142 Keçiören / ANKARA",
+      "adres": "Etlik Mahallesi Ayvalı Caddesi No:142 Keçiören / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -132,7 +382,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "İsmetpaşa Mahallesi Troya Caddesi  No:142 Merkez / ÇANAKKALE",
+      "adres": "İsmetpaşa Mahallesi Troya Caddesi No:142 Merkez / ÇANAKKALE",
       "soket_bilgileri": ""
     },
     {
@@ -142,7 +392,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Yenişehir Mahallesi Reyhan Sokağı  No:15 Pendik / İSTANBUL",
+      "adres": "Yenişehir Mahallesi Reyhan Sokağı No:15 Pendik / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -152,7 +402,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Büyükdamlacık Mahallesi Büyükdamlacık Sokağı  No:24 Şereflikoçhisar / ANKARA",
+      "adres": "Büyükdamlacık Mahallesi Büyükdamlacık Sokağı No:24 Şereflikoçhisar / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -162,7 +412,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Büyükdamlacık Mahallesi Büyükdamlacık Sokağı  No:24 Şereflikoçhisar / ANKARA",
+      "adres": "Büyükdamlacık Mahallesi Büyükdamlacık Sokağı No:24 Şereflikoçhisar / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -172,7 +422,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Şeker Mahallesi  No:364 Kocasinan / KAYSERİ",
+      "adres": "Şeker Mahallesi No:364 Kocasinan / KAYSERİ",
       "soket_bilgileri": ""
     },
     {
@@ -192,7 +442,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Bahçekapı Mahallesi 2500 Sokağı  No:2/B Etimesgut / ANKARA",
+      "adres": "Bahçekapı Mahallesi 2500 Sokağı No:2/B Etimesgut / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -202,7 +452,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Gökçehüyük Mahallesi Gökçehüyük Sokağı  No:3 Gölbaşı / ANKARA",
+      "adres": "Gökçehüyük Mahallesi Gökçehüyük Sokağı No:3 Gölbaşı / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -212,7 +462,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Gökçehüyük Mahallesi Gökçehüyük Sokağı  No:3 Gölbaşı / ANKARA",
+      "adres": "Gökçehüyük Mahallesi Gökçehüyük Sokağı No:3 Gölbaşı / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -222,7 +472,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Yenişehir Mahallesi  No:ÖZDAĞ TİCARET 31 İzmit / KOCAELİ",
+      "adres": "Yenişehir Mahallesi No:ÖZDAĞ TİCARET 31 İzmit / KOCAELİ",
       "soket_bilgileri": ""
     },
     {
@@ -232,7 +482,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Nişantepe Mahallesi 29 Ekim Sokağı  No:1 Çekmeköy / İSTANBUL",
+      "adres": "Nişantepe Mahallesi 29 Ekim Sokağı No:1 Çekmeköy / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -252,7 +502,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Beytepe Mahallesi 5387 Caddesi  No:13 Çankaya / ANKARA",
+      "adres": "Beytepe Mahallesi 5387 Caddesi No:13 Çankaya / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -262,7 +512,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Alacaatlı Mahallesi 3341 Sokağı  No:1 Çankaya / ANKARA",
+      "adres": "Alacaatlı Mahallesi 3341 Sokağı No:1 Çankaya / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -272,7 +522,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Siteler Mahallesi Nazif Balkan Caddesi  No:35/37 Lüleburgaz / KIRKLARELİ",
+      "adres": "Siteler Mahallesi Nazif Balkan Caddesi No:35/37 Lüleburgaz / KIRKLARELİ",
       "soket_bilgileri": ""
     },
     {
@@ -282,7 +532,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Muratlı Mahallesi Muratlı Sokağı  No:119 Karacabey / BURSA",
+      "adres": "Muratlı Mahallesi Muratlı Sokağı No:119 Karacabey / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -292,7 +542,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Muratlı Mahallesi Muratlı Sokağı  No:119 Karacabey / BURSA",
+      "adres": "Muratlı Mahallesi Muratlı Sokağı No:119 Karacabey / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -302,7 +552,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Üniversiteler Mahallesi İhsan Doğramacı Sokağı  No:6 Çankaya / ANKARA",
+      "adres": "Üniversiteler Mahallesi İhsan Doğramacı Sokağı No:6 Çankaya / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -312,7 +562,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Dumlupınar Mahallesi Yıldırım Beyazıt Üniversitesi Sokağı  No:1 Çankaya / ANKARA",
+      "adres": "Dumlupınar Mahallesi Yıldırım Beyazıt Üniversitesi Sokağı No:1 Çankaya / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -322,7 +572,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Yunus Emre Mahallesi Takdir Sokağı  No:5 Yenimahalle / ANKARA",
+      "adres": "Yunus Emre Mahallesi Takdir Sokağı No:5 Yenimahalle / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -332,7 +582,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Orta Mahallesi D-10 Yan Yol Caddesi  No:26 Kartal / İSTANBUL",
+      "adres": "Orta Mahallesi D-10 Yan Yol Caddesi No:26 Kartal / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -342,7 +592,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Çelebi Mehmet Caddesi  No:33A Esenyurt / İSTANBUL",
+      "adres": "Çelebi Mehmet Caddesi No:33A Esenyurt / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -352,7 +602,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Halkapınar Mahallesi Yanyol Caddesi  No:166 Konak / İZMİR",
+      "adres": "Halkapınar Mahallesi Yanyol Caddesi No:166 Konak / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -412,7 +662,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Yalı Mahallesi Fethiye Sokağı  No:19 Maltepe / İSTANBUL",
+      "adres": "Yalı Mahallesi Fethiye Sokağı No:19 Maltepe / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -422,7 +672,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Merkez Mahallesi Atlas Sokağı  No:11/A Çekmeköy / İSTANBUL",
+      "adres": "Merkez Mahallesi Atlas Sokağı No:11/A Çekmeköy / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -437,12 +687,12 @@
     },
     {
       "istasyon_no": "ŞRJ/17929",
-      "istasyon_adi": "ASTORŞARJ DİDİM DUJA  OTEL",
+      "istasyon_adi": "ASTORŞARJ DİDİM DUJA OTEL",
       "hizmet_sekli": "Halka Açık",
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Altınkum Mahallesi 240 Sokağı  No:13/2 Didim / AYDIN",
+      "adres": "Altınkum Mahallesi 240 Sokağı No:13/2 Didim / AYDIN",
       "soket_bilgileri": ""
     },
     {
@@ -452,7 +702,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Çamlıca Mahallesi Gülperi Sokağı  No:1 Tepebaşı / ESKİŞEHİR",
+      "adres": "Çamlıca Mahallesi Gülperi Sokağı No:1 Tepebaşı / ESKİŞEHİR",
       "soket_bilgileri": ""
     },
     {
@@ -462,7 +712,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Ahlatlıbel Mahallesi Şehit Savcı Mehmet Selim Kiraz Sokağı  No:4 Çankaya / ANKARA",
+      "adres": "Ahlatlıbel Mahallesi Şehit Savcı Mehmet Selim Kiraz Sokağı No:4 Çankaya / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -473,26 +723,6 @@
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "adres": "Ortaköy Mahallesi 19 Mayıs Sokağı Mamak / ANKARA",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/17994",
-      "istasyon_adi": "ASTORŞARJ BABACAN PORT ROYALE",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ASTOR",
-      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Kartaltepe Mahallesi 1.malazgirt Caddesi  No:6/4 Küçükçekmece / İSTANBUL",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/17995",
-      "istasyon_adi": "ASTORŞARJ BABACAN PREMİUM RESİDANCE",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ASTOR",
-      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Zafer Mahallesi 185 Sokağı  No:4 Esenyurt / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -532,7 +762,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Birlik Mahallesi Kurbani Akboğa Sokağı  No:26 Çankaya / ANKARA",
+      "adres": "Birlik Mahallesi Kurbani Akboğa Sokağı No:26 Çankaya / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -542,7 +772,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Koru Mahallesi Ankaralılar Sokağı  No:18 Çankaya / ANKARA",
+      "adres": "Koru Mahallesi Ankaralılar Sokağı No:18 Çankaya / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -552,12 +782,12 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Kazımdirik Mahallesi Ankara Caddesi  No:58/A Bornova / İZMİR",
+      "adres": "Kazımdirik Mahallesi Ankara Caddesi No:58/A Bornova / İZMİR",
       "soket_bilgileri": ""
     },
     {
       "istasyon_no": "ŞRJ/18024",
-      "istasyon_adi": "ASTORŞARJ ICA POYRAZKÖY  Bİ MOLA",
+      "istasyon_adi": "ASTORŞARJ ICA POYRAZKÖY Bİ MOLA",
       "hizmet_sekli": "Halka Açık",
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
@@ -572,7 +802,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Konutkent Mahallesi Dumlupınar Sokağı  No:399 /182 Çankaya / ANKARA",
+      "adres": "Konutkent Mahallesi Dumlupınar Sokağı No:399 /182 Çankaya / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -582,7 +812,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Yapracık Mahallesi Dumlupınar Sokağı  No:30 Etimesgut / ANKARA",
+      "adres": "Yapracık Mahallesi Dumlupınar Sokağı No:30 Etimesgut / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -602,7 +832,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Esenköy Mahallesi  No:657 Fethiye / MUĞLA",
+      "adres": "Esenköy Mahallesi No:657 Fethiye / MUĞLA",
       "soket_bilgileri": ""
     },
     {
@@ -622,7 +852,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Beytepe Mahallesi 5388 Sokağı  No:1 Çankaya / ANKARA",
+      "adres": "Beytepe Mahallesi 5388 Sokağı No:1 Çankaya / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -632,7 +862,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Mustafa Kemal Mahallesi Eskişehir Yolu 7.km Caddesi  No:164 Çankaya / ANKARA",
+      "adres": "Mustafa Kemal Mahallesi Eskişehir Yolu 7.km Caddesi No:164 Çankaya / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -652,7 +882,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Üçtutlar Mahallesi  No:13 Merkez / ÇORUM",
+      "adres": "Üçtutlar Mahallesi No:13 Merkez / ÇORUM",
       "soket_bilgileri": ""
     },
     {
@@ -672,7 +902,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "İkizce Mahallesi  No:13 Yeşilyurt / MALATYA",
+      "adres": "İkizce Mahallesi No:13 Yeşilyurt / MALATYA",
       "soket_bilgileri": ""
     },
     {
@@ -702,7 +932,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Bostanbaşı Mahallesi  No:18/1 Yeşilyurt / MALATYA",
+      "adres": "Bostanbaşı Mahallesi No:18/1 Yeşilyurt / MALATYA",
       "soket_bilgileri": ""
     },
     {
@@ -712,7 +942,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Halkalı Mahallesi Tokel Sokağı  No:1 Küçükçekmece / İSTANBUL",
+      "adres": "Halkalı Mahallesi Tokel Sokağı No:1 Küçükçekmece / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -722,7 +952,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "150 Evler Mahallesi Yeni İzmir Yolu Caddesi 172 Sokağı  No:1 Ayvalık / BALIKESİR",
+      "adres": "150 Evler Mahallesi Yeni İzmir Yolu Caddesi 172 Sokağı No:1 Ayvalık / BALIKESİR",
       "soket_bilgileri": ""
     },
     {
@@ -742,7 +972,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "İpek Yolu Mahallesi İpek Yolu Caddesi  No:51 Nusaybin / MARDİN",
+      "adres": "İpek Yolu Mahallesi İpek Yolu Caddesi No:51 Nusaybin / MARDİN",
       "soket_bilgileri": ""
     },
     {
@@ -752,7 +982,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "E-5 (d 100) Karayolu Üzeri Darıyeri Hasanbey Mahallesi Bolu Dağı Mevkii Caddesi  No:22 Kaynaşlı / DÜZCE",
+      "adres": "E-5 (d 100) Karayolu Üzeri Darıyeri Hasanbey Mahallesi Bolu Dağı Mevkii Caddesi No:22 Kaynaşlı / DÜZCE",
       "soket_bilgileri": ""
     },
     {
@@ -762,7 +992,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Hürriyet Mahallesi Kaplıca Sokağı  No:41 Kurşunlu / ÇANKIRI",
+      "adres": "Hürriyet Mahallesi Kaplıca Sokağı No:41 Kurşunlu / ÇANKIRI",
       "soket_bilgileri": ""
     },
     {
@@ -792,7 +1022,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "İbirler Mahallesi 46999 Caddesi  No:31 Karesi / BALIKESİR",
+      "adres": "İbirler Mahallesi 46999 Caddesi No:31 Karesi / BALIKESİR",
       "soket_bilgileri": ""
     },
     {
@@ -802,7 +1032,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "İbirler Mahallesi 46999 Caddesi  No:31 Karesi / BALIKESİR",
+      "adres": "İbirler Mahallesi 46999 Caddesi No:31 Karesi / BALIKESİR",
       "soket_bilgileri": ""
     },
     {
@@ -812,7 +1042,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Köy Mahallesi 4. Dilek Sokağı  No:65/1 Osmangazi / BURSA",
+      "adres": "Köy Mahallesi 4. Dilek Sokağı No:65/1 Osmangazi / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -822,7 +1052,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Köy Mahallesi 4. Dilek Sokağı  No:65/1 Osmangazi / BURSA",
+      "adres": "Köy Mahallesi 4. Dilek Sokağı No:65/1 Osmangazi / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -832,7 +1062,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Seyran Mahallesi Seyran Sokağı  No:600 Karacabey / BURSA",
+      "adres": "Seyran Mahallesi Seyran Sokağı No:600 Karacabey / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -842,7 +1072,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Seyran Mahallesi Seyran Sokağı  No:600 Karacabey / BURSA",
+      "adres": "Seyran Mahallesi Seyran Sokağı No:600 Karacabey / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -852,7 +1082,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Saray Osmangazi Mahallesi Sarsılmaz Caddesi  No:2/1 Pursaklar / ANKARA",
+      "adres": "Saray Osmangazi Mahallesi Sarsılmaz Caddesi No:2/1 Pursaklar / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -862,7 +1092,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Kocaeli Mahallesi Kulaksız Sokağı  No:E90 Birecik / ŞANLIURFA",
+      "adres": "Kocaeli Mahallesi Kulaksız Sokağı No:E90 Birecik / ŞANLIURFA",
       "soket_bilgileri": ""
     },
     {
@@ -872,7 +1102,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Kocaeli Mahallesi Kulaksız Sokağı  No:E90 Birecik / ŞANLIURFA",
+      "adres": "Kocaeli Mahallesi Kulaksız Sokağı No:E90 Birecik / ŞANLIURFA",
       "soket_bilgileri": ""
     },
     {
@@ -892,7 +1122,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Yenice Mahallesi  No:229 Çorlu / TEKİRDAĞ",
+      "adres": "Yenice Mahallesi No:229 Çorlu / TEKİRDAĞ",
       "soket_bilgileri": ""
     },
     {
@@ -902,7 +1132,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Yenibatı Mahallesi 1940 Caddesi 2430 Sokağı  No:1/D/2 Yenimahalle / ANKARA",
+      "adres": "Yenibatı Mahallesi 1940 Caddesi 2430 Sokağı No:1/D/2 Yenimahalle / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -912,7 +1142,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Merkez Mahallesi Atlas Sokağı  No:11 Çekmeköy / İSTANBUL",
+      "adres": "Merkez Mahallesi Atlas Sokağı No:11 Çekmeköy / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -922,7 +1152,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Müftü Mahallesi Şehit Ömer Halisdemir Sokağı  No:34 Ereğli / ZONGULDAK",
+      "adres": "Müftü Mahallesi Şehit Ömer Halisdemir Sokağı No:34 Ereğli / ZONGULDAK",
       "soket_bilgileri": ""
     },
     {
@@ -932,7 +1162,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Macun Mahallesi 204 Caddesi  No:74/A Yenimahalle / ANKARA",
+      "adres": "Macun Mahallesi 204 Caddesi No:74/A Yenimahalle / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -942,7 +1172,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Ozanlar Mahallesi  No:18 Adapazarı / SAKARYA",
+      "adres": "Ozanlar Mahallesi No:18 Adapazarı / SAKARYA",
       "soket_bilgileri": ""
     },
     {
@@ -962,7 +1192,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Yaşamkent Mahallesi 3297 Sokağı  No:1 Çankaya / ANKARA",
+      "adres": "Yaşamkent Mahallesi 3297 Sokağı No:1 Çankaya / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -972,7 +1202,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Esentepe Mahallesi Füsun Sokağı  No:3 Kartal / İSTANBUL",
+      "adres": "Esentepe Mahallesi Füsun Sokağı No:3 Kartal / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -982,7 +1212,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Fatih Mahallesi Bitlis Yolu Caddesi  No:399 Tatvan / BİTLİS",
+      "adres": "Fatih Mahallesi Bitlis Yolu Caddesi No:399 Tatvan / BİTLİS",
       "soket_bilgileri": ""
     },
     {
@@ -992,7 +1222,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "30 Ekim Mahallesi Alparslan Türkeş Caddesi  No:20/1 Merkez / KARS",
+      "adres": "30 Ekim Mahallesi Alparslan Türkeş Caddesi No:20/1 Merkez / KARS",
       "soket_bilgileri": ""
     },
     {
@@ -1022,7 +1252,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Alacaatlı Mahallesi  No:139 Çankaya / ANKARA",
+      "adres": "Alacaatlı Mahallesi No:139 Çankaya / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -1032,7 +1262,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Zafer Mahallesi Hayri Mumcuoğlu Caddesi  No:1 Süleymanpaşa / TEKİRDAĞ",
+      "adres": "Zafer Mahallesi Hayri Mumcuoğlu Caddesi No:1 Süleymanpaşa / TEKİRDAĞ",
       "soket_bilgileri": ""
     },
     {
@@ -1042,7 +1272,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Paşaalanı Mahallesi Bandırma Caddesi  No:89 Karesi / BALIKESİR",
+      "adres": "Paşaalanı Mahallesi Bandırma Caddesi No:89 Karesi / BALIKESİR",
       "soket_bilgileri": ""
     },
     {
@@ -1052,7 +1282,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Gazibey Mahallesi Londra Asfaltı Caddesi  No:73 Malkara / TEKİRDAĞ",
+      "adres": "Gazibey Mahallesi Londra Asfaltı Caddesi No:73 Malkara / TEKİRDAĞ",
       "soket_bilgileri": ""
     },
     {
@@ -1062,7 +1292,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Bozkurt Mahallesi  No:5/2 Keskin / KIRIKKALE",
+      "adres": "Bozkurt Mahallesi No:5/2 Keskin / KIRIKKALE",
       "soket_bilgileri": ""
     },
     {
@@ -1072,7 +1302,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Yenimahalle Mahallesi Recep Tayyip Erdoğan Caddesi  No:115 Merkez / AKSARAY",
+      "adres": "Yenimahalle Mahallesi Recep Tayyip Erdoğan Caddesi No:115 Merkez / AKSARAY",
       "soket_bilgileri": ""
     },
     {
@@ -1082,7 +1312,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Kındam Mahallesi  No:6/1 Merkez / KIRŞEHİR",
+      "adres": "Kındam Mahallesi No:6/1 Merkez / KIRŞEHİR",
       "soket_bilgileri": ""
     },
     {
@@ -1092,7 +1322,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Ostim Mahallesi  No:53/1 Yenimahalle / ANKARA",
+      "adres": "Ostim Mahallesi No:53/1 Yenimahalle / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -1102,7 +1332,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Söğütözü Mahallesi 2165 Sokağı  No:6 Çankaya / ANKARA",
+      "adres": "Söğütözü Mahallesi 2165 Sokağı No:6 Çankaya / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -1112,7 +1342,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Üniversite Mahallesi Londra Asfaltı Caddesi  No:42  E-5 Yanyol Avcılar / İSTANBUL",
+      "adres": "Üniversite Mahallesi Londra Asfaltı Caddesi No:42 E-5 Yanyol Avcılar / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -1132,7 +1362,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Mehmet Akif Mahallesi  No:108/B Dulkadiroğlu / KAHRAMANMARAŞ",
+      "adres": "Mehmet Akif Mahallesi No:108/B Dulkadiroğlu / KAHRAMANMARAŞ",
       "soket_bilgileri": ""
     },
     {
@@ -1142,7 +1372,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Mustafa Kemal Mahallesi 2151 Caddesi  No:34/SARJ İSTASYONU Çankaya / ANKARA",
+      "adres": "Mustafa Kemal Mahallesi 2151 Caddesi No:34/SARJ İSTASYONU Çankaya / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -1162,7 +1392,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Deliklikaya Mahallesi Deliklikaya Altınşehir Yolu Caddesi  No:13/2 Arnavutköy / İSTANBUL",
+      "adres": "Deliklikaya Mahallesi Deliklikaya Altınşehir Yolu Caddesi No:13/2 Arnavutköy / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -1172,7 +1402,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "M.akif Ersoy Mahallesi 269 Sokağı  No:9 Yenimahalle / ANKARA",
+      "adres": "M.akif Ersoy Mahallesi 269 Sokağı No:9 Yenimahalle / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -1182,7 +1412,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Tacin Mahallesi 5/konya Caddesi  No:36 Merkez / AKSARAY",
+      "adres": "Tacin Mahallesi 5/konya Caddesi No:36 Merkez / AKSARAY",
       "soket_bilgileri": ""
     },
     {
@@ -1222,7 +1452,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Kuzey Marmara Otoyolu Mahallesi  Çiftalan Eyüpsultan / İSTANBUL",
+      "adres": "Kuzey Marmara Otoyolu Mahallesi Çiftalan Eyüpsultan / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -1232,7 +1462,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Ahlatlıbel Mahallesi Şehit  Savcı Mehmet Selim Kiraz Sokağı  No:4 Çankaya / ANKARA",
+      "adres": "Ahlatlıbel Mahallesi Şehit Savcı Mehmet Selim Kiraz Sokağı No:4 Çankaya / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -1242,7 +1472,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Ahmediye Mahallesi  No:777 Arifiye / SAKARYA",
+      "adres": "Ahmediye Mahallesi No:777 Arifiye / SAKARYA",
       "soket_bilgileri": ""
     },
     {
@@ -1252,7 +1482,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Akçapınar Mahallesi  No:11 Turgutlu / MANİSA",
+      "adres": "Akçapınar Mahallesi No:11 Turgutlu / MANİSA",
       "soket_bilgileri": ""
     },
     {
@@ -1262,7 +1492,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Türkbeyli Mahallesi Zonguldak Caddesi  No:121 Mengen / BOLU",
+      "adres": "Türkbeyli Mahallesi Zonguldak Caddesi No:121 Mengen / BOLU",
       "soket_bilgileri": ""
     },
     {
@@ -1272,7 +1502,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Kepez Mahallesi 5069 Sokağı  No:44 Kepez / ANTALYA",
+      "adres": "Kepez Mahallesi 5069 Sokağı No:44 Kepez / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -1282,7 +1512,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Karabıyıklı Mahallesi  No:130 Pazarcık / KAHRAMANMARAŞ",
+      "adres": "Karabıyıklı Mahallesi No:130 Pazarcık / KAHRAMANMARAŞ",
       "soket_bilgileri": ""
     },
     {
@@ -1292,7 +1522,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Koru Mahallesi Dumlupınar Sokağı  No:399 Çankaya / ANKARA",
+      "adres": "Koru Mahallesi Dumlupınar Sokağı No:399 Çankaya / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -1302,7 +1532,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Karapınar Mahallesi 1127 Sokağı  No:OG-1/TİC Altınordu / ORDU",
+      "adres": "Karapınar Mahallesi 1127 Sokağı No:OG-1/TİC Altınordu / ORDU",
       "soket_bilgileri": ""
     },
     {
@@ -1322,7 +1552,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Tatlıcak Mahallesi  No:117/C Karatay / KONYA",
+      "adres": "Tatlıcak Mahallesi No:117/C Karatay / KONYA",
       "soket_bilgileri": ""
     },
     {
@@ -1332,7 +1562,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Bostancı Mahallesi  No:7  Hacıkirazlar Kümeevleri Edremit / BALIKESİR",
+      "adres": "Bostancı Mahallesi No:7 Hacıkirazlar Kümeevleri Edremit / BALIKESİR",
       "soket_bilgileri": ""
     },
     {
@@ -1402,7 +1632,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Ürünlü Mahallesi Ürkek Sokağı  No:21/1 Nilüfer / BURSA",
+      "adres": "Ürünlü Mahallesi Ürkek Sokağı No:21/1 Nilüfer / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -1412,7 +1642,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Osman Yılmaz Mahallesi 633/2 Sokağı  No:55 Gebze / KOCAELİ",
+      "adres": "Osman Yılmaz Mahallesi 633/2 Sokağı No:55 Gebze / KOCAELİ",
       "soket_bilgileri": ""
     },
     {
@@ -1422,7 +1652,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Gençlik Mahallesi Fevzi Çakmak Caddesi  No:22 Muratpaşa / ANTALYA",
+      "adres": "Gençlik Mahallesi Fevzi Çakmak Caddesi No:22 Muratpaşa / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -1432,7 +1662,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Beştelsiz Mahallesi Prof. Muammer Aksoy Caddesi  No:30 Zeytinburnu / İSTANBUL",
+      "adres": "Beştelsiz Mahallesi Prof. Muammer Aksoy Caddesi No:30 Zeytinburnu / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -1442,7 +1672,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Tuzla Mahallesi  No:1/1 Fethiye / MUĞLA",
+      "adres": "Tuzla Mahallesi No:1/1 Fethiye / MUĞLA",
       "soket_bilgileri": ""
     },
     {
@@ -1452,7 +1682,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Kadı Burhanettin Mahallesi Toptancılar Caddesi  No:1 Merkez / SİVAS",
+      "adres": "Kadı Burhanettin Mahallesi Toptancılar Caddesi No:1 Merkez / SİVAS",
       "soket_bilgileri": ""
     },
     {
@@ -1462,7 +1692,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Eşrefpaşa Caddesi  No:408 Konak / İZMİR",
+      "adres": "Eşrefpaşa Caddesi No:408 Konak / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -1542,7 +1772,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Yenice Bld Mahallesi  No:271 Çorlu / TEKİRDAĞ",
+      "adres": "Yenice Bld Mahallesi No:271 Çorlu / TEKİRDAĞ",
       "soket_bilgileri": ""
     },
     {
@@ -1552,7 +1782,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Hanlıyenice Mahallesi  No:162 Lalapaşa / EDİRNE",
+      "adres": "Hanlıyenice Mahallesi No:162 Lalapaşa / EDİRNE",
       "soket_bilgileri": ""
     },
     {
@@ -1562,7 +1792,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Merkez Mahallesi Alparslan  Türkeş Sokağı  No:78 Erdemli / MERSİN",
+      "adres": "Merkez Mahallesi Alparslan Türkeş Sokağı No:78 Erdemli / MERSİN",
       "soket_bilgileri": ""
     },
     {
@@ -1572,7 +1802,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Değirmencik Mahallesi Beypınarı Sokağı  No:58 İslahiye / GAZİANTEP",
+      "adres": "Değirmencik Mahallesi Beypınarı Sokağı No:58 İslahiye / GAZİANTEP",
       "soket_bilgileri": ""
     },
     {
@@ -1592,7 +1822,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Cırgalan Mahallesi  No:575 Kocasinan / KAYSERİ",
+      "adres": "Cırgalan Mahallesi No:575 Kocasinan / KAYSERİ",
       "soket_bilgileri": ""
     },
     {
@@ -1612,7 +1842,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Küpçüler Mahallesi  No:70 Erenler / SAKARYA",
+      "adres": "Küpçüler Mahallesi No:70 Erenler / SAKARYA",
       "soket_bilgileri": ""
     },
     {
@@ -1652,7 +1882,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Gaziömerbey Mahallesi Atatürk 8 Sokağı  No:2 Enez / EDİRNE",
+      "adres": "Gaziömerbey Mahallesi Atatürk 8 Sokağı No:2 Enez / EDİRNE",
       "soket_bilgileri": ""
     },
     {
@@ -1702,7 +1932,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Sancak Mahallesi Veysel Karani Caddesi  No:2 Selçuklu / KONYA",
+      "adres": "Sancak Mahallesi Veysel Karani Caddesi No:2 Selçuklu / KONYA",
       "soket_bilgileri": ""
     },
     {
@@ -1712,17 +1942,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Fettahlı Köyü Mahallesi  Isparta Yolu  Fettahlı Aksu / ANTALYA",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/21990",
-      "istasyon_adi": "ASTORŞARJ ASTOR PLAZA DC 2",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ASTOR",
-      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Turgut Özal Mahallesi 1467/1 Caddesi  No:42 Yenimahalle / ANKARA",
+      "adres": "Fettahlı Köyü Mahallesi Isparta Yolu Fettahlı Aksu / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -1742,7 +1962,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Gaziosmanpaşa Mahallesi Ankara Caddesi  No:202/1 Gölbaşı / ANKARA",
+      "adres": "Gaziosmanpaşa Mahallesi Ankara Caddesi No:202/1 Gölbaşı / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -1752,7 +1972,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "E-5 Karayolu Üzeri Mahallesi  Önerler Çorlu / TEKİRDAĞ",
+      "adres": "E-5 Karayolu Üzeri Mahallesi Önerler Çorlu / TEKİRDAĞ",
       "soket_bilgileri": ""
     },
     {
@@ -1762,7 +1982,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "İşçi Blokları Mahallesi Muhsin Yazıcıoğlu Caddesi  No:59/A Çankaya / ANKARA",
+      "adres": "İşçi Blokları Mahallesi Muhsin Yazıcıoğlu Caddesi No:59/A Çankaya / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -1772,7 +1992,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Şeyhali Mahallesi  No:46/B Polatlı / ANKARA",
+      "adres": "Şeyhali Mahallesi No:46/B Polatlı / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -1782,7 +2002,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Saray Mahallesi Fatih  Sultan Mehmet Sokağı  No:326/1 Kahramankazan / ANKARA",
+      "adres": "Saray Mahallesi Fatih Sultan Mehmet Sokağı No:326/1 Kahramankazan / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -1792,7 +2012,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Oğuzlar Mahallesi Prof.dr.necmettin Erbakan Sokağı  No:51/1 Etimesgut / ANKARA",
+      "adres": "Oğuzlar Mahallesi Prof.dr.necmettin Erbakan Sokağı No:51/1 Etimesgut / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -1812,7 +2032,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Gülbayır Mahallesi  No:4/A Yeşilhisar / KAYSERİ",
+      "adres": "Gülbayır Mahallesi No:4/A Yeşilhisar / KAYSERİ",
       "soket_bilgileri": ""
     },
     {
@@ -1822,7 +2042,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Diclekent Mahallesi  No:100 Kayapınar / DİYARBAKIR",
+      "adres": "Diclekent Mahallesi No:100 Kayapınar / DİYARBAKIR",
       "soket_bilgileri": ""
     },
     {
@@ -1832,7 +2052,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Şatır Mahallesi Konya Ereğli Caddesi  No:142 Karatay / KONYA",
+      "adres": "Şatır Mahallesi Konya Ereğli Caddesi No:142 Karatay / KONYA",
       "soket_bilgileri": ""
     },
     {
@@ -1842,7 +2062,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Aslanlı Mahallesi Kahramanmaraş Sokağı  No:8/1 Nurdağı / GAZİANTEP",
+      "adres": "Aslanlı Mahallesi Kahramanmaraş Sokağı No:8/1 Nurdağı / GAZİANTEP",
       "soket_bilgileri": ""
     },
     {
@@ -1852,7 +2072,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Kalaycılar Mahallesi  No:200/A  Kalaycılar Karesi / BALIKESİR",
+      "adres": "Kalaycılar Mahallesi No:200/A Kalaycılar Karesi / BALIKESİR",
       "soket_bilgileri": ""
     },
     {
@@ -1862,7 +2082,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Doğancıbağları Mahallesi Talip Yener Caddesi  No:1/0 Merkez / TOKAT",
+      "adres": "Doğancıbağları Mahallesi Talip Yener Caddesi No:1/0 Merkez / TOKAT",
       "soket_bilgileri": ""
     },
     {
@@ -1932,7 +2152,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Muradiye Mahallesi Mustafa Kemal Caddesi  No:59 Muratlı / TEKİRDAĞ",
+      "adres": "Muradiye Mahallesi Mustafa Kemal Caddesi No:59 Muratlı / TEKİRDAĞ",
       "soket_bilgileri": ""
     },
     {
@@ -1982,7 +2202,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Yahyakaptan Mahallesi Akasyalar Caddesi  No:24 İzmit / KOCAELİ",
+      "adres": "Yahyakaptan Mahallesi Akasyalar Caddesi No:24 İzmit / KOCAELİ",
       "soket_bilgileri": ""
     },
     {
@@ -1992,7 +2212,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Pazarcık Mahallesi  No:1 Saray / TEKİRDAĞ",
+      "adres": "Pazarcık Mahallesi No:1 Saray / TEKİRDAĞ",
       "soket_bilgileri": ""
     },
     {
@@ -2062,7 +2282,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Yenice Mahallesi Prof. Dr. Necmettin Erbakan Caddesi  No:68 Bolvadin / AFYONKARAHİSAR",
+      "adres": "Yenice Mahallesi Prof. Dr. Necmettin Erbakan Caddesi No:68 Bolvadin / AFYONKARAHİSAR",
       "soket_bilgileri": ""
     },
     {
@@ -2082,7 +2302,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Bıyıklı Mahallesi  No:727 Döşemealtı / ANTALYA",
+      "adres": "Bıyıklı Mahallesi No:727 Döşemealtı / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -2092,7 +2312,127 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Yeni Mahallesi  No:6 Devrek / ZONGULDAK",
+      "adres": "Yeni Mahallesi No:6 Devrek / ZONGULDAK",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/6971",
+      "istasyon_adi": "ASTORŞARJ KONYA MİREL HOTEL ELEKTRİKLİ ARAÇ ŞARJ İSTASYONU",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ASTOR",
+      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Selçuklu Mahallesi İnönü(eski) Caddesi No:35-37 Ereğli / KONYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/21990",
+      "istasyon_adi": "ASTORŞARJ ASTOR PLAZA DC 2",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ASTOR",
+      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Turgut Özal Mahallesi 1467/1 Caddesi No:42 Yenimahalle / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/23540",
+      "istasyon_adi": "ASTORŞARJ MERSİN HAYAT MEYDAN",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ASTOR",
+      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Fuatmorel Mahallesi 2811 Sokağı No:19A Yenişehir / MERSİN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/23563",
+      "istasyon_adi": "ASTORŞARJ ŞEHİTKAMİL ASKOÇ DİNLENME TESİSLERİ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ASTOR",
+      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Küllü Mahallesi Şehitkamil / GAZİANTEP",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/23564",
+      "istasyon_adi": "ASTORŞARJ ELAZIĞ VERA AVM",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ASTOR",
+      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Cumhuriyet Mahallesi No:1 Merkez / ELAZIĞ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/23578",
+      "istasyon_adi": "ASTORŞARJ TAVAS ENERJİ PARK",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ASTOR",
+      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Samanlık Mahallesi No:37 Tavas / DENİZLİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/23596",
+      "istasyon_adi": "ASTORŞARJ SİVAS MEKA 1 AKARYAKIT",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ASTOR",
+      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Kadı Burhanettin Mahallesi Toptancılar Sokağı No:1 Merkez / SİVAS",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/6661",
+      "istasyon_adi": "ASTORŞARJ VEGA CADDE",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ASTOR",
+      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "adres": "İnönü Mahallesi Fatih Sultan Mehmet Sokağı Yenimahalle / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/23640",
+      "istasyon_adi": "ASTORŞARJ KAHRAMANMARAŞ NAZ KONUTLARI",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ASTOR",
+      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Şehit Abdullah Çavuş Mahallesi Başkonuş Caddesi Onikişubat / KAHRAMANMARAŞ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/23650",
+      "istasyon_adi": "ASTORŞARJ SİNCAN TAYMEK",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ASTOR",
+      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Alagöz Mahallesi Sincan / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/23693",
+      "istasyon_adi": "ASTORŞARJ KIRIKKALE ÇİTLEKÇİ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ASTOR",
+      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Hacıbalı Köyü Mahallesi Yahşihan / KIRIKKALE",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/23719",
+      "istasyon_adi": "ASTORŞARJ KAHRAMANKAZAN KVK ENERJİ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "ASTOR",
+      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
+      "adres": "Saray Mahallesi Fatih Sultan Mehmet Sokağı No:326/1 Kahramankazan / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -2102,7 +2442,7 @@
       "marka": "e-POwer",
       "sarj_agi_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
-      "adres": "Ünalan Mahallesi Libadiye Caddesi  No:82-F  Emaar Avm Üsküdar / İSTANBUL",
+      "adres": "Ünalan Mahallesi Libadiye Caddesi No:82-F Emaar Avm Üsküdar / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -2112,7 +2452,7 @@
       "marka": "e-POwer",
       "sarj_agi_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
-      "adres": "Fatih Mahallesi 108. Sokağı  No:5/e KUZEY  Üçköprü Kaynaşlı / DÜZCE",
+      "adres": "Fatih Mahallesi 108. Sokağı No:5/e KUZEY Üçköprü Kaynaşlı / DÜZCE",
       "soket_bilgileri": ""
     },
     {
@@ -2122,7 +2462,7 @@
       "marka": "e-POwer",
       "sarj_agi_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
-      "adres": "Fatih Mahallesi 108. Sokağı  No:3/D GÜNEY  Üçköprü Köyü Kaynaşlı / DÜZCE",
+      "adres": "Fatih Mahallesi 108. Sokağı No:3/D GÜNEY Üçköprü Köyü Kaynaşlı / DÜZCE",
       "soket_bilgileri": ""
     },
     {
@@ -2142,7 +2482,7 @@
       "marka": "e-POwer",
       "sarj_agi_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
-      "adres": "Adabük Mahallesi  No:4 Espiye / GİRESUN",
+      "adres": "Adabük Mahallesi No:4 Espiye / GİRESUN",
       "soket_bilgileri": ""
     },
     {
@@ -2152,7 +2492,7 @@
       "marka": "e-POwer",
       "sarj_agi_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
-      "adres": "Akşemsettın Mahallesi E-80 Karayolu Caddesi  No:15/A Tercan / ERZİNCAN",
+      "adres": "Akşemsettın Mahallesi E-80 Karayolu Caddesi No:15/A Tercan / ERZİNCAN",
       "soket_bilgileri": ""
     },
     {
@@ -2162,7 +2502,7 @@
       "marka": "e-POwer",
       "sarj_agi_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
-      "adres": "Oruçreis Mahallesi  No:430 Kocasinan / KAYSERİ",
+      "adres": "Oruçreis Mahallesi No:430 Kocasinan / KAYSERİ",
       "soket_bilgileri": ""
     },
     {
@@ -2172,7 +2512,7 @@
       "marka": "e-POwer",
       "sarj_agi_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
-      "adres": "Bayat Mahallesi Osmancık Caddesi  No:469 Merkez / ÇORUM",
+      "adres": "Bayat Mahallesi Osmancık Caddesi No:469 Merkez / ÇORUM",
       "soket_bilgileri": ""
     },
     {
@@ -2182,7 +2522,7 @@
       "marka": "e-POwer",
       "sarj_agi_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
-      "adres": "Bahçelievler Mahallesi  No:179 Süleymanpaşa / TEKİRDAĞ",
+      "adres": "Bahçelievler Mahallesi No:179 Süleymanpaşa / TEKİRDAĞ",
       "soket_bilgileri": ""
     },
     {
@@ -2192,7 +2532,7 @@
       "marka": "e-POwer",
       "sarj_agi_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
-      "adres": "Çayırhisar Mahallesi Yeni İzmir Caddesi  No:11/3 Altıeylül / BALIKESİR",
+      "adres": "Çayırhisar Mahallesi Yeni İzmir Caddesi No:11/3 Altıeylül / BALIKESİR",
       "soket_bilgileri": ""
     },
     {
@@ -2202,7 +2542,7 @@
       "marka": "e-POwer",
       "sarj_agi_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
-      "adres": "Gökçeyazı Mahallesi  No:16  Çanakkale Köseağlar Kümeevleri İvrindi / BALIKESİR",
+      "adres": "Gökçeyazı Mahallesi No:16 Çanakkale Köseağlar Kümeevleri İvrindi / BALIKESİR",
       "soket_bilgileri": ""
     },
     {
@@ -2212,7 +2552,7 @@
       "marka": "e-POwer",
       "sarj_agi_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
-      "adres": "İrfaniye Mahallesi İzmir Yolu Caddesi  No:590 Nilüfer / BURSA",
+      "adres": "İrfaniye Mahallesi İzmir Yolu Caddesi No:590 Nilüfer / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -2222,7 +2562,7 @@
       "marka": "e-POwer",
       "sarj_agi_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
-      "adres": "Gümüşçeşme Mahallesi 8182 Sokağı  No:2 Altıeylül / BALIKESİR",
+      "adres": "Gümüşçeşme Mahallesi 8182 Sokağı No:2 Altıeylül / BALIKESİR",
       "soket_bilgileri": ""
     },
     {
@@ -2232,7 +2572,7 @@
       "marka": "e-POwer",
       "sarj_agi_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
-      "adres": "Ortaköy Mahallesi Ortaköy Caddesi  No:79 Silivri / İSTANBUL",
+      "adres": "Ortaköy Mahallesi Ortaköy Caddesi No:79 Silivri / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -2242,7 +2582,7 @@
       "marka": "e-POwer",
       "sarj_agi_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
-      "adres": "Ortaköy Mahallesi Hümayun Caddesi  No:1/4 Silivri / İSTANBUL",
+      "adres": "Ortaköy Mahallesi Hümayun Caddesi No:1/4 Silivri / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -2252,7 +2592,7 @@
       "marka": "e-POwer",
       "sarj_agi_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
-      "adres": "Sakarya Mahallesi Atatürk Caddesi  Otogar Karşısı Ayvalık / BALIKESİR",
+      "adres": "Sakarya Mahallesi Atatürk Caddesi Otogar Karşısı Ayvalık / BALIKESİR",
       "soket_bilgileri": ""
     },
     {
@@ -2262,7 +2602,7 @@
       "marka": "e-POwer",
       "sarj_agi_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
-      "adres": "Mahmudiye Mahallesi Ankara Caddesi  No:2/6 İnegöl / BURSA",
+      "adres": "Mahmudiye Mahallesi Ankara Caddesi No:2/6 İnegöl / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -2272,7 +2612,7 @@
       "marka": "e-POwer",
       "sarj_agi_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
-      "adres": "Akçaburgaz Mahallesi Hadımköy Yolu Caddesi  No:204 Esenyurt / İSTANBUL",
+      "adres": "Akçaburgaz Mahallesi Hadımköy Yolu Caddesi No:204 Esenyurt / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -2282,7 +2622,7 @@
       "marka": "e-POwer",
       "sarj_agi_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
-      "adres": "Çökelek Mahallesi Çökelek Sokağı  No:1 Salihli / MANİSA",
+      "adres": "Çökelek Mahallesi Çökelek Sokağı No:1 Salihli / MANİSA",
       "soket_bilgileri": ""
     },
     {
@@ -2292,7 +2632,7 @@
       "marka": "e-POwer",
       "sarj_agi_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
-      "adres": "İzmir Çevreyolu Mahallesi Limontepe Caddesi  İzmir-çeşme Çevre Yolu Gaziemir-balçova Yönü (kuzey) Limontepe Balçova / İZMİR",
+      "adres": "İzmir Çevreyolu Mahallesi Limontepe Caddesi İzmir-çeşme Çevre Yolu Gaziemir-balçova Yönü (kuzey) Limontepe Balçova / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -2302,7 +2642,7 @@
       "marka": "e-POwer",
       "sarj_agi_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
-      "adres": "Zafertepe Mahallesi  No:101 Merkez / KÜTAHYA",
+      "adres": "Zafertepe Mahallesi No:101 Merkez / KÜTAHYA",
       "soket_bilgileri": ""
     },
     {
@@ -2312,7 +2652,7 @@
       "marka": "e-POwer",
       "sarj_agi_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
-      "adres": "Bağdat Caddesi  No:396  Ostim Organize Sanayi Yenimahalle / ANKARA",
+      "adres": "Bağdat Caddesi No:396 Ostim Organize Sanayi Yenimahalle / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -2322,7 +2662,7 @@
       "marka": "e-POwer",
       "sarj_agi_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
-      "adres": "Sakarya Caddesi Mahallesi  No:10  Dilovası Organize Sanayi Bölgesi: - , Parsel:1 ) Gebze / KOCAELİ",
+      "adres": "Sakarya Caddesi Mahallesi No:10 Dilovası Organize Sanayi Bölgesi: - , Parsel:1 ) Gebze / KOCAELİ",
       "soket_bilgileri": ""
     },
     {
@@ -2332,7 +2672,7 @@
       "marka": "e-POwer",
       "sarj_agi_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
-      "adres": "Şirinevler Mahallesi  No:1/1  Özgür Merkez / BURDUR",
+      "adres": "Şirinevler Mahallesi No:1/1 Özgür Merkez / BURDUR",
       "soket_bilgileri": ""
     },
     {
@@ -2342,7 +2682,7 @@
       "marka": "e-POwer",
       "sarj_agi_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
-      "adres": "Erler Mahallesi  No:344 Etimesgut / ANKARA",
+      "adres": "Erler Mahallesi No:344 Etimesgut / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -2352,7 +2692,7 @@
       "marka": "e-POwer",
       "sarj_agi_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
-      "adres": "Dereler Mahallesi  No:52  Semişli Canik / SAMSUN",
+      "adres": "Dereler Mahallesi No:52 Semişli Canik / SAMSUN",
       "soket_bilgileri": ""
     },
     {
@@ -2362,7 +2702,7 @@
       "marka": "e-POwer",
       "sarj_agi_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
-      "adres": "Kapıkule Mahallesi Kapıkule Yolu Sokağı  No:58/2-1  Kemal Merkez / EDİRNE",
+      "adres": "Kapıkule Mahallesi Kapıkule Yolu Sokağı No:58/2-1 Kemal Merkez / EDİRNE",
       "soket_bilgileri": ""
     },
     {
@@ -2372,7 +2712,7 @@
       "marka": "e-POwer",
       "sarj_agi_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
-      "adres": "Ağcıkişi Mahallesi Kastamonu Caddesi  No:2 Taşköprü / KASTAMONU",
+      "adres": "Ağcıkişi Mahallesi Kastamonu Caddesi No:2 Taşköprü / KASTAMONU",
       "soket_bilgileri": ""
     },
     {
@@ -2382,7 +2722,7 @@
       "marka": "e-POwer",
       "sarj_agi_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
-      "adres": "D-100 Karayolu Kenarı Mahallesi  Kozluk Mevkii  Bekirpaşa Adapazarı / SAKARYA",
+      "adres": "D-100 Karayolu Kenarı Mahallesi Kozluk Mevkii Bekirpaşa Adapazarı / SAKARYA",
       "soket_bilgileri": ""
     },
     {
@@ -2392,7 +2732,7 @@
       "marka": "e-POwer",
       "sarj_agi_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
-      "adres": "Karakamış Mahallesi  No:200 Adapazarı / SAKARYA",
+      "adres": "Karakamış Mahallesi No:200 Adapazarı / SAKARYA",
       "soket_bilgileri": ""
     },
     {
@@ -2402,7 +2742,7 @@
       "marka": "e-POwer",
       "sarj_agi_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
-      "adres": "Merkez Mahallesi İzmir Caddesi  No:38  İntepe Merkez / ÇANAKKALE",
+      "adres": "Merkez Mahallesi İzmir Caddesi No:38 İntepe Merkez / ÇANAKKALE",
       "soket_bilgileri": ""
     },
     {
@@ -2412,7 +2752,7 @@
       "marka": "e-POwer",
       "sarj_agi_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
-      "adres": "Sanayi Mahallesi  No:34 İzmit / KOCAELİ",
+      "adres": "Sanayi Mahallesi No:34 İzmit / KOCAELİ",
       "soket_bilgileri": ""
     },
     {
@@ -2422,7 +2762,7 @@
       "marka": "e-POwer",
       "sarj_agi_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
-      "adres": "Seyitali Mahallesi 67 Sokağı  Seyitali  Kılıçlar Köyü Yahşihan / KIRIKKALE",
+      "adres": "Seyitali Mahallesi 67 Sokağı Seyitali Kılıçlar Köyü Yahşihan / KIRIKKALE",
       "soket_bilgileri": ""
     },
     {
@@ -2432,7 +2772,7 @@
       "marka": "e-POwer",
       "sarj_agi_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
-      "adres": "Kayapa Küme Evleri Mahallesi  No:85/1  Kayapa Küme Evleri  Kayapa Merkez / EDİRNE",
+      "adres": "Kayapa Küme Evleri Mahallesi No:85/1 Kayapa Küme Evleri Kayapa Merkez / EDİRNE",
       "soket_bilgileri": ""
     },
     {
@@ -2442,7 +2782,7 @@
       "marka": "e-POwer",
       "sarj_agi_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
-      "adres": "İstasyon Mahallesi  No:4 Keşan / EDİRNE",
+      "adres": "İstasyon Mahallesi No:4 Keşan / EDİRNE",
       "soket_bilgileri": ""
     },
     {
@@ -2452,7 +2792,7 @@
       "marka": "e-POwer",
       "sarj_agi_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
-      "adres": "General Zeki Doğan Mahallesi Natoyolu Caddesi  No:18 Mamak / ANKARA",
+      "adres": "General Zeki Doğan Mahallesi Natoyolu Caddesi No:18 Mamak / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -2462,7 +2802,7 @@
       "marka": "e-POwer",
       "sarj_agi_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
-      "adres": "Batı Sitesi Mahallesi  No:506 Yenimahalle / ANKARA",
+      "adres": "Batı Sitesi Mahallesi No:506 Yenimahalle / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -2472,7 +2812,7 @@
       "marka": "e-POwer",
       "sarj_agi_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
-      "adres": "Yapracık Mahallesi  No:20  Eskişehir Devlet Yolu Etimesgut / ANKARA",
+      "adres": "Yapracık Mahallesi No:20 Eskişehir Devlet Yolu Etimesgut / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -2482,7 +2822,7 @@
       "marka": "e-POwer",
       "sarj_agi_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
-      "adres": "Ballıkuyumcu Köyü Serpmeleri Mahallesi  No:139  Eskişehir Yolu 35 Km  Ballıkuyumcu Köyü Serpmeleri Yenimahalle / ANKARA",
+      "adres": "Ballıkuyumcu Köyü Serpmeleri Mahallesi No:139 Eskişehir Yolu 35 Km Ballıkuyumcu Köyü Serpmeleri Yenimahalle / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -2492,7 +2832,7 @@
       "marka": "e-POwer",
       "sarj_agi_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
-      "adres": "Gencelli Mahallesi Gencelli Sokağı  No:526/1 Kuyucak / AYDIN",
+      "adres": "Gencelli Mahallesi Gencelli Sokağı No:526/1 Kuyucak / AYDIN",
       "soket_bilgileri": ""
     },
     {
@@ -2502,7 +2842,7 @@
       "marka": "e-POwer",
       "sarj_agi_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
-      "adres": "Gölbent Mahallesi Gölbent Sokağı  No:146 Söke / AYDIN",
+      "adres": "Gölbent Mahallesi Gölbent Sokağı No:146 Söke / AYDIN",
       "soket_bilgileri": ""
     },
     {
@@ -2512,7 +2852,7 @@
       "marka": "e-POwer",
       "sarj_agi_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
-      "adres": "Kızılağaç Mahallesi Kızılağaç Sokağı  No:608/1 Urla / İZMİR",
+      "adres": "Kızılağaç Mahallesi Kızılağaç Sokağı No:608/1 Urla / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -2522,7 +2862,7 @@
       "marka": "e-POwer",
       "sarj_agi_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
-      "adres": "Şafak Mahallesi Ankara Caddesi  No:NO:21 Gölbaşı / ANKARA",
+      "adres": "Şafak Mahallesi Ankara Caddesi No:NO:21 Gölbaşı / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -2532,7 +2872,7 @@
       "marka": "e-POwer",
       "sarj_agi_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
-      "adres": "Fatih Mahallesi  No:1105/A Kahramankazan / ANKARA",
+      "adres": "Fatih Mahallesi No:1105/A Kahramankazan / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -2542,7 +2882,7 @@
       "marka": "e-POwer",
       "sarj_agi_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
-      "adres": "Sofular Mahallesi  No:122/B  Sofular Küme Evleri Oht-3 (sağ) Bala / ANKARA",
+      "adres": "Sofular Mahallesi No:122/B Sofular Küme Evleri Oht-3 (sağ) Bala / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -2552,7 +2892,7 @@
       "marka": "e-POwer",
       "sarj_agi_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
-      "adres": "Sofular Mahallesi  No:121/ba  Sofular Servis Alanı Sofular Küme Evleri Oht-3 Sol Bala / ANKARA",
+      "adres": "Sofular Mahallesi No:121/ba Sofular Servis Alanı Sofular Küme Evleri Oht-3 Sol Bala / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -2562,7 +2902,7 @@
       "marka": "e-POwer",
       "sarj_agi_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
-      "adres": "Madenler Mahallesi  No:439 Yatağan / MUĞLA",
+      "adres": "Madenler Mahallesi No:439 Yatağan / MUĞLA",
       "soket_bilgileri": ""
     },
     {
@@ -2572,7 +2912,7 @@
       "marka": "e-POwer",
       "sarj_agi_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
-      "adres": "Veysel Karani Mahallesi  No:158/8 Merkez / AFYONKARAHİSAR",
+      "adres": "Veysel Karani Mahallesi No:158/8 Merkez / AFYONKARAHİSAR",
       "soket_bilgileri": ""
     },
     {
@@ -2582,7 +2922,7 @@
       "marka": "e-POwer",
       "sarj_agi_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
-      "adres": "Hürriyet Mahallesi  No:8 Döşemealtı / ANTALYA",
+      "adres": "Hürriyet Mahallesi No:8 Döşemealtı / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -2592,7 +2932,7 @@
       "marka": "e-POwer",
       "sarj_agi_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
-      "adres": "Ortakent Yahşi Mahallesi Atatürk Caddesi  No:26/B Bodrum / MUĞLA",
+      "adres": "Ortakent Yahşi Mahallesi Atatürk Caddesi No:26/B Bodrum / MUĞLA",
       "soket_bilgileri": ""
     },
     {
@@ -2602,7 +2942,7 @@
       "marka": "e-POwer",
       "sarj_agi_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
-      "adres": "Bahçelievler Mahallesi  No:50/c Bodrum / MUĞLA",
+      "adres": "Bahçelievler Mahallesi No:50/c Bodrum / MUĞLA",
       "soket_bilgileri": ""
     },
     {
@@ -2612,7 +2952,7 @@
       "marka": "e-POwer",
       "sarj_agi_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
-      "adres": "İkitelli O.s.b. Mahallesi  No:42/E Başakşehir / İSTANBUL",
+      "adres": "İkitelli O.s.b. Mahallesi No:42/E Başakşehir / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -2622,7 +2962,7 @@
       "marka": "e-POwer",
       "sarj_agi_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
-      "adres": "Danişmentgazi Mahallesi  No:30A Merkez / SİVAS",
+      "adres": "Danişmentgazi Mahallesi No:30A Merkez / SİVAS",
       "soket_bilgileri": ""
     },
     {
@@ -2632,7 +2972,7 @@
       "marka": "e-POwer",
       "sarj_agi_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
-      "adres": "Ferhatpaşa Mahallesi Samandıra Caddesi  No:78/1 /17 Ataşehir / İSTANBUL",
+      "adres": "Ferhatpaşa Mahallesi Samandıra Caddesi No:78/1 /17 Ataşehir / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -2642,7 +2982,7 @@
       "marka": "e-POwer",
       "sarj_agi_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
-      "adres": "Eyüp Sultan Mahallesi Hoca Nasrettin Caddesi  Anadolu Otoyolu Samandıra C Tipi Otoyol Hizmet Tesisi Sancaktepe / İSTANBUL",
+      "adres": "Eyüp Sultan Mahallesi Hoca Nasrettin Caddesi Anadolu Otoyolu Samandıra C Tipi Otoyol Hizmet Tesisi Sancaktepe / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -2652,7 +2992,7 @@
       "marka": "e-POwer",
       "sarj_agi_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "PETROL OFİSİ ANONİM ŞİRKETİ",
-      "adres": "Ünalan Mahallesi Libadiye Sokağı  No:82  Bucak Merkez Köyü Üsküdar / İSTANBUL",
+      "adres": "Ünalan Mahallesi Libadiye Sokağı No:82 Bucak Merkez Köyü Üsküdar / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -2662,7 +3002,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Camikebir Mahallesi Atatürk Caddesi  No:56  Kaymaklı Kasabası Merkez / NEVŞEHİR",
+      "adres": "Camikebir Mahallesi Atatürk Caddesi No:56 Kaymaklı Kasabası Merkez / NEVŞEHİR",
       "soket_bilgileri": ""
     },
     {
@@ -2672,7 +3012,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yenidoğan Mahallesi Ana Sokağı  No:49 Adapazarı / SAKARYA",
+      "adres": "Yenidoğan Mahallesi Ana Sokağı No:49 Adapazarı / SAKARYA",
       "soket_bilgileri": ""
     },
     {
@@ -2682,7 +3022,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Ayazlı Mahallesi Kumru Korgan Yolu Caddesi  No:146 Fatsa / ORDU",
+      "adres": "Ayazlı Mahallesi Kumru Korgan Yolu Caddesi No:146 Fatsa / ORDU",
       "soket_bilgileri": ""
     },
     {
@@ -2692,7 +3032,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Beylerbeyi Mahallesi İzmir Karayolu Üzeri Caddesi  Duacılı Kasabası Sarayköy / DENİZLİ",
+      "adres": "Beylerbeyi Mahallesi İzmir Karayolu Üzeri Caddesi Duacılı Kasabası Sarayköy / DENİZLİ",
       "soket_bilgileri": ""
     },
     {
@@ -2702,7 +3042,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Merkez Mahallesi Artvin Caddesi 283 Sokağı  No:1 Yusufeli / ARTVİN",
+      "adres": "Merkez Mahallesi Artvin Caddesi 283 Sokağı No:1 Yusufeli / ARTVİN",
       "soket_bilgileri": ""
     },
     {
@@ -2712,7 +3052,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Muallimköy Mahallesi Deniz Caddesi  No:143/5 Gebze / KOCAELİ",
+      "adres": "Muallimköy Mahallesi Deniz Caddesi No:143/5 Gebze / KOCAELİ",
       "soket_bilgileri": ""
     },
     {
@@ -2722,7 +3062,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yahyakaptan Mahallesi Elzem Sokağı  No:68/5 /0 Gebze / KOCAELİ",
+      "adres": "Yahyakaptan Mahallesi Elzem Sokağı No:68/5 /0 Gebze / KOCAELİ",
       "soket_bilgileri": ""
     },
     {
@@ -2732,7 +3072,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Gökçeboğaz Mahallesi Kargalı Sokağı  No:135 Alaçam / SAMSUN",
+      "adres": "Gökçeboğaz Mahallesi Kargalı Sokağı No:135 Alaçam / SAMSUN",
       "soket_bilgileri": ""
     },
     {
@@ -2742,7 +3082,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Cemalpaşa Mahallesi 63005. Sokağı  No:22 Seyhan / ADANA",
+      "adres": "Cemalpaşa Mahallesi 63005. Sokağı No:22 Seyhan / ADANA",
       "soket_bilgileri": ""
     },
     {
@@ -2752,7 +3092,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "17 Eylül Mahallesi Gönen Yolu Caddesi  No:2/1 Bandırma / BALIKESİR",
+      "adres": "17 Eylül Mahallesi Gönen Yolu Caddesi No:2/1 Bandırma / BALIKESİR",
       "soket_bilgileri": ""
     },
     {
@@ -2762,7 +3102,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Torba Mahallesi Emin Anter Blv. Caddesi  No:147/A Bodrum / MUĞLA",
+      "adres": "Torba Mahallesi Emin Anter Blv. Caddesi No:147/A Bodrum / MUĞLA",
       "soket_bilgileri": ""
     },
     {
@@ -2772,7 +3112,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kahramanlar Mahallesi Kumsal Sokağı  No:1 Ayvalık / BALIKESİR",
+      "adres": "Kahramanlar Mahallesi Kumsal Sokağı No:1 Ayvalık / BALIKESİR",
       "soket_bilgileri": ""
     },
     {
@@ -2782,7 +3122,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kızılağaç Mahallesi Hacıgiden Caddesi  No:33/1 Bodrum / MUĞLA",
+      "adres": "Kızılağaç Mahallesi Hacıgiden Caddesi No:33/1 Bodrum / MUĞLA",
       "soket_bilgileri": ""
     },
     {
@@ -2792,7 +3132,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "4 Eylül Mahallesi İsmet İnönü Caddesi  No:308 Bozüyük / BİLECİK",
+      "adres": "4 Eylül Mahallesi İsmet İnönü Caddesi No:308 Bozüyük / BİLECİK",
       "soket_bilgileri": ""
     },
     {
@@ -2802,7 +3142,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yeni Mahallesi Sislioba Köyü Yolu Caddesi  No:8 Demirköy / KIRKLARELİ",
+      "adres": "Yeni Mahallesi Sislioba Köyü Yolu Caddesi No:8 Demirköy / KIRKLARELİ",
       "soket_bilgileri": ""
     },
     {
@@ -2812,7 +3152,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Altınkale Mahallesi  No:217 Döşemealtı / ANTALYA",
+      "adres": "Altınkale Mahallesi No:217 Döşemealtı / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -2822,7 +3162,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Merkez Mahallesi Ayazma Caddesi Çuha Sokağı  No:3 Kağıthane / İSTANBUL",
+      "adres": "Merkez Mahallesi Ayazma Caddesi Çuha Sokağı No:3 Kağıthane / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -2832,7 +3172,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Örnektepe Mahallesi İmrahor Caddesi  No:86 Beyoğlu / İSTANBUL",
+      "adres": "Örnektepe Mahallesi İmrahor Caddesi No:86 Beyoğlu / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -2842,7 +3182,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Gümüşsuyu Mahallesi Mete Caddesi  No:34 Beyoğlu / İSTANBUL",
+      "adres": "Gümüşsuyu Mahallesi Mete Caddesi No:34 Beyoğlu / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -2852,7 +3192,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Dörtyol Mahallesi Afyon Kütahya Yolu Caddesi  No:1 Merkez / AFYONKARAHİSAR",
+      "adres": "Dörtyol Mahallesi Afyon Kütahya Yolu Caddesi No:1 Merkez / AFYONKARAHİSAR",
       "soket_bilgileri": ""
     },
     {
@@ -2872,7 +3212,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Bahçelievler Mahallesi  No:10 Süleymanpaşa / TEKİRDAĞ",
+      "adres": "Bahçelievler Mahallesi No:10 Süleymanpaşa / TEKİRDAĞ",
       "soket_bilgileri": ""
     },
     {
@@ -2882,7 +3222,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Şahinbey Mahallesi  No:551 Oğuzeli / GAZİANTEP",
+      "adres": "Şahinbey Mahallesi No:551 Oğuzeli / GAZİANTEP",
       "soket_bilgileri": ""
     },
     {
@@ -2892,7 +3232,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "İncilikaya Mahallesi 37100. Caddesi  No:91 Şehitkamil / GAZİANTEP",
+      "adres": "İncilikaya Mahallesi 37100. Caddesi No:91 Şehitkamil / GAZİANTEP",
       "soket_bilgileri": ""
     },
     {
@@ -2912,7 +3252,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "29 Ekim Mahallesi  No:25 Nilüfer / BURSA",
+      "adres": "29 Ekim Mahallesi No:25 Nilüfer / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -2922,7 +3262,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Nakkaş Mahallesi Müftü Arif Kılıç Caddesi  No:1 Zile / TOKAT",
+      "adres": "Nakkaş Mahallesi Müftü Arif Kılıç Caddesi No:1 Zile / TOKAT",
       "soket_bilgileri": ""
     },
     {
@@ -2932,7 +3272,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "8 Şubat Mahallesi 82079 Caddesi  No:98 Şehitkamil / GAZİANTEP",
+      "adres": "8 Şubat Mahallesi 82079 Caddesi No:98 Şehitkamil / GAZİANTEP",
       "soket_bilgileri": ""
     },
     {
@@ -2942,7 +3282,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "İsmetpaşa Mahallesi Bursa Caddesi  No:3 Merkez / ÇANAKKALE",
+      "adres": "İsmetpaşa Mahallesi Bursa Caddesi No:3 Merkez / ÇANAKKALE",
       "soket_bilgileri": ""
     },
     {
@@ -2952,7 +3292,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kamaradere Mahallesi Köprü Caddesi  No:23 Marmaraereğlisi / TEKİRDAĞ",
+      "adres": "Kamaradere Mahallesi Köprü Caddesi No:23 Marmaraereğlisi / TEKİRDAĞ",
       "soket_bilgileri": ""
     },
     {
@@ -2962,7 +3302,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Gürsu Mahallesi 304. Sokağı  No:2 Konyaaltı / ANTALYA",
+      "adres": "Gürsu Mahallesi 304. Sokağı No:2 Konyaaltı / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -2972,7 +3312,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Güzelçamlı Mahallesi Oteller Caddesi  No:63 Kuşadası / AYDIN",
+      "adres": "Güzelçamlı Mahallesi Oteller Caddesi No:63 Kuşadası / AYDIN",
       "soket_bilgileri": ""
     },
     {
@@ -2982,7 +3322,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Önerler Mahallesi İstanbul Caddesi  No:35/A Çorlu / TEKİRDAĞ",
+      "adres": "Önerler Mahallesi İstanbul Caddesi No:35/A Çorlu / TEKİRDAĞ",
       "soket_bilgileri": ""
     },
     {
@@ -2992,7 +3332,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Meşebükü Mahallesi Aybastı Caddesi  No:52/A Fatsa / ORDU",
+      "adres": "Meşebükü Mahallesi Aybastı Caddesi No:52/A Fatsa / ORDU",
       "soket_bilgileri": ""
     },
     {
@@ -3002,7 +3342,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "İnönü Mahallesi İnönü Caddesi  No:14/0 Havza / SAMSUN",
+      "adres": "İnönü Mahallesi İnönü Caddesi No:14/0 Havza / SAMSUN",
       "soket_bilgileri": ""
     },
     {
@@ -3012,7 +3352,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Ertuğrul Mahallesi Necip Hablemitoğlu Caddesi  No:5 Nilüfer / BURSA",
+      "adres": "Ertuğrul Mahallesi Necip Hablemitoğlu Caddesi No:5 Nilüfer / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -3042,7 +3382,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Trabzon-rize Yolu Caddesi  Yalıboyu Araklı / TRABZON",
+      "adres": "Trabzon-rize Yolu Caddesi Yalıboyu Araklı / TRABZON",
       "soket_bilgileri": ""
     },
     {
@@ -3062,7 +3402,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Akkent Mahallesi 400 No'lu Caddesi  No:43 Şahinbey / GAZİANTEP",
+      "adres": "Akkent Mahallesi 400 No'lu Caddesi No:43 Şahinbey / GAZİANTEP",
       "soket_bilgileri": ""
     },
     {
@@ -3082,7 +3422,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "İçmeler Mahallesi Kayabal Caddesi  No:43 Marmaris / MUĞLA",
+      "adres": "İçmeler Mahallesi Kayabal Caddesi No:43 Marmaris / MUĞLA",
       "soket_bilgileri": ""
     },
     {
@@ -3092,7 +3432,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Göynük Mahallesi Ahu Ünal Aysal Caddesi  No:141/1  Kemer Kemer / ANTALYA",
+      "adres": "Göynük Mahallesi Ahu Ünal Aysal Caddesi No:141/1 Kemer Kemer / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -3102,7 +3442,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Ataevler Mahallesi Ali Rıza Bey Caddesi  No:47 Nilüfer / BURSA",
+      "adres": "Ataevler Mahallesi Ali Rıza Bey Caddesi No:47 Nilüfer / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -3112,7 +3452,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Ömerbey Mahallesi Bursa Asfaltı Caddesi  No:41 Mudanya / BURSA",
+      "adres": "Ömerbey Mahallesi Bursa Asfaltı Caddesi No:41 Mudanya / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -3122,7 +3462,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kocatepe Mahallesi  No:1/1 Beyoğlu / İSTANBUL",
+      "adres": "Kocatepe Mahallesi No:1/1 Beyoğlu / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -3132,7 +3472,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Maslak Mahallesi Eski Büyükdere Caddesi  No:7 Sarıyer / İSTANBUL",
+      "adres": "Maslak Mahallesi Eski Büyükdere Caddesi No:7 Sarıyer / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -3142,7 +3482,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kayaköy Mahallesi Belen Caddesi  No:80 Fethiye / MUĞLA",
+      "adres": "Kayaköy Mahallesi Belen Caddesi No:80 Fethiye / MUĞLA",
       "soket_bilgileri": ""
     },
     {
@@ -3152,7 +3492,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yelki Mahallesi 2730 Sokağı  No:69/B Güzelbahçe / İZMİR",
+      "adres": "Yelki Mahallesi 2730 Sokağı No:69/B Güzelbahçe / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -3162,7 +3502,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yenibosna Merkez Mahallesi 29 Ekim Caddesi  No:7 Bahçelievler / İSTANBUL",
+      "adres": "Yenibosna Merkez Mahallesi 29 Ekim Caddesi No:7 Bahçelievler / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -3172,7 +3512,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Ömerağa Mahallesi Salim Dervişoğlu Caddesi  No:74/1 İzmit / KOCAELİ",
+      "adres": "Ömerağa Mahallesi Salim Dervişoğlu Caddesi No:74/1 İzmit / KOCAELİ",
       "soket_bilgileri": ""
     },
     {
@@ -3182,7 +3522,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Hoşnudiye Mahallesi Doğruer Caddesi  No:1 Tepebaşı / ESKİŞEHİR",
+      "adres": "Hoşnudiye Mahallesi Doğruer Caddesi No:1 Tepebaşı / ESKİŞEHİR",
       "soket_bilgileri": ""
     },
     {
@@ -3192,7 +3532,107 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Nilüfer Mahallesi Mudanya Yolu Caddesi  No:32  Bademli Mudanya / BURSA",
+      "adres": "Nilüfer Mahallesi Mudanya Yolu Caddesi No:32 Bademli Mudanya / BURSA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/375",
+      "istasyon_adi": "SEYHAN İSTASYONU YAPSAN GAZ",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "SHARZ.NET",
+      "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
+      "adres": "Yeşiloba Mahallesi No:524 Seyhan / ADANA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/345",
+      "istasyon_adi": "RP HAVAALANI MOIL",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "SHARZ.NET",
+      "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
+      "adres": "Hilal Mahallesi No:239 Kocasinan / KAYSERİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/338",
+      "istasyon_adi": "WATERGARDEN AVM",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "SHARZ.NET",
+      "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
+      "adres": "Barbaros Mahallesi Kızılbegonya Sokağı No:10/1 Ataşehir / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/255",
+      "istasyon_adi": "AYKA TP",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "SHARZ.NET",
+      "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
+      "adres": "Sünlü Mahallesi Sema 5. Sokağı Çubuk / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/250",
+      "istasyon_adi": "Ankara Yolu Lukoil",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "SHARZ.NET",
+      "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
+      "adres": "Fevzi Çakmak Mahallesi Ankara Caddesi No:252 Karatay / KONYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/230",
+      "istasyon_adi": "VEKO GİZ PLAZA",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "SHARZ.NET",
+      "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
+      "adres": "Ayazağa Mahallesi Maslak Meydan Sokağı No:20 Sarıyer / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/213",
+      "istasyon_adi": "RENAULT KIYI OTOMOTİV PENDİK",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "SHARZ.NET",
+      "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
+      "adres": "Kurtköy Mahallesi Dedepaşa Caddesi No:52 Pendik / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/212",
+      "istasyon_adi": "RAMADA PLAZA ESKİŞEHİR",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "SHARZ.NET",
+      "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
+      "adres": "Hoşnudiye Mahallesi Şahin Caddesi 738. Sokağı No:7 Tepebaşı / ESKİŞEHİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/196",
+      "istasyon_adi": "İNCA PETROL",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "SHARZ.NET",
+      "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
+      "adres": "Akyar Mahallesi Akyar Sokağı No:125/A-B Tavas / DENİZLİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/190",
+      "istasyon_adi": "COLOSSAE HOTEL SPA",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "SHARZ.NET",
+      "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
+      "adres": "Karahayıt Mahallesi 108 Oteller Sokağı No:5 Pamukkale / DENİZLİ",
       "soket_bilgileri": ""
     },
     {
@@ -3222,7 +3662,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Atatürk Mahallesi  No:50/1 Merkez / TUNCELİ",
+      "adres": "Atatürk Mahallesi No:50/1 Merkez / TUNCELİ",
       "soket_bilgileri": ""
     },
     {
@@ -3232,7 +3672,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yeşilbahçe Mahallesi 1470. Sokağı  No:14/14 /ADALIA Muratpaşa / ANTALYA",
+      "adres": "Yeşilbahçe Mahallesi 1470. Sokağı No:14/14 /ADALIA Muratpaşa / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -3242,7 +3682,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Alaçatı Mahallesi 12080 Sokağı  No:24 Çeşme / İZMİR",
+      "adres": "Alaçatı Mahallesi 12080 Sokağı No:24 Çeşme / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -3262,7 +3702,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Beldibi Mahallesi Başkomutan, Atatürk Caddesi  No:48 Kemer / ANTALYA",
+      "adres": "Beldibi Mahallesi Başkomutan, Atatürk Caddesi No:48 Kemer / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -3272,7 +3712,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Ankara Caddesi Caddesi 102 Sokağı  Çaybükü Mevkii Gümüşova / DÜZCE",
+      "adres": "Ankara Caddesi Caddesi 102 Sokağı Çaybükü Mevkii Gümüşova / DÜZCE",
       "soket_bilgileri": ""
     },
     {
@@ -3282,7 +3722,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Engindere Mahallesi  No:638-A Merkez / RİZE",
+      "adres": "Engindere Mahallesi No:638-A Merkez / RİZE",
       "soket_bilgileri": ""
     },
     {
@@ -3292,7 +3732,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "İnönü Mahallesi Rauf Denktaş Caddesi  No:157 Merkez / KASTAMONU",
+      "adres": "İnönü Mahallesi Rauf Denktaş Caddesi No:157 Merkez / KASTAMONU",
       "soket_bilgileri": ""
     },
     {
@@ -3302,7 +3742,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Namık Kemal Mahallesi Küme Evler Ortunç Otel Caddesi  No:4/C Ayvalık / BALIKESİR",
+      "adres": "Namık Kemal Mahallesi Küme Evler Ortunç Otel Caddesi No:4/C Ayvalık / BALIKESİR",
       "soket_bilgileri": ""
     },
     {
@@ -3312,7 +3752,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Merkez Mahallesi Akar Caddesi  No:3 Şişli / İSTANBUL",
+      "adres": "Merkez Mahallesi Akar Caddesi No:3 Şişli / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -3322,7 +3762,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Şükrüpaşa Mahallesi Mehmet Rasim Ertür Caddesi  No:2 Merkez / EDİRNE",
+      "adres": "Şükrüpaşa Mahallesi Mehmet Rasim Ertür Caddesi No:2 Merkez / EDİRNE",
       "soket_bilgileri": ""
     },
     {
@@ -3332,7 +3772,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Büyükalan Mahallesi Antalya Konya Yolu Üzeri Caddesi  No:151 Akseki / ANTALYA",
+      "adres": "Büyükalan Mahallesi Antalya Konya Yolu Üzeri Caddesi No:151 Akseki / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -3342,7 +3782,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Sahil Mahallesi İzmit Yalova Yolu Caddesi  No:85 Çiftlikköy / YALOVA",
+      "adres": "Sahil Mahallesi İzmit Yalova Yolu Caddesi No:85 Çiftlikköy / YALOVA",
       "soket_bilgileri": ""
     },
     {
@@ -3352,7 +3792,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Ortacami Mahallesi Mimar Sinan Caddesi  No:18/A Süleymanpaşa / TEKİRDAĞ",
+      "adres": "Ortacami Mahallesi Mimar Sinan Caddesi No:18/A Süleymanpaşa / TEKİRDAĞ",
       "soket_bilgileri": ""
     },
     {
@@ -3362,7 +3802,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Korliman Mahallesi Mehmet Bayrak Caddesi  No:2 Tirebolu / GİRESUN",
+      "adres": "Korliman Mahallesi Mehmet Bayrak Caddesi No:2 Tirebolu / GİRESUN",
       "soket_bilgileri": ""
     },
     {
@@ -3372,7 +3812,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Merkez Mahallesi Saraydüzü Yolu 2. Km Caddesi  No:28 Boyabat / SİNOP",
+      "adres": "Merkez Mahallesi Saraydüzü Yolu 2. Km Caddesi No:28 Boyabat / SİNOP",
       "soket_bilgileri": ""
     },
     {
@@ -3382,7 +3822,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Cennetyağı Mahallesi İstasyon Caddesi  No:59 Edremit / BALIKESİR",
+      "adres": "Cennetyağı Mahallesi İstasyon Caddesi No:59 Edremit / BALIKESİR",
       "soket_bilgileri": ""
     },
     {
@@ -3392,7 +3832,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yenişehir Mahallesi Vali Ozan Caddesi  No:1 Artuklu / MARDİN",
+      "adres": "Yenişehir Mahallesi Vali Ozan Caddesi No:1 Artuklu / MARDİN",
       "soket_bilgileri": ""
     },
     {
@@ -3402,7 +3842,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kızılcaşar Mahallesi  No:101/1 Gölbaşı / ANKARA",
+      "adres": "Kızılcaşar Mahallesi No:101/1 Gölbaşı / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -3412,7 +3852,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Fabrikalar Mahallesi Fikri Erten Caddesi  No:2 Kepez / ANTALYA",
+      "adres": "Fabrikalar Mahallesi Fikri Erten Caddesi No:2 Kepez / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -3432,7 +3872,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Çarşı Mahallesi Artemis Caddesi  No:13 Bodrum / MUĞLA",
+      "adres": "Çarşı Mahallesi Artemis Caddesi No:13 Bodrum / MUĞLA",
       "soket_bilgileri": ""
     },
     {
@@ -3442,7 +3882,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Akyol Mahallesi  No:34 Şahinbey / GAZİANTEP",
+      "adres": "Akyol Mahallesi No:34 Şahinbey / GAZİANTEP",
       "soket_bilgileri": ""
     },
     {
@@ -3452,7 +3892,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kükürt Mahallesi Dörtyol Sokağı  No:5/B Keçiborlu / ISPARTA",
+      "adres": "Kükürt Mahallesi Dörtyol Sokağı No:5/B Keçiborlu / ISPARTA",
       "soket_bilgileri": ""
     },
     {
@@ -3462,7 +3902,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "İçerenköy Mahallesi Kayışdağı Caddesi  No:8 Ataşehir / İSTANBUL",
+      "adres": "İçerenköy Mahallesi Kayışdağı Caddesi No:8 Ataşehir / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -3472,7 +3912,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "E-5 Karayolu Caddesi  Londra Asfaltı Kuleli Bakırköy / İSTANBUL",
+      "adres": "E-5 Karayolu Caddesi Londra Asfaltı Kuleli Bakırköy / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -3482,7 +3922,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Bahçeşehir 1. Kısım Mahallesi Doğa Parkı Caddesi  No:25 Başakşehir / İSTANBUL",
+      "adres": "Bahçeşehir 1. Kısım Mahallesi Doğa Parkı Caddesi No:25 Başakşehir / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -3492,7 +3932,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Teşvikiye Mahallesi Rumeli Caddesi  No:12 Şişli / İSTANBUL",
+      "adres": "Teşvikiye Mahallesi Rumeli Caddesi No:12 Şişli / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -3502,7 +3942,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "İnciraltı Mahallesi İnciraltı Caddesi  No:67 Balçova / İZMİR",
+      "adres": "İnciraltı Mahallesi İnciraltı Caddesi No:67 Balçova / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -3512,107 +3952,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Ataşehir Mahallesi 8229/1 Sokağı  No:58 Çiğli / İZMİR",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/190",
-      "istasyon_adi": "COLOSSAE HOTEL SPA",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "SHARZ.NET",
-      "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Karahayıt Mahallesi 108 Oteller Sokağı  No:5 Pamukkale / DENİZLİ",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/196",
-      "istasyon_adi": "İNCA PETROL",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "SHARZ.NET",
-      "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Akyar Mahallesi Akyar Sokağı  No:125/A-B Tavas / DENİZLİ",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/212",
-      "istasyon_adi": "RAMADA PLAZA ESKİŞEHİR",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "SHARZ.NET",
-      "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Hoşnudiye Mahallesi Şahin Caddesi 738. Sokağı  No:7 Tepebaşı / ESKİŞEHİR",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/213",
-      "istasyon_adi": "RENAULT KIYI OTOMOTİV PENDİK",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "SHARZ.NET",
-      "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kurtköy Mahallesi Dedepaşa Caddesi  No:52 Pendik / İSTANBUL",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/230",
-      "istasyon_adi": "VEKO GİZ PLAZA",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "SHARZ.NET",
-      "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Ayazağa Mahallesi Maslak Meydan Sokağı  No:20 Sarıyer / İSTANBUL",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/250",
-      "istasyon_adi": "Ankara Yolu Lukoil",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "SHARZ.NET",
-      "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Fevzi Çakmak Mahallesi Ankara Caddesi  No:252 Karatay / KONYA",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/255",
-      "istasyon_adi": "AYKA TP",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "SHARZ.NET",
-      "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Sünlü Mahallesi Sema 5. Sokağı Çubuk / ANKARA",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/338",
-      "istasyon_adi": "WATERGARDEN AVM",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "SHARZ.NET",
-      "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Barbaros Mahallesi Kızılbegonya Sokağı  No:10/1 Ataşehir / İSTANBUL",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/345",
-      "istasyon_adi": "RP HAVAALANI MOIL",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "SHARZ.NET",
-      "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Hilal Mahallesi  No:239 Kocasinan / KAYSERİ",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/375",
-      "istasyon_adi": "SEYHAN İSTASYONU YAPSAN GAZ",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "SHARZ.NET",
-      "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yeşiloba Mahallesi  No:524 Seyhan / ADANA",
+      "adres": "Ataşehir Mahallesi 8229/1 Sokağı No:58 Çiğli / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -3632,7 +3972,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Rahmiye Mahallesi İzmit Caddesi  No:194 Kartepe / KOCAELİ",
+      "adres": "Rahmiye Mahallesi İzmit Caddesi No:194 Kartepe / KOCAELİ",
       "soket_bilgileri": ""
     },
     {
@@ -3652,7 +3992,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kuşkavağı Mahallesi Akdeniz Blv. Caddesi  No:110 Konyaaltı / ANTALYA",
+      "adres": "Kuşkavağı Mahallesi Akdeniz Blv. Caddesi No:110 Konyaaltı / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -3662,7 +4002,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Küçükbakkalköy Mahallesi Defne Sokağı  No:3 /3 Ataşehir / İSTANBUL",
+      "adres": "Küçükbakkalköy Mahallesi Defne Sokağı No:3 /3 Ataşehir / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -3672,7 +4012,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "İsmetpaşa Mahallesi  No:156 Merkez / YALOVA",
+      "adres": "İsmetpaşa Mahallesi No:156 Merkez / YALOVA",
       "soket_bilgileri": ""
     },
     {
@@ -3682,7 +4022,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Cumhuriyet Mahallesi  No:56 Altınordu / ORDU",
+      "adres": "Cumhuriyet Mahallesi No:56 Altınordu / ORDU",
       "soket_bilgileri": ""
     },
     {
@@ -3692,7 +4032,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Evren Mahallesi Valiler Caddesi 210 Sokağı  No:14a Ulukışla / NİĞDE",
+      "adres": "Evren Mahallesi Valiler Caddesi 210 Sokağı No:14a Ulukışla / NİĞDE",
       "soket_bilgileri": ""
     },
     {
@@ -3702,7 +4042,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Küçükbakkalköy Mahallesi Kayışdağı Caddesi  No:3 Ataşehir / İSTANBUL",
+      "adres": "Küçükbakkalköy Mahallesi Kayışdağı Caddesi No:3 Ataşehir / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -3722,7 +4062,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Vişnezade Mahallesi Maçka Caddesi Acısu Sokağı  No:19 Beşiktaş / İSTANBUL",
+      "adres": "Vişnezade Mahallesi Maçka Caddesi Acısu Sokağı No:19 Beşiktaş / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -3732,7 +4072,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Beykonak Mahallesi Atatürk Caddesi  No:14 Kumluca / ANTALYA",
+      "adres": "Beykonak Mahallesi Atatürk Caddesi No:14 Kumluca / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -3742,7 +4082,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Emekevler Mahallesi D100 Karayolu Caddesi  No:110 Kartepe / KOCAELİ",
+      "adres": "Emekevler Mahallesi D100 Karayolu Caddesi No:110 Kartepe / KOCAELİ",
       "soket_bilgileri": ""
     },
     {
@@ -3752,7 +4092,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yukarıbeylerbeyi Mahallesi 1 Nolu Caddesi  No:16 Şehitkamil / GAZİANTEP",
+      "adres": "Yukarıbeylerbeyi Mahallesi 1 Nolu Caddesi No:16 Şehitkamil / GAZİANTEP",
       "soket_bilgileri": ""
     },
     {
@@ -3762,7 +4102,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Maslak Mahallesi Dereboyu 2. Caddesi  No:15/31 Sarıyer / İSTANBUL",
+      "adres": "Maslak Mahallesi Dereboyu 2. Caddesi No:15/31 Sarıyer / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -3772,7 +4112,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Aşağı Pınarbaşı Mahallesi Ankara Caddesi  No:245 Selçuklu / KONYA",
+      "adres": "Aşağı Pınarbaşı Mahallesi Ankara Caddesi No:245 Selçuklu / KONYA",
       "soket_bilgileri": ""
     },
     {
@@ -3782,7 +4122,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yenişehir Mahallesi  No:3 Pendik / İSTANBUL",
+      "adres": "Yenişehir Mahallesi No:3 Pendik / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -3792,7 +4132,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Merkez Mahallesi 23 Nisan Caddesi  No:1 Arnavutköy / İSTANBUL",
+      "adres": "Merkez Mahallesi 23 Nisan Caddesi No:1 Arnavutköy / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -3802,7 +4142,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Alaaddinbey Mahallesi İzmir Yolu Caddesi  No:307 Nilüfer / BURSA",
+      "adres": "Alaaddinbey Mahallesi İzmir Yolu Caddesi No:307 Nilüfer / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -3812,7 +4152,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Şahkulu Mahallesi İlk Belediye Caddesi  No:8 Beyoğlu / İSTANBUL",
+      "adres": "Şahkulu Mahallesi İlk Belediye Caddesi No:8 Beyoğlu / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -3822,7 +4162,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Burhaniye Mahallesi Tunuslu Mahmut Paşa Caddesi  No:14 Üsküdar / İSTANBUL",
+      "adres": "Burhaniye Mahallesi Tunuslu Mahmut Paşa Caddesi No:14 Üsküdar / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -3832,7 +4172,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Burhaniye Mahallesi Tunuslu Mahmut Paşa Caddesi  No:14 Üsküdar / İSTANBUL",
+      "adres": "Burhaniye Mahallesi Tunuslu Mahmut Paşa Caddesi No:14 Üsküdar / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -3842,7 +4182,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Burhaniye Mahallesi Tunuslu Mahmut Paşa Caddesi  No:14 Üsküdar / İSTANBUL",
+      "adres": "Burhaniye Mahallesi Tunuslu Mahmut Paşa Caddesi No:14 Üsküdar / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -3852,7 +4192,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Burhaniye Mahallesi Tunuslu Mahmut Paşa Caddesi  No:14 Üsküdar / İSTANBUL",
+      "adres": "Burhaniye Mahallesi Tunuslu Mahmut Paşa Caddesi No:14 Üsküdar / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -3862,7 +4202,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Burhaniye Mahallesi Tunuslu Mahmut Paşa Caddesi  No:14 Üsküdar / İSTANBUL",
+      "adres": "Burhaniye Mahallesi Tunuslu Mahmut Paşa Caddesi No:14 Üsküdar / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -3872,7 +4212,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yunus Emre Mahallesi Akkuş Niksar Caddesi  No:349/A Ünye / ORDU",
+      "adres": "Yunus Emre Mahallesi Akkuş Niksar Caddesi No:349/A Ünye / ORDU",
       "soket_bilgileri": ""
     },
     {
@@ -3882,7 +4222,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Paşaköy Mahallesi Yeni Terminal Sokağı  No:2 Merkez / BOLU",
+      "adres": "Paşaköy Mahallesi Yeni Terminal Sokağı No:2 Merkez / BOLU",
       "soket_bilgileri": ""
     },
     {
@@ -3892,7 +4232,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Hamidiye Mahallesi 1247 Sokağı  No:7 Merkez / DÜZCE",
+      "adres": "Hamidiye Mahallesi 1247 Sokağı No:7 Merkez / DÜZCE",
       "soket_bilgileri": ""
     },
     {
@@ -3912,7 +4252,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Salihpaşalar Mahallesi Köyiçi Sokağı  No:229  Bayır Merkez / MUĞLA",
+      "adres": "Salihpaşalar Mahallesi Köyiçi Sokağı No:229 Bayır Merkez / MUĞLA",
       "soket_bilgileri": ""
     },
     {
@@ -3922,7 +4262,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Koçyazı Mahallesi  No:60/B Merkez / DÜZCE",
+      "adres": "Koçyazı Mahallesi No:60/B Merkez / DÜZCE",
       "soket_bilgileri": ""
     },
     {
@@ -3932,7 +4272,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Küçükçamlıca Mahallesi Çilehane Sokağı  No:37 Üsküdar / İSTANBUL",
+      "adres": "Küçükçamlıca Mahallesi Çilehane Sokağı No:37 Üsküdar / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -3942,7 +4282,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yeni, Mahallesi  No:28/1 Kemer / ANTALYA",
+      "adres": "Yeni, Mahallesi No:28/1 Kemer / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -3952,7 +4292,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Ergenekon Mahallesi Halaskargazi Caddesi  No:63 Şişli / İSTANBUL",
+      "adres": "Ergenekon Mahallesi Halaskargazi Caddesi No:63 Şişli / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -3972,7 +4312,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Turunç Mahallesi  Karadere Marmaris / MUĞLA",
+      "adres": "Turunç Mahallesi Karadere Marmaris / MUĞLA",
       "soket_bilgileri": ""
     },
     {
@@ -3982,7 +4322,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Hamidiye Mahallesi Cendere Caddesi  No:63 Kağıthane / İSTANBUL",
+      "adres": "Hamidiye Mahallesi Cendere Caddesi No:63 Kağıthane / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -3992,7 +4332,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Alaçatı Mahallesi 18012 Sokağı  No:2/A Çeşme / İZMİR",
+      "adres": "Alaçatı Mahallesi 18012 Sokağı No:2/A Çeşme / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -4002,7 +4342,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Sundura Mahallesi Artvin Caddesi  No:170 Hopa / ARTVİN",
+      "adres": "Sundura Mahallesi Artvin Caddesi No:170 Hopa / ARTVİN",
       "soket_bilgileri": ""
     },
     {
@@ -4012,7 +4352,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kılıçaslan Mahallesi  No:34/A Merkez / BOLU",
+      "adres": "Kılıçaslan Mahallesi No:34/A Merkez / BOLU",
       "soket_bilgileri": ""
     },
     {
@@ -4022,7 +4362,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Ata Osb Mahallesi  No:122 Merkez / AYDIN",
+      "adres": "Ata Osb Mahallesi No:122 Merkez / AYDIN",
       "soket_bilgileri": ""
     },
     {
@@ -4032,7 +4372,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Pazarcık Mücavir Mahallesi Gazi Caddesi Gazi Sokağı  No:5  Pazarcık Mücavir  Pazarcık Ayancık / SİNOP",
+      "adres": "Pazarcık Mücavir Mahallesi Gazi Caddesi Gazi Sokağı No:5 Pazarcık Mücavir Pazarcık Ayancık / SİNOP",
       "soket_bilgileri": ""
     },
     {
@@ -4042,7 +4382,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Orhanlı Mahallesi Demokrasi Caddesi  No:19 Tuzla / İSTANBUL",
+      "adres": "Orhanlı Mahallesi Demokrasi Caddesi No:19 Tuzla / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -4052,7 +4392,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "İstasyon Mahallesi İstanbul Caddesi  No:44 Çaycuma / ZONGULDAK",
+      "adres": "İstasyon Mahallesi İstanbul Caddesi No:44 Çaycuma / ZONGULDAK",
       "soket_bilgileri": ""
     },
     {
@@ -4062,7 +4402,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Göller Mahallesi Petrol Yanı Kümeevleri Sokağı  No:13/B Gürgentepe / ORDU",
+      "adres": "Göller Mahallesi Petrol Yanı Kümeevleri Sokağı No:13/B Gürgentepe / ORDU",
       "soket_bilgileri": ""
     },
     {
@@ -4072,7 +4412,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Musazade Mahallesi Cumhuriyet Caddesi  No:19 Arhavi / ARTVİN",
+      "adres": "Musazade Mahallesi Cumhuriyet Caddesi No:19 Arhavi / ARTVİN",
       "soket_bilgileri": ""
     },
     {
@@ -4082,7 +4422,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Cumhuriyet Mahallesi Hürriyet Caddesi  No:23 Beylikdüzü / İSTANBUL",
+      "adres": "Cumhuriyet Mahallesi Hürriyet Caddesi No:23 Beylikdüzü / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -4092,7 +4432,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Cumhuriyet Mahallesi Hürriyet Caddesi  No:23 Beylikdüzü / İSTANBUL",
+      "adres": "Cumhuriyet Mahallesi Hürriyet Caddesi No:23 Beylikdüzü / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -4102,7 +4442,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Cumhuriyet Mahallesi Hürriyet Caddesi  No:23 Beylikdüzü / İSTANBUL",
+      "adres": "Cumhuriyet Mahallesi Hürriyet Caddesi No:23 Beylikdüzü / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -4112,7 +4452,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Cumhuriyet Mahallesi Hürriyet Caddesi  No:23 Beylikdüzü / İSTANBUL",
+      "adres": "Cumhuriyet Mahallesi Hürriyet Caddesi No:23 Beylikdüzü / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -4122,7 +4462,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Cumhuriyet Mahallesi Hürriyet Caddesi  No:23 Beylikdüzü / İSTANBUL",
+      "adres": "Cumhuriyet Mahallesi Hürriyet Caddesi No:23 Beylikdüzü / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -4132,7 +4472,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Cumhuriyet Mahallesi Hürriyet Caddesi  No:23 Beylikdüzü / İSTANBUL",
+      "adres": "Cumhuriyet Mahallesi Hürriyet Caddesi No:23 Beylikdüzü / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -4142,7 +4482,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Cumhuriyet Mahallesi Hürriyet Caddesi  No:23 Beylikdüzü / İSTANBUL",
+      "adres": "Cumhuriyet Mahallesi Hürriyet Caddesi No:23 Beylikdüzü / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -4152,7 +4492,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Merkez Mahallesi Muallim Ali Osman Turan Caddesi  No:5 Çarşıbaşı / TRABZON",
+      "adres": "Merkez Mahallesi Muallim Ali Osman Turan Caddesi No:5 Çarşıbaşı / TRABZON",
       "soket_bilgileri": ""
     },
     {
@@ -4162,7 +4502,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Cevizli Mahallesi Recep Tayyip Erdoğan Caddesi  No:53/1 Ayancık / SİNOP",
+      "adres": "Cevizli Mahallesi Recep Tayyip Erdoğan Caddesi No:53/1 Ayancık / SİNOP",
       "soket_bilgileri": ""
     },
     {
@@ -4172,7 +4512,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Soğanlı Mahallesi İstanbul Caddesi  No:343/3 Osmangazi / BURSA",
+      "adres": "Soğanlı Mahallesi İstanbul Caddesi No:343/3 Osmangazi / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -4182,7 +4522,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yeşiltepe Mahallesi D-100 Yan Yol Caddesi  No:135 Erenler / SAKARYA",
+      "adres": "Yeşiltepe Mahallesi D-100 Yan Yol Caddesi No:135 Erenler / SAKARYA",
       "soket_bilgileri": ""
     },
     {
@@ -4192,7 +4532,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Buğdaylı Mahallesi İstanbul Samsun Yolu Caddesi  No:25 Merzifon / AMASYA",
+      "adres": "Buğdaylı Mahallesi İstanbul Samsun Yolu Caddesi No:25 Merzifon / AMASYA",
       "soket_bilgileri": ""
     },
     {
@@ -4202,7 +4542,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "İskele Mahallesi Vatan Caddesi  No:43 Datça / MUĞLA",
+      "adres": "İskele Mahallesi Vatan Caddesi No:43 Datça / MUĞLA",
       "soket_bilgileri": ""
     },
     {
@@ -4212,7 +4552,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Fevzi Çakmak Mahallesi Samsun Caddesi  No:264 Bafra / SAMSUN",
+      "adres": "Fevzi Çakmak Mahallesi Samsun Caddesi No:264 Bafra / SAMSUN",
       "soket_bilgileri": ""
     },
     {
@@ -4222,7 +4562,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kıran Mahallesi Dursun Ulusoy Caddesi  No:15 Atkaracalar / ÇANKIRI",
+      "adres": "Kıran Mahallesi Dursun Ulusoy Caddesi No:15 Atkaracalar / ÇANKIRI",
       "soket_bilgileri": ""
     },
     {
@@ -4232,7 +4572,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kılıçarslan Mahallesi  No:34 /A Merkez / BOLU",
+      "adres": "Kılıçarslan Mahallesi No:34 /A Merkez / BOLU",
       "soket_bilgileri": ""
     },
     {
@@ -4252,7 +4592,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Doğuyaka Mahallesi  No:25 Muratpaşa / ANTALYA",
+      "adres": "Doğuyaka Mahallesi No:25 Muratpaşa / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -4262,7 +4602,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "29 Ekim Mahallesi 2205 Sokağı  No:43 Buca / İZMİR",
+      "adres": "29 Ekim Mahallesi 2205 Sokağı No:43 Buca / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -4272,7 +4612,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "İsmet Paşa Mahallesi  No:156 Merkez / YALOVA",
+      "adres": "İsmet Paşa Mahallesi No:156 Merkez / YALOVA",
       "soket_bilgileri": ""
     },
     {
@@ -4282,7 +4622,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Cumhuriyet Mahallesi D-100 Karayolu Caddesi  No:94 Merkez / DÜZCE",
+      "adres": "Cumhuriyet Mahallesi D-100 Karayolu Caddesi No:94 Merkez / DÜZCE",
       "soket_bilgileri": ""
     },
     {
@@ -4292,7 +4632,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Sümer Mahallesi Çal Caddesi  No:1 Merkezefendi / DENİZLİ",
+      "adres": "Sümer Mahallesi Çal Caddesi No:1 Merkezefendi / DENİZLİ",
       "soket_bilgileri": ""
     },
     {
@@ -4302,7 +4642,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Topçular Mahallesi Rami Kışla Caddesi  No:66 Eyüpsultan / İSTANBUL",
+      "adres": "Topçular Mahallesi Rami Kışla Caddesi No:66 Eyüpsultan / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -4312,7 +4652,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Sinop Bafra Yolu Mahallesi  Pekmezli Merkez / SİNOP",
+      "adres": "Sinop Bafra Yolu Mahallesi Pekmezli Merkez / SİNOP",
       "soket_bilgileri": ""
     },
     {
@@ -4322,7 +4662,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Esentepe Mahallesi Büyükdere Caddesi  No:141/1 Şişli / İSTANBUL",
+      "adres": "Esentepe Mahallesi Büyükdere Caddesi No:141/1 Şişli / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -4332,7 +4672,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Seymen Mah. Mahallesi İstanbul Cad. Caddesi  No:227 Çorlu / TEKİRDAĞ",
+      "adres": "Seymen Mah. Mahallesi İstanbul Cad. Caddesi No:227 Çorlu / TEKİRDAĞ",
       "soket_bilgileri": ""
     },
     {
@@ -4342,7 +4682,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Boğazkent Mahallesi Belek Caddesi 40. Sokağı  No:4 Serik / ANTALYA",
+      "adres": "Boğazkent Mahallesi Belek Caddesi 40. Sokağı No:4 Serik / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -4352,27 +4692,27 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Ayazlı Mahallesi Nevra Sokağı  No:777 Akçakoca / DÜZCE",
+      "adres": "Ayazlı Mahallesi Nevra Sokağı No:777 Akçakoca / DÜZCE",
       "soket_bilgileri": ""
     },
     {
       "istasyon_no": "ŞRJ/18382",
-      "istasyon_adi": "KAĞITHANE YAHYA KEMAL EMLAK YÖNETİM SİTESİ  B BLOK",
+      "istasyon_adi": "KAĞITHANE YAHYA KEMAL EMLAK YÖNETİM SİTESİ B BLOK",
       "hizmet_sekli": "Özel",
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yahya Kemal Mahallesi Güzeldere Caddesi  No:14 Kağıthane / İSTANBUL",
+      "adres": "Yahya Kemal Mahallesi Güzeldere Caddesi No:14 Kağıthane / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
       "istasyon_no": "ŞRJ/18383",
-      "istasyon_adi": "KAĞITHANE YAHYA KEMAL EMLAK YÖNETİM SİTESİ  E BLOK",
+      "istasyon_adi": "KAĞITHANE YAHYA KEMAL EMLAK YÖNETİM SİTESİ E BLOK",
       "hizmet_sekli": "Özel",
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yahya Kemal Mahallesi Güzeldere Caddesi  No:14 Kağıthane / İSTANBUL",
+      "adres": "Yahya Kemal Mahallesi Güzeldere Caddesi No:14 Kağıthane / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -4382,7 +4722,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yahya Kemal Mahallesi Güzeldere Caddesi  No:14 Kağıthane / İSTANBUL",
+      "adres": "Yahya Kemal Mahallesi Güzeldere Caddesi No:14 Kağıthane / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -4392,7 +4732,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Acıbadem Mahallesi Derin Sokağı  No:19 Üsküdar / İSTANBUL",
+      "adres": "Acıbadem Mahallesi Derin Sokağı No:19 Üsküdar / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -4402,7 +4742,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Acıbadem Mahallesi Derin Sokağı  No:19 Üsküdar / İSTANBUL",
+      "adres": "Acıbadem Mahallesi Derin Sokağı No:19 Üsküdar / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -4412,7 +4752,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Acıbadem Mahallesi Derin Sokağı  No:19 Üsküdar / İSTANBUL",
+      "adres": "Acıbadem Mahallesi Derin Sokağı No:19 Üsküdar / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -4422,7 +4762,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Acıbadem Mahallesi Derin Sokağı  No:19 Üsküdar / İSTANBUL",
+      "adres": "Acıbadem Mahallesi Derin Sokağı No:19 Üsküdar / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -4432,7 +4772,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "İstasyon Mh. Mahallesi  No:No:17 Dulkadiroğlu / KAHRAMANMARAŞ",
+      "adres": "İstasyon Mh. Mahallesi No:No:17 Dulkadiroğlu / KAHRAMANMARAŞ",
       "soket_bilgileri": ""
     },
     {
@@ -4452,7 +4792,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Dumlupınar Mahallesi İsimsiz Sokağı  No:4 Nilüfer / BURSA",
+      "adres": "Dumlupınar Mahallesi İsimsiz Sokağı No:4 Nilüfer / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -4462,7 +4802,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Sümer Mahallesi Çal Caddesi  No:1 Merkezefendi / DENİZLİ",
+      "adres": "Sümer Mahallesi Çal Caddesi No:1 Merkezefendi / DENİZLİ",
       "soket_bilgileri": ""
     },
     {
@@ -4472,7 +4812,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yerbelen Mahallesi Muğla-fethiye Karayolu Caddesi  No:220 Ortaca / MUĞLA",
+      "adres": "Yerbelen Mahallesi Muğla-fethiye Karayolu Caddesi No:220 Ortaca / MUĞLA",
       "soket_bilgileri": ""
     },
     {
@@ -4482,7 +4822,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Maslak Mahallesi Ahi Evran Caddesi  No:6 Sarıyer / İSTANBUL",
+      "adres": "Maslak Mahallesi Ahi Evran Caddesi No:6 Sarıyer / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -4492,7 +4832,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Maslak Mahallesi Ahi Evran Caddesi  No:6 Sarıyer / İSTANBUL",
+      "adres": "Maslak Mahallesi Ahi Evran Caddesi No:6 Sarıyer / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -4502,7 +4842,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Hürriyet Mahallesi Havadar Sokağı  No:9/1 Büyükçekmece / İSTANBUL",
+      "adres": "Hürriyet Mahallesi Havadar Sokağı No:9/1 Büyükçekmece / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -4512,7 +4852,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Hürriyet Mahallesi Havadar Caddesi  No:9/1 Büyükçekmece / İSTANBUL",
+      "adres": "Hürriyet Mahallesi Havadar Caddesi No:9/1 Büyükçekmece / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -4532,7 +4872,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Bozkurt Mahallesi Kayseri Yolu Caddesi  No:5/2 Keskin / KIRIKKALE",
+      "adres": "Bozkurt Mahallesi Kayseri Yolu Caddesi No:5/2 Keskin / KIRIKKALE",
       "soket_bilgileri": ""
     },
     {
@@ -4542,7 +4882,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Fener Mahallesi Fener Caddesi  No:1 Muratpaşa / ANTALYA",
+      "adres": "Fener Mahallesi Fener Caddesi No:1 Muratpaşa / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -4552,7 +4892,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Sadun Bozbey Mahallesi Alpağutbey Caddesi  No:10 /2  Saraycik Koyu Merkez / BOLU",
+      "adres": "Sadun Bozbey Mahallesi Alpağutbey Caddesi No:10 /2 Saraycik Koyu Merkez / BOLU",
       "soket_bilgileri": ""
     },
     {
@@ -4572,7 +4912,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Aydıntepe Mahallesi Menzil Sokağı  No:10-AD /A1-A5 Blok Tuzla / İSTANBUL",
+      "adres": "Aydıntepe Mahallesi Menzil Sokağı No:10-AD /A1-A5 Blok Tuzla / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -4582,7 +4922,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Esentepe Mahallesi Büyükdere Caddesi  No:181 Şişli / İSTANBUL",
+      "adres": "Esentepe Mahallesi Büyükdere Caddesi No:181 Şişli / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -4592,7 +4932,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Bahçelievler Mahallesi  No:214/1 /1 Merkez / ŞIRNAK",
+      "adres": "Bahçelievler Mahallesi No:214/1 /1 Merkez / ŞIRNAK",
       "soket_bilgileri": ""
     },
     {
@@ -4602,7 +4942,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Musalla Mahallesi İkiçeşmelik Km. Evl. Caddesi  No:82 Çeşme / İZMİR",
+      "adres": "Musalla Mahallesi İkiçeşmelik Km. Evl. Caddesi No:82 Çeşme / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -4612,7 +4952,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "İrfanlı Mahallesi H.m.b. Ulusoy Caddesi  No:114/A Of / TRABZON",
+      "adres": "İrfanlı Mahallesi H.m.b. Ulusoy Caddesi No:114/A Of / TRABZON",
       "soket_bilgileri": ""
     },
     {
@@ -4622,17 +4962,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Hükümetönü Caddesi  No:64 Bayındır / İZMİR",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/23273",
-      "istasyon_adi": "ÇALÇALAR OTEL",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "SHARZ.NET",
-      "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Gökova Mahallesi  No:88 Ula / MUĞLA",
+      "adres": "Hükümetönü Caddesi No:64 Bayındır / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -4642,7 +4972,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Anadolu Otoyolu Üzeri Caddesi  Ank,hacımehmet Mengencik/kaynaşlı Merkez / DÜZCE",
+      "adres": "Anadolu Otoyolu Üzeri Caddesi Ank,hacımehmet Mengencik/kaynaşlı Merkez / DÜZCE",
       "soket_bilgileri": ""
     },
     {
@@ -4652,7 +4982,7 @@
       "marka": "SHARZ.NET",
       "sarj_agi_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EVS ELEKTRİKLİ ŞARJ SİSTEMLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Anadolu Otoyolu Üzeri Caddesi  Ank,hacımehmet İst Mengencik/kaynaşlı Merkez / DÜZCE",
+      "adres": "Anadolu Otoyolu Üzeri Caddesi Ank,hacımehmet İst Mengencik/kaynaşlı Merkez / DÜZCE",
       "soket_bilgileri": ""
     },
     {
@@ -4662,7 +4992,7 @@
       "marka": "ŞARJON",
       "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Merkez Mahallesi Meserburnu Caddesi  No:5 Sarıyer / İSTANBUL",
+      "adres": "Merkez Mahallesi Meserburnu Caddesi No:5 Sarıyer / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -4672,337 +5002,7 @@
       "marka": "ŞARJON",
       "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Konacık Mahallesi  No:203 Bodrum / MUĞLA",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/1655",
-      "istasyon_adi": "ŞARJON BURULAŞ OSMANGAZİ METRO İSTASYONU BATI ÇIKIŞI OTOPARKI",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ŞARJON",
-      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Çırpan Mahallesi Okul Sokağı  No:NO: 173 Osmangazi / BURSA",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/1735",
-      "istasyon_adi": "ŞARJON MERT MARİNE TUZLA",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ŞARJON",
-      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Evliya Çelebi Mahallesi Nazan Sokağı  No:12 Tuzla / İSTANBUL",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/2481",
-      "istasyon_adi": "ŞARJON ESBAŞ EGE SERBEST BÖLGE",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ŞARJON",
-      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Esbaş Serbest Bölge Mahallesi Zafer Sokağı  No:No:144/1 /Kapı No:1  Kümeevleri Gaziemir / İZMİR",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/2928",
-      "istasyon_adi": "ŞARJON SAPANCA BAMBOOLOW RESORT",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ŞARJON",
-      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yanık Mahallesi Tanık Orta Sokağı  No:No:28/1 Sapanca / SAKARYA",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/3391",
-      "istasyon_adi": "ŞARJON MEYDAN OTOPARK",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ŞARJON",
-      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Beştelsiz Mahallesi 71. Sokağı  No:No:5 Otopark Zeytinburnu / İSTANBUL",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/3392",
-      "istasyon_adi": "ŞARJON TEPEKULE TMMOB",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ŞARJON",
-      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Tepekule Mahallesi Anadolu Caddesi  No:No:40 Bayraklı / İZMİR",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/4249",
-      "istasyon_adi": "ŞARJON EKİNOX ARMADA GAYRİMENKUL",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ŞARJON",
-      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kazımdirik Mahallesi 372/33 Sokağı  No:NO:14 Bornova / İZMİR",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/6058",
-      "istasyon_adi": "ŞARJON URLA BAMBOO AVM",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ŞARJON",
-      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yenikent Mahallesi Samanyolu Sokağı  No:6 Urla / İZMİR",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/6179",
-      "istasyon_adi": "ŞARJON ATAKUM BELEDİYE BAŞKANLIĞI GENÇLİK MERKEZİ",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ŞARJON",
-      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Cumhuriyet Mah. Caddesi 48. Sokak Sokağı  No:No:4/1/1 Atakum / SAMSUN",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/6182",
-      "istasyon_adi": "ŞARJON ATAKUM BELEDİYESİ BANDA ACEH HALI SAHA",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ŞARJON",
-      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Cumhuriyet Mahallesi Mahallesi 48.sokak Sokağı  No:No:10 Atakum / SAMSUN",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/6201",
-      "istasyon_adi": "ŞARJON CANSU TATİL KÖYÜ",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ŞARJON",
-      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Soğuksu Mah. Mahallesi Çiftlik Caddesi Caddesi Asma Sk. Sokağı  No:No:2  Cansu Alabalık Tesisleri Kartepe / KOCAELİ",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/6369",
-      "istasyon_adi": "ŞARJON MAŞUKİYE MANZARA RESTAURANT",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ŞARJON",
-      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Maşukiye Mahallesi Mahallesi Kartepe Caddesi Caddesi  Manzara Restaurant Kartepe / KOCAELİ",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/6372",
-      "istasyon_adi": "ŞARJON ATAKUM BELEDİYESİ NİKAH SALONU",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ŞARJON",
-      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Mimar Sinan Mahallesi Mahallesi 151. Sokak Sokağı  No:No:1/1 Atakum / SAMSUN",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/6675",
-      "istasyon_adi": "ŞARJON MAŞUKİYE YAZICI KÖY EVİ RESTAURANT ŞARJ İSTASYONU",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ŞARJON",
-      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Maşukiye Mahallesi Ardıçlı Sokağı  No:6 Kartepe / KOCAELİ",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/6687",
-      "istasyon_adi": "ŞARJON OTO 98 ŞARJ İSTASYONU",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ŞARJON",
-      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Esentepe Mahallesi İnönü Sokağı  No:167/4/41 Kartal / İSTANBUL",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/7208",
-      "istasyon_adi": "ŞARJON ATAKUM BELEDİYESİ ANA HİZMET BİNASI",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ŞARJON",
-      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Mimar Sinan Mahallesi  No:114 Atakum / SAMSUN",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/8035",
-      "istasyon_adi": "ŞARJON ALPET PAZAR ESKİÇIRAK ŞARJ İSTASYONU",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ŞARJON",
-      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Hamidiye Köyü Mahallesi Kaçkar Sokağı  No:64 Pazar / RİZE",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/7932",
-      "istasyon_adi": "ŞARJON ALPET PAZAR ESKİÇIRAK ŞARJ İSTASYONU-2",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ŞARJON",
-      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Hamidiye Köyü Mahallesi Kaçkar Sokağı  No:64 Pazar / RİZE",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/8199",
-      "istasyon_adi": "Şarjon Alpet Ardeşen Eskiçırak",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ŞARJON",
-      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Elmalık Mahallesi  No:21  Ayder Yolu Küme Evler Ardeşen / RİZE",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/8198",
-      "istasyon_adi": "Şarjon The Old Apprentice Ardeşen Eskiçırak",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ŞARJON",
-      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Elmalık Mahallesi  No:22  Ayder Yolu Küme Evler Ardeşen / RİZE",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/3821",
-      "istasyon_adi": "ŞARJON KARDOST",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ŞARJON",
-      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Canbalı Mahallesi Karacabey / BURSA",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/9546",
-      "istasyon_adi": "ŞARJON ŞİLE AĞVA ŞARJ İSTASYONU",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ŞARJON",
-      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Ağva Merkez Mahallesi Yakuplu Sokağı  No:53/1 Şile / İSTANBUL",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/9866",
-      "istasyon_adi": "ŞARJON VEFA KONUTLARI-2 ŞARJ İSTASYONU",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ŞARJON",
-      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Hadımköy Mahallesi Adnan Menderes Caddesi  No:39-41 Arnavutköy / İSTANBUL",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/10144",
-      "istasyon_adi": "ŞARJON ZEYTİNBURNU BELEDİYESİ BELGRADKAPI-2 ŞARJ İSTASYONU",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ŞARJON",
-      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kazlıçeşme Mahallesi Belgrat Kapı Yolu Sokağı  No:7 Zeytinburnu / İSTANBUL",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/10693",
-      "istasyon_adi": "ŞARJON YAZICILAR RESTORAN ŞARJ İSTASYONU",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ŞARJON",
-      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Maşukiye Mahallesi Alabalık Sokağı  No:19 Kartepe / KOCAELİ",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/10905",
-      "istasyon_adi": "ŞARJON Soyak Palmiye Evleri C3 Blok",
-      "hizmet_sekli": "Özel",
-      "marka": "ŞARJON",
-      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Site Mahallesi Atay Sokağı  No:43 Ümraniye / İSTANBUL",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/10906",
-      "istasyon_adi": "ŞARJON Soyak Palmiye Evleri C4 Blok",
-      "hizmet_sekli": "Özel",
-      "marka": "ŞARJON",
-      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Site Mahallesi Atay Sokağı  No:43 Ümraniye / İSTANBUL",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/10908",
-      "istasyon_adi": "ŞARJON Soyak Palmiye Evleri Yönetim A1 Blok",
-      "hizmet_sekli": "Özel",
-      "marka": "ŞARJON",
-      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Site Mahallesi Atay Sokağı  No:43 Ümraniye / İSTANBUL",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/10950",
-      "istasyon_adi": "ŞARJON ORKA LOTUS BEACH ŞARJ İSTASYONU",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ŞARJON",
-      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "İçmeler Mahallesi Atatürk Caddesi  No:56 Marmaris / MUĞLA",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/10980",
-      "istasyon_adi": "ŞARJON Millet Bahçesi Zeytinburnu Belediyesi Şarj İstasyonu",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ŞARJON",
-      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Beştelsiz Mahallesi Prof. Dr. Muammer Aksoy Caddesi  No:32 Zeytinburnu / İSTANBUL",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/10992",
-      "istasyon_adi": "ŞARJON Merkezefendi Kütüphanesi Zeytinburnu Belediyesi Şarj İstasyonu",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ŞARJON",
-      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Merkezefendi Mahallesi Mevlevihane Caddesi Zeytinburnu / İSTANBUL",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/11706",
-      "istasyon_adi": "SALI PAZARI KAFETERYA ÖDEMİŞ BELEDİYESİ",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ŞARJON",
-      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Anafartalar Mahallesi  No:1 Ödemiş / İZMİR",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/11707",
-      "istasyon_adi": "Eski Otogar Ödemiş Belediyesi",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ŞARJON",
-      "sarj_agi_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ŞARJON YENİLENEBİLİR ENERJİ VE ELEKTRİKLİ ARAÇ ŞARJ SİSTEMLERİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Cumhuriyet Mahallesi  No:1 Ödemiş / İZMİR",
+      "adres": "Konacık Mahallesi No:203 Bodrum / MUĞLA",
       "soket_bilgileri": ""
     }
   ]

@@ -3,8 +3,328 @@
   "first": 5500,
   "rows": 500,
   "count": 500,
-  "timestamp": "2026-09-06T14:30:09.979174",
+  "timestamp": "2026-09-23T22:25:30.866970",
   "records": [
+    {
+      "istasyon_no": "ŞRJ/18090",
+      "istasyon_adi": "İkbal Dinlenme Tesisi",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "zes",
+      "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "adres": "Havullu Mahallesi No:26 Mehmet Beylik Yaylası Cankurtaran Gerede / BOLU",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/23572",
+      "istasyon_adi": "McDonalds Zekeriyaköy",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "zes",
+      "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "adres": "Uskumruköy Mahallesi Salih Paşa Caddesi No:2 Sarıyer / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/23573",
+      "istasyon_adi": "Özdilek İzmir AVM",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "zes",
+      "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "adres": "İnciraltı Mahallesi İnciraltı Caddesi No:6 Balçova / İZMİR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/927",
+      "istasyon_adi": "Holiday lnn Hotel Kayseri",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "zes",
+      "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "adres": "Hacı Saki Mahallesi Osman Kavuncu Caddesi Kenarcık Sokağı No:2 Kocasinan / KAYSERİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/19515",
+      "istasyon_adi": "İpeksaray AVM",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "zes",
+      "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "adres": "Alpaslan Mahallesi No:182/1 Melikgazi / KAYSERİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/7278",
+      "istasyon_adi": "Wyndham Grand Kayseri",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "zes",
+      "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "adres": "Gevher Nesibe Mahallesi Tekin Sokağı No:2 Kocasinan / KAYSERİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/23377",
+      "istasyon_adi": "Otonomi Galericiler Sitesi",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "zes",
+      "sarj_agi_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ZES DİJİTAL TİCARET ANONİM ŞİRKETİ",
+      "adres": "Balıkhisar Mahallesi No:28 Başkent Oto Gal. Kmev Akyurt / ANKARA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/3138",
+      "istasyon_adi": "Otojet Mais Motorlu Araçlar İmal. Satış A.Ş. – İstanbul Şube",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Otojet",
+      "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "MAİS MOTORLU ARAÇLAR İMAL VE SATIŞ ANONİM ŞİRKETİ",
+      "adres": "İstinye Mahallesi Sarıyer Caddesi No:68 Sarıyer / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/3139",
+      "istasyon_adi": "Otojet İbrahim Çelik",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Otojet",
+      "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "İBRAHİM ÇELİK",
+      "adres": "Güneykent Köyü Mahallesi Bozyer Gönen / ISPARTA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/3141",
+      "istasyon_adi": "Otojet Mais Motorlu Araçlar İml. A.Ş - Bursa Şube",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Otojet",
+      "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "MAİS MOTORLU ARAÇLAR İMAL VE SATIŞ ANONİM ŞİRKETİ",
+      "adres": "Ataevler Mahallesi İzmir Yolu Caddesi No:226 Nilüfer / BURSA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/3142",
+      "istasyon_adi": "Otojet Silver Sun",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Otojet",
+      "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SİLVER SUN BİNA YAPI İNŞAAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Cırgalan Mahallesi No:429 Kocasinan / KAYSERİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/3361",
+      "istasyon_adi": "Otojet - Erpet Petrol",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Otojet",
+      "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ERPET PETROL NAKLİYE SANAYİ VE TİCARET ANONİM ŞİRKETİ",
+      "adres": "Gölbent Mahallesi Gölbent Sokağı No:145 Söke / AYDIN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/3373",
+      "istasyon_adi": "Otojet - Sadıkoğlu Petrol",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Otojet",
+      "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "SADIKOĞLU PETROL PAZARLAMA OTOMOTİV TURİZM VE MARKET İŞLETMECİLİĞİ SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Uluçam Mahallesi Denizli Yolu Caddesi No:35 Kale / DENİZLİ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/3374",
+      "istasyon_adi": "Otojet - VMC Petrol",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Otojet",
+      "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "VMC MOTORLU ARAÇLAR PETROL MADEN İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Susuz Beldesi / Köyü Sakarya Mahallesi Ankara Caddesi No:41/C ( Ada: - , Pafta: - , Parsel: - )",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/3440",
+      "istasyon_adi": "Otojet - YBZ Petrol",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Otojet",
+      "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "YBZ GIDA TURİZM MADENCİLİK PETROL ÜRÜNLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
+      "adres": "Sinanoğlu Mahallesi Seyitonbaşı Caddesi No:1 Ferizli / SAKARYA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/3447",
+      "istasyon_adi": "Otojet - Aziz Atik Otomotiv",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Otojet",
+      "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "AZİZ ATİK OTOMOTİV TİCARET VE SANAYİ ANONİM ŞİRKETİ",
+      "adres": "İstiklal Mahallesi 205 Sokağı Tekkeköy / SAMSUN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/3490",
+      "istasyon_adi": "Otojet - Yalçın Tarım Petrol",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Otojet",
+      "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "YALÇIN TARIM GIDA İNŞAAT VE PETROL ÜRÜNLERİ SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Ovaköy Mahallesi Aydın Caddesi No:7 Köşk / AYDIN",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/3549",
+      "istasyon_adi": "Otojet - Zeytin Cafe",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Otojet",
+      "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "NURULLAH GÖKDEMİR",
+      "adres": "Kaleiçi Mahallesi Gökçeali Caddesi No:1 Çatalca / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/3551",
+      "istasyon_adi": "Otojet - Bahçekent Batı AVM",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Otojet",
+      "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "EMLAK KONUT BAHÇEKENT TİCARET MERKEZİ1. SİTE YÖNETİMİ",
+      "adres": "Bahçekent Başakşehir 2. Kısım Mahallesi Aldemir Sokağı No:1 BLOK Başakşehir / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/3554",
+      "istasyon_adi": "Otojet - Uysalsan",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Otojet",
+      "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "UYSALSAN PETROL ÜRÜNLERİ VE ISI CİHAZLARI SANAYİ VE TİCARET ANONİM ŞİRKETİ",
+      "adres": "İzmir Yolu 12. Km Mahallesi No:300 Nilüfer / BURSA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/3555",
+      "istasyon_adi": "Otojet - Terkin Petrol",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Otojet",
+      "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "TERKİN PETROLCÜLÜK SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Hasanpaşa Mahallesi Hasanpaşa Ankara Yolu Caddesi No:23 İnegöl / BURSA",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/3560",
+      "istasyon_adi": "Otojet - Kocaoğlu Petrol",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Otojet",
+      "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "KOCAOĞLU PETROL VE TARIM YEM GIDA İNŞAAT SANAYİ TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Anıtkaya Zafer Mahallesi Anıtkaya Caddesi Zafer Merkez / AFYONKARAHİSAR",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/3635",
+      "istasyon_adi": "Otojet - Yıldırım Petrol",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Otojet",
+      "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "YILDIRIM PETROL GIDA İNŞAAT TURİZM SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Irmak Beldesi / Köyü Yeşilöz Mahallesi Cumhuriyet Caddesi No:14 ( Ada: - , Pafta: - , Parsel: - )",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/3637",
+      "istasyon_adi": "Otojet - Hüsnü Pullukçu Petrol",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Otojet",
+      "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "HÜSNÜ PULLUKÇU AKARYAKIT LPG MADENCİLİK TUĞLA NAKLİYE HAFRİYAT TARIM ÜRÜNLERİ SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Camiatik Mahallesi 22 Sokağı No:7/C ( Ada: - , Pafta: - , Parsel: - )",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/3652",
+      "istasyon_adi": "Otojet -Kalelim Petrol",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Otojet",
+      "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "KALELİM PETROL VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Dere Mahallesi Kümeevleri Edirne Bayırı Caddesi No:19/1 ( Ada: - , Pafta: - , Parsel: - )",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/3654",
+      "istasyon_adi": "Otojet - DOCO Haramidere Petrol",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Otojet",
+      "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "DOCO PETROL VE DANIŞMANLIK ANONİM ŞİRKETİ",
+      "adres": "Yakuplu Mahallesi D100 Karayolu Haramidere San. Sitesi Girişi Caddesi Beylikdüzü / İSTANBUL",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/3660",
+      "istasyon_adi": "Otojet - Yılda Petrol",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Otojet",
+      "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "YILDA PETROL OTOMOTİV TAŞIMA LOJİSTİK TEMİZLİK EMLAK İNŞAAT MALZEMESİ SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Bucak Merkez Beldesi / Köyü Karacaahmet Mahallesi M.saip Konukoğlu Sokağı No:33 ( Ada: - , Pafta: - , Parsel: - )",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/3684",
+      "istasyon_adi": "Otojet - Buhari Merkez",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Otojet",
+      "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "BUHARİ OTOMOTİV MAMÜLLERİ PAZARLAMA İMALAT SANAYİ VE TİCARET ANONİM ŞİRKETİ",
+      "adres": "Namık Kemal Mahallesi No:49 A Süleymanpaşa / TEKİRDAĞ",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/3685",
+      "istasyon_adi": "Otojet - Doğumak Renault",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Otojet",
+      "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "DOĞUMAK OTOMOTİV SANAYİ VE TİCARET ANONİM ŞİRKETİ",
+      "adres": "Renault Plaza Tortum Yolu Caddesi No:163 Yakutiye / ERZURUM",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/3686",
+      "istasyon_adi": "Otojet Yılda",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Otojet",
+      "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "YILDA PETROL OTOMOTİV TAŞIMA LOJİSTİK TEMİZLİK EMLAK İNŞAAT MALZEMESİ SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Bucak Merkez Beldesi / Köyü Karacaahmet Mahallesi M.saip Konukoğlu Sokağı No:8 ( Ada: - , Pafta: - , Parsel: - )",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/3872",
+      "istasyon_adi": "Otojet - Buhari Çorlu",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Otojet",
+      "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "BUHARİ OTOMOTİV MAMÜLLERİ PAZARLAMA İMALAT SANAYİ VE TİCARET ANONİM ŞİRKETİ",
+      "adres": "Önerler Mahallesi İstanbul Caddesi No:35/A ( Ada: - , Pafta: - , Parsel: - )",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/3875",
+      "istasyon_adi": "Otojet - Özerler Renault",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Otojet",
+      "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "ÖZERLER OTOMOTİV VE PETROL ÜRÜNLERİ PAZARLAMA SANAYİ VE TİCARET ANONİM ŞİRKETİ",
+      "adres": "Kepez Mahallesi Prof Muammer Aksoy Caddesi No:201 Ereğli / ZONGULDAK",
+      "soket_bilgileri": ""
+    },
     {
       "istasyon_no": "ŞRJ/4044",
       "istasyon_adi": "Otojet - Altuğ Çiğli",
@@ -12,7 +332,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "GÜZEL ENERJİ AKARYAKIT ANONİM ŞİRKETİ",
-      "adres": "Atatürk Osb Mahallesi 10006/1 Sokağı  No:21 ( Ada: - , Pafta: - , Parsel: - )",
+      "adres": "Atatürk Osb Mahallesi 10006/1 Sokağı No:21 ( Ada: - , Pafta: - , Parsel: - )",
       "soket_bilgileri": ""
     },
     {
@@ -22,7 +342,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ÇINAR PETROL NAKLİYAT TARIM HAYVANCILIK GIDA SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
-      "adres": "Etiler Mahallesi Evliya Çelebi Caddesi  No:19 Muratpaşa / ANTALYA",
+      "adres": "Etiler Mahallesi Evliya Çelebi Caddesi No:19 Muratpaşa / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -32,7 +352,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "YEĞİNALTAY AKARYAKIT VE TURİZM TİCARET SANAYİ LİMİTED ŞİRKETİ",
-      "adres": "Barbaros Mahallesi Serik Caddesi  No:2 Aksu / ANTALYA",
+      "adres": "Barbaros Mahallesi Serik Caddesi No:2 Aksu / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -47,12 +367,12 @@
     },
     {
       "istasyon_no": "ŞRJ/5095",
-      "istasyon_adi": "Otojet -  Serin Beton",
+      "istasyon_adi": "Otojet - Serin Beton",
       "hizmet_sekli": "Halka Açık",
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "YENİ BAŞAK ENERJİ LİMİTED ŞİRKETİ",
-      "adres": "Cumhuriyet Mahallesi İstanbul Yolu Caddesi  No:41  Yenimuhacir Keşan / EDİRNE",
+      "adres": "Cumhuriyet Mahallesi İstanbul Yolu Caddesi No:41 Yenimuhacir Keşan / EDİRNE",
       "soket_bilgileri": ""
     },
     {
@@ -62,7 +382,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "AKSOY YATIRIM SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Akçay Mahallesi Şehit Pilot Teğmen Tütüncü Caddesi 2 Sokağı  ( Ada: - , Pafta: - , Parsel: - )",
+      "adres": "Akçay Mahallesi Şehit Pilot Teğmen Tütüncü Caddesi 2 Sokağı ( Ada: - , Pafta: - , Parsel: - )",
       "soket_bilgileri": ""
     },
     {
@@ -72,7 +392,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ALP PETROL TİCARET VE NAKLİYAT LİMİTED ŞİRKETİ",
-      "adres": "Meydankavağı Mahallesi  No:38 Muratpaşa / ANTALYA",
+      "adres": "Meydankavağı Mahallesi No:38 Muratpaşa / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -82,7 +402,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "SADIKOĞULLARI OTOMOTİV PETROL TURİZM TİCARET VE SANAYİ LİMİTED ŞİRKETİ",
-      "adres": "Akçeşme Mahallesi İzmir Asfaltı Üzeri Caddesi  No:150 Merkezefendi / DENİZLİ",
+      "adres": "Akçeşme Mahallesi İzmir Asfaltı Üzeri Caddesi No:150 Merkezefendi / DENİZLİ",
       "soket_bilgileri": ""
     },
     {
@@ -92,7 +412,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ALP AKARYAKIT TESİSLERİ İŞLETMECİLİĞİ TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Fevzi Paşa Mahallesi Konya Ereğli Caddesi  No:925/A ( Ada: - , Pafta: - , Parsel: - )",
+      "adres": "Fevzi Paşa Mahallesi Konya Ereğli Caddesi No:925/A ( Ada: - , Pafta: - , Parsel: - )",
       "soket_bilgileri": ""
     },
     {
@@ -102,7 +422,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "YUSUF BAYSAL OTOMOTİV SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Merkez Beldesi / Köyü Varsaklar Mahallesi Adana Sokağı  No:215 ( Ada: - , Pafta: - , Parsel: - )",
+      "adres": "Merkez Beldesi / Köyü Varsaklar Mahallesi Adana Sokağı No:215 ( Ada: - , Pafta: - , Parsel: - )",
       "soket_bilgileri": ""
     },
     {
@@ -112,7 +432,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "YUSUF BAYSAL OTOMOTİV SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Şirinevler Mahallesi  No:1 Merkez / OSMANİYE",
+      "adres": "Şirinevler Mahallesi No:1 Merkez / OSMANİYE",
       "soket_bilgileri": ""
     },
     {
@@ -122,7 +442,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "HATİPOĞLU PAZARLAMA PETROL ÜRÜNLERİ İTHALAT İHRACAT NAKLİYE GIDA TURİZM OTELCİLİK SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
-      "adres": "Barbaros Hayrettin Paşa Mahallesi Cemalettin Aksu Caddesi  No:5/B Aliağa / İZMİR",
+      "adres": "Barbaros Hayrettin Paşa Mahallesi Cemalettin Aksu Caddesi No:5/B Aliağa / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -142,7 +462,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "AYDİŞ GRUP YOL İNŞAAT PETROL NAKLİYAT OTOMOTİV GIDA TEMİZLİK SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
-      "adres": "Örme Göze Küme Evler Mahallesi  Organize Sanayi Bölgesi Beşiri / BATMAN",
+      "adres": "Örme Göze Küme Evler Mahallesi Organize Sanayi Bölgesi Beşiri / BATMAN",
       "soket_bilgileri": ""
     },
     {
@@ -152,7 +472,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "PE-MA AKARYAKIT LPG İNŞAAT ELEKTRİK ELEKTRONİK ENERJİ İTHALAT İHRACAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
-      "adres": "Bahçelievler Mahallesi Zelve Caddesi  No:3 Avanos / NEVŞEHİR",
+      "adres": "Bahçelievler Mahallesi Zelve Caddesi No:3 Avanos / NEVŞEHİR",
       "soket_bilgileri": ""
     },
     {
@@ -172,7 +492,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Tophane Mahallesi Hacı Mansur Caddesi  No:3 D Canik / SAMSUN",
+      "adres": "Tophane Mahallesi Hacı Mansur Caddesi No:3 D Canik / SAMSUN",
       "soket_bilgileri": ""
     },
     {
@@ -182,7 +502,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ONUR ÖZÇİÇEK DANIŞMANLIK SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Taşköprü Köyü Mahallesi D-100 Karayolu Caddesi  No:768 Merkez / DÜZCE",
+      "adres": "Taşköprü Köyü Mahallesi D-100 Karayolu Caddesi No:768 Merkez / DÜZCE",
       "soket_bilgileri": ""
     },
     {
@@ -192,7 +512,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "KAR TUR İNŞAAT REKLAM TURİZM VE TAŞIMACILIK LİMİTED ŞİRKETİ",
-      "adres": "Gökçetepe Köyü Sahili Mahallesi  No:201  Zeytindere Keşan / EDİRNE",
+      "adres": "Gökçetepe Köyü Sahili Mahallesi No:201 Zeytindere Keşan / EDİRNE",
       "soket_bilgileri": ""
     },
     {
@@ -202,7 +522,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yeşiltepe Mahallesi İsmet İnönü-2 Caddesi  No:2/1  Merkez Tepebaşı / ESKİŞEHİR",
+      "adres": "Yeşiltepe Mahallesi İsmet İnönü-2 Caddesi No:2/1 Merkez Tepebaşı / ESKİŞEHİR",
       "soket_bilgileri": ""
     },
     {
@@ -212,7 +532,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "NEVŞEHİR GÖREME PETROL ÜRÜNLERİ İNŞ. NAKL. OTOMOTİV SANAYİ TİCARET LİMİTED ŞİRKETİ",
-      "adres": "Nevşehir Yolu Mahallesi 4.km Caddesi  Avanos Merkez / NEVŞEHİR",
+      "adres": "Nevşehir Yolu Mahallesi 4.km Caddesi Avanos Merkez / NEVŞEHİR",
       "soket_bilgileri": ""
     },
     {
@@ -222,7 +542,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "UPHILL COURT 1 A ADAYÖNETİM KURULU",
-      "adres": "Barbaros Mahallesi  No:12 G/OTOMAT Ataşehir / İSTANBUL",
+      "adres": "Barbaros Mahallesi No:12 G/OTOMAT Ataşehir / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -232,7 +552,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "UPHILL COURT 1 A ADAYÖNETİM KURULU",
-      "adres": "Barbaros Mahallesi Zambak Sokağı  No:3 Ataşehir / İSTANBUL",
+      "adres": "Barbaros Mahallesi Zambak Sokağı No:3 Ataşehir / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -242,7 +562,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "UPHILL COURT 1 A ADAYÖNETİM KURULU",
-      "adres": "Barbaros Mahallesi  No:12 A Ataşehir / İSTANBUL",
+      "adres": "Barbaros Mahallesi No:12 A Ataşehir / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -252,7 +572,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "D E N İ Z YATIRIM TİCARET LİMİTED ŞİRKETİ",
-      "adres": "Yenipazar Mahallesi Mazhar Yerebatmaz Caddesi  No:67/1 Fatsa / ORDU",
+      "adres": "Yenipazar Mahallesi Mazhar Yerebatmaz Caddesi No:67/1 Fatsa / ORDU",
       "soket_bilgileri": ""
     },
     {
@@ -262,7 +582,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "KÜRKLÜ OTOMOTİV NAKLİYAT PETROL İNŞAAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
-      "adres": "82 Evler Mahallesi Adana Sokağı  No:108 A Tarsus / MERSİN",
+      "adres": "82 Evler Mahallesi Adana Sokağı No:108 A Tarsus / MERSİN",
       "soket_bilgileri": ""
     },
     {
@@ -272,7 +592,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "GÜRDAL PETROL ÜRÜNLERİ NAKLİYAT TURİZM VE TİC.LTD.ŞT",
-      "adres": "Kemaliye Mahallesi Gülbahar Hatun Caddesi  No:143 Vakfıkebir / TRABZON",
+      "adres": "Kemaliye Mahallesi Gülbahar Hatun Caddesi No:143 Vakfıkebir / TRABZON",
       "soket_bilgileri": ""
     },
     {
@@ -282,7 +602,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "GÜZEL ENERJİ AKARYAKIT ANONİM ŞİRKETİ",
-      "adres": "Kızılırmak Mahallesi Mevlana Sokağı  No:108/2 Çankaya / ANKARA",
+      "adres": "Kızılırmak Mahallesi Mevlana Sokağı No:108/2 Çankaya / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -292,7 +612,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "FIRAT OTOMOTİV TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Asya Mahallesi Akçakale Caddesi  No:285 Eyyübiye / ŞANLIURFA",
+      "adres": "Asya Mahallesi Akçakale Caddesi No:285 Eyyübiye / ŞANLIURFA",
       "soket_bilgileri": ""
     },
     {
@@ -302,7 +622,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "BEKA MER MERMER MADENCİLİK MÜŞAVİRLİK MÜHENDİSLİK VE İNŞAAT DIŞ TİCARET ANONİM ŞİRKETİ",
-      "adres": "Çepni Mahallesi Fen Lisesi Caddesi  No:36/A Merkez / ÇORUM",
+      "adres": "Çepni Mahallesi Fen Lisesi Caddesi No:36/A Merkez / ÇORUM",
       "soket_bilgileri": ""
     },
     {
@@ -312,7 +632,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "MEHMETÇİK VAKFI TURİZM PETROL İNŞAAT SAĞLIK GIDA VE TİCARET LİMİTED ŞİRKETİ",
-      "adres": "Başakşehir Mahallesi  No:157 Başakşehir / İSTANBUL",
+      "adres": "Başakşehir Mahallesi No:157 Başakşehir / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -322,7 +642,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "KARPET AKARYAKIT OTOMOTİV İNŞAAT TAAHHÜT MİMARLIK MADENCİLİK SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
-      "adres": "Huzurevleri Mahallesi  No:11 Kayapınar / DİYARBAKIR",
+      "adres": "Huzurevleri Mahallesi No:11 Kayapınar / DİYARBAKIR",
       "soket_bilgileri": ""
     },
     {
@@ -331,8 +651,8 @@
       "hizmet_sekli": "Halka Açık",
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ÖZBİLEN HAZIR BETON İNŞAAT NAKLİYE OTOMOTİV AKARYAKIT SANAYİ VE TİCARET\r\nANONİM ŞİRKETİ",
-      "adres": "Kırımlı Osb Mahallesi Şehit Dursun Çetin Sokağı  No:50 Merkez / AKSARAY",
+      "sarj_istasyonu_isletmecisi": "ÖZBİLEN HAZIR BETON İNŞAAT NAKLİYE OTOMOTİV AKARYAKIT SANAYİ VE TİCARET ANONİM ŞİRKETİ",
+      "adres": "Kırımlı Osb Mahallesi Şehit Dursun Çetin Sokağı No:50 Merkez / AKSARAY",
       "soket_bilgileri": ""
     },
     {
@@ -342,7 +662,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "GÜLHAN PETROL TİCARET VE SANAYİ LİMİTED ŞİRKETİ",
-      "adres": "Körfez Mahallesi  No:125 Atakum / SAMSUN",
+      "adres": "Körfez Mahallesi No:125 Atakum / SAMSUN",
       "soket_bilgileri": ""
     },
     {
@@ -372,7 +692,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "1. Murat Mahallesi  No:234/1 Merkez / EDİRNE",
+      "adres": "1. Murat Mahallesi No:234/1 Merkez / EDİRNE",
       "soket_bilgileri": ""
     },
     {
@@ -382,7 +702,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "GÜLEÇ PETROL TAŞIMACILIK SERVİS HİZMETLERİ SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
-      "adres": "Üniversite Mahallesi  No:23 Merkez / KARABÜK",
+      "adres": "Üniversite Mahallesi No:23 Merkez / KARABÜK",
       "soket_bilgileri": ""
     },
     {
@@ -402,7 +722,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "KAAN AKARYAKIT SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kartaltepe Mahallesi İncirli 84 Caddesi  No:78 Bakırköy / İSTANBUL",
+      "adres": "Kartaltepe Mahallesi İncirli 84 Caddesi No:78 Bakırköy / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -412,7 +732,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ERUZUNLAR PETROL ÜRÜNLERİ İNŞAAT NAKLİYAT HAFRİYAT GIDA TURİZM SANAYİ TİCARET LİMİTED ŞİRKETİ",
-      "adres": "Geriş Mahallesi E-87 Karayolu Üzeri Caddesi  No:1 Burhaniye / BALIKESİR",
+      "adres": "Geriş Mahallesi E-87 Karayolu Üzeri Caddesi No:1 Burhaniye / BALIKESİR",
       "soket_bilgileri": ""
     },
     {
@@ -422,7 +742,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "KÜTAHYA DEMİR AKARYAKIT TİCARET LİMİTED ŞİRKETİ",
-      "adres": "Fuatpaşa Mahallesi  No:94 Merkez / KÜTAHYA",
+      "adres": "Fuatpaşa Mahallesi No:94 Merkez / KÜTAHYA",
       "soket_bilgileri": ""
     },
     {
@@ -432,7 +752,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "YANIKLAR PETROL ÜRÜNLERİ TURİZM NAKLİYAT İNŞAAT TAAHHÜT TEKEL ÜRÜNLERİ GIDA SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
-      "adres": "Gölevi Mahallesi Devlet Sahil Yolu Caddesi  No:360 Ünye / ORDU",
+      "adres": "Gölevi Mahallesi Devlet Sahil Yolu Caddesi No:360 Ünye / ORDU",
       "soket_bilgileri": ""
     },
     {
@@ -442,7 +762,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "NİTAR ZİRAAT AMBALAJ LOJİSTİK SANAYİ TİCARET ANONİM ŞİRKETİ",
-      "adres": "İlhanlı Mahallesi Kayseri Yolu Caddesi  No:84/1 Merkez / NİĞDE",
+      "adres": "İlhanlı Mahallesi Kayseri Yolu Caddesi No:84/1 Merkez / NİĞDE",
       "soket_bilgileri": ""
     },
     {
@@ -452,7 +772,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ALTANLAR AKARYAKIT OTOMOTİV VE GIDA TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Akşemsettin Mahallesi Çevreyolu Caddesi  No:39/A Selçuklu / KONYA",
+      "adres": "Akşemsettin Mahallesi Çevreyolu Caddesi No:39/A Selçuklu / KONYA",
       "soket_bilgileri": ""
     },
     {
@@ -462,7 +782,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yunus Emre Mahallesi Hoca Ahmet Yesevi Sokağı  No:1 Tosya / KASTAMONU",
+      "adres": "Yunus Emre Mahallesi Hoca Ahmet Yesevi Sokağı No:1 Tosya / KASTAMONU",
       "soket_bilgileri": ""
     },
     {
@@ -472,7 +792,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EMİROĞLU PETROL TURİZM GIDA MOTORLU ARAÇLAR VE TAŞ. HİZ. SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
-      "adres": "Hanlıköy Mahallesi Eskişehir Caddesi  No:38 Z1 Arifiye / SAKARYA",
+      "adres": "Hanlıköy Mahallesi Eskişehir Caddesi No:38 Z1 Arifiye / SAKARYA",
       "soket_bilgileri": ""
     },
     {
@@ -482,7 +802,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ALTUĞ PETROL ÜRÜNLERİ NAKLİYAT İNŞAAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
-      "adres": "Fevzi Çakmak Mahallesi  No:30/A Merkez / UŞAK",
+      "adres": "Fevzi Çakmak Mahallesi No:30/A Merkez / UŞAK",
       "soket_bilgileri": ""
     },
     {
@@ -492,7 +812,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EMİRSU PETROL ÜRÜNLERİ TURİZM TAŞIMACILIK İNŞAAT EMLAK TİCARET VE SANAYİ LİMİTED ŞİRKETİ",
-      "adres": "Yeşilköy Kalkan Karayolu 1 Km Mahallesi  Yeşilköy Kaş / ANTALYA",
+      "adres": "Yeşilköy Kalkan Karayolu 1 Km Mahallesi Yeşilköy Kaş / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -502,7 +822,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "SANPA OTOMOTİV TURİZM DANIŞMANLIK VE DENİZ ÜRÜNLERİ SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
-      "adres": "Atatürk Mahallesi Orhaniye Caddesi  No:2 Salihli / MANİSA",
+      "adres": "Atatürk Mahallesi Orhaniye Caddesi No:2 Salihli / MANİSA",
       "soket_bilgileri": ""
     },
     {
@@ -512,7 +832,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ERKAN HAYVANCILIK TARIM İNŞAAT TURİZM PETROL SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
-      "adres": "Karakollar Mahallesi  No:6 Çine / AYDIN",
+      "adres": "Karakollar Mahallesi No:6 Çine / AYDIN",
       "soket_bilgileri": ""
     },
     {
@@ -522,7 +842,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CANBEYLİ GRUP OTOMOTİV İNŞAAT ANONİM ŞİRKETİ",
-      "adres": "Akpınar Mahallesi  No:330 Haliliye / ŞANLIURFA",
+      "adres": "Akpınar Mahallesi No:330 Haliliye / ŞANLIURFA",
       "soket_bilgileri": ""
     },
     {
@@ -532,7 +852,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "MİR U BEG PETROL ÜRÜNLERİ NAKLİYAT TARIM GIDA OTOMOTİV İNŞAAT TURİZM SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
-      "adres": "Fırat Mahallesi  No:68 Kayapınar / DİYARBAKIR",
+      "adres": "Fırat Mahallesi No:68 Kayapınar / DİYARBAKIR",
       "soket_bilgileri": ""
     },
     {
@@ -542,7 +862,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "SİMPET AKARYAKIT VE SERVİS HİZMETLERİ TURİZM TAŞIMACILIK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Odunluk Mahallesi İzmir Yolu Caddesi  No:61 Nilüfer / BURSA",
+      "adres": "Odunluk Mahallesi İzmir Yolu Caddesi No:61 Nilüfer / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -552,7 +872,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ŞİLE MARİN BEACH HOTEL TURİZM HİZMETLERİ LİMİTED ŞİRKETİ",
-      "adres": "Çavuş Mahallesi Üretken Sokağı  No:4D Şile / İSTANBUL",
+      "adres": "Çavuş Mahallesi Üretken Sokağı No:4D Şile / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -562,12 +882,12 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "SOYAK PARK APARTS 1.ETAP SİTE YÖNETİMİ",
-      "adres": "Atakent Mahallesi  No:32 Küçükçekmece / İSTANBUL",
+      "adres": "Atakent Mahallesi No:32 Küçükçekmece / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
       "istasyon_no": "ŞRJ/3355",
-      "istasyon_adi": "Otojet -  Özaydın Petrol",
+      "istasyon_adi": "Otojet - Özaydın Petrol",
       "hizmet_sekli": "Halka Açık",
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
@@ -582,7 +902,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "YAMAN YENİLENEBİLİR ENERJİ VE AKARYAKIT ANONİM ŞİRKETİ",
-      "adres": "Kasaplar Mahallesi E-5 Caddesi  No:36 Merkez / BOLU",
+      "adres": "Kasaplar Mahallesi E-5 Caddesi No:36 Merkez / BOLU",
       "soket_bilgileri": ""
     },
     {
@@ -592,7 +912,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "KAYIKÇIOĞLU PETROL AKARYAKIT TAŞIMACILIK İNŞAAT OTOMOTİV GIDA TİCARET VE SANAYİ LİMİTED ŞİRKETİ",
-      "adres": "Arpaçbahşiş Mahallesi 201 Sokağı  No:102 B1/1 Erdemli / MERSİN",
+      "adres": "Arpaçbahşiş Mahallesi 201 Sokağı No:102 B1/1 Erdemli / MERSİN",
       "soket_bilgileri": ""
     },
     {
@@ -602,7 +922,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ATİK PETROL ALTYAPI İNŞAAT TAAHHÜT SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Şerefler Mahallesi Tersakan Küme Evleri Caddesi  No:1 Dalaman / MUĞLA",
+      "adres": "Şerefler Mahallesi Tersakan Küme Evleri Caddesi No:1 Dalaman / MUĞLA",
       "soket_bilgileri": ""
     },
     {
@@ -612,7 +932,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "AKKUŞLAR AKARYAKIT GIDA TURİZM NAKLİYAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
-      "adres": "Küçükköy Mahallesi  Tellikavak Ayvalık / BALIKESİR",
+      "adres": "Küçükköy Mahallesi Tellikavak Ayvalık / BALIKESİR",
       "soket_bilgileri": ""
     },
     {
@@ -622,7 +942,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TEK-YIL OTOMOTİV PAZARLAMA TİCARET VE SANAYİ LİMİTED ŞİRKETİ",
-      "adres": "Sümer Mahallesi Fevzi Çakmak Caddesi  No:102 Merkez / NEVŞEHİR",
+      "adres": "Sümer Mahallesi Fevzi Çakmak Caddesi No:102 Merkez / NEVŞEHİR",
       "soket_bilgileri": ""
     },
     {
@@ -632,7 +952,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ER-BAL PETROL ÜRÜNLERİ, TURİZM, GIDA MADDELERİ, İHRACAT, İTHALAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
-      "adres": "Aşağızaferiye Mahallesi  No:60 C Keşan / EDİRNE",
+      "adres": "Aşağızaferiye Mahallesi No:60 C Keşan / EDİRNE",
       "soket_bilgileri": ""
     },
     {
@@ -642,7 +962,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "KONYA PETROL SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Fatih Mahallesi Yeni İstanbul Caddesi  No:14 B Selçuklu / KONYA",
+      "adres": "Fatih Mahallesi Yeni İstanbul Caddesi No:14 B Selçuklu / KONYA",
       "soket_bilgileri": ""
     },
     {
@@ -662,7 +982,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ATA PETROL TİCARET LİMİTED ŞİRKETİ",
-      "adres": "Zivecik Mahallesi Aksaray Çevreyolu Caddesi  No:208/2 Karatay / KONYA",
+      "adres": "Zivecik Mahallesi Aksaray Çevreyolu Caddesi No:208/2 Karatay / KONYA",
       "soket_bilgileri": ""
     },
     {
@@ -672,7 +992,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ATA PETROL TİCARET LİMİTED ŞİRKETİ",
-      "adres": "Şemsi Tebrizi Mahallesi Ankara Caddesi  No:18 Karatay / KONYA",
+      "adres": "Şemsi Tebrizi Mahallesi Ankara Caddesi No:18 Karatay / KONYA",
       "soket_bilgileri": ""
     },
     {
@@ -682,7 +1002,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "KELEŞLER DAYANIKLI TÜKETİM MALLLARI VE PETROL ÜRÜRÜNLERİ İNŞAAT SANAYİ TİCARET LİMİTED ŞİRKETİ",
-      "adres": "Güney Mahallesi Zonguldak Yolu Caddesi  No:8A Kozlu / ZONGULDAK",
+      "adres": "Güney Mahallesi Zonguldak Yolu Caddesi No:8A Kozlu / ZONGULDAK",
       "soket_bilgileri": ""
     },
     {
@@ -692,7 +1012,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ÇOLAKLAR İNŞAAT TAAHHÜT MÜHENDİSLİK İNŞAAT MALZEMELERİ TAŞIMACILIK TURİZM ACENTELİĞİ OTO YEDEK PARÇA BOYA TAMİR TEKSTİL ÜRÜNLERİ DAYANIKLI TÜKETİM MALLARI MOBİLYA TEMİZLİK HİZMETLERİ GIDA PETROL VE TURİSTİK DİNLENME TESİSLERİ SANAYİ TİCARET LİMİTED ŞİRKETİ",
-      "adres": "Cumhuriyet Mahallesi  Alaşehir Yolu Üzeri Buldan / DENİZLİ",
+      "adres": "Cumhuriyet Mahallesi Alaşehir Yolu Üzeri Buldan / DENİZLİ",
       "soket_bilgileri": ""
     },
     {
@@ -702,7 +1022,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "İNALLAR OTOMOTİV SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Ovaakça Çeşmebaşı Mahallesi İstanbul Caddesi  No:669 Osmangazi / BURSA",
+      "adres": "Ovaakça Çeşmebaşı Mahallesi İstanbul Caddesi No:669 Osmangazi / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -712,7 +1032,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "MORDENİZ TURİZM İŞLETMECİLİĞİ ANONİM ŞİRKETİ",
-      "adres": "İçmeler Mahallesi Atatürk Caddesi  No:60 Marmaris / MUĞLA",
+      "adres": "İçmeler Mahallesi Atatürk Caddesi No:60 Marmaris / MUĞLA",
       "soket_bilgileri": ""
     },
     {
@@ -732,7 +1052,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "PARKTEC TURİZM İNŞAAT SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Barbaros Mahallesi Atatürk Caddesi  No:306 Merkez / ÇANAKKALE",
+      "adres": "Barbaros Mahallesi Atatürk Caddesi No:306 Merkez / ÇANAKKALE",
       "soket_bilgileri": ""
     },
     {
@@ -742,7 +1062,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "IRMAKTAŞ PETROL İNŞAAT MADEN SANAYİ TİCARET LİMİTED ŞİRKETİ",
-      "adres": "Kocagür Mahallesi  No:128 Efeler / AYDIN",
+      "adres": "Kocagür Mahallesi No:128 Efeler / AYDIN",
       "soket_bilgileri": ""
     },
     {
@@ -752,7 +1072,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "DEDEOĞULLARI PETROL VE SOĞUK HAVA DEPOLAR GIDA SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
-      "adres": "Yelki Mahallesi 2732 Sokağı  No:114 Güzelbahçe / İZMİR",
+      "adres": "Yelki Mahallesi 2732 Sokağı No:114 Güzelbahçe / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -762,7 +1082,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ARPAK AKARYAKIT VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Cumhuriyet Mahallesi Kartal Caddesi  No:73 Kartal / İSTANBUL",
+      "adres": "Cumhuriyet Mahallesi Kartal Caddesi No:73 Kartal / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -772,7 +1092,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "DOCO PETROL VE DANIŞMANLIK ANONİM ŞİRKETİ",
-      "adres": "Saadet Dere Mahallesi  Ambarlı Kavşağı E5 Karayolu Üzeri Esenyurt / İSTANBUL",
+      "adres": "Saadet Dere Mahallesi Ambarlı Kavşağı E5 Karayolu Üzeri Esenyurt / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -782,7 +1102,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ÜNLÜ PETROL ÜRÜNLERİ TARIM ZİRAİ ALET VE İNŞAAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
-      "adres": "Atatürk Mahallesi İzmir Bursa Sürat Yolu Üzeri Caddesi Küme Evleri Sokağı  No:2 Merkez / MANİSA",
+      "adres": "Atatürk Mahallesi İzmir Bursa Sürat Yolu Üzeri Caddesi Küme Evleri Sokağı No:2 Merkez / MANİSA",
       "soket_bilgileri": ""
     },
     {
@@ -792,7 +1112,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "BURSA DEM ENERJİ TEKSTİL İNŞAAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
-      "adres": "Seyran Mahallesi  Çingenmeşe Karacabey / BURSA",
+      "adres": "Seyran Mahallesi Çingenmeşe Karacabey / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -802,7 +1122,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ÖZ YILDIRIMLAR PETROL RESTORAN GIDA İNŞAAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
-      "adres": "Yeşilöz Mahallesi Cumhuriyet Sokağı  No:A. APT 13/A  Yeşilöz  Irmak Yahşihan / KIRIKKALE",
+      "adres": "Yeşilöz Mahallesi Cumhuriyet Sokağı No:A. APT 13/A Yeşilöz Irmak Yahşihan / KIRIKKALE",
       "soket_bilgileri": ""
     },
     {
@@ -812,7 +1132,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "BABASULTAN PETROL İNŞAAT TURİZM NAKLİYE TEMİZLİK SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
-      "adres": "Akarca Mahallesi  No:152 Fethiye / MUĞLA",
+      "adres": "Akarca Mahallesi No:152 Fethiye / MUĞLA",
       "soket_bilgileri": ""
     },
     {
@@ -822,7 +1142,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EMLAK KONUT BAHÇEKENT TİCARET MERKEZİ1. SİTE YÖNETİMİ",
-      "adres": "Bahçeşehir 2. Kısım Mahallesi  No:24 Başakşehir / İSTANBUL",
+      "adres": "Bahçeşehir 2. Kısım Mahallesi No:24 Başakşehir / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -832,7 +1152,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Örnekköy Mahallesi İzmir Çevreyolu Caddesi  No:101 Karşıyaka / İZMİR",
+      "adres": "Örnekköy Mahallesi İzmir Çevreyolu Caddesi No:101 Karşıyaka / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -842,7 +1162,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "DİVAN RESİDENCE SİTEYÖNETİMİ",
-      "adres": "İstasyon Mahallesi Siteyolu Caddesi 1421 Sokağı  No:C BLOK 62 Küçükçekmece / İSTANBUL",
+      "adres": "İstasyon Mahallesi Siteyolu Caddesi 1421 Sokağı No:C BLOK 62 Küçükçekmece / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -862,7 +1182,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EMLAK KONUT BAHÇEKENT TİCARET MERKEZİ1. SİTE YÖNETİMİ",
-      "adres": "Başakşehir Mahallesi Anafartalar Caddesi  No:2 Başakşehir / İSTANBUL",
+      "adres": "Başakşehir Mahallesi Anafartalar Caddesi No:2 Başakşehir / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -882,7 +1202,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TURCANLAR TEKSTİL İNŞAAT NAKLİYAT GIDA VE PETROL ÜRÜNLERİ TİCARET VE SANAYİ LİMİTED ŞİRKETİ",
-      "adres": "Niğde Osb Bor Yolu Caddesi  No:44 Bor / NİĞDE",
+      "adres": "Niğde Osb Bor Yolu Caddesi No:44 Bor / NİĞDE",
       "soket_bilgileri": ""
     },
     {
@@ -892,7 +1212,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "GERGÜL YAPI PAZARLAMA SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
-      "adres": "Yeni Havalimanı Caddesi  No:40  İstasyonaltı Aosb Çiğli / İZMİR",
+      "adres": "Yeni Havalimanı Caddesi No:40 İstasyonaltı Aosb Çiğli / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -902,7 +1222,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "YURTAY PETROL TAŞIMICILIK OTOMOTİV GIDA TURİZM İNŞAAT İNŞAAT MALZEMELERİ TİCARET SANAYİ LİMİTED ŞİRKETİ",
-      "adres": "Yenişehir Mahallesi Kayseri Caddesi  No:25 Merkez / SİVAS",
+      "adres": "Yenişehir Mahallesi Kayseri Caddesi No:25 Merkez / SİVAS",
       "soket_bilgileri": ""
     },
     {
@@ -912,7 +1232,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "NİĞDE BELEDİYESİ BAŞKANLIĞI NİĞDE",
-      "adres": "İlhanlı Mahallesi Sanayi Caddesi  No:45 Merkez / NİĞDE",
+      "adres": "İlhanlı Mahallesi Sanayi Caddesi No:45 Merkez / NİĞDE",
       "soket_bilgileri": ""
     },
     {
@@ -932,7 +1252,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "UZARLAR DIŞ TİCARET LİMİTED ŞİRKETİ",
-      "adres": "Muğla Marmaris Karayolu Mahallesi  Kötekli Merkez / MUĞLA",
+      "adres": "Muğla Marmaris Karayolu Mahallesi Kötekli Merkez / MUĞLA",
       "soket_bilgileri": ""
     },
     {
@@ -942,7 +1262,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "VARYAP MERIDIAN 6 TOPLU YAPISI",
-      "adres": "Barbaros Mahallesi Mor Sümbül Caddesi  No:1 Ataşehir / İSTANBUL",
+      "adres": "Barbaros Mahallesi Mor Sümbül Caddesi No:1 Ataşehir / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -952,7 +1272,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ÇAĞ DERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Barbaros Hayrettin Paşa Mahallesi 1992 Sokağı  No:4 Esenyurt / İSTANBUL",
+      "adres": "Barbaros Hayrettin Paşa Mahallesi 1992 Sokağı No:4 Esenyurt / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -962,7 +1282,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "BAYCANLAR İNŞAAT SANAYİ TİCARET LİMİTED ŞİRKETİ",
-      "adres": "Merkez Mahallesi Hamzabeyli Gümrük Caddesi  No:2 Lalapaşa / EDİRNE",
+      "adres": "Merkez Mahallesi Hamzabeyli Gümrük Caddesi No:2 Lalapaşa / EDİRNE",
       "soket_bilgileri": ""
     },
     {
@@ -972,7 +1292,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EKMEL İNŞAAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
-      "adres": "Ömerli Mahallesi Şile Yolu Caddesi  No:10/102 Çekmeköy / İSTANBUL",
+      "adres": "Ömerli Mahallesi Şile Yolu Caddesi No:10/102 Çekmeköy / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -982,7 +1302,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "BEŞLER AKARYAKIT TAŞIMACILIK YEDEK PARÇA İNŞAAT MALZEMELERİ VE TARIMSAL ÜRÜNLER SANAYİ TİCARET LİMİTED ŞİRKETİ",
-      "adres": "Yayla Mahallesi Sahil Yolu Caddesi  No:121 Kocaali / SAKARYA",
+      "adres": "Yayla Mahallesi Sahil Yolu Caddesi No:121 Kocaali / SAKARYA",
       "soket_bilgileri": ""
     },
     {
@@ -992,7 +1312,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "DOCO PETROL VE DANIŞMANLIK ANONİM ŞİRKETİ",
-      "adres": "Tahtakale Mahallesi Açelya Sokağı  No:4 Avcılar / İSTANBUL",
+      "adres": "Tahtakale Mahallesi Açelya Sokağı No:4 Avcılar / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -1002,7 +1322,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Güzelce Mahallesi Geçit Caddesi  No:9/17 Büyükçekmece / İSTANBUL",
+      "adres": "Güzelce Mahallesi Geçit Caddesi No:9/17 Büyükçekmece / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -1012,7 +1332,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Güzelce Mahallesi Geçit Caddesi  No:9/19 Büyükçekmece / İSTANBUL",
+      "adres": "Güzelce Mahallesi Geçit Caddesi No:9/19 Büyükçekmece / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -1022,7 +1342,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "NİĞDE BELEDİYESİ BAŞKANLIĞI NİĞDE",
-      "adres": "Yukarıkayabaşı Mahallesi Adliye Caddesi  No:1 Merkez / NİĞDE",
+      "adres": "Yukarıkayabaşı Mahallesi Adliye Caddesi No:1 Merkez / NİĞDE",
       "soket_bilgileri": ""
     },
     {
@@ -1032,7 +1352,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "KERMANOĞULLARI PETROL ÜRÜNLERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Atatürk Mahallesi Dsi Kümevler Caddesi  No:77 A İpsala / EDİRNE",
+      "adres": "Atatürk Mahallesi Dsi Kümevler Caddesi No:77 A İpsala / EDİRNE",
       "soket_bilgileri": ""
     },
     {
@@ -1042,7 +1362,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Ağabeyli Mahallesi Ağabeyli Caddesi  No:0 Cihanbeyli / KONYA",
+      "adres": "Ağabeyli Mahallesi Ağabeyli Caddesi No:0 Cihanbeyli / KONYA",
       "soket_bilgileri": ""
     },
     {
@@ -1052,7 +1372,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TAÇ SPOR KULÜBÜ DERNEĞİ İKTİSADİ İŞLETMESİ",
-      "adres": "Küçükbakkalköy Mahallesi Prof. Dr.hıfzı Özcan Sokağı  No:8381 Ataşehir / İSTANBUL",
+      "adres": "Küçükbakkalköy Mahallesi Prof. Dr.hıfzı Özcan Sokağı No:8381 Ataşehir / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -1072,7 +1392,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TERRACEPARK ÇEŞME SİTESİ",
-      "adres": "16 Eylül Mahallesi 3014 Sokağı  No:96 Çeşme / İZMİR",
+      "adres": "16 Eylül Mahallesi 3014 Sokağı No:96 Çeşme / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -1082,7 +1402,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "40 SAİNTS SİTE YÖNETİCİLİĞİ",
-      "adres": "16 Eylül Mahallesi 3014 Sokağı  No:74-76 Çeşme / İZMİR",
+      "adres": "16 Eylül Mahallesi 3014 Sokağı No:74-76 Çeşme / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -1092,7 +1412,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Uncubozköy Mahallesi  No:5526 Yunusemre / MANİSA",
+      "adres": "Uncubozköy Mahallesi No:5526 Yunusemre / MANİSA",
       "soket_bilgileri": ""
     },
     {
@@ -1102,7 +1422,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "VENTUS PETROL LİMİTED ŞİRKETİ",
-      "adres": "İstiklal Mahallesi Çevre Yolu Caddesi  No:10 Çan / ÇANAKKALE",
+      "adres": "İstiklal Mahallesi Çevre Yolu Caddesi No:10 Çan / ÇANAKKALE",
       "soket_bilgileri": ""
     },
     {
@@ -1112,7 +1432,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ERCOŞ LOJİSTİK HİZMETLERİ OTOGAZ AKARYAKIT İSTASYONU OTO YEDEK PARÇA ARAÇ KİRALAMA VE BAKIM SANAYİ TİCARET İTHALAT İHRACAT ANONİM ŞİRKETİ",
-      "adres": "Muradiye Mahallesi Sanatkarlar Caddesi  No:42 Yunusemre / MANİSA",
+      "adres": "Muradiye Mahallesi Sanatkarlar Caddesi No:42 Yunusemre / MANİSA",
       "soket_bilgileri": ""
     },
     {
@@ -1122,7 +1442,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Mithatpaşa Mahallesi  No:151 Eyüpsultan / İSTANBUL",
+      "adres": "Mithatpaşa Mahallesi No:151 Eyüpsultan / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -1132,7 +1452,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "MY YAŞARLAR ENERJİ AKARYAKIT OTOMOTİV SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
-      "adres": "İşletme Mahallesi  No:529-531 Tatvan / BİTLİS",
+      "adres": "İşletme Mahallesi No:529-531 Tatvan / BİTLİS",
       "soket_bilgileri": ""
     },
     {
@@ -1142,7 +1462,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yenişehir Mahallesi Dedepaşa Sokağı  No:21 Pendik / İSTANBUL",
+      "adres": "Yenişehir Mahallesi Dedepaşa Sokağı No:21 Pendik / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -1152,7 +1472,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Barbaros Mahallesi Ihlamur Sokağı  No:12G Ataşehir / İSTANBUL",
+      "adres": "Barbaros Mahallesi Ihlamur Sokağı No:12G Ataşehir / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -1162,7 +1482,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Mehmet Akif Ersoy Mahallesi 336 Sokağı  No:2 Yenimahalle / ANKARA",
+      "adres": "Mehmet Akif Ersoy Mahallesi 336 Sokağı No:2 Yenimahalle / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -1172,7 +1492,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Muradiye Mahallesi Manolya Sokağı  No:228/5 Yunusemre / MANİSA",
+      "adres": "Muradiye Mahallesi Manolya Sokağı No:228/5 Yunusemre / MANİSA",
       "soket_bilgileri": ""
     },
     {
@@ -1192,7 +1512,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kavacık Mahallesi Atatürk Sokağı  No:40 Beykoz / İSTANBUL",
+      "adres": "Kavacık Mahallesi Atatürk Sokağı No:40 Beykoz / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -1202,7 +1522,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "İNALLAR OTOMOTİV SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Aladdinbey Mahallesi İzmir Yolu Caddesi  No:375 Nilüfer / BURSA",
+      "adres": "Aladdinbey Mahallesi İzmir Yolu Caddesi No:375 Nilüfer / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -1212,7 +1532,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "29 Ekim Mahallesi  No:8 Menemen / İZMİR",
+      "adres": "29 Ekim Mahallesi No:8 Menemen / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -1222,7 +1542,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Tepeköy Mahallesi Kümeevleri Sokağı  No:15  Kulak Keşap / GİRESUN",
+      "adres": "Tepeköy Mahallesi Kümeevleri Sokağı No:15 Kulak Keşap / GİRESUN",
       "soket_bilgileri": ""
     },
     {
@@ -1232,7 +1552,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Muratlı Mahallesi Muratlı Sokağı  No:119/3 Karacabey / BURSA",
+      "adres": "Muratlı Mahallesi Muratlı Sokağı No:119/3 Karacabey / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -1242,7 +1562,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Muratlı Mahallesi Muratlı Sokağı  No:119/2 Karacabey / BURSA",
+      "adres": "Muratlı Mahallesi Muratlı Sokağı No:119/2 Karacabey / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -1252,7 +1572,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "BEYAZÇİFTLİK TARIM OTOMOTİV İNŞAAT NAKLİYAT PETROL ÜRÜNLERİ SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
-      "adres": "Yenice Mahallesi  No:1  Güneykent/keçiborlu Gönen / ISPARTA",
+      "adres": "Yenice Mahallesi No:1 Güneykent/keçiborlu Gönen / ISPARTA",
       "soket_bilgileri": ""
     },
     {
@@ -1262,7 +1582,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "BALKAYA TARIM HAYVANCILIK VETERİNER HİZMETLERİ TARIMSAL VE HAYVANSAL ÜRÜNLER İLAÇLAR VE EKİPMANLAR İÇ TİCARETİ İNŞAAT TAAHHÜT VE TURİZM LİMİTED ŞİRKETİ",
-      "adres": "Köşk Mahallesi Merkez 36 Sokağı  No:119 Milas / MUĞLA",
+      "adres": "Köşk Mahallesi Merkez 36 Sokağı No:119 Milas / MUĞLA",
       "soket_bilgileri": ""
     },
     {
@@ -1272,7 +1592,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Fatih Mahallesi Çelebi Caddesi  No:2-6 Tuzla / İSTANBUL",
+      "adres": "Fatih Mahallesi Çelebi Caddesi No:2-6 Tuzla / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -1282,7 +1602,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ISTIRANCA TURİZM TAŞIMACILIK İNŞAAT VE AKARYAKIT TİCARET LİMİTED ŞİRKETİ",
-      "adres": "Yeni Mahallesi  No:8  İğneada  Sislioba Köyü Yolu Demirköy / KIRKLARELİ",
+      "adres": "Yeni Mahallesi No:8 İğneada Sislioba Köyü Yolu Demirköy / KIRKLARELİ",
       "soket_bilgileri": ""
     },
     {
@@ -1292,7 +1612,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Cennetyatağı Mahallesi  No:18/1 Edremit / BALIKESİR",
+      "adres": "Cennetyatağı Mahallesi No:18/1 Edremit / BALIKESİR",
       "soket_bilgileri": ""
     },
     {
@@ -1302,7 +1622,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "İzmir Çanakkale Yolu Caddesi  No:3  Erenköy Yeni Mevkii Merkez / ÇANAKKALE",
+      "adres": "İzmir Çanakkale Yolu Caddesi No:3 Erenköy Yeni Mevkii Merkez / ÇANAKKALE",
       "soket_bilgileri": ""
     },
     {
@@ -1312,7 +1632,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Mimar Sinan Mahallesi Hasdal Kemerburgaz Yolu Caddesi  No:13 Eyüpsultan / İSTANBUL",
+      "adres": "Mimar Sinan Mahallesi Hasdal Kemerburgaz Yolu Caddesi No:13 Eyüpsultan / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -1322,7 +1642,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Fatih Mahallesi Kanuni Caddesi  No:2/6 Tuzla / İSTANBUL",
+      "adres": "Fatih Mahallesi Kanuni Caddesi No:2/6 Tuzla / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -1342,7 +1662,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Göztepe Mahallesi Tepegöz Sokağı  No:50 Kadıköy / İSTANBUL",
+      "adres": "Göztepe Mahallesi Tepegöz Sokağı No:50 Kadıköy / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -1352,7 +1672,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ÇINAR PETROL NAKLİYAT TARIM HAYVANCILIK GIDA SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
-      "adres": "Şafak Mahallesi 5009 Sokağı  No:7 Kepez / ANTALYA",
+      "adres": "Şafak Mahallesi 5009 Sokağı No:7 Kepez / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -1362,7 +1682,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "MUSTAFA KARABULUT PETROL ÜRÜNLERİ GIDA İNŞAAT TAŞIMACILIK İTHALAT İHRACAT TİCARET SANAYİ PAZARLAMA LİMİTED ŞİRKETİ",
-      "adres": "Uncalı Mahallesi Uluç Caddesi 1224 Sokağı  No:6 Konyaaltı / ANTALYA",
+      "adres": "Uncalı Mahallesi Uluç Caddesi 1224 Sokağı No:6 Konyaaltı / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -1372,7 +1692,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Göztepe Mahallesi Mehmet Şeyda Sokağı  No:2/A Kadıköy / İSTANBUL",
+      "adres": "Göztepe Mahallesi Mehmet Şeyda Sokağı No:2/A Kadıköy / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -1382,17 +1702,17 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Beyobası Mahallesi Kümeevleri Sokağı  No:11/1 Gazipaşa / ANTALYA",
+      "adres": "Beyobası Mahallesi Kümeevleri Sokağı No:11/1 Gazipaşa / ANTALYA",
       "soket_bilgileri": ""
     },
     {
       "istasyon_no": "ŞRJ/16428",
-      "istasyon_adi": "Otojet  - Life City Sitesi",
+      "istasyon_adi": "Otojet - Life City Sitesi",
       "hizmet_sekli": "Özel",
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Seviltepe Mahallesi Sena Sokağı  No:7/1 Turgutlu / MANİSA",
+      "adres": "Seviltepe Mahallesi Sena Sokağı No:7/1 Turgutlu / MANİSA",
       "soket_bilgileri": ""
     },
     {
@@ -1402,7 +1722,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "İçmeler Mahallesi Kayabal Caddesi  No:61 Marmaris / MUĞLA",
+      "adres": "İçmeler Mahallesi Kayabal Caddesi No:61 Marmaris / MUĞLA",
       "soket_bilgileri": ""
     },
     {
@@ -1412,7 +1732,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ÖNKA YAPI VE İNŞAAT TAAHHÜT SANAYİ TİCARET LİMİTED ŞİRKETİ",
-      "adres": "Dörtyol Mahallesi Kütahya Yolu Caddesi  No:9 Merkez / AFYONKARAHİSAR",
+      "adres": "Dörtyol Mahallesi Kütahya Yolu Caddesi No:9 Merkez / AFYONKARAHİSAR",
       "soket_bilgileri": ""
     },
     {
@@ -1427,12 +1747,12 @@
     },
     {
       "istasyon_no": "ŞRJ/16556",
-      "istasyon_adi": "Otojet  - O3 Oksijen Dinlenme Tesisleri",
+      "istasyon_adi": "Otojet - O3 Oksijen Dinlenme Tesisleri",
       "hizmet_sekli": "Halka Açık",
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Diliskelesi Mahallesi 735 Sokağı  No:50 Dilovası / KOCAELİ",
+      "adres": "Diliskelesi Mahallesi 735 Sokağı No:50 Dilovası / KOCAELİ",
       "soket_bilgileri": ""
     },
     {
@@ -1442,7 +1762,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "İsmetpaşa Mahallesi Başöğretmen Sabri Bulut Caddesi  No:205 Gölmarmara / MANİSA",
+      "adres": "İsmetpaşa Mahallesi Başöğretmen Sabri Bulut Caddesi No:205 Gölmarmara / MANİSA",
       "soket_bilgileri": ""
     },
     {
@@ -1452,7 +1772,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "MOLA İNŞAAT TURİZM SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
-      "adres": "Karaburun Mahallesi Sahil Caddesi  No:46 Arnavutköy / İSTANBUL",
+      "adres": "Karaburun Mahallesi Sahil Caddesi No:46 Arnavutköy / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -1472,7 +1792,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Mustafa Kemal Mahallesi 2118 Caddesi  No:4 Çankaya / ANKARA",
+      "adres": "Mustafa Kemal Mahallesi 2118 Caddesi No:4 Çankaya / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -1482,7 +1802,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Site Mahallesi Atay Caddesi  No:43/C Ümraniye / İSTANBUL",
+      "adres": "Site Mahallesi Atay Caddesi No:43/C Ümraniye / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -1492,7 +1812,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Mahmutlar Mahallesi 130 Sokağı  No:3 Alanya / ANTALYA",
+      "adres": "Mahmutlar Mahallesi 130 Sokağı No:3 Alanya / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -1502,7 +1822,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "EROL GİRİTLİ AKARYAKIT GIDA OTOMOTİV NAKLİYE İNŞAAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
-      "adres": "Yenimahalle Çarşamba Mahallesi  No:60 Canik / SAMSUN",
+      "adres": "Yenimahalle Çarşamba Mahallesi No:60 Canik / SAMSUN",
       "soket_bilgileri": ""
     },
     {
@@ -1512,7 +1832,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Eti Mahallesi Gazi Mustafa Kemal Sokağı  No:138 Çankaya / ANKARA",
+      "adres": "Eti Mahallesi Gazi Mustafa Kemal Sokağı No:138 Çankaya / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -1532,7 +1852,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yalınlı Mahallesi  No:2 Döşemealtı / ANTALYA",
+      "adres": "Yalınlı Mahallesi No:2 Döşemealtı / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -1542,7 +1862,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Sırakapılar Mahallesi 1771 Sokağı  No:10 Merkezefendi / DENİZLİ",
+      "adres": "Sırakapılar Mahallesi 1771 Sokağı No:10 Merkezefendi / DENİZLİ",
       "soket_bilgileri": ""
     },
     {
@@ -1562,7 +1882,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Topraklık Mahallesi  No:41 Pamukkale / DENİZLİ",
+      "adres": "Topraklık Mahallesi No:41 Pamukkale / DENİZLİ",
       "soket_bilgileri": ""
     },
     {
@@ -1582,17 +1902,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Teleferik Bağbaşı Yaylası Mahallesi Alparslan Caddesi  No:35 Pamukkale / DENİZLİ",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/17016",
-      "istasyon_adi": "Otojet - Blue Port AVM",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "Otojet",
-      "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kemeraltı Mahallesi Marmaris / MUĞLA",
+      "adres": "Teleferik Bağbaşı Yaylası Mahallesi Alparslan Caddesi No:35 Pamukkale / DENİZLİ",
       "soket_bilgileri": ""
     },
     {
@@ -1612,7 +1922,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "İstiklal Mahallesi 7454 Sokağı  No:4/A Menemen / İZMİR",
+      "adres": "İstiklal Mahallesi 7454 Sokağı No:4/A Menemen / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -1622,7 +1932,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Organize Sanayi Bölgesi Mahallesi 15 Nolu Caddesi  No:20 Merkez / KİLİS",
+      "adres": "Organize Sanayi Bölgesi Mahallesi 15 Nolu Caddesi No:20 Merkez / KİLİS",
       "soket_bilgileri": ""
     },
     {
@@ -1632,7 +1942,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "29 Ekim Mahallesi 1. Caddesi 7218 Sokağı  Ulukent Menemen / İZMİR",
+      "adres": "29 Ekim Mahallesi 1. Caddesi 7218 Sokağı Ulukent Menemen / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -1642,7 +1952,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Bakacak Mahallesi  No:70 Karesi / BALIKESİR",
+      "adres": "Bakacak Mahallesi No:70 Karesi / BALIKESİR",
       "soket_bilgileri": ""
     },
     {
@@ -1652,7 +1962,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Bakacak Mahallesi  No:70 Karesi / BALIKESİR",
+      "adres": "Bakacak Mahallesi No:70 Karesi / BALIKESİR",
       "soket_bilgileri": ""
     },
     {
@@ -1662,7 +1972,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "İstiklal Mahallesi 7507 Sokağı  No:1  Ulukent Menemen / İZMİR",
+      "adres": "İstiklal Mahallesi 7507 Sokağı No:1 Ulukent Menemen / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -1672,7 +1982,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Gerzele Mahallesi Şahin Sokağı  No:6 Merkezefendi / DENİZLİ",
+      "adres": "Gerzele Mahallesi Şahin Sokağı No:6 Merkezefendi / DENİZLİ",
       "soket_bilgileri": ""
     },
     {
@@ -1712,7 +2022,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Macun Mahallesi 171 Sokağı  No:2 Yenimahalle / ANKARA",
+      "adres": "Macun Mahallesi 171 Sokağı No:2 Yenimahalle / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -1742,7 +2052,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kınıklı Üniversite Mahallesi  No:30 Merkez / DENİZLİ",
+      "adres": "Kınıklı Üniversite Mahallesi No:30 Merkez / DENİZLİ",
       "soket_bilgileri": ""
     },
     {
@@ -1762,7 +2072,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Aşağı Mahallesi Koy Sokağı  Deregümü Merkez / ISPARTA",
+      "adres": "Aşağı Mahallesi Koy Sokağı Deregümü Merkez / ISPARTA",
       "soket_bilgileri": ""
     },
     {
@@ -1772,7 +2082,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Turgut Özal Mahallesi Mardin Caddesi  No:198 Kızıltepe / MARDİN",
+      "adres": "Turgut Özal Mahallesi Mardin Caddesi No:198 Kızıltepe / MARDİN",
       "soket_bilgileri": ""
     },
     {
@@ -1792,7 +2102,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kınıklı Mahallesi  No:74 Merkez / DENİZLİ",
+      "adres": "Kınıklı Mahallesi No:74 Merkez / DENİZLİ",
       "soket_bilgileri": ""
     },
     {
@@ -1812,7 +2122,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Mehmetçik Mahallesi  No:49 Merkez / DENİZLİ",
+      "adres": "Mehmetçik Mahallesi No:49 Merkez / DENİZLİ",
       "soket_bilgileri": ""
     },
     {
@@ -1822,7 +2132,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Mehmetçik Mahallesi İncilipınar Caddesi  No:146 Pamukkale / DENİZLİ",
+      "adres": "Mehmetçik Mahallesi İncilipınar Caddesi No:146 Pamukkale / DENİZLİ",
       "soket_bilgileri": ""
     },
     {
@@ -1842,7 +2152,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kınıklı Mahallesi 6012 Sokağı  No:4 Pamukkale / DENİZLİ",
+      "adres": "Kınıklı Mahallesi 6012 Sokağı No:4 Pamukkale / DENİZLİ",
       "soket_bilgileri": ""
     },
     {
@@ -1852,7 +2162,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "MEHMETÇİK VAKFI TURİZM PETROL İNŞAAT SAĞLIK GIDA VE TİCARET LİMİTED ŞİRKETİ",
-      "adres": "Başakşehir Mahallesi  No:157 Başakşehir / İSTANBUL",
+      "adres": "Başakşehir Mahallesi No:157 Başakşehir / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -1862,7 +2172,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "MEHMETÇİK VAKFI TURİZM PETROL İNŞAAT SAĞLIK GIDA VE TİCARET LİMİTED ŞİRKETİ",
-      "adres": "Reşitpaşa Mahallesi Büyükdere Caddesi  No:221/3 Sarıyer / İSTANBUL",
+      "adres": "Reşitpaşa Mahallesi Büyükdere Caddesi No:221/3 Sarıyer / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -1872,7 +2182,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Argavlı Mahallesi  No:14 Söke / AYDIN",
+      "adres": "Argavlı Mahallesi No:14 Söke / AYDIN",
       "soket_bilgileri": ""
     },
     {
@@ -1882,7 +2192,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Mustafa Kemal Mahallesi 2079 Sokağı  Bucak Çankaya / ANKARA",
+      "adres": "Mustafa Kemal Mahallesi 2079 Sokağı Bucak Çankaya / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -1892,7 +2202,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Beytepe Mahallesi  No:34/A Çankaya / ANKARA",
+      "adres": "Beytepe Mahallesi No:34/A Çankaya / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -1902,7 +2212,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Macun Mahallesi  No:250 Yenimahalle / ANKARA",
+      "adres": "Macun Mahallesi No:250 Yenimahalle / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -1912,7 +2222,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Bahçekapı Mahallesi  No:194 Etimesgut / ANKARA",
+      "adres": "Bahçekapı Mahallesi No:194 Etimesgut / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -1922,7 +2232,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Mehmet Akif Ersoy Mahallesi 336 Sokağı  No:2 Yenimahalle / ANKARA",
+      "adres": "Mehmet Akif Ersoy Mahallesi 336 Sokağı No:2 Yenimahalle / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -1932,7 +2242,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Konya Yolu Mahallesi Fen Lisesi Kavşağı Caddesi  No:208 Çankaya / ANKARA",
+      "adres": "Konya Yolu Mahallesi Fen Lisesi Kavşağı Caddesi No:208 Çankaya / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -1942,7 +2252,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Bağlıca Mahallesi  No:56 Etimesgut / ANKARA",
+      "adres": "Bağlıca Mahallesi No:56 Etimesgut / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -1952,7 +2262,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Beytepe Mahallesi  No:61/B Çankaya / ANKARA",
+      "adres": "Beytepe Mahallesi No:61/B Çankaya / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -1962,12 +2272,12 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yukarıdikmen Mahallesi Kudüs Sokağı  No:6 Çankaya / ANKARA",
+      "adres": "Yukarıdikmen Mahallesi Kudüs Sokağı No:6 Çankaya / ANKARA",
       "soket_bilgileri": ""
     },
     {
       "istasyon_no": "ŞRJ/13102",
-      "istasyon_adi": "Otojet  Marriot Hotel Ankara",
+      "istasyon_adi": "Otojet Marriot Hotel Ankara",
       "hizmet_sekli": "Halka Açık",
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
@@ -2002,7 +2312,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Saray Osmangazi Mahallesi  No:160 A Pursaklar / ANKARA",
+      "adres": "Saray Osmangazi Mahallesi No:160 A Pursaklar / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -2012,7 +2322,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Başköy Mahallesi İzmir Yolu Caddesi  No:712 Nilüfer / BURSA",
+      "adres": "Başköy Mahallesi İzmir Yolu Caddesi No:712 Nilüfer / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -2022,7 +2332,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "GÖRPET PETROL ÜRÜNLERİ İNŞAAT VE OTOMOTİV SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
-      "adres": "Ovacık Mahallesi D-100 Karoyolu Caddesi  No:14 Başiskele / KOCAELİ",
+      "adres": "Ovacık Mahallesi D-100 Karoyolu Caddesi No:14 Başiskele / KOCAELİ",
       "soket_bilgileri": ""
     },
     {
@@ -2042,7 +2352,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Küçük Çamlıca Mahallesi  No:23 Üsküdar / İSTANBUL",
+      "adres": "Küçük Çamlıca Mahallesi No:23 Üsküdar / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -2062,7 +2372,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Mahmutbey Mahallesi 2450 Sokağı  No:3/15 Bağcılar / İSTANBUL",
+      "adres": "Mahmutbey Mahallesi 2450 Sokağı No:3/15 Bağcılar / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -2072,7 +2382,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kozyatağı Mahallesi Bayar Caddesi Şakacı Sokağı  No:16 Kadıköy / İSTANBUL",
+      "adres": "Kozyatağı Mahallesi Bayar Caddesi Şakacı Sokağı No:16 Kadıköy / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -2082,7 +2392,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Soğuksu Mahallesi Pamir Sokağı  No:60 Beykoz / İSTANBUL",
+      "adres": "Soğuksu Mahallesi Pamir Sokağı No:60 Beykoz / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -2102,7 +2412,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yıldırım Mahallesi Çanakkale Asfaltı Caddesi  No:40/1 Menemen / İZMİR",
+      "adres": "Yıldırım Mahallesi Çanakkale Asfaltı Caddesi No:40/1 Menemen / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -2122,7 +2432,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Şevket İnce Mahallesi 2148/9 Sokağı  No:4 Bayraklı / İZMİR",
+      "adres": "Şevket İnce Mahallesi 2148/9 Sokağı No:4 Bayraklı / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -2131,8 +2441,8 @@
       "hizmet_sekli": "Halka Açık",
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "DOĞRAMACI  AKARYAKIT İNŞAAT TAŞIMACILIK GIDA VE İHTİYAÇ MADDELERİ SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
-      "adres": "Yunus Emre Mahallesi Çanakkale Şehit Caddesi  No:5 Tosya / KASTAMONU",
+      "sarj_istasyonu_isletmecisi": "DOĞRAMACI AKARYAKIT İNŞAAT TAŞIMACILIK GIDA VE İHTİYAÇ MADDELERİ SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "adres": "Yunus Emre Mahallesi Çanakkale Şehit Caddesi No:5 Tosya / KASTAMONU",
       "soket_bilgileri": ""
     },
     {
@@ -2142,7 +2452,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "MİZEY GIDA MAĞAZACILIK NAKLİYECİLİK TURİZM SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Sultaniye Mahallesi Balıkesir Caddesi  No:107 Susurluk / BALIKESİR",
+      "adres": "Sultaniye Mahallesi Balıkesir Caddesi No:107 Susurluk / BALIKESİR",
       "soket_bilgileri": ""
     },
     {
@@ -2152,7 +2462,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Göbü Mahallesi Aşağı Alan Sokağı  No:7/2 Ünye / ORDU",
+      "adres": "Göbü Mahallesi Aşağı Alan Sokağı No:7/2 Ünye / ORDU",
       "soket_bilgileri": ""
     },
     {
@@ -2162,7 +2472,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "MAİS MOTORLU ARAÇLAR İMAL VE SATIŞ ANONİM ŞİRKETİ",
-      "adres": "Kazım Dirik Mahallesi Üniversite Caddesi  No:41 Bornova / İZMİR",
+      "adres": "Kazım Dirik Mahallesi Üniversite Caddesi No:41 Bornova / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -2172,7 +2482,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "İstiklal Mahallesi Hacı Bayram Veli Sokağı  No:46/B Polatlı / ANKARA",
+      "adres": "İstiklal Mahallesi Hacı Bayram Veli Sokağı No:46/B Polatlı / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -2182,7 +2492,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Gündoğan Mahallesi Cennet Evler Sokağı  No:48100  Kızılburun Bodrum / MUĞLA",
+      "adres": "Gündoğan Mahallesi Cennet Evler Sokağı No:48100 Kızılburun Bodrum / MUĞLA",
       "soket_bilgileri": ""
     },
     {
@@ -2192,7 +2502,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Hürriyet Mahallesi Akyurt Sokağı  No:3/B Kartal / İSTANBUL",
+      "adres": "Hürriyet Mahallesi Akyurt Sokağı No:3/B Kartal / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -2212,7 +2522,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Kazlıçeşme Mahallesi 10. Yıl Caddesi  No:2/1 Zeytinburnu / İSTANBUL",
+      "adres": "Kazlıçeşme Mahallesi 10. Yıl Caddesi No:2/1 Zeytinburnu / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -2252,7 +2562,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "DOCO PETROL VE DANIŞMANLIK ANONİM ŞİRKETİ",
-      "adres": "Karadolap Mahallesi Gaziosmanpaşa Caddesi  No:150/A Eyüpsultan / İSTANBUL",
+      "adres": "Karadolap Mahallesi Gaziosmanpaşa Caddesi No:150/A Eyüpsultan / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -2262,7 +2572,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "DOCO PETROL VE DANIŞMANLIK ANONİM ŞİRKETİ",
-      "adres": "Altayçeşme Mahallesi Çamlı Sokağı  No:29 Maltepe / İSTANBUL",
+      "adres": "Altayçeşme Mahallesi Çamlı Sokağı No:29 Maltepe / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -2272,7 +2582,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "İstiklal Mahallesi 519 Sokağı  No:2/6 Menemen / İZMİR",
+      "adres": "İstiklal Mahallesi 519 Sokağı No:2/6 Menemen / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -2282,7 +2592,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Ferhatpaşa Mahallesi Çatalca Yolu Caddesi  No:10/1 Çatalca / İSTANBUL",
+      "adres": "Ferhatpaşa Mahallesi Çatalca Yolu Caddesi No:10/1 Çatalca / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -2292,7 +2602,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yenişehir Mahallesi E-90-1 Caddesi  No:70/1 Viranşehir / ŞANLIURFA",
+      "adres": "Yenişehir Mahallesi E-90-1 Caddesi No:70/1 Viranşehir / ŞANLIURFA",
       "soket_bilgileri": ""
     },
     {
@@ -2302,7 +2612,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "MY YAŞARLAR ENERJİ AKARYAKIT OTOMOTİV SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
-      "adres": "Hatuniye Mahallesi  No:96 İpekyolu / VAN",
+      "adres": "Hatuniye Mahallesi No:96 İpekyolu / VAN",
       "soket_bilgileri": ""
     },
     {
@@ -2312,7 +2622,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Argavlı Mahallesi  No:14 Söke / AYDIN",
+      "adres": "Argavlı Mahallesi No:14 Söke / AYDIN",
       "soket_bilgileri": ""
     },
     {
@@ -2322,7 +2632,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "2. İnönü Mahallesi Muzaffer Sokağı  No:2 /14 Narlıdere / İZMİR",
+      "adres": "2. İnönü Mahallesi Muzaffer Sokağı No:2 /14 Narlıdere / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -2332,7 +2642,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yukarı Dudullu Mahallesi Kanuni Sokağı  No:2/A Ümraniye / İSTANBUL",
+      "adres": "Yukarı Dudullu Mahallesi Kanuni Sokağı No:2/A Ümraniye / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -2342,7 +2652,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OYAK DRAGOS PROJESİ TOPLU YAPISI",
-      "adres": "Cevizli Mahallesi Tugay Yolu Caddesi  No:10 C Maltepe / İSTANBUL",
+      "adres": "Cevizli Mahallesi Tugay Yolu Caddesi No:10 C Maltepe / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -2352,7 +2662,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "GÜZEL ENERJİ AKARYAKIT ANONİM ŞİRKETİ",
-      "adres": "Cihanköy Mahallesi Cihanköy Sokağı  No:220 Orhangazi / BURSA",
+      "adres": "Cihanköy Mahallesi Cihanköy Sokağı No:220 Orhangazi / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -2362,7 +2672,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "GÜZEL ENERJİ AKARYAKIT ANONİM ŞİRKETİ",
-      "adres": "Cihanköy Mahallesi Cihanköy Sokağı  No:220 B Orhangazi / BURSA",
+      "adres": "Cihanköy Mahallesi Cihanköy Sokağı No:220 B Orhangazi / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -2392,7 +2702,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Osmangazi Mahallesi 574/3 Sokağı  No:15 Bayraklı / İZMİR",
+      "adres": "Osmangazi Mahallesi 574/3 Sokağı No:15 Bayraklı / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -2402,7 +2712,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "TANKAR OTOMOTİV PETROL GIDA TEKSTİL HİZMET İNŞAAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
-      "adres": "Refik Şevket İnce Mahallesi 2148/9 Sokağı  No:4 Bayraklı / İZMİR",
+      "adres": "Refik Şevket İnce Mahallesi 2148/9 Sokağı No:4 Bayraklı / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -2412,7 +2722,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "DOCO PETROL VE DANIŞMANLIK ANONİM ŞİRKETİ",
-      "adres": "Sahrayıcedit Mahallesi Halk Sokağı  No:40  Bucak Kadıköy / İSTANBUL",
+      "adres": "Sahrayıcedit Mahallesi Halk Sokağı No:40 Bucak Kadıköy / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -2462,7 +2772,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Gazi Mahallesi 7733 Sokağı  No:6/1 Menemen / İZMİR",
+      "adres": "Gazi Mahallesi 7733 Sokağı No:6/1 Menemen / İZMİR",
       "soket_bilgileri": ""
     },
     {
@@ -2472,7 +2782,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ÇELİKHAN PETROL TURİZM İNŞAAT GIDA İÇ VE DIŞ TİCARET SANAYİ LİMİTED ŞİRKETİ",
-      "adres": "Aşağıkayabaşı Mahallesi  No:6 Merkez / NİĞDE",
+      "adres": "Aşağıkayabaşı Mahallesi No:6 Merkez / NİĞDE",
       "soket_bilgileri": ""
     },
     {
@@ -2482,7 +2792,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Maltepe Mahallesi Şehit Gönenç Caddesi  No:5 Çankaya / ANKARA",
+      "adres": "Maltepe Mahallesi Şehit Gönenç Caddesi No:5 Çankaya / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -2492,7 +2802,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Yenişehir Mahallesi 65 Sokağı  No:3 Merkezefendi / DENİZLİ",
+      "adres": "Yenişehir Mahallesi 65 Sokağı No:3 Merkezefendi / DENİZLİ",
       "soket_bilgileri": ""
     },
     {
@@ -2502,7 +2812,7 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Uzunkum Mahallesi  No:7 Ereğli / ZONGULDAK",
+      "adres": "Uzunkum Mahallesi No:7 Ereğli / ZONGULDAK",
       "soket_bilgileri": ""
     },
     {
@@ -2512,7 +2822,17 @@
       "marka": "Otojet",
       "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
-      "adres": "Uzunkum Mahallesi  No:7 Ereğli / ZONGULDAK",
+      "adres": "Uzunkum Mahallesi No:7 Ereğli / ZONGULDAK",
+      "soket_bilgileri": ""
+    },
+    {
+      "istasyon_no": "ŞRJ/17016",
+      "istasyon_adi": "Otojet - Blue Port AVM",
+      "hizmet_sekli": "Halka Açık",
+      "marka": "Otojet",
+      "sarj_agi_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
+      "sarj_istasyonu_isletmecisi": "OTOJET ENERJİ SANAYİ VE TİCARET ANONİM ŞİRKETİ",
+      "adres": "Kemeraltı Mahallesi Marmaris / MUĞLA",
       "soket_bilgileri": ""
     },
     {
@@ -2522,7 +2842,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Gökpınar Mahallesi 126. Sokağı  No:4 Elmalı / ANTALYA",
+      "adres": "Gökpınar Mahallesi 126. Sokağı No:4 Elmalı / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -2532,7 +2852,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Yeni Mahallesi Pirabdalmusa Caddesi  No:177 Elmalı / ANTALYA",
+      "adres": "Yeni Mahallesi Pirabdalmusa Caddesi No:177 Elmalı / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -2542,7 +2862,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Pınartepe Mahallesi Avrupa Caddesi  No:85 Büyükçekmece / İSTANBUL",
+      "adres": "Pınartepe Mahallesi Avrupa Caddesi No:85 Büyükçekmece / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -2552,7 +2872,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Türkler Mahallesi Marina Sokağı  No:7 Alanya / ANTALYA",
+      "adres": "Türkler Mahallesi Marina Sokağı No:7 Alanya / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -2562,7 +2882,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Muratpaşa Mahallesi Emrah Caddesi  No:17 Muratpaşa / ANTALYA",
+      "adres": "Muratpaşa Mahallesi Emrah Caddesi No:17 Muratpaşa / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -2572,7 +2892,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Öğretmenevleri Mahallesi Çamlık Caddesi  No:48 Konyaaltı / ANTALYA",
+      "adres": "Öğretmenevleri Mahallesi Çamlık Caddesi No:48 Konyaaltı / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -2582,7 +2902,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Aosb 1.kısım Mahallesi 2. Caddesi  No:1 Döşemealtı / ANTALYA",
+      "adres": "Aosb 1.kısım Mahallesi 2. Caddesi No:1 Döşemealtı / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -2592,7 +2912,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Aosb 2. Kısım Mahallesi Antalya-burdur Karayolu Sokağı  No:2 Döşemealtı / ANTALYA",
+      "adres": "Aosb 2. Kısım Mahallesi Antalya-burdur Karayolu Sokağı No:2 Döşemealtı / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -2602,7 +2922,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Aosb 1.kısım Mahallesi 5. Caddesi  No:3 Döşemealtı / ANTALYA",
+      "adres": "Aosb 1.kısım Mahallesi 5. Caddesi No:3 Döşemealtı / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -2612,7 +2932,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Belen Mahallesi Işıkpınarı Sokağı  No:10 Kumluca / ANTALYA",
+      "adres": "Belen Mahallesi Işıkpınarı Sokağı No:10 Kumluca / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -2622,7 +2942,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Yukarı Mahallesi Şehit Komandolar Caddesi  No:176 Talas / KAYSERİ",
+      "adres": "Yukarı Mahallesi Şehit Komandolar Caddesi No:176 Talas / KAYSERİ",
       "soket_bilgileri": ""
     },
     {
@@ -2632,7 +2952,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Ilıca Mahallesi  No:89 Manavgat / ANTALYA",
+      "adres": "Ilıca Mahallesi No:89 Manavgat / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -2642,7 +2962,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Soğucaksu Mahallesi 25001 Sokağı  No:1/4 Aksu / ANTALYA",
+      "adres": "Soğucaksu Mahallesi 25001 Sokağı No:1/4 Aksu / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -2652,7 +2972,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Çolaklı Mahallesi Cumhuriyet Caddesi  No:2/1 Manavgat / ANTALYA",
+      "adres": "Çolaklı Mahallesi Cumhuriyet Caddesi No:2/1 Manavgat / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -2662,7 +2982,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Pınarbaşı Mahallesi Hürriyet Caddesi  Akdeniz Üniversitesi Konyaaltı / ANTALYA",
+      "adres": "Pınarbaşı Mahallesi Hürriyet Caddesi Akdeniz Üniversitesi Konyaaltı / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -2672,7 +2992,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Arapsuyu Mahallesi 603 Sokağı  No:2 Konyaaltı / ANTALYA",
+      "adres": "Arapsuyu Mahallesi 603 Sokağı No:2 Konyaaltı / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -2682,7 +3002,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Başlamış Mahallesi İçmeler Sokağı  No:5 Erzin / HATAY",
+      "adres": "Başlamış Mahallesi İçmeler Sokağı No:5 Erzin / HATAY",
       "soket_bilgileri": ""
     },
     {
@@ -2692,7 +3012,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Merkez Mahallesi  No:43  Merkez  Akçaalan Merkez / BOLU",
+      "adres": "Merkez Mahallesi No:43 Merkez Akçaalan Merkez / BOLU",
       "soket_bilgileri": ""
     },
     {
@@ -2702,7 +3022,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Gültepe Mahallesi Köşk Caddesi  No:30/A Melikgazi / KAYSERİ",
+      "adres": "Gültepe Mahallesi Köşk Caddesi No:30/A Melikgazi / KAYSERİ",
       "soket_bilgileri": ""
     },
     {
@@ -2712,7 +3032,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Mevlana Mahallesi Zafer Bayburtluoğlu Caddesi  No:2/A Talas / KAYSERİ",
+      "adres": "Mevlana Mahallesi Zafer Bayburtluoğlu Caddesi No:2/A Talas / KAYSERİ",
       "soket_bilgileri": ""
     },
     {
@@ -2722,7 +3042,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Gesi Fatih Mahallesi  No:36/B Melikgazi / KAYSERİ",
+      "adres": "Gesi Fatih Mahallesi No:36/B Melikgazi / KAYSERİ",
       "soket_bilgileri": ""
     },
     {
@@ -2732,7 +3052,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Şirintepe Mahallesi Şht Suat Hayri Dal Caddesi  No:28/A Melikgazi / KAYSERİ",
+      "adres": "Şirintepe Mahallesi Şht Suat Hayri Dal Caddesi No:28/A Melikgazi / KAYSERİ",
       "soket_bilgileri": ""
     },
     {
@@ -2742,7 +3062,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Altınoluk Mahallesi  No:22/A Melikgazi / KAYSERİ",
+      "adres": "Altınoluk Mahallesi No:22/A Melikgazi / KAYSERİ",
       "soket_bilgileri": ""
     },
     {
@@ -2752,7 +3072,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Yeniköy Mahallesi Zeren Caddesi  No:24/A Melikgazi / KAYSERİ",
+      "adres": "Yeniköy Mahallesi Zeren Caddesi No:24/A Melikgazi / KAYSERİ",
       "soket_bilgileri": ""
     },
     {
@@ -2762,7 +3082,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "General Emir Mahallesi Fevzi Çakmak 2. Caddesi  No:1/B Melikgazi / KAYSERİ",
+      "adres": "General Emir Mahallesi Fevzi Çakmak 2. Caddesi No:1/B Melikgazi / KAYSERİ",
       "soket_bilgileri": ""
     },
     {
@@ -2772,7 +3092,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Yeniköy Mahallesi  No:162/A Melikgazi / KAYSERİ",
+      "adres": "Yeniköy Mahallesi No:162/A Melikgazi / KAYSERİ",
       "soket_bilgileri": ""
     },
     {
@@ -2782,7 +3102,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Mevlana Mahallesi Sayer Caddesi  No:No:3/A Talas / KAYSERİ",
+      "adres": "Mevlana Mahallesi Sayer Caddesi No:No:3/A Talas / KAYSERİ",
       "soket_bilgileri": ""
     },
     {
@@ -2792,7 +3112,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Atakent Mahallesi 15. Sokağı  No:2 Dalaman / MUĞLA",
+      "adres": "Atakent Mahallesi 15. Sokağı No:2 Dalaman / MUĞLA",
       "soket_bilgileri": ""
     },
     {
@@ -2802,7 +3122,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Sanayi Mahallesi 2073 Sokağı  No:3  Sunpet Petrol Manavgat / ANTALYA",
+      "adres": "Sanayi Mahallesi 2073 Sokağı No:3 Sunpet Petrol Manavgat / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -2812,7 +3132,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "İskele Mahallesi  No:74  Yücel İnşaat Finike / ANTALYA",
+      "adres": "İskele Mahallesi No:74 Yücel İnşaat Finike / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -2822,7 +3142,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Yeşilbahçe Mahallesi Çınarlı Caddesi  Araç Şarj İstasyonu Muratpaşa / ANTALYA",
+      "adres": "Yeşilbahçe Mahallesi Çınarlı Caddesi Araç Şarj İstasyonu Muratpaşa / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -2832,7 +3152,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Fener Mahallesi 1937 Sokağı  No:0  Araç Şarj İstasyonu Muratpaşa / ANTALYA",
+      "adres": "Fener Mahallesi 1937 Sokağı No:0 Araç Şarj İstasyonu Muratpaşa / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -2852,7 +3172,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Fener Mahallesi 1974 Sokağı  Araç Şarj İstasyonu Muratpaşa / ANTALYA",
+      "adres": "Fener Mahallesi 1974 Sokağı Araç Şarj İstasyonu Muratpaşa / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -2862,7 +3182,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Çaybaşı Mahallesi 1372 Sokağı  Araç Şarj İstasyonu Muratpaşa / ANTALYA",
+      "adres": "Çaybaşı Mahallesi 1372 Sokağı Araç Şarj İstasyonu Muratpaşa / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -2872,7 +3192,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Çağlayan Mahallesi 2032 Sokağı  Araç Şarj İstasyonu Muratpaşa / ANTALYA",
+      "adres": "Çağlayan Mahallesi 2032 Sokağı Araç Şarj İstasyonu Muratpaşa / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -2882,7 +3202,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Yeşilköy Mahallesi Atatürk Caddesi  No:12 Bakırköy / İSTANBUL",
+      "adres": "Yeşilköy Mahallesi Atatürk Caddesi No:12 Bakırköy / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -2892,7 +3212,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Cırgalan Mahallesi  No:439 Kocasinan / KAYSERİ",
+      "adres": "Cırgalan Mahallesi No:439 Kocasinan / KAYSERİ",
       "soket_bilgileri": ""
     },
     {
@@ -2902,7 +3222,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Karacalar Mahallesi  No:497 /Adalar KümeevleriLyra Resort Hotel Manavgat / ANTALYA",
+      "adres": "Karacalar Mahallesi No:497 /Adalar KümeevleriLyra Resort Hotel Manavgat / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -2912,7 +3232,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Kızılağaç Mahallesi Yeni Yerleşim Alanı Sokağı  No:Z01  Silence Beach Otel Sitesi Manavgat / ANTALYA",
+      "adres": "Kızılağaç Mahallesi Yeni Yerleşim Alanı Sokağı No:Z01 Silence Beach Otel Sitesi Manavgat / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -2922,7 +3242,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Gümbet Mahallesi Adnan Menderes Caddesi  No:63 Bodrum / MUĞLA",
+      "adres": "Gümbet Mahallesi Adnan Menderes Caddesi No:63 Bodrum / MUĞLA",
       "soket_bilgileri": ""
     },
     {
@@ -2932,7 +3252,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Torba Mahallesi 3131 Sokağı  No:2 Bodrum / MUĞLA",
+      "adres": "Torba Mahallesi 3131 Sokağı No:2 Bodrum / MUĞLA",
       "soket_bilgileri": ""
     },
     {
@@ -2942,7 +3262,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Salihpaşalar Mahallesi  No:245 Menteşe / MUĞLA",
+      "adres": "Salihpaşalar Mahallesi No:245 Menteşe / MUĞLA",
       "soket_bilgileri": ""
     },
     {
@@ -2952,7 +3272,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Kemerağzı Mahallesi  No:40 Aksu / ANTALYA",
+      "adres": "Kemerağzı Mahallesi No:40 Aksu / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -2962,7 +3282,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Göynük Mahallesi Ahu Ünal Aysal Caddesi  No:14 Kemer / ANTALYA",
+      "adres": "Göynük Mahallesi Ahu Ünal Aysal Caddesi No:14 Kemer / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -2972,7 +3292,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Merkez Mahallesi Deniz Caddesi  No:15 Kemer / ANTALYA",
+      "adres": "Merkez Mahallesi Deniz Caddesi No:15 Kemer / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -2982,7 +3302,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Boğazkent Mahallesi Alpaslan Caddesi  No:23 Serik / ANTALYA",
+      "adres": "Boğazkent Mahallesi Alpaslan Caddesi No:23 Serik / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -2992,7 +3312,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Şirinyalı Mahallesi Eski Lara Caddesi 1512 Sokağı  No:2 Muratpaşa / ANTALYA",
+      "adres": "Şirinyalı Mahallesi Eski Lara Caddesi 1512 Sokağı No:2 Muratpaşa / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -3002,7 +3322,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Küçükbakkalköy Mahallesi Dudullu Sokağı  No:27 Ataşehir / İSTANBUL",
+      "adres": "Küçükbakkalköy Mahallesi Dudullu Sokağı No:27 Ataşehir / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -3012,7 +3332,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "75.yıl Mahallesi 1. Caddesi  No:31 Odunpazarı / ESKİŞEHİR",
+      "adres": "75.yıl Mahallesi 1. Caddesi No:31 Odunpazarı / ESKİŞEHİR",
       "soket_bilgileri": ""
     },
     {
@@ -3022,7 +3342,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Kızılot Mahallesi  No:9  Sahilkümeevler Manavgat / ANTALYA",
+      "adres": "Kızılot Mahallesi No:9 Sahilkümeevler Manavgat / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -3032,7 +3352,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Ilıca Mahallesi 275 Sokağı  No:2 Manavgat / ANTALYA",
+      "adres": "Ilıca Mahallesi 275 Sokağı No:2 Manavgat / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -3042,7 +3362,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Evrenseki Mahallesi 18. Sokağı  No:5 Manavgat / ANTALYA",
+      "adres": "Evrenseki Mahallesi 18. Sokağı No:5 Manavgat / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -3052,7 +3372,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Altınkale Mahallesi  No:205 Döşemealtı / ANTALYA",
+      "adres": "Altınkale Mahallesi No:205 Döşemealtı / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -3062,7 +3382,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Bozburun Mahallesi  No:260 /1 Merkezefendi / DENİZLİ",
+      "adres": "Bozburun Mahallesi No:260 /1 Merkezefendi / DENİZLİ",
       "soket_bilgileri": ""
     },
     {
@@ -3072,7 +3392,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Ilıca Mahallesi 7. Sokağı  No:2 Manavgat / ANTALYA",
+      "adres": "Ilıca Mahallesi 7. Sokağı No:2 Manavgat / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -3082,7 +3402,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Çolaklı Mahallesi Cumhuriyet Caddesi  No:11 Manavgat / ANTALYA",
+      "adres": "Çolaklı Mahallesi Cumhuriyet Caddesi No:11 Manavgat / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -3092,7 +3412,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Payallar Mahallesi Öztürk Caddesi  No:3 Alanya / ANTALYA",
+      "adres": "Payallar Mahallesi Öztürk Caddesi No:3 Alanya / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -3102,7 +3422,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Elmalı Mahallesi 7. Sokağı  No:10 Muratpaşa / ANTALYA",
+      "adres": "Elmalı Mahallesi 7. Sokağı No:10 Muratpaşa / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -3112,7 +3432,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Yeni Mahallesi  No:85 Kemer / ANTALYA",
+      "adres": "Yeni Mahallesi No:85 Kemer / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -3122,7 +3442,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Orhangazi Mahallesi  No:308  Kütahya Yolu Mey. Odunpazarı / ESKİŞEHİR",
+      "adres": "Orhangazi Mahallesi No:308 Kütahya Yolu Mey. Odunpazarı / ESKİŞEHİR",
       "soket_bilgileri": ""
     },
     {
@@ -3132,7 +3452,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Tarım Mahallesi  No:90 Muratpaşa / ANTALYA",
+      "adres": "Tarım Mahallesi No:90 Muratpaşa / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -3142,7 +3462,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "İhsaniye Mahallesi Havuzlar Caddesi  No:63 Akdeniz / MERSİN",
+      "adres": "İhsaniye Mahallesi Havuzlar Caddesi No:63 Akdeniz / MERSİN",
       "soket_bilgileri": ""
     },
     {
@@ -3152,7 +3472,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "İşçi  Blokları Mahallesi 1500 Sokağı  No:9 Çankaya / ANKARA",
+      "adres": "İşçi Blokları Mahallesi 1500 Sokağı No:9 Çankaya / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -3162,7 +3482,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Saraçlar Mahallesi Stadyum Caddesi  No:40A Merkez / KASTAMONU",
+      "adres": "Saraçlar Mahallesi Stadyum Caddesi No:40A Merkez / KASTAMONU",
       "soket_bilgileri": ""
     },
     {
@@ -3172,7 +3492,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Akkuyu Mahallesi Üniversite Caddesi  No:25/EA-EB-EC-ED-E Blok Konyaaltı / ANTALYA",
+      "adres": "Akkuyu Mahallesi Üniversite Caddesi No:25/EA-EB-EC-ED-E Blok Konyaaltı / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -3182,7 +3502,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Kuvayi Milliye Mahallesi 196 Sokağı  No:2 Karesi / BALIKESİR",
+      "adres": "Kuvayi Milliye Mahallesi 196 Sokağı No:2 Karesi / BALIKESİR",
       "soket_bilgileri": ""
     },
     {
@@ -3192,7 +3512,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Adrasan Mahallesi Sahil Caddesi  No:124 Kumluca / ANTALYA",
+      "adres": "Adrasan Mahallesi Sahil Caddesi No:124 Kumluca / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -3202,7 +3522,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Köşk Mahallesi Vezir Sokağı  No:7/B Melikgazi / KAYSERİ",
+      "adres": "Köşk Mahallesi Vezir Sokağı No:7/B Melikgazi / KAYSERİ",
       "soket_bilgileri": ""
     },
     {
@@ -3212,7 +3532,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Caferli Mahallesi  No:148 Kuşadası / AYDIN",
+      "adres": "Caferli Mahallesi No:148 Kuşadası / AYDIN",
       "soket_bilgileri": ""
     },
     {
@@ -3222,7 +3542,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Evrenos Mahallesi Evrenos Kümeevler Sokağı  No:84A Yunusemre / MANİSA",
+      "adres": "Evrenos Mahallesi Evrenos Kümeevler Sokağı No:84A Yunusemre / MANİSA",
       "soket_bilgileri": ""
     },
     {
@@ -3232,7 +3552,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Çolaklı Mahallesi Deniz Caddesi  No:43 Manavgat / ANTALYA",
+      "adres": "Çolaklı Mahallesi Deniz Caddesi No:43 Manavgat / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -3242,7 +3562,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Hürriyet Mahallesi  No:16 Merkez / AFYONKARAHİSAR",
+      "adres": "Hürriyet Mahallesi No:16 Merkez / AFYONKARAHİSAR",
       "soket_bilgileri": ""
     },
     {
@@ -3252,7 +3572,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Yeniceköy Mahallesi Mobilya Cad. Caddesi  No:24 İnegöl / BURSA",
+      "adres": "Yeniceköy Mahallesi Mobilya Cad. Caddesi No:24 İnegöl / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -3262,7 +3582,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Değirmendere Mahallesi Ahmet Pınarı Caddesi  No:8 Kuşadası / AYDIN",
+      "adres": "Değirmendere Mahallesi Ahmet Pınarı Caddesi No:8 Kuşadası / AYDIN",
       "soket_bilgileri": ""
     },
     {
@@ -3272,7 +3592,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Adnan Kahveci Mahallesi Alemdağ Caddesi  No:2 Beylikdüzü / İSTANBUL",
+      "adres": "Adnan Kahveci Mahallesi Alemdağ Caddesi No:2 Beylikdüzü / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -3282,7 +3602,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Sorgun Mahallesi  No:8  Acısu Manavgat / ANTALYA",
+      "adres": "Sorgun Mahallesi No:8 Acısu Manavgat / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -3292,7 +3612,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Oba Mahallesi Heseoğlu Sokağı  No:28  İrem Gıda İsmail Zor Apartmanı Alanya / ANTALYA",
+      "adres": "Oba Mahallesi Heseoğlu Sokağı No:28 İrem Gıda İsmail Zor Apartmanı Alanya / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -3302,7 +3622,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Akyarlar Mahallesi Atatürk Akyarlar Caddesi  No:34 Bodrum / MUĞLA",
+      "adres": "Akyarlar Mahallesi Atatürk Akyarlar Caddesi No:34 Bodrum / MUĞLA",
       "soket_bilgileri": ""
     },
     {
@@ -3312,7 +3632,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Çolaklı Mahallesi Barbaros Hayrettin Paşa Caddesi  No:10  A Blok Manavgat / ANTALYA",
+      "adres": "Çolaklı Mahallesi Barbaros Hayrettin Paşa Caddesi No:10 A Blok Manavgat / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -3322,7 +3642,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Yenice Mahallesi Yağmur Sokağı  No:7 Tarsus / MERSİN",
+      "adres": "Yenice Mahallesi Yağmur Sokağı No:7 Tarsus / MERSİN",
       "soket_bilgileri": ""
     },
     {
@@ -3332,7 +3652,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Barış Mahallesi Belediye Caddesi  No:30 Beylikdüzü / İSTANBUL",
+      "adres": "Barış Mahallesi Belediye Caddesi No:30 Beylikdüzü / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -3342,7 +3662,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Barış Mahallesi Adakan Caddesi Peyami Safa Sokağı  No:1 /AVM Dükkan Beylikdüzü / İSTANBUL",
+      "adres": "Barış Mahallesi Adakan Caddesi Peyami Safa Sokağı No:1 /AVM Dükkan Beylikdüzü / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -3352,7 +3672,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Kemerağzı Mahallesi  No:29C Aksu / ANTALYA",
+      "adres": "Kemerağzı Mahallesi No:29C Aksu / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -3362,7 +3682,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Namık Kemal Mahallesi Kazım Bekir Caddesi  No:A/4  İsthanbul Evleri Esenyurt / İSTANBUL",
+      "adres": "Namık Kemal Mahallesi Kazım Bekir Caddesi No:A/4 İsthanbul Evleri Esenyurt / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -3372,7 +3692,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Şingah Mahallesi  No:37 Merkez / BAYBURT",
+      "adres": "Şingah Mahallesi No:37 Merkez / BAYBURT",
       "soket_bilgileri": ""
     },
     {
@@ -3382,7 +3702,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Tacettin Veli Mahallesi Lalezade Caddesi  No:46 Melikgazi / KAYSERİ",
+      "adres": "Tacettin Veli Mahallesi Lalezade Caddesi No:46 Melikgazi / KAYSERİ",
       "soket_bilgileri": ""
     },
     {
@@ -3392,17 +3712,17 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Üreğil Mahallesi 19 Mayıs Sokağı  No:77 Mamak / ANKARA",
+      "adres": "Üreğil Mahallesi 19 Mayıs Sokağı No:77 Mamak / ANKARA",
       "soket_bilgileri": ""
     },
     {
       "istasyon_no": "ŞRJ/14076",
-      "istasyon_adi": "BEST PETROL BALA/DC  KW",
+      "istasyon_adi": "BEST PETROL BALA/DC KW",
       "hizmet_sekli": "Halka Açık",
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Karahamzalı Mahallesi  No:264 Bala / ANKARA",
+      "adres": "Karahamzalı Mahallesi No:264 Bala / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -3412,7 +3732,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Yunus Emre Mahallesi Yunus Emre Caddesi  No:89  Leman Kültür Hotel Pamukkale / DENİZLİ",
+      "adres": "Yunus Emre Mahallesi Yunus Emre Caddesi No:89 Leman Kültür Hotel Pamukkale / DENİZLİ",
       "soket_bilgileri": ""
     },
     {
@@ -3422,7 +3742,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Belek Mahallesi Kongre Caddesi  No:364 /Z-01 Serik / ANTALYA",
+      "adres": "Belek Mahallesi Kongre Caddesi No:364 /Z-01 Serik / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -3432,7 +3752,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Hacıveliler Mahallesi Hacıveliler Merkez Sokağı  No:2 Kumluca / ANTALYA",
+      "adres": "Hacıveliler Mahallesi Hacıveliler Merkez Sokağı No:2 Kumluca / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -3442,7 +3762,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Antalya Osb 1.kısım Mahallesi 5. Caddesi  No:5 Döşemealtı / ANTALYA",
+      "adres": "Antalya Osb 1.kısım Mahallesi 5. Caddesi No:5 Döşemealtı / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -3452,7 +3772,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Bahçeyaka Mahallesi Atatürk Caddesi  No:391 Döşemealtı / ANTALYA",
+      "adres": "Bahçeyaka Mahallesi Atatürk Caddesi No:391 Döşemealtı / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -3462,7 +3782,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Barış Mahallesi Peyami Safa Sokağı  No:1/9 Beylikdüzü / İSTANBUL",
+      "adres": "Barış Mahallesi Peyami Safa Sokağı No:1/9 Beylikdüzü / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -3472,7 +3792,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Konaklı Mahallesi  No:289 Alanya / ANTALYA",
+      "adres": "Konaklı Mahallesi No:289 Alanya / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -3482,7 +3802,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Cihadiye Mahallesi  No:35  Altınova Aksu / ANTALYA",
+      "adres": "Cihadiye Mahallesi No:35 Altınova Aksu / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -3492,7 +3812,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Fatih Mahallesi  No:129 Pamukkale / DENİZLİ",
+      "adres": "Fatih Mahallesi No:129 Pamukkale / DENİZLİ",
       "soket_bilgileri": ""
     },
     {
@@ -3502,7 +3822,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Kale Mahallesi  No:156  North Point Hotel İlkadım / SAMSUN",
+      "adres": "Kale Mahallesi No:156 North Point Hotel İlkadım / SAMSUN",
       "soket_bilgileri": ""
     },
     {
@@ -3512,7 +3832,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Hürriyet Mahallesi 151. Caddesi  No:103 Akhisar / MANİSA",
+      "adres": "Hürriyet Mahallesi 151. Caddesi No:103 Akhisar / MANİSA",
       "soket_bilgileri": ""
     },
     {
@@ -3522,7 +3842,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Abdullahpaşa Mahallesi 1. Sokağı  No:66A Merkez / ELAZIĞ",
+      "adres": "Abdullahpaşa Mahallesi 1. Sokağı No:66A Merkez / ELAZIĞ",
       "soket_bilgileri": ""
     },
     {
@@ -3532,7 +3852,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "Yeşilbayır Mahallesi Atatürk Caddesi  No:87 Döşemealtı / ANTALYA",
+      "adres": "Yeşilbayır Mahallesi Atatürk Caddesi No:87 Döşemealtı / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -3542,7 +3862,7 @@
       "marka": "CHARGING VEHICLES CV",
       "sarj_agi_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ ANONİM ŞİRKETİ",
-      "adres": "İstiklal Mahallesi Kanal Caddesi  No:260G Karatay / KONYA",
+      "adres": "İstiklal Mahallesi Kanal Caddesi No:260G Karatay / KONYA",
       "soket_bilgileri": ""
     },
     {
@@ -3622,7 +3942,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Erler Mahallesi 2717 Sokağı  No:A /6 Etimesgut / ANKARA",
+      "adres": "Erler Mahallesi 2717 Sokağı No:A /6 Etimesgut / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -3632,7 +3952,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Ümit Mahallesi 2479 Sokağı  No:2 Çankaya / ANKARA",
+      "adres": "Ümit Mahallesi 2479 Sokağı No:2 Çankaya / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -3643,16 +3963,6 @@
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "adres": "Yeni Mahallesi Kemer / ANTALYA",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/2593",
-      "istasyon_adi": "ASTORŞARJ PALMET BODRUM OTEL ELEKTRİKLİ ARAÇ ŞARJ İSTASYONU",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ASTOR",
-      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Yahşi Mahallesi Kargı Caddesi Bodrum / MUĞLA",
       "soket_bilgileri": ""
     },
     {
@@ -3672,7 +3982,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Kiriş Caddesi  No:86 Kemer / ANTALYA",
+      "adres": "Kiriş Caddesi No:86 Kemer / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -3682,7 +3992,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Beştepe Mahallesi Yaşam Sokağı  No:1 Yenimahalle / ANKARA",
+      "adres": "Beştepe Mahallesi Yaşam Sokağı No:1 Yenimahalle / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -3692,17 +4002,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Ahmet Taner Kışlalı Mahallesi Alacaatlı Sokağı  No:9 /1K Çankaya / ANKARA",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/3164",
-      "istasyon_adi": "ASTORŞARJ ESAPET ANKARA ELEKTRİKLİ ARAÇ ŞARJ İSTASYONU",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ASTOR",
-      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Bahçekapı Mahallesi 2510 Sokağı  No:1 Etimesgut / ANKARA",
+      "adres": "Ahmet Taner Kışlalı Mahallesi Alacaatlı Sokağı No:9 /1K Çankaya / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -3712,7 +4012,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Toptepe Mahallesi Hacı Mansur Sokağı  No:3/D /34 Canik / SAMSUN",
+      "adres": "Toptepe Mahallesi Hacı Mansur Sokağı No:3/D /34 Canik / SAMSUN",
       "soket_bilgileri": ""
     },
     {
@@ -3722,7 +4022,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Koru Mahallesi Ankaralılar Sokağı  No:18 Çankaya / ANKARA",
+      "adres": "Koru Mahallesi Ankaralılar Sokağı No:18 Çankaya / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -3737,7 +4037,7 @@
     },
     {
       "istasyon_no": "ŞRJ/3526",
-      "istasyon_adi": "ASTORŞARJ  OSTİM ALİMAR İŞ MERKEZİ ELEKTRİKLİ ARAÇ ŞARJ İSTASYONU",
+      "istasyon_adi": "ASTORŞARJ OSTİM ALİMAR İŞ MERKEZİ ELEKTRİKLİ ARAÇ ŞARJ İSTASYONU",
       "hizmet_sekli": "Halka Açık",
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
@@ -3792,7 +4092,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Uluönder Mahallesi Erzurum Kongresi Caddesi  No:A-B Nlok Tepebaşı / ESKİŞEHİR",
+      "adres": "Uluönder Mahallesi Erzurum Kongresi Caddesi No:A-B Nlok Tepebaşı / ESKİŞEHİR",
       "soket_bilgileri": ""
     },
     {
@@ -3802,7 +4102,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Kurşunlu Mahallesi Efendi Pınarı Sokağı  No:2 Sivrihisar / ESKİŞEHİR",
+      "adres": "Kurşunlu Mahallesi Efendi Pınarı Sokağı No:2 Sivrihisar / ESKİŞEHİR",
       "soket_bilgileri": ""
     },
     {
@@ -3822,7 +4122,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Cumhuriyet Mahallesi İnönü Caddesi  No:1 Çerkezköy / TEKİRDAĞ",
+      "adres": "Cumhuriyet Mahallesi İnönü Caddesi No:1 Çerkezköy / TEKİRDAĞ",
       "soket_bilgileri": ""
     },
     {
@@ -3832,7 +4132,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Akkent Mahallesi Hüseyin Okan Merzeci Sokağı  No:759 Yenişehir / MERSİN",
+      "adres": "Akkent Mahallesi Hüseyin Okan Merzeci Sokağı No:759 Yenişehir / MERSİN",
       "soket_bilgileri": ""
     },
     {
@@ -3882,7 +4182,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Santral Garaj Mahallesi Kıbrıs Şehitleri Caddesi  No:64 Osmangazi / BURSA",
+      "adres": "Santral Garaj Mahallesi Kıbrıs Şehitleri Caddesi No:64 Osmangazi / BURSA",
       "soket_bilgileri": ""
     },
     {
@@ -3947,7 +4247,7 @@
     },
     {
       "istasyon_no": "ŞRJ/6202",
-      "istasyon_adi": "ASTORŞARJ BURSA  ASOUTLET AVM ELEKTRİKLİ ARAÇ ŞARJ İSTASYONU",
+      "istasyon_adi": "ASTORŞARJ BURSA ASOUTLET AVM ELEKTRİKLİ ARAÇ ŞARJ İSTASYONU",
       "hizmet_sekli": "Halka Açık",
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
@@ -3976,23 +4276,13 @@
       "soket_bilgileri": ""
     },
     {
-      "istasyon_no": "ŞRJ/6661",
-      "istasyon_adi": "ASTORŞARJ MERZİFON ENSPARK ELEKTRİKLİ ARAÇ ŞARJ İSTASYONU",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ASTOR",
-      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "İnönü Mahallesi Fatih Sultan Mehmet Sokağı Yenimahalle / ANKARA",
-      "soket_bilgileri": ""
-    },
-    {
       "istasyon_no": "ŞRJ/6662",
       "istasyon_adi": "ASTORŞARJ ASTOR PLAZA ELEKTRİKLİ ARAÇ ŞARJ İSTASYONU",
       "hizmet_sekli": "Halka Açık",
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Turgut Özal Mahallesi 1467/1 Sokağı  No:42 Yenimahalle / ANKARA",
+      "adres": "Turgut Özal Mahallesi 1467/1 Sokağı No:42 Yenimahalle / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -4002,7 +4292,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Kardelen Mahallesi Başkent Sokağı  No:14 Yenimahalle / ANKARA",
+      "adres": "Kardelen Mahallesi Başkent Sokağı No:14 Yenimahalle / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -4012,7 +4302,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Horozluhan Osb Mahallesi Yeni İstanbul Caddesi  No:28 Selçuklu / KONYA",
+      "adres": "Horozluhan Osb Mahallesi Yeni İstanbul Caddesi No:28 Selçuklu / KONYA",
       "soket_bilgileri": ""
     },
     {
@@ -4022,7 +4312,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Eski Mahallesi Selimbey Caddesi  No:50 Ürgüp / NEVŞEHİR",
+      "adres": "Eski Mahallesi Selimbey Caddesi No:50 Ürgüp / NEVŞEHİR",
       "soket_bilgileri": ""
     },
     {
@@ -4032,7 +4322,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Musalla Bağları Mahallesi Ahmet Hilmi Nalçacı Caddesi  No:92 Selçuklu / KONYA",
+      "adres": "Musalla Bağları Mahallesi Ahmet Hilmi Nalçacı Caddesi No:92 Selçuklu / KONYA",
       "soket_bilgileri": ""
     },
     {
@@ -4072,7 +4362,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Erkez Mahallesi Onna Tunç Caddesi  No:7 Kemer / ANTALYA",
+      "adres": "Erkez Mahallesi Onna Tunç Caddesi No:7 Kemer / ANTALYA",
       "soket_bilgileri": ""
     },
     {
@@ -4096,33 +4386,13 @@
       "soket_bilgileri": ""
     },
     {
-      "istasyon_no": "ŞRJ/6971",
-      "istasyon_adi": "ASTORŞARJ KONYA MİREL HOTEL ELEKTRİKLİ ARAÇ ŞARJ İSTASYONU",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ASTOR",
-      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Selçuklu Mahallesi İnönü(eski) Caddesi  No:35-37 Ereğli / KONYA",
-      "soket_bilgileri": ""
-    },
-    {
       "istasyon_no": "ŞRJ/3764",
       "istasyon_adi": "ASTORŞARJ NATA VEGA AVM ELEKTRİKLİ ARAÇ ŞARJ İSTASYONU",
       "hizmet_sekli": "Halka Açık",
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Akşemsettin Mahallesi Doğukent Sokağı  No:213 Mamak / ANKARA",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/7028",
-      "istasyon_adi": "ASTORŞARJ VEGA CADDE ANKARA ELEKTRİKLİ ARAÇ ŞARJ İSTASYONU",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ASTOR",
-      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "İnönü Mahallesi Fatih Sultan Mehmet Sokağı  No:412 Yenimahalle / ANKARA",
+      "adres": "Akşemsettin Mahallesi Doğukent Sokağı No:213 Mamak / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -4132,17 +4402,17 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Pınarbaşı Mahallesi 2204 Sokağı  No:9 Merkez / BATMAN",
+      "adres": "Pınarbaşı Mahallesi 2204 Sokağı No:9 Merkez / BATMAN",
       "soket_bilgileri": ""
     },
     {
       "istasyon_no": "ŞRJ/4036",
-      "istasyon_adi": "ASTORŞARJ  VEGA AVM SUBAYEVLERİ ELEKTRİKLİ ARAÇ ŞARJ İSTASYONU",
+      "istasyon_adi": "ASTORŞARJ VEGA AVM SUBAYEVLERİ ELEKTRİKLİ ARAÇ ŞARJ İSTASYONU",
       "hizmet_sekli": "Halka Açık",
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Hasköy Mahallesi Volkan Sokağı  No:1 Keçiören / ANKARA",
+      "adres": "Hasköy Mahallesi Volkan Sokağı No:1 Keçiören / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -4152,7 +4422,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Ziya Gökalp Mahallesi  No:9 Başakşehir / İSTANBUL",
+      "adres": "Ziya Gökalp Mahallesi No:9 Başakşehir / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -4162,7 +4432,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Çepni Mahallesi Kerebi Gazi 1 Caddesi  No:7 Merkez / ÇORUM",
+      "adres": "Çepni Mahallesi Kerebi Gazi 1 Caddesi No:7 Merkez / ÇORUM",
       "soket_bilgileri": ""
     },
     {
@@ -4192,7 +4462,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Kazım Karabekir Mahallesi Şehit Ömer Faydalı Caddesi  No:233 Merkez / YALOVA",
+      "adres": "Kazım Karabekir Mahallesi Şehit Ömer Faydalı Caddesi No:233 Merkez / YALOVA",
       "soket_bilgileri": ""
     },
     {
@@ -4216,23 +4486,13 @@
       "soket_bilgileri": ""
     },
     {
-      "istasyon_no": "ŞRJ/7254",
-      "istasyon_adi": "ASTORŞARJ YÜKSELHAN HOTEL AC ELEKTRİKİ ARAÇ ŞARJ İSTASYONU",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ASTOR",
-      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Özal Mahallesi Viranşehir / ŞANLIURFA",
-      "soket_bilgileri": ""
-    },
-    {
       "istasyon_no": "ŞRJ/7296",
       "istasyon_adi": "ASTORŞARJ AYDINLAR KONAKLAMA TESİSİ AC ELEKTRİKLİ ARAÇ ŞARJ İSTASYONU",
       "hizmet_sekli": "Halka Açık",
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "İpekyolu Mahallesi  No:51 Nusaybin / MARDİN",
+      "adres": "İpekyolu Mahallesi No:51 Nusaybin / MARDİN",
       "soket_bilgileri": ""
     },
     {
@@ -4252,7 +4512,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Kurşunlu Mahallesi Efendi Pınarı Sokağı  No:2 Sivrihisar / ESKİŞEHİR",
+      "adres": "Kurşunlu Mahallesi Efendi Pınarı Sokağı No:2 Sivrihisar / ESKİŞEHİR",
       "soket_bilgileri": ""
     },
     {
@@ -4262,7 +4522,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "İnceçayır Mahallesi  No:18 Merkez / YOZGAT",
+      "adres": "İnceçayır Mahallesi No:18 Merkez / YOZGAT",
       "soket_bilgileri": ""
     },
     {
@@ -4302,7 +4562,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Ahi Evran Mahallesi  No:4 Sincan / ANKARA",
+      "adres": "Ahi Evran Mahallesi No:4 Sincan / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -4342,12 +4602,12 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "2000 Evler Mahallesi 73 Caddesi  No:17 Merkez / NEVŞEHİR",
+      "adres": "2000 Evler Mahallesi 73 Caddesi No:17 Merkez / NEVŞEHİR",
       "soket_bilgileri": ""
     },
     {
       "istasyon_no": "ŞRJ/3733",
-      "istasyon_adi": "ASTORŞARJ İSTANBUL SİLİVRİ VEGA  AVM ELEKTRİKLİ ARAÇ ŞARJ İSTASYONU",
+      "istasyon_adi": "ASTORŞARJ İSTANBUL SİLİVRİ VEGA AVM ELEKTRİKLİ ARAÇ ŞARJ İSTASYONU",
       "hizmet_sekli": "Halka Açık",
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
@@ -4362,7 +4622,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Yeniköy Mahallesi Mostar Caddesi  No:17 Merkez / RİZE",
+      "adres": "Yeniköy Mahallesi Mostar Caddesi No:17 Merkez / RİZE",
       "soket_bilgileri": ""
     },
     {
@@ -4372,7 +4632,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Eskin Mahallesi Şanlıurfa-adıyaman Caddesi  No:130 /ÇETİNER PETROL Bozova / ŞANLIURFA",
+      "adres": "Eskin Mahallesi Şanlıurfa-adıyaman Caddesi No:130 /ÇETİNER PETROL Bozova / ŞANLIURFA",
       "soket_bilgileri": ""
     },
     {
@@ -4382,7 +4642,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Dörtyol Mahallesi  No:2 /1 Merkez / AFYONKARAHİSAR",
+      "adres": "Dörtyol Mahallesi No:2 /1 Merkez / AFYONKARAHİSAR",
       "soket_bilgileri": ""
     },
     {
@@ -4392,7 +4652,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Çayyolu Mahallesi Çayyolu Sokağı  No:8 /192 Çankaya / ANKARA",
+      "adres": "Çayyolu Mahallesi Çayyolu Sokağı No:8 /192 Çankaya / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -4402,7 +4662,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Hırmanlı Mahallesi Kemer Sokağı  No:12 Silifke / MERSİN",
+      "adres": "Hırmanlı Mahallesi Kemer Sokağı No:12 Silifke / MERSİN",
       "soket_bilgileri": ""
     },
     {
@@ -4432,7 +4692,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Ünlüce Mahallesi Ova Sokağı  No:1 Çine / AYDIN",
+      "adres": "Ünlüce Mahallesi Ova Sokağı No:1 Çine / AYDIN",
       "soket_bilgileri": ""
     },
     {
@@ -4442,7 +4702,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Fırat Mahallesi  No:98 Kayapınar / DİYARBAKIR",
+      "adres": "Fırat Mahallesi No:98 Kayapınar / DİYARBAKIR",
       "soket_bilgileri": ""
     },
     {
@@ -4462,7 +4722,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Ahlatlıbel Mahallesi İncek Şehit Savcı Mehmet Selim Kiraz Sokağı  No:4 Çankaya / ANKARA",
+      "adres": "Ahlatlıbel Mahallesi İncek Şehit Savcı Mehmet Selim Kiraz Sokağı No:4 Çankaya / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -4472,7 +4732,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Güven Mahallesi  No:89 Güngören / İSTANBUL",
+      "adres": "Güven Mahallesi No:89 Güngören / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -4482,7 +4742,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Küçükbakkalköy Mahallesi Dudullu Sokağı  No:23-25 Ataşehir / İSTANBUL",
+      "adres": "Küçükbakkalköy Mahallesi Dudullu Sokağı No:23-25 Ataşehir / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -4492,7 +4752,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Levent Mahallesi Büyükdere Caddesi  No:171 Beşiktaş / İSTANBUL",
+      "adres": "Levent Mahallesi Büyükdere Caddesi No:171 Beşiktaş / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -4502,7 +4762,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Bahçelievler Mahallesi Ertokuş Caddesi  No:3 Merkez / ISPARTA",
+      "adres": "Bahçelievler Mahallesi Ertokuş Caddesi No:3 Merkez / ISPARTA",
       "soket_bilgileri": ""
     },
     {
@@ -4522,7 +4782,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Çavuşköy Mahallesi Ergenekon Caddesi  No:8 Malkara / TEKİRDAĞ",
+      "adres": "Çavuşköy Mahallesi Ergenekon Caddesi No:8 Malkara / TEKİRDAĞ",
       "soket_bilgileri": ""
     },
     {
@@ -4532,7 +4792,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Torba Mahallesi Kaynar Mevkii Caddesi  No:21 Bodrum / MUĞLA",
+      "adres": "Torba Mahallesi Kaynar Mevkii Caddesi No:21 Bodrum / MUĞLA",
       "soket_bilgileri": ""
     },
     {
@@ -4542,7 +4802,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Moymul Mahallesi Balıkesir Yolu Caddesi  No:20 /G Tavşanlı / KÜTAHYA",
+      "adres": "Moymul Mahallesi Balıkesir Yolu Caddesi No:20 /G Tavşanlı / KÜTAHYA",
       "soket_bilgileri": ""
     },
     {
@@ -4572,7 +4832,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Çakmak Mahallesi Konya Ereğli Caddesi  No:2408 /1 Ereğli / KONYA",
+      "adres": "Çakmak Mahallesi Konya Ereğli Caddesi No:2408 /1 Ereğli / KONYA",
       "soket_bilgileri": ""
     },
     {
@@ -4582,7 +4842,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Sancak Mahallesi Veysel Karani Caddesi  No:51 Selçuklu / KONYA",
+      "adres": "Sancak Mahallesi Veysel Karani Caddesi No:51 Selçuklu / KONYA",
       "soket_bilgileri": ""
     },
     {
@@ -4592,7 +4852,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Çepni Mahallesi Kubbeli 1 Sokağı  No:5 Merkez / ÇORUM",
+      "adres": "Çepni Mahallesi Kubbeli 1 Sokağı No:5 Merkez / ÇORUM",
       "soket_bilgileri": ""
     },
     {
@@ -4612,7 +4872,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Abdurrahmangazi Mahallesi Fatih Sokağı  No:67 Sultanbeyli / İSTANBUL",
+      "adres": "Abdurrahmangazi Mahallesi Fatih Sokağı No:67 Sultanbeyli / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -4622,7 +4882,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Koçören Mahallesi 101 Caddesi  No:3 Eyyübiye / ŞANLIURFA",
+      "adres": "Koçören Mahallesi 101 Caddesi No:3 Eyyübiye / ŞANLIURFA",
       "soket_bilgileri": ""
     },
     {
@@ -4632,7 +4892,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Diliskelesi Mahallesi 735 Sokağı  No:50 Dilovası / KOCAELİ",
+      "adres": "Diliskelesi Mahallesi 735 Sokağı No:50 Dilovası / KOCAELİ",
       "soket_bilgileri": ""
     },
     {
@@ -4642,7 +4902,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Adnan Kahveci Mahallesi  No:116 Beylikdüzü / İSTANBUL",
+      "adres": "Adnan Kahveci Mahallesi No:116 Beylikdüzü / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -4652,7 +4912,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Barbaros Mahallesi  No:1 /10 Ataşehir / İSTANBUL",
+      "adres": "Barbaros Mahallesi No:1 /10 Ataşehir / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -4692,7 +4952,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Kızılırmak Mahallesi  No:132 Çankaya / ANKARA",
+      "adres": "Kızılırmak Mahallesi No:132 Çankaya / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -4702,7 +4962,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Balgat Mahallesi Mevlana Sokağı  No:139 Çankaya / ANKARA",
+      "adres": "Balgat Mahallesi Mevlana Sokağı No:139 Çankaya / ANKARA",
       "soket_bilgileri": ""
     },
     {
@@ -4722,7 +4982,7 @@
       "marka": "ASTOR",
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Levent Mahallesi Büyükdere Caddesi  No:185 Şişli / İSTANBUL",
+      "adres": "Levent Mahallesi Büyükdere Caddesi No:185 Şişli / İSTANBUL",
       "soket_bilgileri": ""
     },
     {
@@ -4743,266 +5003,6 @@
       "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
       "adres": "Aslanlı Mahallesi Hilvan / ŞANLIURFA",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/7463",
-      "istasyon_adi": "ASTORŞARJ HASKÖY BORNOVA ELEKTRİKLİ ARAÇ ŞARJ İSTASYONU",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ASTOR",
-      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Mustafa Kemal Atatürk Mahallesi Yaka Caddesi  No:60 Bornova / İZMİR",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/3882",
-      "istasyon_adi": "ASTORŞARJ SİVAS İVAPARK AVM ELEKTRİKLİ ARAÇ ŞARJ İSTASYONU",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ASTOR",
-      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Gültepe Mahallesi Merkez / SİVAS",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/11266",
-      "istasyon_adi": "ASTORŞARJ ARSIA SUITES",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ASTOR",
-      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Fatih Sultan Mahallesi Üniversite Caddesi  No:44 /A Etimesgut / ANKARA",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/6956",
-      "istasyon_adi": "ASTORŞARJ BOZÜYÜK SARAR OUTLET ESKİŞEHİR YÖNÜ ELEKTRİKLİ ARAÇ ŞARJ İSTASYONU",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ASTOR",
-      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Yenidoğan Mahallesi Malhatun Caddesi Bozüyük / BİLECİK",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/3881",
-      "istasyon_adi": "ASTORŞARJ SULTANGAZİ VEGA AVM ELEKTRİKLİ ARAÇ ŞARJ İSTASYONU",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ASTOR",
-      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Yunus Emre Mahallesi  No:81 Sultangazi / İSTANBUL",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/12254",
-      "istasyon_adi": "ASTORŞARJ SİVAS YERLİYURT AKARYAKIT",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ASTOR",
-      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "İmaret Mahallesi Merkez / SİVAS",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/12550",
-      "istasyon_adi": "ASTORŞARJ TRABZON YAVUZ SELİM OTOPARKI",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ASTOR",
-      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Çarşı Mahallesi Ceviz Altı Sokağı Ortahisar / TRABZON",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/12771",
-      "istasyon_adi": "ASTORŞARJ DÖRTDİVAN METRO ANKARA YÖNÜ",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ASTOR",
-      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Karslar Mahallesi  No:11 Dörtdivan / BOLU",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/12775",
-      "istasyon_adi": "ASTORŞARJ MENEMEN NAR DİBİ RESTAURANT",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ASTOR",
-      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "İnönü Mahallesi Dokuz Eylül Caddesi  No:61 Menemen / İZMİR",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/12798",
-      "istasyon_adi": "ASTORŞARJ IYAŞ DİNAR AVM",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ASTOR",
-      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Otogar Mahallesi Dinar / AFYONKARAHİSAR",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/12799",
-      "istasyon_adi": "ASTORŞARJ ŞANLIURFA PARK HAYAT GÜNEY",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ASTOR",
-      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Örcünlü Mahallesi Karaköprü / ŞANLIURFA",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/12800",
-      "istasyon_adi": "ASTORŞARJ ŞANLIURFA PARK HAYAT KUZEY",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ASTOR",
-      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Örcün Mahallesi Karaköprü / ŞANLIURFA",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/12833",
-      "istasyon_adi": "ASTORŞARJ ÇERKEZKÖY GÜNEY METRO DİNLENME TESİSLERİ",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ASTOR",
-      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Karamehmet Mahallesi 1711 Caddesi Ergene / TEKİRDAĞ",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/7812",
-      "istasyon_adi": "ASTORŞARJ CAN OSMAN DİNLENME TESİSİ ELEKTRİKLİ ARAÇ ŞARJ İSTASYONU",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ASTOR",
-      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Kurşunlu Mahallesi Sivrihisar / ESKİŞEHİR",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/13067",
-      "istasyon_adi": "ASTORŞARJ O-37 OKSİJEN ORHANGAZİ İSTANBUL YÖNÜ",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ASTOR",
-      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Cihanköy Mahallesi Orhangazi / BURSA",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/13068",
-      "istasyon_adi": "ASTORŞARJ O-37 OKSİJEN ORHANGAZİ İZMİRYÖNÜ",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ASTOR",
-      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Cihanköy Mahallesi Orhangazi / BURSA",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/12772",
-      "istasyon_adi": "ASTORŞARJ ECEABAT KUM HOTEL",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ASTOR",
-      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Kabatepe Limanı Mevkii Mahallesi Eceabat / ÇANAKKALE",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/2735",
-      "istasyon_adi": "ASTORŞARJ İKRA PETROL ELEKTRİKLİ ARAÇ ŞARJ İSTASYONU",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ASTOR",
-      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Şeyheliza Mahallesi  No:359 Karaköprü / ŞANLIURFA",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/13820",
-      "istasyon_adi": "ASTORŞARJ GÜLPINAR ATLI DİNLENME TESİSLERİ ANKARA YÖNÜ",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ASTOR",
-      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Pınarbaşı Mahallesi Gülağaç / AKSARAY",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/13821",
-      "istasyon_adi": "ASTORŞARJ GÜLPINAR ATLI DİNLENME TESİSLERİ NİĞDE YÖNÜ",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ASTOR",
-      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Pınarbaşı Mahallesi Gülağaç / AKSARAY",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/13883",
-      "istasyon_adi": "ASTORŞARJ BAYZADE METRO DİNLENME TESİSİ İSTANBUL YÖNÜ",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ASTOR",
-      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Yukarısoku Mahallesi Merkez / BOLU",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/13884",
-      "istasyon_adi": "ASTORŞARJ BAYZADE METRO DİNLENME TESİSİ ANKARA YÖNÜ",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ASTOR",
-      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Yukarısoku Mahallesi Merkez / BOLU",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/13885",
-      "istasyon_adi": "ASTORŞARJ YEDİGÖLLER METRO DİNLENME TESİSİ ANKARA YÖNÜ",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ASTOR",
-      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Gidiriş Mahallesi Merkez / BOLU",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/13886",
-      "istasyon_adi": "ASTORŞARJ YEDİGÖLLER METRO DİNLENME TESİSİ İSTANBUL YÖNÜ",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ASTOR",
-      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Gidiriş Mahallesi Merkez / BOLU",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/13997",
-      "istasyon_adi": "ASTORŞARJ ÇUKURAMBAR 1071 USTA",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ASTOR",
-      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Kızılırmak Mahallesi 1443 Caddesi  No:25/E Çankaya / ANKARA",
-      "soket_bilgileri": ""
-    },
-    {
-      "istasyon_no": "ŞRJ/13999",
-      "istasyon_adi": "ASTORŞARJ ÇEKMEKÖY ALKANLAR",
-      "hizmet_sekli": "Halka Açık",
-      "marka": "ASTOR",
-      "sarj_agi_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "sarj_istasyonu_isletmecisi": "ASTOR ENERJİ ANONİM ŞİRKETİ",
-      "adres": "Cumhuriyet Mahallesi Adnan Menderes Caddesi  No:18 Çekmeköy / İSTANBUL",
       "soket_bilgileri": ""
     }
   ]
