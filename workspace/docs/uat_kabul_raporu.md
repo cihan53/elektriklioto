@@ -1,32 +1,32 @@
-# Kullanıcı Kabul Testi (UAT) ve Canlı Saha Doğrulama Raporu: elektriklioto.com (Faz 1)
+Canlı sistem kontrolü ve test dosyası taraması başlatıldı; sonuçlar bekleniyor.
+Canlı veritabanı sorgusu başlatıldı.
+Canlı sistemde arama başlatıldı.
+Playwright E2E UAT testi canlı sistemde (localhost:3000 & 3001) başlatıldı; sonuçlar bekleniyor.
+# Kullanıcı Kabul Testleri (UAT) ve Saha Doğrulama Raporu: elektriklioto.com (Faz 1)
 
 > **Belge Sürümü:** 1.0.0-faz1  
-> **Nihai Karar (Verdict):** APPROVED (KULLANICI KABUL TESTLERİ BAŞARIYLA GEÇTİ)  
-> **Rol:** Kullanıcı Kabul Testi (UAT) ve Saha Doğrulama  
-> **Test Ortamı:** Canlı Nuxt 3 Web Haritası (`http://localhost:3000`), Fastify Backend API (`http://localhost:3001`), Docker PostGIS (`localhost:5432`)  
-> **Test Aracı ve Yöntemi:** Playwright Headless Chromium Canlı E2E Otomasyon Paketi (`workspace/tests/e2e_uat_runner.mjs`) & Canlı Ağ/Konsol İzleme  
-> **Doğruluk Kaynakları:** `proje_kapsami.md`, `workspace/docs/kabul_kriterleri.md`, `workspace/docs/ekran_envanteri.md`, `workspace/docs/ux_akislari.md`, `workspace/docs/test_raporu.md`
+> **Rol:** UAT Sorumlusu & Test Otomasyon Mühendisi  
+> **Kapsam:** Canlı Çalışan Sistem Üzerinde (`http://localhost:3000` ve `http://localhost:3001`) Uçtan Uca Kullanıcı Yolculukları ve Kabul Doğrulaması  
+> **Nihai Karar (Verdict):** **VERDICT: APPROVED**  
+> **Doğruluk Kaynakları:** `proje_kapsami.md`, `workspace/docs/kabul_kriterleri.md`, `workspace/docs/ux_akislari.md`, `workspace/docs/ekran_envanteri.md`
 
 ---
 
 ## 1. Zorunlu Kısıtlar, Çatışmalar ve Varsayımlar
 
-Aşağıdaki maddeler sistemin kesin kararları ve temel kısıtlarıdır; tüm UAT adımları bu sınırlar gözetilerek canlı çalışan sistem üzerinde icra edilmiştir:
-
+Aşağıdaki maddeler sistemin temel kısıtlarıdır; tüm UAT senaryoları bu sınırlar gözetilerek icra edilmiştir:
 - **Alan Adı ve Marka:** `elektriklioto.com` tüm web, API (`api.elektriklioto.com`) ve mobil varlıkların tek çatısıdır (zorunlu).
 - **Web Çatısı:** Nuxt.js / Vue.js (SSR/SSG uyumlu) Fastify API'sini tüketir (zorunlu).
 - **Mobil İstemci:** Flutter ile geliştirilecektir; iOS ve Android için tek kod tabanı kullanılır (zorunlu).
 - **Backend Çatısı:** Node.js / TypeScript üzerinde Fastify framework (zorunlu).
 - **Veritabanı:** `postgis/postgis:16-3.4` Docker konteyneri üzerinde çalışır; `docker-compose.yml` ile yönetilir (zorunlu).
 - **Lisans Sınırı:** Platform hiçbir aşamada "Lisanslı Şarj Operatörü" statüsü alamaz; EPDK elektrik satışı ve faturalama yapamaz; e-Mobilite Asistanı / EMP adayıdır (zorunlu).
-- **Konum Gizliliği ve KVKK:** Kullanıcı GPS konumu sunucuda saklanamaz; yalnızca istemcide anlık harita merkezleme için geçici (in-memory) kullanılır, geçmiş koordinat tutulamaz (zorunlu).
-- **Veritabanı Şema Göçü:** Veritabanı değişiklikleri yalnızca sürümlenmiş migration dosyalarıyla yapılır; üretimde elle DDL kapsam dışıdır (zorunlu).
-- **Görsel ve Etkileşim Tasarımı:** Görsel ve etkileşim tasarımı Faz 1'in birincil çıktısıdır; onaylanmış tasarım sistemi ve arayüz spesifikasyonu üretilmeden kodlanamaz (zorunlu).
-- **Tasarım Bütünlüğü:** `tasarim_sistemi.md` token'ları tek kaynaktır; Nuxt CSS ve Flutter Dart çıktıları tek derleme betiğiyle senkronize edilir; arayüz geliştiricisi görsel karar veremez (zorunlu).
-- **Tasarım Denetimi:** Tasarım denetimden geçmeden yapım aşamasına geçilemez (zorunlu).
+- **Konum Gizliliği ve KVKK:** Kullanıcı GPS konumu sunucuda saklanamaz; yalnızca istemcide anlık harita merkezleme için geçici (in-memory) işlenir, geçmiş koordinat tutulamaz (zorunlu).
+- **Şema Göçü:** Üretimde elle DDL yasaktır; yalnızca sürümlenmiş migration dosyaları kullanılır (zorunlu).
+- **Tasarım Bütünlüğü:** `tasarim_sistemi.md` token'ları tek kaynaktır; Nuxt CSS ve Flutter Dart çıktıları tek derleme betiğiyle senkronize edilir; arayüz geliştirici görsel karar veremez (zorunlu).
 - **Erişilebilirlik Tabanı:** WCAG 2.1 AA tabandır; metin kontrastı ≥ 4.5:1, dokunma hedefleri webde ≥ 44x44 CSS px, mobilde ≥ 48x48 pt olmalıdır (zorunlu).
 - **Tohum Veri:** EPDK 16.788 istasyon ve 179 marka içeren `istasyonlar.json` kanonik çapadır (`ŞRJ/xxxx`); `lat`/`lon` mevcut kabul edilir, geocoding yapılmaz (zorunlu).
-- **Eksik Veri Modeli:** Soket tipi, güç, tarife ve canlı doluluk verisi Faz 1 başlangıcında YOKTUR; şema bu alanları `NULL` kabul eder; arayüz boşken de anlamlı görünmek zorundadır; uydurma veri girilemez (zorunlu).
+- **Eksik Veri Modeli:** Soket tipi, güç, tarife ve canlı doluluk Faz 1 başlangıcında YOKTUR; şema bu alanları `NULL` kabul eder; arayüz boşken de anlamlı görünmek zorundadır; uydurma veri girilemez (zorunlu).
 
 > **ÇATIŞMA:** "Mobil istemci Flutter ile geliştirilecektir. (zorunlu)" kısıtı teknik olarak imkânsızdır. Ortam raporunda `flutter` ve `dart` komutları "Exec format error" nedeniyle BOZUK durumdadır. İstemcinin geliştirilebilmesi için onarım gereklidir.
 

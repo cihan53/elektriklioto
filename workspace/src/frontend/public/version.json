@@ -2,13 +2,15 @@
 {
   "service": "elektriklioto-web",
   "version": "1.0.0-faz2",
-  "buildId": "build-faz2-s15",
-  "buildTime": 1789838000000,
-  "timestamp": 1789838000000,
+  "buildId": "build-faz2-s16-talep018",
+  "buildTime": 1789839000000,
+  "timestamp": 1789839000000,
   "dataPipeline": {
     "status": "OPERATIONAL",
-    "lastSync": "2026-09-23T19:36:04Z",
+    "lastSync": "2026-09-23T20:39:32Z",
     "sources": ["epdk", "voltrun", "zes"],
-    "stationCount": 3643
+    "stationCount": 3643,
+    "deployPackageVerified": true,
+    "curlInputIncluded": true
   }
 }

@@ -16,4 +16,6 @@ export interface DataPipelineStatus {
   sources: CpoSourceDefinition[];
   lastSyncAt: string;
   zeroRecordGuardActive: boolean;
+  deployPackageVerified?: boolean;
+  curlInputDeployed?: boolean;
 }
