@@ -1464,14 +1464,20 @@ def execute_task(org: dict, task: dict, sprint: dict, brief: str, board: dict,
     B.mark(board, task["id"], B.DONE, note=note)
 
     # Müşteri talebi görevi ise durumu otomatik güncelle
-    if task.get("talep_id"):
+    talep_id = task.get("talep_id")
+    if not talep_id:
+        m = re.search(r"TALEP-\d+", task.get("title", ""))
+        if m:
+            talep_id = m.group(0)
+
+    if talep_id:
         try:
             sys.path.insert(0, str(ROOT / "scripts"))
             import musteri_talepleri as MT
             import importlib
             importlib.reload(MT)
             if task.get("phase") == "test":
-                MT.guncelle(task["talep_id"], durum="COZULDU",
+                MT.guncelle(talep_id, durum="COZULDU",
                             studio_notu=f"Görev {task['id']} başarıyla tamamlandı ve UAT testinden geçti.")
         except Exception:
             pass
