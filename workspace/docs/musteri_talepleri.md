@@ -1,7 +1,7 @@
 # Digital Software Studio — Müşteri Denetim & Talep Havuzu
 
-> **Son Güncelleme:** 2026-09-24 09:29  
-> **Toplam Bildirim:** 19  
+> **Son Güncelleme:** 2026-09-24 20:12  
+> **Toplam Bildirim:** 21  
 
 Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda iletilen istek, hata ve geri bildirimleri içerir.
 
@@ -11,7 +11,9 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 
 | ID | Tür | Öncelik | Durum | Başlık | Ekran / URL | İlgili Rol | GitHub Issue | Plan |
 |---|---|---|---|---|---|---|---|---|
-| **TALEP-019** | Veri & İstasyon Tutarlılığı | Yüksek (P2) | ✅ Çözüldü | EPDK Ana Referans Mimarisine Geçiş ve Trugo/CPO Zenginleştirmesi | `/harita` | `data_engineer` | [#20](https://github.com/cihan53/elektriklioto/issues/20) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-019.md) |
+| **TALEP-021** | Yeni İstek / Özellik | Normal (P3) | ❌ İptal Edildi | Pano görevlerine öncelik alanı eklenmeli | `studio` | `None` | [#26](https://github.com/cihan53/elektriklioto/issues/26) | — |
+| **TALEP-020** | Veri & İstasyon Tutarlılığı | Yüksek (P2) | ✅ Çözüldü | Trugo ve diğer operatör istasyonları güncellenmiyor | `/` | `None` | [#25](https://github.com/cihan53/elektriklioto/issues/25) | — |
+| **TALEP-019** | Veri & İstasyon Tutarlılığı | Yüksek (P2) | ✅ Çözüldü | EPDK Ana Referans Mimarisine Geçiş ve Trugo/CPO Zenginleştirmesi | `/harita` | `data_engineer` | [#20](https://github.com/cihan53/elektriklioto/issues/20) | — |
 | **TALEP-018** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | TALEP-017 Eksik İş Kapanışı: curl_input.txt deploy paketinde olmadığı için canlı kaynaklar yerine GitHub raw'a fallback yapılıyor | `/server-scripts/deploy` | `None` | [#19](https://github.com/cihan53/elektriklioto/issues/19) | — |
 | **TALEP-017** | Yeni İstek / Özellik | Normal (P3) | ✅ Çözüldü | Canlı Kaynak Entegrasyonu: EPDK ve Voltrun verilerini gerçek sitelerden çek | `/data-pipeline` | `data_engineer` | [#17](https://github.com/cihan53/elektriklioto/issues/17) | — |
 | **TALEP-016** | Tasarım & Kullanıcı Deneyimi | Normal (P3) | ✅ Çözüldü | Hakkımızda modal içeriğinin önceki versiyondaki haline döndürülmesi | `/` | `ui_designer` | [#16](https://github.com/cihan53/elektriklioto/issues/16) | — |
@@ -35,6 +37,28 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 
 ## 2. Talep Detayları ve Geri Bildirim Notları
 
+### [TALEP-021] Pano görevlerine öncelik alanı eklenmeli (❌ İptal Edildi)
+- **Bildirim Tarihi:** 2026-09-24 18:58
+- **Tür / Öncelik:** Yeni İstek / Özellik / Normal (P3)
+- **İlgili Ekran / Sayfa:** `studio`
+- **Görevli Rol:** `None`
+- 🐙 **GitHub Issue:** [#26](https://github.com/cihan53/elektriklioto/issues/26)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Sprint panosundaki görevler arasından sıradakini seçerken öncelik dikkate alınmıyor; işler yalnızca sprint sırasına göre ilerliyor. Önemli bir işi öne çekmek için elle sıra değiştirmek gerekiyor. Görevlere bir öncelik alanı eklenip (ör. müşteri talebinin önceliğinden türetilerek) sıradaki görevin önceliğe göre seçilmesi isteniyor.
+
+---
+### [TALEP-020] Trugo ve diğer operatör istasyonları güncellenmiyor (✅ Çözüldü)
+- **Bildirim Tarihi:** 2026-09-24 18:43
+- **Tür / Öncelik:** Veri & İstasyon Tutarlılığı / Yüksek (P2)
+- **İlgili Ekran / Sayfa:** `/`
+- **Görevli Rol:** `None`
+- 🐙 **GitHub Issue:** [#25](https://github.com/cihan53/elektriklioto/issues/25)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Günlük veri senkronizasyonu çalışıyor, EPDK'dan veriler çekiliyor ancak web arayüzüne yansımıyor. Haritada/operatör listesinde Trugo için sadece 1 istasyon görünüyor; ZES ve Voltrun dışındaki operatörlerin istasyonları görünmüyor. Veriler alınıyor ama veritabanına işlenmiyor gibi görünüyor.
+
+---
 ### [TALEP-019] EPDK Ana Referans Mimarisine Geçiş ve Trugo/CPO Zenginleştirmesi (✅ Çözüldü)
 - **Bildirim Tarihi:** 2026-09-24 09:20
 - **Tür / Öncelik:** Veri & İstasyon Tutarlılığı / Yüksek (P2)
@@ -47,8 +71,6 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 
 **Studio Yetkilisi Notu:**
 > EPDK ana referans mimarisine geçiş ve Trugo/CPO veri zenginleştirmesi tamamlandı. cpo_stations.json güncellendi.
-
-- 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-019.md](workspace/docs/cozum_planlari/TALEP-019.md)
 
 ---
 ### [TALEP-018] TALEP-017 Eksik İş Kapanışı: curl_input.txt deploy paketinde olmadığı için canlı kaynaklar yerine GitHub raw'a fallback yapılıyor (✅ Çözüldü)

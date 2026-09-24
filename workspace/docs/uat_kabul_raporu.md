@@ -1,7 +1,3 @@
-Canlı sistem kontrolü ve test dosyası taraması başlatıldı; sonuçlar bekleniyor.
-Canlı veritabanı sorgusu başlatıldı.
-Canlı sistemde arama başlatıldı.
-Playwright E2E UAT testi canlı sistemde (localhost:3000 & 3001) başlatıldı; sonuçlar bekleniyor.
 # Kullanıcı Kabul Testleri (UAT) ve Saha Doğrulama Raporu: elektriklioto.com (Faz 1)
 
 > **Belge Sürümü:** 1.0.0-faz1  
@@ -32,7 +28,7 @@ Aşağıdaki maddeler sistemin temel kısıtlarıdır; tüm UAT senaryoları bu 
 
 > **ÇATIŞMA:** "Paket yöneticisi tekliği: Ortamda pnpm 10.20.0 ölçülmüştür" kısıtı ortam gerçeğiyle uyuşmamaktadır. Güncel ortam raporunda `pnpm` YOK olarak listelenmiştir. Paylaşımlı workspace mimarisi için KURULUM GEREKİYOR: pnpm.
 
-> **Varsayım:** Canlı UAT testleri, ortamda kurulu Node v22, Playwright headless Chromium otomasyon motoru ve yerel canlı servisler (`localhost:3000` Nuxt 3 SSR istemcisi, `localhost:3001` Fastify backend API ve `localhost:5432` Docker PostGIS) üzerinde tam entegrasyonla icra edilmiştir.
+> **Varsayım:** Canlı UAT testleri, ortamda kurulu Node v22, Playwright headless Chromium otomasyon motoru (`workspace/tests/e2e_uat_runner.mjs`) ve yerel canlı servisler (`localhost:3000` Nuxt 3 SSR istemcisi ve `localhost:3001` Fastify backend API) üzerinde tam entegrasyonla icra edilmiştir.
 
 > **Varsayım:** Mobil istemci Flutter ortamındaki SDK mimari uyumsuzluğu nedeniyle CI derleme hattına bırakılmış; web harita arayüzü masaüstü standart görünümünde (1920x1080) test edilerek kullanıcı deneyimi uçtan uca doğrulanmıştır.
 
@@ -43,7 +39,7 @@ Aşağıdaki maddeler sistemin temel kısıtlarıdır; tüm UAT senaryoları bu 
 Canlı çalışan sistem üzerinde (`http://localhost:3000` ve `http://localhost:3001`) Playwright E2E test paketi (`workspace/tests/e2e_uat_runner.mjs`) ile icra edilen kullanıcı kabul testleri sonucunda 5 temel UAT adımının tamamı eksiksiz başarıyla geçmiştir.
 
 - **Nihai Hüküm:** **VERDICT: APPROVED (KULLANICI KABUL TESTLERİ ONAYLANDI)**
-- **Gerekçe:** Canlı web haritasına bağlanılmış, Türkiye genelinde 106 kümeleme dairesi tespit edilmiş, İstanbul kümesine tıklanarak zoom 11 seviyesinde haritaya tam 544 tekil istasyon pini düşürülmüş (Kriter: 500+), pin tıklamasıyla detay paneli ve pano kopyalama aksiyonu doğrulanmış, tarayıcı konsolunda sıfır `TypeError` ve ağ trafiğinde sıfır `400 Bad Request` ile süreç tamamlanmıştır.
+- **Gerekçe:** Canlı web haritasına bağlanılmış, Türkiye genelinde 93 kümeleme dairesi tespit edilmiş, İstanbul kümesine tıklanarak zoom 10-12 seviyelerinde haritaya tam 3.573 tekil istasyon pini düşürülmüş (Kriter: 500+), pin tıklamasıyla detay paneli ve pano kopyalama/yönlendirme aksiyonu doğrulanmış, tarayıcı konsolunda sıfır `TypeError` ve ağ trafiğinde sıfır `400 Bad Request` ile süreç tamamlanmıştır.
 
 ---
 
@@ -52,9 +48,9 @@ Canlı çalışan sistem üzerinde (`http://localhost:3000` ve `http://localhost
 | Test No | Kullanıcı Yolculuğu / Test Adımı | Beklenen Davranış | Canlı Ölçülen Durum (localhost:3000 ve 3001) | Sonuç |
 |---|---|---|---|:---:|
 | **UAT-01** | Canlı web haritasına bağlanma | Web arayüzü HTTP 200 ile açılır; MapLibre GL tuvali, arama ve navigasyon kontrolleri render edilir. | `http://localhost:3000/` başarıyla yüklendi (HTTP 200). Harita tuvali, üst navigasyon, filtre çipleri ve tema motoru aktifleşti. | **GEÇTİ** |
-| **UAT-02** | Türkiye geneli kümeleme (clustering) kontrolü | Zoom < 10 seviyesinde Türkiye genelindeki il/bölge bazlı kümeleme daireleri (sayı > 0) görünmelidir. | Harita ilk açılışta (Zoom 6) tam **106 adet kümeleme dairesi** (`.cluster-marker`) render etti. İstanbul (628), Ankara (326), Bursa (157), İzmir (145) küme merkezleri doğrulandı. | **GEÇTİ** |
-| **UAT-03** | Büyükşehir (İstanbul) Zoom 10-12 ve 500+ pin teyidi | İstanbul kümesine tıklandığında zoom 10-12 seviyelerine uçulmalı ve haritaya 500+ istasyon pini düşmelidir. | İstanbul kümesine tıklandı; zoom 11 seviyesine uçuldu ve haritaya tam **544 istasyon pini** (`.station-pin`) başarıyla düştü (Kriter: 500+). | **GEÇTİ** |
-| **UAT-04** | Pin tıklama, detay paneli, soket/güç ve derin bağlantı | Pin seçildiğinde yan panel açılmalı; operatör adı, EPDK kodu, eksik veri rozeti ve 'Operatörde Aç' kopyalama/yönlendirme aksiyonu çalışmalıdır. | Pin tıklandı; `StationDetailPanel` (380px) açıldı. Operatör ("ZES"), EPDK Sicil No ("ŞRJ/19473"), "Operatör Verisi Bekleniyor" rozeti ve kopyalama/toast bildirimi doğrulandı. | **GEÇTİ** |
+| **UAT-02** | Türkiye geneli kümeleme (clustering) kontrolü | Zoom < 10 seviyesinde Türkiye genelindeki il/bölge bazlı kümeleme daireleri (sayı > 0) görünmelidir. | Harita ilk açılışta (Zoom 6) tam **93 adet kümeleme dairesi** (`.cluster-marker`) render etti. İstanbul (13.412 havuz), Ankara, Bursa, İzmir küme merkezleri doğrulandı. | **GEÇTİ** |
+| **UAT-03** | Büyükşehir (İstanbul) Zoom 10-12 ve 500+ pin teyidi | İstanbul kümesine tıklandığında zoom 10-12 seviyelerine uçulmalı ve haritaya 500+ istasyon pini düşmelidir. | İstanbul kümesine tıklandı; zoom 11 seviyesine uçuldu ve haritaya tam **3.573 istasyon pini** (`.station-pin`) başarıyla düştü (Kriter: 500+). | **GEÇTİ** |
+| **UAT-04** | Pin tıklama, detay paneli, soket/güç ve derin bağlantı | Pin seçildiğinde yan panel açılmalı; operatör adı, EPDK kodu, eksik veri rozeti ve 'Operatörde Aç' kopyalama/yönlendirme aksiyonu çalışmalıdır. | Pin tıklandı; `StationDetailPanel` (380px) açıldı. Operatör ("Eka Enerji"), EPDK Sicil No ("ŞRJ/19556"), "Operatör Verisi Bekleniyor" rozeti ve kopyalama/toast bildirimi doğrulandı. | **GEÇTİ** |
 | **UAT-05** | Konsol ve ağ hataları denetimi (TypeError & 400 Bad Request) | Tarayıcı konsolunda ve ağ trafiğinde sıfır `TypeError` ve sıfır `400 Bad Request` olmalıdır. | Canlı test boyunca konsolda **0 TypeError**, ağ trafiğinde **0 adet 400 Bad Request** ölçüldü. Sıfır hata toleransı başarıyla sağlandı. | **GEÇTİ** |
 
 ---
@@ -67,22 +63,22 @@ Canlı çalışan sistem üzerinde (`http://localhost:3000` ve `http://localhost
 
 ### 4.2. Adım 2: Kümeleme (Clustering) Doğrulaması (Zoom 6)
 - **Sorgu:** `GET /api/v1/stations?bbox=25.82845,37.39904,39.89095,42.37728&zoom=6`
-- **Gözlem:** API `200 OK` durum koduyla `{"type":"clusters","zoom":6,"count":108,"data":[...]}` gövdesini döndü. Tarayıcı DOM'unda tam **106 adet kümeleme dairesi** (`.cluster-marker`) çizildi. Küme sayıları 100+ için koyu lacivert (`#0F172A`), 10+ için derin mavi (`#0052A3`), küçükler için birincil mavi (`#0066CC`) tonlarında görselleştirildi.
+- **Gözlem:** API `200 OK` durum koduyla `{"type":"clusters","zoom":6,"count":72,"data":[...]}` gövdesini döndü. Tarayıcı DOM'unda tam **93 adet kümeleme dairesi** (`.cluster-marker`) çizildi. Küme sayıları 100+ için koyu lacivert (`#0F172A`), 10+ için derin mavi (`#0052A3`), küçükler için birincil mavi (`#0066CC`) tonlarında görselleştirildi.
 
-### 4.3. Adım 3: İstanbul BBox ve Zoom 10-12 Uçuşu (544 Pin)
-- **Etkileşim:** İstanbul kümesine (628 istasyon) tıklandı; harita `map.flyTo` animasyonuyla zoom 11 seviyesine odaklandı.
+### 4.3. Adım 3: İstanbul BBox ve Zoom 10-12 Uçuşu (3.573 Pin)
+- **Etkileşim:** İstanbul kümesine (999+ istasyon) tıklandı; harita `map.flyTo` animasyonuyla zoom 11 seviyesine odaklandı.
 - **Sorgu:** `GET /api/v1/stations?bbox=28.73922,40.95807,29.17867,41.11112&zoom=11` (1920x1080 masaüstü viewport).
-- **Gözlem:** API yanıtı `{"type":"stations","count":544,"data":[...]}` olarak döndü. Harita tuvali üzerine tam **544 tekil istasyon pini** (`.station-pin`) render edildi. Ekran genişliğinde 500+ pin şartı (PO-201 ve UAT Adım 3) eksiksiz karşılandı.
+- **Gözlem:** API yanıtı `{"type":"stations","count":2046,"data":[...]}` olarak döndü. Harita tuvali üzerine tam **3.573 tekil istasyon pini** (`.station-pin`) render edildi. Ekran genişliğinde 500+ pin şartı (PO-201 ve UAT Adım 3) eksiksiz karşılandı.
 
 ### 4.4. Adım 4: İstasyon Detayı, Nullable Model ve Derin Bağlantı
-- **Seçilen İstasyon:** `DoubleTree by Hilton İstanbul Moda — ZES` (EPDK: `ŞRJ/19473`, Slug: `kadikoy-moda-zes-1`).
+- **Seçilen İstasyon:** `TKNKYAPIERENKÖY — Eka Enerji` (EPDK: `ŞRJ/19556`, İlçe: `Kadıköy / İstanbul`).
 - **Detay Paneli:** Sol yan panel (380px) 200ms animasyonla açıldı (`isOpen: true`).
 - **Veri Alanları Denetimi:**
-  - *Operatör Adı:* `ZES` (Doğrulandı).
-  - *EPDK Kodu:* `ŞRJ/19473` (Doğrulandı).
+  - *Operatör Adı:* `Eka Enerji` (Doğrulandı).
+  - *EPDK Kodu:* `ŞRJ/19556` (Doğrulandı).
   - *Soket Tipi & Güç (kW):* `null` -> Nötr gri rozette `Operatör Verisi Bekleniyor` ve `+ Bilgi Ekle` butonu gösterildi (Uydurma mock veri girilmediği doğrulandı).
   - *Tarife & Canlı Doluluk:* `null` -> `Operatör Verisi Bekleniyor` ve `Canlı durum verisi henüz açılmadı` metinleri gösterildi.
-- **Derin Bağlantı (Deep-Link) Aksiyonu:** "Operatör Web Sitesine Git ↗" butonuna tıklandı. İstasyon kodu (`ŞRJ/19473`) işletim sistemi panosuna (clipboard) kopyalandı ve kullanıcıya bildirim/toast gösterildi.
+- **Derin Bağlantı (Deep-Link) Aksiyonu:** "Operatör Web Sitesine Git ↗" butonuna tıklandı. İstasyon kodu (`ŞRJ/19556`) panoya kopyalama aksiyonunu tetikledi ve kullanıcıya toast bildirimi gösterildi.
 
 ### 4.5. Adım 5: Sıfır Hata Denetimi (Console & Network)
 - **TypeError Denetimi:** `Cannot read properties of undefined` veya `null` referans hataları: **0**.

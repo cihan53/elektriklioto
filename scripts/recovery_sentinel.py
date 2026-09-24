@@ -103,12 +103,10 @@ class RecoverySentinelAgent:
             "blocked_tasks": [],
             "toplam_yarim": 0
         }
-        pano_file = self.root / "workspace" / "pano.json"
-        if not pano_file.exists():
-            return rapor
-
         try:
-            board = json.loads(pano_file.read_text(encoding="utf-8"))
+            sys.path.insert(0, str(self.root))
+            import studio_board as B
+            board = B.load()
             for s in board.get("sprints", []):
                 for t in s.get("tasks", []):
                     st = t.get("status")

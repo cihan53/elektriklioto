@@ -10,6 +10,8 @@ workspace/.control/
 workspace/.history/
 workspace/.lock
 workspace/.gunluk.json
+workspace/pano.json
+workspace/pano.json.tmp
 pipeline.log
 plan.log
 .claude_token

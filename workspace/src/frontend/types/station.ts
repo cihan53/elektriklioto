@@ -84,10 +84,10 @@ export interface StationItem {
   address: string | null;
   city: string | null;
   district: string | null;
-  // Faz 1 Zorunlu Kısıt: Soket, güç ve tarife verisi kaynakta yoktur; kesinlikle null döner.
-  connector_types: null;
-  power_kw: null;
-  current_tariff: null;
+  // Faz 1 Zorunlu Kısıt & CPO Zenginleştirme: Soket, güç ve tarife verisi kaynakta yoksa null, Voltrun/ZES gibi kaynaklardan zenginleştirilmişse tipleri desteklenir.
+  connector_types: string[] | string | null;
+  power_kw: number | null;
+  current_tariff: string | null;
   connectors: any[] | null;
   status: string | null;
   service_type?: 'Halka Açık' | 'Özel' | string | null;

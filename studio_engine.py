@@ -1036,11 +1036,11 @@ PLANNER_ID = "sprint_planner"
 
 
 def run_planner(org: dict, brief: str, force: bool = False) -> dict:
-    """Planlayıcı rolünü çalıştırıp pano.json üretir (JSON doğrulamalı)."""
+    """Planlayıcı rolünü çalıştırıp sprint panosu üretir (studio.db)."""
     agent = next((a for a in org["hierarchy"] if a["id"] == PLANNER_ID), None)
     if agent is None:
         sys.exit(f"[HATA] '{PLANNER_ID}' rolü org şemasında yok.")
-    if B.BOARD_FILE.exists() and not force:
+    if B.board_exists() and not force:
         print("  [i] Mevcut pano kullanılıyor. Yeniden planlamak için --replan.")
         return B.load()
 
@@ -1062,7 +1062,7 @@ def run_planner(org: dict, brief: str, force: bool = False) -> dict:
         user = (f"===== PROJE ÖZETİ =====\n{brief}\n\n{inputs_text}\n"
                 f"{task}{note}")
         meta = {"seq": _trace_seq(), "role": PLANNER_ID, "title": agent["title"],
-                "target": str(B.BOARD_FILE.relative_to(ROOT)), "backend": backend,
+                "target": "studio.db (sprint_planner)", "backend": backend,
                 "model": model, "tools": tools}
         raw = query_claude(agent["system_prompt"] + SYSTEM_SUFFIX, user,
                            backend, model, effort, meta, tools)
@@ -1102,7 +1102,7 @@ def run_planner(org: dict, brief: str, force: bool = False) -> dict:
         B.save(board)
         p = B.progress(board)
         print(f"  [✓] Pano üretildi: {p['sprints_total']} sprint, {p['total']} görev "
-              f"→ {B.BOARD_FILE.relative_to(ROOT)}")
+              f"→ studio.db")
         return board
 
     sys.exit(f"[HATA] Planlayıcı iki denemede de geçerli pano üretemedi:\n{last_err}")
@@ -1464,14 +1464,20 @@ def execute_task(org: dict, task: dict, sprint: dict, brief: str, board: dict,
     B.mark(board, task["id"], B.DONE, note=note)
 
     # Müşteri talebi görevi ise durumu otomatik güncelle
-    if task.get("talep_id"):
+    talep_id = task.get("talep_id")
+    if not talep_id:
+        m = re.search(r"TALEP-\d+", task.get("title", ""))
+        if m:
+            talep_id = m.group(0)
+
+    if talep_id:
         try:
             sys.path.insert(0, str(ROOT / "scripts"))
             import musteri_talepleri as MT
             import importlib
             importlib.reload(MT)
             if task.get("phase") == "test":
-                MT.guncelle(task["talep_id"], durum="COZULDU",
+                MT.guncelle(talep_id, durum="COZULDU",
                             studio_notu=f"Görev {task['id']} başarıyla tamamlandı ve UAT testinden geçti.")
         except Exception:
             pass
@@ -1859,7 +1865,7 @@ def main():
                     help="doğrusal koşucunun çalıştıracağı aşama (varsayılan: design; "
                          "yapım rollerini sprint panosu yürütür)")
     ap.add_argument("--plan", action="store_true",
-                    help="sprint panosunu üret (pano.json)")
+                    help="sprint panosunu üret (studio.db)")
     ap.add_argument("--replan", action="store_true",
                     help="mevcut panoyu yok sayıp yeniden planla")
     ap.add_argument("--tick", action="store_true",
@@ -1942,7 +1948,7 @@ def main():
 
         print("\n---> Sprint panosu üretiliyor (şema doğrulamalı)")
         run_planner(org, brief, force=args.replan)
-        if not B.BOARD_FILE.exists():
+        if not B.board_exists():
             sys.exit("[HATA] Pano üretilemedi; 'sprint_planner' rolünü kontrol edin.")
 
         print("\n########## AŞAMA 2/2 — YAPIM (sprint panosu) ##########")
@@ -1961,17 +1967,17 @@ def main():
         # Zamanlanmış tetikleyici pano üretilmeden önce de çalışır. Pano yoksa
         # tasarım aşamasını ilerlet — checkpoint'li olduğu için her tetikleme
         # kaldığı yerden devam eder ve kota açılınca kendiliğinden tamamlanır.
-        if not B.BOARD_FILE.exists():
+        if not B.board_exists():
             print("[i] Pano yok — önce tasarım aşaması ilerletiliyor.")
             args.stage = "design"
             execute_pipeline(org, brief, args)
-            if not B.BOARD_FILE.exists():
+            if not B.board_exists():
                 try:
                     run_planner(org, brief)
                 except SystemExit:
                     print("[i] Pano henüz üretilemedi; sonraki tetiklemede denenecek.")
                     return
-            if not B.BOARD_FILE.exists():
+            if not B.board_exists():
                 print("[i] Tasarım henüz tamamlanmadı; sonraki tetiklemede devam edilecek.")
                 return
         try:

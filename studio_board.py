@@ -265,42 +265,56 @@ def db_save_board(board: dict):
         conn.close()
 
 
+def board_exists() -> bool:
+    """Veritabanında (studio.db) tanımlı sprint olup olmadığını kontrol eder."""
+    try:
+        conn = db_conn()
+        try:
+            cur = conn.cursor()
+            cur.execute("SELECT COUNT(*) FROM sprintler")
+            row = cur.fetchone()
+            return bool(row and row[0] > 0)
+        finally:
+            conn.close()
+    except Exception:
+        return False
+
+
 # ---------------------------------------------------------------- yükle/kaydet
-def load(path: Path = BOARD_FILE) -> dict:
-    # 1. Önce studio.db'den yüklemeyi dene
+def load(path: Path = None) -> dict:
+    # 1. Primary: studio.db'den yükle (Single source of truth)
     db_board = db_load_board()
     if db_board and db_board.get("sprints"):
         return db_board
 
-    # 2. DB boşsa JSON dosyasından dene
-    if path.exists():
-        board = json.loads(path.read_text(encoding="utf-8"))
-        if isinstance(board, dict) and "sprints" in board:
-            try:
-                db_save_board(board)
-            except Exception:
-                pass
-            return board
+    # 2. studio.db boşsa ve geriye dönük fallback dosyası varsa tek seferlik aktar
+    fallback_path = path or BOARD_FILE
+    if fallback_path and fallback_path.exists():
+        try:
+            board = json.loads(fallback_path.read_text(encoding="utf-8"))
+            if isinstance(board, dict) and "sprints" in board:
+                try:
+                    db_save_board(board)
+                except Exception:
+                    pass
+                return board
+        except Exception:
+            pass
 
     raise FileNotFoundError(
-        f"Sprint panosu bulunamadı (ne studio.db'de ne de {path.name}'de var). "
-        f"Önce planlayıcıyı çalıştırın: python studio_engine.py --plan"
+        "Sprint panosu studio.db veritabanında bulunamadı. "
+        "Önce planlayıcıyı çalıştırın: python studio_engine.py --plan"
     )
 
 
-def save(board: dict, path: Path = BOARD_FILE):
+def save(board: dict, path: Path = None):
     board["updated_at"] = datetime.now().isoformat(timespec="seconds")
-    # 1. studio.db'ye yaz (Primary source of truth)
+    # Primary ve tek kaynak: studio.db (pano.json kullanılmaz)
     try:
         db_save_board(board)
     except Exception as e:
         print(f"  [UYARI] studio.db pano yazma hatası: {e}", file=sys.stderr)
-
-    # 2. Geriye dönük uyumluluk için JSON'a da yaz (Dual-write)
-    path.parent.mkdir(parents=True, exist_ok=True)
-    tmp = path.with_suffix(".json.tmp")
-    tmp.write_text(json.dumps(board, indent=2, ensure_ascii=False), encoding="utf-8")
-    tmp.replace(path)          # atomik: yarım yazılmış pano kalmasın
+        raise
 
 
 def all_tasks(board: dict):
@@ -529,6 +543,22 @@ def next_ready(board: dict):
     return None, None
 
 
+def _to_float_ts(ts) -> float | None:
+    if ts is None:
+        return None
+    if isinstance(ts, (int, float)):
+        return float(ts)
+    if isinstance(ts, str):
+        try:
+            return float(ts)
+        except ValueError:
+            try:
+                return datetime.fromisoformat(ts).timestamp()
+            except Exception:
+                return None
+    return None
+
+
 def mark(board: dict, task_id: str, status: str, note: str = ""):
     s, t = find_task(board, task_id)
     if t is None:
@@ -544,7 +574,10 @@ def mark(board: dict, task_id: str, status: str, note: str = ""):
     elif status in (DONE, FAILED, SKIPPED):
         t["finished_at"] = time.time()
         if t.get("started_at"):
-            t["duration_s"] = round(t["finished_at"] - t["started_at"], 1)
+            st = _to_float_ts(t.get("started_at"))
+            ft = _to_float_ts(t.get("finished_at"))
+            if st is not None and ft is not None:
+                t["duration_s"] = round(max(0.0, ft - st), 1)
 
     # studio.db'ye anında yansıt
     try:

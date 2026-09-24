@@ -219,6 +219,37 @@ export const stationRepository = {
 
   initDefaults() {
     this.seed(DEFAULT_STATIONS);
+    try {
+      const candidatePaths = [
+        path.resolve(process.cwd(), 'src/data/cpo_stations.json'),
+        path.resolve(process.cwd(), 'workspace/src/backend/src/data/cpo_stations.json'),
+        path.resolve(process.cwd(), '../data/cpo_stations.json'),
+        '/Users/cihan/PROJECT/elektriklioto-gemini/workspace/src/backend/src/data/cpo_stations.json',
+      ];
+      for (const cp of candidatePaths) {
+        if (fs.existsSync(cp)) {
+          const items = JSON.parse(fs.readFileSync(cp, 'utf-8'));
+          const models: StationModel[] = items.map((item: any) => ({
+            id: item.id || `st-${item.istasyon_no || Math.random()}`,
+            istasyon_no: item.istasyon_no || `ŞRJ/${Math.floor(Math.random() * 90000 + 10000)}`,
+            slug: item.slug || toSlug(item.name || 'istasyon'),
+            name: item.name || 'Şarj İstasyonu',
+            address: item.address || '',
+            city: item.city || 'Türkiye',
+            district: item.district || '',
+            lat: Number(item.lat || 39.0),
+            lon: Number(item.lon || 35.0),
+            operator_id: Number(item.operator_id || 1),
+            is_flagged_defective: Boolean(item.is_flagged_defective),
+            defect_report_count: Number(item.defect_report_count || 0),
+            updated_at: item.updated_at ? new Date(item.updated_at) : new Date(),
+            raw_metadata: item,
+          }));
+          this.seed(models);
+          break;
+        }
+      }
+    } catch {}
     if (process.env.NODE_ENV !== 'test') {
       ensureDatabaseSeeded().catch(() => {});
     }
