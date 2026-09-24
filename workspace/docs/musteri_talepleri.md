@@ -1,7 +1,7 @@
 # Digital Software Studio — Müşteri Denetim & Talep Havuzu
 
-> **Son Güncelleme:** 2026-09-24 20:12  
-> **Toplam Bildirim:** 21  
+> **Son Güncelleme:** 2026-09-24 20:28  
+> **Toplam Bildirim:** 22  
 
 Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda iletilen istek, hata ve geri bildirimleri içerir.
 
@@ -11,6 +11,7 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 
 | ID | Tür | Öncelik | Durum | Başlık | Ekran / URL | İlgili Rol | GitHub Issue | Plan |
 |---|---|---|---|---|---|---|---|---|
+| **TALEP-022** | Hata / Bug | Kritik (P1) | ⏳ Beklemede | Veritabanı tabloları boşaltıldığı halde haritada istasyonlar görünüyor | `/` | `None` | [#28](https://github.com/cihan53/elektriklioto/issues/28) | — |
 | **TALEP-021** | Yeni İstek / Özellik | Normal (P3) | ❌ İptal Edildi | Pano görevlerine öncelik alanı eklenmeli | `studio` | `None` | [#26](https://github.com/cihan53/elektriklioto/issues/26) | — |
 | **TALEP-020** | Veri & İstasyon Tutarlılığı | Yüksek (P2) | ✅ Çözüldü | Trugo ve diğer operatör istasyonları güncellenmiyor | `/` | `None` | [#25](https://github.com/cihan53/elektriklioto/issues/25) | — |
 | **TALEP-019** | Veri & İstasyon Tutarlılığı | Yüksek (P2) | ✅ Çözüldü | EPDK Ana Referans Mimarisine Geçiş ve Trugo/CPO Zenginleştirmesi | `/harita` | `data_engineer` | [#20](https://github.com/cihan53/elektriklioto/issues/20) | — |
@@ -37,6 +38,17 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 
 ## 2. Talep Detayları ve Geri Bildirim Notları
 
+### [TALEP-022] Veritabanı tabloları boşaltıldığı halde haritada istasyonlar görünüyor (⏳ Beklemede)
+- **Bildirim Tarihi:** 2026-09-24 20:26
+- **Tür / Öncelik:** Hata / Bug / Kritik (P1)
+- **İlgili Ekran / Sayfa:** `/`
+- **Görevli Rol:** `None`
+- 🐙 **GitHub Issue:** [#28](https://github.com/cihan53/elektriklioto/issues/28)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Müşteri veritabanı tablolarını boşalttığı halde haritada halen istasyon bilgilerinin göründüğünü belirtti. Backend API (station.service.ts) veritabanı boşken fallback olarak in-memory DEFAULT_STATIONS ve GADM statik kümeleme verilerini dönüyor ve veritabanı boşaldığında otomatik olarak cpo_stations.json tohumlaması yapıyor. Bu durum düzeltilmeli; veritabanı tek gerçek kaynak (single source of truth) olmalı, veritabanı boşsa haritada hiçbir mock/fallback istasyon veya kümeleme görünmemeli.
+
+---
 ### [TALEP-021] Pano görevlerine öncelik alanı eklenmeli (❌ İptal Edildi)
 - **Bildirim Tarihi:** 2026-09-24 18:58
 - **Tür / Öncelik:** Yeni İstek / Özellik / Normal (P3)
