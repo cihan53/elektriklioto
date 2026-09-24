@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-09-24T18:44:16.316670",
+  "son_guncelleme": "2026-09-24T18:44:52.050511",
   "toplam_talep": 20,
   "talepler": [
     {
@@ -131159,9 +131159,10 @@
       "baslik": "Trugo ve diğer operatör istasyonları güncellenmiyor",
       "aciklama": "Günlük veri senkronizasyonu çalışıyor, EPDK'dan veriler çekiliyor ancak web arayüzüne yansımıyor. Haritada/operatör listesinde Trugo için sadece 1 istasyon görünüyor; ZES ve Voltrun dışındaki operatörlerin istasyonları görünmüyor. Veriler alınıyor ama veritabanına işlenmiyor gibi görünüyor.",
       "sayfa_url": "/",
-      "durum": "PLANLANDI",
-      "gorevli_rol": "data_engineer",
-      "studio_notu": "Talep Studio Yetkilisi v2.0 tarafından analiz edildi. Kategori: [data_engineer] Veri & ETL Mühendisi (Python Pipeline & Scraper). AI danışma: Hayır (statik) Çözüm planı oluşturuldu: 'workspace/docs/cozum_planlari/TALEP-020.md'.",
+      "durum": "BEKLEMEDE",
+      "gorevli_rol": null,
+      "studio_notu": null,
+      "cozum_plani": null,
       "github_issue_number": 25,
       "github_issue_url": "https://github.com/cihan53/elektriklioto/issues/25",
       "gecmis": [
@@ -131174,14 +131175,10 @@
           "zaman": "2026-09-24 18:43",
           "eylem": "GitHub Issue oluşturuldu: #25",
           "durum": "BEKLEMEDE"
-        },
-        {
-          "zaman": "2026-09-24 18:44",
-          "eylem": "Durum güncellendi: PLANLANDI",
-          "durum": "PLANLANDI"
         }
       ],
-      "cozum_plani": "workspace/docs/cozum_planlari/TALEP-020.md"
+      "faz_id": "FAZ-1",
+      "efor": "ORTA"
     }
   ]
 }
