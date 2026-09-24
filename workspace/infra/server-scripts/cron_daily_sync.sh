@@ -71,15 +71,46 @@ fi
 
 log "Kullanılan Python: $PYTHON_BIN ($($PYTHON_BIN --version 2>&1))"
 
-# 2. CPO Veri Senkronizasyon Betiğini Çalıştır
-cd "$ROOT_DIR"
+# 1.5 Node.js Yorumlayıcısının Tespiti (EPDK Puppeteer scraper için)
+NODE_BIN=""
+for n_cand in \
+    "$ROOT_DIR/server-scripts/epdk/node_modules/.bin/node" \
+    $HOME/nodevenv/*/*/bin/node \
+    /opt/alt/nodejs*/bin/node \
+    /opt/alt/alt-nodejs*/root/usr/bin/node \
+    /usr/local/bin/node \
+    /usr/bin/node \
+    "$(which node 2>/dev/null || true)"; do
+    if [ -n "$n_cand" ] && [ -x "$n_cand" ]; then
+        NODE_BIN="$n_cand"
+        break
+    fi
+done
 
+# 2. EPDK Veri İndirme: Önce resmi API Gateway (epdk_api_fetch.py), başarısızsa
+#    Puppeteer scraper (scrape.mjs). İkisi de epdk_output/ altına birleşik JSON yazar.
+#    İkisi de başarısız olursa ETL mevcut checkpoint/önbellek ile devam eder.
+cd "$ROOT_DIR"
+log "EPDK API Gateway deneniyor (epdk_api_fetch.py)..."
+if "$PYTHON_BIN" server-scripts/epdk_api_fetch.py >> "$LOG_FILE" 2>&1; then
+    log "EPDK verisi API Gateway'den alındı; Puppeteer scraper atlandı."
+elif [ -n "$NODE_BIN" ] && [ -f "$ROOT_DIR/server-scripts/epdk/scrape.mjs" ]; then
+    log "API başarısız → EPDK Scraper (server-scripts/epdk/scrape.mjs) çalıştırılıyor..."
+    log "Kullanılan Node: $NODE_BIN ($("$NODE_BIN" --version 2>&1))"
+    if ! "$NODE_BIN" "$ROOT_DIR/server-scripts/epdk/scrape.mjs" >> "$LOG_FILE" 2>&1; then
+        log "UYARI: EPDK scraper tamamlanamadı (Chrome/captcha eksik olabilir). ETL mevcut checkpoint'lerle devam edecek."
+    fi
+else
+    log "API başarısız ve Node.js bulunamadı; ETL mevcut veriyle devam edecek."
+fi
+
+# 3. CPO Veri Senkronizasyon Betiğini Çalıştır
 log "ETL Pipeline (import_cpo_stations.py) çalıştırılıyor..."
 if ! "$PYTHON_BIN" server-scripts/import_cpo_stations.py >> "$LOG_FILE" 2>&1; then
     log "UYARI: ETL Pipeline çalışırken bir sorun oluştu veya istasyon bulunamadı! Log dosyasını inceleyiniz."
 fi
 
-# 3. Güncellenen Verinin Boyut ve Durum Kontrolü (TALEP-014 Güvenlik Doğrulaması)
+# 4. Güncellenen Verinin Boyut ve Durum Kontrolü (TALEP-014 Güvenlik Doğrulaması)
 DATA_FILE="$ROOT_DIR/workspace/src/backend/src/data/cpo_stations.json"
 BAK_FILE="$ROOT_DIR/workspace/src/backend/src/data/cpo_stations.json.bak"
 SEED_FILE="$ROOT_DIR/server-scripts/data/cpo_stations.json"
@@ -111,7 +142,23 @@ else
     log "HATA: cpo_stations.json dosyası hiçbir kaynaktan temin edilemedi!"
 fi
 
-# 4. cPanel Passenger Yeniden Başlatma (Zero-downtime reload)
+# 5. PostgreSQL Senkronizasyonu: cpo_stations.json -> station/connector tabloları.
+#    seed_postgres.py upsert SQL'i üretir (ON CONFLICT istasyon_no DO UPDATE) ve
+#    DATABASE_URL varsa psql ile uygular. .env'den okunur, cron env'iyle de geçilebilir.
+if [ -z "${DATABASE_URL:-}" ] && [ -f "$ROOT_DIR/.env" ]; then
+    DATABASE_URL="$(sed -n 's/^DATABASE_URL=//p' "$ROOT_DIR/.env" | head -1 | tr -d '"' | tr -d "'")"
+    export DATABASE_URL
+fi
+if [ "$STATION_COUNT" -gt 0 ] && [ -n "${DATABASE_URL:-}" ]; then
+    log "PostgreSQL senkronizasyonu (seed_postgres.py) çalıştırılıyor..."
+    if ! "$PYTHON_BIN" server-scripts/seed_postgres.py >> "$LOG_FILE" 2>&1; then
+        log "UYARI: PostgreSQL senkronizasyonu başarısız. server-scripts/seed_data.sql elle uygulanabilir."
+    fi
+elif [ "$STATION_COUNT" -gt 0 ]; then
+    log "DATABASE_URL tanımlı değil; PostgreSQL senkronizasyonu atlandı (sadece JSON güncellendi)."
+fi
+
+# 6. cPanel Passenger Yeniden Başlatma (Zero-downtime reload)
 TMP_DIR="$ROOT_DIR/tmp"
 mkdir -p "$TMP_DIR"
 touch "$TMP_DIR/restart.txt"
@@ -123,7 +170,7 @@ fi
 
 log "cPanel Passenger uygulaması yeniden başlatıldı (restart.txt)."
 
-# 5. Log Temizliği (Log dosyası 5 MB'ı geçerse son 1000 satırı tut)
+# 7. Log Temizliği (Log dosyası 5 MB'ı geçerse son 1000 satırı tut)
 if [ -f "$LOG_FILE" ]; then
     FILE_BYTES=$(wc -c < "$LOG_FILE")
     if [ "$FILE_BYTES" -gt 5242880 ]; then

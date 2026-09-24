@@ -1,11 +1,41 @@
 {
-  "tarih": "2026-09-24T09:00:58.681531",
+  "tarih": "2026-09-24T16:29:30.341500",
   "api": "https://apigateway.epdk.gov.tr/sarjIstasyonlari/",
   "sonuclar": [
     {
       "etiket": "Tam eşleşme: istasyon no",
       "filtre": {
         "sarjIstasyonuNo": "ŞRJ/9055"
+      },
+      "http": 200,
+      "durum": "OK",
+      "numRows": 0,
+      "donen_kayit": 0,
+      "elapsedTime": 8,
+      "errors": [],
+      "columnNames": [
+        "sarjIstasyonuNo",
+        "sarjIstasyonuAdi",
+        "yesilSarjIstasyonuMu",
+        "hizmetSekli",
+        "sarjAgiIsletmecisiUnvan",
+        "sarjAgiIsletmecisiLisansNo",
+        "sarjIstasyonuIsletmecisi",
+        "marka",
+        "olumluGorusVerenDagitimSirketiLisansNo",
+        "olumluGorusVerenDagitimSirketiLisansUnvani",
+        "dagitimSirketiOlumluGorusBelgeNumarasi",
+        "soketler",
+        "adres",
+        "enlem",
+        "boylam"
+      ],
+      "kayitlar": []
+    },
+    {
+      "etiket": "Marka bazlı liste",
+      "filtre": {
+        "markaAdi": "ZES"
       },
       "http": 429,
       "durum": "QUOTA",

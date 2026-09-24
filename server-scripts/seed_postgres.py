@@ -114,10 +114,14 @@ def generate_seed_sql() -> Path:
         lines.append(st_sql)
         inserted_stations += 1
 
-        # Soketler / Konnektörler
+        # Soketler / Konnektörler — günlük koşularda mükerrer birikmemesi için
+        # istasyonun mevcut connector'ları önce silinir (connector'da UNIQUE yok).
         connectors = s.get("connector_types") or s.get("connectors") or []
         power = s.get("power_kw")
         if connectors:
+            connector_lines.append(
+                f"DELETE FROM \"connector\" WHERE station_id = {sql_escape(ist_id)};"
+            )
             for c in connectors:
                 c_type = str(c) if not isinstance(c, dict) else c.get("type", "Type 2")
                 c_pwr = power if not isinstance(c, dict) else c.get("power_kw", power)
@@ -142,19 +146,21 @@ def generate_seed_sql() -> Path:
 def main():
     sql_file = generate_seed_sql()
     db_url = os.getenv("DATABASE_URL")
-    if db_url and "postgres" in db_url:
-        print(f"[i] DATABASE_URL algılandı, doğrudan psql üzerinden veritabanına aktarılıyor...")
-        try:
-            res = subprocess.run(["psql", db_url, "-f", str(sql_file)], capture_output=True, text=True, timeout=120)
-            if res.returncode == 0:
-                print("✓ İstasyonlar veritabanına başarıyla aktarıldı!")
-            else:
-                print(f"[!] psql çalıştırma uyarısı: {res.stderr[:200]}")
-        except Exception as e:
-            print(f"[i] psql komutu doğrudan çalıştırılamadı ({e}). Dosya 'server-scripts/seed_data.sql' olarak pgAdmin veya psql için hazır.")
-    else:
+    if not (db_url and "postgres" in db_url):
         print("[i] 'server-scripts/seed_data.sql' dosyası hazırlandı. pgAdmin Query Tool veya psql ile içe aktarabilirsiniz.")
+        return 1
+
+    print(f"[i] DATABASE_URL algılandı, doğrudan psql üzerinden veritabanına aktarılıyor...")
+    try:
+        res = subprocess.run(["psql", db_url, "-f", str(sql_file)], capture_output=True, text=True, timeout=120)
+        if res.returncode == 0:
+            print("✓ İstasyonlar veritabanına başarıyla aktarıldı!")
+            return 0
+        print(f"[!] psql çalıştırma uyarısı: {res.stderr[:200]}")
+    except Exception as e:
+        print(f"[!] psql komutu doğrudan çalıştırılamadı ({e}). Dosya 'server-scripts/seed_data.sql' olarak pgAdmin veya psql için hazır.")
+    return 1
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())
