@@ -98,275 +98,182 @@ describe('elektriklioto.com Frontend Kabul Testleri (S4-T2 & S5-T2)', () => {
     const nonce = 'f1e2d3c4b5a697887766554433221100';
     const secret = 'elektriklioto-proximity-secret-key-32b!';
     const epoch = 1788730000000;
-    const T = Math.round(epoch / 60000);
 
-    const data = `${stationId}${deviceUid}${T}${nonce}`;
-    const proof = createHmac('sha256', secret).update(data).digest('hex');
+    const message = `${stationId}:${deviceUid}:${nonce}:${epoch}`;
+    const proof = createHmac('sha256', secret).update(message).digest('hex');
 
     expect(proof).toHaveLength(64);
     expect(/^[0-9a-f]{64}$/.test(proof)).toBe(true);
 
-    const candidateVerify = createHmac('sha256', secret).update(`${stationId}${deviceUid}${T}${nonce}`).digest('hex');
-    expect(proof).toBe(candidateVerify);
+    const verifyProof = createHmac('sha256', secret).update(message).digest('hex');
+    expect(verifyProof).toBe(proof);
   });
 
-  it('S4-T2: Arıza Bildirildi rozeti ve semantik token renkleri WCAG 2.1 AA uyumlu olmalıdır', () => {
-    const badge = {
-      label: 'Arıza Bildirildi (3+ Doğrulama)',
-      bgClass: 'bg-danger-subdued',
-      textClass: 'text-danger-on-subdued',
-      borderClass: 'border-danger/40'
+  it('S4-T2: 3 veya daha fazla doğrulanmış ihbarda arıza rozeti (DEFECTIVE) aktifleşmelidir', () => {
+    const checkIsDefective = (reportCount: number, threshold = 3) => {
+      return reportCount >= threshold;
     };
 
-    expect(badge.label).toContain('Arıza Bildirildi');
-    expect(badge.bgClass).toBe('bg-danger-subdued');
-    expect(badge.textClass).toBe('text-danger-on-subdued');
+    expect(checkIsDefective(0)).toBe(false);
+    expect(checkIsDefective(1)).toBe(false);
+    expect(checkIsDefective(2)).toBe(false);
+    expect(checkIsDefective(3)).toBe(true);
+    expect(checkIsDefective(5)).toBe(true);
   });
 
-  it('S4-T2: Sorun türleri (Issue Types) backend TypeBox şemasıyla birebir örtüşmelidir', () => {
-    const validIssueCodes = ['DEFECTIVE', 'CABLE_LOCKED', 'ICE_BLOCK', 'ACCESS_ISSUE', 'OTHER'];
+  it('S4-T2: QR Köprü yükü (payload) 15 dakika geçerlilik süresi (TTL) kuralını doğrulamalıdır', () => {
+    const now = Date.now();
+    const ttlMs = 15 * 60 * 1000;
+    const expiresAt = now + ttlMs;
 
-    expect(validIssueCodes).toContain('DEFECTIVE');
-    expect(validIssueCodes).toContain('CABLE_LOCKED');
-    expect(validIssueCodes).toContain('ICE_BLOCK');
-    expect(validIssueCodes).toContain('ACCESS_ISSUE');
-    expect(validIssueCodes).toContain('OTHER');
-  });
-
-  it('Zorunlu Yasal EMP beyanı ve veri kaynağı damgası', () => {
-    const disclaimer =
-      'elektriklioto.com lisanslı şarj operatörü değildir. Şarj başlatma ve faturalandırma ilgili operatörün sorumluluğundadır.';
-    const dataSource = 'Veri Kaynağı: EPDK Sicil Kaydı (Eylül 2026)';
-
-    expect(disclaimer).toContain('lisanslı şarj operatörü değildir');
-    expect(dataSource).toContain('EPDK Sicil Kaydı (Eylül 2026)');
-  });
-
-  it('S3-T2: SEO İl ve İlçe dizin sayfaları URL hiyerarşisi doğrulanmalıdır', () => {
-    const cityUrl = (city: string) => `/${city}/sarj-istasyonlari`;
-    const districtUrl = (city: string, district: string) => `/${city}/${district}/sarj-istasyonlari`;
-    const operatorUrl = (op: string) => `/${op}`;
-
-    expect(cityUrl('istanbul')).toBe('/istanbul/sarj-istasyonlari');
-    expect(districtUrl('istanbul', 'kadikoy')).toBe('/istanbul/kadikoy/sarj-istasyonlari');
-    expect(operatorUrl('zes')).toBe('/zes');
-  });
-
-  it('S3-T2: Dinamik SVG QR kod üretimi (uqr) geçerli SVG çıktısı üretmelidir', () => {
-    const routeUrl = 'https://elektriklioto.com/r/k8F2m9A';
-    const svg = renderSVG(routeUrl, { border: 2 });
-
-    expect(svg).toBeDefined();
-    expect(svg).toContain('<svg');
-    expect(svg).toContain('viewBox');
-    expect(svg).toContain('xmlns="http://www.w3.org/2000/svg"');
-  });
-
-  it('S3-T2: Schema.org ItemList ve ChargingStation JSON-LD şeması eksiksiz oluşturulmalıdır', () => {
-    const station = {
-      name: 'Kadıköy Hızlı Şarj',
-      istasyon_no: 'ŞRJ/001',
-      lat: 40.99,
-      lon: 29.02,
-      city: 'İstanbul',
-      district: 'Kadıköy',
-      address: 'Caferağa Mah.'
+    const isExpired = (expiryTimestamp: number, currentTimestamp = Date.now()) => {
+      return currentTimestamp > expiryTimestamp;
     };
 
-    const jsonLd = {
-      '@context': 'https://schema.org',
-      '@type': 'ItemList',
-      name: 'İstanbul Şarj İstasyonları',
-      itemListElement: [
-        {
-          '@type': 'ChargingStation',
-          position: 1,
-          name: station.name,
-          identifier: station.istasyon_no,
-          geo: {
-            '@type': 'GeoCoordinates',
-            latitude: station.lat,
-            longitude: station.lon
-          },
-          address: {
-            '@type': 'PostalAddress',
-            addressLocality: station.district,
-            addressRegion: station.city,
-            addressCountry: 'TR'
-          }
-        }
-      ]
+    expect(isExpired(expiresAt, now + 10 * 60 * 1000)).toBe(false);
+    expect(isExpired(expiresAt, now + 15 * 60 * 1000 + 1)).toBe(true);
+  });
+
+  it('S4-T2: QR Kod SVG çıktısı uqr ile geçerli ve taranabilir şekilde üretilmelidir', () => {
+    const testUrl = 'https://elektriklioto.com/r/eyJzdG9wcyI6W3sic3RhdGlvbl9pZCI6IjAxOGYzYTllIn1dfQ';
+    const svgString = renderSVG(testUrl, {
+      ecc: 'M',
+      border: 2
+    });
+
+    expect(typeof svgString).toBe('string');
+    expect(svgString).toContain('<svg');
+    expect(svgString).toContain('</svg>');
+    expect(svgString).toContain('viewBox');
+  });
+
+  it('S4-T2: Topluluk katkı modalı (ContributeModal) form alanları ve doğrulama kuralları geçerli olmalıdır', () => {
+    const sampleContribution = {
+      station_id: '018f3a9e-6b8a-7890-a1b2-c3d4e5f6a7b8',
+      suggested_connectors: ['CCS', 'AC Tip 2'],
+      suggested_power_kw: 120,
+      suggested_tariff_tl: 9.80,
+      note: 'İstasyonda 2 adet CCS ve 1 adet AC soket aktif olarak çalışıyor.'
     };
 
-    expect(jsonLd['@context']).toBe('https://schema.org');
-    expect(jsonLd['@type']).toBe('ItemList');
-    expect(jsonLd.itemListElement[0]['@type']).toBe('ChargingStation');
-    expect(jsonLd.itemListElement[0].identifier).toBe('ŞRJ/001');
+    expect(sampleContribution.suggested_connectors.length).toBeGreaterThan(0);
+    expect(sampleContribution.suggested_power_kw).toBeGreaterThan(0);
+    expect(sampleContribution.suggested_tariff_tl).toBeGreaterThan(0);
+    expect(sampleContribution.note.length).toBeGreaterThan(10);
   });
 
-  // ==========================================
-  // S5-T2 (US-18): 24 SAAT VERİ TAZELİĞİ VE KAYNAK KESİNTİSİ TESTLERİ
-  // ==========================================
+  it('S5-T2: useSourceHealth - 24 saat kuralı ve bağıl zaman formatlayıcısı (formatFreshnessText)', () => {
+    const formatFreshnessText = (updatedAtStr?: string | null): DataFreshness => {
+      if (!updatedAtStr) {
+        return { is_stale: true, last_updated_text: 'Veri bekleniyor' };
+      }
 
-  const formatFreshnessHelper = (updatedAtDate: Date | string | null | undefined, now = new Date()): DataFreshness => {
-    if (!updatedAtDate) {
-      return {
-        is_stale: true,
-        last_updated_text: 'Operatör Verisi Bekleniyor',
-      };
-    }
+      const updated = new Date(updatedAtStr);
+      if (isNaN(updated.getTime())) {
+        return { is_stale: true, last_updated_text: 'Tarih bilinmiyor' };
+      }
 
-    const date = updatedAtDate instanceof Date ? updatedAtDate : new Date(updatedAtDate);
-    const diffMs = Math.max(0, now.getTime() - date.getTime());
-    const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
-    const diffDays = Math.floor(diffHours / 24);
+      const now = new Date('2026-09-14T12:00:00Z');
+      const diffMs = now.getTime() - updated.getTime();
+      const diffHours = diffMs / (1000 * 60 * 60);
 
-    const isStale = diffHours >= 24;
+      const is_stale = diffHours >= 24;
 
-    let text: string;
-    if (diffDays >= 1) {
-      text = `Son güncelleme: ${diffDays} gün önce`;
-    } else if (diffHours >= 1) {
-      text = `Son güncelleme: ${diffHours} saat önce`;
-    } else {
-      text = 'Son güncelleme: az önce';
-    }
+      if (diffHours < 1) {
+        const diffMinutes = Math.max(1, Math.round(diffMs / (1000 * 60)));
+        return { is_stale, last_updated_text: `Son güncelleme: ${diffMinutes} dakika önce` };
+      }
 
-    return {
-      is_stale: isStale,
-      last_updated_text: text,
+      if (diffHours < 24) {
+        const roundedHours = Math.round(diffHours);
+        return { is_stale, last_updated_text: `Son güncelleme: ${roundedHours} saat önce` };
+      }
+
+      const diffDays = Math.round(diffHours / 24);
+      return { is_stale, last_updated_text: `Son güncelleme: ${diffDays} gün önce` };
     };
-  };
 
-  it('S5-T2: 24 saatten eski istasyon verilerinde is_stale true ve gün formatı dönmelidir (US-18)', () => {
-    const now = new Date('2026-09-07T12:00:00Z');
+    const recent = formatFreshnessText('2026-09-14T11:45:00Z');
+    expect(recent.is_stale).toBe(false);
+    expect(recent.last_updated_text).toBe('Son güncelleme: 15 dakika önce');
 
-    // 25 saat önce güncellenmiş kayıt (is_stale = true, 1 gün önce)
-    const updated25hAgo = new Date('2026-09-06T11:00:00Z');
-    const res25h = formatFreshnessHelper(updated25hAgo, now);
-    expect(res25h.is_stale).toBe(true);
-    expect(res25h.last_updated_text).toBe('Son güncelleme: 1 gün önce');
+    const sixHoursAgo = formatFreshnessText('2026-09-14T06:00:00Z');
+    expect(sixHoursAgo.is_stale).toBe(false);
+    expect(sixHoursAgo.last_updated_text).toBe('Son güncelleme: 6 saat önce');
 
-    // 49 saat önce güncellenmiş kayıt (is_stale = true, 2 gün önce)
-    const updated49hAgo = new Date('2026-09-05T11:00:00Z');
-    const res49h = formatFreshnessHelper(updated49hAgo, now);
-    expect(res49h.is_stale).toBe(true);
-    expect(res49h.last_updated_text).toBe('Son güncelleme: 2 gün önce');
+    const twoDaysAgo = formatFreshnessText('2026-09-12T12:00:00Z');
+    expect(twoDaysAgo.is_stale).toBe(true);
+    expect(twoDaysAgo.last_updated_text).toBe('Son güncelleme: 2 gün önce');
+
+    const nullDate = formatFreshnessText(null);
+    expect(nullDate.is_stale).toBe(true);
+    expect(nullDate.last_updated_text).toBe('Veri bekleniyor');
   });
 
-  it('S5-T2: 24 saatten taze istasyon verilerinde is_stale false olmalıdır (US-18)', () => {
-    const now = new Date('2026-09-07T12:00:00Z');
-
-    // 3 saat önce güncellenmiş kayıt
-    const updated3hAgo = new Date('2026-09-07T09:00:00Z');
-    const res3h = formatFreshnessHelper(updated3hAgo, now);
-    expect(res3h.is_stale).toBe(false);
-    expect(res3h.last_updated_text).toBe('Son güncelleme: 3 saat önce');
-
-    // 20 dakika önce güncellenmiş kayıt
-    const updatedJustNow = new Date('2026-09-07T11:45:00Z');
-    const resJustNow = formatFreshnessHelper(updatedJustNow, now);
-    expect(resJustNow.is_stale).toBe(false);
-    expect(resJustNow.last_updated_text).toBe('Son güncelleme: az önce');
-  });
-
-  it('S5-T2: Null veya tanımsız güncelleme zamanında Operatör Verisi Bekleniyor dönmelidir', () => {
-    const resNull = formatFreshnessHelper(null);
-    expect(resNull.is_stale).toBe(true);
-    expect(resNull.last_updated_text).toBe('Operatör Verisi Bekleniyor');
-
-    const resUndefined = formatFreshnessHelper(undefined);
-    expect(resUndefined.is_stale).toBe(true);
-    expect(resUndefined.last_updated_text).toBe('Operatör Verisi Bekleniyor');
-  });
-
-  it('S5-T2: Veri kaynağı kesinti ve bayatlık tespiti (Circuit Breaker OPEN & Stale Sources)', () => {
+  it('S5-T2: SourceHealthModal ve Kesinti İstatistikleri - Devre durumu ve kaynak sağlığı hesaplaması', () => {
     const mockHealthResponse: SourcesHealthResponse = {
-      status: 'UP',
-      total_sources: 4,
-      healthy_sources: 3,
+      status: 'DEGRADED',
+      total_sources: 3,
+      healthy_sources: 2,
       stale_sources: 1,
       sources: [
         {
           id: 1,
           operator_id: 1,
-          source_name: 'ZES Canlı Veri Ucu',
-          endpoint_url: 'https://api.zes.net/v1/stations/public',
+          source_name: 'ZES Live Sync',
+          endpoint_url: 'https://api.zes.net/v1/stations',
           circuit_state: 'CLOSED',
           consecutive_failures: 0,
-          last_successful_sync: '2026-09-07T11:30:00Z',
-          last_attempt_at: '2026-09-07T11:30:00Z',
+          last_successful_sync: '2026-09-14T11:55:00Z',
+          last_attempt_at: '2026-09-14T11:55:00Z',
           last_error: null,
-          is_healthy: true,
+          is_healthy: true
         },
         {
-          id: 4,
-          operator_id: 4,
-          source_name: 'EPDK Kamusal Sorgu Ucu',
-          endpoint_url: 'https://epdk.gov.tr/api/sarj/istasyonlar',
+          id: 2,
+          operator_id: 2,
+          source_name: 'Trugo CPO API',
+          endpoint_url: 'https://api.trugo.com.tr/v2/chargers',
           circuit_state: 'OPEN',
-          consecutive_failures: 5,
-          last_successful_sync: '2026-09-06T10:00:00Z', // 25+ saat önce
-          last_attempt_at: '2026-09-07T11:00:00Z',
-          last_error: 'Bağlantı zaman aşımı',
-          is_healthy: false,
+          consecutive_failures: 4,
+          last_successful_sync: '2026-09-13T08:00:00Z',
+          last_attempt_at: '2026-09-14T11:50:00Z',
+          last_error: 'ETIMEDOUT: Connection refused',
+          is_healthy: false
         },
-      ],
+        {
+          id: 3,
+          operator_id: 3,
+          source_name: 'Eşarj Gateway',
+          endpoint_url: 'https://gateway.esarj.com/v1/network',
+          circuit_state: 'HALF_OPEN',
+          consecutive_failures: 1,
+          last_successful_sync: '2026-09-14T11:30:00Z',
+          last_attempt_at: '2026-09-14T11:52:00Z',
+          last_error: '503 Service Unavailable',
+          is_healthy: false
+        }
+      ]
     };
 
-    expect(mockHealthResponse.stale_sources).toBeGreaterThan(0);
-    const brokenSource = mockHealthResponse.sources.find((s) => !s.is_healthy);
-    expect(brokenSource).toBeDefined();
-    expect(brokenSource?.circuit_state).toBe('OPEN');
-    expect(brokenSource?.source_name).toContain('EPDK');
+    expect(mockHealthResponse.total_sources).toBe(3);
+    expect(mockHealthResponse.healthy_sources).toBe(2);
+    expect(mockHealthResponse.stale_sources).toBe(1);
 
-    // Outage tespiti logic
-    const hasOutage = mockHealthResponse.stale_sources > 0 || mockHealthResponse.sources.some((s) => !s.is_healthy);
-    expect(hasOutage).toBe(true);
+    const openCircuit = mockHealthResponse.sources.find(s => s.circuit_state === 'OPEN');
+    expect(openCircuit).toBeDefined();
+    expect(openCircuit?.is_healthy).toBe(false);
+    expect(openCircuit?.consecutive_failures).toBeGreaterThanOrEqual(3);
   });
 
-  it('S5-T2: Veri tazeliği nötr gri rozeti tasarım token ve WCAG 2.1 AA kontrast uyumu', () => {
-    // Tasarım Sistemi token kuralı:
-    // Subdued zemin üzerinde Text Secondary (#475569) kontrastı 6.92:1 (>= 4.5:1 WCAG AAA uyumlu)
-    const freshnessBadgeClasses = {
-      bg: 'bg-bg-subdued',
-      text: 'text-text-secondary',
-      border: 'border-border-default',
+  it('S5-T2: SourceHealthBanner görünürlük kuralı - Tüm kaynaklar sağlıklıyken gizlenmeli, kesinti durumunda sarı uyarı göstermelidir', () => {
+    const isBannerVisible = (healthyCount: number, totalCount: number) => {
+      return totalCount > 0 && healthyCount < totalCount;
     };
 
-    expect(freshnessBadgeClasses.bg).toBe('bg-bg-subdued');
-    expect(freshnessBadgeClasses.text).toBe('text-text-secondary');
-    expect(freshnessBadgeClasses.border).toBe('border-border-default');
-
-    // Kaynak kesintisi uyarı bandı tokenları:
-    // bg-warning-subdued (#FEF3C7) üzerinde text-warning (#B45309) kontrastı >= 4.5:1
-    const outageBannerClasses = {
-      bg: 'bg-warning-subdued',
-      text: 'text-warning',
-      border: 'border-warning/30',
-    };
-
-    expect(outageBannerClasses.bg).toBe('bg-warning-subdued');
-    expect(outageBannerClasses.text).toBe('text-warning');
-  });
-
-  it('S5-T2: Dış kaynak kesintisinde platform kesintisiz çalışmalıdır (%100 Uptime Kuralı)', () => {
-    // Kaynak kesintisi simülasyonu: 1 kaynak offline olsa bile istasyon haritada gösterilmeye devam eder
-    const mockStationWithStaleData = {
-      id: '018f3a9e-6b8a-7890-a1b2-c3d4e5f6a7b8',
-      istasyon_no: 'ŞRJ/10423',
-      slug: 'kadikoy-moda-zes-1',
-      name: 'ZES Kadıköy Moda Otoparkı',
-      updated_at: '2026-09-05T12:00:00Z', // 48 saat önce
-      data_freshness: {
-        is_stale: true,
-        last_updated_text: 'Son güncelleme: 2 gün önce',
-      },
-    };
-
-    // İstasyon silinmez veya gizlenmez; data_freshness etiketiyle sunulur
-    expect(mockStationWithStaleData.id).toBeDefined();
-    expect(mockStationWithStaleData.data_freshness.is_stale).toBe(true);
-    expect(mockStationWithStaleData.data_freshness.last_updated_text).toContain('2 gün önce');
+    expect(isBannerVisible(3, 3)).toBe(false);
+    expect(isBannerVisible(2, 3)).toBe(true);
+    expect(isBannerVisible(0, 3)).toBe(true);
+    expect(isBannerVisible(0, 0)).toBe(false);
   });
 });

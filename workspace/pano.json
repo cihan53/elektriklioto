@@ -1520,16 +1520,67 @@
       "goal": "Site sahibinin ilettiği 1 adet müşteri talebinin çözülmesi ve UAT ile kabul edilmesi.",
       "planned_days": 1,
       "order": 16,
-      "status": "READY",
+      "status": "DONE",
       "planned_start": "2026-09-24",
       "planned_end": "2026-09-24",
-      "actual_start": null,
-      "actual_end": null,
+      "actual_start": "2026-09-24T18:44:59",
+      "actual_end": "2026-09-24T19:08:29",
       "tasks": [
         {
           "id": "S17-T1",
           "title": "[TALEP-019] EPDK Ana Referans Mimarisine Geçiş ve Trugo/CPO Zenginleştirmesi",
           "description": "Müşteri Talebi: epdk_sarj_istasyonlari.json ve istasyonlar.json dosyaları tüm Türkiye şarj ağının ana omurgası yapılarak Trugo, Eşarj, WAT vb. tüm lisanslı operatörler haritaya kazandırıldı. Voltrun ve ZES veri setleri ile kesin GPS ve soket bilgileri zenginleştirildi.\nÇözüm Planı: workspace/docs/cozum_planlari/TALEP-019.md",
+          "role": "data_engineer",
+          "phase": "develop",
+          "outputs": [
+            "workspace/src/frontend/"
+          ],
+          "depends_on": [],
+          "status": "SKIPPED",
+          "attempts": 1,
+          "note": "kullanıcı atladı",
+          "started_at": 1790264699.305333,
+          "finished_at": 1790265969.701215,
+          "duration_s": 1270.4
+        },
+        {
+          "id": "S17-T2",
+          "title": "[TALEP-019] Müşteri Kabulü & UAT Doğrulama Denetimi",
+          "description": "TALEP-019 için yapılan düzeltmenin sistemde çalıştığını ve kabul kriterlerini karşıladığını doğrula.",
+          "role": "uat_auditor",
+          "phase": "test",
+          "outputs": [
+            "workspace/docs/uat_kabul_raporu.md"
+          ],
+          "depends_on": [
+            "S17-T1"
+          ],
+          "status": "DONE",
+          "attempts": 1,
+          "note": "canlı UAT hata tespit edildi",
+          "started_at": 1790265969.706126,
+          "finished_at": 1790266109.27727,
+          "duration_s": 139.6
+        }
+      ],
+      "_summary_printed": true
+    },
+    {
+      "id": "S18",
+      "name": "Müşteri Denetimi & Saha Onarımları (TALEP-020)",
+      "goal": "Site sahibinin ilettiği 1 adet müşteri talebinin çözülmesi ve UAT ile kabul edilmesi.",
+      "planned_days": 1,
+      "order": 17,
+      "status": "READY",
+      "planned_start": "2026-09-25",
+      "planned_end": "2026-09-25",
+      "actual_start": null,
+      "actual_end": null,
+      "tasks": [
+        {
+          "id": "S18-T1",
+          "title": "[TALEP-020] Trugo ve diğer operatör istasyonları güncellenmiyor",
+          "description": "Müşteri Talebi: Günlük veri senkronizasyonu çalışıyor, EPDK'dan veriler çekiliyor ancak web arayüzüne yansımıyor. Haritada/operatör listesinde Trugo için sadece 1 istasyon görünüyor; ZES ve Voltrun dışındaki operatörlerin istasyonları görünmüyor. Veriler alınıyor ama veritabanına işlenmiyor gibi görünüyor.\nÇözüm Planı: workspace/docs/cozum_planlari/TALEP-020.md",
           "role": "data_engineer",
           "phase": "develop",
           "outputs": [
@@ -1544,48 +1595,6 @@
           "duration_s": null
         },
         {
-          "id": "S17-T2",
-          "title": "[TALEP-019] Müşteri Kabulü & UAT Doğrulama Denetimi",
-          "description": "TALEP-019 için yapılan düzeltmenin sistemde çalıştığını ve kabul kriterlerini karşıladığını doğrula.",
-          "role": "uat_auditor",
-          "phase": "test",
-          "outputs": [
-            "workspace/docs/uat_kabul_raporu.md"
-          ],
-          "depends_on": [
-            "S17-T1"
-          ],
-          "status": "TODO",
-          "attempts": 0,
-          "note": "",
-          "started_at": null,
-          "finished_at": null,
-          "duration_s": null
-        }
-      ]
-    },
-    {
-      "id": "S18",
-      "name": "Müşteri Denetimi & Saha Onarımları (TALEP-020)",
-      "goal": "Site sahibinin ilettiği 1 adet müşteri talebinin çözülmesi ve UAT ile kabul edilmesi.",
-      "planned_days": 1,
-      "tasks": [
-        {
-          "id": "S18-T1",
-          "title": "[TALEP-020] Trugo ve diğer operatör istasyonları güncellenmiyor",
-          "description": "Müşteri Talebi: Günlük veri senkronizasyonu çalışıyor, EPDK'dan veriler çekiliyor ancak web arayüzüne yansımıyor. Haritada/operatör listesinde Trugo için sadece 1 istasyon görünüyor; ZES ve Voltrun dışındaki operatörlerin istasyonları görünmüyor. Veriler alınıyor ama veritabanına işlenmiyor gibi görünüyor.\nÇözüm Planı: workspace/docs/cozum_planlari/TALEP-020.md",
-          "role": "data_engineer",
-          "phase": "develop",
-          "outputs": [
-            "workspace/src/frontend/"
-          ],
-          "depends_on": [],
-          "talep_id": "TALEP-020",
-          "status": "TODO",
-          "attempts": 0,
-          "note": ""
-        },
-        {
           "id": "S18-T2",
           "title": "[TALEP-020] Müşteri Kabulü & UAT Doğrulama Denetimi",
           "description": "TALEP-020 için yapılan düzeltmenin sistemde çalıştığını ve kabul kriterlerini karşıladığını doğrula.",
@@ -1597,21 +1606,20 @@
           "depends_on": [
             "S18-T1"
           ],
-          "talep_id": "TALEP-020",
           "status": "TODO",
           "attempts": 0,
-          "note": ""
+          "note": "",
+          "started_at": null,
+          "finished_at": null,
+          "duration_s": null
         }
-      ],
-      "order": 17,
-      "status": "TODO",
-      "actual_start": null,
-      "actual_end": null,
-      "planned_start": "2026-09-25",
-      "planned_end": "2026-09-25"
+      ]
     }
   ],
   "baseline_end": "2026-09-25",
   "created_at": "2026-09-06T17:56:01",
-  "updated_at": "2026-09-24T18:44:52"
+  "updated_at": "2026-09-24T19:08:29",
+  "_runtime": {
+    "done_outputs": []
+  }
 }
