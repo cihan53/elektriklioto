@@ -412,6 +412,34 @@ def save_epdk_checkpoints(chk_dir, records, rows=EPDK_PAGE_ROWS):
     except Exception as e:
         print("  [!] EPDK checkpoint'leri yazılamadı: {}".format(e))
 
+def load_latest_epdk_download(out_dir):
+    """
+    epdk_output/ altındaki en güncel EPDK indirmesini yükler. Kaynak önceliği:
+      1. apigateway_istasyonlari_*.json — epdk_api_fetch.py ile resmi API'den (en yetkili)
+      2. sarj_istasyonlari_excel_*.json — scrape.mjs 'Raporla' Excel'lerinden birleşik
+      3. sarj_istasyonlari_*.json — scrape.mjs DOM taraması
+    Kayıt alanları checkpoint formatıyla birebir aynıdır (istasyon_no, marka, adres, ...).
+    Dönüş: (records, Path | None)
+    """
+    if not out_dir.exists():
+        return [], None
+    def oncelik(f):
+        if f.name.startswith("apigateway_"):
+            return 0
+        return 1 if "_excel_" in f.name else 2
+    files = [f for pat in ("apigateway_istasyonlari_*.json", "sarj_istasyonlari_*.json")
+             for f in out_dir.glob(pat) if f.is_file()]
+    files.sort(key=lambda f: (oncelik(f), -f.stat().st_mtime))
+    for cand in files:
+        try:
+            with open(str(cand), "r", encoding="utf-8") as f:
+                data = json.load(f)
+            if isinstance(data, list) and data:
+                return data, cand
+        except Exception as e:
+            print("  [!] Scraper çıktısı okunamadı ({}): {}".format(cand, e))
+    return [], None
+
 # ==============================================================================
 # 2. Coğrafi ve Metin Normalizasyon Fonksiyonları
 # ==============================================================================
@@ -669,6 +697,16 @@ def save_stations_atomically(stations):
     except Exception:
         pass
 
+    # Dağıtım/kurtarma tohumu: deploy-production.sh ve cron kurtarma mekanizması bu dosyayı kullanır.
+    try:
+        seed_dir = ROOT / "server-scripts" / "data"
+        seed_dir.mkdir(parents=True, exist_ok=True)
+        with open(str(seed_dir / "cpo_stations.json"), 'w', encoding='utf-8') as f:
+            f.write(content)
+        print("  ✓ Tohum kopya server-scripts/data/cpo_stations.json güncellendi.")
+    except Exception as e:
+        print("  [!] Tohum kopya yazılamadı: {}".format(e))
+
     file_size_mb = output_path.stat().st_size / (1024 * 1024)
     print("✓ BAŞARILI: {} istasyon atomik olarak kaydedildi ({:.2f} MB).".format(
         len(stations), file_size_mb
@@ -768,13 +806,27 @@ def main():
         ) or {}
         zes_raw = zes_raw_input.get("stations", []) if isinstance(zes_raw_input, dict) else (zes_raw_input if isinstance(zes_raw_input, list) else [])
 
-    # 4. EPDK İSTASYONLARI (Canlı EPDK Portalı -> Yerel Checkpoint/JSON -> Uzak GitHub Fallback)
-    # Canlı sonuç yalnızca TÜM sayfalar çekildiyse kullanılır; yarım sonuç (örn. sadece ilk 500)
-    # checkpoint'teki tam veri setinin yerine asla geçmez. EPDK_LIVE=0 canlı denemeyi atlar.
+    # 4. EPDK İSTASYONLARI (API Gateway -> Puppeteer Scraper -> Canlı Portal -> Checkpoint/JSON -> GitHub)
+    # cron önce epdk_api_fetch.py ile resmi API'yi dener, başarısızsa scrape.mjs çalışır;
+    # ikisi de epdk_output/ altına birleşik JSON yazar — en günceli burada yüklenir.
+    # Canlı sonuç yalnızca TÜM sayfalar çekildiyse geçerlidir; yarım sonuç checkpoint'in
+    # yerine asla geçmez. EPDK_LIVE=0 canlı denemeyi atlar.
     epdk_raw = []
     chk_dir = ROOT / "epdk_checkpoints"
     chk_records = load_epdk_checkpoints(chk_dir)
-    if "epdk" in curl_sources and os.environ.get("EPDK_LIVE", "1") != "0":
+
+    dl_records, dl_file = load_latest_epdk_download(ROOT / "epdk_output")
+    if dl_records:
+        if chk_records and len(dl_records) < len(chk_records) * 0.5:
+            print("  ⚠️ UYARI: İndirilen EPDK kaydı ({}) checkpoint'in ({}) yarısından az; filtreli koşu olabilir.".format(
+                len(dl_records), len(chk_records)))
+            print("      -> Canlı/checkpoint zincirine geçiliyor...")
+        else:
+            print("  ✓ EPDK indirmesi yüklendi: {} ({} kayıt).".format(dl_file.name, len(dl_records)))
+            epdk_raw = dl_records
+            save_epdk_checkpoints(chk_dir, dl_records)
+
+    if not epdk_raw and "epdk" in curl_sources and os.environ.get("EPDK_LIVE", "1") != "0":
         print("  [i] EPDK resmi portalı canlı denetleniyor (curl_input.txt, {}'erli sayfalar, {} sn ara)...".format(
             EPDK_PAGE_ROWS, EPDK_PAGE_DELAY))
         parsed_ep = parse_curl_command(curl_sources["epdk"])
@@ -989,8 +1041,18 @@ def main():
             name_slug = to_slug(name)
             addr_slug = to_slug(address)
 
-            city, district = extract_city_district_from_address(address)
-            lat, lon = get_deterministic_coords(city, district, istasyon_no, name)
+            # API Gateway kayıtları gerçek koordinat taşır (enlem/boylam);
+            # scrape/checkpoint kayıtlarında yoktur → deterministik dağılıma düşülür.
+            try:
+                lat = float(ep.get("enlem"))
+                lon = float(ep.get("boylam"))
+                if not (-90 <= lat <= 90 and -180 <= lon <= 180):
+                    raise ValueError
+            except (TypeError, ValueError):
+                lat = lon = None
+            city, district = extract_city_district_from_address(address, lat, lon)
+            if lat is None or lon is None:
+                lat, lon = get_deterministic_coords(city, district, istasyon_no, name)
 
             # Varsayılan değerler
             operator_id = 99

@@ -6,7 +6,7 @@ reCAPTCHA'lı JSF sayfasından otomatik toplar.
 ## Kurulum (bir kez)
 
 ```bash
-cd scripts/epdk
+cd server-scripts/epdk
 npm install
 ```
 

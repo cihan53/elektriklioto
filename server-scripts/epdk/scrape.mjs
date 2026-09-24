@@ -279,11 +279,29 @@ async function main() {
   fs.mkdirSync(OUT_DIR, { recursive: true });
   archivePrevious(OUT_DIR);   // önceki koşunun çıktılarını tarihli klasöre kaldır
 
-  const browser = await puppeteer.launch({
-    channel: 'chrome',               // kurulu Google Chrome (binary indirmez)
-    headless: !args.visible,
-    args: [`--window-size=1400,1000`],
-  });
+  // Tarayıcı adayları: önce kurulu Google Chrome, sonra EPDK_CHROME_PATH ve
+  // sunucudaki yaygın Chrome/Chromium yolları (cPanel/alt-linux ortamları).
+  const LAUNCH_ARGS = ['--window-size=1400,1000', '--no-sandbox', '--disable-setuid-sandbox'];
+  const launchers = [
+    { channel: 'chrome' },
+    ...[
+      process.env.EPDK_CHROME_PATH,
+      '/usr/bin/google-chrome', '/usr/bin/google-chrome-stable',
+      '/usr/bin/chromium', '/usr/bin/chromium-browser',
+      '/opt/google/chrome/chrome',
+    ].filter((p) => p && fs.existsSync(p)).map((p) => ({ executablePath: p })),
+  ];
+  let browser = null, lastErr = null;
+  for (const opt of launchers) {
+    try {
+      browser = await puppeteer.launch({ headless: !args.visible, args: LAUNCH_ARGS, ...opt });
+      break;
+    } catch (e) { lastErr = e; }
+  }
+  if (!browser) {
+    throw new Error(`Chrome başlatılamadı (${lastErr && lastErr.message}). ` +
+      'Sunucuda Chrome/Chromium kurulu değilse EPDK_CHROME_PATH ile yol gösterin.');
+  }
   const page = await browser.newPage();
   await page.setUserAgent(FIREFOX_UA);
   page.setDefaultTimeout(60000);
