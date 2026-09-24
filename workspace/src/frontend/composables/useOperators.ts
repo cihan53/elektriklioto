@@ -7,14 +7,17 @@ export const useOperators = () => {
   const loading = useState<boolean>('operators-loading', () => false);
   const error = useState<string | null>('operators-error', () => null);
 
-  const fetchOperators = async () => {
-    if (operators.value.length > 0) return;
+  const fetchOperators = async (force = false) => {
+    if (!force && operators.value.length > 5) return;
     loading.value = true;
     error.value = null;
 
     try {
       const res: any = await $fetch(`${config.public.apiBase}/operators`);
-      operators.value = Array.isArray(res) ? res : (res?.data || []);
+      const list = Array.isArray(res) ? res : (res?.data || []);
+      if (list && list.length > 0) {
+        operators.value = list;
+      }
     } catch (err: any) {
       error.value = err.message || 'Operatör listesi yüklenemedi.';
     } finally {

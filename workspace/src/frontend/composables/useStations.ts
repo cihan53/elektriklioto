@@ -104,34 +104,55 @@ export const useStations = () => {
     }
   };
 
-  // S4-T2: İstasyon arıza ihbarı oluşturur
+  // Kitle kaynaklı arıza bildirimi (Sıfır Konum Saklama - HMAC Proximity Proof)
   const submitStationReport = async (
-    stationId: string,
-    payload: CreateReportPayload
+    stationIdOrSlug: string,
+    payload: CreateReportPayload,
+    deviceUid: string
   ): Promise<ReportResponse> => {
-    return await $fetch<ReportResponse>(
-      `${config.public.apiBase}/stations/${encodeURIComponent(stationId)}/reports`,
+    const res = await $fetch<ReportResponse>(
+      `${config.public.apiBase}/stations/${encodeURIComponent(stationIdOrSlug)}/reports`,
       {
         method: 'POST',
-        body: payload
+        headers: {
+          'x-device-attestation': deviceUid,
+        },
+        body: payload,
       }
     );
+
+    // İstasyon haritada ve detayda dinamik olarak arızalı etiketlensin
+    if (res.is_flagged_defective) {
+      if (selectedStation.value && (selectedStation.value.id === res.station_id || selectedStation.value.slug === stationIdOrSlug)) {
+        selectedStation.value.is_flagged_defective = true;
+        selectedStation.value.status = 'DEFECTIVE';
+      }
+      const mapStation = stations.value.find((s) => s.id === res.station_id || s.slug === stationIdOrSlug);
+      if (mapStation) {
+        mapStation.is_flagged_defective = true;
+        mapStation.status = 'DEFECTIVE';
+      }
+    }
+
+    return res;
   };
 
-  // S4-T2: İstasyon arıza özet durumunu getirir
-  const fetchStationReportSummary = async (stationId: string): Promise<StationReportSummary | null> => {
+  // İstasyon arıza özetini sorgular
+  const fetchStationReportsSummary = async (
+    stationIdOrSlug: string
+  ): Promise<StationReportSummary | null> => {
     try {
       return await $fetch<StationReportSummary>(
-        `${config.public.apiBase}/stations/${encodeURIComponent(stationId)}/reports/summary`
+        `${config.public.apiBase}/stations/${encodeURIComponent(stationIdOrSlug)}/reports/summary`
       );
     } catch {
       return null;
     }
   };
 
-  const selectStation = (station: StationItem | null) => {
-    selectedStation.value = station;
-    isDetailOpen.value = station !== null;
+  const selectStation = (st: StationItem | null) => {
+    selectedStation.value = st;
+    isDetailOpen.value = !!st;
   };
 
   const closeDetail = () => {
@@ -151,7 +172,7 @@ export const useStations = () => {
     fetchStationDetail,
     fetchStationDeepLink,
     submitStationReport,
-    fetchStationReportSummary,
+    fetchStationReportsSummary,
     selectStation,
     closeDetail
   };

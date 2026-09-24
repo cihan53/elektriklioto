@@ -98,73 +98,64 @@ useHead(() => {
           </p>
 
           <!-- İstatistik Rozetleri -->
-          <div class="flex items-center gap-3 pt-2 text-xs">
-            <span class="inline-flex items-center px-2.5 py-1 rounded-full bg-primary/10 text-primary font-semibold">
-              {{ stations.length }} İstasyon Listelendi
+          <div class="flex items-center gap-2 pt-1 flex-wrap">
+            <span class="inline-flex items-center px-2.5 py-1 rounded bg-bg-subdued border border-border-default text-xs font-semibold text-text-primary">
+              {{ stations.length }} Kayıtlı İstasyon
             </span>
-            <span class="inline-flex items-center px-2.5 py-1 rounded-full bg-bg-subdued text-text-secondary border border-border-default">
-              Resmî EPDK Verisi
+            <span class="inline-flex items-center px-2.5 py-1 rounded bg-success-subdued text-success text-xs font-semibold">
+              Aktif EPDK Lisansı
             </span>
           </div>
         </div>
       </div>
 
-      <!-- Aksiyon Butonları -->
-      <div class="flex items-center gap-3 flex-wrap">
-        <NuxtLink
-          to="/"
-          class="h-11 px-4 rounded-lg bg-primary hover:bg-primary-hover active:bg-primary-active text-on-primary font-medium text-xs flex items-center gap-2 shadow-sm transition-colors touch-target-min"
-        >
-          <Map class="w-4 h-4" />
-          <span>Haritada Görüntüle</span>
-        </NuxtLink>
-
-        <a
-          v-if="operator?.website_url"
-          :href="operator.website_url"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="h-11 px-4 rounded-lg border border-border-strong bg-bg-surface hover:bg-bg-subdued text-text-primary font-medium text-xs flex items-center gap-2 transition-colors touch-target-min"
-        >
-          <span>Resmî Web Sitesi</span>
-          <ExternalLink class="w-3.5 h-3.5 text-text-muted" />
-        </a>
-      </div>
+      <!-- Ağ Haritası Aksiyon Butonu -->
+      <NuxtLink
+        :to="`/?operator=${encodeURIComponent(operatorParam)}`"
+        class="inline-flex items-center justify-center gap-2 h-12 px-6 rounded-md bg-primary text-on-primary font-semibold text-sm shadow-sm hover:bg-primary-hover active:bg-primary-active touch-target-min transition-all flex-shrink-0 focus-visible:outline-none"
+      >
+        <Map class="w-4 h-4" />
+        <span>{{ operatorTitle }} İstasyonlarını Haritada Filtrele</span>
+      </NuxtLink>
     </header>
 
-    <!-- İstasyon Kartları Izgarası (Grid) -->
-    <main class="space-y-4">
-      <div class="flex items-center justify-between">
-        <h2 class="text-lg font-bold text-text-primary">
-          {{ operatorTitle }} Lokasyonları
-        </h2>
-        <span class="text-xs text-text-muted">Son güncelleme: Eylül 2026</span>
-      </div>
+    <!-- İstasyon Kart Izgarası -->
+    <div v-if="stations.length > 0" class="space-y-4">
+      <h2 class="text-lg font-bold text-text-primary">
+        {{ operatorTitle }} İstasyon Kataloğu
+      </h2>
 
-      <!-- İstasyon Listesi -->
-      <div v-if="stations.length > 0" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <StationSummaryCard
           v-for="st in stations"
           :key="st.id"
           :station="st"
         />
       </div>
+    </div>
 
-      <!-- Boş Durum (Empty State) -->
-      <div
-        v-else
-        class="bg-bg-surface border border-border-default rounded-xl p-12 text-center space-y-3"
+    <!-- Boş Durum -->
+    <div v-else class="p-12 text-center bg-bg-surface border border-border-default rounded-xl space-y-3">
+      <Building2 class="w-10 h-10 text-text-muted mx-auto" />
+      <h2 class="text-lg font-bold text-text-primary">İstasyon kaydı bulunamadı</h2>
+      <p class="text-xs text-text-secondary max-w-md mx-auto">
+        Bu operatöre ait aktif istasyon kaydı henüz sisteme işlenmemiş veya filtrelerle eşleşmedi.
+      </p>
+      <NuxtLink
+        to="/"
+        class="inline-flex items-center gap-2 px-4 py-2 bg-primary text-on-primary rounded-md text-xs font-semibold touch-target-min"
       >
-        <p class="text-sm font-semibold text-text-primary">Bu operatöre ait henüz istasyon listelenmedi.</p>
-        <p class="text-xs text-text-secondary">Harita üzerinden Türkiye genelindeki tüm şarj ağlarını keşfedebilirsiniz.</p>
-        <NuxtLink
-          to="/"
-          class="inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:underline touch-target-min"
-        >
-          <ArrowLeft class="w-4 h-4" />
-          <span>Canlı Haritaya Dön</span>
-        </NuxtLink>
-      </div>
-    </main>
+        <ArrowLeft class="w-4 h-4" />
+        Haritaya Dön
+      </NuxtLink>
+    </div>
+
+    <!-- Yasal EMP Dipnot Bildirimi -->
+    <footer class="pt-8 border-t border-border-default text-center text-xs text-text-muted space-y-1">
+      <p>Veri Kaynağı: EPDK Sicil Kaydı (Eylül 2026)</p>
+      <p>
+        elektriklioto.com lisanslı şarj operatörü değildir. Şarj başlatma ve faturalandırma ilgili operatörün sorumluluğundadır.
+      </p>
+    </footer>
   </div>
 </template>

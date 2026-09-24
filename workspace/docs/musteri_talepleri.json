@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-09-24T19:04:00.242111",
+  "son_guncelleme": "2026-09-24T20:12:23.821196",
   "toplam_talep": 21,
   "talepler": [
     {
@@ -131159,7 +131159,7 @@
       "baslik": "Trugo ve diğer operatör istasyonları güncellenmiyor",
       "aciklama": "Günlük veri senkronizasyonu çalışıyor, EPDK'dan veriler çekiliyor ancak web arayüzüne yansımıyor. Haritada/operatör listesinde Trugo için sadece 1 istasyon görünüyor; ZES ve Voltrun dışındaki operatörlerin istasyonları görünmüyor. Veriler alınıyor ama veritabanına işlenmiyor gibi görünüyor.",
       "sayfa_url": "/",
-      "durum": "BEKLEMEDE",
+      "durum": "COZULDU",
       "gorevli_rol": null,
       "studio_notu": null,
       "github_issue_number": 25,
@@ -131174,6 +131174,11 @@
           "zaman": "2026-09-24 18:43",
           "eylem": "GitHub Issue oluşturuldu: #25",
           "durum": "BEKLEMEDE"
+        },
+        {
+          "zaman": "2026-09-24 20:12",
+          "eylem": "Durum güncellendi: COZULDU",
+          "durum": "COZULDU"
         }
       ]
     },

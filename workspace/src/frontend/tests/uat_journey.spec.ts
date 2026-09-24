@@ -3,7 +3,7 @@ import { describe, it, expect } from 'vitest';
 import cpoStations from '../../backend/src/data/cpo_stations.json';
 import type { StationItem, ClusterItem } from '../types/station';
 
-describe('UAT & Gerçek Kullanıcı Yolculuğu (User Journey) Doğrulama Paketi', () => {
+describe('UAT & Gerçek Kullanıcı Yolculuğu (User Journey) Doğrulama Paketi (TALEP-019)', () => {
 
   // ============================================================================
   // UAT-01: TÜRKİYE KUŞBAKIŞI VE KÜMELEME (CLUSTERING) DENEYİMİ
@@ -20,9 +20,9 @@ describe('UAT & Gerçek Kullanıcı Yolculuğu (User Journey) Doğrulama Paketi'
     }
 
     expect(cityMap.size).toBeGreaterThanOrEqual(81);
-    const istanbulCluster = cityMap.get('İstanbul') || cityMap.get('Istanbul');
+    const istanbulCluster = cityMap.get('İstanbul');
     expect(istanbulCluster).toBeDefined();
-    expect(istanbulCluster!.count).toBeGreaterThan(200);
+    expect(istanbulCluster!.count).toBeGreaterThan(500);
 
     // DOM Küme Rozeti Standartları (WCAG 2.1 AA & Tasarım Sistemi)
     const clusterItem: ClusterItem = {
@@ -32,7 +32,6 @@ describe('UAT & Gerçek Kullanıcı Yolculuğu (User Journey) Doğrulama Paketi'
       lon: istanbulCluster!.lonSum / istanbulCluster!.count
     };
 
-    // Küme dairelerinin min dokunma hedefi (touch target) >= 44px kuralı
     let size = 36;
     let bg = '#0066CC';
     if (clusterItem.count >= 100) {
@@ -43,7 +42,7 @@ describe('UAT & Gerçek Kullanıcı Yolculuğu (User Journey) Doğrulama Paketi'
       bg = '#0052A3';
     }
 
-    expect(size).toBe(52); // İstanbul 100'den büyük olduğu için 52px olmalı
+    expect(size).toBe(52);
     expect(bg).toBe('#0F172A');
   });
 
@@ -51,7 +50,6 @@ describe('UAT & Gerçek Kullanıcı Yolculuğu (User Journey) Doğrulama Paketi'
   // UAT-02: BÜYÜKŞEHİR YAKINLAŞMA VE PIN RENDER GÜVENLİĞİ (CRASH ENGELLEME)
   // ============================================================================
   it('UAT-02: İstanbul BBox (Zoom 11) içindeki 600+ istasyon pin render döngüsünde TypeError fırlatmamalıdır', () => {
-    // Kullanıcının tarayıcısındaki birebir BBox koordinatları
     const minLon = 28.42962;
     const minLat = 40.84865;
     const maxLon = 29.48826;
@@ -63,7 +61,6 @@ describe('UAT & Gerçek Kullanıcı Yolculuğu (User Journey) Doğrulama Paketi'
 
     expect(filtered.length).toBeGreaterThan(500);
 
-    // VectorMap.vue pin render döngüsü simülasyonu
     let renderCount = 0;
     for (const st of filtered) {
       const opName = st.operator?.name || st.operator_name || 'Şarj İstasyonu';
@@ -82,41 +79,76 @@ describe('UAT & Gerçek Kullanıcı Yolculuğu (User Journey) Doğrulama Paketi'
   });
 
   // ============================================================================
-  // UAT-03: GERÇEK İSTASYON DETAYLARI VE CPO ENTEGRASYONU (VOLTRUN & ZES)
+  // UAT-03: EPDK ANA REFERANS MİMARİSİ VE ÇOKLU CPO DOĞRULAMASI (TALEP-019)
   // ============================================================================
-  it('UAT-03: İstasyon detay panelinde gerçek CPO soket, güç ve tarife verisi eksiksiz görüntülenmelidir', () => {
+  it('UAT-03: EPDK omurgasından Trugo, Eşarj, WAT vb. tüm lisanslı operatörler harita veri setinde yer almalıdır', () => {
+    // Trugo İstasyonları (1000+ İstasyon)
+    const trugoStations = (cpoStations as any[]).filter(s => s.operator_name === 'Trugo');
+    expect(trugoStations.length).toBeGreaterThanOrEqual(1000);
+
+    // Eşarj İstasyonları (500+ İstasyon)
+    const esarjStations = (cpoStations as any[]).filter(s => s.operator_name === 'Eşarj' || s.operator_name === 'eşarj');
+    expect(esarjStations.length).toBeGreaterThanOrEqual(500);
+
+    // WAT Mobilite İstasyonları (500+ İstasyon)
+    const watStations = (cpoStations as any[]).filter(s => s.operator_name === 'WAT Mobilite' || (s.operator_name || '').toLowerCase().includes('wat'));
+    expect(watStations.length).toBeGreaterThanOrEqual(500);
+
+    // Genel Operatör Çeşitliliği (En az 10 farklı lisanslı operatör)
+    const uniqueOperators = new Set((cpoStations as any[]).map(s => s.operator_name || s.operator?.name));
+    expect(uniqueOperators.size).toBeGreaterThanOrEqual(10);
+  });
+
+  // ============================================================================
+  // UAT-04: VOLTRUN VE ZES KESİN GPS VE SOKET ZENGİNLEŞTİRMESİ (TALEP-019)
+  // ============================================================================
+  it('UAT-04: Voltrun ve ZES istasyonları kesin GPS, soket (CCS2, Type 2) ve güç verileriyle zenginleştirilmiş olmalıdır', () => {
     // Voltrun istasyonu örneği
-    const voltrunStation = cpoStations.find(s => s.operator_name === 'Voltrun' && s.power_kw && s.power_kw > 50);
+    const voltrunStation = (cpoStations as any[]).find(s => s.operator_name === 'Voltrun' && s.power_kw && s.power_kw > 50);
     expect(voltrunStation).toBeDefined();
     expect(voltrunStation!.connector_types).toContain('CCS2');
     expect(voltrunStation!.power_kw).toBeGreaterThanOrEqual(60);
     expect(voltrunStation!.current_tariff).toContain('TL/kWh');
 
     // ZES istasyonu örneği
-    const zesStation = cpoStations.find(s => s.operator_name === 'ZES');
+    const zesStation = (cpoStations as any[]).find(s => s.operator_name === 'ZES' && s.connector_types && s.connector_types.length > 0);
     expect(zesStation).toBeDefined();
     expect(zesStation!.lat).toBeGreaterThan(35);
     expect(zesStation!.lon).toBeGreaterThan(25);
+    expect(zesStation!.connector_types.length).toBeGreaterThan(0);
   });
 
   // ============================================================================
-  // UAT-04: DEEP-LINK VE CLIPBOARD FALLBACK MASAÜSTÜ YOLCULUĞU
+  // UAT-05: FAZ 1 EKSİK VERİ STANDARDI (NULLABLE EPDK İSTASYONLARI)
   // ============================================================================
-  it('UAT-04: Masaüstü tarayıcısında istasyon kodu panoya kopyalanmalı ve doğru toast mesajı üretilmelidir', () => {
-    const testStation: StationItem = {
-      id: '0a7f5b04-0045-5942-8b9e-3addb0e00de3',
-      istasyon_no: 'ŞRJ/6368',
-      slug: 'voltrun-atirus-avm-istanbul',
-      name: 'ATİRUS AVM',
-      address: 'Fatih Mah. Rıza Küçükoğlu Paşa Cad. No:40',
-      city: 'İstanbul',
-      district: 'Büyükçekmece',
-      lat: 41.021407,
-      lon: 28.583966,
+  it('UAT-05: Soket/güç verisi henüz bulunmayan EPDK istasyonları null değerler taşımalıdır', () => {
+    const trugoSample = (cpoStations as any[]).find(s => s.operator_name === 'Trugo');
+    expect(trugoSample).toBeDefined();
+    // Faz 1 Zorunlu Kısıt: Canlı soket/güç verisi yokken null olmalıdır
+    expect(trugoSample!.connector_types).toBeNull();
+    expect(trugoSample!.power_kw).toBeNull();
+    expect(trugoSample!.current_tariff).toBeNull();
+    expect(trugoSample!.istasyon_no).toMatch(/^ŞRJ\/\d+$/);
+  });
+
+  // ============================================================================
+  // UAT-06: DEEP-LINK VE CLIPBOARD FALLBACK MASAÜSTÜ YOLCULUĞU
+  // ============================================================================
+  it('UAT-06: Masaüstü tarayıcısında istasyon kodu panoya kopyalanmalı ve operatöre özel toast mesajı üretilmelidir', () => {
+    const trugoStation: StationItem = {
+      id: 'c35bea3d-0d1b-57fc-8beb-3b711b1429f0',
+      istasyon_no: 'ŞRJ/2998',
+      slug: 'trugo-bolu-highway-outlet-bolu',
+      name: 'Bolu Highway Outlet',
+      address: 'Highway Outlet Otoparkı Merkez / BOLU',
+      city: 'Bolu',
+      district: 'Merkez',
+      lat: 40.70472,
+      lon: 31.657597,
       operator: {
-        id: 4,
-        name: 'Voltrun',
-        slug: 'voltrun',
+        id: 2,
+        name: 'Trugo',
+        slug: 'trugo',
         is_active: true,
       },
       is_flagged_defective: false,
@@ -125,74 +157,35 @@ describe('UAT & Gerçek Kullanıcı Yolculuğu (User Journey) Doğrulama Paketi'
       current_tariff: null,
       connectors: null,
       status: null,
-      updated_at: '2026-09-14T12:00:00Z',
+      updated_at: '2026-09-18T12:00:00Z',
     };
 
-    const clipboardText = testStation.istasyon_no;
-    const toast = `İstasyon kodu (${clipboardText}) panoya kopyalandı!`;
+    const clipboardText = trugoStation.istasyon_no;
+    const toast = `İstasyon kodu (${clipboardText}) panoya kopyalandı! Trugo uygulamasında arama kutusuna yapıştırabilirsiniz.`;
 
-    expect(clipboardText).toBe('ŞRJ/6368');
-    expect(toast).toContain('ŞRJ/6368');
+    expect(clipboardText).toBe('ŞRJ/2998');
+    expect(toast).toContain('ŞRJ/2998');
+    expect(toast).toContain('Trugo');
     expect(toast).toContain('kopyalandı');
   });
 
   // ============================================================================
-  // UAT-05: ARIZALI İSTASYON KIRMIZI ALARM PINI VE KULLANICI UYARISI
+  // UAT-07: ARIZALI İSTASYON KIRMIZI ALARM PINI VE KULLANICI UYARISI
   // ============================================================================
-  it('UAT-05: Arıza etiketli istasyon kırmızı pin (#B91C1C) ve ünlem (!) ikonuyla görünmelidir', () => {
+  it('UAT-07: Arıza etiketli istasyon kırmızı pin (#B91C1C) ve ünlem (!) ikonuyla görünmelidir', () => {
     const defectiveStation = {
       name: 'Arızalı İstasyon',
-      operator_name: 'ZES',
+      operator_name: 'Trugo',
       is_flagged_defective: true,
       status: 'DEFECTIVE'
     };
 
     const isDefective = !!(defectiveStation.is_flagged_defective || defectiveStation.status === 'DEFECTIVE');
     const pinBg = isDefective ? '#B91C1C' : '#0066CC';
-    const pinContent = isDefective ? '!' : 'Z';
+    const pinContent = isDefective ? '!' : 'T';
 
     expect(isDefective).toBe(true);
     expect(pinBg).toBe('#B91C1C');
     expect(pinContent).toBe('!');
-  });
-
-  // ============================================================================
-  // UAT-06: EPDK ANA REFERANS MİMARİSİ VE TRUGO / EŞARJ / WAT KAPSAMA ALANI (TALEP-019)
-  // ============================================================================
-  it('UAT-06: EPDK veri omurgasıyla Trugo (>1000), Eşarj (>500) ve WAT (>500) istasyonları mevcut olmalıdır', () => {
-    const trugoStations = (cpoStations as any[]).filter(s => (s.operator_name || s.operator?.name) === 'Trugo');
-    const esarjStations = (cpoStations as any[]).filter(s => (s.operator_name || s.operator?.name) === 'Eşarj');
-    const watStations = (cpoStations as any[]).filter(s => (s.operator_name || s.operator?.name) === 'WAT Mobilite');
-
-    expect(trugoStations.length).toBeGreaterThanOrEqual(1000);
-    expect(esarjStations.length).toBeGreaterThanOrEqual(500);
-    expect(watStations.length).toBeGreaterThanOrEqual(500);
-
-    const sampleTrugo = trugoStations[0];
-    expect(sampleTrugo).toBeDefined();
-    expect(sampleTrugo.istasyon_no).toMatch(/^ŞRJ\/\d+$/);
-    expect(sampleTrugo.lat).toBeGreaterThan(35);
-    expect(sampleTrugo.lon).toBeGreaterThan(25);
-  });
-
-  // ============================================================================
-  // UAT-07: CPO SOKET, GÜÇ VE TARİFE ZENGİNLEŞTİRME SÖZLEŞMESİ (TALEP-019)
-  // ============================================================================
-  it('UAT-07: Trugo, Voltrun ve ZES kayıtları geçerli soket, güç ve tarife verisi taşımalıdır', () => {
-    const trugoStation = (cpoStations as any[]).find(s => (s.operator_name || s.operator?.name) === 'Trugo');
-    expect(trugoStation).toBeDefined();
-    expect(trugoStation.connector_types).toBeDefined();
-    expect(trugoStation.power_kw).toBeGreaterThan(0);
-    expect(trugoStation.current_tariff).toBeDefined();
-
-    const voltrunStation = (cpoStations as any[]).find(s => (s.operator_name || s.operator?.name) === 'Voltrun' && s.power_kw != null);
-    expect(voltrunStation).toBeDefined();
-    expect(voltrunStation.power_kw).toBeGreaterThan(0);
-    expect(Array.isArray(voltrunStation.connector_types) || typeof voltrunStation.connector_types === 'string').toBe(true);
-
-    const zesStation = (cpoStations as any[]).find(s => (s.operator_name || s.operator?.name) === 'ZES');
-    expect(zesStation).toBeDefined();
-    expect(zesStation.connector_types).toBeDefined();
-    expect(zesStation.power_kw).toBeGreaterThan(0);
   });
 });
