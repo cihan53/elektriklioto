@@ -148,7 +148,9 @@ export async function buildApp(): Promise<FastifyInstance> {
   // TALEP-010: PostgreSQL/PostGIS veritabanı ile istasyon ve soket entegrasyonu (otomatik tohumlama)
   try {
     await operatorService.syncWithDb();
-    await ensureDatabaseSeeded();
+    if (process.env.AUTO_SEED === 'true') {
+      await ensureDatabaseSeeded();
+    }
   } catch {
     // Veritabanı bağlantısı henüz hazır değilse veya test ortamındaysa açılışı engelleme
   }
