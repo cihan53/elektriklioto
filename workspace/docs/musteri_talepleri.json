@@ -1,6 +1,6 @@
 {
-  "son_guncelleme": "2026-09-24T20:12:23.821196",
-  "toplam_talep": 21,
+  "son_guncelleme": "2026-09-24T20:28:27.386980",
+  "toplam_talep": 22,
   "talepler": [
     {
       "id": "TALEP-001",
@@ -131212,6 +131212,35 @@
           "durum": "IPTAL"
         }
       ]
+    },
+    {
+      "id": "TALEP-022",
+      "tarih": "2026-09-24 20:26",
+      "tur": "HATA",
+      "oncelik": "KRITIK",
+      "baslik": "Veritabanı tabloları boşaltıldığı halde haritada istasyonlar görünüyor",
+      "aciklama": "Müşteri veritabanı tablolarını boşalttığı halde haritada halen istasyon bilgilerinin göründüğünü belirtti. Backend API (station.service.ts) veritabanı boşken fallback olarak in-memory DEFAULT_STATIONS ve GADM statik kümeleme verilerini dönüyor ve veritabanı boşaldığında otomatik olarak cpo_stations.json tohumlaması yapıyor. Bu durum düzeltilmeli; veritabanı tek gerçek kaynak (single source of truth) olmalı, veritabanı boşsa haritada hiçbir mock/fallback istasyon veya kümeleme görünmemeli.",
+      "sayfa_url": "/",
+      "durum": "BEKLEMEDE",
+      "gorevli_rol": null,
+      "studio_notu": null,
+      "cozum_plani": null,
+      "github_issue_number": 28,
+      "github_issue_url": "https://github.com/cihan53/elektriklioto/issues/28",
+      "gecmis": [
+        {
+          "zaman": "2026-09-24 20:26",
+          "eylem": "Kayıt oluşturuldu",
+          "durum": "BEKLEMEDE"
+        },
+        {
+          "zaman": "2026-09-24 20:26",
+          "eylem": "GitHub Issue oluşturuldu: #28",
+          "durum": "BEKLEMEDE"
+        }
+      ],
+      "faz_id": "FAZ-3",
+      "efor": "ORTA"
     }
   ]
 }
