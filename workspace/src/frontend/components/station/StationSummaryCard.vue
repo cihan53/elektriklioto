@@ -3,7 +3,7 @@
 import { computed } from 'vue';
 import type { StationItem } from '~/types/station';
 import { useSourceHealth } from '~/composables/useSourceHealth';
-import { MapPin, ChevronRight, HelpCircle, AlertTriangle, Clock } from 'lucide-vue-next';
+import { MapPin, ChevronRight, HelpCircle, AlertTriangle, Clock, Zap } from 'lucide-vue-next';
 
 const props = defineProps<{
   station: StationItem;
@@ -17,6 +17,17 @@ const freshnessInfo = computed(() => {
     return props.station.data_freshness;
   }
   return formatFreshnessText(props.station?.updated_at);
+});
+
+const displayConnectors = computed(() => {
+  if (!props.station.connector_types && !props.station.power_kw) return [];
+  if (props.station.connector_types) {
+    const raw = Array.isArray(props.station.connector_types)
+      ? props.station.connector_types
+      : [props.station.connector_types];
+    return raw.filter(Boolean);
+  }
+  return [];
 });
 </script>
 
@@ -92,29 +103,41 @@ const freshnessInfo = computed(() => {
           <span>{{ freshnessInfo.last_updated_text }}</span>
         </span>
 
-        <!-- Standart Gri Eksik Veri Rozeti (Faz 1 Kuralı) -->
-        <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-medium bg-missing-bg text-missing-text border border-border-default">
+        <!-- Soket Verisi Varsa Göster, Yoksa Standart Gri Eksik Veri Rozeti (Faz 1 Kuralı) -->
+        <template v-if="displayConnectors.length > 0">
+          <span
+            v-for="c in displayConnectors"
+            :key="c"
+            class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-medium bg-primary/10 text-primary border border-primary/20"
+          >
+            <Zap class="w-3 h-3 text-primary" />
+            <span>{{ c }}</span>
+          </span>
+          <span v-if="station.power_kw" class="text-[11px] font-semibold text-primary">
+            {{ station.power_kw }} kW
+          </span>
+        </template>
+        <span
+          v-else
+          class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-medium bg-missing-bg text-missing-text border border-border-default"
+        >
           <HelpCircle class="w-3 h-3" />
           <span>Operatör Verisi Bekleniyor</span>
         </span>
       </div>
     </div>
 
-    <!-- Alt Aksiyon Butonları -->
-    <div class="pt-4 mt-4 border-t border-border-default flex items-center justify-between gap-3">
-      <NuxtLink
-        :to="`/?city=${encodeURIComponent(station.city || '')}&district=${encodeURIComponent(station.district || '')}`"
-        class="text-xs font-medium text-text-secondary hover:text-text-primary touch-target-min flex items-center"
-      >
-        Haritada Gör
-      </NuxtLink>
-
+    <!-- Alt Buton -->
+    <div class="mt-4 pt-3 border-t border-border-default flex items-center justify-between">
+      <span class="text-xs text-text-muted">
+        {{ station.district ? `${station.district}, ${station.city}` : station.city }}
+      </span>
       <NuxtLink
         :to="`/${station.operator?.slug || 'operator'}/${station.slug}`"
-        class="inline-flex items-center gap-1 text-xs font-semibold text-primary hover:text-primary-hover touch-target-min group"
+        class="text-xs font-semibold text-primary hover:text-primary-hover flex items-center gap-1 touch-target-min"
       >
-        <span>Detayları İncele</span>
-        <ChevronRight class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+        <span>Detaylar</span>
+        <ChevronRight class="w-3.5 h-3.5" />
       </NuxtLink>
     </div>
   </article>

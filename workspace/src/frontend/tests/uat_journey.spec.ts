@@ -9,7 +9,6 @@ describe('UAT & Gerçek Kullanıcı Yolculuğu (User Journey) Doğrulama Paketi'
   // UAT-01: TÜRKİYE KUŞBAKIŞI VE KÜMELEME (CLUSTERING) DENEYİMİ
   // ============================================================================
   it('UAT-01: Ülke genelinde (Zoom < 10) 81 ilin kümeleme verisi üretilebilmeli ve DOM elemanları doğrulanmalıdır', () => {
-    // 3643 istasyonun illere göre kümelenmesi simülasyonu
     const cityMap = new Map<string, { count: number; latSum: number; lonSum: number }>();
     for (const s of cpoStations) {
       const city = s.city || 'Diğer';
@@ -67,7 +66,6 @@ describe('UAT & Gerçek Kullanıcı Yolculuğu (User Journey) Doğrulama Paketi'
     // VectorMap.vue pin render döngüsü simülasyonu
     let renderCount = 0;
     for (const st of filtered) {
-      // Her istasyonun operatör adı erişimi güvenli olmalı (TypeError engeli)
       const opName = st.operator?.name || st.operator_name || 'Şarj İstasyonu';
       const isDefective = Boolean(st.is_flagged_defective);
       const ariaLabel = `${st.name} — ${opName}${isDefective ? ' (Arıza Bildirildi)' : ''}`;
@@ -130,7 +128,6 @@ describe('UAT & Gerçek Kullanıcı Yolculuğu (User Journey) Doğrulama Paketi'
       updated_at: '2026-09-14T12:00:00Z',
     };
 
-    // DeepLink Fallback mantığı
     const clipboardText = testStation.istasyon_no;
     const toast = `İstasyon kodu (${clipboardText}) panoya kopyalandı!`;
 
@@ -157,5 +154,45 @@ describe('UAT & Gerçek Kullanıcı Yolculuğu (User Journey) Doğrulama Paketi'
     expect(isDefective).toBe(true);
     expect(pinBg).toBe('#B91C1C');
     expect(pinContent).toBe('!');
+  });
+
+  // ============================================================================
+  // UAT-06: EPDK ANA REFERANS MİMARİSİ VE TRUGO / EŞARJ / WAT KAPSAMA ALANI (TALEP-019)
+  // ============================================================================
+  it('UAT-06: EPDK veri omurgasıyla Trugo (>1000), Eşarj (>500) ve WAT (>500) istasyonları mevcut olmalıdır', () => {
+    const trugoStations = (cpoStations as any[]).filter(s => (s.operator_name || s.operator?.name) === 'Trugo');
+    const esarjStations = (cpoStations as any[]).filter(s => (s.operator_name || s.operator?.name) === 'Eşarj');
+    const watStations = (cpoStations as any[]).filter(s => (s.operator_name || s.operator?.name) === 'WAT Mobilite');
+
+    expect(trugoStations.length).toBeGreaterThanOrEqual(1000);
+    expect(esarjStations.length).toBeGreaterThanOrEqual(500);
+    expect(watStations.length).toBeGreaterThanOrEqual(500);
+
+    const sampleTrugo = trugoStations[0];
+    expect(sampleTrugo).toBeDefined();
+    expect(sampleTrugo.istasyon_no).toMatch(/^ŞRJ\/\d+$/);
+    expect(sampleTrugo.lat).toBeGreaterThan(35);
+    expect(sampleTrugo.lon).toBeGreaterThan(25);
+  });
+
+  // ============================================================================
+  // UAT-07: CPO SOKET, GÜÇ VE TARİFE ZENGİNLEŞTİRME SÖZLEŞMESİ (TALEP-019)
+  // ============================================================================
+  it('UAT-07: Trugo, Voltrun ve ZES kayıtları geçerli soket, güç ve tarife verisi taşımalıdır', () => {
+    const trugoStation = (cpoStations as any[]).find(s => (s.operator_name || s.operator?.name) === 'Trugo');
+    expect(trugoStation).toBeDefined();
+    expect(trugoStation.connector_types).toBeDefined();
+    expect(trugoStation.power_kw).toBeGreaterThan(0);
+    expect(trugoStation.current_tariff).toBeDefined();
+
+    const voltrunStation = (cpoStations as any[]).find(s => (s.operator_name || s.operator?.name) === 'Voltrun' && s.power_kw != null);
+    expect(voltrunStation).toBeDefined();
+    expect(voltrunStation.power_kw).toBeGreaterThan(0);
+    expect(Array.isArray(voltrunStation.connector_types) || typeof voltrunStation.connector_types === 'string').toBe(true);
+
+    const zesStation = (cpoStations as any[]).find(s => (s.operator_name || s.operator?.name) === 'ZES');
+    expect(zesStation).toBeDefined();
+    expect(zesStation.connector_types).toBeDefined();
+    expect(zesStation.power_kw).toBeGreaterThan(0);
   });
 });

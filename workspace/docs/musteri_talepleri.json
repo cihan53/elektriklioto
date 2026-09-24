@@ -1,6 +1,6 @@
 {
-  "son_guncelleme": "2026-09-24T18:44:52.050511",
-  "toplam_talep": 20,
+  "son_guncelleme": "2026-09-24T19:04:00.242111",
+  "toplam_talep": 21,
   "talepler": [
     {
       "id": "TALEP-001",
@@ -131162,7 +131162,6 @@
       "durum": "BEKLEMEDE",
       "gorevli_rol": null,
       "studio_notu": null,
-      "cozum_plani": null,
       "github_issue_number": 25,
       "github_issue_url": "https://github.com/cihan53/elektriklioto/issues/25",
       "gecmis": [
@@ -131176,9 +131175,38 @@
           "eylem": "GitHub Issue oluşturuldu: #25",
           "durum": "BEKLEMEDE"
         }
-      ],
-      "faz_id": "FAZ-1",
-      "efor": "ORTA"
+      ]
+    },
+    {
+      "id": "TALEP-021",
+      "tarih": "2026-09-24 18:58",
+      "tur": "ISTEK",
+      "oncelik": "NORMAL",
+      "baslik": "Pano görevlerine öncelik alanı eklenmeli",
+      "aciklama": "Sprint panosundaki görevler arasından sıradakini seçerken öncelik dikkate alınmıyor; işler yalnızca sprint sırasına göre ilerliyor. Önemli bir işi öne çekmek için elle sıra değiştirmek gerekiyor. Görevlere bir öncelik alanı eklenip (ör. müşteri talebinin önceliğinden türetilerek) sıradaki görevin önceliğe göre seçilmesi isteniyor.",
+      "sayfa_url": "studio",
+      "durum": "IPTAL",
+      "gorevli_rol": null,
+      "studio_notu": null,
+      "github_issue_number": 26,
+      "github_issue_url": "https://github.com/cihan53/elektriklioto/issues/26",
+      "gecmis": [
+        {
+          "zaman": "2026-09-24 18:58",
+          "eylem": "Kayıt oluşturuldu",
+          "durum": "BEKLEMEDE"
+        },
+        {
+          "zaman": "2026-09-24 18:58",
+          "eylem": "GitHub Issue oluşturuldu: #26",
+          "durum": "BEKLEMEDE"
+        },
+        {
+          "zaman": "2026-09-24 19:04",
+          "eylem": "Durum güncellendi: IPTAL",
+          "durum": "IPTAL"
+        }
+      ]
     }
   ]
 }

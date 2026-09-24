@@ -114,7 +114,7 @@ const handleStartCharging = async () => {
 
   const targetUrl =
     props.station.operator?.deep_link_config?.web_url ||
-    props.station.operator?.deep_link_config?.store_url_ios ||
+    props.station.operator?.deep_link_config?.store_ios ||
     `https://www.google.com/search?q=${encodeURIComponent(
       (props.station.operator?.name || 'şarj') + ' istasyonu'
     )}`;
@@ -283,7 +283,8 @@ const handleDirections = () => {
       <div class="space-y-1 text-xs text-text-secondary border-t border-border-default pt-3">
         <p>
           <strong class="text-text-primary">Tarife:</strong>
-          <span class="text-missing-text font-medium ml-1">Operatör Verisi Bekleniyor</span>
+          <span v-if="station.current_tariff" class="text-text-primary font-medium ml-1">{{ station.current_tariff }}</span>
+          <span v-else class="text-missing-text font-medium ml-1">Operatör Verisi Bekleniyor</span>
         </p>
         <p>
           <strong class="text-text-primary">Canlı Doluluk:</strong>

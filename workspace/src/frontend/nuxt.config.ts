@@ -43,13 +43,11 @@ export default defineNuxtConfig({
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
       ],
-      // 0ms FOUC: Sayfa yüklenmeden önce tema sınıfını HTML etiketine enjekte eder
       script: [
         {
           innerHTML: `(function(){try{var m=localStorage.getItem("theme");var d=window.matchMedia("(prefers-color-scheme: dark)").matches;if(m==="dark"||(!m&&d)){document.documentElement.classList.add("dark");}else{document.documentElement.classList.remove("dark");}}catch(e){}})();`,
           type: 'text/javascript'
         },
-        // Google Analytics (TALEP-002)
         {
           src: 'https://www.googletagmanager.com/gtag/js?id=G-BKMTW8EH4K',
           async: true
