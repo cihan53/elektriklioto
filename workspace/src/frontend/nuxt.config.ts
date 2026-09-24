@@ -15,6 +15,14 @@ export default defineNuxtConfig({
       },
     },
   },
+  nitro: {
+    devProxy: {
+      '/api/v1': {
+        target: 'http://127.0.0.1:3001/api/v1',
+        changeOrigin: true,
+      },
+    },
+  },
   modules: ['@nuxtjs/tailwindcss'],
   css: [
     '~/assets/css/tokens.css',
