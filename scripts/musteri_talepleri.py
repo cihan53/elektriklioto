@@ -387,6 +387,15 @@ def guncelle(talep_id: str, durum: str = None, gorevli_rol: str = None,
                     "eylem": f"Durum güncellendi: {durum}",
                     "durum": durum.upper()
                 })
+            if gorevli_rol:
+                t["gorevli_rol"] = gorevli_rol
+            if studio_notu:
+                t["studio_notu"] = studio_notu
+            if cozum_plani:
+                t["cozum_plani"] = cozum_plani
+            save_data(data)
+
+            if durum:
                 # Eğer talep çözüldüyse GitHub Issue'yu otomatik kapat
                 if durum.upper() == "COZULDU":
                     if t.get("github_issue_number") and GH:
@@ -417,13 +426,6 @@ def guncelle(talep_id: str, durum: str = None, gorevli_rol: str = None,
                         except Exception as e:
                             print(f"  ⚠️ Otomatik commit/push sırasında hata: {e}")
 
-            if gorevli_rol:
-                t["gorevli_rol"] = gorevli_rol
-            if studio_notu:
-                t["studio_notu"] = studio_notu
-            if cozum_plani:
-                t["cozum_plani"] = cozum_plani
-            save_data(data)
             return True
     return False
 
