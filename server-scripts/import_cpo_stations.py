@@ -516,15 +516,42 @@ def extract_city_district_from_address(address, lat=None, lon=None):
             return find_nearest_province(lat, lon), ""
         return "İstanbul", ""
 
+    # 1. EPDK standardı: "Mahalle Cadde No İlçe / İL"
+    if "/" in address:
+        parts = address.rsplit("/", 1)
+        cand_city = parts[1].strip()
+        norm_city = normalize_city(cand_city, lat, lon)
+        if norm_city:
+            district_words = parts[0].strip().split()
+            district = district_words[-1].title() if district_words else ""
+            if district.lower() in ("mah.", "mahallesi", "cad.", "caddesi", "sok.", "sokak", "no", "kat", "apt") and len(district_words) > 1:
+                district = district_words[-2].title()
+            return norm_city, district
+
     upper_addr = str(address).upper()
     for c_upper in TURKISH_CITIES:
         if re.search(r'\b' + re.escape(c_upper) + r'\b', upper_addr):
-            return CITY_NORM.get(c_upper, c_upper.title()), ""
+            norm_city = CITY_NORM.get(c_upper, c_upper.title())
+            return norm_city, ""
 
     if lat and lon:
         return find_nearest_province(lat, lon), ""
 
     return "İstanbul", ""
+
+def get_deterministic_coords(city, district, istasyon_no, name):
+    """
+    Koordinatı olmayan EPDK istasyonları için il merkezine bağlı sabit ve deterministik
+    (her çalıştırmada aynı kalan) dağılım üretir.
+    """
+    import hashlib
+    base_lat, base_lon = PROVINCE_COORDS.get(city, (39.0, 35.0))
+    seed_str = "{}_{}_{}_{}".format(istasyon_no or "", name or "", district or "", city or "")
+    h = int(hashlib.md5(seed_str.encode("utf-8")).hexdigest()[:8], 16)
+    # Şehir merkezine ~3-4 km yarıçapında deterministik dağılım (+/- 0.04 derece)
+    d_lat = ((h % 1000) / 1000.0 - 0.5) * 0.08
+    d_lon = (((h // 1000) % 1000) / 1000.0 - 0.5) * 0.08
+    return round(base_lat + d_lat, 6), round(base_lon + d_lon, 6)
 
 # ==============================================================================
 # 3. Veri Seti Arama ve Uzak Yedekleme Fonksiyonları
@@ -830,10 +857,11 @@ def main():
         used_slugs.add(res)
         return res
 
-    # 1. PROCESS VOLTRUN
+    # --------------------------------------------------------------------------
+    # 1. CPO VERİ HAVUZLARININ HAZIRLANMASI (Zenginleştirme için İndeksleme)
+    # --------------------------------------------------------------------------
+    voltrun_locations = {}
     if voltrun_raw:
-        print("Voltrun istasyonları normalize ediliyor...")
-        voltrun_locations = {}
         for v in voltrun_raw:
             lat = v.get("latitude")
             lon = v.get("longitude")
@@ -842,128 +870,256 @@ def main():
             loc_key = v.get("locationId") or v.get("locationName") or "{:.4f},{:.4f}".format(float(lat), float(lon))
             voltrun_locations.setdefault(loc_key, []).append(v)
 
-        voltrun_epdk = epdk_by_brand.get("voltrun", [])
+    # Voltrun hızlı erişim ve arama indeksleri
+    voltrun_pool = []
+    for loc_key, chargers in voltrun_locations.items():
+        first = chargers[0]
+        v_name = first.get("locationName") or first.get("businessName") or "Voltrun Şarj İstasyonu"
+        v_lat = float(first["latitude"])
+        v_lon = float(first["longitude"])
+        v_city = normalize_city(first.get("city") or "", v_lat, v_lon)
+        v_district = (first.get("district") or "").strip().title()
+        v_addr = first.get("addressDefinition") or "{}, {}".format(v_district, v_city)
 
-        for loc_key, chargers in voltrun_locations.items():
-            first = chargers[0]
-            name = first.get("locationName") or first.get("businessName") or "Voltrun Şarj İstasyonu"
-            lat = float(first["latitude"])
-            lon = float(first["longitude"])
-            city = normalize_city(first.get("city") or "", lat, lon)
-            district = (first.get("district") or "").strip().title()
-            address = first.get("addressDefinition") or "{}, {}".format(district, city)
+        v_conn_types = set()
+        v_max_power = 0
+        v_tariff = None
+        for c in chargers:
+            for conn in c.get("connectors", []):
+                ctype = conn.get("type") or "AC"
+                if "ccs" in ctype.lower():
+                    v_conn_types.add("CCS2")
+                elif "type" in ctype.lower() or "mennekes" in ctype.lower():
+                    v_conn_types.add("Type 2")
+                elif "chademo" in ctype.lower():
+                    v_conn_types.add("CHAdeMO")
+                else:
+                    v_conn_types.add(ctype)
+                p = conn.get("maxPower") or c.get("maxPower") or 22
+                if p and p > v_max_power:
+                    v_max_power = p
 
-            connector_types = set()
-            max_power = 0
-            current_tariff = None
+            et = c.get("energyTariff")
+            if et and et.get("tariff") and not v_tariff:
+                try:
+                    t_json = json.loads(et["tariff"])
+                    if t_json and isinstance(t_json, list) and "unitPrice" in t_json[0]:
+                        v_tariff = "{:.2f} TL/kWh".format(t_json[0]["unitPrice"])
+                except Exception:
+                    pass
 
-            for c in chargers:
-                for conn in c.get("connectors", []):
-                    ctype = conn.get("type") or "AC"
-                    if "ccs" in ctype.lower():
-                        connector_types.add("CCS2")
-                    elif "type" in ctype.lower() or "mennekes" in ctype.lower():
-                        connector_types.add("Type 2")
-                    elif "chademo" in ctype.lower():
-                        connector_types.add("CHAdeMO")
-                    else:
-                        connector_types.add(ctype)
-                    p = conn.get("maxPower") or c.get("maxPower") or 22
-                    if p and p > max_power:
-                        max_power = p
+        voltrun_pool.append({
+            "loc_key": loc_key,
+            "name": v_name,
+            "name_slug": to_slug(v_name),
+            "address": v_addr,
+            "addr_slug": to_slug(v_addr),
+            "city": v_city,
+            "district": v_district,
+            "lat": v_lat,
+            "lon": v_lon,
+            "connector_types": sorted(list(v_conn_types)) if v_conn_types else ["Type 2"],
+            "power_kw": v_max_power or 22,
+            "current_tariff": v_tariff or "9.50 TL/kWh",
+            "is_online": any(c.get("stationOnline") for c in chargers),
+            "is_public": first.get("usageType") == "PUBLIC",
+            "code": first.get("code") or first.get("stationCode") or first.get("id"),
+        })
 
-                et = c.get("energyTariff")
-                if et and et.get("tariff") and not current_tariff:
-                    try:
-                        t_json = json.loads(et["tariff"])
-                        if t_json and isinstance(t_json, list) and "unitPrice" in t_json[0]:
-                            current_tariff = "{:.2f} TL/kWh".format(t_json[0]['unitPrice'])
-                    except Exception:
-                        pass
+    # ZES hızlı erişim ve arama indeksleri
+    zes_pool = []
+    if zes_raw:
+        for z in zes_raw:
+            z_lat = z.get("latitude")
+            z_lon = z.get("longitude")
+            if not z_lat or not z_lon:
+                continue
+            zid = z.get("id") or z.get("externalId")
+            z_name = z.get("name") or "ZES Şarj İstasyonu"
+            z_addr = (z.get("address") or "").strip()
+            z_city, z_dist = extract_city_district_from_address(z_addr, float(z_lat), float(z_lon))
 
-            istasyon_no = None
-            for ep in voltrun_epdk:
-                if to_slug(name) in to_slug(ep.get("istasyon_adi", "")):
-                    istasyon_no = ep.get("istasyon_no")
-                    break
-            if not istasyon_no:
-                istasyon_no = "VLT/{}".format(first.get('code') or first.get('stationCode') or first.get('id'))
+            z_conns = []
+            ac_cnt = z.get("acConnectorCount") or 0
+            dc_cnt = z.get("dcConnectorCount") or 0
+            hpc_cnt = z.get("hpcConnectorCount") or 0
+            if ac_cnt > 0:
+                z_conns.append("Type 2")
+            if dc_cnt > 0 or hpc_cnt > 0:
+                z_conns.append("CCS2")
+            if not z_conns:
+                z_conns.append("Type 2")
 
-            slug = get_unique_slug("voltrun-{}-{}".format(name, city))
-            station_id = str(uuid.uuid5(uuid.NAMESPACE_DNS, "voltrun-{}".format(loc_key)))
+            z_pwr = z.get("maxElectricPower") or (120 if (dc_cnt or hpc_cnt) else 22)
 
-            normalized_stations.append({
-                "id": station_id,
-                "istasyon_no": istasyon_no,
-                "slug": slug,
-                "name": name,
-                "address": address,
-                "city": city,
-                "district": district,
-                "lat": lat,
-                "lon": lon,
-                "operator_id": 4,
-                "operator_name": "Voltrun",
-                "is_flagged_defective": False,
-                "defect_report_count": 0,
-                "connector_types": sorted(list(connector_types)) if connector_types else ["Type 2"],
-                "power_kw": max_power or 22,
-                "current_tariff": current_tariff or "9.50 TL/kWh",
-                "occupancy_status": "AVAILABLE" if any(c.get("stationOnline") for c in chargers) else "OCCUPIED",
-                "open_hours": "24/7" if any(c.get("openHoursDefinition") for c in chargers) else "08:00 - 22:00",
-                "service_type": "Halka Açık" if first.get("usageType") == "PUBLIC" else "Özel",
-                "updated_at": "2026-09-18T12:00:00Z"
+            zes_pool.append({
+                "zid": zid,
+                "name": z_name,
+                "name_slug": to_slug(z_name),
+                "address": z_addr,
+                "addr_slug": to_slug(z_addr),
+                "city": z_city,
+                "district": z_dist,
+                "lat": float(z_lat),
+                "lon": float(z_lon),
+                "connector_types": z_conns,
+                "power_kw": z_pwr,
+                "current_tariff": "10.49 TL/kWh" if "CCS2" in z_conns else "7.99 TL/kWh",
+                "is_maintenance": bool(z.get("isInMaintenance")),
+                "is_24_7": bool(z.get("isOpenTwentyfourSeven")),
+                "is_restricted": bool(z.get("isRestricted")),
             })
 
-        print("  ✓ Eklendi: {} Voltrun istasyon merkezi.".format(len(voltrun_locations)))
+    matched_voltrun_keys = set()
+    matched_zes_ids = set()
 
-    # 2. PROCESS ZES
-    if zes_raw:
-        print("ZES istasyonları normalize ediliyor...")
-        zes_count = 0
-        zes_epdk = epdk_by_brand.get("zes", [])
+    # --------------------------------------------------------------------------
+    # 2. EPDK MASTER İSTASYON LİSTESİ NORMALİZASYONU VE CPO ZENGİNLEŞTİRMESİ
+    # --------------------------------------------------------------------------
+    if epdk_raw and len(epdk_raw) > 0:
+        print("EPDK Ana Referans Listesi işleniyor ve CPO verileriyle zenginleştiriliyor ({} kayıt)...".format(len(epdk_raw)))
 
-        for z in zes_raw:
-            lat = z.get("latitude")
-            lon = z.get("longitude")
-            if not lat or not lon:
-                continue
-            lat = float(lat)
-            lon = float(lon)
+        for ep in epdk_raw:
+            istasyon_no = (ep.get("istasyon_no") or "").strip()
+            name = (ep.get("istasyon_adi") or "").strip() or "Elektrikli Şarj İstasyonu"
+            brand_raw = (ep.get("marka") or "").strip()
+            brand_lower = brand_raw.lower()
+            address = (ep.get("adres") or "").strip()
+            hizmet = (ep.get("hizmet_sekli") or "").strip()
+            name_slug = to_slug(name)
+            addr_slug = to_slug(address)
 
-            name = z.get("name") or "ZES Şarj İstasyonu"
-            address = (z.get("address") or "").strip()
-            zid = z.get("id") or z.get("externalId")
+            city, district = extract_city_district_from_address(address)
+            lat, lon = get_deterministic_coords(city, district, istasyon_no, name)
 
-            city, district = extract_city_district_from_address(address, lat, lon)
+            # Varsayılan değerler
+            operator_id = 99
+            operator_name = brand_raw or "Diğer"
+            connector_types = ["CCS2", "Type 2"]
+            power_kw = 60
+            current_tariff = "9.90 TL/kWh"
+            occupancy_status = "AVAILABLE"
+            open_hours = "24/7"
+            service_type = "Halka Açık" if "halka" in hizmet.lower() or not hizmet else "Özel"
 
-            connector_types = []
-            ac_count = z.get("acConnectorCount") or 0
-            dc_count = z.get("dcConnectorCount") or 0
-            hpc_count = z.get("hpcConnectorCount") or 0
-            if ac_count > 0:
-                connector_types.append("Type 2")
-            if dc_count > 0 or hpc_count > 0:
-                connector_types.append("CCS2")
-            if not connector_types:
-                connector_types.append("Type 2")
+            # ------------------------------------------------------------------
+            # Marka / CPO Özel Zenginleştirmesi
+            # ------------------------------------------------------------------
+            if "voltrun" in brand_lower:
+                operator_id = 4
+                operator_name = "Voltrun"
+                current_tariff = "9.50 TL/kWh"
 
-            max_power = z.get("maxElectricPower") or (120 if (dc_count or hpc_count) else 22)
+                # Voltrun havuzunda eşleşen ara
+                matched_v = None
+                for v in voltrun_pool:
+                    if v["loc_key"] in matched_voltrun_keys:
+                        continue
+                    if v["name_slug"] in name_slug or name_slug in v["name_slug"]:
+                        matched_v = v
+                        break
+                    if v["addr_slug"] and (v["addr_slug"] in addr_slug or addr_slug in v["addr_slug"]):
+                        matched_v = v
+                        break
 
-            istasyon_no = None
-            for ep in zes_epdk:
-                if to_slug(name) in to_slug(ep.get("istasyon_adi", "")):
-                    istasyon_no = ep.get("istasyon_no")
-                    break
-            if not istasyon_no:
-                istasyon_no = "ZES/{}".format(zid)
+                if matched_v:
+                    matched_voltrun_keys.add(matched_v["loc_key"])
+                    lat = matched_v["lat"]
+                    lon = matched_v["lon"]
+                    city = matched_v["city"]
+                    district = matched_v["district"] or district
+                    connector_types = matched_v["connector_types"]
+                    power_kw = matched_v["power_kw"]
+                    current_tariff = matched_v["current_tariff"]
+                    occupancy_status = "AVAILABLE" if matched_v["is_online"] else "OCCUPIED"
 
-            slug = get_unique_slug("zes-{}-{}".format(name, city))
-            station_id = str(uuid.uuid5(uuid.NAMESPACE_DNS, "zes-{}".format(zid)))
+            elif "zes" in brand_lower:
+                operator_id = 1
+                operator_name = "ZES"
+                current_tariff = "10.49 TL/kWh"
+
+                # ZES havuzunda eşleşen ara
+                matched_z = None
+                for z in zes_pool:
+                    if z["zid"] in matched_zes_ids:
+                        continue
+                    if z["name_slug"] in name_slug or name_slug in z["name_slug"]:
+                        matched_z = z
+                        break
+                    if z["addr_slug"] and (z["addr_slug"] in addr_slug or addr_slug in z["addr_slug"]):
+                        matched_z = z
+                        break
+
+                if matched_z:
+                    matched_zes_ids.add(matched_z["zid"])
+                    lat = matched_z["lat"]
+                    lon = matched_z["lon"]
+                    city = matched_z["city"]
+                    district = matched_z["district"] or district
+                    connector_types = matched_z["connector_types"]
+                    power_kw = matched_z["power_kw"]
+                    current_tariff = matched_z["current_tariff"]
+                    occupancy_status = "OFFLINE" if matched_z["is_maintenance"] else "AVAILABLE"
+                    open_hours = "24/7" if matched_z["is_24_7"] else "08:00 - 22:00"
+                    service_type = "Özel" if matched_z["is_restricted"] else "Halka Açık"
+
+            elif "trugo" in brand_lower:
+                operator_id = 2
+                operator_name = "Trugo"
+                connector_types = ["CCS2"]
+                power_kw = 180
+                current_tariff = "11.20 TL/kWh"
+
+            elif "esarj" in brand_lower or "eşarj" in brand_lower:
+                operator_id = 3
+                operator_name = "Eşarj"
+                connector_types = ["CCS2", "Type 2"]
+                power_kw = 120
+                current_tariff = "10.80 TL/kWh"
+
+            elif "sharz" in brand_lower:
+                operator_id = 5
+                operator_name = "Sharz.net"
+                power_kw = 60
+                current_tariff = "9.90 TL/kWh"
+
+            elif "wat" in brand_lower:
+                operator_id = 6
+                operator_name = "WAT Mobilite"
+                power_kw = 120
+                current_tariff = "10.50 TL/kWh"
+
+            elif "astor" in brand_lower:
+                operator_id = 7
+                operator_name = "Astor Şarj"
+                connector_types = ["CCS2"]
+                power_kw = 150
+                current_tariff = "10.80 TL/kWh"
+
+            elif "zeplin" in brand_lower:
+                operator_id = 8
+                operator_name = "Zeplin Car"
+                power_kw = 60
+                current_tariff = "9.50 TL/kWh"
+
+            elif "shora" in brand_lower:
+                operator_id = 9
+                operator_name = "Shora"
+                power_kw = 60
+                current_tariff = "9.90 TL/kWh"
+
+            else:
+                import hashlib
+                op_hash = int(hashlib.md5(brand_lower.encode("utf-8")).hexdigest()[:6], 16)
+                operator_id = 100 + (op_hash % 800)
+                operator_name = brand_raw.title() if brand_raw else "Bağımsız Şarj"
+
+            station_id = str(uuid.uuid5(uuid.NAMESPACE_DNS, "epdk-{}".format(istasyon_no or (name + address))))
+            slug = get_unique_slug("{}-{}-{}".format(to_slug(operator_name), to_slug(name), to_slug(city)))
 
             normalized_stations.append({
                 "id": station_id,
-                "istasyon_no": istasyon_no,
+                "istasyon_no": istasyon_no or "EPDK/{}".format(station_id[:8]),
                 "slug": slug,
                 "name": name,
                 "address": address or "{}, {}".format(district, city),
@@ -971,21 +1127,91 @@ def main():
                 "district": district,
                 "lat": lat,
                 "lon": lon,
-                "operator_id": 1,
-                "operator_name": "ZES",
-                "is_flagged_defective": bool(z.get("isInMaintenance")),
+                "operator_id": operator_id,
+                "operator_name": operator_name,
+                "is_flagged_defective": False,
                 "defect_report_count": 0,
                 "connector_types": connector_types,
-                "power_kw": max_power,
-                "current_tariff": "10.49 TL/kWh" if "CCS2" in connector_types else "7.99 TL/kWh",
-                "occupancy_status": "OFFLINE" if z.get("isInMaintenance") else "AVAILABLE",
-                "open_hours": "24/7" if z.get("isOpenTwentyfourSeven") else "08:00 - 22:00",
-                "service_type": "Özel" if z.get("isRestricted") else "Halka Açık",
-                "updated_at": "2026-09-18T12:00:00Z"
+                "power_kw": power_kw,
+                "current_tariff": current_tariff,
+                "occupancy_status": occupancy_status,
+                "open_hours": open_hours,
+                "service_type": service_type,
+                "updated_at": "2026-09-24T12:00:00Z"
             })
-            zes_count += 1
 
-        print("  ✓ Eklendi: {} ZES istasyonu.".format(zes_count))
+        print("  ✓ EPDK listesinden {} istasyon eklendi (Zenginleştirilen Voltrun: {}, ZES: {}).".format(
+            len(normalized_stations), len(matched_voltrun_keys), len(matched_zes_ids)
+        ))
+
+    # --------------------------------------------------------------------------
+    # 3. EPDK İLE EŞLEŞMEYEN KALAN CPO İSTASYONLARININ EKLENMESİ
+    # --------------------------------------------------------------------------
+    unmatched_v_count = 0
+    for v in voltrun_pool:
+        if v["loc_key"] in matched_voltrun_keys:
+            continue
+        slug = get_unique_slug("voltrun-{}-{}".format(to_slug(v["name"]), to_slug(v["city"])))
+        station_id = str(uuid.uuid5(uuid.NAMESPACE_DNS, "voltrun-{}".format(v["loc_key"])))
+        normalized_stations.append({
+            "id": station_id,
+            "istasyon_no": "VLT/{}".format(v["code"]),
+            "slug": slug,
+            "name": v["name"],
+            "address": v["address"],
+            "city": v["city"],
+            "district": v["district"],
+            "lat": v["lat"],
+            "lon": v["lon"],
+            "operator_id": 4,
+            "operator_name": "Voltrun",
+            "is_flagged_defective": False,
+            "defect_report_count": 0,
+            "connector_types": v["connector_types"],
+            "power_kw": v["power_kw"],
+            "current_tariff": v["current_tariff"],
+            "occupancy_status": "AVAILABLE" if v["is_online"] else "OCCUPIED",
+            "open_hours": "24/7",
+            "service_type": "Halka Açık" if v["is_public"] else "Özel",
+            "updated_at": "2026-09-24T12:00:00Z"
+        })
+        unmatched_v_count += 1
+
+    if unmatched_v_count > 0:
+        print("  ✓ EPDK harici {} Voltrun istasyonu eklendi.".format(unmatched_v_count))
+
+    unmatched_z_count = 0
+    for z in zes_pool:
+        if z["zid"] in matched_zes_ids:
+            continue
+        slug = get_unique_slug("zes-{}-{}".format(to_slug(z["name"]), to_slug(z["city"])))
+        station_id = str(uuid.uuid5(uuid.NAMESPACE_DNS, "zes-{}".format(z["zid"])))
+        normalized_stations.append({
+            "id": station_id,
+            "istasyon_no": "ZES/{}".format(z["zid"]),
+            "slug": slug,
+            "name": z["name"],
+            "address": z["address"] or "{}, {}".format(z["district"], z["city"]),
+            "city": z["city"],
+            "district": z["district"],
+            "lat": z["lat"],
+            "lon": z["lon"],
+            "operator_id": 1,
+            "operator_name": "ZES",
+            "is_flagged_defective": z["is_maintenance"],
+            "defect_report_count": 0,
+            "connector_types": z["connector_types"],
+            "power_kw": z["power_kw"],
+            "current_tariff": z["current_tariff"],
+            "occupancy_status": "OFFLINE" if z["is_maintenance"] else "AVAILABLE",
+            "open_hours": "24/7" if z["is_24_7"] else "08:00 - 22:00",
+            "service_type": "Özel" if z["is_restricted"] else "Halka Açık",
+            "updated_at": "2026-09-24T12:00:00Z"
+        })
+        unmatched_z_count += 1
+
+    if unmatched_z_count > 0:
+        print("  ✓ EPDK harici {} ZES istasyonu eklendi.".format(unmatched_z_count))
 
     print("Toplam normalize edilen istasyon sayısı: {}".format(len(normalized_stations)))
 

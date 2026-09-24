@@ -5,6 +5,12 @@
       "name": "İnteraktif İstasyon Haritası ve BBox Keşfi",
       "goal": "Kullanıcının web haritası üzerinde Türkiye'deki tohumlanmış şarj istasyonlarını BBox ile görüntüleyip filtreleyebilmesi.",
       "planned_days": 5,
+      "order": 0,
+      "status": "DONE",
+      "planned_start": "2026-09-06",
+      "planned_end": "2026-09-06",
+      "actual_start": "2026-09-06T17:58:39",
+      "actual_end": "2026-09-06T18:25:14",
       "tasks": [
         {
           "id": "S1-T1",
@@ -19,8 +25,8 @@
           "status": "DONE",
           "attempts": 1,
           "note": "",
-          "started_at": 1788706719.747482,
-          "finished_at": 1788706836.413989,
+          "started_at": "1788706719.7474821",
+          "finished_at": "1788706836.4139891",
           "duration_s": 116.7
         },
         {
@@ -38,8 +44,8 @@
           "status": "DONE",
           "attempts": 1,
           "note": "",
-          "started_at": 1788706836.415416,
-          "finished_at": 1788706943.2469919,
+          "started_at": "1788706836.415416",
+          "finished_at": "1788706943.2469919",
           "duration_s": 106.8
         },
         {
@@ -57,8 +63,8 @@
           "status": "DONE",
           "attempts": 1,
           "note": "",
-          "started_at": 1788707826.4107258,
-          "finished_at": 1788708061.328423,
+          "started_at": "1788707826.4107258",
+          "finished_at": "1788708061.328423",
           "duration_s": 234.9
         },
         {
@@ -76,8 +82,8 @@
           "status": "DONE",
           "attempts": 1,
           "note": "",
-          "started_at": 1788708061.330106,
-          "finished_at": 1788708173.226384,
+          "started_at": "1788708061.330106",
+          "finished_at": "1788708173.2263839",
           "duration_s": 111.9
         },
         {
@@ -95,23 +101,23 @@
           "status": "DONE",
           "attempts": 1,
           "note": "",
-          "started_at": 1788708173.228122,
-          "finished_at": 1788708314.904758,
+          "started_at": "1788708173.228122",
+          "finished_at": "1788708314.904758",
           "duration_s": 141.7
         }
-      ],
-      "order": 0,
-      "status": "DONE",
-      "actual_start": "2026-09-06T17:58:39",
-      "actual_end": "2026-09-06T18:25:14",
-      "planned_start": "2026-09-06",
-      "planned_end": "2026-09-06"
+      ]
     },
     {
       "id": "S2",
       "name": "İstasyon Detay ve Deep-Link Yönlendirmesi",
       "goal": "Kullanıcının seçtiği istasyonun detaylarını ve operatör bilgilerini görüp CPO uygulamasına deep-link ile yönlenebilmesi.",
       "planned_days": 4,
+      "order": 1,
+      "status": "DONE",
+      "planned_start": "2026-09-06",
+      "planned_end": "2026-09-06",
+      "actual_start": "2026-09-06T18:25:14",
+      "actual_end": "2026-09-06T22:21:59",
       "tasks": [
         {
           "id": "S2-T1",
@@ -128,8 +134,8 @@
           "status": "DONE",
           "attempts": 1,
           "note": "",
-          "started_at": 1788708314.906622,
-          "finished_at": 1788708465.210412,
+          "started_at": "1788708314.9066219",
+          "finished_at": "1788708465.210412",
           "duration_s": 150.3
         },
         {
@@ -147,8 +153,8 @@
           "status": "DONE",
           "attempts": 1,
           "note": "",
-          "started_at": 1788716319.796587,
-          "finished_at": 1788716845.22667,
+          "started_at": "1788716319.796587",
+          "finished_at": "1788716845.22667",
           "duration_s": 525.4
         },
         {
@@ -166,8 +172,8 @@
           "status": "DONE",
           "attempts": 1,
           "note": "",
-          "started_at": 1788716845.229128,
-          "finished_at": 1788716993.452905,
+          "started_at": "1788716845.2291279",
+          "finished_at": "1788716993.4529049",
           "duration_s": 148.2
         },
         {
@@ -186,8 +192,8 @@
           "status": "DONE",
           "attempts": 1,
           "note": "",
-          "started_at": 1788716993.4538088,
-          "finished_at": 1788717094.3896031,
+          "started_at": "1788716993.4538088",
+          "finished_at": "1788717094.3896031",
           "duration_s": 100.9
         },
         {
@@ -205,24 +211,23 @@
           "status": "DONE",
           "attempts": 1,
           "note": "",
-          "started_at": 1788722403.428052,
-          "finished_at": 1788722519.313887,
+          "started_at": "1788722403.428052",
+          "finished_at": "1788722519.3138869",
           "duration_s": 115.9
         }
-      ],
-      "order": 1,
-      "status": "DONE",
-      "actual_start": "2026-09-06T18:25:14",
-      "actual_end": "2026-09-06T22:21:59",
-      "planned_start": "2026-09-06",
-      "planned_end": "2026-09-06",
-      "_summary_printed": true
+      ]
     },
     {
       "id": "S3",
       "name": "SEO Dizin Sayfaları ve QR Kod Rota Köprüsü",
       "goal": "Kullanıcının SEO uyumlu il/ilçe dizin sayfalarına ulaşması ve incelediği istasyonu QR kodla mobil uygulamaya aktarabilmesi.",
       "planned_days": 4,
+      "order": 2,
+      "status": "DONE",
+      "planned_start": "2026-09-06",
+      "planned_end": "2026-09-07",
+      "actual_start": "2026-09-06T22:21:59",
+      "actual_end": "2026-09-07T01:25:10",
       "tasks": [
         {
           "id": "S3-T1",
@@ -239,8 +244,8 @@
           "status": "DONE",
           "attempts": 1,
           "note": "",
-          "started_at": 1788722519.3154671,
-          "finished_at": 1788722590.060699,
+          "started_at": "1788722519.3154671",
+          "finished_at": "1788722590.060699",
           "duration_s": 70.7
         },
         {
@@ -258,8 +263,8 @@
           "status": "DONE",
           "attempts": 1,
           "note": "",
-          "started_at": 1788722590.062785,
-          "finished_at": 1788723101.293398,
+          "started_at": "1788722590.0627849",
+          "finished_at": "1788723101.2933979",
           "duration_s": 511.2
         },
         {
@@ -277,8 +282,8 @@
           "status": "DONE",
           "attempts": 1,
           "note": "yerel testler geçti",
-          "started_at": 1788723850.6470149,
-          "finished_at": 1788723998.874926,
+          "started_at": "1788723850.6470149",
+          "finished_at": "1788723998.8749261",
           "duration_s": 148.2
         },
         {
@@ -296,8 +301,8 @@
           "status": "DONE",
           "attempts": 2,
           "note": " [yetim durumdan kurtarıldı]",
-          "started_at": 1788733261.5929449,
-          "finished_at": 1788733390.341836,
+          "started_at": "1788733261.5929449",
+          "finished_at": "1788733390.341836",
           "duration_s": 128.7
         },
         {
@@ -315,24 +320,23 @@
           "status": "DONE",
           "attempts": 1,
           "note": "altyapı konfigürasyonu hazır",
-          "started_at": 1788733390.343055,
-          "finished_at": 1788733510.113111,
+          "started_at": "1788733390.343055",
+          "finished_at": "1788733510.113111",
           "duration_s": 119.8
         }
-      ],
-      "order": 2,
-      "status": "DONE",
-      "actual_start": "2026-09-06T22:21:59",
-      "actual_end": "2026-09-07T01:25:10",
-      "planned_start": "2026-09-06",
-      "planned_end": "2026-09-07",
-      "_summary_printed": true
+      ]
     },
     {
       "id": "S4",
       "name": "Sıfır Konum Saklama ile Arıza Bildirimi",
       "goal": "Kullanıcının GPS gizliliği korunarak istasyon arızası bildirebilmesi ve arızalı istasyonların haritada etiketlenmesi.",
       "planned_days": 4,
+      "order": 3,
+      "status": "DONE",
+      "planned_start": "2026-09-07",
+      "planned_end": "2026-09-13",
+      "actual_start": "2026-09-07T01:25:10",
+      "actual_end": "2026-09-13T20:59:05",
       "tasks": [
         {
           "id": "S4-T1",
@@ -349,8 +353,8 @@
           "status": "DONE",
           "attempts": 1,
           "note": "",
-          "started_at": 1788733510.115681,
-          "finished_at": 1788733866.5693078,
+          "started_at": "1788733510.1156809",
+          "finished_at": "1788733866.5693078",
           "duration_s": 356.5
         },
         {
@@ -368,8 +372,8 @@
           "status": "DONE",
           "attempts": 1,
           "note": "",
-          "started_at": 1788733866.5707111,
-          "finished_at": 1788734492.7075,
+          "started_at": "1788733866.5707111",
+          "finished_at": "1788734492.7075",
           "duration_s": 626.1
         },
         {
@@ -387,8 +391,8 @@
           "status": "DONE",
           "attempts": 1,
           "note": "yerel testler geçti",
-          "started_at": 1788734492.708891,
-          "finished_at": 1788734630.3179488,
+          "started_at": "1788734492.7088909",
+          "finished_at": "1788734630.3179488",
           "duration_s": 137.6
         },
         {
@@ -407,8 +411,8 @@
           "status": "DONE",
           "attempts": 1,
           "note": "",
-          "started_at": 1788734630.319377,
-          "finished_at": 1788734745.140877,
+          "started_at": "1788734630.319377",
+          "finished_at": "1788734745.140877",
           "duration_s": 114.8
         },
         {
@@ -426,24 +430,23 @@
           "status": "DONE",
           "attempts": 1,
           "note": "altyapı konfigürasyonu hazır",
-          "started_at": 1789322303.4122958,
-          "finished_at": 1789322345.787709,
+          "started_at": "1789322303.4122958",
+          "finished_at": "1789322345.787709",
           "duration_s": 42.4
         }
-      ],
-      "order": 3,
-      "status": "DONE",
-      "actual_start": "2026-09-07T01:25:10",
-      "actual_end": "2026-09-13T20:59:05",
-      "planned_start": "2026-09-07",
-      "planned_end": "2026-09-13",
-      "_summary_printed": true
+      ]
     },
     {
       "id": "S5",
       "name": "Asenkron Worker Kuyruğu ve Veri Tazeliği",
       "goal": "Arka planda harici veri kaynaklarının Circuit Breaker ile toplanması ve istasyon veri tazeliğinin gösterilmesi.",
       "planned_days": 4,
+      "order": 4,
+      "status": "DONE",
+      "planned_start": "2026-09-13",
+      "planned_end": "2026-09-14",
+      "actual_start": "2026-09-13T20:59:05",
+      "actual_end": "2026-09-14T15:58:19",
       "tasks": [
         {
           "id": "S5-T1",
@@ -460,8 +463,8 @@
           "status": "DONE",
           "attempts": 1,
           "note": "",
-          "started_at": 1789322345.789418,
-          "finished_at": 1789323416.8669481,
+          "started_at": "1789322345.789418",
+          "finished_at": "1789323416.8669481",
           "duration_s": 1071.1
         },
         {
@@ -479,8 +482,8 @@
           "status": "DONE",
           "attempts": 1,
           "note": "",
-          "started_at": 1789323416.8687649,
-          "finished_at": 1789323925.050108,
+          "started_at": "1789323416.8687649",
+          "finished_at": "1789323925.050108",
           "duration_s": 508.2
         },
         {
@@ -498,8 +501,8 @@
           "status": "DONE",
           "attempts": 1,
           "note": "yerel testler geçti",
-          "started_at": 1789365886.862554,
-          "finished_at": 1789365971.0450938,
+          "started_at": "1789365886.8625541",
+          "finished_at": "1789365971.0450938",
           "duration_s": 84.2
         },
         {
@@ -518,8 +521,8 @@
           "status": "DONE",
           "attempts": 1,
           "note": "",
-          "started_at": 1789390400.118109,
-          "finished_at": 1789390514.2876291,
+          "started_at": "1789390400.118109",
+          "finished_at": "1789390514.2876291",
           "duration_s": 114.2
         },
         {
@@ -537,8 +540,8 @@
           "status": "DONE",
           "attempts": 1,
           "note": "altyapı konfigürasyonu hazır",
-          "started_at": 1789390514.288954,
-          "finished_at": 1789390699.544106,
+          "started_at": "1789390514.288954",
+          "finished_at": "1789390699.544106",
           "duration_s": 185.3
         },
         {
@@ -556,24 +559,23 @@
           "status": "DONE",
           "attempts": 1,
           "note": "canlı UAT kabul testleri geçti",
-          "started_at": 1789480000.0,
-          "finished_at": 1789480045.0,
+          "started_at": "1789480000.0",
+          "finished_at": "1789480045.0",
           "duration_s": 45.0
         }
-      ],
-      "order": 4,
-      "status": "DONE",
-      "actual_start": "2026-09-13T20:59:05",
-      "actual_end": "2026-09-14T15:58:19",
-      "planned_start": "2026-09-13",
-      "planned_end": "2026-09-14",
-      "_summary_printed": true
+      ]
     },
     {
       "id": "S6",
       "name": "Flutter Mobil Uygulama ve Harita Deneyimi",
       "goal": "Kullanıcıların mobil cihazlarda harita üzerinden şarj istasyonlarını filtreleyip detaylarını görebilmesi.",
       "planned_days": 5,
+      "order": 5,
+      "status": "DONE",
+      "planned_start": "2026-09-16",
+      "planned_end": "2026-09-16",
+      "actual_start": "2026-09-16T11:56:40",
+      "actual_end": "2026-09-16T19:43:54",
       "tasks": [
         {
           "id": "S6-T1",
@@ -590,8 +592,8 @@
           "status": "DONE",
           "attempts": 1,
           "note": "",
-          "started_at": 1789549000.539246,
-          "finished_at": 1789550410.95507,
+          "started_at": "1789549000.5392461",
+          "finished_at": "1789550410.95507",
           "duration_s": 1410.4
         },
         {
@@ -609,8 +611,8 @@
           "status": "DONE",
           "attempts": 1,
           "note": "",
-          "started_at": 1789550410.9567208,
-          "finished_at": 1789550934.868562,
+          "started_at": "1789550410.9567208",
+          "finished_at": "1789550934.868562",
           "duration_s": 523.9
         },
         {
@@ -628,8 +630,8 @@
           "status": "DONE",
           "attempts": 1,
           "note": "yerel testler geçti",
-          "started_at": 1789550934.8720582,
-          "finished_at": 1789551071.494383,
+          "started_at": "1789550934.8720582",
+          "finished_at": "1789551071.4943831",
           "duration_s": 136.6
         },
         {
@@ -647,8 +649,8 @@
           "status": "DONE",
           "attempts": 1,
           "note": "yerel testler geçti",
-          "started_at": 1789574308.894047,
-          "finished_at": 1789575628.8648908,
+          "started_at": "1789574308.894047",
+          "finished_at": "1789575628.8648908",
           "duration_s": 1320.0
         },
         {
@@ -666,24 +668,23 @@
           "status": "DONE",
           "attempts": 1,
           "note": "altyapı konfigürasyonu hazır",
-          "started_at": 1789575628.866511,
-          "finished_at": 1789577034.591954,
+          "started_at": "1789575628.8665111",
+          "finished_at": "1789577034.591954",
           "duration_s": 1405.7
         }
-      ],
-      "order": 5,
-      "status": "DONE",
-      "actual_start": "2026-09-16T11:56:40",
-      "actual_end": "2026-09-16T19:43:54",
-      "planned_start": "2026-09-16",
-      "planned_end": "2026-09-16",
-      "_summary_printed": true
+      ]
     },
     {
       "id": "S7",
       "name": "Ziyaretçi Deneyimi ve 100% Ekran/Buton Etkileşim Denetimi",
       "goal": "Tüm web rotalarının (harita, operatör, şehir dizini, QR yönlendirme) ve interaktif elemanların (butonlar, modallar, filtreler) ziyaretçi gözüyle uçtan uca doğrulanması.",
       "planned_days": 3,
+      "order": 6,
+      "status": "DONE",
+      "planned_start": "2026-09-16",
+      "planned_end": "2026-09-17",
+      "actual_start": "2026-09-16T20:16:32",
+      "actual_end": "2026-09-17T16:22:10",
       "tasks": [
         {
           "id": "S7-T1",
@@ -698,8 +699,8 @@
           "status": "DONE",
           "attempts": 1,
           "note": "yerel testler geçti",
-          "started_at": 1789642544.459261,
-          "finished_at": 1789642733.956531,
+          "started_at": "1789642544.4592609",
+          "finished_at": "1789642733.9565311",
           "duration_s": 189.5
         },
         {
@@ -717,8 +718,8 @@
           "status": "DONE",
           "attempts": 1,
           "note": "yerel testler geçti",
-          "started_at": 1789642733.958362,
-          "finished_at": 1789642831.7573068,
+          "started_at": "1789642733.9583621",
+          "finished_at": "1789642831.7573068",
           "duration_s": 97.8
         },
         {
@@ -736,8 +737,8 @@
           "status": "DONE",
           "attempts": 1,
           "note": "",
-          "started_at": 1789642831.759041,
-          "finished_at": 1789643147.7540941,
+          "started_at": "1789642831.7590411",
+          "finished_at": "1789643147.7540941",
           "duration_s": 316.0
         },
         {
@@ -755,24 +756,23 @@
           "status": "DONE",
           "attempts": 1,
           "note": "canlı UAT hata tespit edildi",
-          "started_at": 1789649535.755904,
-          "finished_at": 1789651330.6376681,
+          "started_at": "1789649535.755904",
+          "finished_at": "1789651330.6376681",
           "duration_s": 1794.9
         }
-      ],
-      "order": 6,
-      "status": "DONE",
-      "actual_start": "2026-09-16T20:16:32",
-      "actual_end": "2026-09-17T16:22:10",
-      "planned_start": "2026-09-16",
-      "planned_end": "2026-09-17",
-      "_summary_printed": true
+      ]
     },
     {
       "id": "S8",
       "name": "Müşteri Denetimi & Saha Onarımları (TALEP-002, TALEP-003)",
       "goal": "Site sahibinin ilettiği 2 adet müşteri talebinin çözülmesi ve UAT ile kabul edilmesi.",
       "planned_days": 2,
+      "order": 7,
+      "status": "DONE",
+      "planned_start": "2026-09-17",
+      "planned_end": "2026-09-17",
+      "actual_start": "2026-09-17T16:22:10",
+      "actual_end": "2026-09-17T19:34:51",
       "tasks": [
         {
           "id": "S8-T1",
@@ -785,12 +785,11 @@
             "workspace/src/frontend/pages/"
           ],
           "depends_on": [],
-          "talep_id": "TALEP-002",
           "status": "DONE",
           "attempts": 1,
           "note": "",
-          "started_at": 1789651330.640482,
-          "finished_at": 1789651844.634809,
+          "started_at": "1789651330.640482",
+          "finished_at": "1789651844.634809",
           "duration_s": 514.0
         },
         {
@@ -805,12 +804,11 @@
           "depends_on": [
             "S8-T1"
           ],
-          "talep_id": "TALEP-002",
           "status": "DONE",
           "attempts": 1,
           "note": "canlı UAT hata tespit edildi",
-          "started_at": 1789659296.2709792,
-          "finished_at": 1789661091.514132,
+          "started_at": "1789659296.2709792",
+          "finished_at": "1789661091.514132",
           "duration_s": 1795.2
         },
         {
@@ -824,12 +822,11 @@
             "workspace/src/frontend/pages/"
           ],
           "depends_on": [],
-          "talep_id": "TALEP-003",
           "status": "DONE",
           "attempts": 1,
           "note": "",
-          "started_at": 1789651844.637245,
-          "finished_at": 1789652601.339273,
+          "started_at": "1789651844.6372449",
+          "finished_at": "1789652601.339273",
           "duration_s": 756.7
         },
         {
@@ -844,28 +841,26 @@
           "depends_on": [
             "S8-T3"
           ],
-          "talep_id": "TALEP-003",
           "status": "DONE",
           "attempts": 1,
           "note": "canlı UAT hata tespit edildi",
-          "started_at": 1789661094.184627,
-          "finished_at": 1789662888.751866,
+          "started_at": "1789661094.1846271",
+          "finished_at": "1789662888.7518661",
           "duration_s": 1794.6
         }
-      ],
-      "order": 7,
-      "status": "DONE",
-      "actual_start": "2026-09-17T16:22:10",
-      "actual_end": "2026-09-17T19:34:51",
-      "planned_start": "2026-09-17",
-      "planned_end": "2026-09-17",
-      "_summary_printed": true
+      ]
     },
     {
       "id": "S9",
       "name": "Müşteri Denetimi & Saha Onarımları (TALEP-004, TALEP-005, TALEP-006, TALEP-007, TALEP-008, TALEP-009)",
       "goal": "Site sahibinin ilettiği 6 adet müşteri talebinin çözülmesi ve UAT ile kabul edilmesi.",
       "planned_days": 6,
+      "order": 8,
+      "status": "DONE",
+      "planned_start": "2026-09-17",
+      "planned_end": "2026-09-17",
+      "actual_start": "2026-09-17T20:12:06",
+      "actual_end": "2026-09-17T22:43:57",
       "tasks": [
         {
           "id": "S9-T1",
@@ -878,169 +873,12 @@
             "workspace/src/frontend/pages/"
           ],
           "depends_on": [],
-          "talep_id": "TALEP-004",
           "status": "DONE",
           "attempts": 1,
           "note": "",
-          "started_at": 1789665126.86349,
-          "finished_at": 1789665893.435364,
+          "started_at": "1789665126.8634901",
+          "finished_at": "1789665893.435364",
           "duration_s": 766.6
-        },
-        {
-          "id": "S9-T2",
-          "title": "[TALEP-004] Müşteri Kabulü & UAT Doğrulama Denetimi",
-          "description": "TALEP-004 için yapılan düzeltmenin canlı sistemde çalıştığını ve 0 konsol hatası olduğunu doğrula.",
-          "role": "uat_auditor",
-          "phase": "test",
-          "outputs": [
-            "workspace/docs/uat_kabul_raporu.md"
-          ],
-          "depends_on": [
-            "S9-T1"
-          ],
-          "talep_id": "TALEP-004",
-          "status": "DONE",
-          "attempts": 1,
-          "note": "canlı UAT hata tespit edildi",
-          "started_at": 1789672041.462086,
-          "finished_at": 1789672161.848105,
-          "duration_s": 120.4
-        },
-        {
-          "id": "S9-T3",
-          "title": "[TALEP-005] GADM 4.1 Türkiye resmi il, ilçe ve mahalle koordinatlarının entegrasyonu",
-          "description": "Müşteri Talebi: gadm41_TUR veri kaynağından Türkiye'nin 81 il, 973 ilçe ve mahallelerinin resmi coğrafi sınır ve merkez koordinatları sisteme aktarılmalı; harita arama, ilçe/mahalle sorgulama ve geocoding mekanizması bu resmi CBS (GIS) veritabanı üzerinden çalışmalıdır.\nÇözüm Planı: workspace/docs/cozum_planlari/TALEP-005.md",
-          "role": "backend_engineer",
-          "phase": "develop",
-          "outputs": [
-            "workspace/src/backend/src/modules/",
-            "workspace/src/backend/src/app.ts"
-          ],
-          "depends_on": [],
-          "talep_id": "TALEP-005",
-          "status": "DONE",
-          "attempts": 1,
-          "note": "",
-          "started_at": 1789666554.819198,
-          "finished_at": 1789667519.108993,
-          "duration_s": 964.3
-        },
-        {
-          "id": "S9-T4",
-          "title": "[TALEP-005] Müşteri Kabulü & UAT Doğrulama Denetimi",
-          "description": "TALEP-005 için yapılan düzeltmenin canlı sistemde çalıştığını ve 0 konsol hatası olduğunu doğrula.",
-          "role": "uat_auditor",
-          "phase": "test",
-          "outputs": [
-            "workspace/docs/uat_kabul_raporu.md"
-          ],
-          "depends_on": [
-            "S9-T3"
-          ],
-          "talep_id": "TALEP-005",
-          "status": "DONE",
-          "attempts": 1,
-          "note": "canlı UAT hata tespit edildi",
-          "started_at": 1789672164.216285,
-          "finished_at": 1789672308.853625,
-          "duration_s": 144.6
-        },
-        {
-          "id": "S9-T5",
-          "title": "[TALEP-006] Konum izni verildiğinde kullanıcının anlık konumunu gösteren mavi nokta/baloncuk eksik",
-          "description": "Müşteri Talebi: Ziyaretçi harita üzerinde 'Konumumu Bul' butonuna tıklayıp tarayıcıda GPS/konum izni verdiğinde harita o bölgeye yaklaşıyor ancak kullanıcının tam olarak nerede durduğunu gösteren nabız atan mavi konum baloncuğu (user location marker / pulsing blue dot) haritada çizilmiyor.\nÇözüm Planı: workspace/docs/cozum_planlari/TALEP-006.md",
-          "role": "web_engineer",
-          "phase": "develop",
-          "outputs": [
-            "workspace/src/frontend/components/",
-            "workspace/src/frontend/pages/"
-          ],
-          "depends_on": [],
-          "talep_id": "TALEP-006",
-          "status": "DONE",
-          "attempts": 1,
-          "note": "",
-          "started_at": 1789667519.110934,
-          "finished_at": 1789668069.48438,
-          "duration_s": 550.4
-        },
-        {
-          "id": "S9-T6",
-          "title": "[TALEP-006] Müşteri Kabulü & UAT Doğrulama Denetimi",
-          "description": "TALEP-006 için yapılan düzeltmenin canlı sistemde çalıştığını ve 0 konsol hatası olduğunu doğrula.",
-          "role": "uat_auditor",
-          "phase": "test",
-          "outputs": [
-            "workspace/docs/uat_kabul_raporu.md"
-          ],
-          "depends_on": [
-            "S9-T5"
-          ],
-          "talep_id": "TALEP-006",
-          "status": "DONE",
-          "attempts": 1,
-          "note": "canlı UAT hata tespit edildi",
-          "started_at": 1789672311.313771,
-          "finished_at": 1789674105.4730601,
-          "duration_s": 1794.2
-        },
-        {
-          "id": "S9-T7",
-          "title": "[TALEP-007] Tüm operatörler açılır menüsü (dropdown) açıldığında menü taşması ve istenmeyen scroll çubuğu oluşması",
-          "description": "Müşteri Talebi: Harita arayüzündeki 'Tüm Operatörler' dropdown açılır listesine tıklandığında menü içeriği ekranda düzgün görünmüyor, container taşması (overflow/z-index/max-height) nedeniyle menü kesiliyor ve istenmeyen çirkin bir scroll çubuğu çıkıyor.\nÇözüm Planı: workspace/docs/cozum_planlari/TALEP-007.md",
-          "role": "web_engineer",
-          "phase": "develop",
-          "outputs": [
-            "workspace/src/frontend/components/",
-            "workspace/src/frontend/pages/"
-          ],
-          "depends_on": [],
-          "talep_id": "TALEP-007",
-          "status": "DONE",
-          "attempts": 1,
-          "note": "",
-          "started_at": 1789668069.4876769,
-          "finished_at": 1789669237.9829261,
-          "duration_s": 1168.5
-        },
-        {
-          "id": "S9-T8",
-          "title": "[TALEP-007] Müşteri Kabulü & UAT Doğrulama Denetimi",
-          "description": "TALEP-007 için yapılan düzeltmenin canlı sistemde çalıştığını ve 0 konsol hatası olduğunu doğrula.",
-          "role": "uat_auditor",
-          "phase": "test",
-          "outputs": [
-            "workspace/docs/uat_kabul_raporu.md"
-          ],
-          "depends_on": [
-            "S9-T7"
-          ],
-          "talep_id": "TALEP-007",
-          "status": "DONE",
-          "attempts": 1,
-          "note": "canlı UAT hata tespit edildi",
-          "started_at": 1789674107.966397,
-          "finished_at": 1789674234.289109,
-          "duration_s": 126.3
-        },
-        {
-          "id": "S9-T9",
-          "title": "[TALEP-008] Harita pinleri ve kümeleme baloncuklarının modal pencerelerin (QrBridgeModal vb.) üzerine taşması (z-index katman çakışması)",
-          "description": "Müşteri Talebi: Karekod (QrBridgeModal), Arıza Bildirimi veya Katkı Sağla modalı açıldığında, MapLibre harita üzerindeki pinler ve kümeleme baloncukları (marker/cluster elements) modal penceresinin ve karartma katmanının (backdrop) üzerinde kalmakta; karekodun ve modal içeriğinin önünü kapatarak görseli ve tıklanabilirliği bozmaktadır. z-index hiyerarşisinin düzeltilmesi (Modal: z-50/z-[100], Harita markerları: z-10) gerekmektedir.\nÇözüm Planı: workspace/docs/cozum_planlari/TALEP-008.md",
-          "role": "web_engineer",
-          "phase": "develop",
-          "outputs": [
-            "workspace/src/frontend/components/",
-            "workspace/src/frontend/pages/"
-          ],
-          "depends_on": [],
-          "talep_id": "TALEP-008",
-          "status": "DONE",
-          "attempts": 1,
-          "note": "",
-          "started_at": 1789669237.985342,
-          "finished_at": 1789670065.26335,
-          "duration_s": 827.3
         },
         {
           "id": "S9-T10",
@@ -1054,12 +892,11 @@
           "depends_on": [
             "S9-T9"
           ],
-          "talep_id": "TALEP-008",
           "status": "DONE",
           "attempts": 1,
           "note": "canlı UAT hata tespit edildi",
-          "started_at": 1789670065.2661262,
-          "finished_at": 1789671859.314775,
+          "started_at": "1789670065.2661262",
+          "finished_at": "1789671859.314775",
           "duration_s": 1794.0
         },
         {
@@ -1073,12 +910,11 @@
             "workspace/src/frontend/pages/"
           ],
           "depends_on": [],
-          "talep_id": "TALEP-009",
           "status": "DONE",
           "attempts": 1,
           "note": "",
-          "started_at": 1789665893.43753,
-          "finished_at": 1789666554.816044,
+          "started_at": "1789665893.43753",
+          "finished_at": "1789666554.8160441",
           "duration_s": 661.4
         },
         {
@@ -1093,28 +929,174 @@
           "depends_on": [
             "S9-T11"
           ],
-          "talep_id": "TALEP-009",
           "status": "DONE",
           "attempts": 1,
           "note": "canlı UAT hata tespit edildi",
-          "started_at": 1789671862.000041,
-          "finished_at": 1789672038.21121,
+          "started_at": "1789671862.000041",
+          "finished_at": "1789672038.21121",
           "duration_s": 176.2
+        },
+        {
+          "id": "S9-T2",
+          "title": "[TALEP-004] Müşteri Kabulü & UAT Doğrulama Denetimi",
+          "description": "TALEP-004 için yapılan düzeltmenin canlı sistemde çalıştığını ve 0 konsol hatası olduğunu doğrula.",
+          "role": "uat_auditor",
+          "phase": "test",
+          "outputs": [
+            "workspace/docs/uat_kabul_raporu.md"
+          ],
+          "depends_on": [
+            "S9-T1"
+          ],
+          "status": "DONE",
+          "attempts": 1,
+          "note": "canlı UAT hata tespit edildi",
+          "started_at": "1789672041.462086",
+          "finished_at": "1789672161.848105",
+          "duration_s": 120.4
+        },
+        {
+          "id": "S9-T3",
+          "title": "[TALEP-005] GADM 4.1 Türkiye resmi il, ilçe ve mahalle koordinatlarının entegrasyonu",
+          "description": "Müşteri Talebi: gadm41_TUR veri kaynağından Türkiye'nin 81 il, 973 ilçe ve mahallelerinin resmi coğrafi sınır ve merkez koordinatları sisteme aktarılmalı; harita arama, ilçe/mahalle sorgulama ve geocoding mekanizması bu resmi CBS (GIS) veritabanı üzerinden çalışmalıdır.\nÇözüm Planı: workspace/docs/cozum_planlari/TALEP-005.md",
+          "role": "backend_engineer",
+          "phase": "develop",
+          "outputs": [
+            "workspace/src/backend/src/modules/",
+            "workspace/src/backend/src/app.ts"
+          ],
+          "depends_on": [],
+          "status": "DONE",
+          "attempts": 1,
+          "note": "",
+          "started_at": "1789666554.8191979",
+          "finished_at": "1789667519.1089931",
+          "duration_s": 964.3
+        },
+        {
+          "id": "S9-T4",
+          "title": "[TALEP-005] Müşteri Kabulü & UAT Doğrulama Denetimi",
+          "description": "TALEP-005 için yapılan düzeltmenin canlı sistemde çalıştığını ve 0 konsol hatası olduğunu doğrula.",
+          "role": "uat_auditor",
+          "phase": "test",
+          "outputs": [
+            "workspace/docs/uat_kabul_raporu.md"
+          ],
+          "depends_on": [
+            "S9-T3"
+          ],
+          "status": "DONE",
+          "attempts": 1,
+          "note": "canlı UAT hata tespit edildi",
+          "started_at": "1789672164.216285",
+          "finished_at": "1789672308.8536251",
+          "duration_s": 144.6
+        },
+        {
+          "id": "S9-T5",
+          "title": "[TALEP-006] Konum izni verildiğinde kullanıcının anlık konumunu gösteren mavi nokta/baloncuk eksik",
+          "description": "Müşteri Talebi: Ziyaretçi harita üzerinde 'Konumumu Bul' butonuna tıklayıp tarayıcıda GPS/konum izni verdiğinde harita o bölgeye yaklaşıyor ancak kullanıcının tam olarak nerede durduğunu gösteren nabız atan mavi konum baloncuğu (user location marker / pulsing blue dot) haritada çizilmiyor.\nÇözüm Planı: workspace/docs/cozum_planlari/TALEP-006.md",
+          "role": "web_engineer",
+          "phase": "develop",
+          "outputs": [
+            "workspace/src/frontend/components/",
+            "workspace/src/frontend/pages/"
+          ],
+          "depends_on": [],
+          "status": "DONE",
+          "attempts": 1,
+          "note": "",
+          "started_at": "1789667519.110934",
+          "finished_at": "1789668069.48438",
+          "duration_s": 550.4
+        },
+        {
+          "id": "S9-T6",
+          "title": "[TALEP-006] Müşteri Kabulü & UAT Doğrulama Denetimi",
+          "description": "TALEP-006 için yapılan düzeltmenin canlı sistemde çalıştığını ve 0 konsol hatası olduğunu doğrula.",
+          "role": "uat_auditor",
+          "phase": "test",
+          "outputs": [
+            "workspace/docs/uat_kabul_raporu.md"
+          ],
+          "depends_on": [
+            "S9-T5"
+          ],
+          "status": "DONE",
+          "attempts": 1,
+          "note": "canlı UAT hata tespit edildi",
+          "started_at": "1789672311.313771",
+          "finished_at": "1789674105.4730601",
+          "duration_s": 1794.2
+        },
+        {
+          "id": "S9-T7",
+          "title": "[TALEP-007] Tüm operatörler açılır menüsü (dropdown) açıldığında menü taşması ve istenmeyen scroll çubuğu oluşması",
+          "description": "Müşteri Talebi: Harita arayüzündeki 'Tüm Operatörler' dropdown açılır listesine tıklandığında menü içeriği ekranda düzgün görünmüyor, container taşması (overflow/z-index/max-height) nedeniyle menü kesiliyor ve istenmeyen çirkin bir scroll çubuğu çıkıyor.\nÇözüm Planı: workspace/docs/cozum_planlari/TALEP-007.md",
+          "role": "web_engineer",
+          "phase": "develop",
+          "outputs": [
+            "workspace/src/frontend/components/",
+            "workspace/src/frontend/pages/"
+          ],
+          "depends_on": [],
+          "status": "DONE",
+          "attempts": 1,
+          "note": "",
+          "started_at": "1789668069.4876769",
+          "finished_at": "1789669237.9829261",
+          "duration_s": 1168.5
+        },
+        {
+          "id": "S9-T8",
+          "title": "[TALEP-007] Müşteri Kabulü & UAT Doğrulama Denetimi",
+          "description": "TALEP-007 için yapılan düzeltmenin canlı sistemde çalıştığını ve 0 konsol hatası olduğunu doğrula.",
+          "role": "uat_auditor",
+          "phase": "test",
+          "outputs": [
+            "workspace/docs/uat_kabul_raporu.md"
+          ],
+          "depends_on": [
+            "S9-T7"
+          ],
+          "status": "DONE",
+          "attempts": 1,
+          "note": "canlı UAT hata tespit edildi",
+          "started_at": "1789674107.9663971",
+          "finished_at": "1789674234.289109",
+          "duration_s": 126.3
+        },
+        {
+          "id": "S9-T9",
+          "title": "[TALEP-008] Harita pinleri ve kümeleme baloncuklarının modal pencerelerin (QrBridgeModal vb.) üzerine taşması (z-index katman çakışması)",
+          "description": "Müşteri Talebi: Karekod (QrBridgeModal), Arıza Bildirimi veya Katkı Sağla modalı açıldığında, MapLibre harita üzerindeki pinler ve kümeleme baloncukları (marker/cluster elements) modal penceresinin ve karartma katmanının (backdrop) üzerinde kalmakta; karekodun ve modal içeriğinin önünü kapatarak görseli ve tıklanabilirliği bozmaktadır. z-index hiyerarşisinin düzeltilmesi (Modal: z-50/z-[100], Harita markerları: z-10) gerekmektedir.\nÇözüm Planı: workspace/docs/cozum_planlari/TALEP-008.md",
+          "role": "web_engineer",
+          "phase": "develop",
+          "outputs": [
+            "workspace/src/frontend/components/",
+            "workspace/src/frontend/pages/"
+          ],
+          "depends_on": [],
+          "status": "DONE",
+          "attempts": 1,
+          "note": "",
+          "started_at": "1789669237.985342",
+          "finished_at": "1789670065.26335",
+          "duration_s": 827.3
         }
-      ],
-      "order": 8,
-      "status": "DONE",
-      "actual_start": "2026-09-17T20:12:06",
-      "actual_end": "2026-09-17T22:43:57",
-      "planned_start": "2026-09-17",
-      "planned_end": "2026-09-17",
-      "_summary_printed": true
+      ]
     },
     {
       "id": "S10",
       "name": "Müşteri Denetimi & Saha Onarımları (TALEP-010)",
       "goal": "Site sahibinin ilettiği 1 adet müşteri talebinin çözülmesi ve UAT ile kabul edilmesi.",
       "planned_days": 1,
+      "order": 9,
+      "status": "DONE",
+      "planned_start": "2026-09-18",
+      "planned_end": "2026-09-18",
+      "actual_start": "2026-09-18T00:01:37",
+      "actual_end": "2026-09-18T00:41:59",
       "tasks": [
         {
           "id": "S10-T1",
@@ -1127,12 +1109,11 @@
             "workspace/src/backend/src/app.ts"
           ],
           "depends_on": [],
-          "talep_id": "TALEP-010",
           "status": "DONE",
           "attempts": 1,
           "note": "",
-          "started_at": 1789678897.628396,
-          "finished_at": 1789679518.4822998,
+          "started_at": "1789678897.628396",
+          "finished_at": "1789679518.4822998",
           "duration_s": 620.9
         },
         {
@@ -1147,28 +1128,26 @@
           "depends_on": [
             "S10-T1"
           ],
-          "talep_id": "TALEP-010",
           "status": "DONE",
           "attempts": 1,
           "note": "canlı UAT hata tespit edildi",
-          "started_at": 1789679518.485253,
-          "finished_at": 1789681312.20738,
+          "started_at": "1789679518.4852531",
+          "finished_at": "1789681312.2073801",
           "duration_s": 1793.7
         }
-      ],
-      "order": 9,
-      "status": "DONE",
-      "actual_start": "2026-09-18T00:01:37",
-      "actual_end": "2026-09-18T00:41:59",
-      "planned_start": "2026-09-18",
-      "planned_end": "2026-09-18",
-      "_summary_printed": true
+      ]
     },
     {
       "id": "S11",
       "name": "[FAZ-1] Top Menü Mükerrer Buton Düzeltmesi (TALEP-011)",
       "goal": "Faz 1 stabilizasyonu: Top menüdeki mükerrer Hakkında butonunun kaldırılması ve UAT kabulü.",
       "planned_days": 3,
+      "order": 10,
+      "status": "DONE",
+      "planned_start": "2026-09-18",
+      "planned_end": "2026-09-18",
+      "actual_start": "2026-09-18T09:03:37",
+      "actual_end": "2026-09-18T09:46:22",
       "tasks": [
         {
           "id": "S11-T1",
@@ -1181,12 +1160,11 @@
             "workspace/src/frontend/pages/"
           ],
           "depends_on": [],
-          "talep_id": "TALEP-011",
           "status": "DONE",
           "attempts": 1,
           "note": "",
-          "started_at": 1789711417.7271638,
-          "finished_at": 1789711962.8793442,
+          "started_at": "1789711417.7271638",
+          "finished_at": "1789711962.8793442",
           "duration_s": 545.2
         },
         {
@@ -1201,30 +1179,26 @@
           "depends_on": [
             "S11-T1"
           ],
-          "talep_id": "TALEP-011",
           "status": "DONE",
           "attempts": 1,
           "note": "canlı UAT hata tespit edildi",
-          "started_at": 1789713781.543156,
-          "finished_at": 1789713975.4923918,
+          "started_at": "1789713781.5431559",
+          "finished_at": "1789713975.4923918",
           "duration_s": 193.9
         }
-      ],
-      "order": 10,
-      "status": "DONE",
-      "actual_start": "2026-09-18T09:03:37",
-      "actual_end": "2026-09-18T09:46:22",
-      "planned_start": "2026-09-18",
-      "planned_end": "2026-09-18",
-      "faz_id": "FAZ-1",
-      "_summary_printed": true
+      ]
     },
     {
       "id": "S12",
       "name": "[FAZ-2] Sürüm Yönetimi ve Değişiklik Günlüğü (TALEP-012, TALEP-013)",
       "goal": "Faz 2 geliştirmeleri: Yeni deploy sonrası 20s otomatik yenileme ve /guncellemeler ekranı.",
-      "faz_id": "FAZ-2",
       "planned_days": 3,
+      "order": 11,
+      "status": "DONE",
+      "planned_start": "2026-09-18",
+      "planned_end": "2026-09-18",
+      "actual_start": "2026-09-18T09:46:22",
+      "actual_end": "2026-09-18T15:01:37",
       "tasks": [
         {
           "id": "S12-T1",
@@ -1237,12 +1211,11 @@
             "workspace/src/frontend/composables/"
           ],
           "depends_on": [],
-          "talep_id": "TALEP-012",
           "status": "DONE",
           "attempts": 1,
           "note": "",
-          "started_at": 1789713982.6974132,
-          "finished_at": 1789714710.9470022,
+          "started_at": "1789713982.6974132",
+          "finished_at": "1789714710.9470022",
           "duration_s": 728.2
         },
         {
@@ -1257,12 +1230,11 @@
           "depends_on": [
             "S12-T1"
           ],
-          "talep_id": "TALEP-012",
           "status": "DONE",
           "attempts": 1,
           "note": "canlı UAT hata tespit edildi",
-          "started_at": 1789732596.256568,
-          "finished_at": 1789732722.549068,
+          "started_at": "1789732596.256568",
+          "finished_at": "1789732722.549068",
           "duration_s": 126.3
         },
         {
@@ -1276,12 +1248,11 @@
             "workspace/src/frontend/pages/"
           ],
           "depends_on": [],
-          "talep_id": "TALEP-013",
           "status": "DONE",
           "attempts": 1,
           "note": "[Kurtarma Ajanı] Otomatik olarak sıraya alındı",
-          "started_at": 1789731567.6116962,
-          "finished_at": 1789732596.253576,
+          "started_at": "1789731567.6116962",
+          "finished_at": "1789732596.253576",
           "duration_s": 1028.6
         },
         {
@@ -1296,29 +1267,26 @@
           "depends_on": [
             "S12-T3"
           ],
-          "talep_id": "TALEP-013",
           "status": "DONE",
           "attempts": 1,
           "note": "canlı UAT hata tespit edildi",
-          "started_at": 1789732729.611521,
-          "finished_at": 1789732889.5814369,
+          "started_at": "1789732729.611521",
+          "finished_at": "1789732889.5814369",
           "duration_s": 160.0
         }
-      ],
-      "order": 11,
-      "status": "DONE",
-      "note": "Faz 1 tamamlanıp onaylanmadan Faz 2 başlatılamaz.",
-      "actual_start": "2026-09-18T09:46:22",
-      "actual_end": "2026-09-18T15:01:37",
-      "planned_start": "2026-09-18",
-      "planned_end": "2026-09-18",
-      "_summary_printed": true
+      ]
     },
     {
       "id": "S13",
       "name": "Müşteri Denetimi & Saha Onarımları (TALEP-014, TALEP-015)",
       "goal": "Site sahibinin ilettiği 2 adet müşteri talebinin çözülmesi ve UAT ile kabul edilmesi.",
       "planned_days": 2,
+      "order": 12,
+      "status": "DONE",
+      "planned_start": "2026-09-18",
+      "planned_end": "2026-09-18",
+      "actual_start": "2026-09-18T17:28:21",
+      "actual_end": "2026-09-18T17:55:22",
       "tasks": [
         {
           "id": "S13-T1",
@@ -1330,12 +1298,11 @@
             "workspace/infra/"
           ],
           "depends_on": [],
-          "talep_id": "TALEP-014",
           "status": "DONE",
           "attempts": 2,
           "note": "altyapı konfigürasyonu hazır",
-          "started_at": 1789741780.328099,
-          "finished_at": 1789742366.014553,
+          "started_at": "1789741780.328099",
+          "finished_at": "1789742366.0145531",
           "duration_s": 585.7
         },
         {
@@ -1350,12 +1317,11 @@
           "depends_on": [
             "S13-T1"
           ],
-          "talep_id": "TALEP-014",
           "status": "DONE",
           "attempts": 1,
           "note": "canlı UAT hata tespit edildi",
-          "started_at": 1789742883.291617,
-          "finished_at": 1789743100.880961,
+          "started_at": "1789742883.2916169",
+          "finished_at": "1789743100.8809609",
           "duration_s": 217.6
         },
         {
@@ -1369,12 +1335,11 @@
             "workspace/src/backend/src/app.ts"
           ],
           "depends_on": [],
-          "talep_id": "TALEP-015",
           "status": "DONE",
           "attempts": 1,
           "note": "",
-          "started_at": 1789742366.0168178,
-          "finished_at": 1789742883.287423,
+          "started_at": "1789742366.0168178",
+          "finished_at": "1789742883.2874229",
           "duration_s": 517.3
         },
         {
@@ -1389,28 +1354,26 @@
           "depends_on": [
             "S13-T3"
           ],
-          "talep_id": "TALEP-015",
           "status": "DONE",
           "attempts": 1,
           "note": "canlı UAT hata tespit edildi",
-          "started_at": 1789743110.1022809,
-          "finished_at": 1789743314.7967649,
+          "started_at": "1789743110.1022809",
+          "finished_at": "1789743314.7967649",
           "duration_s": 204.7
         }
-      ],
-      "order": 12,
-      "status": "DONE",
-      "actual_start": "2026-09-18T17:28:21",
-      "actual_end": "2026-09-18T17:55:22",
-      "planned_start": "2026-09-18",
-      "planned_end": "2026-09-18",
-      "_summary_printed": true
+      ]
     },
     {
       "id": "S14",
       "name": "Müşteri Denetimi & Saha Onarımları (TALEP-016)",
       "goal": "Site sahibinin ilettiği 1 adet müşteri talebinin çözülmesi ve UAT ile kabul edilmesi.",
       "planned_days": 1,
+      "order": 13,
+      "status": "DONE",
+      "planned_start": "2026-09-18",
+      "planned_end": "2026-09-23",
+      "actual_start": "2026-09-18T18:34:53",
+      "actual_end": "2026-09-23T19:14:36",
       "tasks": [
         {
           "id": "S14-T1",
@@ -1423,12 +1386,11 @@
             "workspace/src/frontend/tailwind.config.js"
           ],
           "depends_on": [],
-          "talep_id": "TALEP-016",
           "status": "DONE",
           "attempts": 1,
           "note": "",
-          "started_at": 1789745693.855553,
-          "finished_at": 1789746020.423618,
+          "started_at": "1789745693.8555529",
+          "finished_at": "1789746020.4236181",
           "duration_s": 326.6
         },
         {
@@ -1443,28 +1405,26 @@
           "depends_on": [
             "S14-T1"
           ],
-          "talep_id": "TALEP-016",
           "status": "DONE",
           "attempts": 1,
           "note": "canlı UAT hata tespit edildi",
-          "started_at": 1790179887.8368828,
-          "finished_at": 1790180063.355629,
+          "started_at": "1790179887.8368828",
+          "finished_at": "1790180063.355629",
           "duration_s": 175.5
         }
-      ],
-      "order": 13,
-      "status": "DONE",
-      "actual_start": "2026-09-18T18:34:53",
-      "actual_end": "2026-09-23T19:14:36",
-      "planned_start": "2026-09-18",
-      "planned_end": "2026-09-23",
-      "_summary_printed": true
+      ]
     },
     {
       "id": "S15",
       "name": "Müşteri Denetimi & Saha Onarımları (TALEP-017)",
       "goal": "Site sahibinin ilettiği 1 adet müşteri talebinin çözülmesi ve UAT ile kabul edilmesi.",
       "planned_days": 1,
+      "order": 14,
+      "status": "DONE",
+      "planned_start": "2026-09-23",
+      "planned_end": "2026-09-23",
+      "actual_start": "2026-09-23T19:14:36",
+      "actual_end": "2026-09-23T20:06:37",
       "tasks": [
         {
           "id": "S15-T1",
@@ -1476,12 +1436,11 @@
             "workspace/src/frontend/"
           ],
           "depends_on": [],
-          "talep_id": "TALEP-017",
           "status": "DONE",
           "attempts": 1,
           "note": "",
-          "started_at": 1790180076.567584,
-          "finished_at": 1790181383.2094011,
+          "started_at": "1790180076.567584",
+          "finished_at": "1790181383.2094011",
           "duration_s": 1306.6
         },
         {
@@ -1496,28 +1455,26 @@
           "depends_on": [
             "S15-T1"
           ],
-          "talep_id": "TALEP-017",
           "status": "DONE",
           "attempts": 1,
           "note": "canlı UAT hata tespit edildi",
-          "started_at": 1790181383.213748,
-          "finished_at": 1790183190.9868412,
+          "started_at": "1790181383.213748",
+          "finished_at": "1790183190.9868412",
           "duration_s": 1807.8
         }
-      ],
-      "order": 14,
-      "status": "DONE",
-      "actual_start": "2026-09-23T19:14:36",
-      "actual_end": "2026-09-23T20:06:37",
-      "planned_start": "2026-09-23",
-      "planned_end": "2026-09-23",
-      "_summary_printed": true
+      ]
     },
     {
       "id": "S16",
       "name": "Müşteri Denetimi & Saha Onarımları (TALEP-018)",
       "goal": "Site sahibinin ilettiği 1 adet müşteri talebinin çözülmesi ve UAT ile kabul edilmesi.",
       "planned_days": 1,
+      "order": 15,
+      "status": "DONE",
+      "planned_start": "2026-09-23",
+      "planned_end": "2026-09-23",
+      "actual_start": "2026-09-23T20:29:24",
+      "actual_end": "2026-09-23T21:14:26",
       "tasks": [
         {
           "id": "S16-T1",
@@ -1529,12 +1486,11 @@
             "workspace/src/frontend/"
           ],
           "depends_on": [],
-          "talep_id": "TALEP-018",
           "status": "DONE",
           "attempts": 1,
           "note": "canlı UAT hata tespit edildi",
-          "started_at": 1790184564.46154,
-          "finished_at": 1790185445.404892,
+          "started_at": "1790184564.46154",
+          "finished_at": "1790185445.404892",
           "duration_s": 880.9
         },
         {
@@ -1549,25 +1505,63 @@
           "depends_on": [
             "S16-T1"
           ],
-          "talep_id": "TALEP-018",
-          "status": "RUNNING",
+          "status": "DONE",
           "attempts": 1,
-          "note": "",
-          "started_at": 1790185445.419473
+          "note": "canlı UAT hata tespit edildi",
+          "started_at": "1790185445.4194729",
+          "finished_at": "1790187256.355649",
+          "duration_s": 1810.9
+        }
+      ]
+    },
+    {
+      "id": "S17",
+      "name": "Müşteri Denetimi & Saha Onarımları (TALEP-019)",
+      "goal": "Site sahibinin ilettiği 1 adet müşteri talebinin çözülmesi ve UAT ile kabul edilmesi.",
+      "planned_days": 1,
+      "tasks": [
+        {
+          "id": "S17-T1",
+          "title": "[TALEP-019] EPDK Ana Referans Mimarisine Geçiş ve Trugo/CPO Zenginleştirmesi",
+          "description": "Müşteri Talebi: epdk_sarj_istasyonlari.json ve istasyonlar.json dosyaları tüm Türkiye şarj ağının ana omurgası yapılarak Trugo, Eşarj, WAT vb. tüm lisanslı operatörler haritaya kazandırıldı. Voltrun ve ZES veri setleri ile kesin GPS ve soket bilgileri zenginleştirildi.\nÇözüm Planı: workspace/docs/cozum_planlari/TALEP-019.md",
+          "role": "data_engineer",
+          "phase": "develop",
+          "outputs": [
+            "workspace/src/frontend/"
+          ],
+          "depends_on": [],
+          "talep_id": "TALEP-019",
+          "status": "READY",
+          "attempts": 0,
+          "note": ""
+        },
+        {
+          "id": "S17-T2",
+          "title": "[TALEP-019] Müşteri Kabulü & UAT Doğrulama Denetimi",
+          "description": "TALEP-019 için yapılan düzeltmenin sistemde çalıştığını ve kabul kriterlerini karşıladığını doğrula.",
+          "role": "uat_auditor",
+          "phase": "test",
+          "outputs": [
+            "workspace/docs/uat_kabul_raporu.md"
+          ],
+          "depends_on": [
+            "S17-T1"
+          ],
+          "talep_id": "TALEP-019",
+          "status": "TODO",
+          "attempts": 0,
+          "note": ""
         }
       ],
-      "order": 15,
+      "order": 16,
       "status": "READY",
-      "actual_start": "2026-09-23T20:29:24",
+      "actual_start": null,
       "actual_end": null,
       "planned_start": "2026-09-24",
       "planned_end": "2026-09-24"
     }
   ],
-  "created_at": "2026-09-06T17:56:01",
   "baseline_end": "2026-09-24",
-  "updated_at": "2026-09-23T20:44:05",
-  "_runtime": {
-    "done_outputs": []
-  }
+  "created_at": "2026-09-06T17:56:01",
+  "updated_at": "2026-09-24T09:21:18"
 }

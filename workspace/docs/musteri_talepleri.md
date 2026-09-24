@@ -1,7 +1,7 @@
 # Digital Software Studio — Müşteri Denetim & Talep Havuzu
 
-> **Son Güncelleme:** 2026-09-23 20:28  
-> **Toplam Bildirim:** 18  
+> **Son Güncelleme:** 2026-09-24 09:29  
+> **Toplam Bildirim:** 19  
 
 Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda iletilen istek, hata ve geri bildirimleri içerir.
 
@@ -11,7 +11,8 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 
 | ID | Tür | Öncelik | Durum | Başlık | Ekran / URL | İlgili Rol | GitHub Issue | Plan |
 |---|---|---|---|---|---|---|---|---|
-| **TALEP-018** | Hata / Bug | Yüksek (P2) | ⏳ Beklemede | TALEP-017 Eksik İş Kapanışı: curl_input.txt deploy paketinde olmadığı için canlı kaynaklar yerine GitHub raw'a fallback yapılıyor | `/server-scripts/deploy` | `None` | [#19](https://github.com/cihan53/elektriklioto/issues/19) | — |
+| **TALEP-019** | Veri & İstasyon Tutarlılığı | Yüksek (P2) | ✅ Çözüldü | EPDK Ana Referans Mimarisine Geçiş ve Trugo/CPO Zenginleştirmesi | `/harita` | `data_engineer` | [#20](https://github.com/cihan53/elektriklioto/issues/20) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-019.md) |
+| **TALEP-018** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | TALEP-017 Eksik İş Kapanışı: curl_input.txt deploy paketinde olmadığı için canlı kaynaklar yerine GitHub raw'a fallback yapılıyor | `/server-scripts/deploy` | `None` | [#19](https://github.com/cihan53/elektriklioto/issues/19) | — |
 | **TALEP-017** | Yeni İstek / Özellik | Normal (P3) | ✅ Çözüldü | Canlı Kaynak Entegrasyonu: EPDK ve Voltrun verilerini gerçek sitelerden çek | `/data-pipeline` | `data_engineer` | [#17](https://github.com/cihan53/elektriklioto/issues/17) | — |
 | **TALEP-016** | Tasarım & Kullanıcı Deneyimi | Normal (P3) | ✅ Çözüldü | Hakkımızda modal içeriğinin önceki versiyondaki haline döndürülmesi | `/` | `ui_designer` | [#16](https://github.com/cihan53/elektriklioto/issues/16) | — |
 | **TALEP-015** | Yeni İstek / Özellik | Normal (P3) | ✅ Çözüldü | EPDK ve CPO Kamu/Açık Kaynaklarından Canlı İstasyon Senkronizasyonu | `/cron/sync` | `backend_engineer` | [#15](https://github.com/cihan53/elektriklioto/issues/15) | — |
@@ -34,7 +35,23 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 
 ## 2. Talep Detayları ve Geri Bildirim Notları
 
-### [TALEP-018] TALEP-017 Eksik İş Kapanışı: curl_input.txt deploy paketinde olmadığı için canlı kaynaklar yerine GitHub raw'a fallback yapılıyor (⏳ Beklemede)
+### [TALEP-019] EPDK Ana Referans Mimarisine Geçiş ve Trugo/CPO Zenginleştirmesi (✅ Çözüldü)
+- **Bildirim Tarihi:** 2026-09-24 09:20
+- **Tür / Öncelik:** Veri & İstasyon Tutarlılığı / Yüksek (P2)
+- **İlgili Ekran / Sayfa:** `/harita`
+- **Görevli Rol:** `data_engineer`
+- 🐙 **GitHub Issue:** [#20](https://github.com/cihan53/elektriklioto/issues/20)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> epdk_sarj_istasyonlari.json ve istasyonlar.json dosyaları tüm Türkiye şarj ağının ana omurgası yapılarak Trugo, Eşarj, WAT vb. tüm lisanslı operatörler haritaya kazandırıldı. Voltrun ve ZES veri setleri ile kesin GPS ve soket bilgileri zenginleştirildi.
+
+**Studio Yetkilisi Notu:**
+> EPDK ana referans mimarisine geçiş ve Trugo/CPO veri zenginleştirmesi tamamlandı. cpo_stations.json güncellendi.
+
+- 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-019.md](workspace/docs/cozum_planlari/TALEP-019.md)
+
+---
+### [TALEP-018] TALEP-017 Eksik İş Kapanışı: curl_input.txt deploy paketinde olmadığı için canlı kaynaklar yerine GitHub raw'a fallback yapılıyor (✅ Çözüldü)
 - **Bildirim Tarihi:** 2026-09-23 20:26
 - **Tür / Öncelik:** Hata / Bug / Yüksek (P2)
 - **İlgili Ekran / Sayfa:** `/server-scripts/deploy`
@@ -43,6 +60,9 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 
 **Müşteri Açıklaması / Hata Adımları:**
 > Müşteri sahada (uzak sunucuda) cron senkronizasyonunu test ettiğinde sistemin canlı API uç noktaları yerine https://raw.githubusercontent.com/... adreslerine fallback yaptığı görüldü. Nedeni: curl_input.txt dosyasının .github/workflows/deploy.yml içerisindeki deploy_package.tar.gz arşivine dahil edilmemiş olması. Studio ajanlarının bu eksikliği yerel UAT aşamasında deploy zincirini denetleyerek tespit etmesi ve sunucuya aktarılmasını sağlaması gerekirdi. Düzeltme: 1) deploy.yml paketine curl_input.txt dosyasının eklenmesi, 2) sunucuya dağıtımın sağlanması, 3) sunucuda cron_daily_sync.sh çalıştırıldığında GitHub raw linklerine düşmeden canlı kaynaklardan veri çekildiğinin doğrulanması.
+
+**Studio Yetkilisi Notu:**
+> Görev S16-T2 başarıyla tamamlandı ve UAT testinden geçti.
 
 ---
 ### [TALEP-017] Canlı Kaynak Entegrasyonu: EPDK ve Voltrun verilerini gerçek sitelerden çek (✅ Çözüldü)

@@ -1,0 +1,15 @@
+{
+  "tarih": "2026-09-24T09:00:58.681531",
+  "api": "https://apigateway.epdk.gov.tr/sarjIstasyonlari/",
+  "sonuclar": [
+    {
+      "etiket": "Tam eşleşme: istasyon no",
+      "filtre": {
+        "sarjIstasyonuNo": "ŞRJ/9055"
+      },
+      "http": 429,
+      "durum": "QUOTA",
+      "mesaj": "Because of reaching QUOTA limit, message is BLOCKED!"
+    }
+  ]
+}
