@@ -11,7 +11,7 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 
 | ID | Tür | Öncelik | Durum | Başlık | Ekran / URL | İlgili Rol | GitHub Issue | Plan |
 |---|---|---|---|---|---|---|---|---|
-| **TALEP-020** | Veri & İstasyon Tutarlılığı | Yüksek (P2) | 📋 Planlandı | Trugo ve diğer operatör istasyonları güncellenmiyor | `/` | `data_engineer` | [#25](https://github.com/cihan53/elektriklioto/issues/25) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-020.md) |
+| **TALEP-020** | Veri & İstasyon Tutarlılığı | Yüksek (P2) | ⏳ Beklemede | Trugo ve diğer operatör istasyonları güncellenmiyor | `/` | `None` | [#25](https://github.com/cihan53/elektriklioto/issues/25) | — |
 | **TALEP-019** | Veri & İstasyon Tutarlılığı | Yüksek (P2) | ✅ Çözüldü | EPDK Ana Referans Mimarisine Geçiş ve Trugo/CPO Zenginleştirmesi | `/harita` | `data_engineer` | [#20](https://github.com/cihan53/elektriklioto/issues/20) | — |
 | **TALEP-018** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | TALEP-017 Eksik İş Kapanışı: curl_input.txt deploy paketinde olmadığı için canlı kaynaklar yerine GitHub raw'a fallback yapılıyor | `/server-scripts/deploy` | `None` | [#19](https://github.com/cihan53/elektriklioto/issues/19) | — |
 | **TALEP-017** | Yeni İstek / Özellik | Normal (P3) | ✅ Çözüldü | Canlı Kaynak Entegrasyonu: EPDK ve Voltrun verilerini gerçek sitelerden çek | `/data-pipeline` | `data_engineer` | [#17](https://github.com/cihan53/elektriklioto/issues/17) | — |
@@ -36,20 +36,15 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 
 ## 2. Talep Detayları ve Geri Bildirim Notları
 
-### [TALEP-020] Trugo ve diğer operatör istasyonları güncellenmiyor (📋 Planlandı)
+### [TALEP-020] Trugo ve diğer operatör istasyonları güncellenmiyor (⏳ Beklemede)
 - **Bildirim Tarihi:** 2026-09-24 18:43
 - **Tür / Öncelik:** Veri & İstasyon Tutarlılığı / Yüksek (P2)
 - **İlgili Ekran / Sayfa:** `/`
-- **Görevli Rol:** `data_engineer`
+- **Görevli Rol:** `None`
 - 🐙 **GitHub Issue:** [#25](https://github.com/cihan53/elektriklioto/issues/25)
 
 **Müşteri Açıklaması / Hata Adımları:**
 > Günlük veri senkronizasyonu çalışıyor, EPDK'dan veriler çekiliyor ancak web arayüzüne yansımıyor. Haritada/operatör listesinde Trugo için sadece 1 istasyon görünüyor; ZES ve Voltrun dışındaki operatörlerin istasyonları görünmüyor. Veriler alınıyor ama veritabanına işlenmiyor gibi görünüyor.
-
-**Studio Yetkilisi Notu:**
-> Talep Studio Yetkilisi v2.0 tarafından analiz edildi. Kategori: [data_engineer] Veri & ETL Mühendisi (Python Pipeline & Scraper). AI danışma: Hayır (statik) Çözüm planı oluşturuldu: 'workspace/docs/cozum_planlari/TALEP-020.md'.
-
-- 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-020.md](workspace/docs/cozum_planlari/TALEP-020.md)
 
 ---
 ### [TALEP-019] EPDK Ana Referans Mimarisine Geçiş ve Trugo/CPO Zenginleştirmesi (✅ Çözüldü)
