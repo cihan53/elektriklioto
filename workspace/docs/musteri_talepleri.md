@@ -1,6 +1,6 @@
 # Digital Software Studio — Müşteri Denetim & Talep Havuzu
 
-> **Son Güncelleme:** 2026-09-24 19:04  
+> **Son Güncelleme:** 2026-09-24 20:12  
 > **Toplam Bildirim:** 21  
 
 Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda iletilen istek, hata ve geri bildirimleri içerir.
@@ -12,7 +12,7 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 | ID | Tür | Öncelik | Durum | Başlık | Ekran / URL | İlgili Rol | GitHub Issue | Plan |
 |---|---|---|---|---|---|---|---|---|
 | **TALEP-021** | Yeni İstek / Özellik | Normal (P3) | ❌ İptal Edildi | Pano görevlerine öncelik alanı eklenmeli | `studio` | `None` | [#26](https://github.com/cihan53/elektriklioto/issues/26) | — |
-| **TALEP-020** | Veri & İstasyon Tutarlılığı | Yüksek (P2) | ⏳ Beklemede | Trugo ve diğer operatör istasyonları güncellenmiyor | `/` | `None` | [#25](https://github.com/cihan53/elektriklioto/issues/25) | — |
+| **TALEP-020** | Veri & İstasyon Tutarlılığı | Yüksek (P2) | ✅ Çözüldü | Trugo ve diğer operatör istasyonları güncellenmiyor | `/` | `None` | [#25](https://github.com/cihan53/elektriklioto/issues/25) | — |
 | **TALEP-019** | Veri & İstasyon Tutarlılığı | Yüksek (P2) | ✅ Çözüldü | EPDK Ana Referans Mimarisine Geçiş ve Trugo/CPO Zenginleştirmesi | `/harita` | `data_engineer` | [#20](https://github.com/cihan53/elektriklioto/issues/20) | — |
 | **TALEP-018** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | TALEP-017 Eksik İş Kapanışı: curl_input.txt deploy paketinde olmadığı için canlı kaynaklar yerine GitHub raw'a fallback yapılıyor | `/server-scripts/deploy` | `None` | [#19](https://github.com/cihan53/elektriklioto/issues/19) | — |
 | **TALEP-017** | Yeni İstek / Özellik | Normal (P3) | ✅ Çözüldü | Canlı Kaynak Entegrasyonu: EPDK ve Voltrun verilerini gerçek sitelerden çek | `/data-pipeline` | `data_engineer` | [#17](https://github.com/cihan53/elektriklioto/issues/17) | — |
@@ -48,7 +48,7 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 > Sprint panosundaki görevler arasından sıradakini seçerken öncelik dikkate alınmıyor; işler yalnızca sprint sırasına göre ilerliyor. Önemli bir işi öne çekmek için elle sıra değiştirmek gerekiyor. Görevlere bir öncelik alanı eklenip (ör. müşteri talebinin önceliğinden türetilerek) sıradaki görevin önceliğe göre seçilmesi isteniyor.
 
 ---
-### [TALEP-020] Trugo ve diğer operatör istasyonları güncellenmiyor (⏳ Beklemede)
+### [TALEP-020] Trugo ve diğer operatör istasyonları güncellenmiyor (✅ Çözüldü)
 - **Bildirim Tarihi:** 2026-09-24 18:43
 - **Tür / Öncelik:** Veri & İstasyon Tutarlılığı / Yüksek (P2)
 - **İlgili Ekran / Sayfa:** `/`
