@@ -1,4 +1,3 @@
-
 import fs from 'node:fs';
 import path from 'node:path';
 import { sql, eq, or } from 'drizzle-orm';
@@ -114,12 +113,22 @@ const DEFAULT_STATIONS: StationModel[] = [
 let isDatabaseSeededFlag = false;
 
 export async function ensureDatabaseSeeded(): Promise<void> {
+  // TALEP-022: Veritabanı tek gerçek kaynaktır (single source of truth).
+  // Veritabanı tabloları boşaltıldığında otomatik tohumlama YAPILMAMALIDIR.
+  // Otomatik tohumlama yalnızca AUTO_SEED=true ortam değişkeni açıkça tanımlandığında çalışır.
+  if (process.env.AUTO_SEED !== 'true') {
+    return;
+  }
   if (isDatabaseSeededFlag) return;
   try {
     const db = getDb();
     const countRes = await db.execute<{ count: string }>(sql`SELECT count(*)::text as count FROM "station";`);
     const count = Number(countRes[0]?.count || 0);
-    if (count >= 100) {
+
+    const trugoCheck = await db.execute<{ count: string }>(sql`SELECT count(*)::text as count FROM "station" WHERE operator_id = 2;`);
+    const trugoCount = Number(trugoCheck[0]?.count || 0);
+
+    if (count >= 15000 && trugoCount >= 500) {
       isDatabaseSeededFlag = true;
       return;
     }
@@ -130,6 +139,8 @@ export async function ensureDatabaseSeeded(): Promise<void> {
       path.resolve(process.cwd(), '../data/cpo_stations.json'),
       '/Users/cihan/PROJECT/elektriklioto-gemini/workspace/src/backend/src/data/cpo_stations.json',
       '/Users/cihan/.gemini/antigravity-cli/scratch/workspace/src/backend/src/data/cpo_stations.json',
+      path.resolve(process.cwd(), 'server-scripts/data/cpo_stations.json'),
+      path.resolve(process.cwd(), 'workspace/server-scripts/data/cpo_stations.json'),
     ];
 
     let dataRaw = '';
@@ -142,7 +153,32 @@ export async function ensureDatabaseSeeded(): Promise<void> {
 
     if (dataRaw) {
       const items = JSON.parse(dataRaw);
-      console.log(`[DatabaseSeeder] Veritabanı boş, ${items.length} istasyon yükleniyor...`);
+      console.log(`[DatabaseSeeder] Veritabanı güncelleniyor, ${items.length} istasyon senkronize ediliyor...`);
+
+      // 1. Operatörleri ekle (Foreign Key koruması)
+      const opMap = new Map<number, { id: number; name: string; slug: string }>();
+      for (const item of items) {
+        const opId = Number(item.operator_id || 1);
+        const opName = item.operator_name || (opId === 2 ? 'Trugo' : opId === 1 ? 'ZES' : opId === 3 ? 'Eşarj' : opId === 4 ? 'Voltrun' : `Operatör ${opId}`);
+        if (!opMap.has(opId)) {
+          opMap.set(opId, { id: opId, name: opName, slug: toSlug(opName) });
+        }
+      }
+      for (const op of opMap.values()) {
+        try {
+          await db
+            .insert(operators)
+            .values({
+              id: op.id,
+              slug: op.slug,
+              name: op.name,
+              is_active: true,
+            })
+            .onConflictDoNothing();
+        } catch {}
+      }
+
+      // 2. İstasyonları yükle
       for (const item of items) {
         try {
           await db
@@ -180,7 +216,7 @@ export async function ensureDatabaseSeeded(): Promise<void> {
           }
         } catch {}
       }
-      console.log('[DatabaseSeeder] İstasyonlar ve soketler veritabanına başarıyla yüklendi.');
+      console.log('[DatabaseSeeder] Trugo ve diğer tüm lisanslı operatör istasyonları veritabanına başarıyla yüklendi.');
     }
 
     // Default 4 istasyon
@@ -219,39 +255,48 @@ export const stationRepository = {
 
   initDefaults() {
     this.seed(DEFAULT_STATIONS);
-    try {
-      const candidatePaths = [
-        path.resolve(process.cwd(), 'src/data/cpo_stations.json'),
-        path.resolve(process.cwd(), 'workspace/src/backend/src/data/cpo_stations.json'),
-        path.resolve(process.cwd(), '../data/cpo_stations.json'),
-        '/Users/cihan/PROJECT/elektriklioto-gemini/workspace/src/backend/src/data/cpo_stations.json',
-      ];
-      for (const cp of candidatePaths) {
-        if (fs.existsSync(cp)) {
-          const items = JSON.parse(fs.readFileSync(cp, 'utf-8'));
-          const models: StationModel[] = items.map((item: any) => ({
-            id: item.id || `st-${item.istasyon_no || Math.random()}`,
-            istasyon_no: item.istasyon_no || `ŞRJ/${Math.floor(Math.random() * 90000 + 10000)}`,
-            slug: item.slug || toSlug(item.name || 'istasyon'),
-            name: item.name || 'Şarj İstasyonu',
-            address: item.address || '',
-            city: item.city || 'Türkiye',
-            district: item.district || '',
-            lat: Number(item.lat || 39.0),
-            lon: Number(item.lon || 35.0),
-            operator_id: Number(item.operator_id || 1),
-            is_flagged_defective: Boolean(item.is_flagged_defective),
-            defect_report_count: Number(item.defect_report_count || 0),
-            updated_at: item.updated_at ? new Date(item.updated_at) : new Date(),
-            raw_metadata: item,
-          }));
-          this.seed(models);
-          break;
-        }
+    this.loadFromDataFile();
+  },
+
+  loadFromDataFile() {
+    const candidatePaths = [
+      path.resolve(process.cwd(), 'src/data/cpo_stations.json'),
+      path.resolve(process.cwd(), 'workspace/src/backend/src/data/cpo_stations.json'),
+      path.resolve(process.cwd(), '../data/cpo_stations.json'),
+      '/Users/cihan/PROJECT/elektriklioto-gemini/workspace/src/backend/src/data/cpo_stations.json',
+      '/Users/cihan/.gemini/antigravity-cli/scratch/workspace/src/backend/src/data/cpo_stations.json',
+      path.resolve(process.cwd(), 'server-scripts/data/cpo_stations.json'),
+      path.resolve(process.cwd(), 'workspace/server-scripts/data/cpo_stations.json'),
+    ];
+
+    for (const cp of candidatePaths) {
+      if (fs.existsSync(cp)) {
+        try {
+          const raw = fs.readFileSync(cp, 'utf-8');
+          const list = JSON.parse(raw);
+          if (Array.isArray(list) && list.length > 0) {
+            const mappedList: StationModel[] = list.map((item: any) => ({
+              id: item.id || `sync-${toSlug(item.istasyon_no || item.name)}`,
+              istasyon_no: item.istasyon_no || `ŞRJ/${Math.floor(Math.random() * 90000 + 10000)}`,
+              slug: item.slug || toSlug(item.name || 'istasyon'),
+              name: item.name || 'Şarj İstasyonu',
+              address: item.address || '',
+              city: item.city || 'Türkiye',
+              district: item.district || '',
+              lat: Number(item.lat || 39.0),
+              lon: Number(item.lon || 35.0),
+              operator_id: Number(item.operator_id || 1),
+              is_flagged_defective: Boolean(item.is_flagged_defective),
+              defect_report_count: Number(item.defect_report_count || 0),
+              updated_at: item.updated_at ? new Date(item.updated_at) : new Date(),
+              raw_metadata: item.raw_metadata || item,
+            }));
+            this.seed(mappedList);
+            console.log(`[stationRepository] ${mappedList.length} istasyon hafızaya yüklendi (Trugo: ${mappedList.filter(s => s.operator_id === 2).length}).`);
+            break;
+          }
+        } catch {}
       }
-    } catch {}
-    if (process.env.NODE_ENV !== 'test') {
-      ensureDatabaseSeeded().catch(() => {});
     }
   },
 
@@ -280,7 +325,7 @@ export const stationRepository = {
           .where(or(eq(stations.slug, slug), eq(stations.slug, normalized)))
           .limit(1);
 
-        if (rows.length > 0) {
+        if (rows && rows.length > 0) {
           const r = rows[0];
           const stModel: StationModel = {
             id: r.id,
@@ -303,8 +348,11 @@ export const stationRepository = {
           this.stations.set(normalized, stModel);
           return stModel;
         }
+
+        // TALEP-022: Veritabanı tek gerçek kaynaktır; DB sorgusu çalıştıysa ve kayıt yoksa null dönmelidir.
+        return null;
       } catch {
-        // DB fallback
+        // DB bağlantısı kurulamadığında fallback
       }
     }
 
@@ -321,7 +369,7 @@ export const stationRepository = {
           .where(eq(stations.id, id))
           .limit(1);
 
-        if (rows.length > 0) {
+        if (rows && rows.length > 0) {
           const r = rows[0];
           const stModel: StationModel = {
             id: r.id,
@@ -342,8 +390,11 @@ export const stationRepository = {
           this.stations.set(stModel.id, stModel);
           return stModel;
         }
+
+        // TALEP-022: Veritabanı tek gerçek kaynaktır.
+        return null;
       } catch {
-        // DB fallback
+        // DB bağlantısı yoksa fallback
       }
     }
 
@@ -378,7 +429,10 @@ export const stationRepository = {
           LIMIT 2000;
         `;
         const rows = await db.execute<any>(query);
-        if (rows && rows.length > 0) {
+        // TALEP-022: Veritabanı tek gerçek kaynaktır.
+        // Sorgu çalıştıysa ve 0 kayıt döndüyse (veritabanı boşsa), boş liste dönmelidir.
+        // Asla mock veya in-memory istasyonlara düşmemelidir.
+        if (rows) {
           return rows.map((r: any) => ({
             id: r.id,
             istasyon_no: r.istasyon_no,
@@ -397,7 +451,7 @@ export const stationRepository = {
           }));
         }
       } catch (e) {
-        // Fallback to memory
+        // DB bağlantısı kurulamadığında fallback
       }
     }
 
@@ -444,7 +498,10 @@ export const stationRepository = {
           ORDER BY count DESC;
         `;
         const rows = await db.execute<any>(query);
-        if (rows && rows.length > 0) {
+        // TALEP-022: Veritabanı tek gerçek kaynaktır.
+        // Veritabanında istasyon yoksa hiçbir kümeleme görünmemeli (boş dizi [] dönmeli).
+        // GADM veya in-memory kümeleme verilerine ASLA fallback yapılmamalıdır.
+        if (rows) {
           return rows.map((r: any, idx: number) => ({
             cluster_id: `cluster-${toSlug(r.city || 'bolge')}-${idx}`,
             count: Number(r.count),
@@ -453,7 +510,7 @@ export const stationRepository = {
           }));
         }
       } catch (e) {
-        // fallback
+        // DB bağlantısı kurulamadığında fallback
       }
     }
 
@@ -505,7 +562,7 @@ export const stationRepository = {
           LIMIT 500;
         `;
         const rows = await db.execute<any>(query);
-        if (rows && rows.length > 0) {
+        if (rows) {
           return rows.map((r: any) => ({
             id: r.id,
             istasyon_no: r.istasyon_no,
@@ -524,31 +581,35 @@ export const stationRepository = {
           }));
         }
       } catch (e) {
-        // Fallback
+        return [];
       }
     }
 
-    const result: StationModel[] = [];
-    const unique = new Set<string>();
+    if (process.env.NODE_ENV === 'test' || !this.useDatabase) {
+      const result: StationModel[] = [];
+      const unique = new Set<string>();
 
-    const normCity = citySlug ? toSlug(citySlug) : undefined;
-    const normDistrict = districtSlug ? toSlug(districtSlug) : undefined;
+      const normCity = citySlug ? toSlug(citySlug) : undefined;
+      const normDistrict = districtSlug ? toSlug(districtSlug) : undefined;
 
-    for (const s of this.stations.values()) {
-      if (unique.has(s.id)) continue;
-      unique.add(s.id);
+      for (const s of this.stations.values()) {
+        if (unique.has(s.id)) continue;
+        unique.add(s.id);
 
-      if (normCity && toSlug(s.city) !== normCity) continue;
-      if (normDistrict && toSlug(s.district) !== normDistrict) continue;
+        if (normCity && toSlug(s.city) !== normCity) continue;
+        if (normDistrict && toSlug(s.district) !== normDistrict) continue;
 
-      if (operatorSlug) {
-        const op = operatorService.getBySlug(operatorSlug);
-        if (!op || s.operator_id !== op.id) continue;
+        if (operatorSlug) {
+          const op = operatorService.getBySlug(operatorSlug);
+          if (!op || s.operator_id !== op.id) continue;
+        }
+
+        result.push(s);
       }
-
-      result.push(s);
+      return result;
     }
-    return result;
+
+    return [];
   },
 
   async markDefective(stationId: string, defective: boolean): Promise<void> {
@@ -614,6 +675,8 @@ export class StationService {
     // Soket ve güç verisini veritabanından çek (varsa)
     let connectorTypes: string[] | null = null;
     let powerKw: number | null = null;
+    let currentTariff: string | null = null;
+    let occupancyStatus: string | null = null;
 
     try {
       const db = getDb();
@@ -630,7 +693,22 @@ export class StationService {
         if (powers.length > 0) powerKw = Math.max(...powers);
       }
     } catch {
-      // DB ulaşılamazsa null
+      // DB ulaşılamazsa
+    }
+
+    // CPO zenginleştirme veya raw_metadata kontrolü (Voltrun/ZES/Trugo soket & güç bilgisi)
+    const raw = (station as any).raw_metadata || (station as any);
+    if (!connectorTypes && raw?.connector_types && Array.isArray(raw.connector_types) && raw.connector_types.length > 0) {
+      connectorTypes = raw.connector_types;
+    }
+    if (powerKw === null && raw?.power_kw && Number(raw.power_kw) > 0) {
+      powerKw = Number(raw.power_kw);
+    }
+    if (!currentTariff && raw?.current_tariff) {
+      currentTariff = raw.current_tariff;
+    }
+    if (!occupancyStatus && raw?.occupancy_status) {
+      occupancyStatus = raw.occupancy_status;
     }
 
     return {
@@ -652,11 +730,10 @@ export class StationService {
         deep_link_config: op.deep_link_config,
       },
       deep_link: deepLink,
-      // Faz 1 zorunlu kısıt: Veri yoksa NULL, veritabanında soket kaydı varsa gerçek değer
       connector_types: connectorTypes,
       power_kw: powerKw,
-      current_tariff: null,
-      occupancy_status: null,
+      current_tariff: currentTariff,
+      occupancy_status: occupancyStatus,
       // S5 Veri Tazeliği Rozeti (US-18)
       data_freshness: sourceHealthService.formatFreshness(station.updated_at),
     };
@@ -898,7 +975,7 @@ export class StationService {
         `;
 
         const rows = await db.execute<any>(querySql);
-        if (rows && rows.length > 0) {
+        if (rows) {
           matchedStations = rows.map((r: any) => ({
             id: r.id,
             istasyon_no: r.istasyon_no,
@@ -922,7 +999,7 @@ export class StationService {
     }
 
     // Fallback veya test modu
-    if (matchedStations.length === 0) {
+    if (matchedStations.length === 0 && (process.env.NODE_ENV === 'test' || !stationRepository.useDatabase)) {
       const unique = new Map<string, StationModel>();
       for (const s of stationRepository.stations.values()) {
         if (unique.has(s.id)) continue;
