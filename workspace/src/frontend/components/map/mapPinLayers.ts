@@ -28,12 +28,18 @@
 import type { Map as MapLibreMap } from "maplibre-gl";
 
 export const STATIONS_SOURCE_ID = "stations-src";
+export const STATION_POINTS_SOURCE_ID = "station-points-src";
 export const SELECTED_SOURCE_ID = "selected-station-src";
 
 export const CLUSTER_CIRCLE_LAYER_ID = "clusters-circle";
 export const CLUSTER_PULSE_LAYER_ID = "clusters-pulse";
 export const CLUSTER_COUNT_LAYER_ID = "clusters-count";
+// Native-clustering çıktıları (station-points-src) için ikinci küme katman seti.
+export const CLUSTER_CIRCLE_POINTS_LAYER_ID = "clusters-circle-pts";
+export const CLUSTER_PULSE_POINTS_LAYER_ID = "clusters-pulse-pts";
+export const CLUSTER_COUNT_POINTS_LAYER_ID = "clusters-count-pts";
 export const STATIONS_ICON_LAYER_ID = "stations-icon";
+export const STATION_LETTER_LAYER_ID = "stations-letter";
 export const SELECTED_RING_LAYER_ID = "selected-station-ring";
 
 export const STATION_PIN_ICON_ID = "station-pin";
@@ -256,12 +262,36 @@ export function buildStationsIconLayout(selectedId: string | null): maplibregl.S
   } as unknown as maplibregl.SymbolLayoutSpecification;
 }
 
+/**
+ * Operatör baş harfi: damla pinin başına (icon-anchor bottom → uç nokta
+ * alt kenarda) denk gelmesi için metin yukarı kaydırılır. prod DOM
+ * pinindeki beyaz harf görünümünün karşılığı.
+ */
+export function buildStationLetterLayout(): maplibregl.SymbolLayoutSpecification {
+  return {
+    "text-field": ["get", "op_letter"],
+    "text-font": ["Open Sans Bold", "Arial Unicode MS Bold"],
+    "text-size": 13,
+    "text-offset": [0, -1.85],
+    "text-allow-overlap": true,
+    "text-ignore-placement": true,
+  } as unknown as maplibregl.SymbolLayoutSpecification;
+}
+
+export function buildStationLetterPaint(): maplibregl.SymbolPaintSpecification {
+  return {
+    "text-color": "#FFFFFF",
+  } as unknown as maplibregl.SymbolPaintSpecification;
+}
+
 export function buildSelectedRingPaint(): maplibregl.CirclePaintSpecification {
   return {
-    "circle-radius": 26,
+    "circle-radius": 22,
     "circle-color": "transparent",
     "circle-stroke-width": 3,
     "circle-stroke-color": readDesignToken("--color-focus-ring", "#0066CC"),
+    // Halka damla pinin başını çevrelesin (uç noktası alt kenardadır)
+    "circle-translate": [0, -15],
   } as unknown as maplibregl.CirclePaintSpecification;
 }
 
@@ -274,8 +304,9 @@ export function buildSelectedRingPaint(): maplibregl.CirclePaintSpecification {
  * sisteminde/veri setinde tanımlı değil; iç daire boş bırakılmıştır.
  */
 function drawDropPinCanvas(fillColor: string): HTMLCanvasElement {
-  const width = 40;
-  const height = 48;
+  // pixelRatio:2 ile 32x40 CSS px görünür — eski DOM pin (w-8 h-10) ile aynı ölçek.
+  const width = 64;
+  const height = 80;
   const canvas = document.createElement("canvas");
   canvas.width = width;
   canvas.height = height;
@@ -283,37 +314,39 @@ function drawDropPinCanvas(fillColor: string): HTMLCanvasElement {
   if (!ctx) return canvas;
 
   const centerX = width / 2;
-  const circleRadius = width / 2 - 2;
-  const circleCenterY = circleRadius + 2;
+  const circleRadius = width / 2 - 4;
+  const circleCenterY = circleRadius + 4;
 
   ctx.clearRect(0, 0, width, height);
 
-  // Damla gövdesi: üstte daire, altta sivri uç.
+  // Yumuşak zemin gölgesi (prod DOM pinindeki shadow-md karşılığı)
+  ctx.save();
+  ctx.beginPath();
+  ctx.ellipse(centerX, height - 4, 14, 5, 0, 0, Math.PI * 2);
+  ctx.fillStyle = "rgba(0,0,0,0.28)";
+  ctx.fill();
+  ctx.restore();
+
+  // Damla gövdesi: üstte daire, altta sivri uç — beyaz dış kontur.
   ctx.beginPath();
   ctx.arc(centerX, circleCenterY, circleRadius, Math.PI, 0, false);
-  ctx.lineTo(centerX + 3, height - 10);
-  ctx.quadraticCurveTo(centerX, height - 2, centerX - 3, height - 10);
+  ctx.lineTo(centerX + 5, height - 18);
+  ctx.quadraticCurveTo(centerX, height - 4, centerX - 5, height - 18);
   ctx.closePath();
-
-  // 2px beyaz dış kontur (tasarim_sistemi.md §8.4: "2px beyaz dış kontur").
   ctx.fillStyle = "#FFFFFF";
   ctx.fill();
 
+  // İç dolgu: prod pinindeki gibi gövde tek renk (operatör harfi üstüne
+  // beyaz text katmanıyla basılır — iç beyaz daire YOKTUR).
   ctx.save();
   ctx.beginPath();
-  ctx.arc(centerX, circleCenterY, circleRadius - 2, Math.PI, 0, false);
-  ctx.lineTo(centerX + 2, height - 11);
-  ctx.quadraticCurveTo(centerX, height - 4, centerX - 2, height - 11);
+  ctx.arc(centerX, circleCenterY, circleRadius - 4, Math.PI, 0, false);
+  ctx.lineTo(centerX + 4, height - 20);
+  ctx.quadraticCurveTo(centerX, height - 8, centerX - 4, height - 20);
   ctx.closePath();
   ctx.fillStyle = fillColor;
   ctx.fill();
   ctx.restore();
-
-  // İç boş beyaz daire (operatör logosu yerleşecek yer — bkz. yukarıdaki not).
-  ctx.beginPath();
-  ctx.arc(centerX, circleCenterY, circleRadius * 0.55, 0, Math.PI * 2);
-  ctx.fillStyle = "#FFFFFF";
-  ctx.fill();
 
   return canvas;
 }
@@ -324,8 +357,10 @@ function drawDropPinCanvas(fillColor: string): HTMLCanvasElement {
  * oluşturulabilmesini sağlar.
  */
 export function registerStationPinImages(map: MapLibreMap): void {
-  const primary = readDesignToken("--color-primary", "#0066CC");
-  const danger = readDesignToken("--color-danger", "#B91C1C");
+  // Pin rengi koyu temada açık maviye (#38BDF8) dönmemeli — prod görünümüyle
+  // aynı koyu mavi (#0066CC) sabitlenir. (KORUNACAK: tema token'ına bağlama.)
+  const primary = "#0066CC";
+  const danger = "#B91C1C";
 
   const variants: Array<[string, string, number]> = [
     [STATION_PIN_ICON_ID, primary, 1],
@@ -338,16 +373,20 @@ export function registerStationPinImages(map: MapLibreMap): void {
       map.removeImage(id);
     }
     const base = drawDropPinCanvas(color);
-    if (scale === 1) {
-      map.addImage(id, base, { pixelRatio: 2 });
-      continue;
+    let target = base;
+    if (scale !== 1) {
+      const scaled = document.createElement("canvas");
+      scaled.width = Math.round(base.width * scale);
+      scaled.height = Math.round(base.height * scale);
+      const sctx = scaled.getContext("2d");
+      sctx?.drawImage(base, 0, 0, scaled.width, scaled.height);
+      target = scaled;
     }
-    const scaled = document.createElement("canvas");
-    scaled.width = Math.round(base.width * scale);
-    scaled.height = Math.round(base.height * scale);
-    const sctx = scaled.getContext("2d");
-    sctx?.drawImage(base, 0, 0, scaled.width, scaled.height);
-    map.addImage(id, scaled, { pixelRatio: 2 });
+    // map.addImage canvas değil ImageData bekler; canvas geçirilirse
+    // "mismatched image size" RangeError'ı ile katman kurulumu kesilir.
+    const tctx = target.getContext("2d");
+    if (!tctx) continue;
+    map.addImage(id, tctx.getImageData(0, 0, target.width, target.height), { pixelRatio: 2 });
   }
 }
 
