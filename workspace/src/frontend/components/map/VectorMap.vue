@@ -1,320 +1,222 @@
 
-<template>
-  <div class="vector-map" role="region" aria-label="Şarj istasyonları haritası">
-    <div ref="mapContainerRef" class="vector-map__canvas" data-testid="map-canvas" />
-
-    <!-- Yükleniyor Durumu: mevcut pinler ekranda kalır, sadece sağ üstte spinner görünür. -->
-    <div v-if="isLoading" class="vector-map__loading" role="status" aria-live="polite">
-      <span class="vector-map__spinner" aria-hidden="true" />
-      <span class="sr-only">İstasyonlar yükleniyor</span>
-    </div>
-
-    <!-- Boş Durum: viewport içinde istasyon yok. -->
-    <div v-if="!isLoading && !hasError && isEmpty" class="vector-map__empty-pill" role="status" aria-live="polite">
-      <Info :size="16" aria-hidden="true" />
-      <span>Bu bölgede şarj istasyonu bulunamadı. Haritayı kaydırın.</span>
-    </div>
-
-    <!-- Hata Durumu -->
-    <div v-if="hasError" class="vector-map__error-card" role="alert">
-      <p class="vector-map__error-text">Harita verisi yüklenemedi.</p>
-      <button type="button" class="vector-map__retry-btn" @click="retryLastFetch">
-        <RefreshCw :size="16" aria-hidden="true" />
-        <span>Yeniden Dene</span>
-      </button>
-    </div>
-
-    <!-- Konum FAB: yalnızca mobil kırılım noktasında görünür (SCR-01). -->
-    <button
-      type="button"
-      class="vector-map__location-fab"
-      aria-label="Konumuma git"
-      @click="centerOnUserLocation"
-    >
-      <Navigation :size="24" aria-hidden="true" />
-    </button>
-  </div>
-</template>
-
 <script setup lang="ts">
-/**
- * TALEP-027 fix — bkz. `map/mapPinLayers.ts` dosya başı notu.
- *
- * Bu bileşen artık istasyon/küme pinlerini `maplibregl.Marker` ile
- * ayrı DOM elemanları olarak OLUŞTURMAZ. Tüm pinler tek bir GeoJSON
- * kaynağından (`STATIONS_SOURCE_ID`) beslenen native circle/symbol
- * katmanlarıyla render edilir; böylece pinlerin ekran konumu her
- * zaman haritanın kendi projeksiyonundan (gerçek lon/lat) türetilir.
- *
- * KORUNACAK (regresyon koruması): Tekil istasyonlar için tekrar
- * `new maplibregl.Marker()` + serbest konumlandırılan DOM elemanı
- * eklemeyin — bu, TALEP-027'de bildirilen "pinlerin dikdörtgen blok
- * halinde yığılması" hatasının kök nedenidir.
- */
-import { computed, onBeforeUnmount, onMounted, ref, shallowRef, watch } from "vue";
-import type { Map as MapLibreMap, MapMouseEvent, MapLayerMouseEvent } from "maplibre-gl";
-import "maplibre-gl/dist/maplibre-gl.css";
-import { Info, Navigation, RefreshCw } from "@lucide/vue";
+import { ref, onMounted, onUnmounted, watch } from 'vue';
+import maplibregl, { type Map as MapLibreMap, type GeoJSONSource, type MapLayerMouseEvent } from 'maplibre-gl';
+import { useStations } from '~/composables/useStations';
+import { useUserLocation } from '~/composables/useUserLocation';
+import { useToast } from '~/composables/useToast';
+import { Navigation, AlertCircle, RefreshCw, Info } from 'lucide-vue-next';
 import {
-  CLUSTER_CIRCLE_LAYER_ID,
-  CLUSTER_COUNT_LAYER_ID,
-  CLUSTER_PULSE_LAYER_ID,
-  STATIONS_ICON_LAYER_ID,
   STATIONS_SOURCE_ID,
-  SELECTED_RING_LAYER_ID,
   SELECTED_SOURCE_ID,
+  CLUSTER_CIRCLE_LAYER_ID,
+  CLUSTER_PULSE_LAYER_ID,
+  CLUSTER_COUNT_LAYER_ID,
+  STATIONS_ICON_LAYER_ID,
+  SELECTED_RING_LAYER_ID,
   buildClusterCirclePaint,
+  buildClusterPulsePaint,
   buildClusterCountLayout,
   buildClusterCountPaint,
-  buildClusterPulsePaint,
-  buildSelectedRingPaint,
   buildStationsIconLayout,
-  emptyFeatureCollection,
+  buildSelectedRingPaint,
   registerStationPinImages,
-  simpleDebounce,
+  emptyFeatureCollection,
   toSelectedFeatureCollection,
-  toStationFeatureCollection,
   type PaletteTheme,
-  type StationApiResponse,
-} from "./mapPinLayers";
+} from './mapPinLayers';
+import type { StationItem, ClusterItem } from '~/types/station';
 
-interface OperatorFilter {
-  operatorSlugs?: string[];
-  serviceType?: "PUBLIC" | "PRIVATE" | null;
-}
-
-const props = withDefaults(
-  defineProps<{
-    apiBase?: string;
-    filters?: OperatorFilter;
-    initialCenter?: [number, number];
-    initialZoom?: number;
-    /** Dışarıdan zorunlu tema; verilmezse `<html>.dark` sınıfı izlenir. */
-    theme?: PaletteTheme;
-  }>(),
-  {
-    apiBase: "/api/v1",
-    filters: () => ({}),
-    initialCenter: () => [35.2433, 39.0], // Türkiye merkezi (Ankara civarı), zoom 6 — konum izni yoksa varsayılan.
-    initialZoom: 6,
-    theme: undefined,
-  },
-);
-
-const emit = defineEmits<{
-  (e: "station-select", stationUid: string, slug: string | null): void;
-  (e: "update:bbox", bbox: [number, number, number, number], zoom: number): void;
-  (e: "toast", message: string, kind: "info" | "error" | "success"): void;
-  (e: "error", error: unknown): void;
+const props = defineProps<{
+  selectedOperator: string;
+  isPublicOnly: boolean;
 }>();
 
-const mapContainerRef = ref<HTMLDivElement | null>(null);
-const mapInstance = shallowRef<MapLibreMap | null>(null);
+const emit = defineEmits<{
+  (e: 'selectStation', st: StationItem): void;
+}>();
 
-const isLoading = ref(false);
-const hasError = ref(false);
-const isEmpty = ref(false);
-const selectedStationUid = ref<string | null>(null);
+const config = useRuntimeConfig();
+const mapContainer = ref<HTMLDivElement | null>(null);
+let map: MapLibreMap | null = null;
+let mapReady = false;
+let userLocationMarker: maplibregl.Marker | null = null;
 
-const detectedTheme = ref<PaletteTheme>("light");
-const activeTheme = computed<PaletteTheme>(() => props.theme ?? detectedTheme.value);
+// TALEP-027: İstasyon/küme pinleri DOM Marker yerine tek GeoJSON kaynağından
+// beslenen native circle/symbol katmanlarıyla çizilir. Katman konumlandırması
+// haritanın kendi projeksiyonundan gelir — belge akışına düşüp blok halinde
+// yığılma yapısal olarak imkânsızdır. (KORUNACAK: tekil istasyonlar için
+// maplibregl.Marker + serbest CSS'e dönmeyin.)
+const stationByUid = new Map<string, StationItem>();
 
-const prefersReducedMotion = ref(false);
-let pulseAnimationHandle: number | null = null;
-let themeObserver: MutationObserver | null = null;
+// Geçersiz/Türkiye dışı koordinatlar haritaya hiç girmez.
+const isValidTrCoord = (lon: unknown, lat: unknown) =>
+  Number.isFinite(lon) && Number.isFinite(lat)
+  && (lon as number) >= 25.4 && (lon as number) <= 44.9
+  && (lat as number) >= 35.5 && (lat as number) <= 42.4;
 
-let lastQuery: { bbox: [number, number, number, number]; zoom: number } | null = null;
+const activeTheme = (): PaletteTheme =>
+  typeof document !== 'undefined' && document.documentElement.classList.contains('dark')
+    ? 'dark'
+    : 'light';
 
-// Kullanıcının anlık GPS konumu YALNIZCA istemci belleğinde tutulur;
-// hiçbir zaman API sorgu parametresine veya loglara yazılmaz (KVKK).
-let inMemoryUserLocation: { lon: number; lat: number } | null = null;
+const {
+  stations,
+  clusters,
+  responseType,
+  loading,
+  error,
+  selectedStation,
+  fetchStationsByBBox,
+} = useStations();
 
-function readMapEnvStyleUrl(): string {
-  // KURULUM GEREKİYOR: Harita karo (tile) sağlayıcı hesabı ve API anahtarı.
-  // Anahtar ortam değişkeninden okunur, istemci derlemesine gömülmez.
-  const runtimeCfg =
-    typeof useRuntimeConfig === "function" ? useRuntimeConfig() : undefined;
-  const fromRuntime = (runtimeCfg?.public as Record<string, unknown> | undefined)?.mapStyleUrl;
-  if (typeof fromRuntime === "string" && fromRuntime.length > 0) return fromRuntime;
-  if (typeof import.meta !== "undefined") {
-    const fromEnv = (import.meta as unknown as { env?: Record<string, string> }).env
-      ?.VITE_MAP_STYLE_URL;
-    if (fromEnv) return fromEnv;
-  }
-  // Anahtar sağlanmadığında haritanın tamamen boş kalmaması için nötr,
-  // anahtar gerektirmeyen bir fallback stil kullanılır.
-  return "https://demotiles.maplibre.org/style.json";
-}
+const {
+  userCoords,
+  locationLoading,
+  locationError,
+  requestUserLocation,
+} = useUserLocation();
 
-async function fetchStationsForViewport(bbox: [number, number, number, number], zoom: number) {
-  lastQuery = { bbox, zoom };
-  isLoading.value = true;
-  hasError.value = false;
-  try {
-    const query: Record<string, string | number> = {
-      bbox: bbox.join(","),
-      zoom,
-    };
-    if (props.filters?.operatorSlugs?.length) {
-      query.operator = props.filters.operatorSlugs.join(",");
-    }
-    if (props.filters?.serviceType) {
-      query.service_type = props.filters.serviceType;
-    }
-    const response = await $fetch<StationApiResponse>(`${props.apiBase}/stations`, { query });
-    const collection = toStationFeatureCollection(response);
-    isEmpty.value = collection.features.length === 0;
+const { showToast } = useToast();
 
-    const map = mapInstance.value;
-    const source = map?.getSource(STATIONS_SOURCE_ID) as maplibregl.GeoJSONSource | undefined;
-    source?.setData(collection);
-  } catch (err) {
-    hasError.value = true;
-    emit("error", err);
-  } finally {
-    isLoading.value = false;
-  }
-}
+// Reaktif animasyonlu odaklanma hedefi (TALEP-004: flyTo senkronizasyonu)
+const mapFlyToTarget = useState<{ lon: number; lat: number; zoom: number; timestamp: number } | null>(
+  'map-fly-to-target',
+  () => null
+);
 
-const debouncedFetch = simpleDebounce(fetchStationsForViewport, 300);
-
-function retryLastFetch() {
-  if (lastQuery) {
-    fetchStationsForViewport(lastQuery.bbox, lastQuery.zoom);
-  }
-}
-
-function handleMoveEnd() {
-  const map = mapInstance.value;
+// Bounding Box senkronizasyonu
+const syncViewport = () => {
   if (!map) return;
   const bounds = map.getBounds();
-  const bbox: [number, number, number, number] = [
-    bounds.getWest(),
-    bounds.getSouth(),
-    bounds.getEast(),
-    bounds.getNorth(),
-  ];
   const zoom = map.getZoom();
-  emit("update:bbox", bbox, zoom);
-  debouncedFetch(bbox, zoom);
-}
 
-function updateSelectedSource(lon: number | null, lat: number | null) {
-  const map = mapInstance.value;
-  const source = map?.getSource(SELECTED_SOURCE_ID) as maplibregl.GeoJSONSource | undefined;
-  source?.setData(toSelectedFeatureCollection(lon, lat));
-}
+  const minLon = bounds.getWest();
+  const minLat = bounds.getSouth();
+  const maxLon = bounds.getEast();
+  const maxLat = bounds.getNorth();
 
-function refreshStationIconExpression() {
-  const map = mapInstance.value;
-  if (!map || !map.getLayer(STATIONS_ICON_LAYER_ID)) return;
+  fetchStationsByBBox([minLon, minLat, maxLon, maxLat], zoom, props.selectedOperator);
+};
+
+// TALEP-006: Kullanıcının anlık konumunu haritada nabız atan mavi nokta (pulsing blue dot) olarak çiz
+const renderUserLocationMarker = (coords: { lat: number; lon: number } | null) => {
+  if (!map) return;
+
+  if (!coords) {
+    if (userLocationMarker) {
+      userLocationMarker.remove();
+      userLocationMarker = null;
+    }
+    return;
+  }
+
+  // Zaten marker varsa yalnızca koordinatını güncelle (yumuşak geçiş)
+  if (userLocationMarker) {
+    userLocationMarker.setLngLat([coords.lon, coords.lat]);
+    return;
+  }
+
+  // Nabız atan mavi konum baloncuğu DOM elementi
+  const el = document.createElement('div');
+  el.className = 'user-location-marker relative flex items-center justify-center pointer-events-none';
+  el.setAttribute('role', 'status');
+  el.setAttribute('aria-label', 'Mevcut Konumunuz');
+  el.setAttribute('title', 'Mevcut Konumunuz');
+
+  el.innerHTML = `
+    <div class="user-location-pulse absolute rounded-full"></div>
+    <div class="user-location-aura absolute rounded-full"></div>
+    <div class="user-location-core relative rounded-full"></div>
+  `;
+
+  userLocationMarker = new maplibregl.Marker({
+    element: el,
+    anchor: 'center',
+  })
+    .setLngLat([coords.lon, coords.lat])
+    .addTo(map);
+};
+
+// TALEP-027: Pin verisi GeoJSON kaynağına yazılır; çizim native katmanlarca yapılır.
+const renderMapMarkers = () => {
+  if (!map || !mapReady) return;
+
+  stationByUid.clear();
+  const features: GeoJSON.Feature[] = [];
+
+  if (responseType.value === 'clusters') {
+    // Zoom < 10: Küme daireleri (point_count alanı katmanları ayırt eder)
+    clusters.value.forEach((c: ClusterItem, idx: number) => {
+      if (!isValidTrCoord(c.lon, c.lat)) return;
+      features.push({
+        type: 'Feature',
+        geometry: { type: 'Point', coordinates: [c.lon, c.lat] },
+        properties: {
+          cluster_id: c.cluster_id || `cluster-${idx}`,
+          point_count: c.count,
+        },
+      });
+    });
+  } else {
+    // Zoom >= 10: Tekil istasyon pinleri
+    const list = props.isPublicOnly
+      ? stations.value.filter((s) => s.service_type !== 'Özel')
+      : stations.value;
+
+    list.forEach((st: StationItem) => {
+      const lon = Number(st.lon);
+      const lat = Number(st.lat);
+      if (!isValidTrCoord(lon, lat)) return;
+
+      const uid = String(st.id);
+      stationByUid.set(uid, st);
+      features.push({
+        type: 'Feature',
+        geometry: { type: 'Point', coordinates: [lon, lat] },
+        properties: {
+          station_uid: uid,
+          slug: st.slug || null,
+          hasActiveIssue: !!(st.is_flagged_defective || st.status === 'DEFECTIVE'),
+        },
+      });
+    });
+  }
+
+  (map.getSource(STATIONS_SOURCE_ID) as GeoJSONSource | undefined)?.setData({
+    type: 'FeatureCollection',
+    features,
+  });
+};
+
+// Seçili istasyon halkası + seçili pin varyantı (veri değişiminden bağımsız).
+const renderSelection = () => {
+  if (!map || !mapReady) return;
+  const st = selectedStation.value;
+  (map.getSource(SELECTED_SOURCE_ID) as GeoJSONSource | undefined)?.setData(
+    toSelectedFeatureCollection(
+      st && isValidTrCoord(st.lon, st.lat) ? Number(st.lon) : null,
+      st && isValidTrCoord(st.lon, st.lat) ? Number(st.lat) : null,
+    ),
+  );
   map.setLayoutProperty(
     STATIONS_ICON_LAYER_ID,
-    "icon-image",
-    buildStationsIconLayout(selectedStationUid.value)["icon-image"],
+    'icon-image',
+    buildStationsIconLayout(st ? String(st.id) : null)['icon-image'],
   );
-}
+};
 
-function handleClusterClick(event: MapLayerMouseEvent) {
-  const feature = event.features?.[0];
-  const map = mapInstance.value;
-  if (!feature || !map) return;
-  const coords = (feature.geometry as GeoJSON.Point).coordinates as [number, number];
-  const flyOptions = { center: coords, zoom: 12 } as const;
-  if (prefersReducedMotion.value) {
-    map.jumpTo(flyOptions);
-  } else {
-    map.easeTo({ ...flyOptions, duration: 500 });
-  }
-}
-
-function handleStationClick(event: MapLayerMouseEvent) {
-  const feature = event.features?.[0];
-  if (!feature) return;
-  const props_ = feature.properties as Record<string, unknown>;
-  const stationUid = String(props_.station_uid ?? "");
-  const slug = (props_.slug as string | null) ?? null;
-  const coords = (feature.geometry as GeoJSON.Point).coordinates as [number, number];
-
-  selectedStationUid.value = stationUid;
-  refreshStationIconExpression();
-  updateSelectedSource(coords[0], coords[1]);
-  emit("station-select", stationUid, slug);
-}
-
-function setCursor(cursor: string) {
-  const map = mapInstance.value;
-  if (map) map.getCanvas().style.cursor = cursor;
-}
-
-function startClusterPulseAnimation() {
-  if (prefersReducedMotion.value) return;
-  const map = mapInstance.value;
+// Kaynaklar, katmanlar ve tıklama etkileşimleri — map 'load' sonrası bir kez kurulur.
+const setupPinLayers = () => {
   if (!map) return;
-  let growing = true;
-  let scale = 1;
-  const step = () => {
-    if (!mapInstance.value || !map.getLayer(CLUSTER_PULSE_LAYER_ID)) return;
-    scale += growing ? 0.006 : -0.006;
-    if (scale > 1.4) growing = false;
-    if (scale < 1) growing = true;
-    const opacity = 0.25 * (1.4 - scale);
-    try {
-      map.setPaintProperty(CLUSTER_PULSE_LAYER_ID, "circle-opacity", Math.max(opacity, 0));
-    } catch {
-      // Katman henüz kaldırılmışsa animasyonu sessizce durdur.
-      return;
-    }
-    pulseAnimationHandle = requestAnimationFrame(step);
-  };
-  pulseAnimationHandle = requestAnimationFrame(step);
-}
+  const theme = activeTheme();
 
-function stopClusterPulseAnimation() {
-  if (pulseAnimationHandle !== null) {
-    cancelAnimationFrame(pulseAnimationHandle);
-    pulseAnimationHandle = null;
-  }
-}
-
-function applyThemeToLayers() {
-  const map = mapInstance.value;
-  if (!map || !map.isStyleLoaded()) return;
-  const theme = activeTheme.value;
-  registerStationPinImages(map);
-  if (map.getLayer(CLUSTER_CIRCLE_LAYER_ID)) {
-    const paint = buildClusterCirclePaint(theme);
-    Object.entries(paint).forEach(([key, value]) => {
-      map.setPaintProperty(CLUSTER_CIRCLE_LAYER_ID, key, value as never);
-    });
-  }
-  if (map.getLayer(CLUSTER_PULSE_LAYER_ID)) {
-    const paint = buildClusterPulsePaint(theme);
-    Object.entries(paint).forEach(([key, value]) => {
-      map.setPaintProperty(CLUSTER_PULSE_LAYER_ID, key, value as never);
-    });
-  }
-  if (map.getLayer(CLUSTER_COUNT_LAYER_ID)) {
-    const paint = buildClusterCountPaint(theme);
-    Object.entries(paint).forEach(([key, value]) => {
-      map.setPaintProperty(CLUSTER_COUNT_LAYER_ID, key, value as never);
-    });
-  }
-  refreshStationIconExpression();
-}
-
-function detectThemeFromDocument() {
-  if (typeof document === "undefined") return;
-  detectedTheme.value = document.documentElement.classList.contains("dark") ? "dark" : "light";
-}
-
-function buildLayers(map: MapLibreMap) {
   map.addSource(STATIONS_SOURCE_ID, {
-    type: "geojson",
+    type: 'geojson',
     data: emptyFeatureCollection(),
   });
   map.addSource(SELECTED_SOURCE_ID, {
-    type: "geojson",
+    type: 'geojson',
     data: emptyFeatureCollection(),
   });
 
@@ -322,301 +224,331 @@ function buildLayers(map: MapLibreMap) {
 
   map.addLayer({
     id: CLUSTER_PULSE_LAYER_ID,
-    type: "circle",
+    type: 'circle',
     source: STATIONS_SOURCE_ID,
-    filter: ["has", "point_count"],
-    paint: buildClusterPulsePaint(activeTheme.value),
+    filter: ['has', 'point_count'],
+    paint: buildClusterPulsePaint(theme),
   });
   map.addLayer({
     id: CLUSTER_CIRCLE_LAYER_ID,
-    type: "circle",
+    type: 'circle',
     source: STATIONS_SOURCE_ID,
-    filter: ["has", "point_count"],
-    paint: buildClusterCirclePaint(activeTheme.value),
+    filter: ['has', 'point_count'],
+    paint: buildClusterCirclePaint(theme),
   });
   map.addLayer({
     id: CLUSTER_COUNT_LAYER_ID,
-    type: "symbol",
+    type: 'symbol',
     source: STATIONS_SOURCE_ID,
-    filter: ["has", "point_count"],
+    filter: ['has', 'point_count'],
     layout: buildClusterCountLayout(),
-    paint: buildClusterCountPaint(activeTheme.value),
+    paint: buildClusterCountPaint(theme),
   });
   map.addLayer({
     id: SELECTED_RING_LAYER_ID,
-    type: "circle",
+    type: 'circle',
     source: SELECTED_SOURCE_ID,
     paint: buildSelectedRingPaint(),
   });
   map.addLayer({
     id: STATIONS_ICON_LAYER_ID,
-    type: "symbol",
+    type: 'symbol',
     source: STATIONS_SOURCE_ID,
-    filter: ["!", ["has", "point_count"]],
-    layout: buildStationsIconLayout(selectedStationUid.value),
+    filter: ['!', ['has', 'point_count']],
+    layout: buildStationsIconLayout(null),
   });
 
-  map.on("click", CLUSTER_CIRCLE_LAYER_ID, handleClusterClick);
-  map.on("click", STATIONS_ICON_LAYER_ID, handleStationClick);
-  map.on("mouseenter", CLUSTER_CIRCLE_LAYER_ID, () => setCursor("pointer"));
-  map.on("mouseleave", CLUSTER_CIRCLE_LAYER_ID, () => setCursor(""));
-  map.on("mouseenter", STATIONS_ICON_LAYER_ID, () => setCursor("pointer"));
-  map.on("mouseleave", STATIONS_ICON_LAYER_ID, () => setCursor(""));
+  // Küme tıklama → içeri zoom (eski DOM davranışının birebir karşılığı)
+  map.on('click', CLUSTER_CIRCLE_LAYER_ID, (e: MapLayerMouseEvent) => {
+    if (!map) return;
+    const f = e.features?.[0];
+    if (!f || f.geometry.type !== 'Point') return;
+    map.flyTo({
+      center: f.geometry.coordinates as [number, number],
+      zoom: Math.min(map.getZoom() + 2.5, 14),
+      duration: 600,
+      essential: true,
+    });
+  });
 
-  startClusterPulseAnimation();
-  handleMoveEnd();
-}
+  // Tekil pin tıklama → eski emit('selectStation', st) davranışı
+  map.on('click', STATIONS_ICON_LAYER_ID, (e: MapLayerMouseEvent) => {
+    const uid = e.features?.[0]?.properties?.station_uid;
+    const st = uid ? stationByUid.get(String(uid)) : undefined;
+    if (st) emit('selectStation', st);
+  });
 
-function centerOnUserLocation() {
-  if (typeof navigator === "undefined" || !navigator.geolocation) {
-    emit("toast", "Konum servisleri bu tarayıcıda desteklenmiyor.", "error");
-    return;
+  for (const layerId of [CLUSTER_CIRCLE_LAYER_ID, STATIONS_ICON_LAYER_ID]) {
+    map.on('mouseenter', layerId, () => {
+      if (map) map.getCanvas().style.cursor = 'pointer';
+    });
+    map.on('mouseleave', layerId, () => {
+      if (map) map.getCanvas().style.cursor = '';
+    });
   }
-  navigator.geolocation.getCurrentPosition(
-    (position) => {
-      // Konum yalnızca anlık harita merkezleme için in-memory kullanılır;
-      // sunucuya iletilmez, kalıcı olarak saklanmaz (KVKK zorunlu kısıtı).
-      inMemoryUserLocation = {
-        lon: position.coords.longitude,
-        lat: position.coords.latitude,
-      };
-      const map = mapInstance.value;
-      const center: [number, number] = [inMemoryUserLocation.lon, inMemoryUserLocation.lat];
-      if (!map) return;
-      if (prefersReducedMotion.value) {
-        map.jumpTo({ center, zoom: 14 });
-      } else {
-        map.easeTo({ center, zoom: 14, duration: 500 });
-      }
-    },
-    () => {
-      emit("toast", "Konum izni alınamadı.", "error");
-    },
-    { enableHighAccuracy: false, timeout: 8000, maximumAge: 0 },
-  );
-}
+};
 
-let resizeObserver: ResizeObserver | null = null;
-
-onMounted(async () => {
-  if (typeof window === "undefined" || !mapContainerRef.value) return;
-
-  prefersReducedMotion.value = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  detectThemeFromDocument();
-  themeObserver = new MutationObserver(() => {
-    detectThemeFromDocument();
-    applyThemeToLayers();
-  });
-  if (document.documentElement) {
-    themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+// TALEP-006: Konumumu Bul aksiyonu ve haritada mavi noktanın çizilmesi
+const handleLocateMe = async () => {
+  const coords = await requestUserLocation();
+  if (coords && map) {
+    renderUserLocationMarker(coords);
+    map.flyTo({
+      center: [coords.lon, coords.lat],
+      zoom: 14,
+      duration: 1200,
+      essential: true,
+    });
+  } else if (locationError.value) {
+    showToast(locationError.value, 'warning');
   }
+};
 
-  const maplibregl = (await import("maplibre-gl")).default;
+// TALEP-004: Animasyonlu flyTo fonksiyonu
+const flyToCoords = (lon: number, lat: number, zoom = 12) => {
+  if (map) {
+    map.flyTo({
+      center: [lon, lat],
+      zoom,
+      duration: 1000,
+      essential: true,
+    });
+  }
+};
 
-  const map = new maplibregl.Map({
-    container: mapContainerRef.value,
-    style: readMapEnvStyleUrl(),
-    center: props.initialCenter,
-    zoom: props.initialZoom,
-    attributionControl: true,
+defineExpose({
+  flyToCoords,
+  syncViewport,
+  locateUser: handleLocateMe,
+  renderUserLocationMarker,
+});
+
+onMounted(() => {
+  if (!mapContainer.value) return;
+
+  // Türkiye merkezli başlangıç görünümü
+  map = new maplibregl.Map({
+    container: mapContainer.value,
+    style: {
+      version: 8,
+      sources: {
+        'osm-tiles': {
+          type: 'raster',
+          tiles: [config.public.mapTileUrl],
+          tileSize: 256,
+          attribution: '© OpenStreetMap katkıda bulunanlar',
+        },
+      },
+      layers: [
+        {
+          id: 'osm-tiles',
+          type: 'raster',
+          source: 'osm-tiles',
+          minzoom: 0,
+          maxzoom: 19,
+        },
+      ],
+    },
+    center: [32.8597, 39.9334], // Ankara
+    zoom: 6,
+    maxZoom: 18,
+    minZoom: 4,
   });
-  mapInstance.value = map;
 
-  map.on("load", () => {
-    buildLayers(map);
+  map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'bottom-right');
+
+  map.on('load', () => {
+    mapReady = true;
+    setupPinLayers();
+    renderMapMarkers();
+    renderSelection();
+    syncViewport();
+    // Kullanıcının daha önce alınmış bir konumu varsa haritada çiz
+    if (userCoords.value) {
+      renderUserLocationMarker(userCoords.value);
+    }
   });
-  map.on("moveend", handleMoveEnd);
 
-  resizeObserver = new ResizeObserver(() => map.resize());
-  resizeObserver.observe(mapContainerRef.value);
+  map.on('moveend', () => {
+    syncViewport();
+  });
+});
+
+onUnmounted(() => {
+  if (userLocationMarker) {
+    userLocationMarker.remove();
+    userLocationMarker = null;
+  }
+  if (map) {
+    map.remove();
+    map = null;
+  }
+});
+
+watch([stations, clusters, responseType, () => props.isPublicOnly], () => {
+  renderMapMarkers();
 });
 
 watch(
-  () => props.filters,
+  () => props.selectedOperator,
   () => {
-    if (lastQuery) fetchStationsForViewport(lastQuery.bbox, lastQuery.zoom);
-  },
-  { deep: true },
+    syncViewport();
+  }
 );
 
-watch(activeTheme, () => {
-  applyThemeToLayers();
+watch(selectedStation, () => {
+  renderSelection();
 });
 
-onBeforeUnmount(() => {
-  stopClusterPulseAnimation();
-  themeObserver?.disconnect();
-  resizeObserver?.disconnect();
-  const map = mapInstance.value;
-  if (map) {
-    map.off("moveend", handleMoveEnd);
-    map.remove();
+// TALEP-006: userCoords güncellendiğinde mavi konumu anında yansıt
+watch(userCoords, (newCoords) => {
+  renderUserLocationMarker(newCoords);
+});
+
+// TALEP-004: Arama kutusundan gelen flyTo sinyalini dinleme ve harita animasyonu
+watch(mapFlyToTarget, (target) => {
+  if (target && map) {
+    map.flyTo({
+      center: [target.lon, target.lat],
+      zoom: target.zoom,
+      duration: 1200,
+      essential: true,
+    });
   }
-  mapInstance.value = null;
-});
-
-defineExpose({
-  focusStation: (lon: number, lat: number, stationUid: string) => {
-    selectedStationUid.value = stationUid;
-    refreshStationIconExpression();
-    updateSelectedSource(lon, lat);
-    const map = mapInstance.value;
-    if (!map) return;
-    const options = { center: [lon, lat] as [number, number], zoom: Math.max(map.getZoom(), 14) };
-    if (prefersReducedMotion.value) map.jumpTo(options);
-    else map.easeTo({ ...options, duration: 500 });
-  },
-  getMap: () => mapInstance.value,
 });
 </script>
 
+<template>
+  <div class="relative w-full h-full isolate" style="isolation: isolate;">
+    <!-- Harita Tuvali -->
+    <div ref="mapContainer" class="w-full h-full isolate" style="isolation: isolate;" aria-label="İnteraktif Şarj İstasyonları Haritası" />
+
+    <!-- Yükleniyor Göstergesi -->
+    <div
+      v-if="loading"
+      class="absolute top-4 right-4 z-20 bg-bg-surface border border-border-default shadow-md px-3 py-1.5 rounded-full flex items-center gap-2 text-xs font-medium text-text-secondary pointer-events-none"
+    >
+      <RefreshCw class="w-3.5 h-3.5 animate-spin text-primary" />
+      <span>İstasyonlar güncelleniyor...</span>
+    </div>
+
+    <!-- Boş Durum Rozeti (Bölgede İstasyon Yok) -->
+    <div
+      v-if="!loading && !error && responseType === 'stations' && stations.length === 0"
+      class="absolute top-20 left-1/2 -translate-x-1/2 z-20 bg-bg-surface border border-border-default shadow-md px-4 py-2 rounded-full flex items-center gap-2 text-xs font-medium text-text-secondary"
+      role="status"
+    >
+      <Info class="w-4 h-4 text-text-muted" />
+      <span>Bu bölgede şarj istasyonu bulunamadı. Haritayı kaydırın.</span>
+    </div>
+
+    <!-- Hata Durumu Bandı -->
+    <div
+      v-if="error"
+      class="absolute bottom-20 left-1/2 -translate-x-1/2 z-20 bg-danger-subdued border border-danger/20 shadow-lg px-4 py-2 rounded-md flex items-center gap-2 text-xs font-medium text-danger"
+      role="alert"
+    >
+      <AlertCircle class="w-4 h-4" />
+      <span>{{ error }}</span>
+      <button
+        type="button"
+        @click="syncViewport"
+        class="ml-2 underline font-bold hover:text-danger-on-subdued"
+      >
+        Yeniden Dene
+      </button>
+    </div>
+
+    <!-- Konumuma Git FAB (Mobil & Masaüstü - TALEP-006) -->
+    <button
+      type="button"
+      @click="handleLocateMe"
+      :disabled="locationLoading"
+      class="absolute bottom-6 right-4 sm:right-6 z-20 w-12 h-12 rounded-full bg-bg-surface border border-border-default shadow-lg flex items-center justify-center text-primary hover:bg-bg-subdued active:scale-95 transition-all touch-target-min focus-visible:outline-none disabled:opacity-75 disabled:cursor-not-allowed"
+      title="Konumuma Git"
+      aria-label="Mevcut Konumuma Git"
+    >
+      <RefreshCw v-if="locationLoading" class="w-5 h-5 animate-spin text-primary" />
+      <Navigation v-else class="w-5 h-5 fill-current" />
+    </button>
+  </div>
+</template>
+
 <style scoped>
-.vector-map {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  min-height: 320px;
-  border-radius: var(--radius-none);
-  overflow: hidden;
+/* TALEP-008: Harita pinleri ve küme baloncuklarının z-index hiyerarşisini z-10 ile sınırlandırma */
+:deep(.maplibregl-marker) {
+  z-index: 10 !important;
 }
 
-.vector-map__canvas {
-  position: absolute;
-  inset: 0;
+:deep(.station-pin) {
+  z-index: 10 !important;
 }
 
-.vector-map__loading {
-  position: absolute;
-  top: var(--spacing-4);
-  right: var(--spacing-4);
-  z-index: 10;
+:deep(.station-pin.is-selected) {
+  z-index: 20 !important;
+}
+
+:deep(.cluster-marker) {
+  z-index: 10 !important;
+}
+
+/* TALEP-006 & TALEP-008: Kullanıcı anlık konumu nabız atan mavi nokta (harita kontrolleri altında z-15) */
+:deep(.user-location-marker) {
+  width: 48px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
+  pointer-events: none;
+  z-index: 15 !important;
 }
 
-.vector-map__spinner {
-  width: 24px;
-  height: 24px;
-  border-radius: var(--radius-full);
-  border: 3px solid var(--color-border-default);
-  border-top-color: var(--color-primary);
-  animation: vector-map-spin 0.8s linear infinite;
+:deep(.user-location-core) {
+  width: 16px;
+  height: 16px;
+  border-radius: 9999px;
+  background-color: var(--color-primary, #0066cc);
+  border: 2.5px solid #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(0, 102, 204, 0.2);
+}
+
+:deep(.user-location-aura) {
+  width: 32px;
+  height: 32px;
+  border-radius: 9999px;
+  background-color: var(--color-primary, #0066cc);
+  opacity: 0.2;
+}
+
+:deep(.user-location-pulse) {
+  width: 48px;
+  height: 48px;
+  border-radius: 9999px;
+  background-color: var(--color-primary, #0066cc);
+  opacity: 0.35;
+  animation: user-location-pulse 2.2s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+}
+
+@keyframes user-location-pulse {
+  0% {
+    transform: scale(0.33);
+    opacity: 0.9;
+  }
+  70% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .vector-map__spinner {
-    animation: none;
+  :deep(.user-location-pulse) {
+    animation: none !important;
+    transform: scale(1.2) !important;
+    opacity: 0.25 !important;
   }
-}
-
-@keyframes vector-map-spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.vector-map__empty-pill {
-  position: absolute;
-  top: var(--spacing-4);
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-2);
-  padding: var(--spacing-2) var(--spacing-4);
-  border-radius: var(--radius-full);
-  background: var(--color-bg-surface);
-  color: var(--color-text-secondary);
-  box-shadow: var(--shadow-md);
-  font: var(--text-body-sm, inherit);
-}
-
-.vector-map__error-card {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 10;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--spacing-3);
-  padding: var(--spacing-6);
-  border-radius: var(--radius-lg);
-  background: var(--color-bg-surface);
-  border: 1px solid var(--color-border-default);
-  box-shadow: var(--shadow-lg);
-}
-
-.vector-map__error-text {
-  color: var(--color-text-primary);
-}
-
-.vector-map__retry-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--spacing-2);
-  min-height: 44px;
-  padding: 0 var(--spacing-4);
-  border-radius: var(--radius-md);
-  background: var(--color-primary);
-  color: var(--color-on-primary);
-  border: none;
-  cursor: pointer;
-}
-
-.vector-map__retry-btn:hover {
-  background: var(--color-primary-hover);
-}
-
-.vector-map__retry-btn:focus-visible {
-  outline: 3px solid var(--color-focus-ring);
-  outline-offset: 2px;
-}
-
-.vector-map__location-fab {
-  position: absolute;
-  right: var(--spacing-4);
-  bottom: var(--spacing-4);
-  z-index: 10;
-  width: 48px;
-  height: 48px;
-  min-width: 48px;
-  min-height: 48px;
-  border-radius: var(--radius-full);
-  background: var(--color-bg-surface);
-  color: var(--color-primary);
-  border: none;
-  box-shadow: var(--shadow-lg);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
-.vector-map__location-fab:focus-visible {
-  outline: 3px solid var(--color-focus-ring);
-  outline-offset: 2px;
-}
-
-/* SCR-01: Konum FAB yalnızca mobil kırılım noktasında görünür. */
-@media (max-width: 639px) {
-  .vector-map__location-fab {
-    display: flex;
-  }
-}
-
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
 }
 </style>
