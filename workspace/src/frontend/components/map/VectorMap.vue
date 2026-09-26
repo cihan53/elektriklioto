@@ -242,7 +242,8 @@ const setupPinLayers = () => {
     data: emptyFeatureCollection(),
     cluster: true,
     clusterRadius: 48,
-    clusterMaxZoom: 15,
+    // Zoom > 11'de gruplama çözülür; gerçek pinler tek tek görünür.
+    clusterMaxZoom: 11,
   });
   map.addSource(SELECTED_SOURCE_ID, {
     type: 'geojson',
