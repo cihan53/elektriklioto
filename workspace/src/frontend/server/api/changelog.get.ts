@@ -1,3 +1,4 @@
+
 import { defineEventHandler, setHeader } from 'h3';
 import { readFileSync, existsSync } from 'node:fs';
 import { resolve } from 'node:path';
