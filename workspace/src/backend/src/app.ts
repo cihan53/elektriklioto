@@ -136,6 +136,15 @@ export async function buildApp(): Promise<FastifyInstance> {
     timestamp: new Date().toISOString(),
   }));
 
+  // TALEP-025: Canlı Sürüm ve Durum Bilgisi (Yalnızca genel sürüm ve yayın tarihi döner, dahili altyapı ve veritabanı motoru gizlenir)
+  app.get('/version', async () => ({
+    status: 'UP',
+    service: 'elektriklioto-api',
+    version: '1.0.0-faz1',
+    release_date: '2026-09-18',
+    timestamp: new Date().toISOString(),
+  }));
+
   // Modül Rotaları
   await app.register(routeBridgeRoutes);
   await app.register(stationRoutes, { prefix: '/api/v1/stations' });

@@ -85,3 +85,12 @@ export const CronTriggerResponseSchema = Type.Object({
   triggered_at: Type.String(),
   results: Type.Array(SyncResultItemSchema),
 });
+
+// TALEP-025: Canlı Sürüm Bilgisi Şeması (Hassas altyapı ve veritabanı detayları gizlenmiştir)
+export const HealthVersionResponseSchema = Type.Object({
+  status: Type.String(),
+  service: Type.String(),
+  version: Type.String(),
+  release_date: Type.String(),
+  timestamp: Type.String(),
+});

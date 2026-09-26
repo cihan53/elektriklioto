@@ -18,7 +18,20 @@ export const useOperators = () => {
       const list = Array.isArray(res) ? res : (res?.data || []);
       if (list && list.length > 0) {
         if (list.length >= 170) {
-          operators.value = list;
+          // TALEP-024: İstasyon sayılarını koru ve birleştir
+          const opMap = new Map<string, OperatorItem>();
+          for (const op of (defaultOperators as OperatorItem[])) {
+            opMap.set(op.slug, op);
+          }
+          for (const op of list) {
+            const existing = opMap.get(op.slug);
+            opMap.set(op.slug, {
+              ...existing,
+              ...op,
+              station_count: op.station_count ?? existing?.station_count ?? 0,
+            });
+          }
+          operators.value = Array.from(opMap.values());
         } else {
           // TALEP-023: Eksik veya parçalı API yanıtlarında EPDK 179 marka tabanını koru ve birleştir
           const opMap = new Map<string, OperatorItem>();
@@ -26,7 +39,12 @@ export const useOperators = () => {
             opMap.set(op.slug, op);
           }
           for (const op of list) {
-            opMap.set(op.slug, { ...opMap.get(op.slug), ...op });
+            const existing = opMap.get(op.slug);
+            opMap.set(op.slug, {
+              ...existing,
+              ...op,
+              station_count: op.station_count ?? existing?.station_count ?? 0,
+            });
           }
           operators.value = Array.from(opMap.values());
         }

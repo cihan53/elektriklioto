@@ -1,9 +1,9 @@
-# Studio Yetkilisi Çözüm Planı: TALEP-024
+# Studio Yetkilisi Çözüm Planı: TALEP-027
 
-> **Talep:** [TALEP-024] Operatör Menüsünde Arama ve 'Tüm Markalar' Alanının Sabitlenmesi ve İstasyon Sayılarının Gösterilmesi  
+> **Talep:** [TALEP-027] Haritada Yakınlaşınca İstasyon Pinlerinin Yapay Bir Dikdörtgen Blok Halinde Üst Üste Yığılması  
 > **Müşteri / Bildiren:** Proje Sahibi  
-> **Bildirim Tarihi:** 2026-09-26 10:30  
-> **Öncelik:** NORMAL | **Tür:** UX  
+> **Bildirim Tarihi:** 2026-09-26 11:59  
+> **Öncelik:** KRITIK | **Tür:** HATA  
 > **Koordinatör:** Studio Yetkilisi & Teknik Liderlik  
 > **Görevlendirilen Rol:** `web_engineer` (Kıdemli Web Frontend Mühendisi (Nuxt 3 & Vue))  
 > **Kategori Tespiti:** Otomatik (keyword analizi + AI destekli)  
@@ -15,9 +15,12 @@
 Müşteri (proje sahibi) denetimi sırasında aşağıdaki durumu tespit etti:
 
 > **Açıklama:**  
-> Harita üzerindeki 'Tüm Operatörler' menüsünü açıp markalar arasında gezinmek istediğimde, liste aşağı kaydırıldıkça arama çubuğu ve 'Tüm Markalar' seçeneği kayboluyor. Listeyi aşağı kaydırsam bile en üstteki arama kutusunun ve 'Tüm Markalar' seçeneğinin menünün tepesinde sabit (yapışkan) kalmasını istiyorum; böylece listeyi tekrar başa kaydırmak zorunda kalmadan her an arama yapabilir veya filtreyi sıfırlayabilirim. Ayrıca her bir markanın yanında kaç adet istasyonu olduğunun parantez veya rozet içinde yazması, operatörlerin yaygınlığını tek bakışta görüp seçim yapmamı çok kolaylaştıracaktır.
+> Harita üzerinde bir şehre (örneğin Ankara'ya) yakınlaştığımda (zoom yaptığımda), şarj istasyonları gerçek cadde ve tesis konumlarına yayılmak yerine haritanın merkezinde yapay ve yoğun bir dikdörtgen blok şeklinde üst üste yığılıyor. Yüzlerce istasyon pini iç içe geçerek altındaki haritayı tamamen kapatıyor ve hangi istasyonun nerede olduğunu seçmeyi imkansız hale getiriyor. Bu durum sadece tek bir bölgede değil, farklı yerlerde yakınlaşma yapıldığında da benzer biçimde yaşanıyor. Bir elektrikli araç kullanıcısı olarak istasyonların bu şekilde tek bir kutuya sıkışmadan gerçek konumlarında doğru şekilde gösterilmesini bekliyorum.
+> 
+> 📌 **Müşteri Ek Notu (Ortam & Regresyon Bilgisi):**  
+> Şu an canlı ortamda (`elektriklioto.com`) bu problem yaşanmıyor. Problem yalnızca **local test servisinde** görülüyor; yani son yapılan yerel güncellemeler veya mock/fallback veri/harita bileşeni değişiklikleri bu regresyona sebep olmuş olabilir. İncelemenin local branch diff'leri üzerinden yapılması önerilir.
 
-- **Etkilenen Ekran / URL:** `/`
+- **Etkilenen Ekran / URL:** `/harita`
 - **Hedef Bileşen Grubu:** Nuxt 3 Web Frontend & Harita Arayüzü
 
 ---
@@ -26,7 +29,7 @@ Müşteri (proje sahibi) denetimi sırasında aşağıdaki durumu tespit etti:
 
 **Devin Analizi:**
 
-İlgili bileşeni hızlıca inceleyeyim.
+Harita kodlarını inceleyip kök nedeni doğrulayacağım.
 
 **İlgili Dosyalar & Modüller:**
    - `workspace/src/frontend/components/`

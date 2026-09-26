@@ -1,4 +1,3 @@
-
 <script setup lang="ts">
 import { onMounted, onUnmounted } from 'vue';
 import {
@@ -7,6 +6,7 @@ import {
   ExternalLink
 } from 'lucide-vue-next';
 import ChangelogTimeline from '~/components/common/ChangelogTimeline.vue';
+import { useChangelog } from '~/composables/useChangelog';
 
 const props = defineProps<{
   isOpen: boolean;
@@ -15,6 +15,8 @@ const props = defineProps<{
 const emit = defineEmits<{
   (e: 'close'): void;
 }>();
+
+const { totalResolvedCount } = useChangelog();
 
 const isTeleportDisabled =
   import.meta.env?.MODE === 'test' ||
@@ -80,7 +82,7 @@ onUnmounted(() => {
                   Sürüm Notları & Güncellemeler
                 </h2>
                 <p class="text-xs text-text-secondary">
-                  Çözülen müşteri talepleri ve sürüm geçmişi (TALEP-001..TALEP-013)
+                  Çözülen müşteri talepleri ve sürüm geçmişi (TALEP-001..TALEP-013 ve TALEP-014..TALEP-026 — {{ totalResolvedCount }} Talep Çözüldü)
                 </p>
               </div>
             </div>

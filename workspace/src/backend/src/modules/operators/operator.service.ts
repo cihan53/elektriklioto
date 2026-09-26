@@ -10,6 +10,7 @@ export interface OperatorDto {
   slug: string;
   name: string;
   is_active: boolean;
+  station_count?: number;
   deep_link_config?: {
     scheme?: string;
     android_package?: string;
@@ -19,11 +20,11 @@ export interface OperatorDto {
 }
 
 const DEFAULT_OPERATORS: OperatorDto[] = [
-  { id: 1, slug: 'zes', name: 'ZES', is_active: true, deep_link_config: { scheme: 'zes://station/{station_code}' } },
-  { id: 2, slug: 'trugo', name: 'Trugo', is_active: true, deep_link_config: { scheme: 'trugo://charge?station={station_code}' } },
-  { id: 3, slug: 'esarj', name: 'Eşarj', is_active: true, deep_link_config: { scheme: 'esarj://station/{station_code}' } },
-  { id: 4, slug: 'voltrun', name: 'Voltrun', is_active: true, deep_link_config: null },
-  { id: 5, slug: 'sharznet', name: 'Sharz.net', is_active: true, deep_link_config: null },
+  { id: 1, slug: 'zes', name: 'ZES', is_active: true, station_count: 1940, deep_link_config: { scheme: 'zes://station/{station_code}' } },
+  { id: 2, slug: 'trugo', name: 'Trugo', is_active: true, station_count: 1376, deep_link_config: { scheme: 'trugo://charge?station={station_code}' } },
+  { id: 3, slug: 'esarj', name: 'Eşarj', is_active: true, station_count: 763, deep_link_config: { scheme: 'esarj://station/{station_code}' } },
+  { id: 4, slug: 'voltrun', name: 'Voltrun', is_active: true, station_count: 1147, deep_link_config: null },
+  { id: 5, slug: 'sharznet', name: 'Sharz.net', is_active: true, station_count: 200, deep_link_config: null },
 ];
 
 export class OperatorService {
