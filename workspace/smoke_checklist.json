@@ -1,0 +1,32 @@
+{
+  "_aciklama": "Deterministik smoke checklist — kalite_kapilari.py tarafından okunur. canli.sh çalışır durumdayken doğrular. LLM kullanılmaz.",
+  "checks": [
+    {
+      "name": "Web arayüzü SSR HTML sunumu (Nuxt:3000)",
+      "type": "http",
+      "url": "http://127.0.0.1:3000/",
+      "status": 200,
+      "contains": "<html"
+    },
+    {
+      "name": "Backend sağlık ucu direkt (Fastify:3001)",
+      "type": "http",
+      "url": "http://127.0.0.1:3001/api/v1/health/sources",
+      "status": 200
+    },
+    {
+      "name": "API proxy eşliği: operators frontend origin üzerinden (dev/prod parity)",
+      "type": "http",
+      "url": "http://127.0.0.1:3000/api/v1/operators",
+      "status": 200,
+      "json_type": "list"
+    },
+    {
+      "name": "API proxy eşliği: stations bbox frontend origin üzerinden",
+      "type": "http",
+      "url": "http://127.0.0.1:3000/api/v1/stations?bbox=19.06637,34.54555,46.65303,44.92832&zoom=6",
+      "status": 200,
+      "json_type": "dict"
+    }
+  ]
+}

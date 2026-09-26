@@ -202,7 +202,13 @@ describe('Ziyaretçi Ekran ve Gezinim Denetimi (Visitor Screen Audit Suite)', ()
     expect(opDropdownBtn.text()).toContain('Tüm Operatörler');
 
     await opDropdownBtn.trigger('click');
-    expect(wrapper.find('[role="listbox"]').exists()).toBe(true);
+    const listbox = wrapper.find('[role="listbox"]');
+    expect(listbox.exists()).toBe(true);
+
+    // TALEP-007 Regresyon Koruması: Dropdown, overflow-x-auto çip şeridinin
+    // İÇİNDE olmamalı — aksi halde CSS overflow hesaplaması menüyü dikey
+    // kırpar ve kullanıcı boş/görünmez bir menü görür.
+    expect(listbox.element.closest('.overflow-x-auto, .overflow-x-scroll, .overflow-auto')).toBeNull();
 
     // 2. Halka Açık Filtresi
     const publicBtn = wrapper.find('button[aria-label="Halka Açık İstasyonları Filtrele"]');
