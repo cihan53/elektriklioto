@@ -98,6 +98,16 @@ adımlarla yürütülür — doğrudan `master`'a çalışılmaz:
 
 - DB'siz çalışmada backend `DEFAULT_OPERATORS` (5 operatör) ve hafızadaki
   istasyon fallback'i ile çalışır; tam liste PostGIS + seed gerektirir.
-- `studio_engine.py` proje-özeldir (sync edilmez); `scripts/kalite_kapilari.py`
-  ise framework dosyasıdır ve `sync_studio.sh` ile studio reposu arasında
-  iki yönlü senkronize edilir.
+- `studio_engine.py`, `basla.sh` ve diğer `studio.version` tracked dosyaları
+  framework dosyasıdır — proje-özel farklar `STUDIO:CUSTOM` bloklarıyla
+  korunur; `sync_studio.sh` / `studio_updater.py` ile senkronize edilir.
+
+## Çalışma Alanı (workspace/) Kuralı
+
+Projeye ait tüm üretilen dosyalar ve runtime artefaktları `workspace/` altında
+durur: `workspace/studio.db` (tek doğruluk kaynağı), `workspace/logs/`
+(pipeline.log vb.), `workspace/.trace/`, `workspace/.control/`,
+`workspace/docs/`, `workspace/src/`. Repo kökünde geçici/runtime dosyası
+bırakılmaz. Kökte `studio.db` bulunursa `studio_board.db_conn()` ilk
+bağlantıda `workspace/` altına otomatik taşır. `.studio-version` kökteki
+provensans dosyasıdır (hangi framework sürümü kurulu) ve commit'lenir.
