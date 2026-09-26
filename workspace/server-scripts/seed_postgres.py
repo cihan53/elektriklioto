@@ -71,6 +71,7 @@ def generate_seed_sql() -> Path:
 
     seen_slugs = set()
     seen_nos = set()
+    seen_ids = set()
     inserted_stations = 0
     connector_lines = []
 
@@ -81,6 +82,12 @@ def generate_seed_sql() -> Path:
             uuid.UUID(str(ist_id))
         except Exception:
             ist_id = str(uuid.uuid4())
+
+        # Kaynak veride aynı UUID birden fazla kayıtta görünebiliyor
+        # (ör. EPDK birleşimi); PK çakışmasını önlemek için dedupe et.
+        if ist_id in seen_ids:
+            ist_id = str(uuid.uuid4())
+        seen_ids.add(ist_id)
 
         ist_no = str(s.get("istasyon_no") or f"IST-{idx+1}").strip()
         slug = str(s.get("slug") or f"istasyon-{idx+1}").strip()
