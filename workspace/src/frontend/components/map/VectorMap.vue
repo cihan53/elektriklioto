@@ -9,7 +9,6 @@ import { Navigation, AlertCircle, RefreshCw, Info } from 'lucide-vue-next';
 import {
   STATIONS_SOURCE_ID,
   STATION_POINTS_SOURCE_ID,
-  SELECTED_SOURCE_ID,
   CLUSTER_CIRCLE_LAYER_ID,
   CLUSTER_PULSE_LAYER_ID,
   CLUSTER_COUNT_LAYER_ID,
@@ -18,7 +17,6 @@ import {
   CLUSTER_COUNT_POINTS_LAYER_ID,
   STATIONS_ICON_LAYER_ID,
   STATION_LETTER_LAYER_ID,
-  SELECTED_RING_LAYER_ID,
   buildClusterCirclePaint,
   buildClusterPulsePaint,
   buildClusterCountLayout,
@@ -26,10 +24,8 @@ import {
   buildStationsIconLayout,
   buildStationLetterLayout,
   buildStationLetterPaint,
-  buildSelectedRingPaint,
   registerStationPinImages,
   emptyFeatureCollection,
-  toSelectedFeatureCollection,
   type PaletteTheme,
 } from './mapPinLayers';
 import type { StationItem, ClusterItem } from '~/types/station';
@@ -209,16 +205,10 @@ const renderMapMarkers = () => {
   });
 };
 
-// Seçili istasyon halkası + seçili pin varyantı (veri değişiminden bağımsız).
+// Seçili istasyon pin varyantı (veri değişiminden bağımsız).
 const renderSelection = () => {
   if (!map || !mapReady) return;
   const st = selectedStation.value;
-  (map.getSource(SELECTED_SOURCE_ID) as GeoJSONSource | undefined)?.setData(
-    toSelectedFeatureCollection(
-      st && isValidTrCoord(st.lon, st.lat) ? Number(st.lon) : null,
-      st && isValidTrCoord(st.lon, st.lat) ? Number(st.lat) : null,
-    ),
-  );
   map.setLayoutProperty(
     STATIONS_ICON_LAYER_ID,
     'icon-image',
@@ -245,10 +235,8 @@ const setupPinLayers = () => {
     // Zoom > 11'de gruplama çözülür; gerçek pinler tek tek görünür.
     clusterMaxZoom: 11,
   });
-  map.addSource(SELECTED_SOURCE_ID, {
-    type: 'geojson',
-    data: emptyFeatureCollection(),
-  });
+
+
 
   registerStationPinImages(map);
 
@@ -282,12 +270,6 @@ const setupPinLayers = () => {
       paint: buildClusterCountPaint(theme),
     });
   }
-  map.addLayer({
-    id: SELECTED_RING_LAYER_ID,
-    type: 'circle',
-    source: SELECTED_SOURCE_ID,
-    paint: buildSelectedRingPaint(),
-  });
   map.addLayer({
     id: STATIONS_ICON_LAYER_ID,
     type: 'symbol',
