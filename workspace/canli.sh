@@ -5,10 +5,15 @@
 # ==============================================================================
 
 set -e
-ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-BACKEND_DIR="$ROOT_DIR/workspace/src/backend"
-FRONTEND_DIR="$ROOT_DIR/workspace/src/frontend"
-INFRA_DIR="$ROOT_DIR/workspace/infra"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+if [ -d "$SCRIPT_DIR/src/backend" ]; then
+  WORKSPACE_DIR="$SCRIPT_DIR"
+else
+  WORKSPACE_DIR="$SCRIPT_DIR/workspace"
+fi
+BACKEND_DIR="$WORKSPACE_DIR/src/backend"
+FRONTEND_DIR="$WORKSPACE_DIR/src/frontend"
+INFRA_DIR="$WORKSPACE_DIR/infra"
 
 # Renkler
 GREEN='\033[0;32m'

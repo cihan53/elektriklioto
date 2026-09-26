@@ -80,20 +80,25 @@ jobs:
       - name: Package Deployment Archive
         run: |
           echo "==> Dağıtım arşivi paketleniyor..."
-          tar -czf deploy_package.tar.gz \
-            cpanel_api_entry.cjs \
-            cpanel_nuxt_entry.cjs \
-            .htaccess \
-            .env.cpanel.example \
-            curl_input.txt \
-            voltrun_stations.json \
-            zes_stations.json \
-            server-scripts/ \
-            workspace/src/backend/dist \
-            workspace/src/backend/src/data \
-            workspace/src/backend/node_modules \
-            workspace/src/backend/package.json \
-            workspace/src/frontend/.output
+          mkdir -p .deploy_stage
+          cp workspace/cpanel/cpanel_api_entry.cjs .deploy_stage/
+          cp workspace/cpanel/cpanel_nuxt_entry.cjs .deploy_stage/
+          cp workspace/cpanel/.htaccess .deploy_stage/
+          cp workspace/cpanel/.env.cpanel.example .deploy_stage/
+          cp workspace/data/curl_input.txt .deploy_stage/ 2>/dev/null || true
+          cp workspace/data/voltrun_stations.json .deploy_stage/ 2>/dev/null || true
+          cp workspace/data/zes_stations.json .deploy_stage/ 2>/dev/null || true
+          cp -r workspace/server-scripts .deploy_stage/
+          mkdir -p .deploy_stage/workspace/src/backend
+          cp -r workspace/src/backend/dist .deploy_stage/workspace/src/backend/
+          cp -r workspace/src/backend/src/data .deploy_stage/workspace/src/backend/src/ 2>/dev/null || true
+          cp -r workspace/src/backend/node_modules .deploy_stage/workspace/src/backend/
+          cp workspace/src/backend/package.json .deploy_stage/workspace/src/backend/
+          mkdir -p .deploy_stage/workspace/src/frontend
+          cp -r workspace/src/frontend/.output .deploy_stage/workspace/src/frontend/
+
+          tar -czf deploy_package.tar.gz -C .deploy_stage .
+          rm -rf .deploy_stage
 
       - name: Transfer Archive to cPanel via SCP
         uses: appleboy/scp-action@v0.1.7

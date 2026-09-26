@@ -620,6 +620,8 @@ def load_json_dataset(candidate_names, remote_urls=None):
     """
     search_dirs = [
         ROOT,
+        ROOT / "workspace/data",
+        ROOT / "workspace/server-scripts",
         ROOT / "server-scripts",
         ROOT / "scripts",
         ROOT / "data",
@@ -724,8 +726,11 @@ def main():
 
     # 1. curl_input.txt dosyasını ara ve yükle (Çoklu Kaynak Formatı)
     curl_input_candidates = [
+        ROOT / "workspace/data/curl_input.txt",
+        ROOT / "workspace/server-scripts/curl_input.txt",
         ROOT / "curl_input.txt",
         Path.cwd() / "curl_input.txt",
+        Path.cwd() / "workspace/data/curl_input.txt",
         ROOT / "server-scripts/curl_input.txt",
         Path(__file__).resolve().parent / "curl_input.txt"
     ]

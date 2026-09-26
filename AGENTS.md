@@ -37,7 +37,7 @@ Nitro devProxy eşleşen prefix'i kırpar — hedefe `/api/v1` yazılmasının s
 
 ```bash
 # Canlı ortam
-./canli.sh                        # backend:3001 + frontend:3000
+./workspace/canli.sh              # backend:3001 + frontend:3000
 
 # Smoke checklist (LLM'siz, deterministik)
 python3 scripts/kalite_kapilari.py smoke        # workspace/smoke_checklist.json
