@@ -39,6 +39,7 @@ export const CLUSTER_CIRCLE_POINTS_LAYER_ID = "clusters-circle-pts";
 export const CLUSTER_PULSE_POINTS_LAYER_ID = "clusters-pulse-pts";
 export const CLUSTER_COUNT_POINTS_LAYER_ID = "clusters-count-pts";
 export const STATIONS_ICON_LAYER_ID = "stations-icon";
+export const STATION_LETTER_LAYER_ID = "stations-letter";
 export const SELECTED_RING_LAYER_ID = "selected-station-ring";
 
 export const STATION_PIN_ICON_ID = "station-pin";
@@ -261,12 +262,36 @@ export function buildStationsIconLayout(selectedId: string | null): maplibregl.S
   } as unknown as maplibregl.SymbolLayoutSpecification;
 }
 
+/**
+ * Operatör baş harfi: damla pinin başına (icon-anchor bottom → uç nokta
+ * alt kenarda) denk gelmesi için metin yukarı kaydırılır. prod DOM
+ * pinindeki beyaz harf görünümünün karşılığı.
+ */
+export function buildStationLetterLayout(): maplibregl.SymbolLayoutSpecification {
+  return {
+    "text-field": ["get", "op_letter"],
+    "text-font": ["Open Sans Bold", "Arial Unicode MS Bold"],
+    "text-size": 13,
+    "text-offset": [0, -1.85],
+    "text-allow-overlap": true,
+    "text-ignore-placement": true,
+  } as unknown as maplibregl.SymbolLayoutSpecification;
+}
+
+export function buildStationLetterPaint(): maplibregl.SymbolPaintSpecification {
+  return {
+    "text-color": "#FFFFFF",
+  } as unknown as maplibregl.SymbolPaintSpecification;
+}
+
 export function buildSelectedRingPaint(): maplibregl.CirclePaintSpecification {
   return {
-    "circle-radius": 26,
+    "circle-radius": 22,
     "circle-color": "transparent",
     "circle-stroke-width": 3,
     "circle-stroke-color": readDesignToken("--color-focus-ring", "#0066CC"),
+    // Halka damla pinin başını çevrelesin (uç noktası alt kenardadır)
+    "circle-translate": [0, -15],
   } as unknown as maplibregl.CirclePaintSpecification;
 }
 
@@ -294,17 +319,25 @@ function drawDropPinCanvas(fillColor: string): HTMLCanvasElement {
 
   ctx.clearRect(0, 0, width, height);
 
-  // Damla gövdesi: üstte daire, altta sivri uç.
+  // Yumuşak zemin gölgesi (prod DOM pinindeki shadow-md karşılığı)
+  ctx.save();
+  ctx.beginPath();
+  ctx.ellipse(centerX, height - 4, 14, 5, 0, 0, Math.PI * 2);
+  ctx.fillStyle = "rgba(0,0,0,0.28)";
+  ctx.fill();
+  ctx.restore();
+
+  // Damla gövdesi: üstte daire, altta sivri uç — beyaz dış kontur.
   ctx.beginPath();
   ctx.arc(centerX, circleCenterY, circleRadius, Math.PI, 0, false);
   ctx.lineTo(centerX + 5, height - 18);
   ctx.quadraticCurveTo(centerX, height - 4, centerX - 5, height - 18);
   ctx.closePath();
-
-  // 4px beyaz dış kontur (tasarim_sistemi.md §8.4: "beyaz dış kontur").
   ctx.fillStyle = "#FFFFFF";
   ctx.fill();
 
+  // İç dolgu: prod pinindeki gibi gövde tek renk (operatör harfi üstüne
+  // beyaz text katmanıyla basılır — iç beyaz daire YOKTUR).
   ctx.save();
   ctx.beginPath();
   ctx.arc(centerX, circleCenterY, circleRadius - 4, Math.PI, 0, false);
@@ -314,12 +347,6 @@ function drawDropPinCanvas(fillColor: string): HTMLCanvasElement {
   ctx.fillStyle = fillColor;
   ctx.fill();
   ctx.restore();
-
-  // İç boş beyaz daire (operatör logosu yerleşecek yer — bkz. yukarıdaki not).
-  ctx.beginPath();
-  ctx.arc(centerX, circleCenterY, circleRadius * 0.5, 0, Math.PI * 2);
-  ctx.fillStyle = "#FFFFFF";
-  ctx.fill();
 
   return canvas;
 }
