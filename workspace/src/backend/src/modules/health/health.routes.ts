@@ -13,10 +13,34 @@ import {
   SyncTriggerRequestSchema,
   SyncTriggerResponseSchema,
   CronTriggerResponseSchema,
+  HealthVersionResponseSchema,
 } from './health.schema.js';
 
 export const healthRoutes: FastifyPluginAsync = async (fastify) => {
   const app = fastify.withTypeProvider<TypeBoxTypeProvider>();
+
+  // Canlı Sürüm ve Durum Bilgisi (TALEP-025: Yalnızca genel sürüm ve yayın tarihi döner, dahili altyapı ve veritabanı motoru gizlenir)
+  app.get(
+    '/version',
+    {
+      schema: {
+        description: 'Genel platform sürümü ve yayın tarihini döner. Dahili altyapı ve veritabanı detayları gizlenmiştir.',
+        tags: ['Health'],
+        response: {
+          200: HealthVersionResponseSchema,
+        },
+      },
+    },
+    async () => {
+      return {
+        status: 'UP',
+        service: 'elektriklioto-api',
+        version: '1.0.0-faz1',
+        release_date: '2026-09-18',
+        timestamp: new Date().toISOString(),
+      };
+    }
+  );
 
   // CPO Veri Kaynakları Sağlık Durumu ve Tazelik Raporu (US-18)
   app.get(

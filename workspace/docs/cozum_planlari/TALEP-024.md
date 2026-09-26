@@ -26,7 +26,7 @@ Müşteri (proje sahibi) denetimi sırasında aşağıdaki durumu tespit etti:
 
 **Devin Analizi:**
 
-Önce ilgili kodu bulup analizi gerçek yapıya dayandırayım.
+İlgili kodu hızlıca bulup kök nedeni doğrulayayım.Operatör verisinde istasyon sayısı var mı kontrol edeyim.
 
 **İlgili Dosyalar & Modüller:**
    - `workspace/src/frontend/components/`

@@ -248,7 +248,7 @@ onUnmounted(() => {
                   <span>Canlı Çalışma Ortamı & Sürüm Bilgileri</span>
                 </div>
                 <p class="text-text-secondary text-xs leading-relaxed">
-                  elektriklioto.com üretim ortamında aktif olarak hizmet veren modüler monolit mimarisiyle çalışmaktadır.
+                  elektriklioto.com güncel ve kararlı sürümüyle elektrikli araç kullanıcılarına hizmet vermektedir.
                 </p>
               </div>
 
@@ -259,23 +259,16 @@ onUnmounted(() => {
                 </div>
 
                 <div class="p-3 rounded-lg border border-border-default bg-bg-surface">
-                  <span class="text-[11px] text-text-muted block">Build / Dağıtım Kimliği:</span>
-                  <span class="font-semibold text-xs text-text-primary">build 102 (2026-09-18)</span>
+                  <span class="text-[11px] text-text-muted block">Yayın Tarihi:</span>
+                  <span class="font-semibold text-xs text-text-primary">18 Eylül 2026 (build 102)</span>
                 </div>
 
                 <div class="p-3 rounded-lg border border-border-default bg-bg-surface">
-                  <span class="text-[11px] text-text-muted block">Frontend Çatısı:</span>
-                  <span class="font-semibold text-xs text-text-primary">Nuxt 3.15 / Vue 3 (SSR/SSG)</span>
-                </div>
-
-                <div class="p-3 rounded-lg border border-border-default bg-bg-surface">
-                  <span class="text-[11px] text-text-muted block">Backend Çatısı:</span>
-                  <span class="font-semibold text-xs text-text-primary">Node.js 22 / Fastify TypeScript</span>
-                </div>
-
-                <div class="p-3 rounded-lg border border-border-default bg-bg-surface">
-                  <span class="text-[11px] text-text-muted block">Veritabanı & Mekânsal Motor:</span>
-                  <span class="font-semibold text-xs text-text-primary">PostgreSQL 16 + PostGIS 3.4</span>
+                  <span class="text-[11px] text-text-muted block">Çalışma Durumu:</span>
+                  <span class="font-semibold text-xs text-success flex items-center gap-1.5 mt-0.5">
+                    <span class="w-2 h-2 rounded-full bg-success animate-pulse"></span>
+                    <span>Canlı / Tüm Servisler Aktif</span>
+                  </span>
                 </div>
 
                 <div class="p-3 rounded-lg border border-border-default bg-bg-surface">

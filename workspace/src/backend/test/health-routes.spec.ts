@@ -82,4 +82,24 @@ describe('S5: Health & Queue API Endpoints Testleri', () => {
       expect(raw).not.toContain(term);
     }
   });
+
+  it('TC-HEALTH-05: GET /api/v1/health/version hassas altyapı/veritabanı bilgisi sızdırmadan sürüm dönmelidir (TALEP-025)', async () => {
+    const response = await app.inject({
+      method: 'GET',
+      url: '/api/v1/health/version',
+    });
+
+    expect(response.statusCode).toBe(200);
+    const body = response.json();
+    expect(body.status).toBe('UP');
+    expect(body.version).toBe('1.0.0-faz1');
+    expect(body.release_date).toBeDefined();
+
+    // TALEP-025: Altyapı ve veritabanı detayları sızdırılmamalıdır
+    const raw = response.payload.toLowerCase();
+    const sensitive = ['postgres', 'postgis', 'fastify', 'node.js', 'drizzle', 'database_engine'];
+    for (const term of sensitive) {
+      expect(raw).not.toContain(term);
+    }
+  });
 });
