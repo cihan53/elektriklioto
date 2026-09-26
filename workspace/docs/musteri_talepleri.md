@@ -1,6 +1,6 @@
 # Digital Software Studio — Müşteri Denetim & Talep Havuzu
 
-> **Son Güncelleme:** 2026-09-26 13:44  
+> **Son Güncelleme:** 2026-09-26 16:01  
 > **Toplam Bildirim:** 28  
 
 Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda iletilen istek, hata ve geri bildirimleri içerir.
@@ -13,7 +13,7 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 |---|---|---|---|---|---|---|---|---|
 | **TALEP-028** | Hata / Bug | Kritik (P1) | ⏳ Beklemede | Google Arama Motorunda 'Standart Sayfa Olmadan Kopya' Uyarısı ve Sitenin İndekslenmemesi | `/` | `None` | [#37](https://github.com/cihan53/elektriklioto/issues/37) | — |
 | **TALEP-027** | Hata / Bug | Kritik (P1) | ⏳ Beklemede | Haritada Yakınlaşınca İstasyon Pinlerinin Yapay Bir Dikdörtgen Blok Halinde Üst Üste Yığılması | `/harita` | `None` | [#36](https://github.com/cihan53/elektriklioto/issues/36) | — |
-| **TALEP-026** | Hata / Bug | Yüksek (P2) | 🔨 Geliştiriliyor | Sürüm Notları ve Güncellemeler Ekranının Çözülen Taleplerle Senkronize Olmaması | `/guncellemeler` | `data_engineer` | [#34](https://github.com/cihan53/elektriklioto/issues/34) | — |
+| **TALEP-026** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | Sürüm Notları ve Güncellemeler Ekranının Çözülen Taleplerle Senkronize Olmaması | `/guncellemeler` | `data_engineer` | [#34](https://github.com/cihan53/elektriklioto/issues/34) | — |
 | **TALEP-025** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | Canlı Sürüm Bilgisi Ekranında Sistem Altyapısı ve Veritabanı Bilgilerinin Açıkça Gösterilmesinin Kaldırılması | `/hakkimizda` | `None` | [#33](https://github.com/cihan53/elektriklioto/issues/33) | — |
 | **TALEP-024** | Tasarım & Kullanıcı Deneyimi | Normal (P3) | ✅ Çözüldü | Operatör Menüsünde Arama ve 'Tüm Markalar' Alanının Sabitlenmesi ve İstasyon Sayılarının Gösterilmesi | `/` | `web_engineer` | [#32](https://github.com/cihan53/elektriklioto/issues/32) | — |
 | **TALEP-023** | Veri & İstasyon Tutarlılığı | Yüksek (P2) | ✅ Çözüldü | Haritada ve Operatör Filtresinde Yalnızca 5 Marka Listeleniyor, EPDK'daki Diğer Markalar Görünmüyor | `/` | `None` | [#31](https://github.com/cihan53/elektriklioto/issues/31) | — |
@@ -69,7 +69,7 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 Şu an canlı ortamda bu problem yaşanmıyor. Problem local test servisinde görülüyor. Dolayısıyla son yapılan güncellemelerden veya yerel test verisi/mocking değişikliklerinden kaynaklı bir regresyon olabilir.
 
 ---
-### [TALEP-026] Sürüm Notları ve Güncellemeler Ekranının Çözülen Taleplerle Senkronize Olmaması (🔨 Geliştiriliyor)
+### [TALEP-026] Sürüm Notları ve Güncellemeler Ekranının Çözülen Taleplerle Senkronize Olmaması (✅ Çözüldü)
 - **Bildirim Tarihi:** 2026-09-26 10:35
 - **Tür / Öncelik:** Hata / Bug / Yüksek (P2)
 - **İlgili Ekran / Sayfa:** `/guncellemeler`
@@ -80,7 +80,7 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 > Sitedeki 'Sürüm Notları & Güncellemeler' sayfasını incelediğimde, sistemde çözüldüğü belirtilen yeni geliştirmelerin veya kapatılan taleplerin bu ekrana yansımadığını ve listenin eski kaldığını gördüm. Kullanıcı olarak bir hata düzeltildiğinde veya yeni bir özellik eklendiğinde, sürüm günlüğü ekranında en güncel değişiklikleri ve yeni sürüm maddelerini anında görmek istiyorum. Çözülen işlerin sürüm notları listesine otomatik yansıması ve sayfanın güncel durumu yansıtması gerekiyor.
 
 **Studio Yetkilisi Notu:**
-> Sprint S22 panosuna eklendi (S22-T3 ve S22-T4). Görevli rol: data_engineer. Geliştirme başladı.
+> Görev S22-T4 başarıyla tamamlandı ve UAT testinden geçti.
 
 ---
 ### [TALEP-025] Canlı Sürüm Bilgisi Ekranında Sistem Altyapısı ve Veritabanı Bilgilerinin Açıkça Gösterilmesinin Kaldırılması (✅ Çözüldü)
