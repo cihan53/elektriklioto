@@ -24,3 +24,7 @@
 ## [S22-T2] — 2026-09-26 13:44
 
 - fix görevi tamamlandı ama değişen dosyalarda test yok (regresyon testi eksik) — dosyalar: workspace/docs/uat_kabul_raporu.md
+
+## [S22-T4] — 2026-09-26 16:01
+
+- fix görevi tamamlandı ama değişen dosyalarda test yok (regresyon testi eksik) — dosyalar: .studio-version, basla.sh, scripts/kalite_kapilari.py, scripts/migrate_to_sqlite.py, scripts/musteri_talepleri.py, scripts/recovery_sentinel.py, scripts/studio_updater.py, scripts/studio_yetkilisi.py
