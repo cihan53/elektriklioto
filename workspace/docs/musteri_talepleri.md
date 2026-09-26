@@ -1,7 +1,7 @@
 # Digital Software Studio — Müşteri Denetim & Talep Havuzu
 
-> **Son Güncelleme:** 2026-09-26 11:18  
-> **Toplam Bildirim:** 26  
+> **Son Güncelleme:** 2026-09-26 12:12  
+> **Toplam Bildirim:** 28  
 
 Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda iletilen istek, hata ve geri bildirimleri içerir.
 
@@ -11,6 +11,8 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 
 | ID | Tür | Öncelik | Durum | Başlık | Ekran / URL | İlgili Rol | GitHub Issue | Plan |
 |---|---|---|---|---|---|---|---|---|
+| **TALEP-028** | Hata / Bug | Kritik (P1) | ⏳ Beklemede | Google Arama Motorunda 'Standart Sayfa Olmadan Kopya' Uyarısı ve Sitenin İndekslenmemesi | `/` | `None` | [#37](https://github.com/cihan53/elektriklioto/issues/37) | — |
+| **TALEP-027** | Hata / Bug | Kritik (P1) | ⏳ Beklemede | Haritada Yakınlaşınca İstasyon Pinlerinin Yapay Bir Dikdörtgen Blok Halinde Üst Üste Yığılması | `/harita` | `None` | [#36](https://github.com/cihan53/elektriklioto/issues/36) | — |
 | **TALEP-026** | Hata / Bug | Yüksek (P2) | 🔨 Geliştiriliyor | Sürüm Notları ve Güncellemeler Ekranının Çözülen Taleplerle Senkronize Olmaması | `/guncellemeler` | `data_engineer` | [#34](https://github.com/cihan53/elektriklioto/issues/34) | — |
 | **TALEP-025** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | Canlı Sürüm Bilgisi Ekranında Sistem Altyapısı ve Veritabanı Bilgilerinin Açıkça Gösterilmesinin Kaldırılması | `/hakkimizda` | `None` | [#33](https://github.com/cihan53/elektriklioto/issues/33) | — |
 | **TALEP-024** | Tasarım & Kullanıcı Deneyimi | Normal (P3) | 🔨 Geliştiriliyor | Operatör Menüsünde Arama ve 'Tüm Markalar' Alanının Sabitlenmesi ve İstasyon Sayılarının Gösterilmesi | `/` | `web_engineer` | [#32](https://github.com/cihan53/elektriklioto/issues/32) | — |
@@ -42,6 +44,31 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 
 ## 2. Talep Detayları ve Geri Bildirim Notları
 
+### [TALEP-028] Google Arama Motorunda 'Standart Sayfa Olmadan Kopya' Uyarısı ve Sitenin İndekslenmemesi (⏳ Beklemede)
+- **Bildirim Tarihi:** 2026-09-26 12:11
+- **Tür / Öncelik:** Hata / Bug / Kritik (P1)
+- **İlgili Ekran / Sayfa:** `/`
+- **Görevli Rol:** `None`
+- 🐙 **GitHub Issue:** [#37](https://github.com/cihan53/elektriklioto/issues/37)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Google Arama Konsolu (Search Console) araçlarında sitemiz incelendiğinde 'Kullanıcı tarafından seçilen standart sayfa olmadan kopya' uyarısı çıktığı ve bu sebeple sitemizin Google arama sonuçlarında dizine eklenmeyip kullanıcılara sunulmadığı görülmektedir. Ziyaretçiler Google üzerinde arama yaptıklarında platformumuz listelenmemektedir. Arama motorlarının sitemizi kopya sayfa olarak görmesini engelleyecek resmi standart sayfa bildirimlerinin yapılması, adres yönlendirmelerinin netleştirilmesi ve platformun Google aramalarında sorunsuz şekilde listelenmesinin acilen sağlanması gerekiyor.
+
+---
+### [TALEP-027] Haritada Yakınlaşınca İstasyon Pinlerinin Yapay Bir Dikdörtgen Blok Halinde Üst Üste Yığılması (⏳ Beklemede)
+- **Bildirim Tarihi:** 2026-09-26 11:59
+- **Tür / Öncelik:** Hata / Bug / Kritik (P1)
+- **İlgili Ekran / Sayfa:** `/harita`
+- **Görevli Rol:** `None`
+- 🐙 **GitHub Issue:** [#36](https://github.com/cihan53/elektriklioto/issues/36)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Harita üzerinde bir şehre (örneğin Ankara'ya) yakınlaştığımda (zoom yaptığımda), şarj istasyonları gerçek cadde ve tesis konumlarına yayılmak yerine haritanın merkezinde yapay ve yoğun bir dikdörtgen blok şeklinde üst üste yığılıyor. Yüzlerce istasyon pini iç içe geçerek altındaki haritayı tamamen kapatıyor ve hangi istasyonun nerede olduğunu seçmeyi imkansız hale getiriyor. Bu durum sadece tek bir bölgede değil, farklı yerlerde yakınlaşma yapıldığında da benzer biçimde yaşanıyor. Bir elektrikli araç kullanıcısı olarak istasyonların bu şekilde tek bir kutuya sıkışmadan gerçek konumlarında doğru şekilde gösterilmesini bekliyorum.
+
+**Müşteri Ek Notu (Ortam & Regresyon Bilgisi):**
+Şu an canlı ortamda bu problem yaşanmıyor. Problem local test servisinde görülüyor. Dolayısıyla son yapılan güncellemelerden veya yerel test verisi/mocking değişikliklerinden kaynaklı bir regresyon olabilir.
+
+---
 ### [TALEP-026] Sürüm Notları ve Güncellemeler Ekranının Çözülen Taleplerle Senkronize Olmaması (🔨 Geliştiriliyor)
 - **Bildirim Tarihi:** 2026-09-26 10:35
 - **Tür / Öncelik:** Hata / Bug / Yüksek (P2)
