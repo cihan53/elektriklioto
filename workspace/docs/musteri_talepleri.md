@@ -1,7 +1,7 @@
 # Digital Software Studio — Müşteri Denetim & Talep Havuzu
 
-> **Son Güncelleme:** 2026-09-26 16:01  
-> **Toplam Bildirim:** 28  
+> **Son Güncelleme:** 2026-09-26 23:40  
+> **Toplam Bildirim:** 29  
 
 Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda iletilen istek, hata ve geri bildirimleri içerir.
 
@@ -11,6 +11,7 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 
 | ID | Tür | Öncelik | Durum | Başlık | Ekran / URL | İlgili Rol | GitHub Issue | Plan |
 |---|---|---|---|---|---|---|---|---|
+| **TALEP-029** | Hata / Bug | Normal (P3) | ⏳ Beklemede | Tüm Operatörler Menüsü Dış Alana Tıklandığında Kapanmıyor | `/` | `None` | [#41](https://github.com/cihan53/elektriklioto/issues/41) | — |
 | **TALEP-028** | Hata / Bug | Kritik (P1) | ⏳ Beklemede | Google Arama Motorunda 'Standart Sayfa Olmadan Kopya' Uyarısı ve Sitenin İndekslenmemesi | `/` | `None` | [#37](https://github.com/cihan53/elektriklioto/issues/37) | — |
 | **TALEP-027** | Hata / Bug | Kritik (P1) | ⏳ Beklemede | Haritada Yakınlaşınca İstasyon Pinlerinin Yapay Bir Dikdörtgen Blok Halinde Üst Üste Yığılması | `/harita` | `None` | [#36](https://github.com/cihan53/elektriklioto/issues/36) | — |
 | **TALEP-026** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | Sürüm Notları ve Güncellemeler Ekranının Çözülen Taleplerle Senkronize Olmaması | `/guncellemeler` | `data_engineer` | [#34](https://github.com/cihan53/elektriklioto/issues/34) | — |
@@ -44,6 +45,17 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 
 ## 2. Talep Detayları ve Geri Bildirim Notları
 
+### [TALEP-029] Tüm Operatörler Menüsü Dış Alana Tıklandığında Kapanmıyor (⏳ Beklemede)
+- **Bildirim Tarihi:** 2026-09-26 23:37
+- **Tür / Öncelik:** Hata / Bug / Normal (P3)
+- **İlgili Ekran / Sayfa:** `/`
+- **Görevli Rol:** `None`
+- 🐙 **GitHub Issue:** [#41](https://github.com/cihan53/elektriklioto/issues/41)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Kullanıcı arayüzdeki 'Tüm Operatörler' açılır menüsünü açtıktan sonra herhangi bir operatör seçmeden sayfanın boş bir alanına tıkladığında menünün kapanmadığını ve açık kalmaya devam ettiğini belirtmiştir. Beklenen davranış, menü dışındaki herhangi bir boş alana tıklandığında açılır listenin kendiliğinden kapanmasıdır.
+
+---
 ### [TALEP-028] Google Arama Motorunda 'Standart Sayfa Olmadan Kopya' Uyarısı ve Sitenin İndekslenmemesi (⏳ Beklemede)
 - **Bildirim Tarihi:** 2026-09-26 12:11
 - **Tür / Öncelik:** Hata / Bug / Kritik (P1)
