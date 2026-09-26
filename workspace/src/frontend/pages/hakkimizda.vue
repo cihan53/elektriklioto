@@ -118,7 +118,7 @@ useHead({
           <Server class="w-4 h-4" />
         </div>
         <h3 class="font-bold text-xs text-text-primary group-hover:text-primary transition-colors">Canlı Sürüm & Durum</h3>
-        <p class="text-[11px] text-text-secondary leading-normal">v1.0.0-faz1 sürümü, teknik altyapı ve mimari.</p>
+        <p class="text-[11px] text-text-secondary leading-normal">v1.0.0-faz1 sürümü ve yayın bilgileri.</p>
       </a>
     </div>
 
@@ -272,7 +272,7 @@ useHead({
     <section id="surum" class="bg-bg-surface border border-border-default rounded-xl p-6 sm:p-8 shadow-sm space-y-4">
       <div class="flex items-center gap-2 text-text-primary font-bold text-lg border-b border-border-default pb-3">
         <Server class="w-5 h-5 text-primary" />
-        <h2>Canlı Sürüm ve Sistem Mimarisi</h2>
+        <h2>Canlı Sürüm Bilgileri</h2>
       </div>
 
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
@@ -282,8 +282,8 @@ useHead({
         </div>
 
         <div class="p-3.5 rounded-lg bg-bg-subdued border border-border-default">
-          <span class="text-[11px] text-text-muted block">Build / Dağıtım:</span>
-          <span class="font-bold text-sm text-text-primary font-mono">build 102 (2026-09-17)</span>
+          <span class="text-[11px] text-text-muted block">Yayın Tarihi:</span>
+          <span class="font-bold text-sm text-text-primary font-mono">18 Eylül 2026</span>
         </div>
 
         <div class="p-3.5 rounded-lg bg-bg-subdued border border-border-default">
@@ -319,10 +319,7 @@ useHead({
 
       <div class="pt-2 text-xs text-text-secondary leading-relaxed space-y-1">
         <p>
-          <strong class="text-text-primary">Teknoloji Yığını:</strong> Nuxt 3.15 (SSR/SSG), Vue 3 Composition API, Fastify Node.js 22 REST API, PostgreSQL 16 + PostGIS 3.4 Mekânsal CBS Motoru.
-        </p>
-        <p>
-          <strong class="text-text-primary">Kanonik Alan Adı:</strong> <span class="font-mono text-primary">elektriklioto.com</span> (API: <span class="font-mono text-primary">api.elektriklioto.com</span>)
+          <strong class="text-text-primary">Kanonik Alan Adı:</strong> <span class="font-mono text-primary">elektriklioto.com</span>
         </p>
       </div>
     </section>

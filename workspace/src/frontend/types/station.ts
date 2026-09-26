@@ -11,6 +11,7 @@ export interface OperatorItem {
   logo_url?: string | null;
   website_url?: string | null;
   is_active: boolean;
+  station_count?: number;
   deep_link_config?: {
     scheme?: string | null;
     store_ios?: string | null;

@@ -1,7 +1,7 @@
 # Digital Software Studio — Müşteri Denetim & Talep Havuzu
 
-> **Son Güncelleme:** 2026-09-26 10:30  
-> **Toplam Bildirim:** 24  
+> **Son Güncelleme:** 2026-09-26 12:12  
+> **Toplam Bildirim:** 28  
 
 Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda iletilen istek, hata ve geri bildirimleri içerir.
 
@@ -11,8 +11,12 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 
 | ID | Tür | Öncelik | Durum | Başlık | Ekran / URL | İlgili Rol | GitHub Issue | Plan |
 |---|---|---|---|---|---|---|---|---|
-| **TALEP-024** | Tasarım & Kullanıcı Deneyimi | Normal (P3) | ⚖️ Değerlendirmede (Triage) | Operatör Menüsünde Arama ve 'Tüm Markalar' Alanının Sabitlenmesi ve İstasyon Sayılarının Gösterilmesi | `/` | `None` | [#32](https://github.com/cihan53/elektriklioto/issues/32) | — |
-| **TALEP-023** | Veri & İstasyon Tutarlılığı | Yüksek (P2) | ⏳ Beklemede | Haritada ve Operatör Filtresinde Yalnızca 5 Marka Listeleniyor, EPDK'daki Diğer Markalar Görünmüyor | `/` | `None` | [#31](https://github.com/cihan53/elektriklioto/issues/31) | — |
+| **TALEP-028** | Hata / Bug | Kritik (P1) | ⏳ Beklemede | Google Arama Motorunda 'Standart Sayfa Olmadan Kopya' Uyarısı ve Sitenin İndekslenmemesi | `/` | `None` | [#37](https://github.com/cihan53/elektriklioto/issues/37) | — |
+| **TALEP-027** | Hata / Bug | Kritik (P1) | ⏳ Beklemede | Haritada Yakınlaşınca İstasyon Pinlerinin Yapay Bir Dikdörtgen Blok Halinde Üst Üste Yığılması | `/harita` | `None` | [#36](https://github.com/cihan53/elektriklioto/issues/36) | — |
+| **TALEP-026** | Hata / Bug | Yüksek (P2) | 🔨 Geliştiriliyor | Sürüm Notları ve Güncellemeler Ekranının Çözülen Taleplerle Senkronize Olmaması | `/guncellemeler` | `data_engineer` | [#34](https://github.com/cihan53/elektriklioto/issues/34) | — |
+| **TALEP-025** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | Canlı Sürüm Bilgisi Ekranında Sistem Altyapısı ve Veritabanı Bilgilerinin Açıkça Gösterilmesinin Kaldırılması | `/hakkimizda` | `None` | [#33](https://github.com/cihan53/elektriklioto/issues/33) | — |
+| **TALEP-024** | Tasarım & Kullanıcı Deneyimi | Normal (P3) | 🔨 Geliştiriliyor | Operatör Menüsünde Arama ve 'Tüm Markalar' Alanının Sabitlenmesi ve İstasyon Sayılarının Gösterilmesi | `/` | `web_engineer` | [#32](https://github.com/cihan53/elektriklioto/issues/32) | — |
+| **TALEP-023** | Veri & İstasyon Tutarlılığı | Yüksek (P2) | ✅ Çözüldü | Haritada ve Operatör Filtresinde Yalnızca 5 Marka Listeleniyor, EPDK'daki Diğer Markalar Görünmüyor | `/` | `None` | [#31](https://github.com/cihan53/elektriklioto/issues/31) | — |
 | **TALEP-022** | Hata / Bug | Kritik (P1) | ✅ Çözüldü | Veritabanı tabloları boşaltıldığı halde haritada istasyonlar görünüyor | `/` | `None` | [#28](https://github.com/cihan53/elektriklioto/issues/28) | — |
 | **TALEP-021** | Yeni İstek / Özellik | Normal (P3) | ❌ İptal Edildi | Pano görevlerine öncelik alanı eklenmeli | `studio` | `None` | [#26](https://github.com/cihan53/elektriklioto/issues/26) | — |
 | **TALEP-020** | Veri & İstasyon Tutarlılığı | Yüksek (P2) | ✅ Çözüldü | Trugo ve diğer operatör istasyonları güncellenmiyor | `/` | `None` | [#25](https://github.com/cihan53/elektriklioto/issues/25) | — |
@@ -40,18 +44,74 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 
 ## 2. Talep Detayları ve Geri Bildirim Notları
 
-### [TALEP-024] Operatör Menüsünde Arama ve 'Tüm Markalar' Alanının Sabitlenmesi ve İstasyon Sayılarının Gösterilmesi (⚖️ Değerlendirmede (Triage))
+### [TALEP-028] Google Arama Motorunda 'Standart Sayfa Olmadan Kopya' Uyarısı ve Sitenin İndekslenmemesi (⏳ Beklemede)
+- **Bildirim Tarihi:** 2026-09-26 12:11
+- **Tür / Öncelik:** Hata / Bug / Kritik (P1)
+- **İlgili Ekran / Sayfa:** `/`
+- **Görevli Rol:** `None`
+- 🐙 **GitHub Issue:** [#37](https://github.com/cihan53/elektriklioto/issues/37)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Google Arama Konsolu (Search Console) araçlarında sitemiz incelendiğinde 'Kullanıcı tarafından seçilen standart sayfa olmadan kopya' uyarısı çıktığı ve bu sebeple sitemizin Google arama sonuçlarında dizine eklenmeyip kullanıcılara sunulmadığı görülmektedir. Ziyaretçiler Google üzerinde arama yaptıklarında platformumuz listelenmemektedir. Arama motorlarının sitemizi kopya sayfa olarak görmesini engelleyecek resmi standart sayfa bildirimlerinin yapılması, adres yönlendirmelerinin netleştirilmesi ve platformun Google aramalarında sorunsuz şekilde listelenmesinin acilen sağlanması gerekiyor.
+
+---
+### [TALEP-027] Haritada Yakınlaşınca İstasyon Pinlerinin Yapay Bir Dikdörtgen Blok Halinde Üst Üste Yığılması (⏳ Beklemede)
+- **Bildirim Tarihi:** 2026-09-26 11:59
+- **Tür / Öncelik:** Hata / Bug / Kritik (P1)
+- **İlgili Ekran / Sayfa:** `/harita`
+- **Görevli Rol:** `None`
+- 🐙 **GitHub Issue:** [#36](https://github.com/cihan53/elektriklioto/issues/36)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Harita üzerinde bir şehre (örneğin Ankara'ya) yakınlaştığımda (zoom yaptığımda), şarj istasyonları gerçek cadde ve tesis konumlarına yayılmak yerine haritanın merkezinde yapay ve yoğun bir dikdörtgen blok şeklinde üst üste yığılıyor. Yüzlerce istasyon pini iç içe geçerek altındaki haritayı tamamen kapatıyor ve hangi istasyonun nerede olduğunu seçmeyi imkansız hale getiriyor. Bu durum sadece tek bir bölgede değil, farklı yerlerde yakınlaşma yapıldığında da benzer biçimde yaşanıyor. Bir elektrikli araç kullanıcısı olarak istasyonların bu şekilde tek bir kutuya sıkışmadan gerçek konumlarında doğru şekilde gösterilmesini bekliyorum.
+
+**Müşteri Ek Notu (Ortam & Regresyon Bilgisi):**
+Şu an canlı ortamda bu problem yaşanmıyor. Problem local test servisinde görülüyor. Dolayısıyla son yapılan güncellemelerden veya yerel test verisi/mocking değişikliklerinden kaynaklı bir regresyon olabilir.
+
+---
+### [TALEP-026] Sürüm Notları ve Güncellemeler Ekranının Çözülen Taleplerle Senkronize Olmaması (🔨 Geliştiriliyor)
+- **Bildirim Tarihi:** 2026-09-26 10:35
+- **Tür / Öncelik:** Hata / Bug / Yüksek (P2)
+- **İlgili Ekran / Sayfa:** `/guncellemeler`
+- **Görevli Rol:** `data_engineer`
+- 🐙 **GitHub Issue:** [#34](https://github.com/cihan53/elektriklioto/issues/34)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Sitedeki 'Sürüm Notları & Güncellemeler' sayfasını incelediğimde, sistemde çözüldüğü belirtilen yeni geliştirmelerin veya kapatılan taleplerin bu ekrana yansımadığını ve listenin eski kaldığını gördüm. Kullanıcı olarak bir hata düzeltildiğinde veya yeni bir özellik eklendiğinde, sürüm günlüğü ekranında en güncel değişiklikleri ve yeni sürüm maddelerini anında görmek istiyorum. Çözülen işlerin sürüm notları listesine otomatik yansıması ve sayfanın güncel durumu yansıtması gerekiyor.
+
+**Studio Yetkilisi Notu:**
+> Sprint S22 panosuna eklendi (S22-T3 ve S22-T4). Görevli rol: data_engineer. Geliştirme başladı.
+
+---
+### [TALEP-025] Canlı Sürüm Bilgisi Ekranında Sistem Altyapısı ve Veritabanı Bilgilerinin Açıkça Gösterilmesinin Kaldırılması (✅ Çözüldü)
+- **Bildirim Tarihi:** 2026-09-26 10:34
+- **Tür / Öncelik:** Hata / Bug / Yüksek (P2)
+- **İlgili Ekran / Sayfa:** `/hakkimizda`
+- **Görevli Rol:** `None`
+- 🐙 **GitHub Issue:** [#33](https://github.com/cihan53/elektriklioto/issues/33)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Sitedeki 'Canlı Sürüm Bilgileri' ve 'Hakkında' alanını incelediğimde, herkese açık şekilde sistemin kullandığı altyapı çatısı ve veritabanı motoru gibi dahili teknik bilgilerin listelendiğini fark ettim. Bu tür iç mimari ve sistem detaylarının doğrudan ziyaretçilere gösterilmesi sistem güvenliği açısından zafiyet ve risk teşkil edebilir. Sıradan bir ziyaretçi veya araç sahibinin yalnızca genel sürüm numarası ve yayın tarihini görmesi yeterlidir; kullanılan teknoloji çatısı ve veritabanı türü gibi hassas altyapı detaylarının bu ekrandan tamamen kaldırılmasını talep ediyorum.
+
+**Studio Yetkilisi Notu:**
+> Görev S21-T2 başarıyla tamamlandı ve UAT testinden geçti.
+
+---
+### [TALEP-024] Operatör Menüsünde Arama ve 'Tüm Markalar' Alanının Sabitlenmesi ve İstasyon Sayılarının Gösterilmesi (🔨 Geliştiriliyor)
 - **Bildirim Tarihi:** 2026-09-26 10:30
 - **Tür / Öncelik:** Tasarım & Kullanıcı Deneyimi / Normal (P3)
 - **İlgili Ekran / Sayfa:** `/`
-- **Görevli Rol:** `None`
+- **Görevli Rol:** `web_engineer`
 - 🐙 **GitHub Issue:** [#32](https://github.com/cihan53/elektriklioto/issues/32)
 
 **Müşteri Açıklaması / Hata Adımları:**
 > Harita üzerindeki 'Tüm Operatörler' menüsünü açıp markalar arasında gezinmek istediğimde, liste aşağı kaydırıldıkça arama çubuğu ve 'Tüm Markalar' seçeneği kayboluyor. Listeyi aşağı kaydırsam bile en üstteki arama kutusunun ve 'Tüm Markalar' seçeneğinin menünün tepesinde sabit (yapışkan) kalmasını istiyorum; böylece listeyi tekrar başa kaydırmak zorunda kalmadan her an arama yapabilir veya filtreyi sıfırlayabilirim. Ayrıca her bir markanın yanında kaç adet istasyonu olduğunun parantez veya rozet içinde yazması, operatörlerin yaygınlığını tek bakışta görüp seçim yapmamı çok kolaylaştıracaktır.
 
+**Studio Yetkilisi Notu:**
+> Sprint S22 panosuna eklendi (S22-T1 ve S22-T2). Görevli rol: web_engineer. Geliştirme başladı.
+
 ---
-### [TALEP-023] Haritada ve Operatör Filtresinde Yalnızca 5 Marka Listeleniyor, EPDK'daki Diğer Markalar Görünmüyor (⏳ Beklemede)
+### [TALEP-023] Haritada ve Operatör Filtresinde Yalnızca 5 Marka Listeleniyor, EPDK'daki Diğer Markalar Görünmüyor (✅ Çözüldü)
 - **Bildirim Tarihi:** 2026-09-26 10:05
 - **Tür / Öncelik:** Veri & İstasyon Tutarlılığı / Yüksek (P2)
 - **İlgili Ekran / Sayfa:** `/`
@@ -60,6 +120,9 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 
 **Müşteri Açıklaması / Hata Adımları:**
 > Harita ekranını açıp 'Tüm Operatörler' açılır menüsüne tıkladığımda yalnızca 5 adet şarj firması listeleniyor. Oysa EPDK resmi kayıtlarında 170'ten fazla lisanslı şarj ağı markası bulunuyor. Kendi aracımı şarj ettiğim diğer markaları listede bulamıyorum ve haritada bu markalara göre filtreleme yapamıyorum. Sistemde diğer markaların verileri eksik mi işleniyor yoksa filtre listesine mi eklenmedi? Bir elektrikli araç kullanıcısı olarak Türkiye genelindeki tüm lisanslı şarj markalarını listede görüp istasyonlarını haritada filtreleyebilmek istiyorum.
+
+**Studio Yetkilisi Notu:**
+> Görev S20-T2 başarıyla tamamlandı ve UAT testinden geçti.
 
 ---
 ### [TALEP-022] Veritabanı tabloları boşaltıldığı halde haritada istasyonlar görünüyor (✅ Çözüldü)

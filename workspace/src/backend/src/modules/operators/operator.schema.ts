@@ -6,6 +6,7 @@ export const OperatorSchema = Type.Object({
   slug: Type.String(),
   name: Type.String(),
   is_active: Type.Boolean(),
+  station_count: Type.Optional(Type.Integer()),
   deep_link_config: Type.Optional(
     Type.Union([
       Type.Object({

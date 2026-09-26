@@ -1,0 +1,363 @@
+{
+  "version": "v1.4.0",
+  "buildId": "build 125",
+  "date": "26 Eylül 2026",
+  "releases": [
+    {
+      "version": "v1.4.0",
+      "buildId": "build 125",
+      "date": "26 Eylül 2026",
+      "isLatest": true,
+      "summary": "Saha İyileştirmeleri & Dinamik Senkronizasyon: 170+ operatör marka filtresi, sistem güvenliği için altyapı gizleme ve sürüm notlarının çözülen taleplerle otomatik senkronizasyonu.",
+      "items": [
+        {
+          "id": "TALEP-026",
+          "title": "Sürüm Notları ve Güncellemeler Ekranının Çözülen Taleplerle Senkronize Olması",
+          "category": "bug",
+          "categoryLabel": "Hata Düzeltme",
+          "scope": "/guncellemeler & useChangelog.ts",
+          "description": "Çözülen müşteri talepleri ve yeni geliştirmelerin sürüm günlüğü ekranına anında ve otomatik yansıması sağlandı. Çözülen talepler API/JSON üzerinden dinamik senkronize ediliyor.",
+          "status": "COZULDU",
+          "githubIssueNumber": 34,
+          "date": "2026-09-26"
+        },
+        {
+          "id": "TALEP-025",
+          "title": "Canlı Sürüm Bilgisi Ekranında Sistem Altyapısı ve Veritabanı Bilgilerinin Kaldırılması",
+          "category": "bug",
+          "categoryLabel": "Hata Düzeltme",
+          "scope": "/hakkimizda & AboutModal.vue",
+          "description": "Sistem güvenliği gereği Canlı Sürüm ve Hakkında ekranlarından dahili teknoloji çatısı ve veritabanı motoru bilgileri kaldırıldı, yalnızca genel sürüm ve yayın tarihi bırakıldı.",
+          "status": "COZULDU",
+          "githubIssueNumber": 33,
+          "date": "2026-09-26"
+        },
+        {
+          "id": "TALEP-024",
+          "title": "Operatör Menüsünde Sabit Arama, Tüm Markalar ve İstasyon Sayıları",
+          "category": "ux",
+          "categoryLabel": "UX İyileştirme",
+          "scope": "components/map/FilterChips.vue",
+          "description": "Operatör seçim menüsünde liste kaydırılsa dahi arama kutusu ve Tüm Markalar seçeneğinin menü tepesinde sabit (sticky) kalması sağlandı. Ayrıca her bir operatörün yanında istasyon sayısı rozeti gösteriliyor.",
+          "status": "COZULDU",
+          "githubIssueNumber": 32,
+          "date": "2026-09-26"
+        },
+        {
+          "id": "TALEP-023",
+          "title": "Haritada ve Operatör Filtresinde EPDK Lisanslı Tüm Markaların Listelenmesi",
+          "category": "data",
+          "categoryLabel": "Veri & Altyapı",
+          "scope": "components/map/FilterChips.vue",
+          "description": "Operatör filtresinde yalnızca 5 marka yerine EPDK resmi sicilindeki 170+ lisanslı şarj ağı markasının tamamının aranabilmesi ve haritada filtrelenebilmesi sağlandı.",
+          "status": "COZULDU",
+          "githubIssueNumber": 31,
+          "date": "2026-09-26"
+        }
+      ]
+    },
+    {
+      "version": "v1.3.0",
+      "buildId": "build 118",
+      "date": "24 Eylül 2026",
+      "isLatest": false,
+      "summary": "EPDK Ana Referans Mimarisi & Veri Bütünlüğü: Tüm Türkiye şarj ağının ana omurgası olarak EPDK verisi belirlendi, operatör zenginleştirmesi yapıldı ve mock fallback kaldırıldı.",
+      "items": [
+        {
+          "id": "TALEP-022",
+          "title": "Veritabanı tabloları boşaltıldığında mock verinin kaldırılması ve veri tekliği",
+          "category": "bug",
+          "categoryLabel": "Hata Düzeltme",
+          "scope": "station.service.ts & Backend API",
+          "description": "Veritabanı tabloları boşaltıldığında arayüzde sahte/mock istasyon görünmesi engellendi; veritabanı tek doğruluk kaynağı (single source of truth) haline getirildi.",
+          "status": "COZULDU",
+          "githubIssueNumber": 28,
+          "date": "2026-09-24"
+        },
+        {
+          "id": "TALEP-020",
+          "title": "Trugo ve diğer operatör istasyonlarının senkronizasyon düzeltmesi",
+          "category": "data",
+          "categoryLabel": "Veri & Altyapı",
+          "scope": "Backend Aggregator & Sync Worker",
+          "description": "Günlük senkronizasyon verilerinin veritabanına eksiksiz işlenmesi sağlandı; Trugo ve diğer lisanslı operatör istasyonları haritaya yansıtıldı.",
+          "status": "COZULDU",
+          "githubIssueNumber": 25,
+          "date": "2026-09-24"
+        },
+        {
+          "id": "TALEP-019",
+          "title": "EPDK Ana Referans Mimarisine Geçiş ve Trugo/CPO Zenginleştirmesi",
+          "category": "data",
+          "categoryLabel": "Veri & Altyapı",
+          "scope": "epdk_scraper.py & cpo_stations.json",
+          "description": "EPDK şarj istasyonları veri seti ana referans omurgası yapılarak tüm lisanslı operatörler haritaya kazandırıldı, Voltrun ve ZES ile kesin GPS ve soket bilgileri zenginleştirildi.",
+          "status": "COZULDU",
+          "githubIssueNumber": 20,
+          "date": "2026-09-24"
+        }
+      ]
+    },
+    {
+      "version": "v1.2.0",
+      "buildId": "build 112",
+      "date": "23 Eylül 2026",
+      "isLatest": false,
+      "summary": "Canlı Kaynak & Multi-Source Scraper Entegrasyonu: EPDK ve Voltrun verilerinin canlı kaynaklardan çekilmesi ve deploy paket kalkanı.",
+      "items": [
+        {
+          "id": "TALEP-018",
+          "title": "curl_input.txt deploy paketi entegrasyonu ve sıfır-kayıt kalkanı",
+          "category": "bug",
+          "categoryLabel": "Hata Düzeltme",
+          "scope": "server-scripts/ & deploy.sh",
+          "description": "curl_input.txt dosyasının cPanel deploy paketine dahil edilmesi sağlandı, canlı kaynaklara erişilemediğinde GitHub raw yerine güvenli yerel önbellek koruması getirildi.",
+          "status": "COZULDU",
+          "githubIssueNumber": 18,
+          "date": "2026-09-23"
+        },
+        {
+          "id": "TALEP-017",
+          "title": "Canlı Kaynak Entegrasyonu: EPDK ve Voltrun verilerini gerçek sitelerden çekme",
+          "category": "data",
+          "categoryLabel": "Veri & Altyapı",
+          "scope": "server-scripts/import_cpo_stations.py",
+          "description": "EPDK ve Voltrun açık servislerinden doğrudan veri çeken multi-source scraper altyapısı kurularak istasyon verilerinin tazeliği güvenceye alındı.",
+          "status": "COZULDU",
+          "githubIssueNumber": 17,
+          "date": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "version": "v1.1.0",
+      "buildId": "build 105",
+      "date": "18 Eylül 2026",
+      "isLatest": false,
+      "summary": "Zamanlanmış Görevler & Kamu Kaynakları Senkronizasyonu: Cron veri boru hattı, EPDK/CPO kamu uç noktaları ve Hakkımızda arayüz revizyonu.",
+      "items": [
+        {
+          "id": "TALEP-016",
+          "title": "Hakkımızda modal içeriğinin onaylı tasarıma döndürülmesi",
+          "category": "ux",
+          "categoryLabel": "UX İyileştirme",
+          "scope": "components/modals/AboutModal.vue",
+          "description": "Hakkımızda modal içeriğindeki sekmeler ve yasal bilgilendirme metinleri onaylı tasarım spesifikasyonuna sadık kalınarak güncellendi.",
+          "status": "COZULDU",
+          "githubIssueNumber": 16,
+          "date": "2026-09-18"
+        },
+        {
+          "id": "TALEP-015",
+          "title": "EPDK ve CPO Kamu/Açık Kaynaklarından Canlı İstasyon Senkronizasyonu",
+          "category": "data",
+          "categoryLabel": "Veri & Altyapı",
+          "scope": "apps/worker & Health API",
+          "description": "Kamuya açık CPO ve EPDK uç noktalarından periyodik istasyon ve durum verilerini çeken zamanlanmış senkronizasyon servisi devreye alındı.",
+          "status": "COZULDU",
+          "githubIssueNumber": 15,
+          "date": "2026-09-18"
+        },
+        {
+          "id": "TALEP-014",
+          "title": "Cron senkronizasyon scripti istasyon bilgisi alma düzeltmesi",
+          "category": "bug",
+          "categoryLabel": "Hata Düzeltme",
+          "scope": "server-scripts/cron_daily_sync.sh",
+          "description": "Cron senkronizasyonunun 0 istasyon hatası vermesine yol açan veri ayrıştırma problemi giderilerek günlük otomatik güncelleme sağlandı.",
+          "status": "COZULDU",
+          "githubIssueNumber": 14,
+          "date": "2026-09-18"
+        }
+      ]
+    },
+    {
+      "version": "v1.0.0-faz2",
+      "buildId": "build 102",
+      "date": "18 Eylül 2026",
+      "isLatest": false,
+      "summary": "Faz 2 Şeffaflık & Canlı Senkronizasyon: Sürüm notları ekranı, canlı deploy algılama ve 20s otomatik sayfa yenileme desteği.",
+      "items": [
+        {
+          "id": "TALEP-013",
+          "title": "Değişiklik Günlüğü (Changelog / Sürüm Notları) ekranı ve modalı",
+          "category": "feature",
+          "categoryLabel": "Yeni Özellik",
+          "scope": "/guncellemeler & ChangelogModal.vue",
+          "description": "Uygulamada çözülen müşteri taleplerini (TALEP-001..TALEP-013), giderilen hataları, eklenen özellikleri ve SemVer sürüm etiketlerini zaman çizelgesi / kart yapısıyla sunan 'Sürüm Notları & Güncellemeler' ekranı ve modalı yayına alındı.",
+          "status": "COZULDU",
+          "githubIssueNumber": 13,
+          "date": "2026-09-18"
+        },
+        {
+          "id": "TALEP-012",
+          "title": "Canlı sürüm güncelleme uyarısı ve 20 saniye otomatik yenileme",
+          "category": "feature",
+          "categoryLabel": "Yeni Özellik",
+          "scope": "UpdateNotificationModal.vue & useVersionCheck.ts",
+          "description": "Yeni deploy çıktığında tüm açık sayfalarda 20 saniyelik geri sayımla otomatik yenileme uyarısı gösterilmesi ve istemcinin güncel koda senkronize olması sağlandı.",
+          "status": "COZULDU",
+          "githubIssueNumber": 12,
+          "date": "2026-09-18"
+        }
+      ]
+    },
+    {
+      "version": "v0.9.5",
+      "buildId": "build 101",
+      "date": "18 Eylül 2026",
+      "isLatest": false,
+      "summary": "Veritabanı Entegrasyonu & Header Düzeltmesi: PostgreSQL + PostGIS canlı arama entegrasyonu ve mükerrer menü temizliği.",
+      "items": [
+        {
+          "id": "TALEP-010",
+          "title": "Aramalar ve istasyon kayıtlarının veritabanı senkronizasyonu",
+          "category": "data",
+          "categoryLabel": "Veri & Altyapı",
+          "scope": "Fastify Backend & PostGIS",
+          "description": "Arama ve istasyon verilerinin doğrudan PostgreSQL + PostGIS veritabanından dinamik ve coğrafi BBox sorgusuyla çekilmesi sağlandı.",
+          "status": "COZULDU",
+          "githubIssueNumber": 10,
+          "date": "2026-09-18"
+        },
+        {
+          "id": "TALEP-011",
+          "title": "Top menüdeki mükerrer Hakkında bağlantısının kaldırılması",
+          "category": "ux",
+          "categoryLabel": "UX İyileştirme",
+          "scope": "components/common/HeaderNav.vue",
+          "description": "Masaüstü üst barında mükerrer duran bağlantı kaldırıldı, sağ üstteki onaylı Hakkında modal butonu korundu.",
+          "status": "COZULDU",
+          "githubIssueNumber": 11,
+          "date": "2026-09-18"
+        }
+      ]
+    },
+    {
+      "version": "v0.9.0",
+      "buildId": "build 98",
+      "date": "17 Eylül 2026",
+      "isLatest": false,
+      "summary": "Yasal EMP Statüsü & Katman Çakışması İyileştirmesi: 5 sekmeli Hakkında paneli, KVKK politikası ve MapLibre z-index optimizasyonu.",
+      "items": [
+        {
+          "id": "TALEP-009",
+          "title": "Hakkında, Kullanıcı Sözleşmeleri, KVKK ve Canlı Sürüm Paneli",
+          "category": "feature",
+          "categoryLabel": "Yeni Özellik",
+          "scope": "AboutModal.vue & /hakkimizda",
+          "description": "Yasal EMP lisans bildirimleri, KVKK gizlilik politikası, veri tazelik beyanları ve canlı sürüm bilgilerini içeren modal ve sayfa yayınlandı.",
+          "status": "COZULDU",
+          "githubIssueNumber": 9,
+          "date": "2026-09-17"
+        },
+        {
+          "id": "TALEP-008",
+          "title": "Harita pinleri ve küme baloncuklarının modal üzerine taşma sorunu (z-index)",
+          "category": "bug",
+          "categoryLabel": "Hata Düzeltme",
+          "scope": "StationMap.vue & assets/css/main.css",
+          "description": "MapLibre DOM pinlerinin ve kümeleme baloncuklarının açılır modalların üzerine taşması z-index hiyerarşisiyle kalıcı olarak çözüldü.",
+          "status": "COZULDU",
+          "githubIssueNumber": 8,
+          "date": "2026-09-17"
+        },
+        {
+          "id": "TALEP-007",
+          "title": "Tüm Operatörler açılır listesinde menü taşması ve istenmeyen scrollbar",
+          "category": "ux",
+          "categoryLabel": "UX İyileştirme",
+          "scope": "components/map/FilterChips.vue",
+          "description": "Operatör seçim dropdown açılır listesinde oluşan istenmeyen scroll çubuğu ve menü taşması giderildi.",
+          "status": "COZULDU",
+          "githubIssueNumber": 7,
+          "date": "2026-09-17"
+        }
+      ]
+    },
+    {
+      "version": "v0.8.0",
+      "buildId": "build 90",
+      "date": "17 Eylül 2026",
+      "isLatest": false,
+      "summary": "Gelişmiş Arama & GADM 4.1 Entegrasyonu: İl ve ilçe bazlı otomatik tamamlama, coğrafi sınır odaklanması ve mavi nokta konum göstergesi.",
+      "items": [
+        {
+          "id": "TALEP-004",
+          "title": "Arama kutusunda ilçe, il ve istasyon aramasıyla harita odaklanması",
+          "category": "feature",
+          "categoryLabel": "Yeni Özellik",
+          "scope": "components/map/SearchInput.vue",
+          "description": "Kadıköy, Çankaya, Bodrum gibi ilçeler ile 81 il ve istasyon adlarıyla anlık arama ve harita bbox odaklanması sağlandı.",
+          "status": "COZULDU",
+          "githubIssueNumber": 4,
+          "date": "2026-09-17"
+        },
+        {
+          "id": "TALEP-005",
+          "title": "GADM 4.1 Türkiye resmi il ve ilçe sınır/merkez koordinatları",
+          "category": "data",
+          "categoryLabel": "Veri & Altyapı",
+          "scope": "Backend Search & CBS Modülü",
+          "description": "Türkiye'nin 81 il ve 973 ilçesinin resmi coğrafi sınır ve merkez koordinatları veritabanı ve arama servisine entegre edildi.",
+          "status": "COZULDU",
+          "githubIssueNumber": 5,
+          "date": "2026-09-17"
+        },
+        {
+          "id": "TALEP-006",
+          "title": "Kullanıcı anlık konumunu gösteren mavi nokta baloncuk göstergesi",
+          "category": "ux",
+          "categoryLabel": "UX İyileştirme",
+          "scope": "components/map/VectorMap.vue & useUserLocation.ts",
+          "description": "Konum izni verildiğinde haritada kullanıcının gerçek GPS noktasını gösteren mavi dalgalanan konum halkası eklendi.",
+          "status": "COZULDU",
+          "githubIssueNumber": 6,
+          "date": "2026-09-17"
+        }
+      ]
+    },
+    {
+      "version": "v0.7.0",
+      "buildId": "build 82",
+      "date": "17 Eylül 2026",
+      "isLatest": false,
+      "summary": "İlk Canlı Sürüm & Operatör Senkronizasyonu: Harita filtre senkronizasyonu, Google Analytics ve CPO soket düzeltmeleri.",
+      "items": [
+        {
+          "id": "TALEP-001",
+          "title": "Harita filtre butonları ile alt liste senkronizasyonu",
+          "category": "bug",
+          "categoryLabel": "Hata Düzeltme",
+          "scope": "components/map/FilterChips.vue",
+          "description": "Filtrelerde AC/DC seçildiğinde haritadaki pinlerle birlikte liste görünümünün de senkronize güncellenmesi sağlandı.",
+          "status": "COZULDU",
+          "githubIssueNumber": 1,
+          "date": "2026-09-17"
+        },
+        {
+          "id": "TALEP-002",
+          "title": "Google Analytics (G-BKMTW8EH4K) canlı izleme entegrasyonu",
+          "category": "infra",
+          "categoryLabel": "Altyapı & Analitik",
+          "scope": "components/common/GoogleAnalytics.vue",
+          "description": "Site sahibi için Google Analytics 4 takip kodu güvenli ve çerez uyumlu olarak yerleştirildi.",
+          "status": "COZULDU",
+          "githubIssueNumber": 2,
+          "date": "2026-09-17"
+        },
+        {
+          "id": "TALEP-003",
+          "title": "Voltrun istasyonlarında soket tipi ve güç düzeltmesi",
+          "category": "bug",
+          "categoryLabel": "Hata Düzeltme",
+          "scope": "Backend Aggregator & EPDK Seed",
+          "description": "Voltrun istasyonlarında yanlış görünen soket tipi verisi doğru AC Type 2 standardına çekildi.",
+          "status": "COZULDU",
+          "githubIssueNumber": 3,
+          "date": "2026-09-17"
+        }
+      ]
+    }
+  ]
+}
