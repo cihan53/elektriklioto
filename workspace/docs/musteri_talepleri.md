@@ -1,6 +1,6 @@
 # Digital Software Studio — Müşteri Denetim & Talep Havuzu
 
-> **Son Güncelleme:** 2026-09-26 10:41  
+> **Son Güncelleme:** 2026-09-26 11:18  
 > **Toplam Bildirim:** 26  
 
 Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda iletilen istek, hata ve geri bildirimleri içerir.
@@ -11,8 +11,8 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 
 | ID | Tür | Öncelik | Durum | Başlık | Ekran / URL | İlgili Rol | GitHub Issue | Plan |
 |---|---|---|---|---|---|---|---|---|
-| **TALEP-026** | Hata / Bug | Yüksek (P2) | ⏳ Beklemede | Sürüm Notları ve Güncellemeler Ekranının Çözülen Taleplerle Senkronize Olmaması | `/guncellemeler` | `None` | [#34](https://github.com/cihan53/elektriklioto/issues/34) | — |
-| **TALEP-025** | Hata / Bug | Yüksek (P2) | ⏳ Beklemede | Canlı Sürüm Bilgisi Ekranında Sistem Altyapısı ve Veritabanı Bilgilerinin Açıkça Gösterilmesinin Kaldırılması | `/hakkimizda` | `None` | [#33](https://github.com/cihan53/elektriklioto/issues/33) | — |
+| **TALEP-026** | Hata / Bug | Yüksek (P2) | 🔨 Geliştiriliyor | Sürüm Notları ve Güncellemeler Ekranının Çözülen Taleplerle Senkronize Olmaması | `/guncellemeler` | `data_engineer` | [#34](https://github.com/cihan53/elektriklioto/issues/34) | — |
+| **TALEP-025** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | Canlı Sürüm Bilgisi Ekranında Sistem Altyapısı ve Veritabanı Bilgilerinin Açıkça Gösterilmesinin Kaldırılması | `/hakkimizda` | `None` | [#33](https://github.com/cihan53/elektriklioto/issues/33) | — |
 | **TALEP-024** | Tasarım & Kullanıcı Deneyimi | Normal (P3) | 🔨 Geliştiriliyor | Operatör Menüsünde Arama ve 'Tüm Markalar' Alanının Sabitlenmesi ve İstasyon Sayılarının Gösterilmesi | `/` | `web_engineer` | [#32](https://github.com/cihan53/elektriklioto/issues/32) | — |
 | **TALEP-023** | Veri & İstasyon Tutarlılığı | Yüksek (P2) | ✅ Çözüldü | Haritada ve Operatör Filtresinde Yalnızca 5 Marka Listeleniyor, EPDK'daki Diğer Markalar Görünmüyor | `/` | `None` | [#31](https://github.com/cihan53/elektriklioto/issues/31) | — |
 | **TALEP-022** | Hata / Bug | Kritik (P1) | ✅ Çözüldü | Veritabanı tabloları boşaltıldığı halde haritada istasyonlar görünüyor | `/` | `None` | [#28](https://github.com/cihan53/elektriklioto/issues/28) | — |
@@ -42,18 +42,21 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 
 ## 2. Talep Detayları ve Geri Bildirim Notları
 
-### [TALEP-026] Sürüm Notları ve Güncellemeler Ekranının Çözülen Taleplerle Senkronize Olmaması (⏳ Beklemede)
+### [TALEP-026] Sürüm Notları ve Güncellemeler Ekranının Çözülen Taleplerle Senkronize Olmaması (🔨 Geliştiriliyor)
 - **Bildirim Tarihi:** 2026-09-26 10:35
 - **Tür / Öncelik:** Hata / Bug / Yüksek (P2)
 - **İlgili Ekran / Sayfa:** `/guncellemeler`
-- **Görevli Rol:** `None`
+- **Görevli Rol:** `data_engineer`
 - 🐙 **GitHub Issue:** [#34](https://github.com/cihan53/elektriklioto/issues/34)
 
 **Müşteri Açıklaması / Hata Adımları:**
 > Sitedeki 'Sürüm Notları & Güncellemeler' sayfasını incelediğimde, sistemde çözüldüğü belirtilen yeni geliştirmelerin veya kapatılan taleplerin bu ekrana yansımadığını ve listenin eski kaldığını gördüm. Kullanıcı olarak bir hata düzeltildiğinde veya yeni bir özellik eklendiğinde, sürüm günlüğü ekranında en güncel değişiklikleri ve yeni sürüm maddelerini anında görmek istiyorum. Çözülen işlerin sürüm notları listesine otomatik yansıması ve sayfanın güncel durumu yansıtması gerekiyor.
 
+**Studio Yetkilisi Notu:**
+> Sprint S22 panosuna eklendi (S22-T3 ve S22-T4). Görevli rol: data_engineer. Geliştirme başladı.
+
 ---
-### [TALEP-025] Canlı Sürüm Bilgisi Ekranında Sistem Altyapısı ve Veritabanı Bilgilerinin Açıkça Gösterilmesinin Kaldırılması (⏳ Beklemede)
+### [TALEP-025] Canlı Sürüm Bilgisi Ekranında Sistem Altyapısı ve Veritabanı Bilgilerinin Açıkça Gösterilmesinin Kaldırılması (✅ Çözüldü)
 - **Bildirim Tarihi:** 2026-09-26 10:34
 - **Tür / Öncelik:** Hata / Bug / Yüksek (P2)
 - **İlgili Ekran / Sayfa:** `/hakkimizda`
@@ -62,6 +65,9 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 
 **Müşteri Açıklaması / Hata Adımları:**
 > Sitedeki 'Canlı Sürüm Bilgileri' ve 'Hakkında' alanını incelediğimde, herkese açık şekilde sistemin kullandığı altyapı çatısı ve veritabanı motoru gibi dahili teknik bilgilerin listelendiğini fark ettim. Bu tür iç mimari ve sistem detaylarının doğrudan ziyaretçilere gösterilmesi sistem güvenliği açısından zafiyet ve risk teşkil edebilir. Sıradan bir ziyaretçi veya araç sahibinin yalnızca genel sürüm numarası ve yayın tarihini görmesi yeterlidir; kullanılan teknoloji çatısı ve veritabanı türü gibi hassas altyapı detaylarının bu ekrandan tamamen kaldırılmasını talep ediyorum.
+
+**Studio Yetkilisi Notu:**
+> Görev S21-T2 başarıyla tamamlandı ve UAT testinden geçti.
 
 ---
 ### [TALEP-024] Operatör Menüsünde Arama ve 'Tüm Markalar' Alanının Sabitlenmesi ve İstasyon Sayılarının Gösterilmesi (🔨 Geliştiriliyor)
@@ -75,7 +81,7 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 > Harita üzerindeki 'Tüm Operatörler' menüsünü açıp markalar arasında gezinmek istediğimde, liste aşağı kaydırıldıkça arama çubuğu ve 'Tüm Markalar' seçeneği kayboluyor. Listeyi aşağı kaydırsam bile en üstteki arama kutusunun ve 'Tüm Markalar' seçeneğinin menünün tepesinde sabit (yapışkan) kalmasını istiyorum; böylece listeyi tekrar başa kaydırmak zorunda kalmadan her an arama yapabilir veya filtreyi sıfırlayabilirim. Ayrıca her bir markanın yanında kaç adet istasyonu olduğunun parantez veya rozet içinde yazması, operatörlerin yaygınlığını tek bakışta görüp seçim yapmamı çok kolaylaştıracaktır.
 
 **Studio Yetkilisi Notu:**
-> Sprint S23 panosuna eklendi (S23-T1 ve S23-T2). Görevli rol: web_engineer. Geliştirme başladı.
+> Sprint S22 panosuna eklendi (S22-T1 ve S22-T2). Görevli rol: web_engineer. Geliştirme başladı.
 
 ---
 ### [TALEP-023] Haritada ve Operatör Filtresinde Yalnızca 5 Marka Listeleniyor, EPDK'daki Diğer Markalar Görünmüyor (✅ Çözüldü)

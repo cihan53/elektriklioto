@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-09-26T10:41:16.461032",
+  "son_guncelleme": "2026-09-26T11:18:42.833239",
   "toplam_talep": 26,
   "talepler": [
     {
@@ -131290,7 +131290,7 @@
       "sayfa_url": "/",
       "durum": "GELISTIRILIYOR",
       "gorevli_rol": "web_engineer",
-      "studio_notu": "Sprint S23 panosuna eklendi (S23-T1 ve S23-T2). Görevli rol: web_engineer. Geliştirme başladı.",
+      "studio_notu": "Sprint S22 panosuna eklendi (S22-T1 ve S22-T2). Görevli rol: web_engineer. Geliştirme başladı.",
       "github_issue_number": 32,
       "github_issue_url": "https://github.com/cihan53/elektriklioto/issues/32",
       "gecmis": [
@@ -131323,6 +131323,16 @@
           "zaman": "2026-09-26 10:41",
           "eylem": "Durum güncellendi: GELISTIRILIYOR",
           "durum": "GELISTIRILIYOR"
+        },
+        {
+          "zaman": "2026-09-26 11:17",
+          "eylem": "Durum güncellendi: PLANLANDI",
+          "durum": "PLANLANDI"
+        },
+        {
+          "zaman": "2026-09-26 11:18",
+          "eylem": "Durum güncellendi: GELISTIRILIYOR",
+          "durum": "GELISTIRILIYOR"
         }
       ]
     },
@@ -131334,9 +131344,9 @@
       "baslik": "Canlı Sürüm Bilgisi Ekranında Sistem Altyapısı ve Veritabanı Bilgilerinin Açıkça Gösterilmesinin Kaldırılması",
       "aciklama": "Sitedeki 'Canlı Sürüm Bilgileri' ve 'Hakkında' alanını incelediğimde, herkese açık şekilde sistemin kullandığı altyapı çatısı ve veritabanı motoru gibi dahili teknik bilgilerin listelendiğini fark ettim. Bu tür iç mimari ve sistem detaylarının doğrudan ziyaretçilere gösterilmesi sistem güvenliği açısından zafiyet ve risk teşkil edebilir. Sıradan bir ziyaretçi veya araç sahibinin yalnızca genel sürüm numarası ve yayın tarihini görmesi yeterlidir; kullanılan teknoloji çatısı ve veritabanı türü gibi hassas altyapı detaylarının bu ekrandan tamamen kaldırılmasını talep ediyorum.",
       "sayfa_url": "/hakkimizda",
-      "durum": "BEKLEMEDE",
+      "durum": "COZULDU",
       "gorevli_rol": null,
-      "studio_notu": null,
+      "studio_notu": "Görev S21-T2 başarıyla tamamlandı ve UAT testinden geçti.",
       "github_issue_number": 33,
       "github_issue_url": "https://github.com/cihan53/elektriklioto/issues/33",
       "gecmis": [
@@ -131349,6 +131359,11 @@
           "zaman": "2026-09-26 10:34",
           "eylem": "GitHub Issue oluşturuldu: #33",
           "durum": "BEKLEMEDE"
+        },
+        {
+          "zaman": "2026-09-26 11:17",
+          "eylem": "Durum güncellendi: COZULDU",
+          "durum": "COZULDU"
         }
       ]
     },
@@ -131360,9 +131375,9 @@
       "baslik": "Sürüm Notları ve Güncellemeler Ekranının Çözülen Taleplerle Senkronize Olmaması",
       "aciklama": "Sitedeki 'Sürüm Notları & Güncellemeler' sayfasını incelediğimde, sistemde çözüldüğü belirtilen yeni geliştirmelerin veya kapatılan taleplerin bu ekrana yansımadığını ve listenin eski kaldığını gördüm. Kullanıcı olarak bir hata düzeltildiğinde veya yeni bir özellik eklendiğinde, sürüm günlüğü ekranında en güncel değişiklikleri ve yeni sürüm maddelerini anında görmek istiyorum. Çözülen işlerin sürüm notları listesine otomatik yansıması ve sayfanın güncel durumu yansıtması gerekiyor.",
       "sayfa_url": "/guncellemeler",
-      "durum": "BEKLEMEDE",
-      "gorevli_rol": null,
-      "studio_notu": null,
+      "durum": "GELISTIRILIYOR",
+      "gorevli_rol": "data_engineer",
+      "studio_notu": "Sprint S22 panosuna eklendi (S22-T3 ve S22-T4). Görevli rol: data_engineer. Geliştirme başladı.",
       "github_issue_number": 34,
       "github_issue_url": "https://github.com/cihan53/elektriklioto/issues/34",
       "gecmis": [
@@ -131375,6 +131390,16 @@
           "zaman": "2026-09-26 10:35",
           "eylem": "GitHub Issue oluşturuldu: #34",
           "durum": "BEKLEMEDE"
+        },
+        {
+          "zaman": "2026-09-26 11:18",
+          "eylem": "Durum güncellendi: PLANLANDI",
+          "durum": "PLANLANDI"
+        },
+        {
+          "zaman": "2026-09-26 11:18",
+          "eylem": "Durum güncellendi: GELISTIRILIYOR",
+          "durum": "GELISTIRILIYOR"
         }
       ]
     }

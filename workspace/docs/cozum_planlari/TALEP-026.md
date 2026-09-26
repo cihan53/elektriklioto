@@ -26,13 +26,12 @@ Müşteri (proje sahibi) denetimi sırasında aşağıdaki durumu tespit etti:
 
 **Claude Analizi:**
 
-**1. Kök Neden:**
-"Sürüm Notları & Güncellemeler" (/guncellemeler) ekranı büyük ihtimalle statik bir içerikten (elle yazılan bir liste, sabit bir JSON/DB tablosu ya da hardcoded sayfa) besleniyor ve talep/işlem kapatma akışıyla (workspace/docs/musteri_talepleri.json ve TALEP çözüm kayıtları) hiçbir otomatik entegrasyonu yok. Yani bir talep "closes #XX" ile kapatılıp deploy edildiğinde, bu commit/talep durumu değişikliği sürüm notları veri kaynağına yazmıyor — iki sistem (talep takibi ve sürüm notu ekranı) birbirinden kopuk, elle senkronizasyon gerektiriyor.
+1. **Kök Neden:** "Sürüm Notları" ekranı büyük olasılıkla statik bir içerik kaynağından (elle güncellenen bir dosya/tablo veya sabit kodlanmış liste) besleniyor; talep/issue kapatma (git commit, "closes #X") ile bu ekranın veri kaynağı arasında herhangi bir otomatik bağlantı veya pipeline yok. Yani "çözüldü" durumu sadece proje/issue takip sisteminde işaretleniyor, ama bunu `/guncellemeler` sayfasına yazan bir senkronizasyon adımı (CI hook, webhook, build-time script) tanımlı değil.
 
-**2. Kritik Riskler:**
-- Otomatik yayına almadan (failover-deploy commit'lerinde görüldüğü gibi) doğrudan sürüm notu üretilirse, kullanıcıya henüz test edilmemiş/geri alınmış değişiklikler "yayında" gibi görünebilir — sürüm notu üretimi sadece prod'a gerçekten çıkan ve doğrulanan işler için tetiklenmeli.
-- Talep başlıklarının (örn. "TALEP-025") doğrudan kullanıcıya gösterilecek sürüm notu metnine dönüştürülmesi gerekir; iç jargon/teknik detay sızdırılmamalı, ayrı bir "kullanıcı dostu özet" alanı olmalı.
-- Otomasyon eklerken idempotency önemli: aynı talep birden fazla commit'te geçiyorsa (bkz. d9026b2'deki regex tabanlı talep_id tespiti) mükerrer sürüm notu satırı oluşmamalı.
+2. **Kritik Riskler:**
+- Otomatik senkronizasyon kurulurken hangi commit/issue'ların "kullanıcıya görünür" sürüm notu sayılacağına dair bir filtre gerekir (örn. sadece `closes #`, `fix(talep-...)` formatındaki commit'ler); aksi halde iç/teknik düzeltmeler de son kullanıcıya sızabilir.
+- Commit mesajları teknik dilde yazılmış (örn. "Canlı Sürüm Bilgisi Ekranında..."), bunların kullanıcıya dönük, anlaşılır bir dile çevrilmesi gerekebilir — otomasyon ham commit mesajını doğrudan yayınlarsa kalite düşer.
+- Yayına alma (deploy) ile sürüm notu güncellemesi aynı anda tetiklenmezse, ekran yine gecikmeli/kararsız görünebilir; senkronizasyonun deploy pipeline'ının bir parçası olması gerekir, ayrı/manuel bir adım olmamalı.
 
 **İlgili Dosyalar & Modüller:**
    - `scripts/`
