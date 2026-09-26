@@ -7,17 +7,17 @@ notlar saha deneyiminden öğrenilmiş kurallardır; ajanlar ve insanlar için g
 
 Kullanıcıdan gelen prompt `"müşteri:"` (veya `müşteri:`) ile başlıyorsa:
 1. **Çözüme Girişme:** Doğrudan kod yazmaya veya hatayı/isteği o anda çözmeye kalkışma.
-2. **Netleştirme & İnsan Anlatısıyla Detaylandırma:**
-   - İletilen problemi/isteği netleştir.
-   - Detaylandırmayı ve açıklamayı normal bir insan / son kullanıcı deneyimi anlatısı şeklinde oluştur (ne gördü, ne bekliyordu, ne eksik/hatalı).
-   - Teknik detayları asgari düzeyde tut; aşırı teknik jargondan kaçın. Çünkü Digital Software Studio mimarisi (`scripts/musteri_talepleri.py`, `studio_yetkilisi.py`, `karar_verici_triage.py`) ve rol bazlı ajanlar bu talebi otomatik analiz edip teknik çözüm planını kendileri çıkaracaktır.
-3. **Müşteri Talebi Olarak Kaydet:**
+2. **Talebi Düzelt, Netleştir & İnsan Anlatısıyla Detaylandır:**
+   - Müşterinin kısa/ham ifadesini al, düzelt ve bir son kullanıcı / araç sahibi perspektifinden netleştir.
+   - Ne görüldü, ne bekleniyordu, eksik veya aksayan yön nedir sorularını yanıtlayan **doğal, akıcı bir insan anlatısı (kullanıcı deneyimi hikayesi)** olarak detaylandır.
+   - **Teknik detayları asgari düzeyde tut:** Aşırı teknik jargondan ve kod detaylarından kaçın. Çünkü Digital Software Studio mimarisi (`scripts/studio_yetkilisi.py`, `karar_verici_triage.py`) bu anlatıyı algılayıp mimari analizi ve teknik çözüm planını kendisi çıkaracaktır.
+3. **Müşteri Talebini Script ile Oluştur:**
    - Komutu çalıştırarak talebi sisteme işle:
      ```bash
-     python3 scripts/musteri_talepleri.py --yeni --tur <HATA|ISTEK|UX|VERI> --oncelik <KRITIK|YUKSEK|NORMAL|DUSUK> --sayfa "<ilgili_sayfa>" --baslik "<kısa_net_başlık>" --aciklama "<insan_anlatısı_detayı>"
+     python3 /Users/cihan/PROJECT/elektriklioto-gemini/scripts/musteri_talepleri.py --yeni --tur <HATA|ISTEK|UX|VERI> --oncelik <KRITIK|YUKSEK|NORMAL|DUSUK> --sayfa "<ilgili_sayfa>" --baslik "<kısa_net_başlık>" --aciklama "<düzeltilmiş_insan_anlatısı>"
      ```
    - Bu araç otomatik olarak dual-write ile `studio.db`, `workspace/docs/musteri_talepleri.json`, `workspace/docs/musteri_talepleri.md`, GitHub Issue ve çözüm planını (`workspace/docs/cozum_planlari/TALEP-XXX.md`) oluşturur.
-4. **Bilgilendirme:** Kullanıcıya talebin çözülmediğini, kaydedildiğini belirterek oluşturulan `TALEP-XXX` numarasını, başlığını ve linkini raporla.
+4. **Bilgilendirme:** Kullanıcıya talebin doğrudan çözülmediğini, düzeltilip detaylandırılarak kaydedildiğini belirterek oluşturulan `TALEP-XXX` numarasını, başlığını ve linkini raporla.
 
 ## Dev ↔ Prod API Eşliği (Kritik)
 

@@ -1,7 +1,7 @@
 # Digital Software Studio — Müşteri Denetim & Talep Havuzu
 
-> **Son Güncelleme:** 2026-09-26 10:05  
-> **Toplam Bildirim:** 23  
+> **Son Güncelleme:** 2026-09-26 10:30  
+> **Toplam Bildirim:** 24  
 
 Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda iletilen istek, hata ve geri bildirimleri içerir.
 
@@ -11,7 +11,8 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 
 | ID | Tür | Öncelik | Durum | Başlık | Ekran / URL | İlgili Rol | GitHub Issue | Plan |
 |---|---|---|---|---|---|---|---|---|
-| **TALEP-023** | Veri & İstasyon Tutarlılığı | Yüksek (P2) | ⏳ Beklemede | Tüm operatörler alanında sadece 5 marka görünüyor, EPDK'daki 170+ operatör/marka eksik | `/` | `None` | [#31](https://github.com/cihan53/elektriklioto/issues/31) | — |
+| **TALEP-024** | Tasarım & Kullanıcı Deneyimi | Normal (P3) | ⚖️ Değerlendirmede (Triage) | Operatör Menüsünde Arama ve 'Tüm Markalar' Alanının Sabitlenmesi ve İstasyon Sayılarının Gösterilmesi | `/` | `None` | [#32](https://github.com/cihan53/elektriklioto/issues/32) | — |
+| **TALEP-023** | Veri & İstasyon Tutarlılığı | Yüksek (P2) | ⏳ Beklemede | Haritada ve Operatör Filtresinde Yalnızca 5 Marka Listeleniyor, EPDK'daki Diğer Markalar Görünmüyor | `/` | `None` | [#31](https://github.com/cihan53/elektriklioto/issues/31) | — |
 | **TALEP-022** | Hata / Bug | Kritik (P1) | ✅ Çözüldü | Veritabanı tabloları boşaltıldığı halde haritada istasyonlar görünüyor | `/` | `None` | [#28](https://github.com/cihan53/elektriklioto/issues/28) | — |
 | **TALEP-021** | Yeni İstek / Özellik | Normal (P3) | ❌ İptal Edildi | Pano görevlerine öncelik alanı eklenmeli | `studio` | `None` | [#26](https://github.com/cihan53/elektriklioto/issues/26) | — |
 | **TALEP-020** | Veri & İstasyon Tutarlılığı | Yüksek (P2) | ✅ Çözüldü | Trugo ve diğer operatör istasyonları güncellenmiyor | `/` | `None` | [#25](https://github.com/cihan53/elektriklioto/issues/25) | — |
@@ -39,7 +40,18 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 
 ## 2. Talep Detayları ve Geri Bildirim Notları
 
-### [TALEP-023] Tüm operatörler alanında sadece 5 marka görünüyor, EPDK'daki 170+ operatör/marka eksik (⏳ Beklemede)
+### [TALEP-024] Operatör Menüsünde Arama ve 'Tüm Markalar' Alanının Sabitlenmesi ve İstasyon Sayılarının Gösterilmesi (⚖️ Değerlendirmede (Triage))
+- **Bildirim Tarihi:** 2026-09-26 10:30
+- **Tür / Öncelik:** Tasarım & Kullanıcı Deneyimi / Normal (P3)
+- **İlgili Ekran / Sayfa:** `/`
+- **Görevli Rol:** `None`
+- 🐙 **GitHub Issue:** [#32](https://github.com/cihan53/elektriklioto/issues/32)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Harita üzerindeki 'Tüm Operatörler' menüsünü açıp markalar arasında gezinmek istediğimde, liste aşağı kaydırıldıkça arama çubuğu ve 'Tüm Markalar' seçeneği kayboluyor. Listeyi aşağı kaydırsam bile en üstteki arama kutusunun ve 'Tüm Markalar' seçeneğinin menünün tepesinde sabit (yapışkan) kalmasını istiyorum; böylece listeyi tekrar başa kaydırmak zorunda kalmadan her an arama yapabilir veya filtreyi sıfırlayabilirim. Ayrıca her bir markanın yanında kaç adet istasyonu olduğunun parantez veya rozet içinde yazması, operatörlerin yaygınlığını tek bakışta görüp seçim yapmamı çok kolaylaştıracaktır.
+
+---
+### [TALEP-023] Haritada ve Operatör Filtresinde Yalnızca 5 Marka Listeleniyor, EPDK'daki Diğer Markalar Görünmüyor (⏳ Beklemede)
 - **Bildirim Tarihi:** 2026-09-26 10:05
 - **Tür / Öncelik:** Veri & İstasyon Tutarlılığı / Yüksek (P2)
 - **İlgili Ekran / Sayfa:** `/`
@@ -47,7 +59,7 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 - 🐙 **GitHub Issue:** [#31](https://github.com/cihan53/elektriklioto/issues/31)
 
 **Müşteri Açıklaması / Hata Adımları:**
-> Müşteri bildirimi: Tüm operatörler alanında 5 marka görünüyor , ama epdk da 170 ten fazla marka var , eksik mi işleniyor veriler. EPDK'da yer alan 170+ lisanslı şarj ağı işletmecisi/markasının operatör filtresi ve listelerinde yer alması, veri senkronizasyonunun incelenmesi gerekiyor.
+> Harita ekranını açıp 'Tüm Operatörler' açılır menüsüne tıkladığımda yalnızca 5 adet şarj firması listeleniyor. Oysa EPDK resmi kayıtlarında 170'ten fazla lisanslı şarj ağı markası bulunuyor. Kendi aracımı şarj ettiğim diğer markaları listede bulamıyorum ve haritada bu markalara göre filtreleme yapamıyorum. Sistemde diğer markaların verileri eksik mi işleniyor yoksa filtre listesine mi eklenmedi? Bir elektrikli araç kullanıcısı olarak Türkiye genelindeki tüm lisanslı şarj markalarını listede görüp istasyonlarını haritada filtreleyebilmek istiyorum.
 
 ---
 ### [TALEP-022] Veritabanı tabloları boşaltıldığı halde haritada istasyonlar görünüyor (✅ Çözüldü)
