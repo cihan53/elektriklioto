@@ -514,6 +514,24 @@ PROVINCE_COORDS = {
     "Kilis": (36.7184, 37.1212), "Osmaniye": (37.0742, 36.2478), "Düzce": (40.8438, 31.1565)
 }
 
+def _tr_fold(s):
+    """Türkçe karakterleri ASCII'ye katlar — 'İzmir'/'Izmir'/'İZMİR' eşleşmesi için."""
+    return (str(s).replace("İ", "i").replace("I", "i").replace("ı", "i")
+            .replace("Ş", "s").replace("ş", "s")
+            .replace("Ğ", "g").replace("ğ", "g")
+            .replace("Ü", "u").replace("ü", "u")
+            .replace("Ö", "o").replace("ö", "o")
+            .replace("Ç", "c").replace("ç", "c")
+            .strip().lower())
+
+_PROVINCE_BY_FOLD = {_tr_fold(k): k for k in PROVINCE_COORDS}
+
+def canonical_province(name):
+    """ASCII/Türkçe karışık il adını PROVINCE_COORDS'taki kanonik ada çevirir."""
+    if name is None:
+        return None
+    return _PROVINCE_BY_FOLD.get(_tr_fold(name))
+
 def find_nearest_province(lat, lon):
     best_p = "İstanbul"
     min_d = float("inf")
@@ -532,6 +550,11 @@ def normalize_city(raw, lat=None, lon=None):
         return "İstanbul"
     clean = str(raw).strip()
     norm = CITY_NORM.get(clean, CITY_NORM.get(clean.upper(), None))
+    # CITY_NORM değerleri .title() ile ASCII'ye bozulabiliyor ('İzmir'→'Izmir');
+    # kanonik adı fold eşleşmesiyle geri kazan.
+    canon = canonical_province(norm) if norm else canonical_province(clean)
+    if canon:
+        return canon
     if norm:
         return norm
     if lat and lon:
@@ -573,7 +596,8 @@ def get_deterministic_coords(city, district, istasyon_no, name):
     (her çalıştırmada aynı kalan) dağılım üretir.
     """
     import hashlib
-    base_lat, base_lon = PROVINCE_COORDS.get(city, (39.0, 35.0))
+    canon = canonical_province(city)
+    base_lat, base_lon = PROVINCE_COORDS.get(canon or city, (39.0, 35.0))
     seed_str = "{}_{}_{}_{}".format(istasyon_no or "", name or "", district or "", city or "")
     h = int(hashlib.md5(seed_str.encode("utf-8")).hexdigest()[:8], 16)
     # Şehir merkezine ~3-4 km yarıçapında deterministik dağılım (+/- 0.04 derece)
