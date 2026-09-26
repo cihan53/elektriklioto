@@ -28,6 +28,7 @@ FRAMEWORK_DOSYALAR=(
     "scripts/karar_verici_triage.py"
     "scripts/github_issue_bridge.py"
     "scripts/recovery_sentinel.py"
+    "scripts/kalite_kapilari.py"
 )
 
 # Yalnızca studio→proje yönünde güncellenen (proje özelleştirmesi olmayan) dosyalar

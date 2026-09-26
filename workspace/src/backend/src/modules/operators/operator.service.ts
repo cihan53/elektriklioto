@@ -1,4 +1,6 @@
 
+import fs from 'fs';
+import path from 'path';
 import { toSlug } from '../../utils/unicode.js';
 import { getDb } from '../../db/index.js';
 import { operators } from '../../db/schema/operators.js';
@@ -28,7 +30,31 @@ export class OperatorService {
   private operators: OperatorDto[] = [...DEFAULT_OPERATORS];
 
   constructor() {
+    this.loadFromDataFile();
     this.syncWithDb().catch(() => {});
+  }
+
+  public loadFromDataFile(): void {
+    const candidatePaths = [
+      path.resolve(process.cwd(), 'src/data/operators.json'),
+      path.resolve(process.cwd(), 'workspace/src/backend/src/data/operators.json'),
+      path.resolve(process.cwd(), '../data/operators.json'),
+      '/Users/cihan/PROJECT/elektriklioto-gemini/workspace/src/backend/src/data/operators.json',
+    ];
+
+    for (const cp of candidatePaths) {
+      if (fs.existsSync(cp)) {
+        try {
+          const raw = fs.readFileSync(cp, 'utf-8');
+          const list = JSON.parse(raw);
+          if (Array.isArray(list) && list.length > 0) {
+            this.operators = list;
+            console.log(`[operatorService] ${list.length} operatör hafızaya yüklendi.`);
+            break;
+          }
+        } catch {}
+      }
+    }
   }
 
   public async syncWithDb(): Promise<void> {

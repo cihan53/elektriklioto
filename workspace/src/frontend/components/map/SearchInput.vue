@@ -107,246 +107,270 @@ const TURKEY_81_CITIES: Array<{ name: string; lat: number; lon: number }> = [
   { name: 'Kars', lat: 40.6013, lon: 43.0975 },
   { name: 'Kastamonu', lat: 41.3887, lon: 33.7765 },
   { name: 'Kayseri', lat: 38.7312, lon: 35.4853 },
-  { name: 'Kırıkkale', lat: 39.8468, lon: 33.5067 },
+  { name: 'Kilis', lat: 36.7184, lon: 37.1150 },
+  { name: 'Kırıkkale', lat: 39.8468, lon: 33.5064 },
   { name: 'Kırklareli', lat: 41.7333, lon: 27.2244 },
   { name: 'Kırşehir', lat: 39.1425, lon: 34.1709 },
-  { name: 'Kilis', lat: 36.7184, lon: 37.1150 },
   { name: 'Kocaeli', lat: 40.7654, lon: 29.9400 },
   { name: 'Konya', lat: 37.8746, lon: 32.4846 },
   { name: 'Kütahya', lat: 39.4167, lon: 29.9833 },
-  { name: 'Malatya', lat: 38.3552, lon: 38.3196 },
-  { name: 'Manisa', lat: 38.6191, lon: 27.4265 },
-  { name: 'Mardin', lat: 37.3212, lon: 40.7339 },
+  { name: 'Malatya', lat: 38.3552, lon: 38.3552 },
+  { name: 'Manisa', lat: 38.6191, lon: 27.4260 },
+  { name: 'Mardin', lat: 37.3212, lon: 40.7420 },
   { name: 'Mersin', lat: 36.8121, lon: 34.6415 },
   { name: 'Muğla', lat: 37.2153, lon: 28.3636 },
-  { name: 'Muş', lat: 38.7432, lon: 41.4911 },
-  { name: 'Nevşehir', lat: 38.6244, lon: 34.7142 },
+  { name: 'Muş', lat: 38.7432, lon: 41.5064 },
+  { name: 'Nevşehir', lat: 38.6244, lon: 34.7144 },
   { name: 'Niğde', lat: 37.9667, lon: 34.6857 },
   { name: 'Ordu', lat: 40.9839, lon: 37.8797 },
   { name: 'Osmaniye', lat: 37.0742, lon: 36.2464 },
-  { name: 'Rize', lat: 41.0201, lon: 40.5219 },
-  { name: 'Sakarya', lat: 40.7569, lon: 30.4060 },
-  { name: 'Samsun', lat: 41.2928, lon: 36.3361 },
+  { name: 'Rize', lat: 41.0201, lon: 40.5217 },
+  { name: 'Sakarya', lat: 40.7569, lon: 30.4033 },
+  { name: 'Samsun', lat: 41.2867, lon: 36.3360 },
   { name: 'Şanlıurfa', lat: 37.1674, lon: 38.7955 },
   { name: 'Siirt', lat: 37.9333, lon: 41.9420 },
-  { name: 'Sinop', lat: 42.0231, lon: 35.1553 },
+  { name: 'Sinop', lat: 42.0231, lon: 35.1517 },
   { name: 'Sivas', lat: 39.7477, lon: 37.0145 },
   { name: 'Şırnak', lat: 37.5164, lon: 42.4594 },
   { name: 'Tekirdağ', lat: 40.9833, lon: 27.5110 },
   { name: 'Tokat', lat: 40.3167, lon: 36.5544 },
   { name: 'Trabzon', lat: 41.0027, lon: 39.7168 },
-  { name: 'Tunceli', lat: 39.1079, lon: 39.5483 },
+  { name: 'Tunceli', lat: 39.1079, lon: 39.5401 },
   { name: 'Uşak', lat: 38.6823, lon: 29.4058 },
-  { name: 'Van', lat: 38.4891, lon: 43.3832 },
+  { name: 'Van', lat: 38.4891, lon: 43.3748 },
   { name: 'Yalova', lat: 40.6500, lon: 29.2769 },
   { name: 'Yozgat', lat: 39.8181, lon: 34.8044 },
   { name: 'Zonguldak', lat: 41.4564, lon: 31.7987 },
 ];
 
 // =============================================================================
-// 2. TÜRKİYE ÖNEMLİ VE POPÜLER İLÇELERİ (TALEP-004: Kadıköy, Çankaya, Bodrum vb.)
+// 2. TÜRKİYE POPÜLER VE YOĞUN İLÇELERİ (Örneklem Kümesi)
 // =============================================================================
 const TURKEY_MAJOR_DISTRICTS: Array<{ name: string; parentName: string; lat: number; lon: number }> = [
   // İstanbul
-  { name: 'Kadıköy', parentName: 'İstanbul', lat: 40.9876, lon: 29.0234 },
-  { name: 'Beşiktaş', parentName: 'İstanbul', lat: 41.0428, lon: 29.0077 },
-  { name: 'Şişli', parentName: 'İstanbul', lat: 41.0600, lon: 28.9870 },
-  { name: 'Üsküdar', parentName: 'İstanbul', lat: 41.0267, lon: 29.0153 },
-  { name: 'Bakırköy', parentName: 'İstanbul', lat: 40.9780, lon: 28.8720 },
-  { name: 'Beyoğlu', parentName: 'İstanbul', lat: 41.0370, lon: 28.9770 },
-  { name: 'Sarıyer', parentName: 'İstanbul', lat: 41.1660, lon: 29.0500 },
-  { name: 'Ataşehir', parentName: 'İstanbul', lat: 40.9840, lon: 29.1060 },
-  { name: 'Ümraniye', parentName: 'İstanbul', lat: 41.0250, lon: 29.1170 },
-  { name: 'Maltepe', parentName: 'İstanbul', lat: 40.9240, lon: 29.1310 },
-  { name: 'Kartal', parentName: 'İstanbul', lat: 40.8900, lon: 29.1900 },
-  { name: 'Pendik', parentName: 'İstanbul', lat: 40.8750, lon: 29.2330 },
-  { name: 'Tuzla', parentName: 'İstanbul', lat: 40.8160, lon: 29.3000 },
-  { name: 'Fatih', parentName: 'İstanbul', lat: 41.0180, lon: 28.9400 },
-  { name: 'Beylikdüzü', parentName: 'İstanbul', lat: 41.0010, lon: 28.6420 },
-  { name: 'Başakşehir', parentName: 'İstanbul', lat: 41.0960, lon: 28.8030 },
-  { name: 'Esenyurt', parentName: 'İstanbul', lat: 41.0340, lon: 28.6800 },
-  { name: 'Silivri', parentName: 'İstanbul', lat: 41.0740, lon: 28.2480 },
+  { name: 'Kadıköy', parentName: 'İstanbul', lat: 40.991, lon: 29.025 },
+  { name: 'Beşiktaş', parentName: 'İstanbul', lat: 41.042, lon: 29.008 },
+  { name: 'Şişli', parentName: 'İstanbul', lat: 41.060, lon: 28.987 },
+  { name: 'Üsküdar', parentName: 'İstanbul', lat: 41.026, lon: 29.015 },
+  { name: 'Ataşehir', parentName: 'İstanbul', lat: 40.983, lon: 29.117 },
+  { name: 'Bakırköy', parentName: 'İstanbul', lat: 40.978, lon: 28.872 },
+  { name: 'Beylikdüzü', parentName: 'İstanbul', lat: 41.001, lon: 28.647 },
+  { name: 'Sarıyer', parentName: 'İstanbul', lat: 41.166, lon: 29.050 },
+  { name: 'Maltepe', parentName: 'İstanbul', lat: 40.933, lon: 29.150 },
+  { name: 'Kartal', parentName: 'İstanbul', lat: 40.890, lon: 29.185 },
+  { name: 'Pendik', parentName: 'İstanbul', lat: 40.875, lon: 29.233 },
+  { name: 'Başakşehir', parentName: 'İstanbul', lat: 41.096, lon: 28.803 },
+  { name: 'Ümraniye', parentName: 'İstanbul', lat: 41.025, lon: 29.116 },
+  { name: 'Fatih', parentName: 'İstanbul', lat: 41.018, lon: 28.949 },
   // Ankara
-  { name: 'Çankaya', parentName: 'Ankara', lat: 39.9000, lon: 32.8600 },
-  { name: 'Yenimahalle', parentName: 'Ankara', lat: 39.9700, lon: 32.8000 },
-  { name: 'Keçiören', parentName: 'Ankara', lat: 39.9900, lon: 32.8600 },
-  { name: 'Etimesgut', parentName: 'Ankara', lat: 39.9500, lon: 32.6800 },
-  { name: 'Mamak', parentName: 'Ankara', lat: 39.9300, lon: 32.9100 },
-  { name: 'Sincan', parentName: 'Ankara', lat: 39.9600, lon: 32.5800 },
-  { name: 'Gölbaşı', parentName: 'Ankara', lat: 39.7900, lon: 32.8100 },
-  { name: 'Altındağ', parentName: 'Ankara', lat: 39.9400, lon: 32.8700 },
+  { name: 'Çankaya', parentName: 'Ankara', lat: 39.900, lon: 32.860 },
+  { name: 'Yenimahalle', parentName: 'Ankara', lat: 39.967, lon: 32.817 },
+  { name: 'Etimesgut', parentName: 'Ankara', lat: 39.949, lon: 32.665 },
+  { name: 'Keçiören', parentName: 'Ankara', lat: 40.003, lon: 32.864 },
+  { name: 'Gölbaşı', parentName: 'Ankara', lat: 39.790, lon: 32.808 },
+  { name: 'Mamak', parentName: 'Ankara', lat: 39.940, lon: 32.915 },
   // İzmir
-  { name: 'Konak', parentName: 'İzmir', lat: 38.4189, lon: 27.1287 },
-  { name: 'Karşıyaka', parentName: 'İzmir', lat: 38.4590, lon: 27.1120 },
-  { name: 'Bornova', parentName: 'İzmir', lat: 38.4690, lon: 27.2180 },
-  { name: 'Çeşme', parentName: 'İzmir', lat: 38.3236, lon: 26.3044 },
-  { name: 'Urla', parentName: 'İzmir', lat: 38.3220, lon: 26.7640 },
-  { name: 'Buca', parentName: 'İzmir', lat: 38.3880, lon: 27.1770 },
-  { name: 'Bayraklı', parentName: 'İzmir', lat: 38.4630, lon: 27.1680 },
-  { name: 'Çiğli', parentName: 'İzmir', lat: 38.4900, lon: 27.0600 },
-  { name: 'Seferihisar', parentName: 'İzmir', lat: 38.1960, lon: 26.8380 },
-  { name: 'Foça', parentName: 'İzmir', lat: 38.6700, lon: 26.7560 },
-  // Muğla
-  { name: 'Bodrum', parentName: 'Muğla', lat: 37.0345, lon: 27.4305 },
-  { name: 'Marmaris', parentName: 'Muğla', lat: 36.8550, lon: 28.2740 },
-  { name: 'Fethiye', parentName: 'Muğla', lat: 36.6210, lon: 29.1160 },
-  { name: 'Datça', parentName: 'Muğla', lat: 36.7250, lon: 27.6850 },
-  { name: 'Milas', parentName: 'Muğla', lat: 37.3160, lon: 27.7800 },
-  { name: 'Menteşe', parentName: 'Muğla', lat: 37.2150, lon: 28.3630 },
-  { name: 'Ortaca', parentName: 'Muğla', lat: 36.8380, lon: 28.7670 },
-  // Antalya
-  { name: 'Muratpaşa', parentName: 'Antalya', lat: 36.8870, lon: 30.7080 },
-  { name: 'Konyaaltı', parentName: 'Antalya', lat: 36.8650, lon: 30.6350 },
-  { name: 'Kepez', parentName: 'Antalya', lat: 36.9300, lon: 30.6900 },
-  { name: 'Alanya', parentName: 'Antalya', lat: 36.5438, lon: 31.9998 },
-  { name: 'Manavgat', parentName: 'Antalya', lat: 36.7870, lon: 31.4420 },
-  { name: 'Kemer', parentName: 'Antalya', lat: 36.6020, lon: 30.5600 },
-  { name: 'Kaş', parentName: 'Antalya', lat: 36.2000, lon: 29.6380 },
-  { name: 'Serik', parentName: 'Antalya', lat: 36.9170, lon: 31.1000 },
-  // Bursa
-  { name: 'Nilüfer', parentName: 'Bursa', lat: 40.2140, lon: 28.9800 },
-  { name: 'Osmangazi', parentName: 'Bursa', lat: 40.1980, lon: 29.0600 },
-  { name: 'Yıldırım', parentName: 'Bursa', lat: 40.1900, lon: 29.1100 },
-  { name: 'Mudanya', parentName: 'Bursa', lat: 40.3750, lon: 28.8820 },
-  { name: 'İnegöl', parentName: 'Bursa', lat: 40.0780, lon: 29.5130 },
-  // Kocaeli & Sakarya
-  { name: 'İzmit', parentName: 'Kocaeli', lat: 40.7654, lon: 29.9400 },
-  { name: 'Gebze', parentName: 'Kocaeli', lat: 40.8028, lon: 29.4307 },
-  { name: 'Darıca', parentName: 'Kocaeli', lat: 40.7740, lon: 29.4050 },
-  { name: 'Gölcük', parentName: 'Kocaeli', lat: 40.7180, lon: 29.8220 },
-  { name: 'Adapazarı', parentName: 'Sakarya', lat: 40.7800, lon: 30.4000 },
-  { name: 'Serdivan', parentName: 'Sakarya', lat: 40.7600, lon: 30.3700 },
-  { name: 'Sapanca', parentName: 'Sakarya', lat: 40.6920, lon: 30.2640 },
-  // Diğer İller
-  { name: 'Ayvalık', parentName: 'Balıkesir', lat: 39.3190, lon: 26.6950 },
-  { name: 'Edremit', parentName: 'Balıkesir', lat: 39.5960, lon: 27.0240 },
-  { name: 'Bandırma', parentName: 'Balıkesir', lat: 40.3520, lon: 27.9770 },
-  { name: 'Kuşadası', parentName: 'Aydın', lat: 37.8579, lon: 27.2610 },
-  { name: 'Didim', parentName: 'Aydın', lat: 37.3850, lon: 27.2570 },
-  { name: 'Pamukkale', parentName: 'Denizli', lat: 37.9137, lon: 29.1187 },
-  { name: 'Seyhan', parentName: 'Adana', lat: 36.9950, lon: 35.3200 },
-  { name: 'Çukurova', parentName: 'Adana', lat: 37.0500, lon: 35.2800 },
-  { name: 'Tepebaşı', parentName: 'Eskişehir', lat: 39.7900, lon: 30.5000 },
-  { name: 'Odunpazarı', parentName: 'Eskişehir', lat: 39.7600, lon: 30.5300 },
-  { name: 'Melikgazi', parentName: 'Kayseri', lat: 38.7200, lon: 35.5000 },
-  { name: 'Selçuklu', parentName: 'Konya', lat: 37.9000, lon: 32.4900 },
-  { name: 'Şahinbey', parentName: 'Gaziantep', lat: 37.0500, lon: 37.3600 },
-  { name: 'Şehitkamil', parentName: 'Gaziantep', lat: 37.0800, lon: 37.3800 },
-  { name: 'Atakum', parentName: 'Samsun', lat: 41.3200, lon: 36.2700 },
-  { name: 'Ortahisar', parentName: 'Trabzon', lat: 41.0000, lon: 39.7200 },
-  { name: 'Çorlu', parentName: 'Tekirdağ', lat: 41.1600, lon: 27.8000 },
-  { name: 'Süleymanpaşa', parentName: 'Tekirdağ', lat: 40.9800, lon: 27.5100 },
-  { name: 'Gerede', parentName: 'Bolu', lat: 40.8000, lon: 32.2000 },
-  { name: 'Mengen', parentName: 'Bolu', lat: 40.9500, lon: 32.0500 },
+  { name: 'Konak', parentName: 'İzmir', lat: 38.419, lon: 27.128 },
+  { name: 'Karşıyaka', parentName: 'İzmir', lat: 38.459, lon: 27.110 },
+  { name: 'Bornova', parentName: 'İzmir', lat: 38.468, lon: 27.218 },
+  { name: 'Çeşme', parentName: 'İzmir', lat: 38.323, lon: 26.304 },
+  { name: 'Urla', parentName: 'İzmir', lat: 38.322, lon: 26.764 },
+  { name: 'Bayraklı', parentName: 'İzmir', lat: 38.462, lon: 27.165 },
+  // Antalya & Muğla (Turizm Aksları)
+  { name: 'Muratpaşa', parentName: 'Antalya', lat: 36.885, lon: 30.707 },
+  { name: 'Konyaaltı', parentName: 'Antalya', lat: 36.862, lon: 30.636 },
+  { name: 'Alanya', parentName: 'Antalya', lat: 36.544, lon: 31.995 },
+  { name: 'Bodrum', parentName: 'Muğla', lat: 37.038, lon: 27.429 },
+  { name: 'Fethiye', parentName: 'Muğla', lat: 36.621, lon: 29.116 },
+  { name: 'Marmaris', parentName: 'Muğla', lat: 36.855, lon: 28.274 },
+  // Bursa & Kocaeli
+  { name: 'Nilüfer', parentName: 'Bursa', lat: 40.214, lon: 28.983 },
+  { name: 'Osmangazi', parentName: 'Bursa', lat: 40.203, lon: 29.060 },
+  { name: 'İzmit', parentName: 'Kocaeli', lat: 40.765, lon: 29.940 },
+  { name: 'Gebze', parentName: 'Kocaeli', lat: 40.802, lon: 29.430 },
 ];
 
-// Bilinen başlangıç / örnek istasyonlar (Canlı ağda daima hızlı erişim)
-const SEED_STATIONS: StationItem[] = [
+// =============================================================================
+// 3. STATİK ÖRNEKLEM İSTASYON HAVUZU (Client-Side Hızlı Arama & Fallback)
+// =============================================================================
+const SAMPLE_STATIONS: StationItem[] = [
   {
-    id: '018f3a9e-6b8a-7890-a1b2-c3d4e5f6a7b8',
-    istasyon_no: 'ŞRJ/10423',
-    slug: 'kadikoy-moda-zes-1',
-    name: 'ZES Kadıköy Moda Otoparkı',
-    address: 'Caferağa Mah. Moda Cad. No:12',
-    city: 'İstanbul',
-    district: 'Kadıköy',
-    lat: 40.987654,
-    lon: 29.023456,
-    operator: { id: 1, name: 'ZES', slug: 'zes', is_active: true },
-    is_flagged_defective: false,
-    service_type: 'Halka Açık',
-  },
-  {
-    id: '018f3a9e-6b8a-7890-a1b2-c3d4e5f6a7b9',
-    istasyon_no: 'ŞRJ/9999',
-    slug: 'yerel-sarj-noktasi',
-    name: 'Yerel Butik Şarj',
-    address: 'Köy İçi Mevkii',
-    city: 'Muğla',
-    district: 'Bodrum',
-    lat: 37.0345,
-    lon: 27.4305,
-    operator: { id: 4, name: 'Voltrun', slug: 'voltrun', is_active: true },
-    is_flagged_defective: false,
-    service_type: 'Halka Açık',
-  },
-  {
-    id: '018f3a9e-6b8a-7890-a1b2-c3d4e5f6a7c1',
-    istasyon_no: 'ŞRJ/2002',
-    slug: 'besiktas-meydan-trugo',
-    name: 'Trugo Beşiktaş Meydan',
-    address: 'Sinanpaşa Mah. Beşiktaş Cad. No:8',
+    id: 'zes-zorlu-center-istanbul',
+    istasyon_no: 'ŞRJ/1001',
+    slug: 'zes-zorlu-center-istanbul',
+    name: 'ZES - Zorlu Center AVM',
+    address: 'Levazım Mah. Koru Sok. No:2 Beşiktaş / İSTANBUL',
     city: 'İstanbul',
     district: 'Beşiktaş',
-    lat: 41.0428,
-    lon: 29.0077,
-    operator: { id: 2, name: 'Trugo', slug: 'trugo', is_active: true },
+    lat: 41.0667,
+    lon: 29.0175,
+    operator: { id: 1, slug: 'zes', name: 'ZES', is_active: true },
     is_flagged_defective: false,
-    service_type: 'Halka Açık',
+    connector_types: null,
+    power_kw: null,
+    current_tariff: null,
+    connectors: null,
+    status: null,
   },
   {
-    id: '018f3a9e-6b8a-7890-a1b2-c3d4e5f6a7c2',
-    istasyon_no: 'ŞRJ/3003',
-    slug: 'cankaya-kule-esarj',
-    name: 'Eşarj Çankaya Kule',
-    address: 'Kavaklıdere Mah. Atatürk Bulvarı No:140',
+    id: 'trugo-bursa-otoyol-o5',
+    istasyon_no: 'ŞRJ/1002',
+    slug: 'trugo-bursa-otoyol-o5',
+    name: 'Trugo - O-5 Otoyolu Oksijen 68 Dinlenme Tesisi',
+    address: 'O-5 Otoyolu 68. km Nilüfer / BURSA',
+    city: 'Bursa',
+    district: 'Nilüfer',
+    lat: 40.2315,
+    lon: 28.8924,
+    operator: { id: 2, slug: 'trugo', name: 'Trugo', is_active: true },
+    is_flagged_defective: false,
+    connector_types: null,
+    power_kw: null,
+    current_tariff: null,
+    connectors: null,
+    status: null,
+  },
+  {
+    id: 'esarj-ankara-panora-avm',
+    istasyon_no: 'ŞRJ/1003',
+    slug: 'esarj-ankara-panora-avm',
+    name: 'Eşarj - Panora Alışveriş ve Yaşam Merkezi',
+    address: 'Turan Güneş Bulvarı No:182 Oran, Çankaya / ANKARA',
     city: 'Ankara',
     district: 'Çankaya',
-    lat: 39.9042,
-    lon: 32.8611,
-    operator: { id: 3, name: 'Eşarj', slug: 'esarj', is_active: true },
+    lat: 39.8492,
+    lon: 32.8465,
+    operator: { id: 3, slug: 'esarj', name: 'Eşarj', is_active: true },
     is_flagged_defective: false,
-    service_type: 'Halka Açık',
+    connector_types: null,
+    power_kw: null,
+    current_tariff: null,
+    connectors: null,
+    status: null,
+  },
+  {
+    id: 'voltrun-kadikoy-moda',
+    istasyon_no: 'ŞRJ/1004',
+    slug: 'voltrun-kadikoy-moda',
+    name: 'Voltrun - Moda Sahil Otoparkı',
+    address: 'Moda Cad. No:45 Kadıköy / İSTANBUL',
+    city: 'İstanbul',
+    district: 'Kadıköy',
+    lat: 40.9850,
+    lon: 29.0280,
+    operator: { id: 4, slug: 'voltrun', name: 'Voltrun', is_active: true },
+    is_flagged_defective: false,
+    connector_types: null,
+    power_kw: null,
+    current_tariff: null,
+    connectors: null,
+    status: null,
+  },
+  {
+    id: 'sharznet-izmir-mavibahce-avm',
+    istasyon_no: 'ŞRJ/1005',
+    slug: 'sharznet-izmir-mavibahce-avm',
+    name: 'Sharz.net - MaviBahçe AVM',
+    address: 'Mavişehir Mah. Caher Dudayev Blv. No:40 Karşıyaka / İZMİR',
+    city: 'İzmir',
+    district: 'Karşıyaka',
+    lat: 38.4876,
+    lon: 27.0678,
+    operator: { id: 5, slug: 'sharznet', name: 'Sharz.net', is_active: true },
+    is_flagged_defective: false,
+    connector_types: null,
+    power_kw: null,
+    current_tariff: null,
+    connectors: null,
+    status: null,
+  },
+  {
+    id: 'zes-antalya-mall-of-antalya',
+    istasyon_no: 'ŞRJ/1006',
+    slug: 'zes-antalya-mall-of-antalya',
+    name: 'ZES - Mall of Antalya & Deepo Outlet',
+    address: 'Altınova Sinan Mah. Serik Cad. No:309 Kepez / ANTALYA',
+    city: 'Antalya',
+    district: 'Kepez',
+    lat: 36.9328,
+    lon: 30.7745,
+    operator: { id: 1, slug: 'zes', name: 'ZES', is_active: true },
+    is_flagged_defective: false,
+    connector_types: null,
+    power_kw: null,
+    current_tariff: null,
+    connectors: null,
+    status: null,
+  },
+  {
+    id: 'trugo-bolu-dagi-dinlenme',
+    istasyon_no: 'ŞRJ/1007',
+    slug: 'trugo-bolu-dagi-dinlenme',
+    name: 'Trugo - Bolu Dağı Dinlenme Tesisleri (Highway Outlet)',
+    address: 'Anadolu Otoyolu Bolu Dağı Geçişi Paşaköy Mevkii / BOLU',
+    city: 'Bolu',
+    district: 'Merkez',
+    lat: 40.7580,
+    lon: 31.4870,
+    operator: { id: 2, slug: 'trugo', name: 'Trugo', is_active: true },
+    is_flagged_defective: false,
+    connector_types: null,
+    power_kw: null,
+    current_tariff: null,
+    connectors: null,
+    status: null,
   },
 ];
+
+// Debounce zamanlayıcısı
+let searchTimer: any = null;
 
 watch(
   () => props.modelValue,
-  (v) => {
-    inputVal.value = v;
+  (newVal) => {
+    inputVal.value = newVal;
   }
 );
 
-let searchTimeout: ReturnType<typeof setTimeout> | null = null;
-
 const onInput = (e: Event) => {
-  const val = (e.target as HTMLInputElement).value;
+  const target = e.target as HTMLInputElement;
+  const val = target.value;
   inputVal.value = val;
   emit('update:modelValue', val);
 
-  if (searchTimeout) clearTimeout(searchTimeout);
+  if (searchTimer) clearTimeout(searchTimer);
 
-  if (val.trim().length >= 2) {
-    isSearching.value = true;
-    isOpen.value = true;
-    fetchOperators();
-    searchTimeout = setTimeout(() => {
-      isSearching.value = false;
-    }, 200);
-  } else {
-    isSearching.value = false;
+  if (!val || val.trim().length < 2) {
     isOpen.value = false;
+    isSearching.value = false;
+    return;
   }
+
+  isSearching.value = true;
+  searchTimer = setTimeout(() => {
+    isSearching.value = false;
+    isOpen.value = true;
+  }, 200);
 };
 
 const clearInput = () => {
   inputVal.value = '';
   emit('update:modelValue', '');
   isOpen.value = false;
+  isSearching.value = false;
 };
 
 // =============================================================================
-// FİLTRELEME HESAPLAMALARI
+// FİLTRELENMİŞ ARAMA SONUÇLARI (İstasyon, İlçe, İl, Operatör)
 // =============================================================================
 
-// İstasyon Arama Eşleşmeleri
+// İstasyon Arama Eşleşmeleri (Hafızadaki istasyonlar + Örneklem havuzu)
 const filteredStations = computed(() => {
   if (!inputVal.value || inputVal.value.trim().length < 2) return [];
   const q = foldText(inputVal.value);
 
-  // Mevcut yüklenmiş istasyonlar + Bilinen çekirdek istasyonlar
-  const allPool: StationItem[] = [...stations.value];
-  for (const s of SEED_STATIONS) {
+  const allPool = [...stations.value];
+  for (const s of SAMPLE_STATIONS) {
     if (!allPool.some((item) => item.id === s.id || item.slug === s.slug)) {
       allPool.push(s);
     }
@@ -380,13 +404,13 @@ const filteredCities = computed(() => {
   return TURKEY_81_CITIES.filter((c) => foldText(c.name).includes(q)).slice(0, 5);
 });
 
-// Operatör Arama Eşleşmeleri
+// Operatör Arama Eşleşmeleri (TALEP-023: 179 lisanslı EPDK operatör havuzunda arama)
 const filteredOperators = computed(() => {
   if (!inputVal.value || inputVal.value.trim().length < 2) return [];
   const q = foldText(inputVal.value);
   return operators.value
-    .filter((op) => foldText(op.name).includes(q))
-    .slice(0, 5);
+    .filter((op) => foldText(op.name).includes(q) || foldText(op.slug).includes(q))
+    .slice(0, 8);
 });
 
 // =============================================================================
@@ -502,139 +526,120 @@ const handleSelectOperator = (slug: string, name: string) => {
         v-if="inputVal && !isSearching"
         type="button"
         @click="clearInput"
-        class="touch-target-min flex items-center justify-center text-text-secondary hover:text-text-primary rounded focus-visible:outline-none"
+        class="p-1 text-text-muted hover:text-text-primary rounded-full transition-colors touch-target-min"
         aria-label="Aramayı Temizle"
       >
         <X class="w-4 h-4" />
       </button>
     </div>
 
-    <!-- Otomatik Tamamlama Açılır Menüsü (SCR-01.2) -->
+    <!-- Açılır Arama Sonuç Paneli (Autocomplete Dropdown - z-50 & Floating) -->
     <div
-      v-if="isOpen && inputVal.length >= 2"
-      class="absolute left-0 right-0 top-14 bg-bg-surface border border-border-default rounded-md shadow-lg max-h-80 overflow-y-auto z-50 p-2 space-y-2.5"
+      v-if="isOpen && (filteredStations.length > 0 || filteredDistricts.length > 0 || filteredCities.length > 0 || filteredOperators.length > 0)"
+      class="absolute left-0 top-14 w-full bg-bg-surface border border-border-default rounded-md shadow-xl overflow-hidden z-50 max-h-96 overflow-y-auto divide-y divide-border-default"
       role="listbox"
     >
-      <!-- 1. İSTASYON EŞLEŞMELERİ (Öncelikli) -->
-      <div v-if="filteredStations.length > 0">
-        <div class="px-2 py-1 text-[11px] font-bold text-text-muted uppercase tracking-wider flex items-center gap-1.5">
-          <Zap class="w-3.5 h-3.5 text-primary" />
-          <span>İstasyonlar</span>
+      <!-- 1. Operatörler Kategorisi (ZES, Trugo, Eşarj vb.) -->
+      <div v-if="filteredOperators.length > 0" class="p-2 space-y-1">
+        <div class="px-2 py-1 text-xs font-semibold text-text-muted flex items-center gap-1.5 uppercase tracking-wider">
+          <Building2 class="w-3.5 h-3.5 text-primary" />
+          <span>Şarj Ağları & Operatörler</span>
         </div>
-        <div class="space-y-1">
-          <button
-            v-for="st in filteredStations"
-            :key="st.id"
-            type="button"
-            @click="handleSelectStation(st)"
-            class="w-full text-left px-3 py-2 text-sm rounded hover:bg-bg-subdued flex items-center justify-between gap-2 touch-target-min transition-colors"
-            role="option"
-          >
-            <div class="flex items-center gap-2 min-w-0">
-              <Zap class="w-4 h-4 text-primary flex-shrink-0" />
-              <div class="truncate">
-                <p class="font-medium text-text-primary truncate text-xs sm:text-sm">{{ st.name }}</p>
-                <p class="text-[11px] text-text-secondary truncate">
-                  {{ st.operator?.name || 'Şarj Noktası' }} • {{ st.district || '' }} {{ st.city ? `/ ${st.city}` : '' }}
-                </p>
-              </div>
-            </div>
-            <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-bg-subdued border border-border-default text-text-secondary flex-shrink-0">
-              {{ st.istasyon_no || 'EPDK' }}
-            </span>
-          </button>
-        </div>
+        <button
+          v-for="op in filteredOperators"
+          :key="op.id"
+          type="button"
+          @click="handleSelectOperator(op.slug, op.name)"
+          class="w-full text-left px-2.5 py-2 rounded hover:bg-bg-subdued flex items-center justify-between transition-colors touch-target-min"
+        >
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-primary flex-shrink-0"></span>
+            <span class="text-sm font-medium text-text-primary">{{ op.name }}</span>
+          </div>
+          <span class="text-xs text-text-muted bg-bg-subdued px-2 py-0.5 rounded border border-border-default">Operatör</span>
+        </button>
       </div>
 
-      <!-- 2. İLÇE EŞLEŞMELERİ (TALEP-004: Kadıköy, Çankaya, Bodrum vb.) -->
-      <div v-if="filteredDistricts.length > 0">
-        <div class="px-2 py-1 text-[11px] font-bold text-text-muted uppercase tracking-wider flex items-center gap-1.5">
-          <Navigation class="w-3.5 h-3.5 text-primary" />
-          <span>İlçeler</span>
+      <!-- 2. İlçeler Kategorisi (Kadıköy, Çankaya, Beşiktaş vb.) -->
+      <div v-if="filteredDistricts.length > 0" class="p-2 space-y-1">
+        <div class="px-2 py-1 text-xs font-semibold text-text-muted flex items-center gap-1.5 uppercase tracking-wider">
+          <Navigation class="w-3.5 h-3.5 text-success" />
+          <span>İlçeler (Bölgesel Odaklanma)</span>
         </div>
-        <div class="space-y-1">
-          <button
-            v-for="d in filteredDistricts"
-            :key="`${d.parentName}-${d.name}`"
-            type="button"
-            @click="handleSelectDistrict(d)"
-            class="w-full text-left px-3 py-2 text-sm rounded hover:bg-bg-subdued flex items-center justify-between gap-2 touch-target-min transition-colors"
-            role="option"
-          >
-            <div class="flex items-center gap-2 min-w-0">
-              <Navigation class="w-4 h-4 text-primary flex-shrink-0" />
-              <span class="font-medium text-text-primary">{{ d.name }}</span>
-              <span class="text-xs text-text-secondary">({{ d.parentName }})</span>
-            </div>
-            <span class="text-[11px] text-primary font-medium flex-shrink-0">İlçe Haritası ↗</span>
-          </button>
-        </div>
+        <button
+          v-for="d in filteredDistricts"
+          :key="`${d.parentName}-${d.name}`"
+          type="button"
+          @click="handleSelectDistrict(d)"
+          class="w-full text-left px-2.5 py-2 rounded hover:bg-bg-subdued flex items-center justify-between transition-colors touch-target-min"
+        >
+          <div class="flex items-center gap-2">
+            <MapPin class="w-4 h-4 text-text-muted flex-shrink-0" />
+            <span class="text-sm font-medium text-text-primary">{{ d.name }}</span>
+          </div>
+          <span class="text-xs text-text-secondary">{{ d.parentName }}</span>
+        </button>
       </div>
 
-      <!-- 3. ŞEHİR EŞLEŞMELERİ (81 İl) -->
-      <div v-if="filteredCities.length > 0">
-        <div class="px-2 py-1 text-[11px] font-bold text-text-muted uppercase tracking-wider flex items-center gap-1.5">
+      <!-- 3. Şehirler / İller Kategorisi (81 İl) -->
+      <div v-if="filteredCities.length > 0" class="p-2 space-y-1">
+        <div class="px-2 py-1 text-xs font-semibold text-text-muted flex items-center gap-1.5 uppercase tracking-wider">
           <MapPin class="w-3.5 h-3.5 text-primary" />
           <span>Şehirler (81 İl)</span>
         </div>
-        <div class="space-y-1">
-          <button
-            v-for="c in filteredCities"
-            :key="c.name"
-            type="button"
-            @click="handleSelectCity(c)"
-            class="w-full text-left px-3 py-2 text-sm rounded hover:bg-bg-subdued flex items-center justify-between gap-2 touch-target-min transition-colors"
-            role="option"
-          >
-            <div class="flex items-center gap-2 min-w-0">
-              <MapPin class="w-4 h-4 text-primary flex-shrink-0" />
-              <span class="font-medium text-text-primary">{{ c.name }}</span>
-            </div>
-            <span class="text-[11px] text-primary font-medium flex-shrink-0">Şehir Merkezi ↗</span>
-          </button>
-        </div>
+        <button
+          v-for="c in filteredCities"
+          :key="c.name"
+          type="button"
+          @click="handleSelectCity(c)"
+          class="w-full text-left px-2.5 py-2 rounded hover:bg-bg-subdued flex items-center justify-between transition-colors touch-target-min"
+        >
+          <div class="flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></span>
+            <span class="text-sm font-medium text-text-primary">{{ c.name }}</span>
+          </div>
+          <span class="text-xs text-text-muted">İl Merkezi</span>
+        </button>
       </div>
 
-      <!-- 4. OPERATÖR EŞLEŞMELERİ -->
-      <div v-if="filteredOperators.length > 0">
-        <div class="px-2 py-1 text-[11px] font-bold text-text-muted uppercase tracking-wider flex items-center gap-1.5">
-          <Building2 class="w-3.5 h-3.5 text-primary" />
-          <span>Operatörler</span>
+      <!-- 4. Spesifik İstasyonlar Kategorisi (Ad, Numara, Adres) -->
+      <div v-if="filteredStations.length > 0" class="p-2 space-y-1">
+        <div class="px-2 py-1 text-xs font-semibold text-text-muted flex items-center gap-1.5 uppercase tracking-wider">
+          <Zap class="w-3.5 h-3.5 text-warning" />
+          <span>Şarj İstasyonları</span>
         </div>
-        <div class="space-y-1">
-          <button
-            v-for="op in filteredOperators"
-            :key="op.id"
-            type="button"
-            @click="handleSelectOperator(op.slug, op.name)"
-            class="w-full text-left px-3 py-2 text-sm rounded hover:bg-bg-subdued flex items-center gap-2 touch-target-min transition-colors"
-            role="option"
-          >
-            <Building2 class="w-4 h-4 text-text-secondary flex-shrink-0" />
-            <span class="font-medium text-text-primary">{{ op.name }}</span>
-          </button>
-        </div>
+        <button
+          v-for="st in filteredStations"
+          :key="st.id"
+          type="button"
+          @click="handleSelectStation(st)"
+          class="w-full text-left px-2.5 py-2 rounded hover:bg-bg-subdued flex flex-col gap-0.5 transition-colors touch-target-min"
+        >
+          <div class="flex items-center justify-between gap-2">
+            <span class="text-sm font-medium text-text-primary truncate">{{ st.name }}</span>
+            <span v-if="st.operator?.name" class="text-xs font-bold text-primary flex-shrink-0">
+              {{ st.operator.name }}
+            </span>
+          </div>
+          <div class="flex items-center gap-2 text-xs text-text-muted truncate">
+            <span v-if="st.istasyon_no" class="font-mono text-text-secondary">{{ st.istasyon_no }}</span>
+            <span>•</span>
+            <span class="truncate">{{ st.district || st.city }}</span>
+          </div>
+        </button>
       </div>
+    </div>
 
-      <!-- 5. SONUÇ BULUNAMADI DURUMU -->
-      <div
-        v-if="
-          !isSearching &&
-          filteredStations.length === 0 &&
-          filteredDistricts.length === 0 &&
-          filteredCities.length === 0 &&
-          filteredOperators.length === 0
-        "
-        class="p-4 text-center text-text-secondary text-sm space-y-1"
-        role="status"
-        aria-live="polite"
-      >
-        <SearchX class="w-6 h-6 mx-auto text-text-muted mb-1" />
-        <p class="font-semibold text-text-primary text-xs">Sonuç bulunamadı</p>
-        <p class="text-[11px] text-text-secondary">
-          İlçe (Kadıköy, Bodrum vb.), il veya istasyon adı yazarak tekrar deneyin.
-        </p>
-      </div>
+    <!-- Sonuç Bulunamadı Durumu -->
+    <div
+      v-else-if="isOpen && inputVal.length >= 2 && !isSearching"
+      class="absolute left-0 top-14 w-full bg-bg-surface border border-border-default rounded-md shadow-xl p-4 z-50 text-center space-y-1"
+      role="status"
+      aria-live="polite"
+    >
+      <SearchX class="w-6 h-6 text-text-muted mx-auto" />
+      <p class="text-sm font-semibold text-text-primary">Sonuç bulunamadı</p>
+      <p class="text-xs text-text-secondary">İstasyon adı, il, ilçe (ör: Kadıköy) veya operatör adı yazın.</p>
     </div>
   </div>
 </template>

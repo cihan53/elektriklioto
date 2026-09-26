@@ -1,6 +1,6 @@
 {
-  "son_guncelleme": "2026-09-24T21:23:47.083942",
-  "toplam_talep": 22,
+  "son_guncelleme": "2026-09-26T10:30:53.236529",
+  "toplam_talep": 24,
   "talepler": [
     {
       "id": "TALEP-001",
@@ -131243,6 +131243,67 @@
           "durum": "COZULDU"
         }
       ]
+    },
+    {
+      "id": "TALEP-023",
+      "tarih": "2026-09-26 10:05",
+      "tur": "VERI",
+      "oncelik": "YUKSEK",
+      "baslik": "Haritada ve Operatör Filtresinde Yalnızca 5 Marka Listeleniyor, EPDK'daki Diğer Markalar Görünmüyor",
+      "aciklama": "Harita ekranını açıp 'Tüm Operatörler' açılır menüsüne tıkladığımda yalnızca 5 adet şarj firması listeleniyor. Oysa EPDK resmi kayıtlarında 170'ten fazla lisanslı şarj ağı markası bulunuyor. Kendi aracımı şarj ettiğim diğer markaları listede bulamıyorum ve haritada bu markalara göre filtreleme yapamıyorum. Sistemde diğer markaların verileri eksik mi işleniyor yoksa filtre listesine mi eklenmedi? Bir elektrikli araç kullanıcısı olarak Türkiye genelindeki tüm lisanslı şarj markalarını listede görüp istasyonlarını haritada filtreleyebilmek istiyorum.",
+      "sayfa_url": "/",
+      "durum": "BEKLEMEDE",
+      "gorevli_rol": null,
+      "studio_notu": null,
+      "github_issue_number": 31,
+      "github_issue_url": "https://github.com/cihan53/elektriklioto/issues/31",
+      "gecmis": [
+        {
+          "zaman": "2026-09-26 10:05",
+          "eylem": "Kayıt oluşturuldu",
+          "durum": "BEKLEMEDE"
+        },
+        {
+          "zaman": "2026-09-26 10:05",
+          "eylem": "GitHub Issue oluşturuldu: #31",
+          "durum": "BEKLEMEDE"
+        },
+        {
+          "zaman": "2026-09-26 10:10",
+          "eylem": "Talep açıklaması insan anlatısı ve net kullanıcı deneyimi olarak detaylandırıldı",
+          "durum": "BEKLEMEDE"
+        }
+      ]
+    },
+    {
+      "id": "TALEP-024",
+      "tarih": "2026-09-26 10:30",
+      "tur": "UX",
+      "oncelik": "NORMAL",
+      "baslik": "Operatör Menüsünde Arama ve 'Tüm Markalar' Alanının Sabitlenmesi ve İstasyon Sayılarının Gösterilmesi",
+      "aciklama": "Harita üzerindeki 'Tüm Operatörler' menüsünü açıp markalar arasında gezinmek istediğimde, liste aşağı kaydırıldıkça arama çubuğu ve 'Tüm Markalar' seçeneği kayboluyor. Listeyi aşağı kaydırsam bile en üstteki arama kutusunun ve 'Tüm Markalar' seçeneğinin menünün tepesinde sabit (yapışkan) kalmasını istiyorum; böylece listeyi tekrar başa kaydırmak zorunda kalmadan her an arama yapabilir veya filtreyi sıfırlayabilirim. Ayrıca her bir markanın yanında kaç adet istasyonu olduğunun parantez veya rozet içinde yazması, operatörlerin yaygınlığını tek bakışta görüp seçim yapmamı çok kolaylaştıracaktır.",
+      "sayfa_url": "/",
+      "durum": "DEGERLENDIRMEDE",
+      "gorevli_rol": null,
+      "studio_notu": null,
+      "cozum_plani": null,
+      "github_issue_number": 32,
+      "github_issue_url": "https://github.com/cihan53/elektriklioto/issues/32",
+      "gecmis": [
+        {
+          "zaman": "2026-09-26 10:30",
+          "eylem": "Kayıt oluşturuldu",
+          "durum": "BEKLEMEDE"
+        },
+        {
+          "zaman": "2026-09-26 10:30",
+          "eylem": "GitHub Issue oluşturuldu: #32",
+          "durum": "BEKLEMEDE"
+        }
+      ],
+      "faz_id": "FAZ-1",
+      "efor": "ORTA",
+      "triage_notu": "Yeni Özellik (Feature) olarak sınıflandırıldı. Önerilen Faz: FAZ-1 (Efor: ORTA)."
     }
   ]
 }
