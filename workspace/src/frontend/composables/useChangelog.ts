@@ -1,3 +1,4 @@
+
 import { ref, computed } from 'vue';
 import defaultChangelog from '~/data/changelog.json';
 
