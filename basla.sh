@@ -6,10 +6,20 @@
 #   ./basla.sh --durdur     çalışan koşuyu nazikçe durdurur
 #   ./basla.sh --izle       sadece kontrol ekranını açar
 #   ./basla.sh --durum      tek satırlık durum özeti (ekran açmadan)
+#   ./basla.sh --web        web arayüzünü başlatır (panel + müşteri odası, :8080)
 #
 #   ./basla.sh --musteri    müşteri denetim masasını (istek/şikayet) açar
 #   ./basla.sh --onayla     günlük kota dolduğunda bir tur daha izin ver
 #   ./basla.sh --onayla 5   bugün için 5 görevlik ek kota tanı
+#
+#   Pano yönetimi (studio.db üzerinde çalışır, koşucu bayrakla haberdar edilir):
+#   ./basla.sh --oncelik S1-T2 10      görev önceliği (büyük = önce koşar)
+#   ./basla.sh --sira S1-T2 0          görevi sprint içinde sıraya taşı
+#   ./basla.sh --sprint-sira S3 0      sprint'i yeniden sırala
+#   ./basla.sh --gec S2-T1             mevcut çağrı bitince bu göreve geç
+#   ./basla.sh --gec S2-T1 --force     çağrıyı anında kesip bu göreve geç
+#   ./basla.sh --atla [S1-T2]          görevi atla (id yoksa koşan/sıradaki)
+#   ./basla.sh --atla S1-T2 --force    çağrıyı anında kesip atla
 #
 #   Günlük varsayılan: 3 görev / 2 USD. Değiştirmek için:
 #   STUDIO_GUNLUK_GOREV, STUDIO_GUNLUK_BUTCE
@@ -18,6 +28,7 @@ set -uo pipefail
 cd "$(dirname "$0")" || exit 1
 
 PY=".venv/bin/python"
+[ -x "$PY" ] || PY="python3"
 LOG="pipeline.log"
 red()  { printf "\033[31m%s\033[0m\n" "$*"; }
 grn()  { printf "\033[32m%s\033[0m\n" "$*"; }
@@ -37,8 +48,13 @@ kosucu_pid() { cat workspace/.lock 2>/dev/null; }
 # ---------------------------------------------------------------- alt komutlar
 case "${1:-}" in
   --usage|--kullanim)
-      echo "── Antigravity Model Kotası ─────────────────────────"
-      (agy -p="/usage" 2>/dev/null || ~/.local/bin/agy -p="/usage")
+      if [ "${STUDIO_BACKEND:-agy}" = "devin" ]; then
+        echo "── Devin AI Backend ──────────────────────────────"
+        (devin auth status 2>/dev/null || ~/.local/bin/devin auth status 2>/dev/null || echo "devin CLI oturum durumu alınamadı")
+      else
+        echo "── Antigravity Model Kotası ─────────────────────────"
+        (agy -p="/usage" 2>/dev/null || ~/.local/bin/agy -p="/usage")
+      fi
       echo
       $PY - <<'PYEOF'
 import json, pathlib
@@ -71,6 +87,8 @@ PYEOF
   --musteri|--talep|--talepler)
       exec ./musteri.sh "${@:2}" ;;
   --izle)   exec $PY studio_ctl.py ;;
+  --web|--panel|--arayuz)
+      exec $PY studio_web.py "${@:2}" ;;
   --onayla)
       $PY - "$@" <<'PYEOF'
 import sys, studio_board as B
@@ -133,16 +151,6 @@ try:
     cur = json.loads((root/"workspace/.trace/current.json").read_text())
 except Exception:
     pass
-
-# Koşucu ölmüşse bayat 'started_at' sayacı gösterme; kesilme sebebini bas.
-if cur.get("role") and (cur.get("ended_at") or cur.get("error") or not alive):
-    ended = cur.get("ended_at") or cur.get("started_at") or time.time()
-    kesildi = max(0, int(ended - cur.get("started_at", ended)))
-    print(f"\n  {RED}✗ Son çağrı kesildi{NC}: {cur.get('task','?')} · {cur.get('role','?')}  "
-          f"{DIM}({kesildi//60}dk {kesildi%60:02d}s sürdü){NC}")
-    if cur.get("error"):
-        print(f"  {DIM}sebep: {str(cur['error'])[:100]}{NC}")
-    cur = {}
 
 if cur.get("role"):
     elapsed = int(time.time() - cur.get("started_at", time.time()))
@@ -217,19 +225,24 @@ if cur.get("role"):
                 print(f"  {DIM}│ {sat[:80]}{NC}")
 
 # ── Sprint İlerlemesi ────────────────────────────────────────────────────────
-pano = root/"workspace/pano.json"
-if pano.exists():
+p = None
+try:
+    import studio_board as B
+    p = B.load()
+except Exception:
+    pass
+
+if p and p.get("sprints"):
     try:
-        p = json.load(open(pano))
         sprints = p.get("sprints", [])
         total_s = len(sprints)
         done_s = sum(1 for s in sprints if s.get("status") == "DONE")
         all_tasks = [t for s in sprints for t in s.get("tasks", [])]
         total_t = len(all_tasks)
-        done_t = sum(1 for t in all_tasks if t.get("status") == "done")
-        fail_t = sum(1 for t in all_tasks if t.get("status") in ("error", "failed"))
+        done_t = sum(1 for t in all_tasks if t.get("status") in ("done", "DONE"))
+        fail_t = sum(1 for t in all_tasks if t.get("status") in ("error", "failed", "FAILED"))
 
-        print(f"\n{BOLD}  Sprint İlerlemesi{NC}")
+        print(f"\n{BOLD}  Sprint İlerlemesi (studio.db){NC}")
         print(f"  {'─'*58}")
         print(f"  Sprint  {bar(done_s, total_s)} {done_s}/{total_s}")
         print(f"  Görev   {bar(done_t, total_t)} {done_t}/{total_t}")
@@ -240,14 +253,14 @@ if pano.exists():
         aktif = next((s for s in sprints if s.get("status") in ("READY","RUNNING")), None)
         if aktif:
             tasks = aktif.get("tasks", [])
-            done_st = sum(1 for t in tasks if t.get("status") == "done")
+            done_st = sum(1 for t in tasks if t.get("status") in ("done", "DONE"))
             print(f"\n  {BOLD}Aktif:{NC} {aktif['id']} — {aktif.get('name','')[:45]}")
             print(f"         {bar(done_st, len(tasks), 16)} {done_st}/{len(tasks)}")
             for t in tasks:
                 st = t.get("status","?")
-                icon = (f"{GREEN}✓{NC}" if st=="done"
+                icon = (f"{GREEN}✓{NC}" if st in ("done", "DONE")
                         else f"{YELLOW}▸{NC}" if st in ("RUNNING","running","in_progress")
-                        else f"{RED}✗{NC}" if st in ("error","failed")
+                        else f"{RED}✗{NC}" if st in ("error","failed","FAILED")
                         else f"{DIM}·{NC}")
                 note = f" {DIM}{t.get('note','')[:35]}{NC}" if t.get("note") else ""
                 dur = f" {DIM}{t.get('duration_s',0):.0f}s{NC}" if t.get("duration_s") else ""
@@ -307,9 +320,88 @@ PYEOF
       exit 0 ;;
   --durdur)
       if ! calisiyor_mu; then ylw "Çalışan koşu yok."; exit 0; fi
-      $PY -c "import studio_board as B; B.request('stop')"
+      $PY -c "import studio_board as B; B.request('stop', kaynak='cli')"
       grn "Durdurma istendi — çalışan çağrı bitince koşucu çıkacak."
       dim "Hemen kesmek için: pkill -f studio_engine.py  (devam eden çağrının parası gider)"
+      exit 0 ;;
+  --oncelik|--sira|--sprint-sira|--gec|--atla)
+      $PY - "$@" <<'PYEOF'
+import sys
+import studio_board as B
+
+cmd = sys.argv[1]
+args = [a for a in sys.argv[2:] if not a.startswith("--")]
+force = "--force" in sys.argv[2:]
+
+if cmd == "--oncelik":
+    if len(args) < 2:
+        sys.exit("Kullanım: ./basla.sh --oncelik <görev_id> <değer>")
+    tid, deger = args[0], int(args[1])
+    if not B.set_priority(tid, deger):
+        sys.exit(f"Görev bulunamadı: {tid}")
+    B.request("reload", kaynak="cli")
+    print(f"✓ {tid} önceliği {deger} olarak ayarlandı (büyük = önce koşar).")
+
+elif cmd == "--sira":
+    if len(args) < 2:
+        sys.exit("Kullanım: ./basla.sh --sira <görev_id> <pozisyon>")
+    tid, poz = args[0], int(args[1])
+    if not B.reorder_task(tid, poz):
+        sys.exit(f"Görev bulunamadı: {tid}")
+    B.request("reload", kaynak="cli")
+    print(f"✓ {tid} sprint içinde {poz}. sıraya taşındı.")
+
+elif cmd == "--sprint-sira":
+    if len(args) < 2:
+        sys.exit("Kullanım: ./basla.sh --sprint-sira <sprint_id> <pozisyon>")
+    sid, poz = args[0], int(args[1])
+    if not B.reorder_sprint(sid, poz):
+        sys.exit(f"Sprint bulunamadı: {sid}")
+    B.request("reload", kaynak="cli")
+    print(f"✓ {sid} {poz}. sıraya taşındı.")
+
+elif cmd == "--gec":
+    if len(args) < 1:
+        sys.exit("Kullanım: ./basla.sh --gec <görev_id> [--force]")
+    tid = args[0]
+    try:
+        board = B.load()
+    except Exception:
+        sys.exit("Pano yok — önce ./basla.sh ile koşu başlatın.")
+    s, t = B.find_task(board, tid)
+    if t is None:
+        sys.exit(f"Görev bulunamadı: {tid}")
+    if t["status"] in B.TERMINAL:
+        sys.exit(f"{tid} zaten kapalı ({t['status']}).")
+    B.request("goto", tid, kaynak="cli")
+    if force:
+        B.request("force", kaynak="cli")
+        print(f"✓ {tid} hedeflendi — çalışan çağrı anında kesilip bu göreve geçilecek.")
+    else:
+        print(f"✓ {tid} hedeflendi — mevcut çağrı bitince bu göreve geçilecek.")
+
+elif cmd == "--atla":
+    tid = args[0] if args else None
+    if not tid:
+        try:
+            board = B.load()
+            _, run = B.find_running(board)
+            if run:
+                tid = run["id"]
+            else:
+                _, t = B.next_ready(board)
+                tid = t["id"] if t else None
+        except Exception:
+            tid = None
+    if not tid:
+        sys.exit("Atlanacak görev bulunamadı.")
+    B.request("skip", tid, kaynak="cli")
+    if force:
+        B.request("force", kaynak="cli")
+        print(f"✓ {tid} atlanacak — çalışan çağrı anında kesiliyor.")
+    else:
+        print(f"✓ {tid} atlanacak — mevcut çağrı bitince uygulanır.")
+PYEOF
       exit 0 ;;
   --sifirla)
       if calisiyor_mu; then red "Önce koşuyu durdur: ./basla.sh --durdur"; exit 1; fi
@@ -318,7 +410,20 @@ PYEOF
       for d in workspace/docs workspace/src workspace/tests; do
         [ -d "$d" ] && mv "$d" "_arsiv/$TS/" 2>/dev/null
       done
-      [ -f workspace/pano.json ] && mv workspace/pano.json "_arsiv/$TS/"
+      # Panoyu arşivle (yedek) ve studio.db'den temizle
+      $PY - "_arsiv/$TS" <<'PYEOF'
+import json, pathlib, sys
+import studio_board as B
+try:
+    board = B.db_load_board()
+    if board and board.get("sprints"):
+        pathlib.Path(sys.argv[1], "sprint_panosu_yedek.json").write_text(
+            json.dumps(board, indent=2, ensure_ascii=False), encoding="utf-8")
+except Exception:
+    pass
+B.board_reset()
+PYEOF
+      rm -f workspace/pano.json
       rm -f workspace/.state.json
       rm -rf workspace/.trace workspace/.control workspace/.stale
       grn "Sıfırlandı. Önceki çıktılar: _arsiv/$TS/"
@@ -341,16 +446,41 @@ grn "✓ Python ortamı hazır"
 # PATH'e ~/.local/bin ekle
 export PATH="$HOME/.local/bin:$PATH"
 
-# Antigravity CLI (agy) kontrolü
-AGY_EXE="$(command -v agy 2>/dev/null || true)"
-if [ -z "$AGY_EXE" ] && [ -x "$HOME/.local/bin/agy" ]; then
-  AGY_EXE="$HOME/.local/bin/agy"
-fi
+# Model arka ucu kontrolü (STUDIO_BACKEND: agy | devin)
+STUDIO_BACKEND="${STUDIO_BACKEND:-agy}"
 
-if [ -n "$AGY_EXE" ]; then
-  grn "✓ agy bulundu ($AGY_EXE)"
+if [ "$STUDIO_BACKEND" = "devin" ]; then
+  DEVIN_EXE="$(command -v devin 2>/dev/null || true)"
+  if [ -z "$DEVIN_EXE" ] && [ -x "$HOME/.local/bin/devin" ]; then
+    DEVIN_EXE="$HOME/.local/bin/devin"
+  fi
+  if [ -z "$DEVIN_EXE" ] && [ -x "/Applications/Devin.app/Contents/Resources/app/extensions/windsurf/devin/bin/devin" ]; then
+    DEVIN_EXE="/Applications/Devin.app/Contents/Resources/app/extensions/windsurf/devin/bin/devin"
+  fi
+
+  if [ -n "$DEVIN_EXE" ]; then
+    grn "✓ devin bulundu ($DEVIN_EXE)"
+    [ "${STUDIO_DEVIN_CLOUD:-0}" = "1" ] && dim "  · Devin Cloud oturumları etkin (STUDIO_DEVIN_CLOUD=1)"
+    # Oturum kontrolü: token süresizdir; koşu ortasında patlamamak için erken uyar.
+    if "$DEVIN_EXE" auth status 2>&1 | grep -qi "not logged in"; then
+      red "✗ devin oturumu yok. Bir kez 'devin auth login' çalıştırın (token süresizdir)."; HATA=1
+    else
+      grn "✓ devin oturumu açık"
+    fi
+  else
+    red "✗ devin bulunamadı. Lütfen Devin CLI'nın kurulu olduğundan emin olun (~/.local/bin/devin)"; HATA=1
+  fi
 else
-  red "✗ agy bulunamadı. Lütfen Antigravity CLI'nın kurulu olduğundan emin olun (~/.local/bin/agy)"; HATA=1
+  AGY_EXE="$(command -v agy 2>/dev/null || true)"
+  if [ -z "$AGY_EXE" ] && [ -x "$HOME/.local/bin/agy" ]; then
+    AGY_EXE="$HOME/.local/bin/agy"
+  fi
+
+  if [ -n "$AGY_EXE" ]; then
+    grn "✓ agy bulundu ($AGY_EXE)"
+  else
+    red "✗ agy bulunamadı. Lütfen Antigravity CLI'nın kurulu olduğundan emin olun (~/.local/bin/agy)"; HATA=1
+  fi
 fi
 
 if [ ! -f proje_kapsami.md ]; then
@@ -414,9 +544,10 @@ echo
 dim "Log: $LOG    Durdurmak için kontrol ekranında 's'"
 echo
 
-# Arka plan sürecine mutlak komut yollarını ve Antigravity ayarlarını geçir
-export STUDIO_BACKEND="agy"
+# Arka plan sürecine mutlak komut yollarını ve backend ayarlarını geçir
+export STUDIO_BACKEND="${STUDIO_BACKEND:-agy}"
 export STUDIO_AGY_BIN="${AGY_EXE:-$HOME/.local/bin/agy}"
+[ -n "${DEVIN_EXE:-}" ] && export STUDIO_DEVIN_BIN="$DEVIN_EXE"
 nohup $PY studio_engine.py --full --yes ${STUDIO_BUTCE:+--max-cost $STUDIO_BUTCE} > "$LOG" 2>&1 &
 PID=$!
 sleep 2

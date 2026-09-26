@@ -18,6 +18,7 @@ import json
 import os
 import re
 import shutil
+import signal
 import time
 import subprocess
 import sys
@@ -90,18 +91,59 @@ def acquire_lock() -> bool:
 
 
 def load_state() -> dict:
+    state = {"completed_outputs": [], "completed_steps": []}
+    # 1. Önce studio.db'den oku
+    try:
+        conn = B.db_conn()
+        try:
+            cur = conn.cursor()
+            cur.execute("SELECT anahtar, deger FROM studio_state WHERE anahtar IN ('completed_outputs', 'completed_steps')")
+            rows = dict(cur.fetchall())
+            if rows:
+                if "completed_outputs" in rows:
+                    state["completed_outputs"] = json.loads(rows["completed_outputs"])
+                if "completed_steps" in rows:
+                    state["completed_steps"] = json.loads(rows["completed_steps"])
+                return state
+        finally:
+            conn.close()
+    except Exception:
+        pass
+
+    # 2. JSON fallback
     if STATE_FILE.exists():
         try:
-            state = json.loads(STATE_FILE.read_text(encoding="utf-8"))
-            state.setdefault("completed_outputs", [])
-            state.setdefault("completed_steps", [])
+            s = json.loads(STATE_FILE.read_text(encoding="utf-8"))
+            state["completed_outputs"] = s.get("completed_outputs", [])
+            state["completed_steps"] = s.get("completed_steps", [])
+            save_state(state)
             return state
         except json.JSONDecodeError:
             print("  [!] .state.json bozuk, sıfırdan başlanıyor.", file=sys.stderr)
-    return {"completed_outputs": [], "completed_steps": []}
+    return state
 
 
 def save_state(state: dict):
+    # 1. studio.db'ye yaz
+    try:
+        conn = B.db_conn()
+        try:
+            cur = conn.cursor()
+            cur.execute(
+                "INSERT OR REPLACE INTO studio_state (anahtar, deger) VALUES (?, ?)",
+                ("completed_outputs", json.dumps(state.get("completed_outputs", []), ensure_ascii=False))
+            )
+            cur.execute(
+                "INSERT OR REPLACE INTO studio_state (anahtar, deger) VALUES (?, ?)",
+                ("completed_steps", json.dumps(state.get("completed_steps", []), ensure_ascii=False))
+            )
+            conn.commit()
+        finally:
+            conn.close()
+    except Exception as e:
+        print(f"  [UYARI] studio.db state yazma hatası: {e}", file=sys.stderr)
+
+    # 2. JSON'a yaz (Dual-write)
     STATE_FILE.parent.mkdir(parents=True, exist_ok=True)
     STATE_FILE.write_text(json.dumps(state, indent=2, ensure_ascii=False), encoding="utf-8")
 
@@ -227,6 +269,11 @@ def preflight_env(force: bool = False) -> Path:
 BACKEND = os.getenv("STUDIO_BACKEND", "agy").lower()
 AGY_MODEL = os.getenv("STUDIO_AGY_MODEL", "gemini-3.8-flash-high")
 AGY_TIMEOUT = int(os.getenv("STUDIO_AGY_TIMEOUT", "1800"))
+# Devin AI arka ucu (devin CLI, -p print kipi; STUDIO_DEVIN_CLOUD=1 ile bulut oturumu).
+DEVIN_MODEL = os.getenv("STUDIO_DEVIN_MODEL", "")   # boş = hesap/CLI varsayılanı
+DEVIN_TIMEOUT = int(os.getenv("STUDIO_DEVIN_TIMEOUT", "3600"))
+DEVIN_CLOUD = os.getenv("STUDIO_DEVIN_CLOUD", "0") == "1"
+DEVIN_PERMISSION_MODE = os.getenv("STUDIO_DEVIN_PERMISSION_MODE", "dangerous")
 EFFORT = os.getenv("STUDIO_EFFORT", "high")   # low | medium | high
 MAX_TOKENS = int(os.getenv("STUDIO_MAX_TOKENS", "64000"))
 
@@ -272,52 +319,32 @@ def trace_end(meta: dict, system_prompt: str, user_prompt: str,
     with (TRACE_DIR / "index.jsonl").open("a", encoding="utf-8") as f:
         f.write(json.dumps(summary, ensure_ascii=False) + "\n")
 
+    # studio.db maliyet_kayitlari tablosuna ekle
+    try:
+        conn = B.db_conn()
+        try:
+            cur = conn.cursor()
+            cur.execute("""
+                INSERT INTO maliyet_kayitlari (tarih, rol, backend, model, cost_usd, detay)
+                VALUES (?, ?, ?, ?, ?, ?)
+            """, (
+                datetime.now().isoformat(),
+                summary.get("role"),
+                summary.get("backend"),
+                summary.get("model"),
+                summary.get("cost_usd", 0.0),
+                json.dumps(summary, ensure_ascii=False)
+            ))
+            conn.commit()
+        finally:
+            conn.close()
+    except Exception:
+        pass
+
     (TRACE_DIR / "current.json").write_text("{}", encoding="utf-8")
 
 
-def trace_fail(meta: dict, error: str, duration: float):
-    """Başarısız çağrıyı kalıcı olarak kaydeder.
-
-    Kritik nokta: current.json 'ended_at' + 'error' ile yazılır ki koşucu
-    öldüğünde kontrol ekranı bayat 'started_at'ten sayan donuk bir sayaç
-    göstermesin; bunun yerine kesilen çağrı ve sebebi görünsün.
-    """
-    now = time.time()
-    record = {
-        **meta,
-        "finished_at": now,
-        "duration_s": round(duration, 1),
-        "error": error[:500],
-    }
-    try:
-        (TRACE_DIR / f"{meta['seq']:04d}.json").write_text(
-            json.dumps(record, indent=2, ensure_ascii=False), encoding="utf-8")
-    except OSError:
-        pass
-
-    summary = {k: record.get(k) for k in
-               ("seq", "role", "target", "backend", "model", "effort", "duration_s")}
-    summary["error"] = error[:200]
-    try:
-        with (TRACE_DIR / "index.jsonl").open("a", encoding="utf-8") as f:
-            f.write(json.dumps(summary, ensure_ascii=False) + "\n")
-    except OSError:
-        pass
-
-    # Kesilen çağrı 'sona erdi' olarak işaretlenir — ctl artık sağlam sayaç yerine
-    # sabitlenmiş süre + hata sebebini gösterir.
-    ended = {**meta, "ended_at": now, "error": error[:300],
-             "duration_s": round(duration, 1)}
-    try:
-        (TRACE_DIR / "current.json").write_text(
-            json.dumps(ended, indent=2, ensure_ascii=False), encoding="utf-8")
-        (TRACE_DIR / "current.out").write_text(
-            f"[ÇAĞRI KESİLDİ] {error}\n", encoding="utf-8")
-    except OSError:
-        pass
-
-
-VALID_BACKENDS = ("agy",)
+VALID_BACKENDS = ("agy", "devin")
 
 
 def load_and_merge_dynamic_roles(org: dict) -> dict:
@@ -331,7 +358,7 @@ def load_and_merge_dynamic_roles(org: dict) -> dict:
             for r in roles:
                 if isinstance(r, dict) and r.get("id") and r["id"] not in existing_ids:
                     r.setdefault("stage", "build")
-                    r.setdefault("backend", "agy")
+                    r.setdefault("backend", BACKEND)
                     r.setdefault("model", AGY_MODEL)
                     org["hierarchy"].append(r)
                     existing_ids.add(r["id"])
@@ -397,7 +424,7 @@ def synthesize_role(org: dict, role_id: str) -> dict:
         "inputs": inputs,
         "outputs": outputs,
         "stage": "build",
-        "backend": "agy",
+        "backend": BACKEND,
         "model": AGY_MODEL,
         "max_words": 1800,
         "tools": tools,
@@ -411,14 +438,26 @@ def synthesize_role(org: dict, role_id: str) -> dict:
 def resolve_engine(agent: dict) -> tuple[str, str, str, list]:
     """Rolün motorunu belirler: (backend, model, effort, tools).
 
-    Tüm süreç Antigravity (agy CLI) üzerinden yürütülür.
-    Varsayılan model: gemini-3.8-flash-high.
+    Rol org_chart'ta kendi "backend" değerini belirtebilir; belirtmezse
+    STUDIO_BACKEND / --backend ile seçilen genel backend kullanılır.
+    Desteklenen backend'ler: agy (Antigravity/Gemini), devin (Devin AI).
     """
-    backend = "agy"
-    model = agent.get("model") or AGY_MODEL
-    # Herhangi bir yerde claude veya opus/sonnet kalmışsa Gemini 3.8 karşılığına eşle:
-    if any(k in model.lower() for k in ("opus", "sonnet", "claude")):
-        model = "gemini-3.8-flash-high"
+    backend = (agent.get("backend") or BACKEND or "agy").lower()
+    if backend not in VALID_BACKENDS:
+        raise ValueError(
+            f"'{agent['id']}' rolünde geçersiz backend '{backend}'. "
+            f"Geçerli değerler: {', '.join(VALID_BACKENDS)}")
+
+    if backend == "devin":
+        # Devin kendi model isimlerini kullanır (ör. swe-2, opus, codex).
+        # Rol "devin_model" ile geçersiz kılabilir; aksi hâlde STUDIO_DEVIN_MODEL
+        # (boşsa CLI/hesap varsayılanı devreye girer).
+        model = agent.get("devin_model") or DEVIN_MODEL
+    else:
+        model = agent.get("model") or AGY_MODEL
+        # Herhangi bir yerde claude veya opus/sonnet kalmışsa Gemini 3.8 karşılığına eşle:
+        if any(k in model.lower() for k in ("opus", "sonnet", "claude")):
+            model = "gemini-3.8-flash-high"
 
     tools = agent.get("tools") or []
     if not isinstance(tools, list):
@@ -436,6 +475,55 @@ class CliResult:
         self.usage = usage
 
 
+class CallAborted(Exception):
+    """Çalışan görev/çağrı kontrol isteğiyle kesildi (stop, skip, goto, force).
+
+    RuntimeError'dan ayrı tutulur: kota/limit yeniden deneme döngüsüne
+    girmesin, doğrudan koşucunun kontrol işleyicisine ulaşsın.
+    """
+
+
+def _run_cli(cmd: list, cwd: Path, timeout: int, name: str):
+    """CLI'yi kesilebilir şekilde çalıştırır.
+
+    Normal akışta subprocess.run ile aynıdır. Farkı: her yarım saniyede
+    workspace/.control/force bayrağına bakılır; bayrak varsa süreç grubu
+    SIGTERM ile öldürülür ve CallAborted fırlatılır (--gec/--atla --force).
+    """
+    proc = subprocess.Popen(
+        cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+        text=True, cwd=str(cwd), start_new_session=True,
+    )
+    deadline = time.time() + timeout
+    try:
+        while proc.poll() is None:
+            if B.is_set("force"):
+                try:
+                    os.killpg(os.getpgid(proc.pid), signal.SIGTERM)
+                    proc.wait(timeout=5)
+                except (OSError, subprocess.TimeoutExpired):
+                    try:
+                        os.killpg(os.getpgid(proc.pid), signal.SIGKILL)
+                    except OSError:
+                        pass
+                raise CallAborted(f"{name} çağrısı kullanıcı isteğiyle kesildi (--force).")
+            if time.time() > deadline:
+                try:
+                    os.killpg(os.getpgid(proc.pid), signal.SIGTERM)
+                except OSError:
+                    pass
+                raise RuntimeError(f"{name} {timeout}s içinde yanıt vermedi.")
+            time.sleep(0.5)
+        out, err = proc.communicate()
+    finally:
+        if proc.poll() is None:
+            try:
+                os.killpg(os.getpgid(proc.pid), signal.SIGKILL)
+            except OSError:
+                pass
+    return proc.returncode, out or "", err or ""
+
+
 def find_exe(name: str) -> str | None:
     """Komutu bulur. PATH eksik olsa bile STUDIO_<AD>_BIN ve bilinen dizinler taranır."""
     override = os.getenv(f"STUDIO_{name.upper()}_BIN")
@@ -445,7 +533,8 @@ def find_exe(name: str) -> str | None:
     if found:
         return found
     for base in ("~/.local/bin", "~/.npm-global/bin", "/usr/local/bin",
-                 "/opt/homebrew/bin", "~/.gemini/antigravity/bin"):
+                 "/opt/homebrew/bin", "~/.gemini/antigravity/bin",
+                 "/Applications/Devin.app/Contents/Resources/app/extensions/windsurf/devin/bin"):
         cand = Path(base).expanduser() / name
         if cand.exists():
             return str(cand)
@@ -495,21 +584,14 @@ def _call_agy(system_prompt: str, user_prompt: str, effort: str, model: str,
     cmd.append(f"-p={merged}")
 
     run_cwd = ROOT if tools else SCRATCH_DIR
-    try:
-        proc = subprocess.run(
-            cmd, capture_output=True, text=True,
-            timeout=AGY_TIMEOUT + 60, cwd=run_cwd,
-            start_new_session=True,
-        )
-    except subprocess.TimeoutExpired:
-        raise RuntimeError(f"agy {AGY_TIMEOUT}s içinde yanıt vermedi.")
+    rc, out, err = _run_cli(cmd, run_cwd, AGY_TIMEOUT + 60, "agy")
 
-    if proc.returncode != 0:
-        detail = (proc.stderr or proc.stdout or "").strip()[:500]
-        raise RuntimeError(f"agy hata koduyla çıktı ({proc.returncode}): {detail}")
+    if rc != 0:
+        detail = (err or out or "").strip()[:500]
+        raise RuntimeError(f"agy hata koduyla çıktı ({rc}): {detail}")
 
     try:
-        data = json.loads(proc.stdout)
+        data = json.loads(out)
     except json.JSONDecodeError:
         raise RuntimeError(f"agy JSON döndürmedi: {proc.stdout.strip()[:300]}")
 
@@ -527,6 +609,50 @@ def _call_agy(system_prompt: str, user_prompt: str, effort: str, model: str,
     )
 
 
+def _call_devin(system_prompt: str, user_prompt: str, effort: str, model: str,
+                tools: list | None = None) -> CliResult:
+    """Devin CLI'yi print (etkileşimsiz) kipinde çalıştırır.
+
+    1. devin'de ayrı bir system-prompt kanalı olmadığından rol tanımı kullanıcı
+       mesajının başına etiketle eklenir (agy ile aynı sözleşme).
+    2. Rol araç (tools) istiyorsa STUDIO_DEVIN_PERMISSION_MODE ile araç
+       kullanımına izin verilir ve çalışma dizini proje kökü (ROOT) olur.
+       Saf metin üreteçleri SCRATCH_DIR'de çalışır.
+    3. STUDIO_DEVIN_CLOUD=1 ise oturum Devin Cloud VM'inde yürütülür.
+    4. devin -p kullanım istatistiği döndürmez; usage boş bırakılır.
+    """
+    exe = find_exe("devin")
+    if not exe:
+        sys.exit("[HATA] 'devin' bulunamadı. Lütfen Devin CLI'nın kurulu olduğundan "
+                 "emin olun (~/.local/bin/devin veya Devin Desktop).")
+
+    merged = (
+        f"<rol_tanimi>\n{system_prompt}\n</rol_tanimi>\n\n"
+        f"Yukarıdaki rol tanımına göre davran.\n\n{user_prompt}"
+    ).replace("\x00", "")
+    cmd = [exe, "-p", merged, "--respect-workspace-trust", "false"]
+    if DEVIN_CLOUD:
+        cmd += ["--cloud"]
+    if model:
+        cmd += ["--model", model]
+    if tools:
+        cmd += ["--permission-mode", DEVIN_PERMISSION_MODE]
+
+    run_cwd = ROOT if tools else SCRATCH_DIR
+    rc, out, err = _run_cli(cmd, run_cwd, DEVIN_TIMEOUT + 60, "devin")
+
+    if rc != 0:
+        detail = (err or out or "").strip()[:500]
+        raise RuntimeError(f"devin hata koduyla çıktı ({rc}): {detail}")
+
+    text = (out or "").strip()
+    if not text:
+        detail = (err or "").strip()[:300]
+        raise RuntimeError(f"devin metin üretmedi: {detail or 'boş çıktı'}")
+    (TRACE_DIR / "current.out").write_text(text, encoding="utf-8")
+    return CliResult(text=text, stop_reason="end_turn", cost=0.0, usage={})
+
+
 # Kota/limit ve geçici ağ hatalarında ölmek yerine bekle-ve-devam et.
 LIMIT_PATTERNS = (
     "usage limit", "rate limit", "quota", "resets at", "too many requests",
@@ -537,15 +663,6 @@ LIMIT_PATTERNS = (
     "internal error", "temporarily unavailable", "connection reset",
     "unavailable", "503", "no capacity available", "capacity", "resource exhausted",
     "service unavailable", "model overloaded",
-    # --- geçici ağ / taşıma katmanı hataları (anlık kopmalar görevi öldürmesin) ---
-    "broken pipe", "protocol version", "tls:", "tls handshake", "remote error",
-    "unexpected eof", " eof", "eof,", "eof)", "connection refused",
-    "connection aborted", "connection timed out", "i/o timeout", "dial tcp",
-    "no route to host", "network is unreachable", "deadline exceeded",
-    "context deadline", "socket hang", "bad gateway", "502", "504",
-    "gateway timeout", "econnreset", "econnrefused", "etimedout", "eai_again",
-    "enotfound", "request failed", "streamgeneratecontent",
-    "yanıt vermedi", "empty reply", "server disconnected",
 )
 MAX_WAIT = int(os.getenv("STUDIO_MAX_WAIT", "18000"))   # varsayılan 5 saat
 WAIT_STEP = 20
@@ -574,6 +691,8 @@ def wait_for_quota(reason: str, waited: int) -> int:
     while slept < step:
         if B.is_set("stop"):
             raise RuntimeError("Beklerken durdurma isteği alındı.")
+        if B.is_set("force") or B.is_set("goto") or B.value_of("skip"):
+            raise CallAborted("Kota beklemesi sırasında kontrol isteği alındı.")
         time.sleep(min(10, step - slept))
         slept += 10
     return waited + step
@@ -582,33 +701,33 @@ def wait_for_quota(reason: str, waited: int) -> int:
 def query_claude(system_prompt: str, user_prompt: str,
                  backend: str, model: str, base_effort: str,
                  trace_meta: dict, tools: list | None = None) -> str:
-    """Antigravity (agy CLI) üzerinden modeli çalıştırıp yanıtı döndürür."""
+    """Seçilen backend (agy / devin) üzerinden modeli çalıştırıp yanıtı döndürür."""
     meta = dict(trace_meta, effort=base_effort, started_at=time.time(),
                 prompt_chars=len(system_prompt) + len(user_prompt))
     trace_begin(meta)
     t0 = time.time()
 
     waited = 0
-    try:
-        while True:
-            try:
+    while True:
+        try:
+            if backend == "devin":
+                res = _call_devin(system_prompt, user_prompt, base_effort, model, tools)
+            else:
                 res = _call_agy(system_prompt, user_prompt, base_effort, model, tools)
-                text = res.text
-                u = res.usage
-                in_t = u.get("input_tokens", 0)
-                out_t = u.get("output_tokens", 0)
-                th_t = u.get("thinking_tokens", 0)
-                print(f"      (agy: {in_t} girdi / {out_t} çıktı / {th_t} düşünce token)")
-                break
-            except RuntimeError as e:
-                if not is_limit_error(str(e)):
-                    raise
-                waited = wait_for_quota(str(e), waited)
-    except RuntimeError as e:
-        # Fatal hata: çağrının 'sona erdiğini' trace'e yaz ki kontrol ekranı
-        # bayat started_at'ten sayan donuk bir sayaç göstermesin.
-        trace_fail(meta, str(e), time.time() - t0)
-        raise
+            text = res.text
+            u = res.usage
+            in_t = u.get("input_tokens", 0)
+            out_t = u.get("output_tokens", 0)
+            th_t = u.get("thinking_tokens", 0)
+            print(f"      ({backend}: {in_t} girdi / {out_t} çıktı / {th_t} düşünce token)")
+            break
+        except CallAborted:
+            (TRACE_DIR / "current.json").write_text("{}", encoding="utf-8")
+            raise
+        except RuntimeError as e:
+            if not is_limit_error(str(e)):
+                raise
+            waited = wait_for_quota(str(e), waited)
 
     trace_end(meta, system_prompt, user_prompt, text,
               dict(u) if isinstance(u, dict) else {},
@@ -616,7 +735,7 @@ def query_claude(system_prompt: str, user_prompt: str,
               time.time() - t0)
 
     if not text:
-        raise RuntimeError("Antigravity boş metin döndürdü.")
+        raise RuntimeError(f"{backend} boş metin döndürdü.")
     return text
 
 
@@ -972,7 +1091,7 @@ def run_agent(agent: dict, brief: str, state: dict, force: bool = False,
                                      inputs_text, revision_note)
 
         if dry_run:
-            print(f"    [dry-run] {target}  ({backend}/{model}, effort={effort}, "
+            print(f"    [dry-run] {target}  ({backend}/{model or 'varsayılan'}, effort={effort}, "
                   f"prompt ~{len(system) + len(user)} karakter)")
             continue
 
@@ -1048,7 +1167,12 @@ def execute_pipeline(org: dict, brief: str, args):
     print(f"\n{'=' * 60}")
     print(f"  🏢 {org['company_name']}")
     print(f"  📦 {org['project']}")
-    engine = f"Antigravity (agy) · {AGY_MODEL}"
+    if BACKEND == "devin":
+        engine = f"Devin AI (devin) · {DEVIN_MODEL or 'varsayılan model'}"
+        if DEVIN_CLOUD:
+            engine += " [cloud]"
+    else:
+        engine = f"Antigravity (agy) · {AGY_MODEL}"
     print(f"  🤖 {engine} (effort: {EFFORT})")
     print(f"{'=' * 60}")
 
@@ -1067,6 +1191,10 @@ def execute_pipeline(org: dict, brief: str, args):
 
     for agent in steps:
         agent_id = agent["id"]
+        if agent.get("stage") == "service":
+            # Servis rolleri (ör. musteri_temsilcisi) boru hattına girmez;
+            # web sohbeti gibi kendi kanallarında çalışır.
+            continue
         if agent_id == PLANNER_ID:
             # Pano şema doğrulaması gerektirir; run_planner() üzerinden üretilir.
             continue
@@ -1078,7 +1206,7 @@ def execute_pipeline(org: dict, brief: str, args):
         eng_b, eng_m, eng_e, eng_t = resolve_engine(agent)
         tool_note = f", araçlar={'+'.join(eng_t)}" if eng_t else ""
         print(f"\n---> {agent['title']} ({agent_id})  "
-              f"[{eng_b}/{eng_m}, effort={eng_e}{tool_note}]")
+              f"[{eng_b}/{eng_m or 'varsayılan'}, effort={eng_e}{tool_note}]")
         try:
             if "revises" in agent:
                 run_revision_loop(agent, org_by_id, brief, state, args.max_revisions, args.dry_run)
@@ -1089,6 +1217,9 @@ def execute_pipeline(org: dict, brief: str, args):
             print("        Tamamlanan adımlar kaydedildi; sorunu çözüp tekrar çalıştırın.",
                   file=sys.stderr)
             sys.exit(1)
+        except CallAborted as e:
+            print(f"\n[KESİLDİ] {e}", file=sys.stderr)
+            sys.exit(0)
         except RuntimeError as e:
             print(f"\n[DURDU] {agent_id}: {e}", file=sys.stderr)
             print("        İlerleme .state.json'a kaydedildi; tekrar çalıştırınca kaldığı "
@@ -1108,7 +1239,7 @@ PLANNER_ID = "sprint_planner"
 
 
 def run_planner(org: dict, brief: str, force: bool = False) -> dict:
-    """Planlayıcı rolünü çalıştırıp sprint panosu üretir (studio.db)."""
+    """Planlayıcı rolünü çalıştırıp studio.db'ye sprint panosu üretir (JSON doğrulamalı)."""
     agent = next((a for a in org["hierarchy"] if a["id"] == PLANNER_ID), None)
     if agent is None:
         sys.exit(f"[HATA] '{PLANNER_ID}' rolü org şemasında yok.")
@@ -1118,7 +1249,7 @@ def run_planner(org: dict, brief: str, force: bool = False) -> dict:
 
     backend, model, effort, tools = resolve_engine(agent)
     inputs_text = collect_inputs(agent)
-    print(f"\n---> {agent['title']} ({PLANNER_ID})  [{backend}/{model}]")
+    print(f"\n---> {agent['title']} ({PLANNER_ID})  [{backend}/{model or 'varsayılan'}]")
 
     build_roles = [a for a in org["hierarchy"] if a.get("stage") == "build"]
     roles_block = "\n".join(
@@ -1134,7 +1265,7 @@ def run_planner(org: dict, brief: str, force: bool = False) -> dict:
         user = (f"===== PROJE ÖZETİ =====\n{brief}\n\n{inputs_text}\n"
                 f"{task}{note}")
         meta = {"seq": _trace_seq(), "role": PLANNER_ID, "title": agent["title"],
-                "target": "studio.db (sprint_planner)", "backend": backend,
+                "target": "studio.db", "backend": backend,
                 "model": model, "tools": tools}
         raw = query_claude(agent["system_prompt"] + SYSTEM_SUFFIX, user,
                            backend, model, effort, meta, tools)
@@ -1173,6 +1304,9 @@ def run_planner(org: dict, brief: str, force: bool = False) -> dict:
         B.refresh(board)
         B.save(board)
         p = B.progress(board)
+        B.audit("engine", "pano_planlandi",
+                detay={"sprint": p["sprints_total"], "gorev": p["total"],
+                       "baseline_end": board.get("baseline_end")})
         print(f"  [✓] Pano üretildi: {p['sprints_total']} sprint, {p['total']} görev "
               f"→ studio.db")
         return board
@@ -1486,6 +1620,23 @@ def self_healing_code_check(target: str) -> tuple[bool, str]:
     return True, ""
 
 
+def _pending_control(task_id: str) -> str:
+    """İki çağrı ARASINDA bakılan kontrol bayrakları.
+
+    stop/force/goto her zaman keser; skip yalnızca bu görevi hedefliyorsa
+    keser (başka bir kuyruktaki görevi atlamak koşanı kesmeyi gerektirmez).
+    """
+    if B.is_set("stop"):
+        return "stop"
+    if B.is_set("force"):
+        return "force"
+    if B.is_set("goto"):
+        return "goto"
+    if B.value_of("skip") == task_id:
+        return "skip"
+    return ""
+
+
 def execute_task(org: dict, task: dict, sprint: dict, brief: str, board: dict,
                  interactive: bool = False) -> bool:
     """Panodaki tek bir görevi yürütür. Başarılıysa True."""
@@ -1501,7 +1652,7 @@ def execute_task(org: dict, task: dict, sprint: dict, brief: str, board: dict,
 
     backend, model, effort, tools = resolve_engine(agent)
     print(f"\n---> [{sprint['id']}] {task['id']} · {task['title']}")
-    print(f"     rol={task['role']} faz={task['phase']} {backend}/{model}")
+    print(f"     rol={task['role']} faz={task['phase']} {backend}/{model or 'varsayılan'}")
 
     # Görev, rolün şemadaki girdilerini + görev tanımını alır.
     try:
@@ -1528,6 +1679,9 @@ def execute_task(org: dict, task: dict, sprint: dict, brief: str, board: dict,
     pre_task_git = _kalite_snapshot()
 
     for target in task["outputs"]:
+        act = _pending_control(task["id"])
+        if act:
+            raise CallAborted(f"{task['id']} '{act}' isteğiyle kesildi.")
         if target in state_of(board).get("done_outputs", []):
             continue
         siblings = [o for o in task["outputs"] if o != target]
@@ -1616,20 +1770,14 @@ def execute_task(org: dict, task: dict, sprint: dict, brief: str, board: dict,
     B.mark(board, task["id"], B.DONE, note=note)
 
     # Müşteri talebi görevi ise durumu otomatik güncelle
-    talep_id = task.get("talep_id")
-    if not talep_id:
-        m = re.search(r"TALEP-\d+", task.get("title", ""))
-        if m:
-            talep_id = m.group(0)
-
-    if talep_id:
+    if task.get("talep_id"):
         try:
             sys.path.insert(0, str(ROOT / "scripts"))
             import musteri_talepleri as MT
             import importlib
             importlib.reload(MT)
             if task.get("phase") == "test":
-                MT.guncelle(talep_id, durum="COZULDU",
+                MT.guncelle(task["talep_id"], durum="COZULDU",
                             studio_notu=f"Görev {task['id']} başarıyla tamamlandı ve UAT testinden geçti.")
         except Exception:
             pass
@@ -1657,7 +1805,22 @@ def tahmini_gorev_maliyeti(task: dict, varsayilan: float = 0.80) -> float:
 
 
 def spent_so_far() -> float:
-    """Bu projede şimdiye kadar harcanan toplam (iz kayıtlarından)."""
+    """Bu projede şimdiye kadar harcanan toplam (studio.db / iz kayıtlarından)."""
+    # 1. studio.db'den dene
+    try:
+        conn = B.db_conn()
+        try:
+            cur = conn.cursor()
+            cur.execute("SELECT SUM(cost_usd) FROM maliyet_kayitlari")
+            row = cur.fetchone()
+            if row and row[0] is not None and float(row[0]) > 0:
+                return float(row[0])
+        finally:
+            conn.close()
+    except Exception:
+        pass
+
+    # 2. JSONL fallback
     f = TRACE_DIR / "index.jsonl"
     if not f.exists():
         return 0.0
@@ -1857,12 +2020,22 @@ def run_board(org: dict, brief: str, once: bool = False,
     try:
         sys.path.insert(0, str(ROOT / "scripts"))
         import studio_yetkilisi as SY
-        if SY.otomatik_musteri_talepleri_senkronize_et() > 0:
+        eklenen = SY.otomatik_musteri_talepleri_senkronize_et()
+        if eklenen > 0:
+            B.audit("engine", "talep_senkron", detay={"eklenen_talep": eklenen})
             board = B.load()
     except Exception:
         pass
     B.recover_orphans(board)
     B.refresh(board)
+
+    # 'force' yalnızca uçuştaki bir çağrıyı kesmek içindir; koşucu kapalıyken
+    # bırakılmış bayat bayrak ilk çağrıyı anında öldürmesin diye temizlenir.
+    # (goto/skip bilinçli olarak korunur: kuyruğa alınmış isteklerdir.)
+    B.clear("force")
+
+    B.audit("engine", "kosucu_baslangic",
+            detay={"once": once, "max_tasks": max_tasks, "max_cost": max_cost})
 
     start_cost = spent_so_far()
     if max_cost:
@@ -1899,7 +2072,32 @@ def run_board(org: dict, brief: str, once: bool = False,
             B.refresh(board); B.save(board)
             continue
 
-        sprint, task = B.next_ready(board)
+        # Kontrol ekranı/CLI öncelik veya sıra değiştirdiyse panoyu tazele.
+        if ctrl["reload"]:
+            B.clear("reload")
+            board = B.load()
+            B.refresh(board)
+
+        # Görev geçişi (--gec): hedef görev kuyruk düzenini baypas ederek
+        # doğrudan sıradaki iş olur. Kapalı (DONE/SKIPPED) hedef reddedilir.
+        goto = None
+        if ctrl["goto"]:
+            tid = ctrl["goto"]
+            B.clear("goto")
+            B.clear("force")
+            gs, gt = B.find_task(board, tid)
+            if gt is None:
+                print(f"\n[!] Geçiş hedefi bulunamadı: {tid}")
+            elif gt["status"] in B.TERMINAL:
+                print(f"\n[!] Geçiş hedefi zaten kapalı: {tid} ({gt['status']})")
+            else:
+                if gt["status"] != B.READY:
+                    gt["status"] = B.READY
+                    gt["note"] = "kullanıcı geçiş istedi"
+                goto = (gs, gt)
+                print(f"\n[GEÇİŞ] {tid} doğrudan sıradaki iş olarak alınıyor.")
+
+        sprint, task = goto if goto else B.next_ready(board)
 
         # Günlük kota: görev BAŞLAMADAN önce bakılır, sınır aşılmaz.
         if task is not None:
@@ -1925,7 +2123,9 @@ def run_board(org: dict, brief: str, once: bool = False,
             try:
                 sys.path.insert(0, str(ROOT / "scripts"))
                 import studio_yetkilisi as SY
-                if SY.otomatik_musteri_talepleri_senkronize_et() > 0:
+                eklenen = SY.otomatik_musteri_talepleri_senkronize_et()
+                if eklenen > 0:
+                    B.audit("engine", "talep_senkron", detay={"eklenen_talep": eklenen})
                     board = B.load()
                     B.refresh(board)
                     B.save(board)
@@ -1946,6 +2146,8 @@ def run_board(org: dict, brief: str, once: bool = False,
                     print("\n[LİDERLİK KONTROLÜ] Panodaki mevcut görevler kapandı. CTO ve Product Owner eksik ve faz incelemesi yapıyor...")
                     added = autonomous_gap_review_and_phasing(org, brief, board)
                     if added > 0:
+                        B.audit("engine", "liderlik_faz_eklendi",
+                                detay={"yeni_sprint": added})
                         print(f"  [✓] {added} yeni sprint fazı planlandı ve panoya eklendi. Normal akış devam ediyor...\n")
                         B.refresh(board)
                         B.save(board)
@@ -1968,10 +2170,31 @@ def run_board(org: dict, brief: str, once: bool = False,
             board = B.load()
             continue
 
+        # UAT/canlı test görevi canlı ortam gerektirir; kapalıysa ekrana uyar.
+        if B.needs_live(task) and not B.live_up():
+            kapali = [str(p) for p, ok in B.live_status().items() if not ok]
+            print(f"\n[⚠ UYARI] {task['id']} canlı sistem gerektiriyor ama "
+                  f"port {', '.join(kapali)} kapalı (canli.sh çalışmıyor).")
+            print("          UAT doğrulaması başarısız olabilir. "
+                  "Başlatmak için: ./basla.sh --canli")
+
         B.mark(board, task["id"], B.RUNNING)
         B.save(board)
         onceki = spent_so_far()
-        ok = execute_task(org, task, sprint, brief, board, interactive=interactive)
+        try:
+            ok = execute_task(org, task, sprint, brief, board, interactive=interactive)
+        except CallAborted as e:
+            # Kontrol isteği (stop/skip/goto/force) görevi yarıda kesti.
+            # Atlanan görev SKIPPED, diğerleri kuyruğa geri döner (READY).
+            print(f"\n[KESİLDİ] {e}")
+            if B.value_of("skip") == task["id"]:
+                B.mark(board, task["id"], B.SKIPPED, "kullanıcı atladı")
+                B.clear("skip")
+            else:
+                B.mark(board, task["id"], B.READY, "kesildi — kuyruğa geri alındı")
+            B.clear("force")
+            B.refresh(board); B.save(board)
+            continue
         gercek = spent_so_far() - onceki
         d = B.ledger_add(gercek)
         mg, mb = B.ledger_limits()
@@ -1995,6 +2218,7 @@ def run_board(org: dict, brief: str, once: bool = False,
         if once:
             break
 
+    B.audit("engine", "kosucu_bitis", detay={"yurutulen_gorev": executed})
     return executed
 
 
@@ -2032,12 +2256,12 @@ def main():
                     help="ortam raporunu yeniden ölç")
     ap.add_argument("--review", action="store_true",
                     help="liderlik eksik denetimini ve yeni faz planlamasını tetikle")
-    ap.add_argument("--backend", choices=["agy"], default="agy",
-                    help="çalıştırma arka ucu (varsayılan: agy)")
+    ap.add_argument("--backend", choices=sorted(VALID_BACKENDS), default=None,
+                    help="çalıştırma arka ucu (varsayılan: STUDIO_BACKEND veya agy)")
     args = ap.parse_args()
 
     global BACKEND
-    BACKEND = "agy"
+    BACKEND = (args.backend or os.getenv("STUDIO_BACKEND", "agy")).lower()
 
     org_path = ROOT / args.org
     if not org_path.exists():
@@ -2068,22 +2292,27 @@ def main():
         STATE_FILE.unlink(missing_ok=True)
         print("[i] State sıfırlandı.")
 
-    # Yalnızca agy komutu aranır
-    if not find_exe("agy"):
-        sys.exit("[HATA] 'agy' komutu bulunamadı. Lütfen Antigravity CLI'nın kurulu olduğundan emin olun (~/.local/bin/agy).")
-
     from collections import Counter
     try:
-        engines = Counter(f"{b}/{m}" for b, m, _, _ in
-                          (resolve_engine(a) for a in org["hierarchy"]))
+        resolved = [resolve_engine(a) for a in org["hierarchy"]]
+        engines = Counter(f"{b}/{m or 'varsayılan'}" for b, m, _, _ in resolved)
     except ValueError as e:
         sys.exit(f"[HATA] {e}")
     if len(engines) > 1:
         print("[i] Motor dağılımı: " +
               ", ".join(f"{k} × {v}" for k, v in sorted(engines.items())))
 
+    # Kullanılan her backend'in CLI'si kurulu olmalı
+    for b in sorted({b for b, _, _, _ in resolved}):
+        if not find_exe(b):
+            if b == "devin":
+                sys.exit("[HATA] 'devin' komutu bulunamadı. Devin CLI kurulu olmalı "
+                         "(~/.local/bin/devin veya Devin Desktop).")
+            sys.exit("[HATA] 'agy' komutu bulunamadı. Lütfen Antigravity CLI'nın "
+                     "kurulu olduğundan emin olun (~/.local/bin/agy).")
+
     n_calls = sum(len(a["outputs"]) for a in org["hierarchy"])
-    engine = f"agy/{AGY_MODEL}"
+    engine = next(iter(engines)) if len(engines) == 1 else f"{BACKEND} (karışık)"
     print(f"[i] {len(org['hierarchy'])} rol, {n_calls} dosya hedefi "
           f"(≈{n_calls} çağrı, {engine}).")
 
