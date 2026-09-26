@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-09-26T12:12:50.545343",
+  "son_guncelleme": "2026-09-26T13:44:06.591370",
   "toplam_talep": 28,
   "talepler": [
     {
@@ -131288,9 +131288,9 @@
       "baslik": "Operatör Menüsünde Arama ve 'Tüm Markalar' Alanının Sabitlenmesi ve İstasyon Sayılarının Gösterilmesi",
       "aciklama": "Harita üzerindeki 'Tüm Operatörler' menüsünü açıp markalar arasında gezinmek istediğimde, liste aşağı kaydırıldıkça arama çubuğu ve 'Tüm Markalar' seçeneği kayboluyor. Listeyi aşağı kaydırsam bile en üstteki arama kutusunun ve 'Tüm Markalar' seçeneğinin menünün tepesinde sabit (yapışkan) kalmasını istiyorum; böylece listeyi tekrar başa kaydırmak zorunda kalmadan her an arama yapabilir veya filtreyi sıfırlayabilirim. Ayrıca her bir markanın yanında kaç adet istasyonu olduğunun parantez veya rozet içinde yazması, operatörlerin yaygınlığını tek bakışta görüp seçim yapmamı çok kolaylaştıracaktır.",
       "sayfa_url": "/",
-      "durum": "GELISTIRILIYOR",
+      "durum": "COZULDU",
       "gorevli_rol": "web_engineer",
-      "studio_notu": "Sprint S22 panosuna eklendi (S22-T1 ve S22-T2). Görevli rol: web_engineer. Geliştirme başladı.",
+      "studio_notu": "Görev S22-T2 başarıyla tamamlandı ve UAT testinden geçti.",
       "github_issue_number": 32,
       "github_issue_url": "https://github.com/cihan53/elektriklioto/issues/32",
       "gecmis": [
@@ -131333,6 +131333,11 @@
           "zaman": "2026-09-26 11:18",
           "eylem": "Durum güncellendi: GELISTIRILIYOR",
           "durum": "GELISTIRILIYOR"
+        },
+        {
+          "zaman": "2026-09-26 13:44",
+          "eylem": "Durum güncellendi: COZULDU",
+          "durum": "COZULDU"
         }
       ]
     },
@@ -131445,7 +131450,6 @@
       "durum": "BEKLEMEDE",
       "gorevli_rol": null,
       "studio_notu": null,
-      "cozum_plani": null,
       "github_issue_number": 37,
       "github_issue_url": "https://github.com/cihan53/elektriklioto/issues/37",
       "gecmis": [
@@ -131459,9 +131463,7 @@
           "eylem": "GitHub Issue oluşturuldu: #37",
           "durum": "BEKLEMEDE"
         }
-      ],
-      "faz_id": "FAZ-1",
-      "efor": "ORTA"
+      ]
     }
   ]
 }
