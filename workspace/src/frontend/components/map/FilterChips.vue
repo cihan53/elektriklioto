@@ -164,47 +164,47 @@ const totalStationCount = computed(() => {
 
     <!-- 2, 3, 4. Diğer Filtre Çipleri (yatay kaydırılabilir alan) -->
     <div class="flex items-center gap-2 overflow-x-auto py-1 scrollbar-none max-w-full">
-    <!-- 2. Halka Açık Filtre Çipi -->
-    <button
-      type="button"
-      @click="emit('update:isPublicOnly', !isPublicOnly)"
-      class="touch-target-min px-3.5 py-1.5 rounded-full text-sm font-medium border flex items-center gap-1.5 transition-colors focus-visible:outline-none flex-shrink-0"
-      :class="[
-        isPublicOnly
-          ? 'bg-primary text-on-primary border-primary shadow-sm'
-          : 'bg-bg-surface text-text-secondary border-border-default hover:bg-bg-subdued'
-      ]"
-      :aria-pressed="isPublicOnly"
-      aria-label="Halka Açık İstasyonları Filtrele"
-    >
-      <span>Halka Açık</span>
-    </button>
+      <!-- 2. Halka Açık Filtre Çipi -->
+      <button
+        type="button"
+        @click="emit('update:isPublicOnly', !isPublicOnly)"
+        class="touch-target-min px-3.5 py-1.5 rounded-full text-sm font-medium border flex items-center gap-1.5 transition-colors focus-visible:outline-none flex-shrink-0"
+        :class="[
+          isPublicOnly
+            ? 'bg-primary text-on-primary border-primary shadow-sm'
+            : 'bg-bg-surface text-text-secondary border-border-default hover:bg-bg-subdued'
+        ]"
+        :aria-pressed="isPublicOnly"
+        aria-label="Halka Açık İstasyonları Filtrele"
+      >
+        <span>Halka Açık</span>
+      </button>
 
-    <!-- 3. Kilitli Filtre: Hızlı Şarj (DC) — Faz 1 Zorunlu Kısıt -->
-    <button
-      type="button"
-      @click="onLockedFilterClick"
-      class="touch-target-min px-3.5 py-1.5 rounded-full text-sm font-medium border border-border-default bg-bg-subdued text-text-muted flex items-center gap-1.5 opacity-80 cursor-not-allowed flex-shrink-0"
-      aria-disabled="true"
-      title="Faz 1'de güç verisi bulunmamaktadır."
-    >
-      <Zap class="w-3.5 h-3.5" />
-      <span>Hızlı Şarj (DC)</span>
-      <Lock class="w-3 h-3 text-text-muted ml-0.5" />
-    </button>
+      <!-- 3. Kilitli Filtre: Hızlı Şarj (DC) — Faz 1 Zorunlu Kısıt -->
+      <button
+        type="button"
+        @click="onLockedFilterClick"
+        class="touch-target-min px-3.5 py-1.5 rounded-full text-sm font-medium border border-border-default bg-bg-subdued text-text-muted flex items-center gap-1.5 opacity-80 cursor-not-allowed flex-shrink-0"
+        aria-disabled="true"
+        title="Faz 1'de güç verisi bulunmamaktadır."
+      >
+        <Zap class="w-3.5 h-3.5" />
+        <span>Hızlı Şarj (DC)</span>
+        <Lock class="w-3 h-3 text-text-muted ml-0.5" />
+      </button>
 
-    <!-- 4. Kilitli Filtre: Boş Soketler — Faz 1 Zorunlu Kısıt -->
-    <button
-      type="button"
-      @click="onLockedFilterClick"
-      class="touch-target-min px-3.5 py-1.5 rounded-full text-sm font-medium border border-border-default bg-bg-subdued text-text-muted flex items-center gap-1.5 opacity-80 cursor-not-allowed flex-shrink-0"
-      aria-disabled="true"
-      title="Faz 1'de anlık doluluk verisi bulunmamaktadır."
-    >
-      <BatteryCharging class="w-3.5 h-3.5" />
-      <span>Boş Soketler</span>
-      <Lock class="w-3 h-3 text-text-muted ml-0.5" />
-    </button>
+      <!-- 4. Kilitli Filtre: Boş Soketler — Faz 1 Zorunlu Kısıt -->
+      <button
+        type="button"
+        @click="onLockedFilterClick"
+        class="touch-target-min px-3.5 py-1.5 rounded-full text-sm font-medium border border-border-default bg-bg-subdued text-text-muted flex items-center gap-1.5 opacity-80 cursor-not-allowed flex-shrink-0"
+        aria-disabled="true"
+        title="Faz 1'de anlık doluluk verisi bulunmamaktadır."
+      >
+        <BatteryCharging class="w-3.5 h-3.5" />
+        <span>Boş Soketler</span>
+        <Lock class="w-3 h-3 text-text-muted ml-0.5" />
+      </button>
     </div>
   </div>
 </template>

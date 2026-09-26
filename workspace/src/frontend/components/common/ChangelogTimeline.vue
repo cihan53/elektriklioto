@@ -1,6 +1,5 @@
-
 <script setup lang="ts">
-import { ref, computed } from 'vue';
+import { ref, computed, onMounted } from 'vue';
 import {
   Sparkles,
   CheckCircle2,
@@ -10,43 +9,44 @@ import {
   X,
   ExternalLink,
   Tag,
-  Clock
+  Clock,
+  RefreshCw
 } from 'lucide-vue-next';
+import { useChangelog, type ChangelogItem, type ReleaseVersion } from '~/composables/useChangelog';
 
-export interface ChangelogItem {
-  id: string;
-  title: string;
-  category: 'feature' | 'bug' | 'ux' | 'data' | 'infra';
-  categoryLabel: string;
-  scope: string;
-  description: string;
-  status: 'COZULDU' | 'GELISTIRILIYOR' | 'PLANLANDI';
-  githubIssueNumber?: number;
-  date: string;
-}
-
-export interface ReleaseVersion {
-  version: string;
-  buildId: string;
-  date: string;
-  isLatest: boolean;
-  summary: string;
-  items: ChangelogItem[];
-}
+export type { ChangelogItem, ReleaseVersion };
 
 const props = withDefaults(
   defineProps<{
     initialCategory?: string;
     showSearch?: boolean;
+    autoSync?: boolean;
   }>(),
   {
     initialCategory: 'all',
-    showSearch: true
+    showSearch: true,
+    autoSync: true
   }
 );
 
+const {
+  releases,
+  totalResolvedCount,
+  latestVersion,
+  isSyncing,
+  lastSyncTime,
+  refresh,
+  initChangelogSync
+} = useChangelog();
+
 const searchQuery = ref('');
 const selectedCategory = ref(props.initialCategory);
+
+onMounted(() => {
+  if (props.autoSync) {
+    initChangelogSync();
+  }
+});
 
 const categories = [
   { key: 'all', label: 'Tümü' },
@@ -56,202 +56,11 @@ const categories = [
   { key: 'data', label: 'Veri & Altyapı' }
 ];
 
-const releases: ReleaseVersion[] = [
-  {
-    version: 'v1.0.0-faz2',
-    buildId: 'build 102',
-    date: '18 Eylül 2026',
-    isLatest: true,
-    summary: 'Faz 2 Şeffaflık & Canlı Senkronizasyon: Sürüm notları ekranı, canlı deploy algılama ve 20s otomatik sayfa yenileme desteği.',
-    items: [
-      {
-        id: 'TALEP-013',
-        title: 'Değişiklik Günlüğü (Changelog / Sürüm Notları) ekranı ve modalı',
-        category: 'feature',
-        categoryLabel: 'Yeni Özellik',
-        scope: '/guncellemeler & ChangelogModal.vue',
-        description: "Uygulamada çözülen müşteri taleplerini (TALEP-001..TALEP-013), giderilen hataları, eklenen özellikleri ve SemVer sürüm etiketlerini zaman çizelgesi / kart yapısıyla sunan 'Sürüm Notları & Güncellemeler' ekranı ve modalı yayına alındı.",
-        status: 'COZULDU',
-        githubIssueNumber: 13,
-        date: '2026-09-18'
-      },
-      {
-        id: 'TALEP-012',
-        title: 'Canlı sürüm güncelleme uyarısı ve 20 saniye otomatik yenileme',
-        category: 'feature',
-        categoryLabel: 'Yeni Özellik',
-        scope: 'UpdateNotificationModal.vue & useVersionCheck.ts',
-        description: 'Yeni deploy çıktığında tüm açık sayfalarda 20 saniyelik geri sayımla otomatik yenileme uyarısı gösterilmesi ve istemcinin güncel koda senkronize olması sağlandı.',
-        status: 'COZULDU',
-        githubIssueNumber: 12,
-        date: '2026-09-18'
-      }
-    ]
-  },
-  {
-    version: 'v0.9.5',
-    buildId: 'build 101',
-    date: '18 Eylül 2026',
-    isLatest: false,
-    summary: 'Veritabanı Entegrasyonu & Header Düzeltmesi: PostgreSQL + PostGIS canlı arama entegrasyonu ve mükerrer menü temizliği.',
-    items: [
-      {
-        id: 'TALEP-010',
-        title: 'Aramalar ve istasyon kayıtlarının veritabanı senkronizasyonu',
-        category: 'data',
-        categoryLabel: 'Veri & Altyapı',
-        scope: 'Fastify Backend & PostGIS',
-        description: 'Arama ve istasyon verilerinin doğrudan PostgreSQL + PostGIS veritabanından dinamik ve coğrafi BBox sorgusuyla çekilmesi sağlandı.',
-        status: 'COZULDU',
-        githubIssueNumber: 10,
-        date: '2026-09-18'
-      },
-      {
-        id: 'TALEP-011',
-        title: 'Top menüdeki mükerrer Hakkında bağlantısının kaldırılması',
-        category: 'ux',
-        categoryLabel: 'UX İyileştirme',
-        scope: 'components/common/HeaderNav.vue',
-        description: 'Masaüstü üst barında mükerrer duran bağlantı kaldırıldı, sağ üstteki onaylı Hakkında modal butonu korundu.',
-        status: 'COZULDU',
-        githubIssueNumber: 11,
-        date: '2026-09-18'
-      }
-    ]
-  },
-  {
-    version: 'v0.9.0',
-    buildId: 'build 98',
-    date: '17 Eylül 2026',
-    isLatest: false,
-    summary: 'Yasal EMP Statüsü & Katman Çakışması İyileştirmesi: 5 sekmeli Hakkında paneli, KVKK politikası ve MapLibre z-index optimizasyonu.',
-    items: [
-      {
-        id: 'TALEP-009',
-        title: 'Hakkında, Kullanıcı Sözleşmeleri, KVKK ve Canlı Sürüm Paneli',
-        category: 'feature',
-        categoryLabel: 'Yeni Özellik',
-        scope: 'AboutModal.vue & /hakkimizda',
-        description: 'Yasal EMP lisans bildirimleri, KVKK gizlilik politikası, veri tazelik beyanları ve canlı sürüm bilgilerini içeren modal ve sayfa yayınlandı.',
-        status: 'COZULDU',
-        githubIssueNumber: 9,
-        date: '2026-09-17'
-      },
-      {
-        id: 'TALEP-008',
-        title: 'Harita pinleri ve küme baloncuklarının modal üzerine taşma sorunu (z-index)',
-        category: 'bug',
-        categoryLabel: 'Hata Düzeltme',
-        scope: 'StationMap.vue & assets/css/main.css',
-        description: 'MapLibre DOM pinlerinin ve kümeleme baloncuklarının açılır modalların üzerine taşması z-index hiyerarşisiyle kalıcı olarak çözüldü.',
-        status: 'COZULDU',
-        githubIssueNumber: 8,
-        date: '2026-09-17'
-      },
-      {
-        id: 'TALEP-007',
-        title: 'Tüm Operatörler açılır listesinde menü taşması ve istenmeyen scrollbar',
-        category: 'ux',
-        categoryLabel: 'UX İyileştirme',
-        scope: 'components/map/FilterChips.vue',
-        description: 'Operatör seçim dropdown açılır listesinde oluşan istenmeyen scroll çubuğu ve menü taşması giderildi.',
-        status: 'COZULDU',
-        githubIssueNumber: 7,
-        date: '2026-09-17'
-      }
-    ]
-  },
-  {
-    version: 'v0.8.0',
-    buildId: 'build 90',
-    date: '17 Eylül 2026',
-    isLatest: false,
-    summary: 'Gelişmiş Arama & GADM 4.1 Entegrasyonu: İl ve ilçe bazlı otomatik tamamlama, coğrafi sınır odaklanması ve mavi nokta konum göstergesi.',
-    items: [
-      {
-        id: 'TALEP-004',
-        title: 'Arama kutusunda ilçe, il ve istasyon aramasıyla harita odaklanması',
-        category: 'feature',
-        categoryLabel: 'Yeni Özellik',
-        scope: 'components/map/SearchInput.vue',
-        description: 'Kadıköy, Çankaya, Bodrum gibi ilçeler ile 81 il ve istasyon adlarıyla anlık arama ve harita bbox odaklanması sağlandı.',
-        status: 'COZULDU',
-        githubIssueNumber: 4,
-        date: '2026-09-17'
-      },
-      {
-        id: 'TALEP-005',
-        title: 'GADM 4.1 Türkiye resmi il ve ilçe sınır/merkez koordinatları',
-        category: 'data',
-        categoryLabel: 'Veri & Altyapı',
-        scope: 'Backend Search & CBS Modülü',
-        description: "Türkiye'nin 81 il ve 973 ilçesinin resmi coğrafi sınır ve merkez koordinatları veritabanı ve arama servisine entegre edildi.",
-        status: 'COZULDU',
-        githubIssueNumber: 5,
-        date: '2026-09-17'
-      },
-      {
-        id: 'TALEP-006',
-        title: 'Kullanıcı anlık konumunu gösteren mavi nokta baloncuk göstergesi',
-        category: 'ux',
-        categoryLabel: 'UX İyileştirme',
-        scope: 'components/map/VectorMap.vue & useUserLocation.ts',
-        description: 'Konum izni verildiğinde haritada kullanıcının gerçek GPS noktasını gösteren mavi dalgalanan konum halkası eklendi.',
-        status: 'COZULDU',
-        githubIssueNumber: 6,
-        date: '2026-09-17'
-      }
-    ]
-  },
-  {
-    version: 'v0.7.0',
-    buildId: 'build 82',
-    date: '17 Eylül 2026',
-    isLatest: false,
-    summary: 'İlk Canlı Sürüm & Operatör Senkronizasyonu: Harita filtre senkronizasyonu, Google Analytics ve CPO soket düzeltmeleri.',
-    items: [
-      {
-        id: 'TALEP-001',
-        title: 'Harita filtre butonları ile alt liste senkronizasyonu',
-        category: 'bug',
-        categoryLabel: 'Hata Düzeltme',
-        scope: 'components/map/FilterChips.vue',
-        description: 'Filtrelerde AC/DC seçildiğinde haritadaki pinlerle birlikte liste görünümünün de senkronize güncellenmesi sağlandı.',
-        status: 'COZULDU',
-        githubIssueNumber: 1,
-        date: '2026-09-17'
-      },
-      {
-        id: 'TALEP-002',
-        title: 'Google Analytics (G-BKMTW8EH4K) canlı izleme entegrasyonu',
-        category: 'infra',
-        categoryLabel: 'Altyapı & Analitik',
-        scope: 'components/common/GoogleAnalytics.vue',
-        description: 'Site sahibi için Google Analytics 4 takip kodu güvenli ve çerez uyumlu olarak yerleştirildi.',
-        status: 'COZULDU',
-        githubIssueNumber: 2,
-        date: '2026-09-17'
-      },
-      {
-        id: 'TALEP-003',
-        title: 'Voltrun istasyonlarında soket tipi ve güç düzeltmesi',
-        category: 'bug',
-        categoryLabel: 'Hata Düzeltme',
-        scope: 'Backend Aggregator & EPDK Seed',
-        description: 'Voltrun istasyonlarında yanlış görünen soket tipi verisi doğru AC Type 2 standardına çekildi.',
-        status: 'COZULDU',
-        githubIssueNumber: 3,
-        date: '2026-09-17'
-      }
-    ]
-  }
-];
-
 const filteredReleases = computed(() => {
   const query = searchQuery.value.trim().toLowerCase();
   const category = selectedCategory.value;
 
-  return releases
+  return releases.value
     .map((rel) => {
       const matchingItems = rel.items.filter((item) => {
         if (category !== 'all') {
@@ -282,10 +91,6 @@ const filteredReleases = computed(() => {
     .filter((rel) => rel.items.length > 0);
 });
 
-const totalResolvedCount = computed(() => {
-  return releases.reduce((sum, r) => sum + r.items.length, 0);
-});
-
 const getCategoryBadgeClass = (category: string) => {
   switch (category) {
     case 'feature':
@@ -304,7 +109,7 @@ const getCategoryBadgeClass = (category: string) => {
 
 <template>
   <div class="space-y-6" data-testid="changelog-timeline-container">
-    <!-- İstatistik ve Özet Çubuğu -->
+    <!-- İstatistik ve Canlı Senkronizasyon Çubuğu -->
     <div
       class="p-4 rounded-xl bg-bg-surface border border-border-default shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4"
     >
@@ -324,7 +129,16 @@ const getCategoryBadgeClass = (category: string) => {
         </div>
       </div>
 
-      <div class="flex items-center gap-2 text-xs">
+      <div class="flex flex-wrap items-center gap-2 text-xs">
+        <!-- Canlı Otomatik Senkronizasyon Rozeti -->
+        <span
+          class="px-2.5 py-1 rounded-md bg-bg-subdued text-text-secondary border border-border-default flex items-center gap-1.5"
+          title="Çözülen talepler sistemle canlı senkronize edilir"
+        >
+          <span class="w-2 h-2 rounded-full bg-success animate-pulse"></span>
+          <span class="font-medium text-[11px]">Canlı Senkronize</span>
+        </span>
+
         <span
           class="px-2.5 py-1 rounded-md bg-success-subdued text-success font-semibold border border-success/20 flex items-center gap-1.5"
         >
@@ -336,6 +150,19 @@ const getCategoryBadgeClass = (category: string) => {
         >
           {{ releases.length }} Sürüm
         </span>
+
+        <!-- Manuel Yenileme Butonu -->
+        <button
+          type="button"
+          @click="refresh"
+          :disabled="isSyncing"
+          class="touch-target-min p-1.5 sm:px-2 sm:py-1 rounded-md border border-border-default bg-bg-surface hover:bg-bg-subdued text-text-secondary hover:text-text-primary transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-focus-ring flex items-center gap-1 cursor-pointer"
+          aria-label="Sürüm Notlarını Yenile"
+          title="En güncel talepleri çek"
+        >
+          <RefreshCw class="w-3.5 h-3.5" :class="{ 'animate-spin': isSyncing }" />
+          <span class="hidden sm:inline text-[11px] font-medium">Yenile</span>
+        </button>
       </div>
     </div>
 
@@ -348,7 +175,7 @@ const getCategoryBadgeClass = (category: string) => {
         <input
           v-model="searchQuery"
           type="text"
-          placeholder="Talep veya güncelleme ara (örn: TALEP-002, harita, analytics, pin)..."
+          placeholder="Talep veya güncelleme ara (örn: TALEP-026, TALEP-002, harita, marka)..."
           class="w-full pl-10 pr-10 py-2.5 bg-bg-surface border border-border-default rounded-lg text-sm text-text-primary placeholder:text-text-secondary focus-visible:outline focus-visible:outline-2 focus-visible:outline-focus-ring touch-target-min transition-colors"
           data-testid="changelog-search-input"
         />
@@ -517,7 +344,7 @@ const getCategoryBadgeClass = (category: string) => {
       <button
         type="button"
         @click="searchQuery = ''; selectedCategory = 'all'"
-        class="touch-target-min px-4 py-1.5 rounded-md bg-bg-subdued border border-border-strong text-xs font-semibold text-text-primary hover:bg-border-default transition-colors"
+        class="touch-target-min px-4 py-1.5 rounded-md bg-bg-subdued border border-border-strong text-xs font-semibold text-text-primary hover:bg-border-default transition-colors cursor-pointer"
       >
         Filtreleri Sıfırla
       </button>
