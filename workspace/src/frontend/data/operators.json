@@ -1,0 +1,1367 @@
+
+[
+  {
+    "id": 1,
+    "slug": "zes",
+    "name": "ZES",
+    "is_active": true,
+    "deep_link_config": {
+      "scheme": "zes://station/{station_code}"
+    }
+  },
+  {
+    "id": 2,
+    "slug": "trugo",
+    "name": "Trugo",
+    "is_active": true,
+    "deep_link_config": {
+      "scheme": "trugo://charge?station={station_code}"
+    }
+  },
+  {
+    "id": 3,
+    "slug": "esarj",
+    "name": "Eşarj",
+    "is_active": true,
+    "deep_link_config": {
+      "scheme": "esarj://station/{station_code}"
+    }
+  },
+  {
+    "id": 4,
+    "slug": "voltrun",
+    "name": "Voltrun",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 5,
+    "slug": "sharznet",
+    "name": "Sharz.net",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 6,
+    "slug": "wat-mobilite",
+    "name": "Wat Mobilite",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 484,
+    "slug": "zeplin-car-rental",
+    "name": "ZEPLİN CAR rental",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 395,
+    "slug": "otopriz",
+    "name": "Otopriz",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 7,
+    "slug": "astor",
+    "name": "Astor",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 327,
+    "slug": "en-yakit",
+    "name": "EN YAKIT",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 118,
+    "slug": "beefull",
+    "name": "Beefull",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 747,
+    "slug": "otojet",
+    "name": "Otojet",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 268,
+    "slug": "oncharge",
+    "name": "Oncharge",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 497,
+    "slug": "aksa-sarj",
+    "name": "AKSA ŞARJ",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 693,
+    "slug": "d-charge",
+    "name": "D-Charge",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 492,
+    "slug": "sarjmatik",
+    "name": "Şarjmatik",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 648,
+    "slug": "qcharge",
+    "name": "Qcharge",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 642,
+    "slug": "gioev",
+    "name": "Gioev",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 308,
+    "slug": "lumhouse",
+    "name": "Lumhouse",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 169,
+    "slug": "monogreen",
+    "name": "Monogreen",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 379,
+    "slug": "greendrive",
+    "name": "Greendrive",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 599,
+    "slug": "estasyon",
+    "name": "Estasyon",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 564,
+    "slug": "tuncmatik-charge",
+    "name": "Tunçmatik Charge",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 206,
+    "slug": "solarsarj",
+    "name": "Solarşarj",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 560,
+    "slug": "b-charge",
+    "name": "B-Charge",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 612,
+    "slug": "powersarj",
+    "name": "Powersarj",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 563,
+    "slug": "u-sarj",
+    "name": "U-Şarj",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 312,
+    "slug": "checkpoint",
+    "name": "Checkpoint",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 393,
+    "slug": "plug-go",
+    "name": "Plug & Go",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 686,
+    "slug": "n-charge",
+    "name": "N Charge",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 430,
+    "slug": "electrise",
+    "name": "Electrise",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 460,
+    "slug": "ekosarj-en-ekonomik-en-ekolojik-sekil",
+    "name": "Ekoşarj En Ekonomik, En Ekolojik Şekil",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 576,
+    "slug": "kes",
+    "name": "Kes",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 288,
+    "slug": "gotedygo",
+    "name": "Gotedygo",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 454,
+    "slug": "tora-sarj",
+    "name": "Tora Şarj",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 640,
+    "slug": "vital-full",
+    "name": "Vital Full",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 257,
+    "slug": "pluginn",
+    "name": "Pluginn",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 673,
+    "slug": "fitt",
+    "name": "Fitt",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 140,
+    "slug": "g-charge",
+    "name": "G-Charge",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 459,
+    "slug": "nrg-point",
+    "name": "Nrg Point",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 587,
+    "slug": "t-sarj",
+    "name": "T-Şarj",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 613,
+    "slug": "charge-go",
+    "name": "Charge Go",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 472,
+    "slug": "smart-power",
+    "name": "Smart Power",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 622,
+    "slug": "dolu-oto",
+    "name": "Dolu Oto",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 349,
+    "slug": "bladeco",
+    "name": "Bladeco",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 381,
+    "slug": "ecopoint",
+    "name": "Ecopoint",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 692,
+    "slug": "b-force",
+    "name": "B-Force",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 266,
+    "slug": "fctr",
+    "name": "Fctr",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 158,
+    "slug": "vego",
+    "name": "Vego",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 401,
+    "slug": "v-charge",
+    "name": "V Charge",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 427,
+    "slug": "evcharge",
+    "name": "Evcharge",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 343,
+    "slug": "smart-charge",
+    "name": "Smart Charge",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 182,
+    "slug": "vava-sarj",
+    "name": "Vava Şarj",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 204,
+    "slug": "lotus-sarj",
+    "name": "Lotus Şarj",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 383,
+    "slug": "charge-in",
+    "name": "Charge İn",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 558,
+    "slug": "voltgo",
+    "name": "Voltgo",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 209,
+    "slug": "orbit-energy",
+    "name": "Orbit Energy",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 589,
+    "slug": "marsar-sarj",
+    "name": "Marsar Şarj",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 515,
+    "slug": "k-charge",
+    "name": "K-Charge",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 619,
+    "slug": "in-charge",
+    "name": "İn Charge",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 352,
+    "slug": "fastpoint",
+    "name": "Fastpoint",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 516,
+    "slug": "chargemate",
+    "name": "Chargemate",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 164,
+    "slug": "green-charge",
+    "name": "Green Charge",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 653,
+    "slug": "powernet",
+    "name": "Powernet",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 481,
+    "slug": "rhg-enerturk-enerji",
+    "name": "Rhg Enertürk Enerji",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 668,
+    "slug": "sarjon",
+    "name": "Şarjon",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 718,
+    "slug": "enerjisa",
+    "name": "Enerjisa",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 678,
+    "slug": "evpoint",
+    "name": "Evpoint",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 605,
+    "slug": "g-plug",
+    "name": "G-Plug",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 361,
+    "slug": "volti",
+    "name": "Volti",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 331,
+    "slug": "onemobility",
+    "name": "Onemobility",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 480,
+    "slug": "gec",
+    "name": "Gec",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 491,
+    "slug": "e-sarj",
+    "name": "E-Şarj",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 551,
+    "slug": "white-rose",
+    "name": "White Rose",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 514,
+    "slug": "voltfan",
+    "name": "Voltfan",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 593,
+    "slug": "novavolt",
+    "name": "Novavolt",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 141,
+    "slug": "carlis",
+    "name": "Carlis",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 696,
+    "slug": "efas",
+    "name": "Efas",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 384,
+    "slug": "acropol",
+    "name": "Acropol",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 606,
+    "slug": "t-station",
+    "name": "T Station",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 546,
+    "slug": "evlink",
+    "name": "Evlink",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 196,
+    "slug": "otopower",
+    "name": "Otopower",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 677,
+    "slug": "charge-box",
+    "name": "Charge Box",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 662,
+    "slug": "evser",
+    "name": "Evser",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 482,
+    "slug": "360-enerji",
+    "name": "360° Enerji",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 732,
+    "slug": "car-charge",
+    "name": "Car Charge",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 547,
+    "slug": "f-charge",
+    "name": "F Charge",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 713,
+    "slug": "enel-enerji",
+    "name": "Enel Enerji",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 583,
+    "slug": "wattarya",
+    "name": "Wattarya",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 684,
+    "slug": "chargenet",
+    "name": "Chargenet",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 694,
+    "slug": "e-power",
+    "name": "E Power",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 517,
+    "slug": "recharge",
+    "name": "Recharge",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 659,
+    "slug": "sarjport",
+    "name": "Şarjport",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 526,
+    "slug": "pwr",
+    "name": "Pwr",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 687,
+    "slug": "speedy-charge",
+    "name": "Speedy Charge",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 744,
+    "slug": "ecofast",
+    "name": "Ecofast",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 625,
+    "slug": "hizlisarj",
+    "name": "Hızlışarj",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 697,
+    "slug": "s-charge",
+    "name": "S Charge",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 634,
+    "slug": "voltlux",
+    "name": "Voltlux",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 679,
+    "slug": "green-watt",
+    "name": "Green Watt",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 623,
+    "slug": "e-go",
+    "name": "E-Go",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 737,
+    "slug": "plugon",
+    "name": "Plugon",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 639,
+    "slug": "ar-armaksis-ar-verdepunto",
+    "name": "Ar Armaksis Ar Verdepunto",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 680,
+    "slug": "charge-turk",
+    "name": "Charge Türk",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 734,
+    "slug": "voltevi",
+    "name": "Voltevi",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 731,
+    "slug": "sarjet",
+    "name": "Şarjet",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 487,
+    "slug": "sarjplus",
+    "name": "Şarjplus",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 689,
+    "slug": "v-station",
+    "name": "V-Station",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 724,
+    "slug": "fullsarj",
+    "name": "Fullşarj",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 735,
+    "slug": "e-plug",
+    "name": "E-Plug",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 637,
+    "slug": "optima-sarj",
+    "name": "Optima Şarj",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 717,
+    "slug": "eco-sarj",
+    "name": "Eco Şarj",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 729,
+    "slug": "autoll",
+    "name": "Autoll",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 745,
+    "slug": "voltrate",
+    "name": "Voltrate",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 681,
+    "slug": "sarjtr",
+    "name": "Şarjtr",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 738,
+    "slug": "chargepoint",
+    "name": "Chargepoint",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 741,
+    "slug": "solarpark",
+    "name": "Solarpark",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 748,
+    "slug": "autovolt",
+    "name": "Autovolt",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 750,
+    "slug": "asplus",
+    "name": "Asplus",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 751,
+    "slug": "arsima",
+    "name": "Arsima",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 752,
+    "slug": "akmcharge",
+    "name": "Akmcharge",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 753,
+    "slug": "aktif-sarj",
+    "name": "Aktif Şarj",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 754,
+    "slug": "adze",
+    "name": "Adze",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 755,
+    "slug": "acrobat",
+    "name": "Acrobat",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 756,
+    "slug": "aarcona",
+    "name": "Aarcona",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 757,
+    "slug": "3a",
+    "name": "3a",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 758,
+    "slug": "5-sarj",
+    "name": "5 Şarj",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 759,
+    "slug": "aostechnology",
+    "name": "Aostechnology",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 760,
+    "slug": "avrupa-sarj",
+    "name": "Avrupa Şarj",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 761,
+    "slug": "bolgem-mobilite",
+    "name": "Bölgem Mobilite",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 762,
+    "slug": "bursa-sarj",
+    "name": "Bursa Şarj",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 763,
+    "slug": "can-sarj",
+    "name": "Can Şarj",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 764,
+    "slug": "charge-fast",
+    "name": "Charge Fast",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 765,
+    "slug": "chargepark",
+    "name": "Chargepark",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 766,
+    "slug": "chargestation",
+    "name": "Chargestation",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 767,
+    "slug": "clean-energy",
+    "name": "Clean Energy",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 768,
+    "slug": "drive-green",
+    "name": "Drive Green",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 769,
+    "slug": "e-dolum",
+    "name": "E-Dolum",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 770,
+    "slug": "e-mobility",
+    "name": "E-Mobility",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 771,
+    "slug": "e-motion",
+    "name": "E-Motion",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 772,
+    "slug": "e-nokta",
+    "name": "E-Nokta",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 773,
+    "slug": "e-route",
+    "name": "E-Route",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 774,
+    "slug": "eco-drive",
+    "name": "Eco Drive",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 775,
+    "slug": "eco-motion",
+    "name": "Eco Motion",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 776,
+    "slug": "ecospot",
+    "name": "Ecospot",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 777,
+    "slug": "efill",
+    "name": "Efill",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 778,
+    "slug": "elektro-sarj",
+    "name": "Elektro Şarj",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 779,
+    "slug": "elektro-volt",
+    "name": "Elektro Volt",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 780,
+    "slug": "energize",
+    "name": "Energize",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 781,
+    "slug": "enplus",
+    "name": "Enplus",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 782,
+    "slug": "es-volt",
+    "name": "Es-Volt",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 783,
+    "slug": "ev-box",
+    "name": "Ev-Box",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 784,
+    "slug": "ev-go",
+    "name": "Ev-Go",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 785,
+    "slug": "ev-hub",
+    "name": "Ev-Hub",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 786,
+    "slug": "ev-plus",
+    "name": "Ev-Plus",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 787,
+    "slug": "ev-power",
+    "name": "Ev-Power",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 788,
+    "slug": "ev-station",
+    "name": "Ev-Station",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 789,
+    "slug": "ev-zone",
+    "name": "Ev-Zone",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 790,
+    "slug": "fast-charge",
+    "name": "Fast Charge",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 791,
+    "slug": "flash-sarj",
+    "name": "Flash Şarj",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 792,
+    "slug": "future-charge",
+    "name": "Future Charge",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 793,
+    "slug": "green-point",
+    "name": "Green Point",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 794,
+    "slug": "hizli-nokta",
+    "name": "Hızlı Nokta",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 795,
+    "slug": "ilke-sarj",
+    "name": "İlke Şarj",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 796,
+    "slug": "kartal-sarj",
+    "name": "Kartal Şarj",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 797,
+    "slug": "mega-volt",
+    "name": "Mega Volt",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 798,
+    "slug": "net-sarj",
+    "name": "Net Şarj",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 799,
+    "slug": "next-charge",
+    "name": "Next Charge",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 800,
+    "slug": "nova-charge",
+    "name": "Nova Charge",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 801,
+    "slug": "omni-charge",
+    "name": "Omni Charge",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 802,
+    "slug": "oto-sarj",
+    "name": "Oto Şarj",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 803,
+    "slug": "ozel-sarj",
+    "name": "Özel Şarj",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 804,
+    "slug": "park-charge",
+    "name": "Park Charge",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 805,
+    "slug": "plus-volt",
+    "name": "Plus Volt",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 806,
+    "slug": "power-hub",
+    "name": "Power Hub",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 807,
+    "slug": "quick-charge",
+    "name": "Quick Charge",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 808,
+    "slug": "red-charge",
+    "name": "Red Charge",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 809,
+    "slug": "rota-sarj",
+    "name": "Rota Şarj",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 810,
+    "slug": "sarj-istasyonu",
+    "name": "Şarj İstasyonu",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 811,
+    "slug": "sarj-net",
+    "name": "Şarj Net",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 812,
+    "slug": "sarj-noktasi",
+    "name": "Şarj Noktası",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 813,
+    "slug": "star-charge",
+    "name": "Star Charge",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 814,
+    "slug": "sun-charge",
+    "name": "Sun Charge",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 815,
+    "slug": "tekno-sarj",
+    "name": "Tekno Şarj",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 816,
+    "slug": "turk-sarj",
+    "name": "Türk Şarj",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 817,
+    "slug": "ultra-charge",
+    "name": "Ultra Charge",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 818,
+    "slug": "universal-charge",
+    "name": "Universal Charge",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 819,
+    "slug": "v-volt",
+    "name": "V-Volt",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 820,
+    "slug": "volt-point",
+    "name": "Volt Point",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 821,
+    "slug": "volt-station",
+    "name": "Volt Station",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 822,
+    "slug": "watt-power",
+    "name": "Watt Power",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 823,
+    "slug": "yildiz-sarj",
+    "name": "Yıldız Şarj",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 824,
+    "slug": "zen-charge",
+    "name": "Zen Charge",
+    "is_active": true,
+    "deep_link_config": null
+  },
+  {
+    "id": 825,
+    "slug": "zero-emission",
+    "name": "Zero Emission",
+    "is_active": true,
+    "deep_link_config": null
+  }
+]
