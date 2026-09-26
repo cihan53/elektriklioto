@@ -1,23 +1,36 @@
-
 <script setup lang="ts">
+import { onMounted } from 'vue';
 import {
   Sparkles,
   Map,
   Info,
   ChevronRight,
   CheckCircle2,
-  Cpu,
   Clock,
-  ExternalLink
+  RefreshCw
 } from 'lucide-vue-next';
 import ChangelogTimeline from '~/components/common/ChangelogTimeline.vue';
+import { useChangelog } from '~/composables/useChangelog';
+
+const {
+  latestVersion,
+  latestReleaseDate,
+  totalResolvedCount,
+  isSyncing,
+  refresh,
+  initChangelogSync
+} = useChangelog();
+
+onMounted(() => {
+  initChangelogSync();
+});
 
 useHead({
   title: 'Sürüm Notları & Değişiklik Günlüğü | elektriklioto.com',
   meta: [
     {
       name: 'description',
-      content: "elektriklioto.com üzerinde çözülen müşteri talepleri (TALEP-001..TALEP-013), giderilen hatalar, eklenen özellikler ve SemVer sürüm geçmişi."
+      content: "elektriklioto.com üzerinde çözülen müşteri talepleri (TALEP-001..TALEP-026), giderilen hatalar, eklenen özellikler ve SemVer sürüm geçmişi."
     },
     { property: 'og:title', content: 'Sürüm Notları & Değişiklik Günlüğü | elektriklioto.com' },
     {
@@ -79,6 +92,17 @@ useHead({
         </div>
 
         <div class="flex items-center gap-2">
+          <button
+            type="button"
+            @click="refresh"
+            :disabled="isSyncing"
+            class="touch-target-min px-3 py-2 rounded-lg bg-bg-subdued border border-border-default text-text-secondary hover:text-text-primary hover:bg-border-default text-xs font-semibold flex items-center gap-1.5 transition-colors focus-visible:outline-none cursor-pointer"
+            title="Listeyi Canlı Güncelle"
+          >
+            <RefreshCw class="w-4 h-4" :class="{ 'animate-spin': isSyncing }" />
+            <span class="hidden sm:inline">Güncelle</span>
+          </button>
+
           <NuxtLink
             to="/"
             class="touch-target-min px-4 py-2 rounded-lg bg-primary hover:bg-primary-hover text-on-primary text-xs font-semibold flex items-center gap-1.5 transition-colors shadow-sm focus-visible:outline-none"
@@ -101,17 +125,17 @@ useHead({
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
         <div class="p-3 rounded-lg bg-bg-subdued/80 border border-border-default">
           <span class="text-[11px] text-text-muted block">Aktif Sürüm</span>
-          <span class="font-mono text-sm font-bold text-primary">v1.0.0-faz2</span>
+          <span class="font-mono text-sm font-bold text-primary">{{ latestVersion }}</span>
         </div>
 
         <div class="p-3 rounded-lg bg-bg-subdued/80 border border-border-default">
           <span class="text-[11px] text-text-muted block">Çözülen Talepler</span>
-          <span class="font-mono text-sm font-bold text-success">13 Müşteri Talebi</span>
+          <span class="font-mono text-sm font-bold text-success">{{ totalResolvedCount }} Müşteri Talebi</span>
         </div>
 
         <div class="p-3 rounded-lg bg-bg-subdued/80 border border-border-default">
           <span class="text-[11px] text-text-muted block">Yayın Tarihi</span>
-          <span class="text-xs sm:text-sm font-semibold text-text-primary">18 Eylül 2026</span>
+          <span class="text-xs sm:text-sm font-semibold text-text-primary">{{ latestReleaseDate }}</span>
         </div>
 
         <div class="p-3 rounded-lg bg-bg-subdued/80 border border-border-default">

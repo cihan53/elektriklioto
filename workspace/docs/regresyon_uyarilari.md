@@ -16,3 +16,7 @@
 ## [S21-T2] — 2026-09-26 11:17
 
 - fix görevi tamamlandı ama değişen dosyalarda test yok (regresyon testi eksik) — dosyalar: workspace/docs/uat_kabul_raporu.md
+
+## [S22-T1] — 2026-09-26 12:48
+
+- fix görevi tamamlandı ama değişen dosyalarda test yok (regresyon testi eksik) — dosyalar: workspace/src/frontend/components/map/FilterChips.vue
