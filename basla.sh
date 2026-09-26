@@ -29,7 +29,7 @@ cd "$(dirname "$0")" || exit 1
 
 PY=".venv/bin/python"
 [ -x "$PY" ] || PY="python3"
-LOG="pipeline.log"
+LOG="workspace/logs/pipeline.log"
 red()  { printf "\033[31m%s\033[0m\n" "$*"; }
 grn()  { printf "\033[32m%s\033[0m\n" "$*"; }
 ylw()  { printf "\033[33m%s\033[0m\n" "$*"; }
@@ -152,6 +152,16 @@ try:
 except Exception:
     pass
 
+# Koşucu ölmüşse bayat 'started_at' sayacı gösterme; kesilme sebebini bas.
+if cur.get("role") and (cur.get("ended_at") or cur.get("error") or not alive):
+    ended = cur.get("ended_at") or cur.get("started_at") or time.time()
+    kesildi = max(0, int(ended - cur.get("started_at", ended)))
+    print(f"\n  {RED}✗ Son çağrı kesildi{NC}: {cur.get('task','?')} · {cur.get('role','?')}  "
+          f"{DIM}({kesildi//60}dk {kesildi%60:02d}s sürdü){NC}")
+    if cur.get("error"):
+        print(f"  {DIM}sebep: {str(cur['error'])[:100]}{NC}")
+    cur = {}
+
 if cur.get("role"):
     elapsed = int(time.time() - cur.get("started_at", time.time()))
     el_m, el_s = elapsed // 60, elapsed % 60
@@ -186,7 +196,9 @@ if cur.get("role"):
     print(f"  {CYAN}Token  {NC}: {cur.get('prompt_chars',0):,} karakter")
 
     # ── Pipeline log: 429 / hata durumu ──────────────────────────────────────
-    log_f = root / "pipeline.log"
+    log_f = root / "workspace/logs/pipeline.log"
+    if not log_f.exists():
+        log_f = root / "pipeline.log"  # eski sürümden kalan kök logu
     if log_f.exists():
         log_lines = log_f.read_text(errors="replace").splitlines()
         # Son 60 satırda quota/hata ara
@@ -311,6 +323,19 @@ try:
     kr = RED if doldu else (YELLOW if dolmak_uzere else GREEN)
     ds = "DOLDU — onay bekliyor" if doldu else ("Dolmak üzere" if dolmak_uzere else "açık")
     print(f"\n  {BOLD}Kota:{NC} {kr}bugün {d['gorev']}/{mg} görev  ${d['maliyet']:.2f}/${mb:.2f}  [{ds}]{NC}")
+except Exception:
+    pass
+
+# ── Framework Güncelleme Bildirimi ───────────────────────────────────────────
+try:
+    import studio_board as B
+    g = B.framework_update_info()
+    if g and g.get("update"):
+        print(f"\n  {YELLOW}⚠  Studio v{g['remote']} güncellemesi mevcut{NC} "
+              f"{DIM}(kurulu v{g['local']}){NC}")
+        for c in (g.get("changes") or [])[:4]:
+            print(f"     {DIM}• {c[:84]}{NC}")
+        print(f"  {CYAN}   İncele: python3 scripts/studio_updater.py --kontrol{NC}")
 except Exception:
     pass
 
@@ -483,12 +508,15 @@ else
   fi
 fi
 
-if [ ! -f proje_kapsami.md ]; then
-  red "✗ proje_kapsami.md yok"; HATA=1
-elif grep -q "BURAYI DOLDUR" proje_kapsami.md; then
+# Kapsam dokümanı workspace kuralıyla workspace/docs/ altında durabilir.
+KAPSAM="workspace/docs/proje_kapsami.md"
+[ -f "$KAPSAM" ] || KAPSAM="proje_kapsami.md"
+if [ ! -f "$KAPSAM" ]; then
+  red "✗ proje_kapsami.md yok (kökte ve workspace/docs/ altında bulunamadı)"; HATA=1
+elif grep -q "BURAYI DOLDUR" "$KAPSAM"; then
   ylw "! proje_kapsami.md'de doldurulmamış bölümler var — roller varsayım üretecek"
 else
-  grn "✓ Kapsam dokümanı hazır ($(wc -l < proje_kapsami.md | tr -d ' ') satır)"
+  grn "✓ Kapsam dokümanı hazır ($(wc -l < "$KAPSAM" | tr -d ' ') satır)"
 fi
 
 if calisiyor_mu; then
@@ -548,6 +576,7 @@ echo
 export STUDIO_BACKEND="${STUDIO_BACKEND:-agy}"
 export STUDIO_AGY_BIN="${AGY_EXE:-$HOME/.local/bin/agy}"
 [ -n "${DEVIN_EXE:-}" ] && export STUDIO_DEVIN_BIN="$DEVIN_EXE"
+mkdir -p "$(dirname "$LOG")"
 nohup $PY studio_engine.py --full --yes ${STUDIO_BUTCE:+--max-cost $STUDIO_BUTCE} > "$LOG" 2>&1 &
 PID=$!
 sleep 2
@@ -555,6 +584,24 @@ if ! kill -0 "$PID" 2>/dev/null; then
   red "✗ Koşucu hemen düştü. Son satırlar:"; tail -15 "$LOG"; exit 1
 fi
 grn "✓ Koşucu çalışıyor (pid $PID)"
+
+# Web arayüzü de kalksın — port doluysa ya da dosya yoksa atla.
+WEB_PORT="${STUDIO_WEB_PORT:-8080}"
+WEB_HOST="${STUDIO_WEB_HOST:-127.0.0.1}"
+if [ ! -f studio_web.py ]; then
+  dim "studio_web.py yok — web paneli atlandı"
+elif lsof -iTCP:"$WEB_PORT" -sTCP:LISTEN >/dev/null 2>&1; then
+  dim "Web paneli zaten açık: http://$WEB_HOST:$WEB_PORT/panel"
+else
+  mkdir -p workspace/logs
+  nohup $PY studio_web.py > workspace/logs/web.log 2>&1 &
+  sleep 1
+  if kill -0 $! 2>/dev/null; then
+    grn "✓ Web paneli: http://$WEB_HOST:$WEB_PORT/panel"
+  else
+    ylw "Web paneli başlatılamadı — log: workspace/logs/web.log"
+  fi
+fi
 echo
 dim "Kontrol ekranı açılıyor — çıkmak için 'q' (koşu arka planda devam eder)"
 sleep 2

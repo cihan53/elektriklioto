@@ -18,6 +18,10 @@ plan.log
 studio.db
 studio.db-shm
 studio.db-wal
+workspace/studio.db
+workspace/studio.db-shm
+workspace/studio.db-wal
+workspace/logs/
 .claude_token
 
 # cPanel ve Dağıtım Geçici Dosyaları

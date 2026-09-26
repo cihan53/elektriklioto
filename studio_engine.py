@@ -46,12 +46,35 @@ RESPECT_CALENDAR = os.getenv("STUDIO_RESPECT_CALENDAR", "0") == "1"
 # Uzak/mutlak yol yazımını engellemek için tüm çıktılar bu köklerin altında olmalı.
 ALLOWED_OUTPUT_ROOTS = (WORKSPACE,)
 # Tek istisna: kullanıcının elle düzenlediği, rollerin zenginleştirdiği canlı
-# kapsam dokümanı proje kökünde durur.
+# kapsam dokümanı proje kökünde durabilir (geriye dönük uyumluluk).
 ALLOWED_OUTPUT_FILES = {ROOT / "proje_kapsami.md"}
+DOC_DIR = WORKSPACE / "docs"
+# Proje dokümanları workspace kuralı gereği workspace/docs/ altında yaşar;
+# kökte bulunanlar geriye dönük olarak desteklenir.
+WORKSPACE_DOCS = {BRIEF_NAME, "org_chart.json"}
+
+
+def resolve_doc(name: str) -> Path:
+    """Proje dokümanı okuma çözümü: workspace/docs/ öncelikli, kök geri dönüşümlü."""
+    p = Path(name)
+    if p.is_absolute():
+        return p
+    alt = DOC_DIR / name
+    if alt.exists():
+        return alt
+    return ROOT / name
 
 
 def resolve_path(path_str: str) -> Path:
-    """org_chart'taki göreli yolu proje köküne göre çözer."""
+    """org_chart'taki göreli yolu proje köküne göre çözer.
+
+    Proje dokümanları (proje_kapsami.md, org_chart.json) workspace/docs
+    altına yazılır; kökte var olanlar geriye dönük olarak oraya gider.
+    """
+    p = Path(path_str)
+    if not p.is_absolute() and path_str in WORKSPACE_DOCS:
+        if (DOC_DIR / path_str).exists() or not (ROOT / path_str).exists():
+            return (DOC_DIR / path_str).resolve()
     return (ROOT / path_str).resolve()
 
 
@@ -342,6 +365,48 @@ def trace_end(meta: dict, system_prompt: str, user_prompt: str,
         pass
 
     (TRACE_DIR / "current.json").write_text("{}", encoding="utf-8")
+
+
+def trace_fail(meta: dict, error: str, duration: float):
+    """Başarısız çağrıyı kalıcı olarak kaydeder.
+
+    Kritik nokta: current.json 'ended_at' + 'error' ile yazılır ki koşucu
+    öldüğünde kontrol ekranı bayat 'started_at'ten sayan donuk bir sayaç
+    göstermesin; bunun yerine kesilen çağrı ve sebebi görünsün.
+    """
+    now = time.time()
+    record = {
+        **meta,
+        "finished_at": now,
+        "duration_s": round(duration, 1),
+        "error": error[:500],
+    }
+    try:
+        (TRACE_DIR / f"{meta['seq']:04d}.json").write_text(
+            json.dumps(record, indent=2, ensure_ascii=False), encoding="utf-8")
+    except OSError:
+        pass
+
+    summary = {k: record.get(k) for k in
+               ("seq", "role", "target", "backend", "model", "effort", "duration_s")}
+    summary["error"] = error[:200]
+    try:
+        with (TRACE_DIR / "index.jsonl").open("a", encoding="utf-8") as f:
+            f.write(json.dumps(summary, ensure_ascii=False) + "\n")
+    except OSError:
+        pass
+
+    # Kesilen çağrı 'sona erdi' olarak işaretlenir — ctl artık sağlam sayaç yerine
+    # sabitlenmiş süre + hata sebebini gösterir.
+    ended = {**meta, "ended_at": now, "error": error[:300],
+             "duration_s": round(duration, 1)}
+    try:
+        (TRACE_DIR / "current.json").write_text(
+            json.dumps(ended, indent=2, ensure_ascii=False), encoding="utf-8")
+        (TRACE_DIR / "current.out").write_text(
+            f"[ÇAĞRI KESİLDİ] {error}\n", encoding="utf-8")
+    except OSError:
+        pass
 
 
 VALID_BACKENDS = ("agy", "devin")
@@ -663,6 +728,15 @@ LIMIT_PATTERNS = (
     "internal error", "temporarily unavailable", "connection reset",
     "unavailable", "503", "no capacity available", "capacity", "resource exhausted",
     "service unavailable", "model overloaded",
+    # --- geçici ağ / taşıma katmanı hataları (anlık kopmalar görevi öldürmesin) ---
+    "broken pipe", "protocol version", "tls:", "tls handshake", "remote error",
+    "unexpected eof", " eof", "eof,", "eof)", "connection refused",
+    "connection aborted", "connection timed out", "i/o timeout", "dial tcp",
+    "no route to host", "network is unreachable", "deadline exceeded",
+    "context deadline", "socket hang", "bad gateway", "502", "504",
+    "gateway timeout", "econnreset", "econnrefused", "etimedout", "eai_again",
+    "enotfound", "request failed", "streamgeneratecontent",
+    "yanıt vermedi", "empty reply", "server disconnected",
 )
 MAX_WAIT = int(os.getenv("STUDIO_MAX_WAIT", "18000"))   # varsayılan 5 saat
 WAIT_STEP = 20
@@ -708,26 +782,32 @@ def query_claude(system_prompt: str, user_prompt: str,
     t0 = time.time()
 
     waited = 0
-    while True:
-        try:
-            if backend == "devin":
-                res = _call_devin(system_prompt, user_prompt, base_effort, model, tools)
-            else:
-                res = _call_agy(system_prompt, user_prompt, base_effort, model, tools)
-            text = res.text
-            u = res.usage
-            in_t = u.get("input_tokens", 0)
-            out_t = u.get("output_tokens", 0)
-            th_t = u.get("thinking_tokens", 0)
-            print(f"      ({backend}: {in_t} girdi / {out_t} çıktı / {th_t} düşünce token)")
-            break
-        except CallAborted:
-            (TRACE_DIR / "current.json").write_text("{}", encoding="utf-8")
-            raise
-        except RuntimeError as e:
-            if not is_limit_error(str(e)):
+    try:
+        while True:
+            try:
+                if backend == "devin":
+                    res = _call_devin(system_prompt, user_prompt, base_effort, model, tools)
+                else:
+                    res = _call_agy(system_prompt, user_prompt, base_effort, model, tools)
+                text = res.text
+                u = res.usage
+                in_t = u.get("input_tokens", 0)
+                out_t = u.get("output_tokens", 0)
+                th_t = u.get("thinking_tokens", 0)
+                print(f"      ({backend}: {in_t} girdi / {out_t} çıktı / {th_t} düşünce token)")
+                break
+            except CallAborted:
+                (TRACE_DIR / "current.json").write_text("{}", encoding="utf-8")
                 raise
-            waited = wait_for_quota(str(e), waited)
+            except RuntimeError as e:
+                if not is_limit_error(str(e)):
+                    raise
+                waited = wait_for_quota(str(e), waited)
+    except RuntimeError as e:
+        # Fatal hata: çağrının 'sona erdiğini' trace'e yaz ki kontrol ekranı
+        # bayat started_at'ten sayan donuk bir sayaç göstermesin.
+        trace_fail(meta, str(e), time.time() - t0)
+        raise
 
     trace_end(meta, system_prompt, user_prompt, text,
               dict(u) if isinstance(u, dict) else {},
@@ -2037,6 +2117,16 @@ def run_board(org: dict, brief: str, once: bool = False,
     B.audit("engine", "kosucu_baslangic",
             detay={"once": once, "max_tasks": max_tasks, "max_cost": max_cost})
 
+    # Framework güncelleme bildirimi — yeni DS sürümü varsa koşu başında uyar.
+    try:
+        gunc = B.framework_update_info()
+        if gunc and gunc.get("update"):
+            print(f"[i] Studio v{gunc['remote']} güncellemesi mevcut "
+                  f"(kurulu v{gunc['local']}) — "
+                  f"python3 scripts/studio_updater.py --kontrol")
+    except Exception:
+        pass
+
     start_cost = spent_so_far()
     if max_cost:
         print(f"[i] Bütçe sınırı: ${max_cost:.2f} (şimdiye kadar ${start_cost:.2f} harcandı)")
@@ -2263,15 +2353,17 @@ def main():
     global BACKEND
     BACKEND = (args.backend or os.getenv("STUDIO_BACKEND", "agy")).lower()
 
-    org_path = ROOT / args.org
+    org_path = resolve_doc(args.org)
     if not org_path.exists():
-        sys.exit(f"[HATA] Org şeması bulunamadı: {args.org}")
+        sys.exit(f"[HATA] Org şeması bulunamadı: {args.org} "
+                 f"(kökte ve workspace/docs/ altında yok)")
     org = json.loads(org_path.read_text(encoding="utf-8"))
     org = load_and_merge_dynamic_roles(org)
 
-    brief_path = ROOT / args.brief
+    brief_path = resolve_doc(args.brief)
     if not brief_path.exists():
-        sys.exit(f"[HATA] Proje özeti bulunamadı: {args.brief}")
+        sys.exit(f"[HATA] Proje özeti bulunamadı: {args.brief} "
+                 f"(kökte ve workspace/docs/ altında yok)")
     brief = brief_path.read_text(encoding="utf-8")
 
     if args.review:

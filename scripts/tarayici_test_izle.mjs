@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * elektriklioto.com — Canlı Görsel Ziyaretçi Testi & Tarayıcı İzleme Aracı
+ * Digital Software Studio — Canlı Görsel Ziyaretçi Testi & Tarayıcı İzleme Aracı
  * Bu betik gerçek bir Google Chrome penceresi açarak ekranları, butonları,
  * filtreleri ve modalları insan gözünün takip edebileceği hızda adım adım test eder.
  */
@@ -44,7 +44,7 @@ function ping(url) {
 
 async function main() {
   console.log(`${CYAN}${BOLD}======================================================================${RESET}`);
-  console.log(`${CYAN}${BOLD}  🎬 elektriklioto.com — Canlı Tarayıcı Ziyaretçi Test İzleyicisi${RESET}`);
+  console.log(`${CYAN}${BOLD}  🎬 Digital Software Studio — Canlı Tarayıcı Ziyaretçi Test İzleyicisi${RESET}`);
   console.log(`${CYAN}${BOLD}======================================================================${RESET}\n`);
 
   console.log('🔍 Canlı servisler kontrol ediliyor...');
@@ -138,7 +138,7 @@ async function main() {
       }
       hud.innerHTML = `
         <span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#10B981;box-shadow:0 0 8px #10B981;animation:pulse 1.5s infinite;"></span>
-        <span>⚡ <strong>elektriklioto.com Ziyaretçi Denetimi:</strong> ${stepText}</span>
+        <span>⚡ <strong>Studio Ziyaretçi Denetimi:</strong> ${stepText}</span>
         <span style="background:rgba(255,255,255,0.15);padding:2px 8px;border-radius:12px;font-size:12px;color:#A7F3D0;">${status}</span>
       `;
     }, { stepText, status }).catch(() => {});
@@ -214,14 +214,14 @@ async function main() {
     }
 
     // -------------------------------------------------------------
-    // ADIM 7: Şehir ve Rehber Sayfası Gezintisi
+    // ADIM 7: Alt Sayfa / Modül Gezintisi
     // -------------------------------------------------------------
-    await updateHud('Adım 7: Şehir Rehberi Sayfası (SEO)');
-    await page.goto('http://127.0.0.1:3000/istanbul/sarj-istasyonlari', { waitUntil: 'domcontentloaded' });
+    await updateHud('Adım 7: Alt Sayfa / Modül Gezintisi');
+    await page.goto('http://127.0.0.1:3000/', { waitUntil: 'domcontentloaded' });
     await page.waitForTimeout(1500);
 
     // Ana sayfaya geri dön
-    await updateHud('Ana Haritaya Geri Dönüş');
+    await updateHud('Ana Ekrana Geri Dönüş');
     await page.goto('http://127.0.0.1:3000/', { waitUntil: 'domcontentloaded' });
     await page.waitForTimeout(1200);
 

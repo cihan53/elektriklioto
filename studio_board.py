@@ -23,7 +23,8 @@ WORKSPACE = ROOT / "workspace"
 # Tek doğruluk kaynağı studio.db'dir. Eski sürümlerde pano.json kullanılıyordu;
 # dosya bulunursa BİR KEZ studio.db'ye aktarılıp _arsiv/ altına taşınır.
 LEGACY_BOARD = WORKSPACE / "pano.json"
-DB_PATH = ROOT / "studio.db"
+DB_PATH = WORKSPACE / "studio.db"
+_LEGACY_DB_PATH = ROOT / "studio.db"
 
 TODO, READY, RUNNING, BLOCKED, DONE, FAILED, SKIPPED = (
     "TODO", "READY", "RUNNING", "BLOCKED", "DONE", "FAILED", "SKIPPED"
@@ -89,6 +90,69 @@ CREATE TABLE IF NOT EXISTS maliyet_kayitlari (
     cost_usd    REAL,
     detay       TEXT
 );
+
+CREATE TABLE IF NOT EXISTS talepler (
+    id                  TEXT PRIMARY KEY,
+    tarih               TEXT,
+    tur                 TEXT,
+    oncelik             TEXT,
+    baslik              TEXT NOT NULL,
+    aciklama            TEXT,
+    sayfa_url           TEXT,
+    durum               TEXT,
+    gorevli_rol         TEXT,
+    studio_notu         TEXT,
+    github_issue_number INTEGER,
+    github_issue_url    TEXT,
+    cozum_plani         TEXT,
+    faz_id              TEXT,
+    efor                TEXT,
+    triage_notu         TEXT,
+    gecmis              TEXT
+);
+
+CREATE TABLE IF NOT EXISTS cozum_planlari (
+    talep_id    TEXT PRIMARY KEY REFERENCES talepler(id),
+    icerik      TEXT,
+    guncelleme  TEXT
+);
+
+CREATE TABLE IF NOT EXISTS fazlar (
+    id              TEXT PRIMARY KEY,
+    ad              TEXT NOT NULL,
+    aciklama        TEXT,
+    durum           TEXT,
+    hedef_tarih     TEXT,
+    kilitli         INTEGER DEFAULT 0,
+    onkosul_faz     TEXT
+);
+
+CREATE TABLE IF NOT EXISTS audit_log (
+    id          INTEGER PRIMARY KEY AUTOINCREMENT,
+    zaman       TEXT,
+    kaynak      TEXT,
+    olay        TEXT,
+    gorev_id    TEXT,
+    talep_id    TEXT,
+    detay       TEXT
+);
+
+CREATE TABLE IF NOT EXISTS sohbet_oturumlari (
+    id              TEXT PRIMARY KEY,
+    olusturma       TEXT,
+    son_aktivite    TEXT,
+    durum           TEXT
+);
+
+CREATE TABLE IF NOT EXISTS sohbet_mesajlari (
+    id          INTEGER PRIMARY KEY AUTOINCREMENT,
+    oturum_id   TEXT REFERENCES sohbet_oturumlari(id),
+    zaman       TEXT,
+    gonderen    TEXT,
+    icerik      TEXT,
+    taslak      TEXT,
+    talep_id    TEXT
+);
 """
 
 _SCHEMA_INITIALIZED = False
@@ -96,11 +160,31 @@ _SCHEMA_INITIALIZED = False
 
 def db_conn() -> sqlite3.Connection:
     global _SCHEMA_INITIALIZED
+    # Eski sürümlerde studio.db repo kökündeydi; çalışma alanı kuralı gereği
+    # workspace/ altına taşınır (tek seferlik, -shm/-wal eşlikçileriyle).
+    if _LEGACY_DB_PATH.exists() and not DB_PATH.exists():
+        try:
+            DB_PATH.parent.mkdir(parents=True, exist_ok=True)
+            _LEGACY_DB_PATH.replace(DB_PATH)
+            for ek in ("-shm", "-wal"):
+                eski = _LEGACY_DB_PATH.parent / (_LEGACY_DB_PATH.name + ek)
+                if eski.exists():
+                    eski.replace(DB_PATH.parent / (DB_PATH.name + ek))
+        except OSError:
+            pass
     conn = sqlite3.connect(str(DB_PATH), timeout=30.0)
     conn.execute("PRAGMA journal_mode=WAL")
     conn.execute("PRAGMA foreign_keys=ON")
     conn.row_factory = sqlite3.Row
-    if not _SCHEMA_INITIALIZED:
+    # Bayrağa değil dosyanın kendisine bak: db canlı süreç altında taşınmış/
+    # sıfırlanmış olabilir — boş dosyaya 'no such table' ile yazılmasın.
+    try:
+        sema_var = conn.execute(
+            "SELECT 1 FROM sqlite_master WHERE type='table' AND name='sprintler'"
+        ).fetchone() is not None
+    except Exception:
+        sema_var = False
+    if not _SCHEMA_INITIALIZED or not sema_var:
         try:
             conn.executescript(SCHEMA_INIT)
             _db_migrate(conn)
@@ -122,6 +206,15 @@ def _db_migrate(conn: sqlite3.Connection):
                          ("talep_id", "TEXT")):
             if col not in mevcut:
                 cur.execute(f"ALTER TABLE pano_gorevleri ADD COLUMN {col} {tip}")
+    except Exception:
+        pass
+    try:
+        cur.execute("PRAGMA table_info(talepler)")
+        mevcut = {r["name"] for r in cur.fetchall()}
+        # Triage/plan alanları eskiden yalnızca JSON'da yaşardı; DB'ye taşındı.
+        for col in ("cozum_plani", "faz_id", "efor", "triage_notu"):
+            if col not in mevcut:
+                cur.execute(f"ALTER TABLE talepler ADD COLUMN {col} TEXT")
     except Exception:
         pass
 
@@ -376,6 +469,53 @@ def board_reset():
         print(f"  [UYARI] studio.db pano sıfırlanamadı: {e}", file=sys.stderr)
 
 
+# ---------------------------------------------------------------- audit log
+# Sistemin 'kim ne yaptı, ne zaman' günlüğü. Motor, kontrol ekranı, web paneli
+# ve müşteri kanalları aynı tabloya yazar; paneldeki Audit sekmesi okur.
+def audit(kaynak: str, olay: str, gorev_id: str = None,
+          talep_id: str = None, detay=None):
+    try:
+        conn = db_conn()
+        try:
+            conn.execute(
+                "INSERT INTO audit_log (zaman, kaynak, olay, gorev_id, talep_id, detay) "
+                "VALUES (?, ?, ?, ?, ?, ?)",
+                (
+                    datetime.now().isoformat(timespec="seconds"),
+                    kaynak, olay, gorev_id, talep_id,
+                    json.dumps(detay, ensure_ascii=False) if detay is not None else None,
+                ))
+            conn.commit()
+        finally:
+            conn.close()
+    except Exception:
+        pass
+
+
+def audit_list(limit: int = 200, kaynak: str = None, olay: str = None) -> list[dict]:
+    try:
+        conn = db_conn()
+        try:
+            sql = "SELECT * FROM audit_log"
+            where, params = [], []
+            if kaynak:
+                where.append("kaynak = ?")
+                params.append(kaynak)
+            if olay:
+                where.append("olay = ?")
+                params.append(olay)
+            if where:
+                sql += " WHERE " + " AND ".join(where)
+            sql += " ORDER BY id DESC LIMIT ?"
+            params.append(int(limit))
+            rows = conn.execute(sql, params).fetchall()
+            return [dict(r) for r in rows]
+        finally:
+            conn.close()
+    except Exception:
+        return []
+
+
 def all_tasks(board: dict):
     for s in board["sprints"]:
         for t in s["tasks"]:
@@ -628,6 +768,9 @@ def set_priority(task_id: str, value: int) -> bool:
                     (int(value), task_id))
         ok = cur.rowcount > 0
         conn.commit()
+        if ok:
+            audit("kontrol", "oncelik_onerisi", gorev_id=task_id,
+                  detay={"oncelik": int(value)})
         return ok
     finally:
         conn.close()
@@ -654,6 +797,8 @@ def reorder_task(task_id: str, new_pos: int) -> bool:
         for i, tid in enumerate(ids):
             cur.execute("UPDATE pano_gorevleri SET sira = ? WHERE id = ?", (i, tid))
         conn.commit()
+        audit("kontrol", "gorev_sirala", gorev_id=task_id,
+              detay={"sprint": sid, "pozisyon": pos})
         return True
     finally:
         conn.close()
@@ -674,6 +819,7 @@ def reorder_sprint(sprint_id: str, new_pos: int) -> bool:
         for i, sid in enumerate(ids):
             cur.execute("UPDATE sprintler SET sira = ? WHERE id = ?", (i, sid))
         conn.commit()
+        audit("kontrol", "sprint_sirala", detay={"sprint": sprint_id, "pozisyon": pos})
         return True
     finally:
         conn.close()
@@ -733,12 +879,40 @@ def mark(board: dict, task_id: str, status: str, note: str = ""):
                     "UPDATE sprintler SET gercek_baslangic = ? WHERE id = ?",
                     (s["actual_start"], s["id"])
                 )
+            # Sprint durumunu görevlerin güncel hâlinden türet — sprint
+            # göstergesi refresh() beklenmeden de doğru kalsın.
+            cur.execute("SELECT durum FROM pano_gorevleri WHERE sprint_id = ?",
+                        (s["id"],))
+            st = {r[0] for r in cur.fetchall()}
+            if st and st <= TERMINAL:
+                yeni = DONE
+            elif RUNNING in st:
+                yeni = RUNNING
+            elif FAILED in st or BLOCKED in st:
+                yeni = BLOCKED
+            elif READY in st:
+                yeni = READY
+            else:
+                yeni = TODO
+            if yeni != s.get("status"):
+                s["status"] = yeni
+                if yeni == DONE and not s.get("actual_end"):
+                    s["actual_end"] = datetime.now().isoformat(timespec="seconds")
+                    cur.execute(
+                        "UPDATE sprintler SET durum = ?, gercek_bitis = ? WHERE id = ?",
+                        (yeni, s["actual_end"], s["id"]))
+                else:
+                    cur.execute("UPDATE sprintler SET durum = ? WHERE id = ?",
+                                (yeni, s["id"]))
             conn.commit()
         finally:
             conn.close()
     except Exception:
         pass
 
+    audit("engine", "gorev_durum", gorev_id=task_id,
+          detay={"durum": status, "sprint": s["id"],
+                 "deneme": t.get("attempts", 0), "not": (note or "")[:200]})
     return t
 
 
@@ -796,9 +970,10 @@ def _flag(name: str) -> Path:
     return CONTROL_DIR / name
 
 
-def request(name: str, value: str = "1"):
+def request(name: str, value: str = "1", kaynak: str = "sistem"):
     CONTROL_DIR.mkdir(parents=True, exist_ok=True)
     _flag(name).write_text(value, encoding="utf-8")
+    audit(kaynak, "kontrol_istek", detay={"flag": name, "deger": value})
 
 
 def clear(name: str):
@@ -917,6 +1092,7 @@ def ledger_approve(gorev: int = None, butce: float = None):
     d["ek_gorev"] = d.get("ek_gorev", 0) + (GUNLUK_GOREV if gorev is None else gorev)
     d["ek_butce"] = round(d.get("ek_butce", 0.0) + (GUNLUK_BUTCE if butce is None else butce), 4)
     ledger_write(d)
+    audit("kontrol", "kota_onay", detay={"ek_gorev": d["ek_gorev"], "ek_butce": d["ek_butce"]})
     return d
 
 
@@ -936,3 +1112,104 @@ def ledger_check(tahmini_maliyet: float) -> tuple[bool, str]:
         return False, (f"Günlük bütçeye yaklaşıldı: bugün ${d['maliyet']:.2f} harcandı, "
                        f"sıradaki görev ~${tahmini_maliyet:.2f} tutacak, sınır ${max_butce:.2f}")
     return True, ""
+
+
+# ---------------------------------------------------------------------------
+# Framework güncelleme bildirimi
+# ---------------------------------------------------------------------------
+# Bir proje (elektriklioto-gemini vb.) digital-software-studio'yu kullanırken
+# framework'te yeni sürüm çıkıp çıkmadığını buradan öğrenir. Sonuç
+# workspace/.studio_update_check.json'a TTL'li yazılır — ctl/web/motor aynı
+# önbelleği paylaşır, her render'da ağa çıkılmaz.
+
+UPDATE_CHECK_FILE = WORKSPACE / ".studio_update_check.json"
+UPDATE_CHECK_TTL = int(os.getenv("STUDIO_UPDATE_TTL", "3600"))  # saniye
+DS_VERSION_NAME = "studio.version"
+LOCAL_VERSION_NAME = ".studio-version"
+DS_GITHUB_RAW = os.getenv(
+    "STUDIO_DS_RAW",
+    "https://raw.githubusercontent.com/cihan53/digital-software-studio/main")
+
+
+def _ver_tuple(v) -> tuple:
+    try:
+        return tuple(int(x) for x in str(v or "").split("."))
+    except ValueError:
+        return (0,)
+
+
+def _studio_version_jsonu_bul() -> tuple[dict | None, str]:
+    """DS'nin studio.version'ını bul: önce yerel dizin, yoksa GitHub raw."""
+    adaylar = []
+    env = os.getenv("STUDIO_REPO")
+    if env:
+        adaylar.append(Path(env))
+    adaylar.append(ROOT.parent / "digital-software-studio")
+    for p in adaylar:
+        vf = p / DS_VERSION_NAME
+        if vf.is_file():
+            try:
+                return json.loads(vf.read_text(encoding="utf-8")), "yerel"
+            except Exception:
+                continue
+    try:
+        import urllib.request
+        with urllib.request.urlopen(
+                f"{DS_GITHUB_RAW}/{DS_VERSION_NAME}", timeout=3) as r:
+            return json.loads(r.read().decode("utf-8")), "github"
+    except Exception:
+        return None, ""
+
+
+def _framework_update_hesapla() -> dict | None:
+    # Bu dizin framework'ün kendisiyse (studio.version var, .studio-version yok)
+    # bildirim anlamsız — karşılaştırma yapma.
+    if (ROOT / DS_VERSION_NAME).exists() and not (ROOT / LOCAL_VERSION_NAME).exists():
+        return None
+    local_ver = "0.0.0"
+    lv = ROOT / LOCAL_VERSION_NAME
+    if lv.exists():
+        try:
+            local_ver = json.loads(lv.read_text(encoding="utf-8")).get("version") or "0.0.0"
+        except Exception:
+            pass
+    ds, kaynak = _studio_version_jsonu_bul()
+    if not ds:
+        return None
+    remote_ver = ds.get("version", "0.0.0")
+    yeni = _ver_tuple(remote_ver) > _ver_tuple(local_ver)
+    degisenler = []
+    if yeni:
+        for e in ds.get("changelog", []):
+            if _ver_tuple(e.get("version")) > _ver_tuple(local_ver):
+                degisenler.extend(e.get("changes", []))
+    return {"local": local_ver, "remote": remote_ver,
+            "update": yeni, "released": ds.get("released"),
+            "changes": degisenler, "kaynak": kaynak}
+
+
+def framework_update_info(ttl: int = UPDATE_CHECK_TTL) -> dict | None:
+    """DS framework'te yeni sürüm varsa bildirim bilgisi döndürür.
+
+    {'local','remote','update','released','changes','kaynak'} veya None
+    (framework'ün kendisi / DS'ye ulaşılamadı). Sonuç dosya önbelleğinde
+    `ttl` saniye tutulur; ağ erişimi yoksa sessizce None döner.
+    """
+    try:
+        c = json.loads(UPDATE_CHECK_FILE.read_text(encoding="utf-8"))
+        if time.time() - c.get("checked_at", 0) < ttl:
+            return c.get("info")
+    except Exception:
+        pass
+    try:
+        info = _framework_update_hesapla()
+    except Exception:
+        info = None
+    try:
+        UPDATE_CHECK_FILE.parent.mkdir(parents=True, exist_ok=True)
+        UPDATE_CHECK_FILE.write_text(
+            json.dumps({"checked_at": time.time(), "info": info},
+                       ensure_ascii=False), encoding="utf-8")
+    except OSError:
+        pass
+    return info

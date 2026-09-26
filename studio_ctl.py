@@ -67,6 +67,18 @@ def runner_alive() -> bool:
         return False
 
 
+def update_banner() -> list[str]:
+    """DS framework'te yeni sürüm varsa uyarı satırı döndürür."""
+    try:
+        g = B.framework_update_info()
+    except Exception:
+        g = None
+    if not g or not g.get("update"):
+        return []
+    return [f"{YELLOW}⚠ Studio v{g['remote']} güncellemesi mevcut{RESET} "
+            f"{DIM}(kurulu v{g['local']}) — python3 scripts/studio_updater.py --kontrol{RESET}"]
+
+
 def cur_block(cur: dict, cols: int) -> list[str]:
     """'Şu anki çağrı' bloğu.
 
@@ -119,7 +131,10 @@ def cur_block(cur: dict, cols: int) -> list[str]:
 
 def render_design(cur: dict, cols: int) -> str:
     """Pano henüz yokken tasarım aşamasının ilerlemesini gösterir."""
-    org = read_json(ROOT / "org_chart.json", {"hierarchy": []})
+    org_f = ROOT / "workspace" / "docs" / "org_chart.json"
+    if not org_f.exists():
+        org_f = ROOT / "org_chart.json"
+    org = read_json(org_f, {"hierarchy": []})
     state = {"completed_steps": [], "completed_outputs": []}
     # Önce studio.db'den oku
     try:
@@ -144,8 +159,9 @@ def render_design(cur: dict, cols: int) -> str:
     durum = f"{GREEN}ÇALIŞIYOR{RESET}" if runner_alive() else f"{DIM}BOŞTA{RESET}"
     L = [f"{BOLD}Aşama 1/2 — Tasarım{RESET}   {durum}   "
          f"{len(done & {a['id'] for a in design})}/{len(design)} rol   "
-         f"{DIM}{time.strftime('%H:%M:%S')}{RESET}",
-         "─" * min(cols, 96)]
+         f"{DIM}{time.strftime('%H:%M:%S')}{RESET}"]
+    L += update_banner()
+    L.append("─" * min(cols, 96))
 
     for a in design:
         eng = f"{a.get('backend', 'cli')}/{a.get('model', '-')}"
@@ -198,6 +214,7 @@ def render(msg: str = "") -> str:
     L.append(f"{BOLD}Sprint Panosu{RESET}   {durum}   "
              f"{p['sprints_done']}/{p['sprints_total']} sprint · "
              f"{p['done']}/{p['total']} görev{slip_s}   {DIM}{time.strftime('%H:%M:%S')}{RESET}")
+    L += update_banner()
     L.append("─" * min(cols, 96))
 
     for s in sorted(board["sprints"], key=lambda x: x["order"]):
@@ -271,10 +288,10 @@ def handle(key: str) -> str:
         if B.is_set("pause"):
             B.clear("pause")
             return "Sürdürüldü — koşucu bir sonraki görevi alacak."
-        B.request("pause")
+        B.request("pause", kaynak="ctl")
         return "Duraklatıldı — çalışan çağrı bitince yeni görev alınmayacak."
     if key == "s":
-        B.request("stop")
+        B.request("stop", kaynak="ctl")
         return "Durdurma istendi — mevcut çağrı bitince koşucu çıkacak."
     if key in ("k", "K"):
         # Önce panodaki RUNNING görev hedeflenir: current.json iki çağrı
@@ -295,9 +312,9 @@ def handle(key: str) -> str:
             tid = cur.get("task")
         if not tid:
             return "Atlanacak görev bulunamadı."
-        B.request("skip", tid)
+        B.request("skip", tid, kaynak="ctl")
         if key == "K":
-            B.request("force")
+            B.request("force", kaynak="ctl")
             return f"{tid} atlanacak — çalışan çağrı hemen kesiliyor."
         return f"{tid} atlanacak — mevcut çağrı bitince kalan çıktılar iptal."
     if key == "r":
