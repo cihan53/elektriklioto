@@ -357,8 +357,10 @@ function drawDropPinCanvas(fillColor: string): HTMLCanvasElement {
  * oluşturulabilmesini sağlar.
  */
 export function registerStationPinImages(map: MapLibreMap): void {
-  const primary = readDesignToken("--color-primary", "#0066CC");
-  const danger = readDesignToken("--color-danger", "#B91C1C");
+  // Pin rengi koyu temada açık maviye (#38BDF8) dönmemeli — prod görünümüyle
+  // aynı koyu mavi (#0066CC) sabitlenir. (KORUNACAK: tema token'ına bağlama.)
+  const primary = "#0066CC";
+  const danger = "#B91C1C";
 
   const variants: Array<[string, string, number]> = [
     [STATION_PIN_ICON_ID, primary, 1],
