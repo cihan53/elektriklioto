@@ -8,10 +8,14 @@ import { useToast } from '~/composables/useToast';
 import { Navigation, AlertCircle, RefreshCw, Info } from 'lucide-vue-next';
 import {
   STATIONS_SOURCE_ID,
+  STATION_POINTS_SOURCE_ID,
   SELECTED_SOURCE_ID,
   CLUSTER_CIRCLE_LAYER_ID,
   CLUSTER_PULSE_LAYER_ID,
   CLUSTER_COUNT_LAYER_ID,
+  CLUSTER_CIRCLE_POINTS_LAYER_ID,
+  CLUSTER_PULSE_POINTS_LAYER_ID,
+  CLUSTER_COUNT_POINTS_LAYER_ID,
   STATIONS_ICON_LAYER_ID,
   SELECTED_RING_LAYER_ID,
   buildClusterCirclePaint,
@@ -139,17 +143,19 @@ const renderUserLocationMarker = (coords: { lat: number; lon: number } | null) =
 };
 
 // TALEP-027: Pin verisi GeoJSON kaynağına yazılır; çizim native katmanlarca yapılır.
+// Backend kümesi düşük zoom'da, native GeoJSON kümelemesi tekil istasyon
+// yoğunluğunda (zoom >= 10) devrededir — yakın pinler otomatik gruplaşır.
 const renderMapMarkers = () => {
   if (!map || !mapReady) return;
 
-  stationByUid.clear();
-  const features: GeoJSON.Feature[] = [];
+  const backendClusterFeatures: GeoJSON.Feature[] = [];
+  const stationFeatures: GeoJSON.Feature[] = [];
 
   if (responseType.value === 'clusters') {
-    // Zoom < 10: Küme daireleri (point_count alanı katmanları ayırt eder)
+    // Zoom < 10: Backend küme daireleri (point_count alanı katmanları ayırt eder)
     clusters.value.forEach((c: ClusterItem, idx: number) => {
       if (!isValidTrCoord(c.lon, c.lat)) return;
-      features.push({
+      backendClusterFeatures.push({
         type: 'Feature',
         geometry: { type: 'Point', coordinates: [c.lon, c.lat] },
         properties: {
@@ -158,12 +164,15 @@ const renderMapMarkers = () => {
         },
       });
     });
+    stationByUid.clear();
   } else {
-    // Zoom >= 10: Tekil istasyon pinleri
+    // Zoom >= 10: Tekil istasyon pinleri — native cluster kaynağına yazılır,
+    // yakın pinler harita motoru tarafından küme dairelerine gruplanır.
     const list = props.isPublicOnly
       ? stations.value.filter((s) => s.service_type !== 'Özel')
       : stations.value;
 
+    stationByUid.clear();
     list.forEach((st: StationItem) => {
       const lon = Number(st.lon);
       const lat = Number(st.lat);
@@ -171,7 +180,7 @@ const renderMapMarkers = () => {
 
       const uid = String(st.id);
       stationByUid.set(uid, st);
-      features.push({
+      stationFeatures.push({
         type: 'Feature',
         geometry: { type: 'Point', coordinates: [lon, lat] },
         properties: {
@@ -185,7 +194,11 @@ const renderMapMarkers = () => {
 
   (map.getSource(STATIONS_SOURCE_ID) as GeoJSONSource | undefined)?.setData({
     type: 'FeatureCollection',
-    features,
+    features: backendClusterFeatures,
+  });
+  (map.getSource(STATION_POINTS_SOURCE_ID) as GeoJSONSource | undefined)?.setData({
+    type: 'FeatureCollection',
+    features: stationFeatures,
   });
 };
 
@@ -215,6 +228,15 @@ const setupPinLayers = () => {
     type: 'geojson',
     data: emptyFeatureCollection(),
   });
+  // Tekil istasyon noktaları için native kümeleme — yoğun veride (TALEP-019
+  // EPDK seti) yakın pinler otomatik küme dairesine gruplaşır.
+  map.addSource(STATION_POINTS_SOURCE_ID, {
+    type: 'geojson',
+    data: emptyFeatureCollection(),
+    cluster: true,
+    clusterRadius: 48,
+    clusterMaxZoom: 15,
+  });
   map.addSource(SELECTED_SOURCE_ID, {
     type: 'geojson',
     data: emptyFeatureCollection(),
@@ -222,28 +244,36 @@ const setupPinLayers = () => {
 
   registerStationPinImages(map);
 
-  map.addLayer({
-    id: CLUSTER_PULSE_LAYER_ID,
-    type: 'circle',
-    source: STATIONS_SOURCE_ID,
-    filter: ['has', 'point_count'],
-    paint: buildClusterPulsePaint(theme),
-  });
-  map.addLayer({
-    id: CLUSTER_CIRCLE_LAYER_ID,
-    type: 'circle',
-    source: STATIONS_SOURCE_ID,
-    filter: ['has', 'point_count'],
-    paint: buildClusterCirclePaint(theme),
-  });
-  map.addLayer({
-    id: CLUSTER_COUNT_LAYER_ID,
-    type: 'symbol',
-    source: STATIONS_SOURCE_ID,
-    filter: ['has', 'point_count'],
-    layout: buildClusterCountLayout(),
-    paint: buildClusterCountPaint(theme),
-  });
+  // Küme katmanları iki kaynağa da bağlanır: backend kümeleri (zoom<10) ve
+  // native kümeleme çıktıları (zoom>=10, yoğun istasyon noktaları).
+  const clusterLayerSets: Array<[string, string, string, string]> = [
+    [STATIONS_SOURCE_ID, CLUSTER_PULSE_LAYER_ID, CLUSTER_CIRCLE_LAYER_ID, CLUSTER_COUNT_LAYER_ID],
+    [STATION_POINTS_SOURCE_ID, CLUSTER_PULSE_POINTS_LAYER_ID, CLUSTER_CIRCLE_POINTS_LAYER_ID, CLUSTER_COUNT_POINTS_LAYER_ID],
+  ];
+  for (const [sourceId, pulseId, circleId, countId] of clusterLayerSets) {
+    map.addLayer({
+      id: pulseId,
+      type: 'circle',
+      source: sourceId,
+      filter: ['has', 'point_count'],
+      paint: buildClusterPulsePaint(theme),
+    });
+    map.addLayer({
+      id: circleId,
+      type: 'circle',
+      source: sourceId,
+      filter: ['has', 'point_count'],
+      paint: buildClusterCirclePaint(theme),
+    });
+    map.addLayer({
+      id: countId,
+      type: 'symbol',
+      source: sourceId,
+      filter: ['has', 'point_count'],
+      layout: buildClusterCountLayout(),
+      paint: buildClusterCountPaint(theme),
+    });
+  }
   map.addLayer({
     id: SELECTED_RING_LAYER_ID,
     type: 'circle',
@@ -253,12 +283,12 @@ const setupPinLayers = () => {
   map.addLayer({
     id: STATIONS_ICON_LAYER_ID,
     type: 'symbol',
-    source: STATIONS_SOURCE_ID,
+    source: STATION_POINTS_SOURCE_ID,
     filter: ['!', ['has', 'point_count']],
     layout: buildStationsIconLayout(null),
   });
 
-  // Küme tıklama → içeri zoom (eski DOM davranışının birebir karşılığı)
+  // Backend kümesi tıklama → içeri zoom (eski DOM davranışının karşılığı)
   map.on('click', CLUSTER_CIRCLE_LAYER_ID, (e: MapLayerMouseEvent) => {
     if (!map) return;
     const f = e.features?.[0];
@@ -271,6 +301,30 @@ const setupPinLayers = () => {
     });
   });
 
+  // Native küme tıklama → kümenin açıldığı zoom'a git
+  map.on('click', CLUSTER_CIRCLE_POINTS_LAYER_ID, async (e: MapLayerMouseEvent) => {
+    if (!map) return;
+    const f = e.features?.[0];
+    if (!f || f.geometry.type !== 'Point') return;
+    const clusterId = f.properties?.cluster_id;
+    const source = map.getSource(STATION_POINTS_SOURCE_ID) as GeoJSONSource | undefined;
+    if (clusterId === undefined || !source?.getClusterExpansionZoom) return;
+    try {
+      const zoom = await source.getClusterExpansionZoom(clusterId);
+      map.easeTo({
+        center: f.geometry.coordinates as [number, number],
+        zoom,
+        duration: 500,
+      });
+    } catch {
+      map.easeTo({
+        center: f.geometry.coordinates as [number, number],
+        zoom: Math.min(map.getZoom() + 2, 15),
+        duration: 500,
+      });
+    }
+  });
+
   // Tekil pin tıklama → eski emit('selectStation', st) davranışı
   map.on('click', STATIONS_ICON_LAYER_ID, (e: MapLayerMouseEvent) => {
     const uid = e.features?.[0]?.properties?.station_uid;
@@ -278,7 +332,7 @@ const setupPinLayers = () => {
     if (st) emit('selectStation', st);
   });
 
-  for (const layerId of [CLUSTER_CIRCLE_LAYER_ID, STATIONS_ICON_LAYER_ID]) {
+  for (const layerId of [CLUSTER_CIRCLE_LAYER_ID, CLUSTER_CIRCLE_POINTS_LAYER_ID, STATIONS_ICON_LAYER_ID]) {
     map.on('mouseenter', layerId, () => {
       if (map) map.getCanvas().style.cursor = 'pointer';
     });
@@ -331,6 +385,9 @@ onMounted(() => {
     container: mapContainer.value,
     style: {
       version: 8,
+      // Küme sayısı symbol katmanının text-field'ı glyphs endpoint'i ister;
+      // raster-only stilde yoksa addLayer hata fırlatır ve pin katmanı kurulamaz.
+      glyphs: 'https://demotiles.maplibre.org/font/{fontstack}/{range}.pbf',
       sources: {
         'osm-tiles': {
           type: 'raster',
