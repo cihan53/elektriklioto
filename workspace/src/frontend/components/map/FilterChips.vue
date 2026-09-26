@@ -58,6 +58,11 @@ const filteredOperators = computed(() => {
     op.slug.toLowerCase().includes(q)
   );
 });
+
+// TALEP-024: Toplam istasyon sayısı
+const totalStationCount = computed(() => {
+  return operators.value.reduce((acc, op) => acc + (op.station_count || 0), 0);
+});
 </script>
 
 <template>
@@ -81,48 +86,78 @@ const filteredOperators = computed(() => {
         <ChevronDown class="w-4 h-4 opacity-80" />
       </button>
 
-      <!-- Operatör Seçim Menüsü -->
+      <!-- Operatör Seçim Menüsü (TALEP-024: Sabit başlıklı dropdown) -->
       <div
         v-if="isOperatorDropdownOpen"
-        class="absolute left-0 top-12 w-72 bg-bg-surface border border-border-default rounded-md shadow-lg p-2 max-h-80 overflow-y-auto z-50 space-y-1"
+        class="absolute left-0 top-12 w-80 bg-bg-surface border border-border-default rounded-md shadow-lg z-50 flex flex-col max-h-96 overflow-hidden"
         role="listbox"
       >
-        <!-- Arama Kutusu -->
-        <div v-if="operators.length > 5" class="px-2 pt-1 pb-2 border-b border-border-default">
+        <!-- Sabit Üst Başlık ve Arama Alanı (Sticky Header: Arama + Tüm Markalar - TALEP-024) -->
+        <div class="sticky top-0 z-10 bg-bg-surface border-b border-border-default p-2 space-y-1.5 shadow-sm flex-shrink-0">
+          <!-- Arama Kutusu -->
           <div class="relative flex items-center">
             <Search class="w-3.5 h-3.5 text-text-muted absolute left-2.5 pointer-events-none" />
             <input
               v-model="operatorSearchQuery"
               type="text"
               placeholder="Operatör ara..."
-              class="w-full text-xs pl-8 pr-2.5 py-1.5 rounded bg-bg-subdued border border-border-default text-text-primary focus:outline-none focus:border-primary"
+              class="w-full text-xs pl-8 pr-2.5 py-1.5 rounded bg-bg-subdued border border-border-default text-text-primary focus:outline-none focus:border-primary placeholder:text-text-muted"
             />
           </div>
+
+          <!-- 'Tüm Markalar' Sabit Seçeneği (TALEP-024) -->
+          <button
+            type="button"
+            @click="selectOperator('')"
+            class="w-full text-left px-2.5 py-1.5 text-sm rounded hover:bg-bg-subdued touch-target-min flex items-center justify-between transition-colors"
+            :class="{ 'font-bold text-primary bg-bg-subdued': !selectedOperator }"
+            aria-label="Tüm Markaları Göster"
+          >
+            <div class="flex items-center gap-1.5 min-w-0">
+              <span class="truncate">Tüm Markalar</span>
+              <span class="text-xs text-text-muted font-normal flex-shrink-0">
+                ({{ operators.length > 0 ? operators.length + ' Marka' : '179 Marka' }})
+              </span>
+            </div>
+            <div class="flex items-center gap-1.5 flex-shrink-0 ml-2">
+              <span
+                v-if="totalStationCount > 0"
+                class="text-xs px-2 py-0.5 rounded-full bg-bg-subdued text-text-secondary border border-border-default font-mono"
+              >
+                ({{ totalStationCount.toLocaleString('tr-TR') }})
+              </span>
+              <span v-if="!selectedOperator" class="text-xs text-primary font-bold ml-1">✓</span>
+            </div>
+          </button>
         </div>
 
-        <button
-          type="button"
-          @click="selectOperator('')"
-          class="w-full text-left px-3 py-2 text-sm rounded hover:bg-bg-subdued touch-target-min flex items-center justify-between"
-          :class="{ 'font-bold text-primary': !selectedOperator }"
-        >
-          <span>Tüm Operatörler ({{ operators.length > 0 ? operators.length + ' Marka' : '179 Marka' }})</span>
-        </button>
+        <!-- Kaydırılabilir Operatör Listesi (TALEP-024) -->
+        <div class="overflow-y-auto p-2 space-y-1 flex-1 max-h-64">
+          <button
+            v-for="op in filteredOperators"
+            :key="op.id"
+            type="button"
+            @click="selectOperator(op.slug)"
+            class="w-full text-left px-2.5 py-1.5 text-sm rounded hover:bg-bg-subdued touch-target-min flex items-center justify-between transition-colors"
+            :class="{ 'font-bold text-primary bg-bg-subdued': selectedOperator === op.slug }"
+          >
+            <span class="truncate mr-2">{{ op.name }}</span>
+            <div class="flex items-center gap-1.5 flex-shrink-0 ml-auto">
+              <!-- İstasyon Sayısı Rozeti / Parantezi (TALEP-024) -->
+              <span
+                v-if="op.station_count !== undefined"
+                class="text-xs px-1.5 py-0.5 rounded bg-bg-subdued text-text-secondary border border-border-default font-mono"
+                :title="`${op.station_count} istasyon`"
+              >
+                ({{ op.station_count }})
+              </span>
+              <span v-if="selectedOperator === op.slug" class="text-xs text-primary font-bold ml-1">✓</span>
+            </div>
+          </button>
 
-        <button
-          v-for="op in filteredOperators"
-          :key="op.id"
-          type="button"
-          @click="selectOperator(op.slug)"
-          class="w-full text-left px-3 py-2 text-sm rounded hover:bg-bg-subdued touch-target-min flex items-center justify-between"
-          :class="{ 'font-bold text-primary': selectedOperator === op.slug }"
-        >
-          <span>{{ op.name }}</span>
-          <span v-if="selectedOperator === op.slug" class="text-xs text-primary font-bold">✓</span>
-        </button>
-
-        <div v-if="filteredOperators.length === 0" class="px-3 py-2 text-xs text-text-muted text-center">
-          Sonuç bulunamadı
+          <div v-if="filteredOperators.length === 0" class="px-3 py-4 text-xs text-text-muted text-center">
+            Sonuç bulunamadı
+          </div>
         </div>
       </div>
     </div>
