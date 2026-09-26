@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-09-26T13:44:06.591370",
+  "son_guncelleme": "2026-09-26T16:01:13.410775",
   "toplam_talep": 28,
   "talepler": [
     {
@@ -131380,9 +131380,9 @@
       "baslik": "Sürüm Notları ve Güncellemeler Ekranının Çözülen Taleplerle Senkronize Olmaması",
       "aciklama": "Sitedeki 'Sürüm Notları & Güncellemeler' sayfasını incelediğimde, sistemde çözüldüğü belirtilen yeni geliştirmelerin veya kapatılan taleplerin bu ekrana yansımadığını ve listenin eski kaldığını gördüm. Kullanıcı olarak bir hata düzeltildiğinde veya yeni bir özellik eklendiğinde, sürüm günlüğü ekranında en güncel değişiklikleri ve yeni sürüm maddelerini anında görmek istiyorum. Çözülen işlerin sürüm notları listesine otomatik yansıması ve sayfanın güncel durumu yansıtması gerekiyor.",
       "sayfa_url": "/guncellemeler",
-      "durum": "GELISTIRILIYOR",
+      "durum": "COZULDU",
       "gorevli_rol": "data_engineer",
-      "studio_notu": "Sprint S22 panosuna eklendi (S22-T3 ve S22-T4). Görevli rol: data_engineer. Geliştirme başladı.",
+      "studio_notu": "Görev S22-T4 başarıyla tamamlandı ve UAT testinden geçti.",
       "github_issue_number": 34,
       "github_issue_url": "https://github.com/cihan53/elektriklioto/issues/34",
       "gecmis": [
@@ -131405,6 +131405,11 @@
           "zaman": "2026-09-26 11:18",
           "eylem": "Durum güncellendi: GELISTIRILIYOR",
           "durum": "GELISTIRILIYOR"
+        },
+        {
+          "zaman": "2026-09-26 16:01",
+          "eylem": "Durum güncellendi: COZULDU",
+          "durum": "COZULDU"
         }
       ]
     },

@@ -19,12 +19,15 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 DATA_CANDIDATES = [
     ROOT / "workspace/src/backend/src/data/cpo_stations.json",
+    ROOT / "workspace/data/cpo_stations.json",
+    ROOT / "workspace/data/istasyonlar.json",
+    ROOT / "workspace/data/epdk_sarj_istasyonlari.json",
     ROOT / "cpo_stations.json",
     ROOT / "epdk_sarj_istasyonlari.json",
     ROOT / "istasyonlar.json"
 ]
 
-OUTPUT_SQL = ROOT / "server-scripts" / "seed_data.sql"
+OUTPUT_SQL = Path(__file__).resolve().parent / "seed_data.sql"
 
 
 def sql_escape(val) -> str:

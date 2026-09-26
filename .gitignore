@@ -10,10 +10,14 @@ workspace/.control/
 workspace/.history/
 workspace/.lock
 workspace/.gunluk.json
+workspace/.studio_update_check.json
 workspace/pano.json
 workspace/pano.json.tmp
 pipeline.log
 plan.log
+studio.db
+studio.db-shm
+studio.db-wal
 .claude_token
 
 # cPanel ve Dağıtım Geçici Dosyaları
