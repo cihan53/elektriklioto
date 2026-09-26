@@ -33,6 +33,17 @@
           "date": "2026-09-26"
         },
         {
+          "id": "TALEP-024",
+          "title": "Operatör Menüsünde Sabit Arama, Tüm Markalar ve İstasyon Sayıları",
+          "category": "ux",
+          "categoryLabel": "UX İyileştirme",
+          "scope": "components/map/FilterChips.vue",
+          "description": "Operatör seçim menüsünde liste kaydırılsa dahi arama kutusu ve Tüm Markalar seçeneğinin menü tepesinde sabit (sticky) kalması sağlandı. Ayrıca her bir operatörün yanında istasyon sayısı rozeti gösteriliyor.",
+          "status": "COZULDU",
+          "githubIssueNumber": 32,
+          "date": "2026-09-26"
+        },
+        {
           "id": "TALEP-023",
           "title": "Haritada ve Operatör Filtresinde EPDK Lisanslı Tüm Markaların Listelenmesi",
           "category": "data",
