@@ -61,9 +61,9 @@ const filteredOperators = computed(() => {
 </script>
 
 <template>
-  <div class="relative flex items-center gap-2 overflow-x-auto py-1 scrollbar-none max-w-full">
-    <!-- 1. Operatörler Filtre Çipi -->
-    <div class="relative">
+  <div class="relative flex items-center max-w-full">
+    <!-- 1. Operatörler Filtre Çipi (overflow kırpmasını önlemek için scroll container dışında - TALEP-007) -->
+    <div class="relative flex-shrink-0 mr-2 z-30">
       <button
         type="button"
         @click="toggleOperatorDropdown"
@@ -127,6 +127,8 @@ const filteredOperators = computed(() => {
       </div>
     </div>
 
+    <!-- 2, 3, 4. Diğer Filtre Çipleri (yatay kaydırılabilir alan) -->
+    <div class="flex items-center gap-2 overflow-x-auto py-1 scrollbar-none max-w-full">
     <!-- 2. Halka Açık Filtre Çipi -->
     <button
       type="button"
@@ -168,5 +170,6 @@ const filteredOperators = computed(() => {
       <span>Boş Soketler</span>
       <Lock class="w-3 h-3 text-text-muted ml-0.5" />
     </button>
+    </div>
   </div>
 </template>
