@@ -17,12 +17,15 @@ import {
   CLUSTER_PULSE_POINTS_LAYER_ID,
   CLUSTER_COUNT_POINTS_LAYER_ID,
   STATIONS_ICON_LAYER_ID,
+  STATION_LETTER_LAYER_ID,
   SELECTED_RING_LAYER_ID,
   buildClusterCirclePaint,
   buildClusterPulsePaint,
   buildClusterCountLayout,
   buildClusterCountPaint,
   buildStationsIconLayout,
+  buildStationLetterLayout,
+  buildStationLetterPaint,
   buildSelectedRingPaint,
   registerStationPinImages,
   emptyFeatureCollection,
@@ -180,13 +183,17 @@ const renderMapMarkers = () => {
 
       const uid = String(st.id);
       stationByUid.set(uid, st);
+      const isDefective = !!(st.is_flagged_defective || st.status === 'DEFECTIVE');
+      const opName = st.operator?.name || (st as { operator_name?: string }).operator_name || '';
       stationFeatures.push({
         type: 'Feature',
         geometry: { type: 'Point', coordinates: [lon, lat] },
         properties: {
           station_uid: uid,
           slug: st.slug || null,
-          hasActiveIssue: !!(st.is_flagged_defective || st.status === 'DEFECTIVE'),
+          hasActiveIssue: isDefective,
+          // prod DOM pinindeki görünüm: pin üzerinde operatör baş harfi
+          op_letter: isDefective ? '!' : (opName ? opName.charAt(0).toLocaleUpperCase('tr') : 'Ş'),
         },
       });
     });
@@ -286,6 +293,15 @@ const setupPinLayers = () => {
     source: STATION_POINTS_SOURCE_ID,
     filter: ['!', ['has', 'point_count']],
     layout: buildStationsIconLayout(null),
+  });
+  // Operatör baş harfi — pin ikonunun üstünde, prod'daki beyaz harf görünümü.
+  map.addLayer({
+    id: STATION_LETTER_LAYER_ID,
+    type: 'symbol',
+    source: STATION_POINTS_SOURCE_ID,
+    filter: ['!', ['has', 'point_count']],
+    layout: buildStationLetterLayout(),
+    paint: buildStationLetterPaint(),
   });
 
   // Backend kümesi tıklama → içeri zoom (eski DOM davranışının karşılığı)
