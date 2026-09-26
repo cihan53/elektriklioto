@@ -72,6 +72,28 @@ yapısal düzenlemeler sessizce silinmemelidir (örn. TALEP-007: operatör
 dropdown'ı `overflow-x-auto` şeridinin DIŞINDA durur — vitest'teki ilgili
 assert bu yapıyı korur).
 
+## Git İş Akışı (Issue & Branch & PR Kuralı)
+
+Her talep/hata/özellik çözümü (`git_development_workflow` global kuralı) şu
+adımlarla yürütülür — doğrudan `master`'a çalışılmaz:
+
+1. **Issue:** Görev için GitHub Issue aç (`gh issue create`), numarasını al.
+   (Müşteri talepleri için issue'yu `musteri_talepleri.py` zaten oluşturur.)
+2. **Branch:** `master`'dan çek ve Issue numaralı dal aç:
+   ```bash
+   git checkout master && git pull origin master
+   git checkout -b bug/<ISSUE_NO>       # hata için
+   git checkout -b feature/<ISSUE_NO>   # özellik/iyileştirme için
+   ```
+3. **Çözüm:** Geliştirme ve doğrulama bu dalda yapılır.
+4. **Commit & Push:**
+   ```bash
+   git commit -m "fix/feat: <açıklama> (#<ISSUE_NO>)"
+   git push -u origin bug/<ISSUE_NO>
+   ```
+5. **MR/PR:** `master`'a PR aç, gövdede `Closes #<ISSUE_NO>` ile bağla:
+   `gh pr create --base master --head bug/<ISSUE_NO>`
+
 ## Notlar
 
 - DB'siz çalışmada backend `DEFAULT_OPERATORS` (5 operatör) ve hafızadaki
