@@ -474,12 +474,154 @@ TURKISH_CITIES = [
     "IĞDIR", "YALOVA", "KARABÜK", "KİLİS", "OSMANİYE", "DÜZCE"
 ]
 
+# Issue #56: Il adi kanonik anahtar olarak plaka koduna (1-81) indirgenir.
+# Python .title()/.lower() Turkce İ/ı harflerini bozar (i+birlesik nokta U+0307
+# artifakti); bu yuzden ozel tr_lower/tr_upper/tr_title/fold_tr kullanilir.
+COMBINING_DOT = "̇"  # 'İ'.lower() artifakti
+
+def fold_tr(text):
+    """Turkce-aware katlama: kucuk harf, ASCII benzeri + birlesik nokta temizligi."""
+    t = str(text or "").replace(COMBINING_DOT, "")
+    for tr, en in TURKISH_MAP.items():
+        t = t.replace(tr, en)
+    return t.strip().lower()
+
+def tr_lower(text):
+    return str(text or "").replace("İ", "i").replace("I", "ı").lower()
+
+def tr_upper(text):
+    return str(text or "").replace("i", "İ").replace("ı", "I").upper()
+
+def tr_title(text):
+    """Turkce-aware title-case: 'İZMİR' -> 'İzmir', 'IŞIK' -> 'Işık'."""
+    out = []
+    for w in str(text or "").split():
+        if not w:
+            continue
+        out.append(tr_upper(w[0]) + tr_lower(w[1:]))
+    return " ".join(out)
+
+def clean_text(text):
+    """Saklanan metin alanlarindaki U+0307 birlesik-nokta artifaktini temizler."""
+    return str(text or "").replace(COMBINING_DOT, "")
+
+PLAKA_TO_IL = {
+    1: "Adana", 2: "Adıyaman", 3: "Afyonkarahisar", 4: "Ağrı", 5: "Amasya",
+    6: "Ankara", 7: "Antalya", 8: "Artvin", 9: "Aydın", 10: "Balıkesir",
+    11: "Bilecik", 12: "Bingöl", 13: "Bitlis", 14: "Bolu", 15: "Burdur",
+    16: "Bursa", 17: "Çanakkale", 18: "Çankırı", 19: "Çorum", 20: "Denizli",
+    21: "Diyarbakır", 22: "Edirne", 23: "Elazığ", 24: "Erzincan", 25: "Erzurum",
+    26: "Eskişehir", 27: "Gaziantep", 28: "Giresun", 29: "Gümüşhane", 30: "Hakkari",
+    31: "Hatay", 32: "Isparta", 33: "Mersin", 34: "İstanbul", 35: "İzmir",
+    36: "Kars", 37: "Kastamonu", 38: "Kayseri", 39: "Kırklareli", 40: "Kırşehir",
+    41: "Kocaeli", 42: "Konya", 43: "Kütahya", 44: "Malatya", 45: "Manisa",
+    46: "Kahramanmaraş", 47: "Mardin", 48: "Muğla", 49: "Muş", 50: "Nevşehir",
+    51: "Niğde", 52: "Ordu", 53: "Rize", 54: "Sakarya", 55: "Samsun",
+    56: "Siirt", 57: "Sinop", 58: "Sivas", 59: "Tekirdağ", 60: "Tokat",
+    61: "Trabzon", 62: "Tunceli", 63: "Şanlıurfa", 64: "Uşak", 65: "Van",
+    66: "Yozgat", 67: "Zonguldak", 68: "Aksaray", 69: "Bayburt", 70: "Karaman",
+    71: "Kırıkkale", 72: "Batman", 73: "Şırnak", 74: "Bartın", 75: "Ardahan",
+    76: "Iğdır", 77: "Yalova", 78: "Karabük", 79: "Kilis", 80: "Osmaniye",
+    81: "Düzce",
+}
+IL_TO_PLAKA = {v: k for k, v in PLAKA_TO_IL.items()}
+
+# Tum varyantlar (Istanbul/Istanbul/ISTANBUL/istanbul/İstanbul/İSTANBUL) tek
+# katlanmis anahtara iner -> tek plaka kodu. ASCII karisikligi imkansizlasir.
+NAME_FOLD_TO_PLAKA = {}
+for _code, _name in PLAKA_TO_IL.items():
+    for _v in {_name, _name.lower(), _name.upper(), tr_lower(_name), tr_upper(_name), to_slug(_name)}:
+        NAME_FOLD_TO_PLAKA.setdefault(fold_tr(_v), _code)
+
+# GADM 4.1 eski resmi isimleri tasir; goruntude guncel ad kullanilir.
+DISTRICT_DISPLAY_OVERRIDES = {
+    (6, "Sultan Kochisar"): "Şereflikoçhisar",
+    (6, "Kazan"): "Kahramankazan",
+}
+# Kullanici/kaynak metni -> GADM adi (katlanmis) eslenigi
+DISTRICT_MATCH_ALIASES = {
+    "sereflikochisar": "sultan kochisar",
+    "kahramankazan": "kazan",
+}
+
+def load_region_table():
+    """
+    turkey_regions.json'dan il/ilce referans tablosu kurar.
+    Donus: (ILCE_BY_IL[plaka][folded] = (ilce_kodu, display_name),
+            PROV_GEO[plaka] = (lat, lon, min_lat, min_lon, max_lat, max_lon))
+    """
+    candidates = [
+        ROOT / "workspace/src/backend/src/data/turkey_regions.json",
+        ROOT / "src/backend/src/data/turkey_regions.json",
+        ROOT / "server-scripts/turkey_regions.json",
+        ROOT / "workspace/server-scripts/turkey_regions.json",
+    ]
+    rows = None
+    for cand in candidates:
+        try:
+            if cand.exists() and cand.stat().st_size > 100:
+                with open(str(cand), "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                if isinstance(data, list) and len(data) >= 81:
+                    rows = data
+                    print("  ✓ turkey_regions.json yüklendi: {} ({} kayıt)".format(cand, len(data)))
+                    break
+        except Exception as e:
+            print("  [!] turkey_regions.json okunamadı ({}): {}".format(cand, e))
+    ilce_by_il = {}
+    prov_geo = {}
+    if rows:
+        name_to_plaka = {}
+        for r in rows:
+            if r.get("level") != 1:
+                continue
+            m = re.match(r"^TUR\.(\d+)_1$", r.get("gid") or "")
+            if not m:
+                continue
+            plaka = int(m.group(1))
+            name_to_plaka[r["name"]] = plaka
+            prov_geo[plaka] = (r["center_lat"], r["center_lon"], r["min_lat"], r["min_lon"], r["max_lat"], r["max_lon"])
+        for r in rows:
+            if r.get("level") != 2 or not r.get("parent_name"):
+                continue
+            plaka = name_to_plaka.get(r["parent_name"])
+            m = re.match(r"^TUR\.(\d+)\.(\d+)_1$", r.get("gid") or "")
+            if not plaka or not m or int(m.group(1)) != plaka:
+                continue
+            ilce_kodu = plaka * 1000 + int(m.group(2))
+            display = DISTRICT_DISPLAY_OVERRIDES.get((plaka, r["name"]), r["name"])
+            bucket = ilce_by_il.setdefault(plaka, {})
+            bucket[fold_tr(r["name"])] = (ilce_kodu, display)
+            bucket[fold_tr(display)] = (ilce_kodu, display)
+            bucket[to_slug(r["name"])] = (ilce_kodu, display)
+            geo = r.get("center_lat"), r.get("center_lon")
+            bucket.setdefault("__geo__", []).append((ilce_kodu, geo[0], geo[1]))
+    return ilce_by_il, prov_geo
+
+ILCE_BY_IL, PROV_GEO = load_region_table()
+
+def nearest_province_code(lat, lon):
+    """Koordinata en yakin ilin plaka kodu (bbox icindeyse oncelikli)."""
+    best = None
+    best_d = float("inf")
+    for plaka, g in PROV_GEO.items():
+        lat_c, lon_c, min_lat, min_lon, max_lat, max_lon = g
+        inside = min_lat <= lat <= max_lat and min_lon <= lon <= max_lon
+        d = (lat_c - lat) ** 2 + (lon_c - lon) ** 2
+        if inside:
+            d *= 0.25  # bbox icindekine guclu avantaj
+        if d < best_d:
+            best_d = d
+            best = plaka
+    if best is None:
+        return None
+    return best
+
 CITY_NORM = {}
-for c in TURKISH_CITIES:
-    clean = c.replace('İ', 'i').replace('I', 'i').title()
-    CITY_NORM[c] = clean
-    CITY_NORM[c.lower()] = clean
-    CITY_NORM[clean] = clean
+for code, name in PLAKA_TO_IL.items():
+    for v in {name, name.lower(), name.upper(), tr_lower(name), tr_upper(name), to_slug(name)}:
+        CITY_NORM[v] = name
+    CITY_NORM[fold_tr(name)] = name
 CITY_NORM["İzmi̇r"] = "İzmir"
 CITY_NORM["Mersi̇n"] = "Mersin"
 CITY_NORM["Kocaeli̇"] = "Kocaeli"
@@ -543,52 +685,106 @@ def find_nearest_province(lat, lon):
             best_p = p_name
     return best_p
 
-def normalize_city(raw, lat=None, lon=None):
-    if not raw or str(raw).strip() in ('1', 'A', 'Bilinmeyen', 'None', '') or len(str(raw).strip()) <= 2:
-        if lat and lon:
-            return find_nearest_province(lat, lon)
-        return "İstanbul"
-    clean = str(raw).strip()
-    norm = CITY_NORM.get(clean, CITY_NORM.get(clean.upper(), None))
-    # CITY_NORM değerleri .title() ile ASCII'ye bozulabiliyor ('İzmir'→'Izmir');
-    # kanonik adı fold eşleşmesiyle geri kazan.
-    canon = canonical_province(norm) if norm else canonical_province(clean)
-    if canon:
-        return canon
-    if norm:
-        return norm
+def resolve_plaka(raw, lat=None, lon=None):
+    """
+    Ham il metnini plaka koduna (1-81) indirger (Issue #56).
+    Tum isim varyantlari tek katlanmis anahtara iner; metin cozulemezse
+    koordinattan en yakin il bulunur. Cozulemezse None doner.
+    """
+    folded = fold_tr(raw)
+    if folded and len(folded) > 2:
+        code = NAME_FOLD_TO_PLAKA.get(folded)
+        if code:
+            return code
     if lat and lon:
-        return find_nearest_province(lat, lon)
-    return clean.title()
+        return nearest_province_code(lat, lon)
+    return None
+
+def normalize_city(raw, lat=None, lon=None):
+    """Geri uyumluluk sarmalayicisi: kanonik il adi dondurur."""
+    plaka = resolve_plaka(raw, lat, lon)
+    return PLAKA_TO_IL.get(plaka or 34, "İstanbul")
+
+# Ilce icin gecerli olmayan adres parcasi oruntuleri ("No:117", "1", "93-93" vb.)
+BAD_DISTRICT_RE = re.compile(
+    r"^\W*$|^[0-9\W]+$|^(no|cad|cadde|caddesi|sok|sokak|mah|mahallesi|kat|apt|blok|parsel|pafta|ada)\b[\W0-9]*$",
+    re.I,
+)
+
+def resolve_district_code(plaka, district_text, address=None, lat=None, lon=None):
+    """
+    Ilce aday metnini ilin resmi ilce listesiyle dogrular (Issue #56).
+    Donus: (ilce_kodu, kanonik_ilce_adi) veya (None, "").
+    Dogrulanamayan degerler ("No:117" gibi adres parcalari) elenir.
+    """
+    bucket = ILCE_BY_IL.get(plaka) if plaka else None
+    if not bucket:
+        clean = clean_text(district_text or "").strip()
+        if clean and not BAD_DISTRICT_RE.match(clean):
+            return None, tr_title(clean)
+        return None, ""
+
+    f = fold_tr(district_text)
+    if f:
+        hit = bucket.get(f) or bucket.get(DISTRICT_MATCH_ALIASES.get(f, ""))
+        if hit:
+            return hit
+
+    # Adres govdesinde bilinen ilce adi ara (en uzun eslesme kazanir)
+    addr_f = fold_tr(address)
+    if addr_f:
+        best = None
+        for name_f, hit in bucket.items():
+            if name_f == "__geo__" or len(name_f) < 4:
+                continue
+            if re.search(r"(^|[^a-z0-9])" + re.escape(name_f) + r"([^a-z0-9]|$)", addr_f):
+                if best is None or len(name_f) > len(best[0]):
+                    best = (name_f, hit)
+        if best:
+            return best[1]
+
+    return None, ""
+
+def extract_region(address, lat=None, lon=None):
+    """
+    Adres + koordinattan kanonik bolge cozumu (Issue #56).
+    Donus: (city, district, il_kodu, ilce_kodu)
+    """
+    plaka = None
+    if address:
+        # 1. EPDK standardi: "Mahalle Cadde No Ilce / IL" — sag taraf il
+        if "/" in str(address):
+            cand_city = str(address).rsplit("/", 1)[1].strip()
+            plaka = NAME_FOLD_TO_PLAKA.get(fold_tr(cand_city))
+        # 2. Adres govdesinde bilinen il adi
+        if plaka is None:
+            addr_f = fold_tr(address)
+            for name_f, code in NAME_FOLD_TO_PLAKA.items():
+                if re.search(r"(^|[^a-z0-9])" + re.escape(name_f) + r"([^a-z0-9]|$)", addr_f):
+                    plaka = code
+                    break
+    if plaka is None and lat and lon:
+        plaka = nearest_province_code(lat, lon)
+    plaka = plaka or 34
+    city = PLAKA_TO_IL[plaka]
+
+    # Ilce adayi: "/" oncesi son kelime (EPDK formatinda ilce orada durur)
+    district_guess = ""
+    if address:
+        head = str(address).rsplit("/", 1)[0]
+        words = head.strip().split()
+        if words:
+            district_guess = words[-1]
+            if district_guess.lower() in ("mah.", "mahallesi", "cad.", "caddesi", "sok.", "sokak", "no", "kat", "apt") and len(words) > 1:
+                district_guess = words[-2]
+
+    ilce_kodu, district = resolve_district_code(plaka, district_guess, address, lat, lon)
+    return city, district, plaka, ilce_kodu
 
 def extract_city_district_from_address(address, lat=None, lon=None):
-    if not address:
-        if lat and lon:
-            return find_nearest_province(lat, lon), ""
-        return "İstanbul", ""
-
-    # 1. EPDK standardı: "Mahalle Cadde No İlçe / İL"
-    if "/" in address:
-        parts = address.rsplit("/", 1)
-        cand_city = parts[1].strip()
-        norm_city = normalize_city(cand_city, lat, lon)
-        if norm_city:
-            district_words = parts[0].strip().split()
-            district = district_words[-1].title() if district_words else ""
-            if district.lower() in ("mah.", "mahallesi", "cad.", "caddesi", "sok.", "sokak", "no", "kat", "apt") and len(district_words) > 1:
-                district = district_words[-2].title()
-            return norm_city, district
-
-    upper_addr = str(address).upper()
-    for c_upper in TURKISH_CITIES:
-        if re.search(r'\b' + re.escape(c_upper) + r'\b', upper_addr):
-            norm_city = CITY_NORM.get(c_upper, c_upper.title())
-            return norm_city, ""
-
-    if lat and lon:
-        return find_nearest_province(lat, lon), ""
-
-    return "İstanbul", ""
+    """Geri uyumluluk sarmalayicisi: (city, district) dondurur."""
+    city, district, _il, _ilce = extract_region(address, lat, lon)
+    return city, district
 
 def get_deterministic_coords(city, district, istasyon_no, name):
     """
@@ -958,9 +1154,12 @@ def main():
         v_name = first.get("locationName") or first.get("businessName") or "Voltrun Şarj İstasyonu"
         v_lat = float(first["latitude"])
         v_lon = float(first["longitude"])
-        v_city = normalize_city(first.get("city") or "", v_lat, v_lon)
-        v_district = (first.get("district") or "").strip().title()
-        v_addr = first.get("addressDefinition") or "{}, {}".format(v_district, v_city)
+        v_il = resolve_plaka(first.get("city") or "", v_lat, v_lon)
+        v_city = PLAKA_TO_IL.get(v_il or 34, "İstanbul")
+        v_ilce, v_district = resolve_district_code(
+            v_il, first.get("district") or "", first.get("addressDefinition"), v_lat, v_lon
+        )
+        v_addr = clean_text(first.get("addressDefinition") or "{}, {}".format(v_district, v_city))
 
         v_conn_types = set()
         v_max_power = 0
@@ -991,12 +1190,14 @@ def main():
 
         voltrun_pool.append({
             "loc_key": loc_key,
-            "name": v_name,
+            "name": clean_text(v_name),
             "name_slug": to_slug(v_name),
             "address": v_addr,
             "addr_slug": to_slug(v_addr),
             "city": v_city,
             "district": v_district,
+            "il_kodu": v_il,
+            "ilce_kodu": v_ilce,
             "lat": v_lat,
             "lon": v_lon,
             "connector_types": sorted(list(v_conn_types)) if v_conn_types else ["Type 2"],
@@ -1018,7 +1219,7 @@ def main():
             zid = z.get("id") or z.get("externalId")
             z_name = z.get("name") or "ZES Şarj İstasyonu"
             z_addr = (z.get("address") or "").strip()
-            z_city, z_dist = extract_city_district_from_address(z_addr, float(z_lat), float(z_lon))
+            z_city, z_dist, z_il, z_ilce = extract_region(z_addr, float(z_lat), float(z_lon))
 
             z_conns = []
             ac_cnt = z.get("acConnectorCount") or 0
@@ -1035,12 +1236,14 @@ def main():
 
             zes_pool.append({
                 "zid": zid,
-                "name": z_name,
+                "name": clean_text(z_name),
                 "name_slug": to_slug(z_name),
-                "address": z_addr,
+                "address": clean_text(z_addr),
                 "addr_slug": to_slug(z_addr),
                 "city": z_city,
                 "district": z_dist,
+                "il_kodu": z_il,
+                "ilce_kodu": z_ilce,
                 "lat": float(z_lat),
                 "lon": float(z_lon),
                 "connector_types": z_conns,
@@ -1079,7 +1282,7 @@ def main():
                     raise ValueError
             except (TypeError, ValueError):
                 lat = lon = None
-            city, district = extract_city_district_from_address(address, lat, lon)
+            city, district, il_kodu, ilce_kodu = extract_region(address, lat, lon)
             if lat is None or lon is None:
                 lat, lon = get_deterministic_coords(city, district, istasyon_no, name)
 
@@ -1119,6 +1322,8 @@ def main():
                     lon = matched_v["lon"]
                     city = matched_v["city"]
                     district = matched_v["district"] or district
+                    il_kodu = matched_v.get("il_kodu") or il_kodu
+                    ilce_kodu = matched_v.get("ilce_kodu") or ilce_kodu
                     connector_types = matched_v["connector_types"]
                     power_kw = matched_v["power_kw"]
                     current_tariff = matched_v["current_tariff"]
@@ -1147,6 +1352,8 @@ def main():
                     lon = matched_z["lon"]
                     city = matched_z["city"]
                     district = matched_z["district"] or district
+                    il_kodu = matched_z.get("il_kodu") or il_kodu
+                    ilce_kodu = matched_z.get("ilce_kodu") or ilce_kodu
                     connector_types = matched_z["connector_types"]
                     power_kw = matched_z["power_kw"]
                     current_tariff = matched_z["current_tariff"]
@@ -1203,7 +1410,7 @@ def main():
                 import hashlib
                 op_hash = int(hashlib.md5(brand_lower.encode("utf-8")).hexdigest()[:6], 16)
                 operator_id = 100 + (op_hash % 800)
-                operator_name = brand_raw.title() if brand_raw else "Bağımsız Şarj"
+                operator_name = tr_title(brand_raw) if brand_raw else "Bağımsız Şarj"
 
             station_id = str(uuid.uuid5(uuid.NAMESPACE_DNS, "epdk-{}".format(istasyon_no or (name + address))))
             slug = get_unique_slug("{}-{}-{}".format(to_slug(operator_name), to_slug(name), to_slug(city)))
@@ -1212,14 +1419,16 @@ def main():
                 "id": station_id,
                 "istasyon_no": istasyon_no or "EPDK/{}".format(station_id[:8]),
                 "slug": slug,
-                "name": name,
-                "address": address or "{}, {}".format(district, city),
+                "name": clean_text(name),
+                "address": clean_text(address) or "{}, {}".format(district, city),
                 "city": city,
                 "district": district,
+                "il_kodu": il_kodu,
+                "ilce_kodu": ilce_kodu,
                 "lat": lat,
                 "lon": lon,
                 "operator_id": operator_id,
-                "operator_name": operator_name,
+                "operator_name": clean_text(operator_name),
                 "is_flagged_defective": False,
                 "defect_report_count": 0,
                 "connector_types": connector_types,
@@ -1252,6 +1461,8 @@ def main():
             "address": v["address"],
             "city": v["city"],
             "district": v["district"],
+            "il_kodu": v.get("il_kodu"),
+            "ilce_kodu": v.get("ilce_kodu"),
             "lat": v["lat"],
             "lon": v["lon"],
             "operator_id": 4,
@@ -1285,6 +1496,8 @@ def main():
             "address": z["address"] or "{}, {}".format(z["district"], z["city"]),
             "city": z["city"],
             "district": z["district"],
+            "il_kodu": z.get("il_kodu"),
+            "ilce_kodu": z.get("ilce_kodu"),
             "lat": z["lat"],
             "lon": z["lon"],
             "operator_id": 1,
