@@ -553,6 +553,30 @@ class CliResult:
         self.usage = usage
 
 
+def _json_kurtar(out: str) -> dict | None:
+    """Bozuk/kırpık CLI çıktısından ilk geçerli JSON nesnesini söker.
+
+    stdout'a uyarı satırları veya ardışık nesneler karışırsa json.loads
+    toptan patlar; baştan tarayarak ilk parse edilebilen {...} bloğu döndürür.
+    """
+    s = (out or "").strip()
+    dec = json.JSONDecoder(strict=False)
+    ilk = None
+    for i, ch in enumerate(s):
+        if ch != "{":
+            continue
+        try:
+            obj, _ = dec.raw_decode(s[i:])
+        except json.JSONDecodeError:
+            continue
+        if isinstance(obj, dict):
+            if ilk is None:
+                ilk = obj
+            if any(k in obj for k in ("result", "response", "is_error")):
+                return obj
+    return ilk
+
+
 class CallAborted(Exception):
     """Çalışan görev/çağrı kontrol isteğiyle kesildi (stop, skip, goto, force).
 
@@ -605,6 +629,10 @@ def _run_cli(cmd: list, cwd: Path, timeout: int, name: str,
                 raise RuntimeError(f"{name} {timeout}s içinde yanıt vermedi.")
             time.sleep(0.5)
         out, err = proc.communicate()
+        # Yarış: süreç SIGTERM ile zaten ölüp döngüden çıkmış olabilir;
+        # yarım kalan çıktı parse hatasına dönüşmesin, CallAborted korunur.
+        if B.is_set("force"):
+            raise CallAborted(f"{name} çağrısı kullanıcı isteğiyle kesildi (--force).")
     finally:
         if proc.poll() is None:
             try:
@@ -681,9 +709,12 @@ def _call_agy(system_prompt: str, user_prompt: str, effort: str, model: str,
         raise RuntimeError(f"agy hata koduyla çıktı ({rc}): {detail}")
 
     try:
-        data = json.loads(out)
+        data = json.loads(out, strict=False)
     except json.JSONDecodeError:
-        raise RuntimeError(f"agy JSON döndürmedi: {proc.stdout.strip()[:300]}")
+        data = _json_kurtar(out)
+    if not isinstance(data, dict):
+        raise RuntimeError(f"agy JSON döndürmedi: {(out or '').strip()[:300]}"
+                           f" ...son: {(out or '').strip()[-150:]}")
 
     text = (data.get("response") or "").strip()
     status = (data.get("status") or "").upper()
@@ -725,8 +756,9 @@ def _call_devin(system_prompt: str, user_prompt: str, effort: str, model: str,
         cmd += ["--cloud"]
     if model:
         cmd += ["--model", model]
-    if tools:
-        cmd += ["--permission-mode", DEVIN_PERMISSION_MODE]
+    # devin etkileşimsiz kipte onay isteyemez; araçsız rollerde bile CLI kendi
+    # araçlarını deneyebilir → mod koşulsuz geçilir, yoksa çağrı boş döner.
+    cmd += ["--permission-mode", DEVIN_PERMISSION_MODE]
 
     run_cwd = ROOT if tools else SCRATCH_DIR
     rc, out, err = _run_cli(cmd, run_cwd, DEVIN_TIMEOUT + 60, "devin")
@@ -776,9 +808,12 @@ def _call_claude(system_prompt: str, user_prompt: str, effort: str, model: str,
         raise RuntimeError(f"claude hata koduyla çıktı ({rc}): {detail}")
 
     try:
-        data = json.loads((out or "").strip())
+        data = json.loads((out or "").strip(), strict=False)
     except json.JSONDecodeError:
-        raise RuntimeError(f"claude JSON döndürmedi: {(out or '').strip()[:300]}")
+        data = _json_kurtar(out)
+    if not isinstance(data, dict):
+        raise RuntimeError(f"claude JSON döndürmedi: {(out or '').strip()[:300]}"
+                           f" ...son: {(out or '').strip()[-150:]}")
     if data.get("is_error"):
         raise RuntimeError(f"claude hata bildirdi: {str(data.get('result'))[:300]}")
 
