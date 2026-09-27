@@ -2,7 +2,7 @@
 """
 Digital Software Studio — Web Arayüzü (sıfır bağımlılık, saf stdlib)
 
-    python studio_web.py [--port 8080] [--host 127.0.0.1]
+    python studio_web.py [--port 8090] [--host 127.0.0.1]
     ./basla.sh --web
 
 Ekranlar:
@@ -16,7 +16,7 @@ workspace/.control/ bayrak mekanizmasına yazılır — motora dokunmaz.
 
 Ortam değişkenleri:
     STUDIO_WEB_HOST  (varsayılan 127.0.0.1 — IoT/LAN erişimi için 0.0.0.0)
-    STUDIO_WEB_PORT  (varsayılan 8080)
+    STUDIO_WEB_PORT  (varsayılan 8090)
 """
 
 import argparse
@@ -196,10 +196,10 @@ def kontrol(body: dict) -> dict:
         board = B.load()
         tid = (body.get("gorev") or "").strip()
         hedefler = [t for _, t in B.all_tasks(board)
-                    if t["status"] in (B.FAILED, B.BLOCKED)
+                    if t["status"] in (B.FAILED, B.BLOCKED, B.SKIPPED)
                     and (not tid or t["id"] == tid)]
         if not hedefler:
-            return {"ok": False, "mesaj": "Başarısız/bloke görev yok."}
+            return {"ok": False, "mesaj": "Başarısız/bloke/atlanmış görev yok."}
         for t in hedefler:
             t["status"] = B.TODO
             t["note"] = ""
@@ -231,7 +231,12 @@ def kontrol(body: dict) -> dict:
             return {"ok": False, "mesaj": f"Talep modülü: {e}"}
         if t:
             B.request("reload", kaynak="web")
-            return {"ok": True, "mesaj": f"{tid} iptal edildi."}
+            pano = t.get("_pano") or {}
+            ek = (f" · {len(pano['silinen'])} pano görevi kaldırıldı"
+                  if pano.get("silinen") else "")
+            ek += (f" · {len(pano['kosan'])} koşan görev atlanıyor"
+                   if pano.get("kosan") else "")
+            return {"ok": True, "mesaj": f"{tid} iptal edildi.{ek}"}
         return {"ok": False, "mesaj": f"{tid} bulunamadı veya zaten kapalı."}
     if aks == "onayla":
         g = body.get("gorev_kota")
@@ -413,7 +418,7 @@ def main():
     import os
     ap.add_argument("--host", default=os.getenv("STUDIO_WEB_HOST", "127.0.0.1"))
     ap.add_argument("--port", type=int,
-                    default=int(os.getenv("STUDIO_WEB_PORT", "8080")))
+                    default=int(os.getenv("STUDIO_WEB_PORT", "8090")))
     args = ap.parse_args()
 
     srv = ThreadingHTTPServer((args.host, args.port), Handler)
