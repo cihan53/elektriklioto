@@ -177,6 +177,9 @@ def kontrol(body: dict) -> dict:
     if aks == "durdur":
         B.request("stop", kaynak="web")
         return {"ok": True, "mesaj": "Durdurma istendi — mevcut çağrı bitince koşucu çıkar."}
+    if aks == "acil_durdur":
+        ok, msg = B.hard_stop()
+        return {"ok": ok, "mesaj": msg}
     if aks in ("atla", "gec"):
         tid = (body.get("gorev") or "").strip()
         if not tid:
@@ -343,7 +346,8 @@ class Handler(BaseHTTPRequestHandler):
                 oid = q.get("oturum", [""])[0]
                 return self._json({"ok": True,
                                    "mesajlar": MTC.mesajlar(oid),
-                                   "talepler": MTC.musteri_talepleri()})
+                                   "talepler": MTC.musteri_talepleri(),
+                                   "motor": MTC.aktif_motor()})
             except Exception as e:
                 return self._json({"ok": False, "mesaj": str(e)}, 500)
 
@@ -407,6 +411,17 @@ class Handler(BaseHTTPRequestHandler):
                     return self._json({"ok": True,
                                        **MTC.taslak_reddet(body.get("oturum"),
                                                            int(body.get("mesaj_id", 0)))})
+                if sub == "motor":
+                    if body.get("temizle"):
+                        ok, msg = B.clear_motor(MTC.SOHBET_HEDEF)
+                        return self._json({"ok": True, "mesaj": msg,
+                                           "motor": MTC.aktif_motor()})
+                    ok, msg = B.set_motor(MTC.SOHBET_HEDEF,
+                                          body.get("backend") or None,
+                                          body.get("model") or None,
+                                          body.get("effort") or None)
+                    return self._json({"ok": ok, "mesaj": msg,
+                                       "motor": MTC.aktif_motor()})
             except Exception as e:
                 return self._json({"ok": False, "mesaj": str(e)}, 400)
 
