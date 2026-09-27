@@ -1,7 +1,7 @@
 # Digital Software Studio — Müşteri Denetim & Talep Havuzu
 
-> **Son Güncelleme:** 2026-09-26 23:40  
-> **Toplam Bildirim:** 29  
+> **Son Güncelleme:** 2026-09-27 05:46  
+> **Toplam Bildirim:** 36  
 
 Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda iletilen istek, hata ve geri bildirimleri içerir.
 
@@ -11,9 +11,16 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 
 | ID | Tür | Öncelik | Durum | Başlık | Ekran / URL | İlgili Rol | GitHub Issue | Plan |
 |---|---|---|---|---|---|---|---|---|
-| **TALEP-029** | Hata / Bug | Normal (P3) | ⏳ Beklemede | Tüm Operatörler Menüsü Dış Alana Tıklandığında Kapanmıyor | `/` | `None` | [#41](https://github.com/cihan53/elektriklioto/issues/41) | — |
+| **TALEP-036** | Hata / Bug | Yüksek (P2) | ❌ İptal Edildi | [UAT] S26-T1 canlı kabul denetimi başarısız: [TALEP-034] [UAT] S23-T2 canlı kabul denetimi başarısız: [TALEP-027] Müşteri Kab | `/` | `None` | [#55](https://github.com/cihan53/elektriklioto/issues/55) | — |
+| **TALEP-035** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | [UAT] S24-T1 canlı kabul denetimi başarısız: [TALEP-028] Google Arama Motorunda 'Standart Sayfa Olmadan Kopya' Uyarısı ve Sit | `/` | `web_engineer` | [#54](https://github.com/cihan53/elektriklioto/issues/54) | — |
+| **TALEP-034** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | [UAT] S23-T2 canlı kabul denetimi başarısız: [TALEP-027] Müşteri Kabulü & UAT Doğrulama Denetimi | `/` | `backend_engineer` | [#53](https://github.com/cihan53/elektriklioto/issues/53) | — |
+| **TALEP-033** | Hata / Bug | Kritik (P1) | ✅ Çözüldü | Ana Sayfa '@lucide/vue' Eksik Paket / Import Hatası Nedeniyle Açılmıyor | `/` | `None` | [#52](https://github.com/cihan53/elektriklioto/issues/52) | — |
+| **TALEP-032** | Hata / Bug | Normal (P3) | ❌ İptal Edildi | Tüm Operatörler Menüsü Dış Alana Tıklandığında Kapanmıyor | `/` | `web_engineer` | [#49](https://github.com/cihan53/elektriklioto/issues/49) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-032.md) |
+| **TALEP-031** | Hata / Bug | Normal (P3) | ❌ İptal Edildi | Tüm Operatörler Menüsü Dış Alana Tıklandığında Kapanmıyor | `/` | `web_engineer` | [#48](https://github.com/cihan53/elektriklioto/issues/48) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-031.md) |
+| **TALEP-030** | Hata / Bug | Normal (P3) | ❌ İptal Edildi | Tüm Operatörler Menüsü Dış Alana Tıklandığında Kapanmıyor | `/` | `None` | [#43](https://github.com/cihan53/elektriklioto/issues/43) | — |
+| **TALEP-029** | Hata / Bug | Normal (P3) | ✅ Çözüldü | Tüm Operatörler Menüsü Dış Alana Tıklandığında Kapanmıyor | `/` | `None` | [#41](https://github.com/cihan53/elektriklioto/issues/41) | — |
 | **TALEP-028** | Hata / Bug | Kritik (P1) | ⏳ Beklemede | Google Arama Motorunda 'Standart Sayfa Olmadan Kopya' Uyarısı ve Sitenin İndekslenmemesi | `/` | `None` | [#37](https://github.com/cihan53/elektriklioto/issues/37) | — |
-| **TALEP-027** | Hata / Bug | Kritik (P1) | ⏳ Beklemede | Haritada Yakınlaşınca İstasyon Pinlerinin Yapay Bir Dikdörtgen Blok Halinde Üst Üste Yığılması | `/harita` | `None` | [#36](https://github.com/cihan53/elektriklioto/issues/36) | — |
+| **TALEP-027** | Hata / Bug | Kritik (P1) | ✅ Çözüldü | Haritada Yakınlaşınca İstasyon Pinlerinin Yapay Bir Dikdörtgen Blok Halinde Üst Üste Yığılması | `/harita` | `None` | [#36](https://github.com/cihan53/elektriklioto/issues/36) | — |
 | **TALEP-026** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | Sürüm Notları ve Güncellemeler Ekranının Çözülen Taleplerle Senkronize Olmaması | `/guncellemeler` | `data_engineer` | [#34](https://github.com/cihan53/elektriklioto/issues/34) | — |
 | **TALEP-025** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | Canlı Sürüm Bilgisi Ekranında Sistem Altyapısı ve Veritabanı Bilgilerinin Açıkça Gösterilmesinin Kaldırılması | `/hakkimizda` | `None` | [#33](https://github.com/cihan53/elektriklioto/issues/33) | — |
 | **TALEP-024** | Tasarım & Kullanıcı Deneyimi | Normal (P3) | ✅ Çözüldü | Operatör Menüsünde Arama ve 'Tüm Markalar' Alanının Sabitlenmesi ve İstasyon Sayılarının Gösterilmesi | `/` | `web_engineer` | [#32](https://github.com/cihan53/elektriklioto/issues/32) | — |
@@ -45,7 +52,149 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 
 ## 2. Talep Detayları ve Geri Bildirim Notları
 
-### [TALEP-029] Tüm Operatörler Menüsü Dış Alana Tıklandığında Kapanmıyor (⏳ Beklemede)
+### [TALEP-036] [UAT] S26-T1 canlı kabul denetimi başarısız: [TALEP-034] [UAT] S23-T2 canlı kabul denetimi başarısız: [TALEP-027] Müşteri Kab (❌ İptal Edildi)
+- **Bildirim Tarihi:** 2026-09-27 04:23
+- **Tür / Öncelik:** Hata / Bug / Yüksek (P2)
+- **İlgili Ekran / Sayfa:** `/`
+- **Görevli Rol:** `None`
+- 🐙 **GitHub Issue:** [#55](https://github.com/cihan53/elektriklioto/issues/55)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Canlı UAT denetimi (scripts/uat_live_audit.mjs) 'S26-T1' görevinde başarısız oldu.
+
+Son çıktı satırları:
+```
+oftware Studio — Canlı UAT & Kullanıcı Denetimi Başlatılıyor[0m
+[36m======================================================================[0m
+
+  [TEST] UAT-01: Fastify Backend API canlı sağlık kontrolü (Port 3001) ... [32m✓ GEÇTİ[0m
+  [TEST] UAT-02: Web istemcisi için CORS ve CORP başlık uyumu ... [31m✗ BAŞARISIZ[0m
+         [31mHata: Beklenen HTTP 200, alınan: 400[0m
+  [TEST] UAT-03: Zoom 6 Türkiye genelinde 81 ilin kümeleme verisi (Clusters) ... [32m✓ GEÇTİ[0m
+  [TEST] UAT-04: Zoom 11 İstanbul geniş ekran BBox sorgusu (1.06° boylam, 600+ pin) ... [32m✓ GEÇTİ[0m
+  [TEST] UAT-05: API uç noktası canlılık ve veri modeli doğrulaması ... [32m✓ GEÇTİ[0m
+  [TEST] UAT-06: Web arayüzü canlı HTML sunumu (Port 3000) ... [32m✓ GEÇTİ[0m
+
+----------------------------------------------------------------------
+[31m⚠️  UAT TESTLERİNDE 1 HATA TESPİT EDİLDİ! (5 Başarılı, 1 Başarısız)[0m
+```
+
+---
+### [TALEP-035] [UAT] S24-T1 canlı kabul denetimi başarısız: [TALEP-028] Google Arama Motorunda 'Standart Sayfa Olmadan Kopya' Uyarısı ve Sit (✅ Çözüldü)
+- **Bildirim Tarihi:** 2026-09-27 03:04
+- **Tür / Öncelik:** Hata / Bug / Yüksek (P2)
+- **İlgili Ekran / Sayfa:** `/`
+- **Görevli Rol:** `web_engineer`
+- 🐙 **GitHub Issue:** [#54](https://github.com/cihan53/elektriklioto/issues/54)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Canlı UAT denetimi (scripts/uat_live_audit.mjs) 'S24-T1' görevinde başarısız oldu.
+
+Son çıktı satırları:
+```
+smoke başarısız (3)
+```
+
+**Studio Yetkilisi Notu:**
+> Görev S26-T4 başarıyla tamamlandı ve UAT testinden geçti.
+
+- 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-035.md](workspace/docs/cozum_planlari/TALEP-035.md)
+
+---
+### [TALEP-034] [UAT] S23-T2 canlı kabul denetimi başarısız: [TALEP-027] Müşteri Kabulü & UAT Doğrulama Denetimi (✅ Çözüldü)
+- **Bildirim Tarihi:** 2026-09-27 02:57
+- **Tür / Öncelik:** Hata / Bug / Yüksek (P2)
+- **İlgili Ekran / Sayfa:** `/`
+- **Görevli Rol:** `backend_engineer`
+- 🐙 **GitHub Issue:** [#53](https://github.com/cihan53/elektriklioto/issues/53)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Canlı UAT denetimi (scripts/uat_live_audit.mjs) 'S23-T2' görevinde başarısız oldu.
+
+Son çıktı satırları:
+```
+al Software Studio — Canlı UAT & Kullanıcı Denetimi Başlatılıyor[0m
+[36m======================================================================[0m
+
+  [TEST] UAT-01: Fastify Backend API canlı sağlık kontrolü (Port 3001) ... [32m✓ GEÇTİ[0m
+  [TEST] UAT-02: Web istemcisi için CORS ve CORP başlık uyumu ... [32m✓ GEÇTİ[0m
+  [TEST] UAT-03: Zoom 6 Türkiye genelinde 81 ilin kümeleme verisi (Clusters) ... [32m✓ GEÇTİ[0m
+  [TEST] UAT-04: Zoom 11 İstanbul geniş ekran BBox sorgusu (1.06° boylam, 600+ pin) ... [32m✓ GEÇTİ[0m
+  [TEST] UAT-05: API uç noktası canlılık ve veri modeli doğrulaması ... [32m✓ GEÇTİ[0m
+  [TEST] UAT-06: Web arayüzü canlı HTML sunumu (Port 3000) ... [31m✗ BAŞARISIZ[0m
+         [31mHata: Web arayüzü HTTP 500 döndü[0m
+
+----------------------------------------------------------------------
+[31m⚠️  UAT TESTLERİNDE 1 HATA TESPİT EDİLDİ! (5 Başarılı, 1 Başarısız)[0m
+```
+
+**Studio Yetkilisi Notu:**
+> Görev S26-T2 başarıyla tamamlandı ve UAT testinden geçti.
+
+- 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-034.md](workspace/docs/cozum_planlari/TALEP-034.md)
+
+---
+### [TALEP-033] Ana Sayfa '@lucide/vue' Eksik Paket / Import Hatası Nedeniyle Açılmıyor (✅ Çözüldü)
+- **Bildirim Tarihi:** 2026-09-27 01:30
+- **Tür / Öncelik:** Hata / Bug / Kritik (P1)
+- **İlgili Ekran / Sayfa:** `/`
+- **Görevli Rol:** `None`
+- 🐙 **GitHub Issue:** [#52](https://github.com/cihan53/elektriklioto/issues/52)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Kullanıcı yerel test ortamında ana sayfayı açtığında sayfa yüklenememekte ve '@lucide/vue' paketinin bulunamadığına dair import hatası (Cannot find package '@lucide/vue' imported from 'workspace/src/frontend/pages/index.vue') ile karşılaşmaktadır. Sayfa tamamen açılamadığı ve test sürecini engellediği için, eksik bağımlılığın projeye eklenmesi veya hatalı import referansının düzeltilerek ana sayfanın hatasız şekilde açılması beklenmektedir.
+
+**Studio Yetkilisi Notu:**
+> Görev S25-T10 başarıyla tamamlandı ve UAT testinden geçti.
+
+---
+### [TALEP-032] Tüm Operatörler Menüsü Dış Alana Tıklandığında Kapanmıyor (❌ İptal Edildi)
+- **Bildirim Tarihi:** 2026-09-26 23:37
+- **Tür / Öncelik:** Hata / Bug / Normal (P3)
+- **İlgili Ekran / Sayfa:** `/`
+- **Görevli Rol:** `web_engineer`
+- 🐙 **GitHub Issue:** [#49](https://github.com/cihan53/elektriklioto/issues/49)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Kullanıcı arayüzdeki 'Tüm Operatörler' açılır menüsünü açtıktan sonra herhangi bir operatör seçmeden sayfanın boş bir alanına tıkladığında menünün kapanmadığını ve açık kalmaya devam ettiğini belirtmiştir. Beklenen davranış, menü dışındaki herhangi bir boş alana tıklandığında açılır listenin kendiliğinden kapanmasıdır.
+
+**Studio Yetkilisi Notu:**
+> Sprint S25 panosuna eklendi (S25-T7 ve S25-T8). Görevli rol: web_engineer. Geliştirme başladı.
+
+- 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-032.md](workspace/docs/cozum_planlari/TALEP-032.md)
+
+---
+### [TALEP-031] Tüm Operatörler Menüsü Dış Alana Tıklandığında Kapanmıyor (❌ İptal Edildi)
+- **Bildirim Tarihi:** 2026-09-26 23:37
+- **Tür / Öncelik:** Hata / Bug / Normal (P3)
+- **İlgili Ekran / Sayfa:** `/`
+- **Görevli Rol:** `web_engineer`
+- 🐙 **GitHub Issue:** [#48](https://github.com/cihan53/elektriklioto/issues/48)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Kullanıcı arayüzdeki 'Tüm Operatörler' açılır menüsünü açtıktan sonra herhangi bir operatör seçmeden sayfanın boş bir alanına tıkladığında menünün kapanmadığını ve açık kalmaya devam ettiğini belirtmiştir. Beklenen davranış, menü dışındaki herhangi bir boş alana tıklandığında açılır listenin kendiliğinden kapanmasıdır.
+
+**Studio Yetkilisi Notu:**
+> Sprint S25 panosuna eklendi (S25-T5 ve S25-T6). Görevli rol: web_engineer. Geliştirme başladı.
+
+- 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-031.md](workspace/docs/cozum_planlari/TALEP-031.md)
+
+---
+### [TALEP-030] Tüm Operatörler Menüsü Dış Alana Tıklandığında Kapanmıyor (❌ İptal Edildi)
+- **Bildirim Tarihi:** 2026-09-26 23:37
+- **Tür / Öncelik:** Hata / Bug / Normal (P3)
+- **İlgili Ekran / Sayfa:** `/`
+- **Görevli Rol:** `None`
+- 🐙 **GitHub Issue:** [#43](https://github.com/cihan53/elektriklioto/issues/43)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Kullanıcı arayüzdeki 'Tüm Operatörler' açılır menüsünü açtıktan sonra herhangi bir operatör seçmeden sayfanın boş bir alanına tıkladığında menünün kapanmadığını ve açık kalmaya devam ettiğini belirtmiştir. Beklenen davranış, menü dışındaki herhangi bir boş alana tıklandığında açılır listenin kendiliğinden kapanmasıdır.
+
+**Studio Yetkilisi Notu:**
+> Sprint S25 panosuna eklendi (S25-T3 ve S25-T4). Görevli rol: web_engineer. Geliştirme başladı.
+
+---
+### [TALEP-029] Tüm Operatörler Menüsü Dış Alana Tıklandığında Kapanmıyor (✅ Çözüldü)
 - **Bildirim Tarihi:** 2026-09-26 23:37
 - **Tür / Öncelik:** Hata / Bug / Normal (P3)
 - **İlgili Ekran / Sayfa:** `/`
@@ -54,6 +203,9 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 
 **Müşteri Açıklaması / Hata Adımları:**
 > Kullanıcı arayüzdeki 'Tüm Operatörler' açılır menüsünü açtıktan sonra herhangi bir operatör seçmeden sayfanın boş bir alanına tıkladığında menünün kapanmadığını ve açık kalmaya devam ettiğini belirtmiştir. Beklenen davranış, menü dışındaki herhangi bir boş alana tıklandığında açılır listenin kendiliğinden kapanmasıdır.
+
+**Studio Yetkilisi Notu:**
+> Görev S25-T2 başarıyla tamamlandı ve UAT testinden geçti.
 
 ---
 ### [TALEP-028] Google Arama Motorunda 'Standart Sayfa Olmadan Kopya' Uyarısı ve Sitenin İndekslenmemesi (⏳ Beklemede)
@@ -67,7 +219,7 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 > Google Arama Konsolu (Search Console) araçlarında sitemiz incelendiğinde 'Kullanıcı tarafından seçilen standart sayfa olmadan kopya' uyarısı çıktığı ve bu sebeple sitemizin Google arama sonuçlarında dizine eklenmeyip kullanıcılara sunulmadığı görülmektedir. Ziyaretçiler Google üzerinde arama yaptıklarında platformumuz listelenmemektedir. Arama motorlarının sitemizi kopya sayfa olarak görmesini engelleyecek resmi standart sayfa bildirimlerinin yapılması, adres yönlendirmelerinin netleştirilmesi ve platformun Google aramalarında sorunsuz şekilde listelenmesinin acilen sağlanması gerekiyor.
 
 ---
-### [TALEP-027] Haritada Yakınlaşınca İstasyon Pinlerinin Yapay Bir Dikdörtgen Blok Halinde Üst Üste Yığılması (⏳ Beklemede)
+### [TALEP-027] Haritada Yakınlaşınca İstasyon Pinlerinin Yapay Bir Dikdörtgen Blok Halinde Üst Üste Yığılması (✅ Çözüldü)
 - **Bildirim Tarihi:** 2026-09-26 11:59
 - **Tür / Öncelik:** Hata / Bug / Kritik (P1)
 - **İlgili Ekran / Sayfa:** `/harita`
@@ -79,6 +231,9 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 
 **Müşteri Ek Notu (Ortam & Regresyon Bilgisi):**
 Şu an canlı ortamda bu problem yaşanmıyor. Problem local test servisinde görülüyor. Dolayısıyla son yapılan güncellemelerden veya yerel test verisi/mocking değişikliklerinden kaynaklı bir regresyon olabilir.
+
+**Studio Yetkilisi Notu:**
+> Görev S23-T2 başarıyla tamamlandı ve UAT testinden geçti.
 
 ---
 ### [TALEP-026] Sürüm Notları ve Güncellemeler Ekranının Çözülen Taleplerle Senkronize Olmaması (✅ Çözüldü)

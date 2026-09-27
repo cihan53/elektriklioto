@@ -532,10 +532,15 @@ NAME_FOLD_TO_PLAKA = {}
 for _code, _name in PLAKA_TO_IL.items():
     for _v in {_name, _name.lower(), _name.upper(), tr_lower(_name), tr_upper(_name), to_slug(_name)}:
         NAME_FOLD_TO_PLAKA.setdefault(fold_tr(_v), _code)
+# GADM 4.1 kaynak adlarindaki ASCII bozukluklari icin alias
+NAME_FOLD_TO_PLAKA["hakkâri"] = 30   # GADM: "Hakkâri" -> Hakkari
+NAME_FOLD_TO_PLAKA["hakkari̇"] = 30
+NAME_FOLD_TO_PLAKA["kinkkale"] = 71  # GADM: "Kinkkale" -> Kirikkale
+NAME_FOLD_TO_PLAKA["zinguldak"] = 67 # GADM: "Zinguldak" -> Zonguldak
 
 # GADM 4.1 eski resmi isimleri tasir; goruntude guncel ad kullanilir.
 DISTRICT_DISPLAY_OVERRIDES = {
-    (6, "Sultan Kochisar"): "Şereflikoçhisar",
+    (6, "Şultan Koçhisar"): "Şereflikoçhisar",
     (6, "Kazan"): "Kahramankazan",
 }
 # Kullanici/kaynak metni -> GADM adi (katlanmis) eslenigi
@@ -575,10 +580,11 @@ def load_region_table():
         for r in rows:
             if r.get("level") != 1:
                 continue
-            m = re.match(r"^TUR\.(\d+)_1$", r.get("gid") or "")
-            if not m:
+            # GADM gid indeksi plaka kodu DEGILDIR (Ankara gid=TUR.7, plaka=06);
+            # plaka kanonik ad uzerinden cozulur.
+            plaka = NAME_FOLD_TO_PLAKA.get(fold_tr(r.get("name") or ""))
+            if not plaka:
                 continue
-            plaka = int(m.group(1))
             name_to_plaka[r["name"]] = plaka
             prov_geo[plaka] = (r["center_lat"], r["center_lon"], r["min_lat"], r["min_lon"], r["max_lat"], r["max_lon"])
         for r in rows:
@@ -586,7 +592,7 @@ def load_region_table():
                 continue
             plaka = name_to_plaka.get(r["parent_name"])
             m = re.match(r"^TUR\.(\d+)\.(\d+)_1$", r.get("gid") or "")
-            if not plaka or not m or int(m.group(1)) != plaka:
+            if not plaka or not m:
                 continue
             ilce_kodu = plaka * 1000 + int(m.group(2))
             display = DISTRICT_DISPLAY_OVERRIDES.get((plaka, r["name"]), r["name"])

@@ -40,10 +40,45 @@ export interface DistrictRef {
   slug: string;
 }
 
+/**
+ * Kanonik il adı -> plaka kodu. GADM gid indeksi plaka kodu DEĞİLDİR
+ * (Ankara gid=TUR.7, plaka=06) — plaka her zaman isim üzerinden çözülür.
+ */
+const PLAKA_TO_IL: Record<number, string> = {
+  1: 'Adana', 2: 'Adıyaman', 3: 'Afyonkarahisar', 4: 'Ağrı', 5: 'Amasya',
+  6: 'Ankara', 7: 'Antalya', 8: 'Artvin', 9: 'Aydın', 10: 'Balıkesir',
+  11: 'Bilecik', 12: 'Bingöl', 13: 'Bitlis', 14: 'Bolu', 15: 'Burdur',
+  16: 'Bursa', 17: 'Çanakkale', 18: 'Çankırı', 19: 'Çorum', 20: 'Denizli',
+  21: 'Diyarbakır', 22: 'Edirne', 23: 'Elazığ', 24: 'Erzincan', 25: 'Erzurum',
+  26: 'Eskişehir', 27: 'Gaziantep', 28: 'Giresun', 29: 'Gümüşhane', 30: 'Hakkari',
+  31: 'Hatay', 32: 'Isparta', 33: 'Mersin', 34: 'İstanbul', 35: 'İzmir',
+  36: 'Kars', 37: 'Kastamonu', 38: 'Kayseri', 39: 'Kırklareli', 40: 'Kırşehir',
+  41: 'Kocaeli', 42: 'Konya', 43: 'Kütahya', 44: 'Malatya', 45: 'Manisa',
+  46: 'Kahramanmaraş', 47: 'Mardin', 48: 'Muğla', 49: 'Muş', 50: 'Nevşehir',
+  51: 'Niğde', 52: 'Ordu', 53: 'Rize', 54: 'Sakarya', 55: 'Samsun',
+  56: 'Siirt', 57: 'Sinop', 58: 'Sivas', 59: 'Tekirdağ', 60: 'Tokat',
+  61: 'Trabzon', 62: 'Tunceli', 63: 'Şanlıurfa', 64: 'Uşak', 65: 'Van',
+  66: 'Yozgat', 67: 'Zonguldak', 68: 'Aksaray', 69: 'Bayburt', 70: 'Karaman',
+  71: 'Kırıkkale', 72: 'Batman', 73: 'Şırnak', 74: 'Bartın', 75: 'Ardahan',
+  76: 'Iğdır', 77: 'Yalova', 78: 'Karabük', 79: 'Kilis', 80: 'Osmaniye',
+  81: 'Düzce',
+};
+
+const NAME_FOLD_TO_PLAKA = new Map<string, number>();
+for (const [code, name] of Object.entries(PLAKA_TO_IL)) {
+  for (const v of [name, name.toLowerCase(), name.toUpperCase(), toSlug(name)]) {
+    NAME_FOLD_TO_PLAKA.set(foldTurkishCharacters(v), Number(code));
+  }
+}
+// GADM 4.1 kaynak adlarindaki ASCII bozukluklari icin alias
+NAME_FOLD_TO_PLAKA.set('hakkâri', 30);
+NAME_FOLD_TO_PLAKA.set('kinkkale', 71);
+NAME_FOLD_TO_PLAKA.set('zinguldak', 67);
+
 // GADM 4.1 eski resmi isimleri taşır; görüntüde güncel resmi ad kullanılır.
 // Eşleştirme her iki forma da izin verir (eski ad alias olarak tutulur).
 const DISTRICT_DISPLAY_OVERRIDES: Record<string, string> = {
-  '6|Sultan Kochisar': 'Şereflikoçhisar',
+  '6|Şultan Koçhisar': 'Şereflikoçhisar',
   '6|Kazan': 'Kahramankazan',
 };
 
@@ -86,10 +121,10 @@ class RegionLookup {
         const provinceCodeByName = new Map<string, number>();
         for (const r of rows) {
           if (r.level !== 1) continue;
-          const m = /^TUR\.(\d+)_1$/.exec(r.gid);
-          if (!m) continue;
-          const code = Number(m[1]);
-          const ref: ProvinceRef = { code, name: r.name, slug: toSlug(r.name) };
+          const code = NAME_FOLD_TO_PLAKA.get(foldTurkishCharacters(r.name));
+          if (!code) continue;
+          const canonicalName = PLAKA_TO_IL[code] || r.name;
+          const ref: ProvinceRef = { code, name: canonicalName, slug: toSlug(canonicalName) };
           this.provinces.set(code, ref);
           this.provinceByFolded.set(foldTurkishCharacters(r.name), code);
           this.provinceByFolded.set(ref.slug, code);
@@ -104,7 +139,7 @@ class RegionLookup {
           if (r.level !== 2 || !r.parent_name) continue;
           const ilKodu = provinceCodeByName.get(r.parent_name);
           const m = /^TUR\.(\d+)\.(\d+)_1$/.exec(r.gid);
-          if (!ilKodu || !m || Number(m[1]) !== ilKodu) continue;
+          if (!ilKodu || !m) continue;
           const code = ilKodu * 1000 + Number(m[2]);
           const displayName = DISTRICT_DISPLAY_OVERRIDES[`${ilKodu}|${r.name}`] || r.name;
           const ref: DistrictRef = { code, ilKodu, name: displayName, slug: toSlug(displayName) };
