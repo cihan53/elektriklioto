@@ -11,6 +11,8 @@ import { sourceHealthService } from '../worker/source-health.service.js';
 import { gadmService } from '../gadm/gadm.service.js';
 import { toSlug, foldTurkishCharacters } from '../../utils/unicode.js';
 import { validateBBox } from '../../utils/geo.js';
+import { regionLookup } from '../regions/region-lookup.js';
+import { il, ilce } from '../../db/schema/regions.js';
 import { BadRequestError } from '../../utils/errors.js';
 
 function getMaxSpanForZoom(zoom: number): number {
@@ -38,6 +40,9 @@ export interface StationModel {
   address: string;
   city: string;
   district: string;
+  // Issue #56: kanonik il plaka kodu (1-81) ve ilçe kodu (plaka*1000 + GADM no).
+  il_kodu?: number | null;
+  ilce_kodu?: number | null;
   lat: number;
   lon: number;
   operator_id: number;
@@ -110,7 +115,84 @@ const DEFAULT_STATIONS: StationModel[] = [
   },
 ];
 
+/**
+ * Issue #56: Kayıtta kod alanları yoksa metin/koordinattan türetir.
+ * Önce metin çözülür; il bulunamazsa koordinata göre en yakın il atanır.
+ * İlçe yalnızca bilinen ilçe listesiyle doğrulanmışsa kodlanır (çöp değerler elenir).
+ */
+function resolveStationCodes(item: {
+  city?: string;
+  district?: string;
+  il_kodu?: number | null;
+  ilce_kodu?: number | null;
+  lat?: number | string;
+  lon?: number | string;
+}): { il_kodu: number | null; ilce_kodu: number | null } {
+  const ilKodu =
+    Number(item.il_kodu) > 0
+      ? Number(item.il_kodu)
+      : regionLookup.resolveProvinceCode(item.city) ??
+        regionLookup.provinceCodeFromCoords(Number(item.lat) || 0, Number(item.lon) || 0);
+  const ilceKodu =
+    Number(item.ilce_kodu) > 0 ? Number(item.ilce_kodu) : regionLookup.resolveIlceCode(ilKodu, item.district);
+  return { il_kodu: ilKodu ?? null, ilce_kodu: ilceKodu ?? null };
+}
+
+/**
+ * Issue #56: API yanıtında il/ilçe adı her zaman kanonik tablodan gelir.
+ * Kod çözülememişse saklanan metin alanına düşülür (geriye dönük uyumluluk).
+ */
+function canonicalRegionFields(s: { city: string; district: string; il_kodu?: number | null; ilce_kodu?: number | null }) {
+  return {
+    city: regionLookup.provinceName(s.il_kodu) ?? s.city,
+    district: regionLookup.districtName(s.ilce_kodu) ?? s.district,
+    il_kodu: s.il_kodu ?? null,
+    ilce_kodu: s.ilce_kodu ?? null,
+  };
+}
+
 let isDatabaseSeededFlag = false;
+let isRegionSeededFlag = false;
+
+/**
+ * Issue #56: Kanonik il/ilçe referans tablolarını doldurur.
+ * Tablo şeması server-scripts/schema.sql ile yönetilir; tablo henüz yoksa
+ * sessizce geçilir (DDL uygulanana kadar no-op).
+ */
+export async function ensureRegionTablesSeeded(): Promise<void> {
+  if (isRegionSeededFlag) return;
+  try {
+    const db = getDb();
+    const ilCount = Number(
+      (await db.execute<{ count: string }>(sql`SELECT count(*)::text as count FROM "il";`))[0]?.count || 0
+    );
+    if (ilCount < 81) {
+      await db
+        .insert(il)
+        .values(regionLookup.allProvinces().map((p) => ({ plaka_kodu: p.code, name: p.name, slug: p.slug })))
+        .onConflictDoNothing();
+    }
+    const ilceCount = Number(
+      (await db.execute<{ count: string }>(sql`SELECT count(*)::text as count FROM "ilce";`))[0]?.count || 0
+    );
+    if (ilceCount < 900) {
+      await db
+        .insert(ilce)
+        .values(
+          regionLookup.allDistricts().map((d) => ({
+            ilce_kodu: d.code,
+            il_kodu: d.ilKodu,
+            name: d.name,
+            slug: d.slug,
+          }))
+        )
+        .onConflictDoNothing();
+    }
+    isRegionSeededFlag = true;
+  } catch {
+    // il/ilce tabloları henüz kurulmadıysa veya DB yoksa açılışı engelleme
+  }
+}
 
 export async function ensureDatabaseSeeded(): Promise<void> {
   // TALEP-022: Veritabanı tek gerçek kaynaktır (single source of truth).
@@ -191,6 +273,7 @@ export async function ensureDatabaseSeeded(): Promise<void> {
               address: item.address || '',
               city: item.city || 'Türkiye',
               district: item.district || '',
+              ...resolveStationCodes(item),
               lat: String(item.lat || 39.0),
               lon: String(item.lon || 35.0),
               operator_id: Number(item.operator_id || 1),
@@ -232,6 +315,7 @@ export async function ensureDatabaseSeeded(): Promise<void> {
             address: s.address,
             city: s.city,
             district: s.district,
+            ...resolveStationCodes(s),
             lat: String(s.lat),
             lon: String(s.lon),
             operator_id: s.operator_id,
@@ -283,6 +367,7 @@ export const stationRepository = {
               address: item.address || '',
               city: item.city || 'Türkiye',
               district: item.district || '',
+              ...resolveStationCodes(item),
               lat: Number(item.lat || 39.0),
               lon: Number(item.lon || 35.0),
               operator_id: Number(item.operator_id || 1),
@@ -335,6 +420,8 @@ export const stationRepository = {
             address: r.address,
             city: r.city,
             district: r.district,
+            il_kodu: r.il_kodu != null ? Number(r.il_kodu) : null,
+            ilce_kodu: r.ilce_kodu != null ? Number(r.ilce_kodu) : null,
             lat: Number(r.lat),
             lon: Number(r.lon),
             operator_id: r.operator_id,
@@ -379,6 +466,8 @@ export const stationRepository = {
             address: r.address,
             city: r.city,
             district: r.district,
+            il_kodu: r.il_kodu != null ? Number(r.il_kodu) : null,
+            ilce_kodu: r.ilce_kodu != null ? Number(r.ilce_kodu) : null,
             lat: Number(r.lat),
             lon: Number(r.lon),
             operator_id: r.operator_id,
@@ -441,6 +530,8 @@ export const stationRepository = {
             address: r.address,
             city: r.city,
             district: r.district,
+            il_kodu: r.il_kodu != null ? Number(r.il_kodu) : null,
+            ilce_kodu: r.ilce_kodu != null ? Number(r.ilce_kodu) : null,
             lat: Number(r.lat),
             lon: Number(r.lon),
             operator_id: Number(r.operator_id),
@@ -483,9 +574,11 @@ export const stationRepository = {
     if (this.useDatabase) {
       try {
         const db = getDb();
+        // Issue #56: Kümeleme kanonik il plaka koduyla yapılır; il adı varyantları
+        // (ASCII/Unicode) ayrı kümelere bölünemez. Kodu çözülemeyen kayıtlar 'diger' grubundadır.
         const query = sql`
-          SELECT 
-            s.city,
+          SELECT
+            COALESCE(s.il_kodu, 0)::int as il_kodu,
             COUNT(*)::int as count,
             ROUND(AVG(s.lat), 6)::float as lat,
             ROUND(AVG(s.lon), 6)::float as lon
@@ -493,7 +586,7 @@ export const stationRepository = {
           ${operatorSlug ? sql`JOIN "operator" o ON s.operator_id = o.id AND o.slug = ${operatorSlug}` : sql``}
           WHERE s.lon >= ${minLon} AND s.lon <= ${maxLon}
             AND s.lat >= ${minLat} AND s.lat <= ${maxLat}
-          GROUP BY s.city
+          GROUP BY COALESCE(s.il_kodu, 0)
           HAVING COUNT(*) > 0
           ORDER BY count DESC;
         `;
@@ -503,7 +596,7 @@ export const stationRepository = {
         // GADM veya in-memory kümeleme verilerine ASLA fallback yapılmamalıdır.
         if (rows) {
           return rows.map((r: any, idx: number) => ({
-            cluster_id: `cluster-${toSlug(r.city || 'bolge')}-${idx}`,
+            cluster_id: `cluster-${Number(r.il_kodu) > 0 ? String(r.il_kodu).padStart(2, '0') : 'diger'}-${idx}`,
             count: Number(r.count),
             lat: Number(r.lat),
             lon: Number(r.lon),
@@ -521,7 +614,8 @@ export const stationRepository = {
           const op = operatorService.getBySlug(operatorSlug);
           if (!op || s.operator_id !== op.id) continue;
         }
-        const cityKey = s.city || 'Türkiye';
+        const cityKey =
+          s.il_kodu && s.il_kodu > 0 ? `il-${s.il_kodu}` : s.city || 'Türkiye';
         const group = cityGroups.get(cityKey) || { count: 0, latSum: 0, lonSum: 0 };
         group.count += 1;
         group.latSum += s.lat;
@@ -530,8 +624,8 @@ export const stationRepository = {
       }
     }
 
-    return Array.from(cityGroups.entries()).map(([city, data], idx) => ({
-      cluster_id: `cluster-${toSlug(city)}-${idx}`,
+    return Array.from(cityGroups.entries()).map(([key, data], idx) => ({
+      cluster_id: `cluster-${key.startsWith('il-') ? String(Number(key.slice(3))).padStart(2, '0') : toSlug(key)}-${idx}`,
       count: data.count,
       lat: Number((data.latSum / data.count).toFixed(6)),
       lon: Number((data.lonSum / data.count).toFixed(6)),
@@ -539,15 +633,24 @@ export const stationRepository = {
   },
 
   async findByRegion(citySlug?: string, districtSlug?: string, operatorSlug?: string): Promise<StationModel[]> {
+    // Issue #56: Slug/parametreleri kanonik kodlara çevir; kod bulunursa kodla,
+    // bulunamazsa (tanınmayan isim) geriye dönük uyumluluk için ILIKE ile sorgula.
+    const ilKodu = citySlug ? regionLookup.resolveProvinceCode(citySlug) : null;
+    const ilceKodu = districtSlug ? regionLookup.resolveIlceCode(ilKodu, districtSlug) : null;
+
     if (this.useDatabase && process.env.NODE_ENV !== 'test') {
       try {
         const db = getDb();
         const conditions: any[] = [];
         if (citySlug) {
-          conditions.push(sql`s.city ILIKE ${'%' + citySlug + '%'}`);
+          conditions.push(
+            ilKodu ? sql`s.il_kodu = ${ilKodu}` : sql`s.city ILIKE ${'%' + citySlug + '%'}`
+          );
         }
         if (districtSlug) {
-          conditions.push(sql`s.district ILIKE ${'%' + districtSlug + '%'}`);
+          conditions.push(
+            ilceKodu ? sql`s.ilce_kodu = ${ilceKodu}` : sql`s.district ILIKE ${'%' + districtSlug + '%'}`
+          );
         }
         if (operatorSlug) {
           conditions.push(sql`o.slug = ${operatorSlug}`);
@@ -571,6 +674,8 @@ export const stationRepository = {
             address: r.address,
             city: r.city,
             district: r.district,
+            il_kodu: r.il_kodu != null ? Number(r.il_kodu) : null,
+            ilce_kodu: r.ilce_kodu != null ? Number(r.ilce_kodu) : null,
             lat: Number(r.lat),
             lon: Number(r.lon),
             operator_id: Number(r.operator_id),
@@ -596,8 +701,16 @@ export const stationRepository = {
         if (unique.has(s.id)) continue;
         unique.add(s.id);
 
-        if (normCity && toSlug(s.city) !== normCity) continue;
-        if (normDistrict && toSlug(s.district) !== normDistrict) continue;
+        if (normCity) {
+          if (ilKodu) {
+            if (s.il_kodu !== ilKodu) continue;
+          } else if (toSlug(s.city) !== normCity) continue;
+        }
+        if (normDistrict) {
+          if (ilceKodu) {
+            if (s.ilce_kodu !== ilceKodu) continue;
+          } else if (toSlug(s.district) !== normDistrict) continue;
+        }
 
         if (operatorSlug) {
           const op = operatorService.getBySlug(operatorSlug);
@@ -763,8 +876,7 @@ export class StationService {
           name: s.name,
           lat: Number(s.lat),
           lon: Number(s.lon),
-          city: s.city,
-          district: s.district,
+          ...canonicalRegionFields(s),
           operator_id: s.operator_id,
           operator_name: op.name,
           operator: {
@@ -801,8 +913,7 @@ export class StationService {
                 name: s.name,
                 lat: Number(s.lat),
                 lon: Number(s.lon),
-                city: s.city,
-                district: s.district,
+                ...canonicalRegionFields(s),
                 operator_id: s.operator_id,
                 operator_name: op.name,
                 operator: {
@@ -839,8 +950,7 @@ export class StationService {
           name: s.name,
           lat: Number(s.lat),
           lon: Number(s.lon),
-          city: s.city,
-          district: s.district,
+          ...canonicalRegionFields(s),
           operator_id: s.operator_id,
           operator_name: op.name,
           operator: {
@@ -891,8 +1001,7 @@ export class StationService {
         name: s.name,
         lat: Number(s.lat),
         lon: Number(s.lon),
-        city: s.city,
-        district: s.district,
+        ...canonicalRegionFields(s),
         operator_id: s.operator_id,
         operator_name: op.name,
         operator: {
@@ -984,6 +1093,8 @@ export class StationService {
             address: r.address,
             city: r.city,
             district: r.district,
+            il_kodu: r.il_kodu != null ? Number(r.il_kodu) : null,
+            ilce_kodu: r.ilce_kodu != null ? Number(r.ilce_kodu) : null,
             lat: Number(r.lat),
             lon: Number(r.lon),
             operator_id: Number(r.operator_id),
@@ -1035,8 +1146,7 @@ export class StationService {
         name: s.name,
         lat: Number(s.lat),
         lon: Number(s.lon),
-        city: s.city,
-        district: s.district,
+        ...canonicalRegionFields(s),
         operator_id: s.operator_id,
         operator_name: op.name,
         operator: {

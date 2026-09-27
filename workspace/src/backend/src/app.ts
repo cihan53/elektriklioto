@@ -12,7 +12,7 @@ import { healthRoutes } from './modules/health/health.routes.js';
 import { gadmRoutes } from './modules/gadm/gadm.routes.js';
 import { ProblemDetails } from './types/route-bridge.js';
 import { AppError } from './utils/errors.js';
-import { ensureDatabaseSeeded } from './modules/stations/station.service.js';
+import { ensureDatabaseSeeded, ensureRegionTablesSeeded } from './modules/stations/station.service.js';
 import { operatorService } from './modules/operators/operator.service.js';
 
 export async function buildApp(): Promise<FastifyInstance> {
@@ -157,6 +157,8 @@ export async function buildApp(): Promise<FastifyInstance> {
   // TALEP-010: PostgreSQL/PostGIS veritabanı ile istasyon ve soket entegrasyonu (otomatik tohumlama)
   try {
     await operatorService.syncWithDb();
+    // Issue #56: il/ilce referans tabloları her ortamda garanti edilir (idempotent).
+    await ensureRegionTablesSeeded();
     if (process.env.AUTO_SEED === 'true') {
       await ensureDatabaseSeeded();
     }
