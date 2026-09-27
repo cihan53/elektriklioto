@@ -24,6 +24,7 @@ import ssl
 import gzip
 import zlib
 import shlex
+import time
 import urllib.request
 import urllib.parse
 from html.parser import HTMLParser
@@ -297,6 +298,148 @@ def parse_epdk_partial_response(xml_content: str):
             })
     return records, "OK"
 
+EPDK_TABLE_ID = "sarjIstasyonuOzetSorguSonucu:sarjIstasyonuList"
+EPDK_PAGE_ROWS = 500
+EPDK_PAGE_DELAY = int(os.environ.get("EPDK_PAGE_DELAY", "20"))  # anti-DDOS, epdk_scraper.py ile aynı
+EPDK_MAX_PAGES = 100
+EPDK_DEFAULT_COLUMN_ORDER = ",".join(
+    "{}:j_idt{}".format(EPDK_TABLE_ID, n) for n in (64, 67, 70, 73, 76, 79, 82, 86)
+)
+
+def extract_epdk_view_state(xml_content):
+    """Partial-response içindeki güncel javax.faces.ViewState değerini döndürür."""
+    m = re.search(
+        r'<update id="[^"]*javax\.faces\.ViewState[^"]*"><!\[CDATA\[(.*?)\]\]></update>',
+        xml_content or "",
+        re.DOTALL,
+    )
+    return m.group(1).strip() if m else None
+
+def build_epdk_page_payload(view_state, first, rows, column_order):
+    """PrimeFaces DataTable sayfalama isteğinin gövdesi (epdk_scraper.py ile aynı alanlar)."""
+    t = EPDK_TABLE_ID
+    return {
+        "javax.faces.partial.ajax": "true",
+        "javax.faces.source": t,
+        "javax.faces.partial.execute": t,
+        "javax.faces.partial.render": t,
+        t: t,
+        t + "_pagination": "true",
+        t + "_first": str(first),
+        t + "_rows": str(rows),
+        t + "_skipChildren": "true",
+        t + "_encodeFeature": "true",
+        "sarjIstasyonuOzetSorguSonucu": "sarjIstasyonuOzetSorguSonucu",
+        t + "_rppDD": str(rows),
+        t + "_selection": "",
+        t + "_columnOrder": column_order,
+        "javax.faces.ViewState": view_state,
+    }
+
+def fetch_epdk_all_pages(parsed_curl, rows=EPDK_PAGE_ROWS, delay=EPDK_PAGE_DELAY):
+    """
+    EPDK tablosunu 500'erli sayfalar halinde sonuna kadar çeker.
+    Tek istek yalnızca ilk sayfayı (500 kayıt) döndürdüğü için tüm sayfalar gezilir.
+    Dönüş: (records, status, complete) — complete=True yalnızca son sayfaya ulaşıldıysa.
+    """
+    view_state = parsed_curl.get("view_state")
+    if not view_state:
+        return [], "NO_VIEWSTATE", False
+    column_order = (parsed_curl.get("data_params") or {}).get(
+        EPDK_TABLE_ID + "_columnOrder", EPDK_DEFAULT_COLUMN_ORDER
+    )
+
+    records = []
+    first = 0
+    for page in range(1, EPDK_MAX_PAGES + 1):
+        req = dict(parsed_curl)
+        req["method"] = "POST"
+        req["body"] = urllib.parse.urlencode(build_epdk_page_payload(view_state, first, rows, column_order))
+        data, err = execute_curl(req, timeout=45)
+        if err or not isinstance(data, str):
+            return records, err or "INVALID_RESPONSE", False
+
+        page_records, status = parse_epdk_partial_response(data)
+        if status == "EMPTY":
+            # İlk sayfanın boş gelmesi EPDK'da sorgu bağlamının (oturumun) kaybolduğu anlamına gelir.
+            return (records, "OK", True) if records else ([], "EMPTY", False)
+        if status != "OK":
+            return records, status, False
+
+        view_state = extract_epdk_view_state(data) or view_state
+        records.extend(page_records)
+        print("      Sayfa {} (first={}): {} kayıt (toplam {})".format(page, first, len(page_records), len(records)))
+
+        if len(page_records) < rows:
+            return records, "OK", True
+        first += rows
+        if delay > 0:
+            time.sleep(delay)
+    return records, "MAX_PAGES", False
+
+def load_epdk_checkpoints(chk_dir):
+    records = []
+    if chk_dir.exists():
+        for pf in sorted(chk_dir.glob("page_*.json")):
+            try:
+                with open(str(pf), "r", encoding="utf-8") as f:
+                    records.extend(json.load(f).get("records", []))
+            except Exception:
+                pass
+    return records
+
+def save_epdk_checkpoints(chk_dir, records, rows=EPDK_PAGE_ROWS):
+    """Tam çekilen EPDK verisini epdk_scraper.py ile aynı formatta checkpoint olarak yazar."""
+    from datetime import datetime
+    tmp_dir = chk_dir.parent / (chk_dir.name + ".tmp")
+    try:
+        tmp_dir.mkdir(parents=True, exist_ok=True)
+        for old in tmp_dir.glob("page_*.json"):
+            old.unlink()
+        now = datetime.now().isoformat()
+        for idx, first in enumerate(range(0, len(records), rows), start=1):
+            chunk = records[first:first + rows]
+            with open(str(tmp_dir / "page_{:03d}_first_{}.json".format(idx, first)), "w", encoding="utf-8") as f:
+                json.dump({"page": idx, "first": first, "rows": rows, "count": len(chunk),
+                           "timestamp": now, "records": chunk}, f, ensure_ascii=False, indent=2)
+        chk_dir.mkdir(parents=True, exist_ok=True)
+        for old in chk_dir.glob("page_*.json"):
+            old.unlink()
+        for pf in tmp_dir.glob("page_*.json"):
+            pf.rename(chk_dir / pf.name)
+        tmp_dir.rmdir()
+        print("  ✓ EPDK checkpoint'leri güncellendi: {} ({} kayıt).".format(chk_dir, len(records)))
+    except Exception as e:
+        print("  [!] EPDK checkpoint'leri yazılamadı: {}".format(e))
+
+def load_latest_epdk_download(out_dir):
+    """
+    epdk_output/ altındaki en güncel EPDK indirmesini yükler. Kaynak önceliği:
+      1. apigateway_istasyonlari_*.json — epdk_api_fetch.py ile resmi API'den (en yetkili)
+      2. sarj_istasyonlari_excel_*.json — scrape.mjs 'Raporla' Excel'lerinden birleşik
+      3. sarj_istasyonlari_*.json — scrape.mjs DOM taraması
+    Kayıt alanları checkpoint formatıyla birebir aynıdır (istasyon_no, marka, adres, ...).
+    Dönüş: (records, Path | None)
+    """
+    if not out_dir.exists():
+        return [], None
+    def oncelik(f):
+        if f.name.startswith("apigateway_"):
+            return 0
+        return 1 if "_excel_" in f.name else 2
+    files = [f for pat in ("apigateway_istasyonlari_*.json", "sarj_istasyonlari_*.json")
+             for f in out_dir.glob(pat) if f.is_file()]
+    files.sort(key=lambda f: (oncelik(f), -f.stat().st_mtime))
+    for cand in files:
+        try:
+            with open(str(cand), "r", encoding="utf-8") as f:
+                data = json.load(f)
+            if isinstance(data, list) and data:
+                return data, cand
+        except Exception as e:
+            print("  [!] Scraper çıktısı okunamadı ({}): {}".format(cand, e))
+    return [], None
+
 # ==============================================================================
 # 2. Coğrafi ve Metin Normalizasyon Fonksiyonları
 # ==============================================================================
@@ -331,12 +474,160 @@ TURKISH_CITIES = [
     "IĞDIR", "YALOVA", "KARABÜK", "KİLİS", "OSMANİYE", "DÜZCE"
 ]
 
+# Issue #56: Il adi kanonik anahtar olarak plaka koduna (1-81) indirgenir.
+# Python .title()/.lower() Turkce İ/ı harflerini bozar (i+birlesik nokta U+0307
+# artifakti); bu yuzden ozel tr_lower/tr_upper/tr_title/fold_tr kullanilir.
+COMBINING_DOT = "̇"  # 'İ'.lower() artifakti
+
+def fold_tr(text):
+    """Turkce-aware katlama: kucuk harf, ASCII benzeri + birlesik nokta temizligi."""
+    t = str(text or "").replace(COMBINING_DOT, "")
+    for tr, en in TURKISH_MAP.items():
+        t = t.replace(tr, en)
+    return t.strip().lower()
+
+def tr_lower(text):
+    return str(text or "").replace("İ", "i").replace("I", "ı").lower()
+
+def tr_upper(text):
+    return str(text or "").replace("i", "İ").replace("ı", "I").upper()
+
+def tr_title(text):
+    """Turkce-aware title-case: 'İZMİR' -> 'İzmir', 'IŞIK' -> 'Işık'."""
+    out = []
+    for w in str(text or "").split():
+        if not w:
+            continue
+        out.append(tr_upper(w[0]) + tr_lower(w[1:]))
+    return " ".join(out)
+
+def clean_text(text):
+    """Saklanan metin alanlarindaki U+0307 birlesik-nokta artifaktini temizler."""
+    return str(text or "").replace(COMBINING_DOT, "")
+
+PLAKA_TO_IL = {
+    1: "Adana", 2: "Adıyaman", 3: "Afyonkarahisar", 4: "Ağrı", 5: "Amasya",
+    6: "Ankara", 7: "Antalya", 8: "Artvin", 9: "Aydın", 10: "Balıkesir",
+    11: "Bilecik", 12: "Bingöl", 13: "Bitlis", 14: "Bolu", 15: "Burdur",
+    16: "Bursa", 17: "Çanakkale", 18: "Çankırı", 19: "Çorum", 20: "Denizli",
+    21: "Diyarbakır", 22: "Edirne", 23: "Elazığ", 24: "Erzincan", 25: "Erzurum",
+    26: "Eskişehir", 27: "Gaziantep", 28: "Giresun", 29: "Gümüşhane", 30: "Hakkari",
+    31: "Hatay", 32: "Isparta", 33: "Mersin", 34: "İstanbul", 35: "İzmir",
+    36: "Kars", 37: "Kastamonu", 38: "Kayseri", 39: "Kırklareli", 40: "Kırşehir",
+    41: "Kocaeli", 42: "Konya", 43: "Kütahya", 44: "Malatya", 45: "Manisa",
+    46: "Kahramanmaraş", 47: "Mardin", 48: "Muğla", 49: "Muş", 50: "Nevşehir",
+    51: "Niğde", 52: "Ordu", 53: "Rize", 54: "Sakarya", 55: "Samsun",
+    56: "Siirt", 57: "Sinop", 58: "Sivas", 59: "Tekirdağ", 60: "Tokat",
+    61: "Trabzon", 62: "Tunceli", 63: "Şanlıurfa", 64: "Uşak", 65: "Van",
+    66: "Yozgat", 67: "Zonguldak", 68: "Aksaray", 69: "Bayburt", 70: "Karaman",
+    71: "Kırıkkale", 72: "Batman", 73: "Şırnak", 74: "Bartın", 75: "Ardahan",
+    76: "Iğdır", 77: "Yalova", 78: "Karabük", 79: "Kilis", 80: "Osmaniye",
+    81: "Düzce",
+}
+IL_TO_PLAKA = {v: k for k, v in PLAKA_TO_IL.items()}
+
+# Tum varyantlar (Istanbul/Istanbul/ISTANBUL/istanbul/İstanbul/İSTANBUL) tek
+# katlanmis anahtara iner -> tek plaka kodu. ASCII karisikligi imkansizlasir.
+NAME_FOLD_TO_PLAKA = {}
+for _code, _name in PLAKA_TO_IL.items():
+    for _v in {_name, _name.lower(), _name.upper(), tr_lower(_name), tr_upper(_name), to_slug(_name)}:
+        NAME_FOLD_TO_PLAKA.setdefault(fold_tr(_v), _code)
+# GADM 4.1 kaynak adlarindaki ASCII bozukluklari icin alias
+NAME_FOLD_TO_PLAKA["hakkâri"] = 30   # GADM: "Hakkâri" -> Hakkari
+NAME_FOLD_TO_PLAKA["hakkari̇"] = 30
+NAME_FOLD_TO_PLAKA["kinkkale"] = 71  # GADM: "Kinkkale" -> Kirikkale
+NAME_FOLD_TO_PLAKA["zinguldak"] = 67 # GADM: "Zinguldak" -> Zonguldak
+
+# GADM 4.1 eski resmi isimleri tasir; goruntude guncel ad kullanilir.
+DISTRICT_DISPLAY_OVERRIDES = {
+    (6, "Şultan Koçhisar"): "Şereflikoçhisar",
+    (6, "Kazan"): "Kahramankazan",
+}
+# Kullanici/kaynak metni -> GADM adi (katlanmis) eslenigi
+DISTRICT_MATCH_ALIASES = {
+    "sereflikochisar": "sultan kochisar",
+    "kahramankazan": "kazan",
+}
+
+def load_region_table():
+    """
+    turkey_regions.json'dan il/ilce referans tablosu kurar.
+    Donus: (ILCE_BY_IL[plaka][folded] = (ilce_kodu, display_name),
+            PROV_GEO[plaka] = (lat, lon, min_lat, min_lon, max_lat, max_lon))
+    """
+    candidates = [
+        ROOT / "workspace/src/backend/src/data/turkey_regions.json",
+        ROOT / "src/backend/src/data/turkey_regions.json",
+        ROOT / "server-scripts/turkey_regions.json",
+        ROOT / "workspace/server-scripts/turkey_regions.json",
+    ]
+    rows = None
+    for cand in candidates:
+        try:
+            if cand.exists() and cand.stat().st_size > 100:
+                with open(str(cand), "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                if isinstance(data, list) and len(data) >= 81:
+                    rows = data
+                    print("  ✓ turkey_regions.json yüklendi: {} ({} kayıt)".format(cand, len(data)))
+                    break
+        except Exception as e:
+            print("  [!] turkey_regions.json okunamadı ({}): {}".format(cand, e))
+    ilce_by_il = {}
+    prov_geo = {}
+    if rows:
+        name_to_plaka = {}
+        for r in rows:
+            if r.get("level") != 1:
+                continue
+            # GADM gid indeksi plaka kodu DEGILDIR (Ankara gid=TUR.7, plaka=06);
+            # plaka kanonik ad uzerinden cozulur.
+            plaka = NAME_FOLD_TO_PLAKA.get(fold_tr(r.get("name") or ""))
+            if not plaka:
+                continue
+            name_to_plaka[r["name"]] = plaka
+            prov_geo[plaka] = (r["center_lat"], r["center_lon"], r["min_lat"], r["min_lon"], r["max_lat"], r["max_lon"])
+        for r in rows:
+            if r.get("level") != 2 or not r.get("parent_name"):
+                continue
+            plaka = name_to_plaka.get(r["parent_name"])
+            m = re.match(r"^TUR\.(\d+)\.(\d+)_1$", r.get("gid") or "")
+            if not plaka or not m:
+                continue
+            ilce_kodu = plaka * 1000 + int(m.group(2))
+            display = DISTRICT_DISPLAY_OVERRIDES.get((plaka, r["name"]), r["name"])
+            bucket = ilce_by_il.setdefault(plaka, {})
+            bucket[fold_tr(r["name"])] = (ilce_kodu, display)
+            bucket[fold_tr(display)] = (ilce_kodu, display)
+            bucket[to_slug(r["name"])] = (ilce_kodu, display)
+            geo = r.get("center_lat"), r.get("center_lon")
+            bucket.setdefault("__geo__", []).append((ilce_kodu, geo[0], geo[1]))
+    return ilce_by_il, prov_geo
+
+ILCE_BY_IL, PROV_GEO = load_region_table()
+
+def nearest_province_code(lat, lon):
+    """Koordinata en yakin ilin plaka kodu (bbox icindeyse oncelikli)."""
+    best = None
+    best_d = float("inf")
+    for plaka, g in PROV_GEO.items():
+        lat_c, lon_c, min_lat, min_lon, max_lat, max_lon = g
+        inside = min_lat <= lat <= max_lat and min_lon <= lon <= max_lon
+        d = (lat_c - lat) ** 2 + (lon_c - lon) ** 2
+        if inside:
+            d *= 0.25  # bbox icindekine guclu avantaj
+        if d < best_d:
+            best_d = d
+            best = plaka
+    if best is None:
+        return None
+    return best
+
 CITY_NORM = {}
-for c in TURKISH_CITIES:
-    clean = c.replace('İ', 'i').replace('I', 'i').title()
-    CITY_NORM[c] = clean
-    CITY_NORM[c.lower()] = clean
-    CITY_NORM[clean] = clean
+for code, name in PLAKA_TO_IL.items():
+    for v in {name, name.lower(), name.upper(), tr_lower(name), tr_upper(name), to_slug(name)}:
+        CITY_NORM[v] = name
+    CITY_NORM[fold_tr(name)] = name
 CITY_NORM["İzmi̇r"] = "İzmir"
 CITY_NORM["Mersi̇n"] = "Mersin"
 CITY_NORM["Kocaeli̇"] = "Kocaeli"
@@ -371,6 +662,24 @@ PROVINCE_COORDS = {
     "Kilis": (36.7184, 37.1212), "Osmaniye": (37.0742, 36.2478), "Düzce": (40.8438, 31.1565)
 }
 
+def _tr_fold(s):
+    """Türkçe karakterleri ASCII'ye katlar — 'İzmir'/'Izmir'/'İZMİR' eşleşmesi için."""
+    return (str(s).replace("İ", "i").replace("I", "i").replace("ı", "i")
+            .replace("Ş", "s").replace("ş", "s")
+            .replace("Ğ", "g").replace("ğ", "g")
+            .replace("Ü", "u").replace("ü", "u")
+            .replace("Ö", "o").replace("ö", "o")
+            .replace("Ç", "c").replace("ç", "c")
+            .strip().lower())
+
+_PROVINCE_BY_FOLD = {_tr_fold(k): k for k in PROVINCE_COORDS}
+
+def canonical_province(name):
+    """ASCII/Türkçe karışık il adını PROVINCE_COORDS'taki kanonik ada çevirir."""
+    if name is None:
+        return None
+    return _PROVINCE_BY_FOLD.get(_tr_fold(name))
+
 def find_nearest_province(lat, lon):
     best_p = "İstanbul"
     min_d = float("inf")
@@ -382,34 +691,121 @@ def find_nearest_province(lat, lon):
             best_p = p_name
     return best_p
 
-def normalize_city(raw, lat=None, lon=None):
-    if not raw or str(raw).strip() in ('1', 'A', 'Bilinmeyen', 'None', '') or len(str(raw).strip()) <= 2:
-        if lat and lon:
-            return find_nearest_province(lat, lon)
-        return "İstanbul"
-    clean = str(raw).strip()
-    norm = CITY_NORM.get(clean, CITY_NORM.get(clean.upper(), None))
-    if norm:
-        return norm
+def resolve_plaka(raw, lat=None, lon=None):
+    """
+    Ham il metnini plaka koduna (1-81) indirger (Issue #56).
+    Tum isim varyantlari tek katlanmis anahtara iner; metin cozulemezse
+    koordinattan en yakin il bulunur. Cozulemezse None doner.
+    """
+    folded = fold_tr(raw)
+    if folded and len(folded) > 2:
+        code = NAME_FOLD_TO_PLAKA.get(folded)
+        if code:
+            return code
     if lat and lon:
-        return find_nearest_province(lat, lon)
-    return clean.title()
+        return nearest_province_code(lat, lon)
+    return None
+
+def normalize_city(raw, lat=None, lon=None):
+    """Geri uyumluluk sarmalayicisi: kanonik il adi dondurur."""
+    plaka = resolve_plaka(raw, lat, lon)
+    return PLAKA_TO_IL.get(plaka or 34, "İstanbul")
+
+# Ilce icin gecerli olmayan adres parcasi oruntuleri ("No:117", "1", "93-93" vb.)
+BAD_DISTRICT_RE = re.compile(
+    r"^\W*$|^[0-9\W]+$|^(no|cad|cadde|caddesi|sok|sokak|mah|mahallesi|kat|apt|blok|parsel|pafta|ada)\b[\W0-9]*$",
+    re.I,
+)
+
+def resolve_district_code(plaka, district_text, address=None, lat=None, lon=None):
+    """
+    Ilce aday metnini ilin resmi ilce listesiyle dogrular (Issue #56).
+    Donus: (ilce_kodu, kanonik_ilce_adi) veya (None, "").
+    Dogrulanamayan degerler ("No:117" gibi adres parcalari) elenir.
+    """
+    bucket = ILCE_BY_IL.get(plaka) if plaka else None
+    if not bucket:
+        clean = clean_text(district_text or "").strip()
+        if clean and not BAD_DISTRICT_RE.match(clean):
+            return None, tr_title(clean)
+        return None, ""
+
+    f = fold_tr(district_text)
+    if f:
+        hit = bucket.get(f) or bucket.get(DISTRICT_MATCH_ALIASES.get(f, ""))
+        if hit:
+            return hit
+
+    # Adres govdesinde bilinen ilce adi ara (en uzun eslesme kazanir)
+    addr_f = fold_tr(address)
+    if addr_f:
+        best = None
+        for name_f, hit in bucket.items():
+            if name_f == "__geo__" or len(name_f) < 4:
+                continue
+            if re.search(r"(^|[^a-z0-9])" + re.escape(name_f) + r"([^a-z0-9]|$)", addr_f):
+                if best is None or len(name_f) > len(best[0]):
+                    best = (name_f, hit)
+        if best:
+            return best[1]
+
+    return None, ""
+
+def extract_region(address, lat=None, lon=None):
+    """
+    Adres + koordinattan kanonik bolge cozumu (Issue #56).
+    Donus: (city, district, il_kodu, ilce_kodu)
+    """
+    plaka = None
+    if address:
+        # 1. EPDK standardi: "Mahalle Cadde No Ilce / IL" — sag taraf il
+        if "/" in str(address):
+            cand_city = str(address).rsplit("/", 1)[1].strip()
+            plaka = NAME_FOLD_TO_PLAKA.get(fold_tr(cand_city))
+        # 2. Adres govdesinde bilinen il adi
+        if plaka is None:
+            addr_f = fold_tr(address)
+            for name_f, code in NAME_FOLD_TO_PLAKA.items():
+                if re.search(r"(^|[^a-z0-9])" + re.escape(name_f) + r"([^a-z0-9]|$)", addr_f):
+                    plaka = code
+                    break
+    if plaka is None and lat and lon:
+        plaka = nearest_province_code(lat, lon)
+    plaka = plaka or 34
+    city = PLAKA_TO_IL[plaka]
+
+    # Ilce adayi: "/" oncesi son kelime (EPDK formatinda ilce orada durur)
+    district_guess = ""
+    if address:
+        head = str(address).rsplit("/", 1)[0]
+        words = head.strip().split()
+        if words:
+            district_guess = words[-1]
+            if district_guess.lower() in ("mah.", "mahallesi", "cad.", "caddesi", "sok.", "sokak", "no", "kat", "apt") and len(words) > 1:
+                district_guess = words[-2]
+
+    ilce_kodu, district = resolve_district_code(plaka, district_guess, address, lat, lon)
+    return city, district, plaka, ilce_kodu
 
 def extract_city_district_from_address(address, lat=None, lon=None):
-    if not address:
-        if lat and lon:
-            return find_nearest_province(lat, lon), ""
-        return "İstanbul", ""
+    """Geri uyumluluk sarmalayicisi: (city, district) dondurur."""
+    city, district, _il, _ilce = extract_region(address, lat, lon)
+    return city, district
 
-    upper_addr = str(address).upper()
-    for c_upper in TURKISH_CITIES:
-        if re.search(r'\b' + re.escape(c_upper) + r'\b', upper_addr):
-            return CITY_NORM.get(c_upper, c_upper.title()), ""
-
-    if lat and lon:
-        return find_nearest_province(lat, lon), ""
-
-    return "İstanbul", ""
+def get_deterministic_coords(city, district, istasyon_no, name):
+    """
+    Koordinatı olmayan EPDK istasyonları için il merkezine bağlı sabit ve deterministik
+    (her çalıştırmada aynı kalan) dağılım üretir.
+    """
+    import hashlib
+    canon = canonical_province(city)
+    base_lat, base_lon = PROVINCE_COORDS.get(canon or city, (39.0, 35.0))
+    seed_str = "{}_{}_{}_{}".format(istasyon_no or "", name or "", district or "", city or "")
+    h = int(hashlib.md5(seed_str.encode("utf-8")).hexdigest()[:8], 16)
+    # Şehir merkezine ~3-4 km yarıçapında deterministik dağılım (+/- 0.04 derece)
+    d_lat = ((h % 1000) / 1000.0 - 0.5) * 0.08
+    d_lon = (((h // 1000) % 1000) / 1000.0 - 0.5) * 0.08
+    return round(base_lat + d_lat, 6), round(base_lon + d_lon, 6)
 
 # ==============================================================================
 # 3. Veri Seti Arama ve Uzak Yedekleme Fonksiyonları
@@ -450,6 +846,8 @@ def load_json_dataset(candidate_names, remote_urls=None):
     """
     search_dirs = [
         ROOT,
+        ROOT / "workspace/data",
+        ROOT / "workspace/server-scripts",
         ROOT / "server-scripts",
         ROOT / "scripts",
         ROOT / "data",
@@ -527,6 +925,16 @@ def save_stations_atomically(stations):
     except Exception:
         pass
 
+    # Dağıtım/kurtarma tohumu: deploy-production.sh ve cron kurtarma mekanizması bu dosyayı kullanır.
+    try:
+        seed_dir = ROOT / "server-scripts" / "data"
+        seed_dir.mkdir(parents=True, exist_ok=True)
+        with open(str(seed_dir / "cpo_stations.json"), 'w', encoding='utf-8') as f:
+            f.write(content)
+        print("  ✓ Tohum kopya server-scripts/data/cpo_stations.json güncellendi.")
+    except Exception as e:
+        print("  [!] Tohum kopya yazılamadı: {}".format(e))
+
     file_size_mb = output_path.stat().st_size / (1024 * 1024)
     print("✓ BAŞARILI: {} istasyon atomik olarak kaydedildi ({:.2f} MB).".format(
         len(stations), file_size_mb
@@ -544,8 +952,11 @@ def main():
 
     # 1. curl_input.txt dosyasını ara ve yükle (Çoklu Kaynak Formatı)
     curl_input_candidates = [
+        ROOT / "workspace/data/curl_input.txt",
+        ROOT / "workspace/server-scripts/curl_input.txt",
         ROOT / "curl_input.txt",
         Path.cwd() / "curl_input.txt",
+        Path.cwd() / "workspace/data/curl_input.txt",
         ROOT / "server-scripts/curl_input.txt",
         Path(__file__).resolve().parent / "curl_input.txt"
     ]
@@ -626,43 +1037,55 @@ def main():
         ) or {}
         zes_raw = zes_raw_input.get("stations", []) if isinstance(zes_raw_input, dict) else (zes_raw_input if isinstance(zes_raw_input, list) else [])
 
-    # 4. EPDK İSTASYONLARI (Canlı EPDK Portalı -> Yerel Checkpoint/JSON -> Uzak GitHub Fallback)
+    # 4. EPDK İSTASYONLARI (API Gateway -> Puppeteer Scraper -> Canlı Portal -> Checkpoint/JSON -> GitHub)
+    # cron önce epdk_api_fetch.py ile resmi API'yi dener, başarısızsa scrape.mjs çalışır;
+    # ikisi de epdk_output/ altına birleşik JSON yazar — en günceli burada yüklenir.
+    # Canlı sonuç yalnızca TÜM sayfalar çekildiyse geçerlidir; yarım sonuç checkpoint'in
+    # yerine asla geçmez. EPDK_LIVE=0 canlı denemeyi atlar.
     epdk_raw = []
-    if "epdk" in curl_sources:
-        print("  [i] EPDK resmi portalı canlı denetleniyor (curl_input.txt)...")
-        parsed_ep = parse_curl_command(curl_sources["epdk"])
-        ep_data, ep_err = execute_curl(parsed_ep, timeout=15)
-        if ep_data and isinstance(ep_data, str):
-            ep_records, ep_status = parse_epdk_partial_response(ep_data)
-            if ep_status == "OK" and len(ep_records) > 0:
-                print("  ✓ EPDK resmi sitesinden canlı {} istasyon başarıyla çekildi.".format(len(ep_records)))
-                epdk_raw = ep_records
-            elif ep_status == "SESSION_EXPIRED":
-                print("  ⚠️ UYARI: EPDK web oturumunun süresi dolmuş (Session / View Expired).")
-                print("      epdk_scraper.py çalıştırılarak veya curl_input.txt içindeki 'epdk:' satırı güncellenerek canlı oturum tazelenebilir.")
-                print("      -> Yerel veri deposu (istasyonlar.json / epdk_checkpoints) kullanılıyor...")
-            elif ep_status in ("EMPTY", "NO_TABLE_UPDATE"):
-                print("  ⚠️ UYARI: EPDK canlı sorgusundan aktif kayıt dönmedi (0 kayıt).")
-                print("      -> Yerel veri deposu (istasyonlar.json / epdk_checkpoints) kullanılıyor...")
-        elif ep_err:
-            print("  ⚠️ UYARI: EPDK canlı portal isteği başarısız oldu ({}).".format(ep_err))
-            print("      -> Yerel veri deposuna geçiliyor...")
+    chk_dir = ROOT / "epdk_checkpoints"
+    chk_records = load_epdk_checkpoints(chk_dir)
 
-    if not epdk_raw:
-        # Checkpoint'leri kontrol et
-        chk_dir = ROOT / "epdk_checkpoints"
-        if chk_dir.exists():
-            chk_records = []
-            for pf in sorted(chk_dir.glob("page_*.json")):
-                try:
-                    with open(str(pf), "r", encoding="utf-8") as f:
-                        pdata = json.load(f)
-                        chk_records.extend(pdata.get("records", []))
-                except Exception:
-                    pass
-            if len(chk_records) >= 1000:
-                print("  ✓ EPDK checkpoint klasöründen {} istasyon yüklendi.".format(len(chk_records)))
-                epdk_raw = chk_records
+    dl_records, dl_file = load_latest_epdk_download(ROOT / "epdk_output")
+    if dl_records:
+        if chk_records and len(dl_records) < len(chk_records) * 0.5:
+            print("  ⚠️ UYARI: İndirilen EPDK kaydı ({}) checkpoint'in ({}) yarısından az; filtreli koşu olabilir.".format(
+                len(dl_records), len(chk_records)))
+            print("      -> Canlı/checkpoint zincirine geçiliyor...")
+        else:
+            print("  ✓ EPDK indirmesi yüklendi: {} ({} kayıt).".format(dl_file.name, len(dl_records)))
+            epdk_raw = dl_records
+            save_epdk_checkpoints(chk_dir, dl_records)
+
+    if not epdk_raw and "epdk" in curl_sources and os.environ.get("EPDK_LIVE", "1") != "0":
+        print("  [i] EPDK resmi portalı canlı denetleniyor (curl_input.txt, {}'erli sayfalar, {} sn ara)...".format(
+            EPDK_PAGE_ROWS, EPDK_PAGE_DELAY))
+        parsed_ep = parse_curl_command(curl_sources["epdk"])
+        ep_records, ep_status, ep_complete = fetch_epdk_all_pages(parsed_ep)
+        if ep_complete and ep_records:
+            if chk_records and len(ep_records) < len(chk_records) * 0.5:
+                print("  ⚠️ UYARI: Canlı EPDK sonucu ({}) checkpoint'in ({}) yarısından az; sorgu filtreli olabilir.".format(
+                    len(ep_records), len(chk_records)))
+                print("      -> Checkpoint verisi korunuyor.")
+            else:
+                print("  ✓ EPDK resmi sitesinden canlı {} istasyon başarıyla çekildi (tüm sayfalar).".format(len(ep_records)))
+                epdk_raw = ep_records
+                save_epdk_checkpoints(chk_dir, ep_records)
+        elif ep_status in ("SESSION_EXPIRED", "NO_TABLE_UPDATE", "EMPTY"):
+            # Süresi dolan oturumda EPDK çoğu zaman ViewExpired yerine tablosuz bir yanıt döner.
+            print("  ⚠️ UYARI: EPDK web oturumu geçersiz veya süresi dolmuş (durum: {}).".format(ep_status))
+            print("      epdk_scraper.py çalıştırılarak veya curl_input.txt içindeki 'epdk:' satırı güncellenerek canlı oturum tazelenebilir.")
+        elif ep_records:
+            print("  ⚠️ UYARI: EPDK canlı çekimi yarıda kaldı ({} kayıt, durum: {}); yarım veri kullanılmıyor.".format(
+                len(ep_records), ep_status))
+        else:
+            print("  ⚠️ UYARI: EPDK canlı portal isteği başarısız oldu ({}).".format(ep_status))
+        if not epdk_raw:
+            print("      -> Yerel veri deposu (epdk_checkpoints / istasyonlar.json) kullanılıyor...")
+
+    if not epdk_raw and len(chk_records) >= 1000:
+        print("  ✓ EPDK checkpoint klasöründen {} istasyon yüklendi.".format(len(chk_records)))
+        epdk_raw = chk_records
 
     if not epdk_raw:
         epdk_raw_input = load_json_dataset(
@@ -717,10 +1140,11 @@ def main():
         used_slugs.add(res)
         return res
 
-    # 1. PROCESS VOLTRUN
+    # --------------------------------------------------------------------------
+    # 1. CPO VERİ HAVUZLARININ HAZIRLANMASI (Zenginleştirme için İndeksleme)
+    # --------------------------------------------------------------------------
+    voltrun_locations = {}
     if voltrun_raw:
-        print("Voltrun istasyonları normalize ediliyor...")
-        voltrun_locations = {}
         for v in voltrun_raw:
             lat = v.get("latitude")
             lon = v.get("longitude")
@@ -729,150 +1153,375 @@ def main():
             loc_key = v.get("locationId") or v.get("locationName") or "{:.4f},{:.4f}".format(float(lat), float(lon))
             voltrun_locations.setdefault(loc_key, []).append(v)
 
-        voltrun_epdk = epdk_by_brand.get("voltrun", [])
+    # Voltrun hızlı erişim ve arama indeksleri
+    voltrun_pool = []
+    for loc_key, chargers in voltrun_locations.items():
+        first = chargers[0]
+        v_name = first.get("locationName") or first.get("businessName") or "Voltrun Şarj İstasyonu"
+        v_lat = float(first["latitude"])
+        v_lon = float(first["longitude"])
+        v_il = resolve_plaka(first.get("city") or "", v_lat, v_lon)
+        v_city = PLAKA_TO_IL.get(v_il or 34, "İstanbul")
+        v_ilce, v_district = resolve_district_code(
+            v_il, first.get("district") or "", first.get("addressDefinition"), v_lat, v_lon
+        )
+        v_addr = clean_text(first.get("addressDefinition") or "{}, {}".format(v_district, v_city))
 
-        for loc_key, chargers in voltrun_locations.items():
-            first = chargers[0]
-            name = first.get("locationName") or first.get("businessName") or "Voltrun Şarj İstasyonu"
-            lat = float(first["latitude"])
-            lon = float(first["longitude"])
-            city = normalize_city(first.get("city") or "", lat, lon)
-            district = (first.get("district") or "").strip().title()
-            address = first.get("addressDefinition") or "{}, {}".format(district, city)
+        v_conn_types = set()
+        v_max_power = 0
+        v_tariff = None
+        for c in chargers:
+            for conn in c.get("connectors", []):
+                ctype = conn.get("type") or "AC"
+                if "ccs" in ctype.lower():
+                    v_conn_types.add("CCS2")
+                elif "type" in ctype.lower() or "mennekes" in ctype.lower():
+                    v_conn_types.add("Type 2")
+                elif "chademo" in ctype.lower():
+                    v_conn_types.add("CHAdeMO")
+                else:
+                    v_conn_types.add(ctype)
+                p = conn.get("maxPower") or c.get("maxPower") or 22
+                if p and p > v_max_power:
+                    v_max_power = p
 
-            connector_types = set()
-            max_power = 0
-            current_tariff = None
+            et = c.get("energyTariff")
+            if et and et.get("tariff") and not v_tariff:
+                try:
+                    t_json = json.loads(et["tariff"])
+                    if t_json and isinstance(t_json, list) and "unitPrice" in t_json[0]:
+                        v_tariff = "{:.2f} TL/kWh".format(t_json[0]["unitPrice"])
+                except Exception:
+                    pass
 
-            for c in chargers:
-                for conn in c.get("connectors", []):
-                    ctype = conn.get("type") or "AC"
-                    if "ccs" in ctype.lower():
-                        connector_types.add("CCS2")
-                    elif "type" in ctype.lower() or "mennekes" in ctype.lower():
-                        connector_types.add("Type 2")
-                    elif "chademo" in ctype.lower():
-                        connector_types.add("CHAdeMO")
-                    else:
-                        connector_types.add(ctype)
-                    p = conn.get("maxPower") or c.get("maxPower") or 22
-                    if p and p > max_power:
-                        max_power = p
+        voltrun_pool.append({
+            "loc_key": loc_key,
+            "name": clean_text(v_name),
+            "name_slug": to_slug(v_name),
+            "address": v_addr,
+            "addr_slug": to_slug(v_addr),
+            "city": v_city,
+            "district": v_district,
+            "il_kodu": v_il,
+            "ilce_kodu": v_ilce,
+            "lat": v_lat,
+            "lon": v_lon,
+            "connector_types": sorted(list(v_conn_types)) if v_conn_types else ["Type 2"],
+            "power_kw": v_max_power or 22,
+            "current_tariff": v_tariff or "9.50 TL/kWh",
+            "is_online": any(c.get("stationOnline") for c in chargers),
+            "is_public": first.get("usageType") == "PUBLIC",
+            "code": first.get("code") or first.get("stationCode") or first.get("id"),
+        })
 
-                et = c.get("energyTariff")
-                if et and et.get("tariff") and not current_tariff:
-                    try:
-                        t_json = json.loads(et["tariff"])
-                        if t_json and isinstance(t_json, list) and "unitPrice" in t_json[0]:
-                            current_tariff = "{:.2f} TL/kWh".format(t_json[0]['unitPrice'])
-                    except Exception:
-                        pass
+    # ZES hızlı erişim ve arama indeksleri
+    zes_pool = []
+    if zes_raw:
+        for z in zes_raw:
+            z_lat = z.get("latitude")
+            z_lon = z.get("longitude")
+            if not z_lat or not z_lon:
+                continue
+            zid = z.get("id") or z.get("externalId")
+            z_name = z.get("name") or "ZES Şarj İstasyonu"
+            z_addr = (z.get("address") or "").strip()
+            z_city, z_dist, z_il, z_ilce = extract_region(z_addr, float(z_lat), float(z_lon))
 
-            istasyon_no = None
-            for ep in voltrun_epdk:
-                if to_slug(name) in to_slug(ep.get("istasyon_adi", "")):
-                    istasyon_no = ep.get("istasyon_no")
-                    break
-            if not istasyon_no:
-                istasyon_no = "VLT/{}".format(first.get('code') or first.get('stationCode') or first.get('id'))
+            z_conns = []
+            ac_cnt = z.get("acConnectorCount") or 0
+            dc_cnt = z.get("dcConnectorCount") or 0
+            hpc_cnt = z.get("hpcConnectorCount") or 0
+            if ac_cnt > 0:
+                z_conns.append("Type 2")
+            if dc_cnt > 0 or hpc_cnt > 0:
+                z_conns.append("CCS2")
+            if not z_conns:
+                z_conns.append("Type 2")
 
-            slug = get_unique_slug("voltrun-{}-{}".format(name, city))
-            station_id = str(uuid.uuid5(uuid.NAMESPACE_DNS, "voltrun-{}".format(loc_key)))
+            z_pwr = z.get("maxElectricPower") or (120 if (dc_cnt or hpc_cnt) else 22)
+
+            zes_pool.append({
+                "zid": zid,
+                "name": clean_text(z_name),
+                "name_slug": to_slug(z_name),
+                "address": clean_text(z_addr),
+                "addr_slug": to_slug(z_addr),
+                "city": z_city,
+                "district": z_dist,
+                "il_kodu": z_il,
+                "ilce_kodu": z_ilce,
+                "lat": float(z_lat),
+                "lon": float(z_lon),
+                "connector_types": z_conns,
+                "power_kw": z_pwr,
+                "current_tariff": "10.49 TL/kWh" if "CCS2" in z_conns else "7.99 TL/kWh",
+                "is_maintenance": bool(z.get("isInMaintenance")),
+                "is_24_7": bool(z.get("isOpenTwentyfourSeven")),
+                "is_restricted": bool(z.get("isRestricted")),
+            })
+
+    matched_voltrun_keys = set()
+    matched_zes_ids = set()
+
+    # --------------------------------------------------------------------------
+    # 2. EPDK MASTER İSTASYON LİSTESİ NORMALİZASYONU VE CPO ZENGİNLEŞTİRMESİ
+    # --------------------------------------------------------------------------
+    if epdk_raw and len(epdk_raw) > 0:
+        print("EPDK Ana Referans Listesi işleniyor ve CPO verileriyle zenginleştiriliyor ({} kayıt)...".format(len(epdk_raw)))
+
+        for ep in epdk_raw:
+            istasyon_no = (ep.get("istasyon_no") or "").strip()
+            name = (ep.get("istasyon_adi") or "").strip() or "Elektrikli Şarj İstasyonu"
+            brand_raw = (ep.get("marka") or "").strip()
+            brand_lower = brand_raw.lower()
+            address = (ep.get("adres") or "").strip()
+            hizmet = (ep.get("hizmet_sekli") or "").strip()
+            name_slug = to_slug(name)
+            addr_slug = to_slug(address)
+
+            # API Gateway kayıtları gerçek koordinat taşır (enlem/boylam);
+            # scrape/checkpoint kayıtlarında yoktur → deterministik dağılıma düşülür.
+            try:
+                lat = float(ep.get("enlem"))
+                lon = float(ep.get("boylam"))
+                if not (-90 <= lat <= 90 and -180 <= lon <= 180):
+                    raise ValueError
+            except (TypeError, ValueError):
+                lat = lon = None
+            city, district, il_kodu, ilce_kodu = extract_region(address, lat, lon)
+            if lat is None or lon is None:
+                lat, lon = get_deterministic_coords(city, district, istasyon_no, name)
+
+            # Varsayılan değerler
+            operator_id = 99
+            operator_name = brand_raw or "Diğer"
+            connector_types = ["CCS2", "Type 2"]
+            power_kw = 60
+            current_tariff = "9.90 TL/kWh"
+            occupancy_status = "AVAILABLE"
+            open_hours = "24/7"
+            service_type = "Halka Açık" if "halka" in hizmet.lower() or not hizmet else "Özel"
+
+            # ------------------------------------------------------------------
+            # Marka / CPO Özel Zenginleştirmesi
+            # ------------------------------------------------------------------
+            if "voltrun" in brand_lower:
+                operator_id = 4
+                operator_name = "Voltrun"
+                current_tariff = "9.50 TL/kWh"
+
+                # Voltrun havuzunda eşleşen ara
+                matched_v = None
+                for v in voltrun_pool:
+                    if v["loc_key"] in matched_voltrun_keys:
+                        continue
+                    if v["name_slug"] in name_slug or name_slug in v["name_slug"]:
+                        matched_v = v
+                        break
+                    if v["addr_slug"] and (v["addr_slug"] in addr_slug or addr_slug in v["addr_slug"]):
+                        matched_v = v
+                        break
+
+                if matched_v:
+                    matched_voltrun_keys.add(matched_v["loc_key"])
+                    lat = matched_v["lat"]
+                    lon = matched_v["lon"]
+                    city = matched_v["city"]
+                    district = matched_v["district"] or district
+                    il_kodu = matched_v.get("il_kodu") or il_kodu
+                    ilce_kodu = matched_v.get("ilce_kodu") or ilce_kodu
+                    connector_types = matched_v["connector_types"]
+                    power_kw = matched_v["power_kw"]
+                    current_tariff = matched_v["current_tariff"]
+                    occupancy_status = "AVAILABLE" if matched_v["is_online"] else "OCCUPIED"
+
+            elif "zes" in brand_lower:
+                operator_id = 1
+                operator_name = "ZES"
+                current_tariff = "10.49 TL/kWh"
+
+                # ZES havuzunda eşleşen ara
+                matched_z = None
+                for z in zes_pool:
+                    if z["zid"] in matched_zes_ids:
+                        continue
+                    if z["name_slug"] in name_slug or name_slug in z["name_slug"]:
+                        matched_z = z
+                        break
+                    if z["addr_slug"] and (z["addr_slug"] in addr_slug or addr_slug in z["addr_slug"]):
+                        matched_z = z
+                        break
+
+                if matched_z:
+                    matched_zes_ids.add(matched_z["zid"])
+                    lat = matched_z["lat"]
+                    lon = matched_z["lon"]
+                    city = matched_z["city"]
+                    district = matched_z["district"] or district
+                    il_kodu = matched_z.get("il_kodu") or il_kodu
+                    ilce_kodu = matched_z.get("ilce_kodu") or ilce_kodu
+                    connector_types = matched_z["connector_types"]
+                    power_kw = matched_z["power_kw"]
+                    current_tariff = matched_z["current_tariff"]
+                    occupancy_status = "OFFLINE" if matched_z["is_maintenance"] else "AVAILABLE"
+                    open_hours = "24/7" if matched_z["is_24_7"] else "08:00 - 22:00"
+                    service_type = "Özel" if matched_z["is_restricted"] else "Halka Açık"
+
+            elif "trugo" in brand_lower:
+                operator_id = 2
+                operator_name = "Trugo"
+                connector_types = ["CCS2"]
+                power_kw = 180
+                current_tariff = "11.20 TL/kWh"
+
+            elif "esarj" in brand_lower or "eşarj" in brand_lower:
+                operator_id = 3
+                operator_name = "Eşarj"
+                connector_types = ["CCS2", "Type 2"]
+                power_kw = 120
+                current_tariff = "10.80 TL/kWh"
+
+            elif "sharz" in brand_lower:
+                operator_id = 5
+                operator_name = "Sharz.net"
+                power_kw = 60
+                current_tariff = "9.90 TL/kWh"
+
+            elif "wat" in brand_lower:
+                operator_id = 6
+                operator_name = "WAT Mobilite"
+                power_kw = 120
+                current_tariff = "10.50 TL/kWh"
+
+            elif "astor" in brand_lower:
+                operator_id = 7
+                operator_name = "Astor Şarj"
+                connector_types = ["CCS2"]
+                power_kw = 150
+                current_tariff = "10.80 TL/kWh"
+
+            elif "zeplin" in brand_lower:
+                operator_id = 8
+                operator_name = "Zeplin Car"
+                power_kw = 60
+                current_tariff = "9.50 TL/kWh"
+
+            elif "shora" in brand_lower:
+                operator_id = 9
+                operator_name = "Shora"
+                power_kw = 60
+                current_tariff = "9.90 TL/kWh"
+
+            else:
+                import hashlib
+                op_hash = int(hashlib.md5(brand_lower.encode("utf-8")).hexdigest()[:6], 16)
+                operator_id = 100 + (op_hash % 800)
+                operator_name = tr_title(brand_raw) if brand_raw else "Bağımsız Şarj"
+
+            station_id = str(uuid.uuid5(uuid.NAMESPACE_DNS, "epdk-{}".format(istasyon_no or (name + address))))
+            slug = get_unique_slug("{}-{}-{}".format(to_slug(operator_name), to_slug(name), to_slug(city)))
 
             normalized_stations.append({
                 "id": station_id,
-                "istasyon_no": istasyon_no,
+                "istasyon_no": istasyon_no or "EPDK/{}".format(station_id[:8]),
                 "slug": slug,
-                "name": name,
-                "address": address,
+                "name": clean_text(name),
+                "address": clean_text(address) or "{}, {}".format(district, city),
                 "city": city,
                 "district": district,
+                "il_kodu": il_kodu,
+                "ilce_kodu": ilce_kodu,
                 "lat": lat,
                 "lon": lon,
-                "operator_id": 4,
-                "operator_name": "Voltrun",
+                "operator_id": operator_id,
+                "operator_name": clean_text(operator_name),
                 "is_flagged_defective": False,
                 "defect_report_count": 0,
-                "connector_types": sorted(list(connector_types)) if connector_types else ["Type 2"],
-                "power_kw": max_power or 22,
-                "current_tariff": current_tariff or "9.50 TL/kWh",
-                "occupancy_status": "AVAILABLE" if any(c.get("stationOnline") for c in chargers) else "OCCUPIED",
-                "open_hours": "24/7" if any(c.get("openHoursDefinition") for c in chargers) else "08:00 - 22:00",
-                "service_type": "Halka Açık" if first.get("usageType") == "PUBLIC" else "Özel",
-                "updated_at": "2026-09-18T12:00:00Z"
-            })
-
-        print("  ✓ Eklendi: {} Voltrun istasyon merkezi.".format(len(voltrun_locations)))
-
-    # 2. PROCESS ZES
-    if zes_raw:
-        print("ZES istasyonları normalize ediliyor...")
-        zes_count = 0
-        zes_epdk = epdk_by_brand.get("zes", [])
-
-        for z in zes_raw:
-            lat = z.get("latitude")
-            lon = z.get("longitude")
-            if not lat or not lon:
-                continue
-            lat = float(lat)
-            lon = float(lon)
-
-            name = z.get("name") or "ZES Şarj İstasyonu"
-            address = (z.get("address") or "").strip()
-            zid = z.get("id") or z.get("externalId")
-
-            city, district = extract_city_district_from_address(address, lat, lon)
-
-            connector_types = []
-            ac_count = z.get("acConnectorCount") or 0
-            dc_count = z.get("dcConnectorCount") or 0
-            hpc_count = z.get("hpcConnectorCount") or 0
-            if ac_count > 0:
-                connector_types.append("Type 2")
-            if dc_count > 0 or hpc_count > 0:
-                connector_types.append("CCS2")
-            if not connector_types:
-                connector_types.append("Type 2")
-
-            max_power = z.get("maxElectricPower") or (120 if (dc_count or hpc_count) else 22)
-
-            istasyon_no = None
-            for ep in zes_epdk:
-                if to_slug(name) in to_slug(ep.get("istasyon_adi", "")):
-                    istasyon_no = ep.get("istasyon_no")
-                    break
-            if not istasyon_no:
-                istasyon_no = "ZES/{}".format(zid)
-
-            slug = get_unique_slug("zes-{}-{}".format(name, city))
-            station_id = str(uuid.uuid5(uuid.NAMESPACE_DNS, "zes-{}".format(zid)))
-
-            normalized_stations.append({
-                "id": station_id,
-                "istasyon_no": istasyon_no,
-                "slug": slug,
-                "name": name,
-                "address": address or "{}, {}".format(district, city),
-                "city": city,
-                "district": district,
-                "lat": lat,
-                "lon": lon,
-                "operator_id": 1,
-                "operator_name": "ZES",
-                "is_flagged_defective": bool(z.get("isInMaintenance")),
-                "defect_report_count": 0,
                 "connector_types": connector_types,
-                "power_kw": max_power,
-                "current_tariff": "10.49 TL/kWh" if "CCS2" in connector_types else "7.99 TL/kWh",
-                "occupancy_status": "OFFLINE" if z.get("isInMaintenance") else "AVAILABLE",
-                "open_hours": "24/7" if z.get("isOpenTwentyfourSeven") else "08:00 - 22:00",
-                "service_type": "Özel" if z.get("isRestricted") else "Halka Açık",
-                "updated_at": "2026-09-18T12:00:00Z"
+                "power_kw": power_kw,
+                "current_tariff": current_tariff,
+                "occupancy_status": occupancy_status,
+                "open_hours": open_hours,
+                "service_type": service_type,
+                "updated_at": "2026-09-24T12:00:00Z"
             })
-            zes_count += 1
 
-        print("  ✓ Eklendi: {} ZES istasyonu.".format(zes_count))
+        print("  ✓ EPDK listesinden {} istasyon eklendi (Zenginleştirilen Voltrun: {}, ZES: {}).".format(
+            len(normalized_stations), len(matched_voltrun_keys), len(matched_zes_ids)
+        ))
+
+    # --------------------------------------------------------------------------
+    # 3. EPDK İLE EŞLEŞMEYEN KALAN CPO İSTASYONLARININ EKLENMESİ
+    # --------------------------------------------------------------------------
+    unmatched_v_count = 0
+    for v in voltrun_pool:
+        if v["loc_key"] in matched_voltrun_keys:
+            continue
+        slug = get_unique_slug("voltrun-{}-{}".format(to_slug(v["name"]), to_slug(v["city"])))
+        station_id = str(uuid.uuid5(uuid.NAMESPACE_DNS, "voltrun-{}".format(v["loc_key"])))
+        normalized_stations.append({
+            "id": station_id,
+            "istasyon_no": "VLT/{}".format(v["code"]),
+            "slug": slug,
+            "name": v["name"],
+            "address": v["address"],
+            "city": v["city"],
+            "district": v["district"],
+            "il_kodu": v.get("il_kodu"),
+            "ilce_kodu": v.get("ilce_kodu"),
+            "lat": v["lat"],
+            "lon": v["lon"],
+            "operator_id": 4,
+            "operator_name": "Voltrun",
+            "is_flagged_defective": False,
+            "defect_report_count": 0,
+            "connector_types": v["connector_types"],
+            "power_kw": v["power_kw"],
+            "current_tariff": v["current_tariff"],
+            "occupancy_status": "AVAILABLE" if v["is_online"] else "OCCUPIED",
+            "open_hours": "24/7",
+            "service_type": "Halka Açık" if v["is_public"] else "Özel",
+            "updated_at": "2026-09-24T12:00:00Z"
+        })
+        unmatched_v_count += 1
+
+    if unmatched_v_count > 0:
+        print("  ✓ EPDK harici {} Voltrun istasyonu eklendi.".format(unmatched_v_count))
+
+    unmatched_z_count = 0
+    for z in zes_pool:
+        if z["zid"] in matched_zes_ids:
+            continue
+        slug = get_unique_slug("zes-{}-{}".format(to_slug(z["name"]), to_slug(z["city"])))
+        station_id = str(uuid.uuid5(uuid.NAMESPACE_DNS, "zes-{}".format(z["zid"])))
+        normalized_stations.append({
+            "id": station_id,
+            "istasyon_no": "ZES/{}".format(z["zid"]),
+            "slug": slug,
+            "name": z["name"],
+            "address": z["address"] or "{}, {}".format(z["district"], z["city"]),
+            "city": z["city"],
+            "district": z["district"],
+            "il_kodu": z.get("il_kodu"),
+            "ilce_kodu": z.get("ilce_kodu"),
+            "lat": z["lat"],
+            "lon": z["lon"],
+            "operator_id": 1,
+            "operator_name": "ZES",
+            "is_flagged_defective": z["is_maintenance"],
+            "defect_report_count": 0,
+            "connector_types": z["connector_types"],
+            "power_kw": z["power_kw"],
+            "current_tariff": z["current_tariff"],
+            "occupancy_status": "OFFLINE" if z["is_maintenance"] else "AVAILABLE",
+            "open_hours": "24/7" if z["is_24_7"] else "08:00 - 22:00",
+            "service_type": "Özel" if z["is_restricted"] else "Halka Açık",
+            "updated_at": "2026-09-24T12:00:00Z"
+        })
+        unmatched_z_count += 1
+
+    if unmatched_z_count > 0:
+        print("  ✓ EPDK harici {} ZES istasyonu eklendi.".format(unmatched_z_count))
 
     print("Toplam normalize edilen istasyon sayısı: {}".format(len(normalized_stations)))
 

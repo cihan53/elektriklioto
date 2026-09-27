@@ -31,9 +31,33 @@ from html.parser import HTMLParser
 from pathlib import Path
 
 # Python 3.6+ Path resolve
-ROOT = Path(__file__).resolve().parent.parent
+def _find_repo_root() -> Path:
+    """server-scripts hem repo kökünde (cPanel) hem workspace/ içinde (git checkout)
+    durabilir. 'workspace/src/backend' içeren ilk üst dizin repo kökü sayılır."""
+    here = Path(__file__).resolve().parent
+    for cand in (here, *here.parents):
+        if (cand / "workspace" / "src" / "backend").is_dir():
+            return cand
+    return here.parent
+
+
+ROOT = _find_repo_root()
 BACKEND_DATA_DIR = ROOT / "workspace/src/backend/src/data"
 BACKEND_DIST_DIR = ROOT / "workspace/src/backend/dist/data"
+
+SCRIPT_DIR = Path(__file__).resolve().parent
+
+
+def _find_workspace_dir() -> Path:
+    """Runtime artefaktlarının duracağı workspace dizini.
+    Git düzeninde server-scripts workspace/ içindedir (ROOT/workspace);
+    cPanel düzeninde ise app kökündeki workspace/ dizinidir."""
+    if SCRIPT_DIR.parent.name == "workspace" and (SCRIPT_DIR.parent / "src" / "backend").is_dir():
+        return SCRIPT_DIR.parent
+    return ROOT / "workspace"
+
+
+WORKSPACE_DIR = _find_workspace_dir()
 
 try:
     BACKEND_DATA_DIR.mkdir(parents=True, exist_ok=True)
@@ -927,7 +951,7 @@ def save_stations_atomically(stations):
 
     # Dağıtım/kurtarma tohumu: deploy-production.sh ve cron kurtarma mekanizması bu dosyayı kullanır.
     try:
-        seed_dir = ROOT / "server-scripts" / "data"
+        seed_dir = SCRIPT_DIR / "data"
         seed_dir.mkdir(parents=True, exist_ok=True)
         with open(str(seed_dir / "cpo_stations.json"), 'w', encoding='utf-8') as f:
             f.write(content)
@@ -1043,10 +1067,10 @@ def main():
     # Canlı sonuç yalnızca TÜM sayfalar çekildiyse geçerlidir; yarım sonuç checkpoint'in
     # yerine asla geçmez. EPDK_LIVE=0 canlı denemeyi atlar.
     epdk_raw = []
-    chk_dir = ROOT / "epdk_checkpoints"
+    chk_dir = WORKSPACE_DIR / "epdk_checkpoints"
     chk_records = load_epdk_checkpoints(chk_dir)
 
-    dl_records, dl_file = load_latest_epdk_download(ROOT / "epdk_output")
+    dl_records, dl_file = load_latest_epdk_download(WORKSPACE_DIR / "epdk_output")
     if dl_records:
         if chk_records and len(dl_records) < len(chk_records) * 0.5:
             print("  ⚠️ UYARI: İndirilen EPDK kaydı ({}) checkpoint'in ({}) yarısından az; filtreli koşu olabilir.".format(
@@ -1420,6 +1444,12 @@ def main():
 
             station_id = str(uuid.uuid5(uuid.NAMESPACE_DNS, "epdk-{}".format(istasyon_no or (name + address))))
             slug = get_unique_slug("{}-{}-{}".format(to_slug(operator_name), to_slug(name), to_slug(city)))
+
+            # Issue #56 butunluk bekçisi: ilce kodu secilen ilin parcasi olmali
+            # (ilce_kodu = plaka*1000 + ilce no). CPO eslesmesi il/ilce kodlarini
+            # farkli kaynaklardan devralirsa cifti uzunlastir.
+            if ilce_kodu and il_kodu and int(ilce_kodu) // 1000 != int(il_kodu):
+                ilce_kodu, district = resolve_district_code(il_kodu, district, address, lat, lon)
 
             normalized_stations.append({
                 "id": station_id,

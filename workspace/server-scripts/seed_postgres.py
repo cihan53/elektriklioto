@@ -11,12 +11,41 @@ pgAdmin için 'scripts/seed_data.sql' çıktısı üretir.
 import json
 import os
 import re
+import shutil
 import subprocess
 import sys
 import uuid
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
+
+def _find_psql() -> str | None:
+    """psql'i PATH'te ve bilinen kurulum dizinlerinde ara (Homebrew/libpq, Postgres.app)."""
+    found = shutil.which("psql")
+    if found:
+        return found
+    for cand in (
+        "/usr/local/opt/libpq/bin/psql",
+        "/opt/homebrew/opt/libpq/bin/psql",
+        "/usr/local/bin/psql",
+        "/opt/homebrew/bin/psql",
+        "/usr/bin/psql",
+        "/Applications/Postgres.app/Contents/Versions/latest/bin/psql",
+    ):
+        if os.path.isfile(cand) and os.access(cand, os.X_OK):
+            return cand
+    return None
+
+def _find_repo_root() -> Path:
+    """server-scripts hem repo kökünde (cPanel) hem workspace/ içinde (git checkout)
+    durabilir. 'workspace/src/backend' içeren ilk üst dizin repo kökü sayılır."""
+    here = Path(__file__).resolve().parent
+    for cand in (here, *here.parents):
+        if (cand / "workspace" / "src" / "backend").is_dir():
+            return cand
+    return here.parent
+
+
+ROOT = _find_repo_root()
 DATA_CANDIDATES = [
     ROOT / "workspace/src/backend/src/data/cpo_stations.json",
     ROOT / "workspace/data/cpo_stations.json",
@@ -115,11 +144,24 @@ def generate_seed_sql() -> Path:
         op_id = int(s.get("operator_id") or 1)
         meta = s.get("raw_metadata") or {}
 
+        # Issue #56: il/ilce kanonik kodlari; metin alanlari goruntu icindir,
+        # kimlik ve sorgulama bu kodlarla yapilir.
+        try:
+            il_kodu = int(s.get("il_kodu") or 0) or "NULL"
+        except (ValueError, TypeError):
+            il_kodu = "NULL"
+        try:
+            ilce_kodu = int(s.get("ilce_kodu") or 0) or "NULL"
+        except (ValueError, TypeError):
+            ilce_kodu = "NULL"
+
         st_sql = (
-            f"INSERT INTO \"station\" (id, istasyon_no, slug, operator_id, name, address, city, district, lat, lon, raw_metadata) VALUES "
+            f"INSERT INTO \"station\" (id, istasyon_no, slug, operator_id, name, address, city, district, il_kodu, ilce_kodu, lat, lon, raw_metadata) VALUES "
             f"({sql_escape(ist_id)}, {sql_escape(ist_no)}, {sql_escape(slug)}, {op_id}, {sql_escape(name)}, "
-            f"{sql_escape(address)}, {sql_escape(city)}, {sql_escape(district)}, {lat}, {lon}, {sql_escape(meta)}) "
-            f"ON CONFLICT (istasyon_no) DO UPDATE SET name = EXCLUDED.name, address = EXCLUDED.address, lat = EXCLUDED.lat, lon = EXCLUDED.lon;"
+            f"{sql_escape(address)}, {sql_escape(city)}, {sql_escape(district)}, {il_kodu}, {ilce_kodu}, {lat}, {lon}, {sql_escape(meta)}) "
+            f"ON CONFLICT (istasyon_no) DO UPDATE SET name = EXCLUDED.name, address = EXCLUDED.address, "
+            f"city = EXCLUDED.city, district = EXCLUDED.district, il_kodu = EXCLUDED.il_kodu, ilce_kodu = EXCLUDED.ilce_kodu, "
+            f"lat = EXCLUDED.lat, lon = EXCLUDED.lon;"
         )
         lines.append(st_sql)
         inserted_stations += 1
@@ -161,8 +203,12 @@ def main():
         return 1
 
     print(f"[i] DATABASE_URL algılandı, doğrudan psql üzerinden veritabanına aktarılıyor...")
+    psql_bin = _find_psql()
+    if not psql_bin:
+        print(f"[!] psql bulunamadı (PATH ve bilinen dizinlerde yok). Dosya '{sql_file}' elle uygulanabilir.")
+        return 1
     try:
-        res = subprocess.run(["psql", db_url, "-f", str(sql_file)], capture_output=True, text=True, timeout=120)
+        res = subprocess.run([psql_bin, db_url, "-f", str(sql_file)], capture_output=True, text=True, timeout=120)
         if res.returncode == 0:
             print("✓ İstasyonlar veritabanına başarıyla aktarıldı!")
             return 0

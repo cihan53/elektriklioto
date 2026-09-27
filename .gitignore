@@ -36,3 +36,8 @@ node_modules/
 dist/
 .nuxt/
 .output/
+
+# Calisma-zamani EPDK artefaktlari (cron uretir, workspace altinda durur)
+workspace/epdk_output/
+workspace/epdk_checkpoints/
+workspace/logs/
