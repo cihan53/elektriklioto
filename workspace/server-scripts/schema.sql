@@ -25,6 +25,22 @@ CREATE TABLE IF NOT EXISTS "operator" (
     updated_at TIMESTAMP WITHOUT TIME ZONE NOT NULL DEFAULT NOW()
 );
 
+-- 3a. Kanonik Il Tablosu (Issue #56) — plaka kodu birincil anahtardir
+CREATE TABLE IF NOT EXISTS "il" (
+    plaka_kodu SMALLINT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    slug VARCHAR(120) NOT NULL UNIQUE
+);
+
+-- 3b. Kanonik Ilce Tablosu (Issue #56) — ilce_kodu = plaka*1000 + GADM ilce no
+CREATE TABLE IF NOT EXISTS "ilce" (
+    ilce_kodu INTEGER PRIMARY KEY,
+    il_kodu SMALLINT NOT NULL REFERENCES "il"(plaka_kodu),
+    name VARCHAR(120) NOT NULL,
+    slug VARCHAR(140) NOT NULL,
+    UNIQUE (il_kodu, slug)
+);
+
 -- 3. İstasyonlar Tablosu (station)
 CREATE TABLE IF NOT EXISTS "station" (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
@@ -35,6 +51,10 @@ CREATE TABLE IF NOT EXISTS "station" (
     address VARCHAR(500) NOT NULL,
     city VARCHAR(100) NOT NULL,
     district VARCHAR(100) NOT NULL,
+    -- Issue #56: il/ilce metinleri goruntu icindir; sorgu ve kumeleme bu kanonik
+    -- kodlarla yapilir (plaka 1-81, ilce = plaka*1000 + GADM ilce numarasi).
+    il_kodu SMALLINT REFERENCES "il"(plaka_kodu),
+    ilce_kodu INTEGER REFERENCES "ilce"(ilce_kodu),
     lat NUMERIC(10, 6) NOT NULL,
     lon NUMERIC(10, 6) NOT NULL,
     raw_metadata JSONB,
@@ -43,6 +63,10 @@ CREATE TABLE IF NOT EXISTS "station" (
     created_at TIMESTAMP WITHOUT TIME ZONE NOT NULL DEFAULT NOW(),
     updated_at TIMESTAMP WITHOUT TIME ZONE NOT NULL DEFAULT NOW()
 );
+
+-- Mevcut semalara idempotent gecis (Issue #56)
+ALTER TABLE "station" ADD COLUMN IF NOT EXISTS il_kodu SMALLINT REFERENCES "il"(plaka_kodu);
+ALTER TABLE "station" ADD COLUMN IF NOT EXISTS ilce_kodu INTEGER REFERENCES "ilce"(ilce_kodu);
 
 -- 4. Soketler ve Konnektörler (connector)
 CREATE TABLE IF NOT EXISTS "connector" (
@@ -121,6 +145,8 @@ CREATE TABLE IF NOT EXISTS "seed_rejects" (
 -- ==============================================================================
 CREATE INDEX IF NOT EXISTS idx_station_city ON "station"(city);
 CREATE INDEX IF NOT EXISTS idx_station_district ON "station"(district);
+CREATE INDEX IF NOT EXISTS idx_station_il_kodu ON "station"(il_kodu);
+CREATE INDEX IF NOT EXISTS idx_station_ilce_kodu ON "station"(ilce_kodu);
 CREATE INDEX IF NOT EXISTS idx_station_operator_id ON "station"(operator_id);
 CREATE INDEX IF NOT EXISTS idx_station_coords ON "station"(lat, lon);
 CREATE INDEX IF NOT EXISTS idx_connector_station ON "connector"(station_id);
