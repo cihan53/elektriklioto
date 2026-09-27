@@ -163,6 +163,20 @@ export async function ensureRegionTablesSeeded(): Promise<void> {
   if (isRegionSeededFlag) return;
   try {
     const db = getDb();
+    // Issue #56: schema.sql ile birebir ayni idempotent DDL — tablo/kolon
+    // eksik ortamlarda (prod ilk deploy dahil) kendini onarir.
+    await db.execute(
+      sql`CREATE TABLE IF NOT EXISTS "il" (plaka_kodu SMALLINT PRIMARY KEY, name VARCHAR(100) NOT NULL, slug VARCHAR(120) NOT NULL UNIQUE)`
+    );
+    await db.execute(
+      sql`CREATE TABLE IF NOT EXISTS "ilce" (ilce_kodu INTEGER PRIMARY KEY, il_kodu SMALLINT NOT NULL REFERENCES "il"(plaka_kodu), name VARCHAR(120) NOT NULL, slug VARCHAR(140) NOT NULL, UNIQUE (il_kodu, slug))`
+    );
+    await db.execute(
+      sql`ALTER TABLE "station" ADD COLUMN IF NOT EXISTS il_kodu SMALLINT REFERENCES "il"(plaka_kodu)`
+    );
+    await db.execute(
+      sql`ALTER TABLE "station" ADD COLUMN IF NOT EXISTS ilce_kodu INTEGER REFERENCES "ilce"(ilce_kodu)`
+    );
     const ilCount = Number(
       (await db.execute<{ count: string }>(sql`SELECT count(*)::text as count FROM "il";`))[0]?.count || 0
     );
