@@ -28,8 +28,31 @@ from datetime import datetime
 from pathlib import Path
 
 API_URL = "https://apigateway.epdk.gov.tr/sarjIstasyonlari/"
-ROOT = Path(__file__).resolve().parent.parent
-OUT_DIR = ROOT / "epdk_output"
+
+
+def _find_repo_root() -> Path:
+    """server-scripts hem repo kökünde (cPanel) hem workspace/ içinde (git checkout)
+    durabilir. 'workspace/src/backend' içeren ilk üst dizin repo kökü sayılır."""
+    here = Path(__file__).resolve().parent
+    for cand in (here, *here.parents):
+        if (cand / "workspace" / "src" / "backend").is_dir():
+            return cand
+    return here.parent
+
+
+ROOT = _find_repo_root()
+
+
+def _find_workspace_dir() -> Path:
+    """Git düzeninde server-scripts workspace/ içindedir; cPanel'de app kökündeki
+    workspace/ dizinidir. Runtime artefaktları burada durur."""
+    here = Path(__file__).resolve().parent
+    if here.parent.name == "workspace" and (here.parent / "src" / "backend").is_dir():
+        return here.parent
+    return ROOT / "workspace"
+
+
+OUT_DIR = _find_workspace_dir() / "epdk_output"
 TIMEOUT = int(os.environ.get("EPDK_API_TIMEOUT", "180"))
 
 
