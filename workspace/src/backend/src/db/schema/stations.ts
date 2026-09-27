@@ -1,6 +1,7 @@
 
-import { pgTable, uuid, varchar, numeric, jsonb, boolean, timestamp, integer } from 'drizzle-orm/pg-core';
+import { pgTable, uuid, varchar, numeric, jsonb, boolean, timestamp, integer, smallint } from 'drizzle-orm/pg-core';
 import { operators } from './operators.js';
+import { il, ilce } from './regions.js';
 
 export const stations = pgTable('station', {
   id: uuid('id').primaryKey().defaultRandom(),
@@ -11,6 +12,10 @@ export const stations = pgTable('station', {
   address: varchar('address', { length: 500 }).notNull(),
   city: varchar('city', { length: 100 }).notNull(),
   district: varchar('district', { length: 100 }).notNull(),
+  // Issue #56: il/ilçe metin alanları yalnızca görüntü içindir; sorgu ve kümeleme
+  // bu kanonik kodlarla yapılır. Nullable — çözülemeyen kayıtlar il/ilce'ye bağlanmaz.
+  il_kodu: smallint('il_kodu').references(() => il.plaka_kodu),
+  ilce_kodu: integer('ilce_kodu').references(() => ilce.ilce_kodu),
   lat: numeric('lat', { precision: 10, scale: 6 }).notNull(),
   lon: numeric('lon', { precision: 10, scale: 6 }).notNull(),
   raw_metadata: jsonb('raw_metadata'),

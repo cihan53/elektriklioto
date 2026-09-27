@@ -53,3 +53,7 @@
 ## [S23-T1] — 2026-09-26 18:16
 
 - fix görevi tamamlandı ama değişen dosyalarda test yok (regresyon testi eksik) — dosyalar: web/panel.html, workspace/src/frontend/components/map/VectorMap.vue, workspace/src/frontend/pages/index.vue, workspace/src/frontend/components/map/mapPinLayers.ts
+
+## [S26-T4] — 2026-09-27 05:45
+
+- fix görevi tamamlandı ama değişen dosyalarda test yok (regresyon testi eksik) — dosyalar: workspace/docs/uat_kabul_raporu.md, workspace/server-scripts/import_cpo_stations.py, workspace/server-scripts/schema.sql, workspace/src/backend/src/app.ts, workspace/src/backend/src/db/schema/index.ts, workspace/src/backend/src/db/schema/stations.ts, workspace/src/backend/src/modules/stations/station.service.ts, workspace/src/backend/src/db/schema/regions.ts
