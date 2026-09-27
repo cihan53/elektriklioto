@@ -58,6 +58,8 @@ DATA_CANDIDATES = [
 
 OUTPUT_SQL = Path(__file__).resolve().parent / "seed_data.sql"
 
+OPERATORS_FILE = ROOT / "workspace/src/backend/src/data/operators.json"
+
 
 def sql_escape(val) -> str:
     if val is None:
@@ -71,6 +73,60 @@ def sql_escape(val) -> str:
         return f"'{dump}'::jsonb"
     s = str(val).replace("'", "''")
     return f"'{s}'"
+
+
+def _slugify(text: str) -> str:
+    tr = str.maketrans("çÇğĞıİöÖşŞüÜ", "cCgGiIoOsSuU")
+    s = re.sub(r"[^a-z0-9]+", "-", text.translate(tr).lower()).strip("-")
+    return s
+
+
+def load_operators(stations: list) -> dict:
+    """station.operator_id FK'si için gerekli operatör haritasını üretir.
+
+    Birincil kaynak operators.json (slug/deep_link_config içerir); dosya yoksa
+    veya bir operator_id eksikse istasyon kaydındaki operator_name'den türetilir.
+    """
+    ops = {}
+    if OPERATORS_FILE.exists():
+        try:
+            for o in json.loads(OPERATORS_FILE.read_text(encoding="utf-8")):
+                oid = int(o["id"])
+                ops[oid] = {
+                    "slug": str(o.get("slug") or f"op-{oid}"),
+                    "name": str(o.get("name") or f"Operatör {oid}").strip()[:255],
+                    "deep_link_config": o.get("deep_link_config"),
+                    "is_active": bool(o.get("is_active", True)),
+                }
+            print(f"[i] {len(ops)} operatör operators.json'dan yüklendi.")
+        except Exception as e:
+            print(f"[!] operators.json okunamadı ({e}); operatörler istasyon verisinden türetilecek.")
+
+    for s in stations:
+        oid = s.get("operator_id")
+        if oid is None:
+            continue
+        try:
+            oid = int(oid)
+        except (ValueError, TypeError):
+            continue
+        if oid not in ops:
+            name = str(s.get("operator_name") or f"Operatör {oid}").strip()[:255]
+            ops[oid] = {
+                "slug": _slugify(name) or f"op-{oid}",
+                "name": name,
+                "deep_link_config": None,
+                "is_active": True,
+            }
+
+    seen = set()
+    for oid, o in ops.items():
+        slug = o["slug"][:120]
+        if slug in seen:
+            slug = f"{slug[:110]}-{oid}"
+        seen.add(slug)
+        o["slug"] = slug
+    return ops
 
 
 def generate_seed_sql() -> Path:
@@ -89,6 +145,8 @@ def generate_seed_sql() -> Path:
     except Exception as e:
         sys.exit(f"[HATA] JSON dosyası okunamadı: {e}")
 
+    operators = load_operators(stations)
+
     lines = [
         "-- ==============================================================================",
         "-- elektriklioto.com - İstasyon ve Konnektör Tohum Verisi (Otomatik Üretildi)",
@@ -97,6 +155,22 @@ def generate_seed_sql() -> Path:
         "BEGIN;",
         ""
     ]
+
+    # station.operator_id FK'si boş operator tablosunda tüm bloğu düşürür;
+    # operatörler istasyonlardan ÖNCE upsert edilir.
+    for oid in sorted(operators):
+        o = operators[oid]
+        lines.append(
+            f"INSERT INTO \"operator\" (id, slug, name, deep_link_config, is_active) VALUES "
+            f"({oid}, {sql_escape(o['slug'])}, {sql_escape(o['name'])}, "
+            f"{sql_escape(o['deep_link_config'])}, {sql_escape(o['is_active'])}) "
+            f"ON CONFLICT (id) DO UPDATE SET slug = EXCLUDED.slug, name = EXCLUDED.name, "
+            f"deep_link_config = EXCLUDED.deep_link_config, is_active = EXCLUDED.is_active;"
+        )
+    lines.append(
+        "SELECT setval(pg_get_serial_sequence('operator', 'id'), (SELECT MAX(id) FROM \"operator\"));"
+    )
+    lines.append("")
 
     seen_slugs = set()
     seen_nos = set()
@@ -208,11 +282,14 @@ def main():
         print(f"[!] psql bulunamadı (PATH ve bilinen dizinlerde yok). Dosya '{sql_file}' elle uygulanabilir.")
         return 1
     try:
-        res = subprocess.run([psql_bin, db_url, "-f", str(sql_file)], capture_output=True, text=True, timeout=120)
+        res = subprocess.run(
+            [psql_bin, "-v", "ON_ERROR_STOP=1", db_url, "-f", str(sql_file)],
+            capture_output=True, text=True, timeout=300,
+        )
         if res.returncode == 0:
             print("✓ İstasyonlar veritabanına başarıyla aktarıldı!")
             return 0
-        print(f"[!] psql çalıştırma uyarısı: {res.stderr[:200]}")
+        print(f"[!] psql çalıştırma uyarısı: {(res.stderr or res.stdout)[:500]}")
     except Exception as e:
         print(f"[!] psql komutu doğrudan çalıştırılamadı ({e}). Dosya 'server-scripts/seed_data.sql' olarak pgAdmin veya psql için hazır.")
     return 1
