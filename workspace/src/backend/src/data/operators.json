@@ -184,7 +184,7 @@
   {
     "id": 632,
     "slug": "eka-enerji",
-    "name": "Eka Enerji̇",
+    "name": "Eka Enerji",
     "is_active": true,
     "deep_link_config": null,
     "station_count": 136
@@ -288,7 +288,7 @@
   {
     "id": 415,
     "slug": "miggo",
-    "name": "Mi̇ggo",
+    "name": "Miggo",
     "is_active": true,
     "deep_link_config": null,
     "station_count": 93
@@ -400,7 +400,7 @@
   {
     "id": 486,
     "slug": "lumicle",
-    "name": "Lumi̇cle",
+    "name": "Lumicle",
     "is_active": true,
     "deep_link_config": null,
     "station_count": 66
@@ -536,7 +536,7 @@
   {
     "id": 874,
     "slug": "360-enerji",
-    "name": "360° Enerji̇",
+    "name": "360° Enerji",
     "is_active": true,
     "deep_link_config": null,
     "station_count": 49
@@ -608,7 +608,7 @@
   {
     "id": 386,
     "slug": "ctg-elektrik-anonim-sirketi",
-    "name": "Ctg Elektri̇k Anoni̇m Şi̇rketi̇",
+    "name": "Ctg Elektrik Anonim Şirketi",
     "is_active": true,
     "deep_link_config": null,
     "station_count": 44
@@ -632,7 +632,7 @@
   {
     "id": 644,
     "slug": "vizyoneks",
-    "name": "Vi̇zyoneks",
+    "name": "Vizyoneks",
     "is_active": true,
     "deep_link_config": null,
     "station_count": 41
@@ -720,7 +720,7 @@
   {
     "id": 402,
     "slug": "krnenerji-sarj-istasyonlari",
-    "name": "Krnenerji̇ Şarj İstasyonlari",
+    "name": "Krnenerji Şarj İstasyonlari",
     "is_active": true,
     "deep_link_config": null,
     "station_count": 35
@@ -768,7 +768,7 @@
   {
     "id": 606,
     "slug": "power-elektronik-sanayi-ve-ticaret-limited-sirketi",
-    "name": "Power Elektroni̇k Sanayi̇ Ve Ti̇caret Li̇mi̇ted Şi̇rketi̇",
+    "name": "Power Elektronik Sanayi Ve Ticaret Limited Şirketi",
     "is_active": true,
     "deep_link_config": null,
     "station_count": 32
@@ -840,7 +840,7 @@
   {
     "id": 618,
     "slug": "erc-sistem",
-    "name": "Erc Si̇stem",
+    "name": "Erc Sistem",
     "is_active": true,
     "deep_link_config": null,
     "station_count": 29
@@ -920,7 +920,7 @@
   {
     "id": 115,
     "slug": "mehmetcik-enerji-grubu",
-    "name": "Mehmetçi̇k Enerji̇ Grubu",
+    "name": "Mehmetçik Enerji Grubu",
     "is_active": true,
     "deep_link_config": null,
     "station_count": 26
@@ -984,7 +984,7 @@
   {
     "id": 738,
     "slug": "gerilim-enerji",
-    "name": "Geri̇li̇m Enerji̇",
+    "name": "Gerilim Enerji",
     "is_active": true,
     "deep_link_config": null,
     "station_count": 24
@@ -1016,7 +1016,7 @@
   {
     "id": 154,
     "slug": "orbit-enerji-hab-tek-san-ve-tic-as",
-    "name": "Orbi̇t Enerji̇ Hab. Tek. San. Ve Ti̇c. A.ş.",
+    "name": "Orbit Enerji Hab. Tek. San. Ve Tic. A.ş.",
     "is_active": true,
     "deep_link_config": null,
     "station_count": 22
@@ -1096,7 +1096,7 @@
   {
     "id": 688,
     "slug": "celikler-enerji",
-    "name": "Çeli̇kler Enerji̇",
+    "name": "Çelikler Enerji",
     "is_active": true,
     "deep_link_config": null,
     "station_count": 20
@@ -1184,7 +1184,7 @@
   {
     "id": 295,
     "slug": "arsima",
-    "name": "Arsi̇ma",
+    "name": "Arsima",
     "is_active": true,
     "deep_link_config": null,
     "station_count": 17
@@ -1248,7 +1248,7 @@
   {
     "id": 749,
     "slug": "kofteci-yusuf",
-    "name": "Köfteci̇ Yusuf",
+    "name": "Köfteci Yusuf",
     "is_active": true,
     "deep_link_config": null,
     "station_count": 13
@@ -1280,7 +1280,7 @@
   {
     "id": 894,
     "slug": "fortis-enerji",
-    "name": "Fortis Enerji̇",
+    "name": "Fortis Enerji",
     "is_active": true,
     "deep_link_config": null,
     "station_count": 12
@@ -1288,7 +1288,7 @@
   {
     "id": 731,
     "slug": "telligrup",
-    "name": "Telli̇grup",
+    "name": "Telligrup",
     "is_active": true,
     "deep_link_config": null,
     "station_count": 12
@@ -1320,7 +1320,7 @@
   {
     "id": 337,
     "slug": "pilstop",
-    "name": "Pi̇lstop",
+    "name": "Pilstop",
     "is_active": true,
     "deep_link_config": null,
     "station_count": 10
@@ -1376,7 +1376,7 @@
   {
     "id": 785,
     "slug": "sarjpark-park-edin-sarj-edin",
-    "name": "Şarjpark Park Edi̇n Şarj Edi̇n",
+    "name": "Şarjpark Park Edin Şarj Edin",
     "is_active": true,
     "deep_link_config": null,
     "station_count": 8
@@ -1384,7 +1384,7 @@
   {
     "id": 767,
     "slug": "aktif-sarj",
-    "name": "Akti̇f Şarj",
+    "name": "Aktif Şarj",
     "is_active": true,
     "deep_link_config": null,
     "station_count": 7

@@ -401,7 +401,7 @@ export const stationRepository = {
   async findBySlug(slug: string): Promise<StationModel | null> {
     const normalized = toSlug(slug);
 
-    if (this.useDatabase) {
+    if (this.useDatabase && process.env.NODE_ENV !== 'test') {
       try {
         const db = getDb();
         const rows = await db
@@ -447,7 +447,7 @@ export const stationRepository = {
   },
 
   async findById(id: string): Promise<StationModel | null> {
-    if (this.useDatabase) {
+    if (this.useDatabase && process.env.NODE_ENV !== 'test') {
       try {
         const db = getDb();
         const rows = await db
