@@ -10,10 +10,19 @@
 
 set -euo pipefail
 
-# Betiğin bulunduğu dizinden proje kök dizinine geç
+# Betiğin bulunduğu dizinden proje kök dizinine geç.
+# server-scripts hem repo kökünde (cPanel) hem workspace/ içinde (git checkout)
+# durabilir — 'workspace/src/backend' içeren ilk üst dizin kök sayılır.
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-ROOT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
-LOG_DIR="$ROOT_DIR/logs"
+ROOT_DIR="$(cd "$SCRIPT_DIR" && pwd)"
+while [ "$ROOT_DIR" != "/" ] && [ ! -d "$ROOT_DIR/workspace/src/backend" ]; do
+    ROOT_DIR="$(dirname "$ROOT_DIR")"
+done
+if [ -d "$ROOT_DIR/workspace" ]; then
+    LOG_DIR="$ROOT_DIR/workspace/logs"
+else
+    LOG_DIR="$ROOT_DIR/logs"
+fi
 LOG_FILE="$LOG_DIR/cron_daily_sync.log"
 
 mkdir -p "$LOG_DIR"
@@ -81,7 +90,7 @@ log "Kullanılan Python: $PYTHON_BIN ($($PYTHON_BIN --version 2>&1))"
 # 1.5 Node.js Yorumlayıcısının Tespiti (EPDK Puppeteer scraper için)
 NODE_BIN=""
 for n_cand in \
-    "$ROOT_DIR/server-scripts/epdk/node_modules/.bin/node" \
+    "$SCRIPT_DIR/epdk/node_modules/.bin/node" \
     $HOME/nodevenv/*/*/bin/node \
     /opt/alt/nodejs*/bin/node \
     /opt/alt/alt-nodejs*/root/usr/bin/node \
@@ -99,12 +108,12 @@ done
 #    İkisi de başarısız olursa ETL mevcut checkpoint/önbellek ile devam eder.
 cd "$ROOT_DIR"
 log "EPDK API Gateway deneniyor (epdk_api_fetch.py)..."
-if "$PYTHON_BIN" server-scripts/epdk_api_fetch.py >> "$LOG_FILE" 2>&1; then
+if "$PYTHON_BIN" "$SCRIPT_DIR/epdk_api_fetch.py" >> "$LOG_FILE" 2>&1; then
     log "EPDK verisi API Gateway'den alındı; Puppeteer scraper atlandı."
-elif [ -n "$NODE_BIN" ] && [ -f "$ROOT_DIR/server-scripts/epdk/scrape.mjs" ]; then
+elif [ -n "$NODE_BIN" ] && [ -f "$SCRIPT_DIR/epdk/scrape.mjs" ]; then
     log "API başarısız → EPDK Scraper (server-scripts/epdk/scrape.mjs) çalıştırılıyor..."
     log "Kullanılan Node: $NODE_BIN ($("$NODE_BIN" --version 2>&1))"
-    if ! "$NODE_BIN" "$ROOT_DIR/server-scripts/epdk/scrape.mjs" >> "$LOG_FILE" 2>&1; then
+    if ! "$NODE_BIN" "$SCRIPT_DIR/epdk/scrape.mjs" >> "$LOG_FILE" 2>&1; then
         log "UYARI: EPDK scraper tamamlanamadı (Chrome/captcha eksik olabilir). ETL mevcut checkpoint'lerle devam edecek."
     fi
 else
@@ -113,7 +122,7 @@ fi
 
 # 3. CPO Veri Senkronizasyon Betiğini Çalıştır
 log "ETL Pipeline (import_cpo_stations.py) çalıştırılıyor..."
-if ! "$PYTHON_BIN" server-scripts/import_cpo_stations.py >> "$LOG_FILE" 2>&1; then
+if ! "$PYTHON_BIN" "$SCRIPT_DIR/import_cpo_stations.py" >> "$LOG_FILE" 2>&1; then
     log "UYARI: ETL Pipeline çalışırken bir sorun oluştu veya istasyon bulunamadı! Log dosyasını inceleyiniz."
 fi
 
@@ -152,8 +161,8 @@ if [ -z "${DATABASE_URL:-}" ] && [ -f "$ROOT_DIR/.env" ]; then
 fi
 if [ "$STATION_COUNT" -gt 0 ] && [ -n "${DATABASE_URL:-}" ]; then
     log "PostgreSQL senkronizasyonu (seed_postgres.py) çalıştırılıyor..."
-    if ! "$PYTHON_BIN" server-scripts/seed_postgres.py >> "$LOG_FILE" 2>&1; then
-        log "UYARI: PostgreSQL senkronizasyonu başarısız. server-scripts/seed_data.sql elle uygulanabilir."
+    if ! "$PYTHON_BIN" "$SCRIPT_DIR/seed_postgres.py" >> "$LOG_FILE" 2>&1; then
+        log "UYARI: PostgreSQL senkronizasyonu başarısız. $SCRIPT_DIR/seed_data.sql elle uygulanabilir."
     fi
 elif [ "$STATION_COUNT" -gt 0 ]; then
     log "DATABASE_URL tanımlı değil; PostgreSQL senkronizasyonu atlandı (sadece JSON güncellendi)."
