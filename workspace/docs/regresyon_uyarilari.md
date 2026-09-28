@@ -169,3 +169,25 @@
 ## [S32-T2] — 2026-09-28 21:55
 
 - fix görevi tamamlandı ama değişen dosyalarda test yok (regresyon testi eksik) — dosyalar: workspace/docs/uat_kabul_raporu.md, workspace/docs/cozum_planlari/TALEP-048.md
+
+## [S34-T2] — 2026-09-28 22:57
+
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-046] → # UAT Kabul Raporu — S32 / TALEP-046
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-046] → > **Sprint:** S32 — Müşteri Denetimi & Saha Onarımları (TALEP-046)
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-046] → > **Görev:** S32-T2 · [TALEP-046] Müşteri Kabulü & UAT Doğrulama Denetimi
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-046] → **TALEP-046 için üretilen düzeltme canlı ortamda ÇALIŞMIYOR ve sistemi daha önceki halinden daha kötü bir duru
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-045] → | TALEP-045 | ✅ Çözüldü (commit `330447e`) | Arama kutusunda Esenler ilçesinin görünmemesi düzeltildi; `Search
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-046] → | **TALEP-046** | 🔨 Geliştiriliyor (Issue [#77](https://github.com/cihan53/elektriklioto/issues/77)) | S31-T2 
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-047] → | TALEP-047 | ⏳ Beklemede (Issue [#78](https://github.com/cihan53/elektriklioto/issues/78)) | TALEP-046 düzelt
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-046] → > **Varsayım:** Görev tanımı "TALEP-046 için yapılan düzeltmenin çalıştığını doğrula" dese de, aynı kod tabanı
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-047] → Bu üç bulgu, projenin kendi otomatik UAT betiğinin (`scripts/uat_live_audit.mjs`) TALEP-047 kaydında ürettiği 
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-046] → `workspace/src/backend/src/app.ts` (TALEP-046 kapsamında `backend_engineer` tarafından değiştirilen, henüz com
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-045] → `components/map/` dizininde `geoSearch.ts`/`.js` dosyası **hiçbir zaman commit edilmemiş** (`git log --all -- 
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-046] → > **Varsayım:** Bu ikinci bulgu TALEP-046'nın görev kapsamı dışında (TALEP-045'in yan etkisi) gibi görünse de,
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-045] → 3. **(Kritik)** `components/map/SearchInput.vue` satır 7'deki `./geoSearch` modülünü ya oluştur (muhtemelen `f
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-046] → TALEP-046'nın "Kabul Kriterleri (DoD)" listesindeki hiçbir madde karşılanmamıştır (`workspace/docs/cozum_planl
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-047] → **Karar: REDDEDİLDİ.** Dosya, açık TALEP-047 (Issue #78) çözülüp backend ve web arayüzü canlı olarak 200 döndü
+
+## [S34-T2] — 2026-09-28 22:57
+
+- fix görevi tamamlandı ama değişen dosyalarda test yok (regresyon testi eksik) — dosyalar: workspace/docs/uat_kabul_raporu.md

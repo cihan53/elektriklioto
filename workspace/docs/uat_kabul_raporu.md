@@ -1,103 +1,64 @@
-# workspace/docs/uat_kabul_raporu.md — Nihai İçerik
+Backend üç kırık import yüzünden hiç ayağa kalkmıyor. Üretimde kullanılan alternatif giriş noktalarını kontrol ediyorum.Backend eski derleme (dist) ile ayağa kalktı, proxy 200. Şimdi UAT adımlarını icra ediyorum.Kümeler ve pin verisi akıyor. Detay/deep-link/geo-search uçlarını ve mevcut UAT denetim betiğini kontrol ediyorum.# UAT Kabul Raporu — [TALEP-049] Canlı ortam hatası: SearchInput.vue './geoSearch' modülünü bulamıyor
 
-```markdown
-# UAT Kabul Raporu — S32 / TALEP-046
+> **Belge:** `workspace/docs/uat_kabul_raporu.md`
+> **Sprint / Görev:** S34 — Müşteri Denetimi & Saha Onarımları · [TALEP-049] Müşteri Kabulü & UAT Doğrulama Denetimi
+> **Denetim Tarihi:** 2026-09-28 · **Denetleyen Rol:** UAT / Canlı Kullanıcı Denetimi
+> **Ortam:** `localhost:3000` (Nuxt dev) + `localhost:3001` (Fastify API)
 
-> **Sprint:** S32 — Müşteri Denetimi & Saha Onarımları (TALEP-046)
-> **Görev:** S32-T2 · [TALEP-046] Müşteri Kabulü & UAT Doğrulama Denetimi
-> **Denetim Tarihi:** 2026-09-28 21:53 (+03)
-> **Denetim Yöntemi:** Canlı süreçlere doğrudan `curl` ile bağlanma (localhost:3000, localhost:3001) + kaynak kod / commit / pipeline log doğrulaması. Mock veri veya izole birim test çıktısı **kullanılmamıştır**.
-> **Ortam Notu:** Bu oturumun varsayılan kabuğu 3000/3001 trafiğini bir ara katmana yönlendiriyor (426 Upgrade Required); gerçek yerel süreçlere ulaşmak için sandbox devre dışı bırakılarak (`dangerouslyDisableSandbox`) doğrudan `127.0.0.1` üzerinden bağlanılmıştır. Bu yöntemle elde edilen sonuçlar host üzerinde fiilen çalışan Nuxt (`nuxt dev`, PID 41006) ve Fastify (`tsx watch src/server.ts`, PID 40994/41598) süreçlerine aittir.
+## VERDICT: REDDEDİLDİ — TALEP-049 KAPANAMAZ
 
----
-
-## 1. NİHAİ KARAR: ❌ REDDEDİLDİ (BUG)
-
-**TALEP-046 için üretilen düzeltme canlı ortamda ÇALIŞMIYOR ve sistemi daha önceki halinden daha kötü bir duruma sokmuştur.** Görev, kabul kriterlerini karşılamadığı için **REDDEDİLMİŞTİR**. Aşağıda, bu kararı destekleyen doğrudan canlı kanıtlar ve kök neden analizi yer almaktadır.
+Müşterinin bildirdiği belirti (ana ekranın `./geoSearch` modül hatasıyla kilitlenmesi) çalışan sistemde **çözülmüştür**; ancak teslimat kaynak koddan yeniden üretilemez durumdadır ve denetim sırasında **backend'in kaynaktan hiç ayağa kalkamadığı yeni bir kritik hata** yakalanmıştır. Görev, aşağıdaki iki engel giderilip yeniden UAT koşulana dek reddedilir.
 
 ---
 
-## 2. Bağlam — Talep Zinciri
+## 1. Talebin Doğrulanması (TALEP-049 Belirtisi)
 
-| Talep | Durum | Özet |
+| Adım | Kanıt | Sonuç |
 |---|---|---|
-| TALEP-045 | ✅ Çözüldü (commit `330447e`) | Arama kutusunda Esenler ilçesinin görünmemesi düzeltildi; `SearchInput.vue` yeniden yazıldı. |
-| **TALEP-046** | 🔨 Geliştiriliyor (Issue [#77](https://github.com/cihan53/elektriklioto/issues/77)) | S31-T2 UAT denetimi, TALEP-045 sonrası `/` adresinin **HTTP 500** döndüğünü tespit etti. `backend_engineer` rolü `app.ts`, `station.routes.ts`, `station.schema.ts`, `station.service.ts` dosyalarında düzeltme denedi. |
-| TALEP-047 | ⏳ Beklemede (Issue [#78](https://github.com/cihan53/elektriklioto/issues/78)) | TALEP-046 düzeltmesi sonrası yapılan otomatik S32-T1 denetimi, backend'in **tamamen çöktüğünü** (`ECONNREFUSED 127.0.0.1:3001`) tespit ederek yeni bir hata kaydı açtı. Bu görev, TALEP-047 henüz çözülmeden ve TALEP-046 hâlâ "Geliştiriliyor" statüsündeyken bana atanmıştır.
+| Hata yeniden üretildi | Yeniden başlatma öncesi `GET /` → HTTP 500, gövdede `Cannot find module './geoSearch' imported from '.../components/map/SearchInput.vue'` | Belirti doğrulandı |
+| Düzeltme mevcut | `workspace/src/frontend/components/map/geoSearch.ts` diskte mevcut; `fetchGadmSearch` `/geo/search` ve `/gadm/search` uçlarını sırayla dener, 4 sn timeout + sessiz fallback içerir | Fix uygulanmış |
+| Canlı doğrulama | Ortam yeniden başlatıldıktan sonra `GET /` → HTTP 200; SSR HTML'de `TypeError` / `Cannot find module` / `Server Error` eşleşmesi **0** | Belirti giderildi |
+| Geliştirici testi (bilgi amaçlı) | `tests/talep-049.spec.ts` — 8/8 vitest geçti (izole test, UAT kanıtı sayılmadı) | Geçti |
 
-> **Varsayım:** Görev tanımı "TALEP-046 için yapılan düzeltmenin çalıştığını doğrula" dese de, aynı kod tabanında ardıl olarak TALEP-047'yi doğuran regresyon hâlâ giderilmemiştir; bu nedenle iki talebin canlı etkisi ayrıştırılamaz ve TALEP-046 tek başına "çözüldü" sayılamaz.
+> **Varsayım:** Eski Nuxt süreci (PID 5034, 22:31'de başlatılmış) `geoSearch.ts`'nin 22:52'de oluşturulmasından önce kaldığı için vite-node modül çözümleme hatasını önbelleğe almıştı; düzeltmenin canlıya yansıması için servis yeniden başlatma gerektirdi. Bu, "fix + restart" bağımlılığı olarak rapora işlenmiştir.
 
----
+## 2. Gerçek Kullanıcı Yolculuğu — Canlı Doğrulama Tablosu
 
-## 3. Canlı Doğrulama Kanıtları (Timestamp: 2026-09-28 21:53:26 +03)
-
-| # | Komut | Beklenen | Gözlemlenen | Sonuç |
+| # | UAT Adımı | Ölçüm | Beklenen | Sonuç |
 |---|---|---|---|---|
-| K1 | `curl http://127.0.0.1:3001/health` | `200 OK` | **HTTP 000 — Connection refused** (`curl: (7)`) | ❌ |
-| K2 | `curl http://127.0.0.1:3001/api/v1/health/sources` | `200 OK` | **HTTP 000 — Connection refused** | ❌ |
-| K3 | `curl http://127.0.0.1:3000/` (Nuxt SSR ana sayfa) | `200 OK` + harita HTML'i | **HTTP 500**, JSON hata gövdesi: `"Cannot find module './geoSearch' imported from '.../components/map/SearchInput.vue'"` | ❌ |
-| K4 | `ps aux` (host süreç listesi) | Fastify API dinlemede | `tsx watch src/server.ts` süreçleri (PID 40994, 41598) canlı ama porta bağlı değil | ⚠️ Çökmüş/başlatılamamış |
+| 1 | Web haritasına bağlan (`GET /`) | HTTP 200, hatasız SSR | 200 | GEÇTİ |
+| 2 | Türkiye geneli kümeleme (`bbox=25.5,35.5,45.0,42.5&zoom=6`) | `{"type":"clusters","count":81}` — İstanbul kümesi 4.525, Ankara 2.174, Antalya 982 istasyon | küme > 0 | GEÇTİ |
+| 3 | Büyükşehir kümesi → zoom 11 İstanbul bbox | `{"type":"stations","count":2000}` tekil pin | 500+ pin | GEÇTİ |
+| 4 | Pin → istasyon detayı (`GET /stations/trugo-tsyd-istanbul`) | 200; `name=TSYD`, `istasyon_no=ŞRJ/10313`, `operator=Trugo`, `connector_types=["CCS2"]`, `power_kw=180` | doğru veri | GEÇTİ |
+| 5 | Derin bağlantı verisi | Detay gövdesinde `deep_link: "trugo://charge?station=10313"`, `clipboard_fallback:false` | şema üretimi | GEÇTİ |
+| 6 | İstasyon detay sayfası SSR (`/trugo/trugo-tsyd-istanbul`) | HTTP 200 | 200 | GEÇTİ |
+| 7 | Geo arama (TALEP-049 modülünün canlı hedefi) | `GET /api/v1/geo/search?q=esenler` → Esenler, İstanbul (koordinat+bbox); proxy üzerinden `:3000` da aynı | sonuç döner | GEÇTİ |
+| 8 | Operatör sözlüğü | `GET /api/v1/operators` → 180 kayıt | > 0 | GEÇTİ |
+| 9 | Hatalı istek davranışı | `bbox=abc,...` → RFC 7807 `400 Geçersiz İstek` (doğru red, bug değil) | kontrollü 400 | GEÇTİ |
+| 10 | Proje UAT denetim betiği | `node scripts/uat_live_audit.mjs` → **6/6 GEÇTİ** (sağlık, CORS, küme, BBox, veri modeli, HTML) | 6/6 | GEÇTİ |
 
-Bu üç bulgu, projenin kendi otomatik UAT betiğinin (`scripts/uat_live_audit.mjs`) TALEP-047 kaydında ürettiği sonuçla birebir örtüşmektedir:
-```
-UAT-02..05: connect ECONNREFUSED 127.0.0.1:3001
-UAT-06: Web arayüzü HTTP 500 döndü
-```
+> **Not:** `GET /api/v1/stations/{slug}/deep-link` ayrı uç noktası çalışan derlemede 404 dönmektedir; ancak detay yanıtı `deep_link` nesnesini zaten gömülü taşıdığından ve istemci (`useStations.fetchStationDeepLink`) hatayı `null` ile tolere ettiğinden kullanıcı akışı kırılmaz — düşük öncelikli uyarı olarak kaydedildi.
 
----
+## 3. HATA (BUG) RAPORU — Engelleyici Bulgular
 
-## 4. Standart UAT Tablosu (Görev Kapsamı Adımları)
+### BUG-01 (KRİTİK): Backend kaynak koddan hiç başlamıyor — `ERR_MODULE_NOT_FOUND`
 
-| Adım | Test | Sonuç |
-|---|---|---|
-| 1 | Canlı web haritasına bağlan | ❌ **BAŞARISIZ** — `/` adresi SSR aşamasında 500 ile çöküyor, harita hiç render edilmiyor. |
-| 2 | Türkiye kümeleme (clustering) dairelerinin sayısı > 0 | 🚫 **TEST EDİLEMEDİ** — API (3001) tamamen erişilemez durumda; kümeleme uç noktasına istek dahi gidemiyor. |
-| 3 | İstanbul kümesine tıkla, zoom 10–12, 500+ istasyon pini | 🚫 **TEST EDİLEMEDİ** — Harita bileşeni yüklenemiyor (bkz. K3). |
-| 4 | Pin tıkla → detay paneli, soket/güç/operatör, "Uygulamayı Aç" deep-link | 🚫 **TEST EDİLEMEDİ** — Aynı kök nedenden dolayı erişilemedi. |
-| 5 | Konsol/ağ hata taraması (`TypeError`, `400 Bad Request`) | ❌ **BUG TESPİT EDİLDİ** — `400` değil ama daha ağır: sunucu tarafında **500** (SSR modül çözümleme hatası) ve API'de **tam kesinti** (bağlantı reddi). Kural gereği görev derhal reddedilir. |
+- **Yeniden üretim:** `./workspace/canli.sh` → `tsx watch src/server.ts` anında çöker:
+  `Cannot find module '.../src/modules/stations/stations.routes.js' imported from src/app.ts`
+- **Kök neden:** `workspace/src/backend/src/app.ts` (HEAD, commit `3ae2e92` — önceki sprintin TALEP-046 "UAT düzeltmesi") var olmayan çoğul dosya adlarını import eder: `stations.routes.js`, `operators.routes.js`, `reports.routes.js`. Diskteki gerçek dosyalar tekil: `station.routes.ts`, `operator.routes.ts`, `report.routes.ts`.
+- **Ek kayıp:** Aynı commit `healthRoutes` ve `gadmRoutes` import + register satırlarını da silmiştir. Dosya adları düzeltilse bile `/api/v1/health/*`, `/api/v1/gadm/*` ve `/api/v1/geo/*` uçları kayıtlı olmayacaktır — `geoSearch.ts`'nin çağırdığı `/geo/search` + `/gadm/search` uçları bunlardır; yani TALEP-049 fix'i kaynak üzerinden **işlevsiz** kalır.
+- **UAT'i mümkün kılan geçici durum:** `workspace/src/backend/dist/server.bundle.cjs` (2026-09-27 derlemesi, regresyondan önceki kod) `PORT=3001` ile ayağa kaldırılarak testler koşuldu. Bayat artefakt; yeni derleme aynı şekilde çökecektir.
+- **Etki:** `localhost:3001` ölü → proxy üzerinden tüm `/api/v1/*` istekleri 000. Üretim derlemesi de aynı hatayla kırılır.
 
----
+### BUG-02 (YÜKSEK): TALEP-049 düzeltmesi commit'lenmemiş
 
-## 5. Kök Neden Analizi (Kod Kanıtlı)
+- `git status`: `geoSearch.ts` ve `tests/talep-049.spec.ts` **untracked (`??`)**; `workspace/docs/musteri_talepleri.md` ise değiştirilmiş ama commit'lenmemiş.
+- **Etki:** Temiz klon / deploy'da `geoSearch.ts` yok → `./geoSearch` import hatası aynen geri döner. Fix yalnızca yerel diskte yaşamaktadır; AGENTS.md'deki Issue → branch → commit → PR akışı tamamlanmamıştır.
 
-### 5.1 Backend tamamen çökmüş — `app.ts` bozuk import yolları
-`workspace/src/backend/src/app.ts` (TALEP-046 kapsamında `backend_engineer` tarafından değiştirilen, henüz commit edilmemiş dosya) şu satırları içeriyor:
-```ts
-import { stationRoutes } from './modules/stations/stations.routes.js';   // ← dosya YOK
-import { operatorRoutes } from './modules/operators/operators.routes.js'; // ← dosya YOK
-import { reportRoutes } from './modules/reports/reports.routes.js';      // ← dosya YOK
-```
-Diskte gerçekte var olan dosyalar **tekil (singular)** adlandırılmıştır: `station.routes.ts`, `operator.routes.ts`, `report.routes.ts` (doğrulandı: `ls workspace/src/backend/src/modules/{stations,operators,reports}/`). Fazladan bir "s" harfi yüzünden Node/tsx modül çözümlemesi anında başarısız oluyor ve Fastify süreci ayağa kalkmadan çöküyor — bu da K1/K2/K4'teki `ECONNREFUSED`'ı doğrudan açıklıyor.
+## 4. Yeniden Kabul İçin Gerekli Aksiyonlar
 
-Ayrıca yeni `app.ts`, önceki (HEAD/committed) sürümde var olan şu kayıtları **kaldırmış**:
-- `healthRoutes` kaydı (→ `/api/v1/health/sources`, `/queue`, `/version`, `/endpoints` artık **404**, dosyalar hâlâ mevcut olsa da hiç bağlanmıyor),
-- `gadmRoutes` kaydı (→ `/api/v1/geocode`, `/search`, il/ilçe uçları **404**),
-- `ensureDatabaseSeeded()` / `ensureRegionTablesSeeded()` başlangıç çağrıları (→ veritabanı tohumlama artık API açılışında tetiklenmiyor).
+1. `src/app.ts` import yolları tekil dosya adlarıyla düzeltilmeli ve kaldırılan `healthRoutes` + `gadmRoutes` (`/api/v1/health`, `/api/v1/gadm`, `/api/v1/geo` alias) register'ları geri eklenmelidir.
+2. `geoSearch.ts` + `tests/talep-049.spec.ts` TALEP-049 branch'inde commit'lenip PR'a bağlanmalıdır (`Closes #80`).
+3. Düzeltme sonrası `tsx watch` ile backend'in 3001'de boot ettiği, ardından §2 tablosunun 10 adımının **dist değil kaynak kodla** yeniden koşulduğu UAT tekrarı zorunludur.
 
-### 5.2 Web arayüzü ayrı ve bağımsız bir nedenle 500 veriyor — eksik `geoSearch` modülü
-`workspace/src/frontend/components/map/SearchInput.vue` satır 7:
-```ts
-import { fetchGadmSearch, type GadmSearchItem } from './geoSearch';
-```
-`components/map/` dizininde `geoSearch.ts`/`.js` dosyası **hiçbir zaman commit edilmemiş** (`git log --all -- "*geoSearch*"` boş sonuç döndürdü). Kaynak: TALEP-045 commit'i (`330447e`, yazar: cihan@oobeya.io) `SearchInput.vue`'ya +152 satır ekleyip bu importu getirmiş ama refere ettiği yeni modülü eklemeyi unutmuş. Bu, ana sayfayı kullanan **her SSR isteğini** 500'e düşürüyor — backend çalışsa bile bağımsız olarak sitenin açılmasını engelleyen ayrı bir kırık commit'tir.
-
-> **Varsayım:** Bu ikinci bulgu TALEP-046'nın görev kapsamı dışında (TALEP-045'in yan etkisi) gibi görünse de, aynı "Etkilenen Ekran / URL: `/`" üzerinde çakıştığı ve TALEP-046'nın "Web arayüzü HTTP 500" şikâyetinin kök nedenlerinden biri olabileceği için raporda açıkça belgelenmiştir; ayrı bir talep (öneri: TALEP-048) olarak da açılmalıdır.
-
----
-
-## 6. Gerekli Düzeltmeler (Geliştiriciye Aksiyon Maddeleri)
-
-1. **(Kritik)** `app.ts` içindeki 3 import yolunu düzelt: `stations.routes.js`→`station.routes.js`, `operators.routes.js`→`operator.routes.js`, `reports.routes.js`→`report.routes.js`.
-2. **(Kritik)** `app.ts`'e kaldırılmış `healthRoutes`, `gadmRoutes` kayıtlarını ve `ensureDatabaseSeeded()` / `ensureRegionTablesSeeded()` başlangıç çağrılarını geri ekle (önceki HEAD sürümüyle karşılaştırmalı `git diff` üzerinden birebir taşınabilir).
-3. **(Kritik)** `components/map/SearchInput.vue` satır 7'deki `./geoSearch` modülünü ya oluştur (muhtemelen `fetchGadmSearch` fonksiyonu `gadm.service.ts` / `/api/v1/search` uç noktasına sarmalayıcı olacak) ya da TALEP-045 öncesi inline arama mantığına geri dön.
-4. Düzeltme sonrası `./canli.sh` veya `basla.sh --canli` ile süreçleri temiz yeniden başlat; stale `tsx watch` süreçleri (PID 40994, 41598) sonlandırılmalı.
-5. Bu üç madde giderilmeden **hiçbir UAT adımı (kümeleme, pin, deep-link) fiilen test edilemez** — önce K1–K3 yeşile dönmeli, sonra tam kapsamlı UAT (Adım 2–5) tekrar koşulmalıdır.
-
----
-
-## 7. Kapanış
-
-TALEP-046'nın "Kabul Kriterleri (DoD)" listesindeki hiçbir madde karşılanmamıştır (`workspace/docs/cozum_planlari/TALEP-046.md` §4): API beklenen yanıtı dönmüyor, tarayıcı/sunucu tarafında hata mevcut, mevcut çalışan rotalar (health, gadm) bozulmuş. Görev durumu `COZULDU` olarak işaretlenemez.
-
-**Karar: REDDEDİLDİ.** Dosya, açık TALEP-047 (Issue #78) çözülüp backend ve web arayüzü canlı olarak 200 döndürene kadar tekrar UAT'a alınmamalıdır.
-```
+> **ÇATIŞMA:** Rolümde dosya yazma yetkisi yoktur; BUG-01'i yerinde giderme müdahalesi yapılmamış, yalnızca doğrulama amaçlı bayat `dist` artefaktı ayrı süreçte çalıştırılmıştır (sistem kalıcı olarak eski haline döndürülebilir durumdadır).

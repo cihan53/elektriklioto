@@ -1,7 +1,7 @@
 # Digital Software Studio — Müşteri Denetim & Talep Havuzu
 
-> **Son Güncelleme:** 2026-09-28 21:56  
-> **Toplam Bildirim:** 48  
+> **Son Güncelleme:** 2026-09-28 22:48  
+> **Toplam Bildirim:** 49  
 
 Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda iletilen istek, hata ve geri bildirimleri içerir.
 
@@ -11,6 +11,7 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 
 | ID | Tür | Öncelik | Durum | Başlık | Ekran / URL | İlgili Rol | GitHub Issue | Plan |
 |---|---|---|---|---|---|---|---|---|
+| **TALEP-049** | Hata / Bug | Yüksek (P2) | 🔨 Geliştiriliyor | Canlı ortam hatası: SearchInput.vue './geoSearch' modülünü bulamıyor, ana ekran açılmıyor | `/` | `data_engineer` | [#80](https://github.com/cihan53/elektriklioto/issues/80) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-049.md) |
 | **TALEP-048** | Hata / Bug | Yüksek (P2) | 🔨 Geliştiriliyor | [UAT] S32-T2 canlı kabul denetimi başarısız: [TALEP-046] Müşteri Kabulü & UAT Doğrulama Denetimi | `/` | `backend_engineer` | [#79](https://github.com/cihan53/elektriklioto/issues/79) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-048.md) |
 | **TALEP-047** | Hata / Bug | Yüksek (P2) | 🔨 Geliştiriliyor | [UAT] S32-T1 canlı kabul denetimi başarısız: [TALEP-046] [UAT] S31-T2 canlı kabul denetimi başarısız: [TALEP-045] Müşteri Kab | `/` | `backend_engineer` | [#78](https://github.com/cihan53/elektriklioto/issues/78) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-047.md) |
 | **TALEP-046** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | [UAT] S31-T2 canlı kabul denetimi başarısız: [TALEP-045] Müşteri Kabulü & UAT Doğrulama Denetimi | `/` | `backend_engineer` | [#77](https://github.com/cihan53/elektriklioto/issues/77) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-046.md) |
@@ -64,6 +65,33 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 
 ## 2. Talep Detayları ve Geri Bildirim Notları
 
+### [TALEP-049] Canlı ortam hatası: SearchInput.vue './geoSearch' modülünü bulamıyor, ana ekran açılmıyor (🔨 Geliştiriliyor)
+- **Bildirim Tarihi:** 2026-09-28 22:40
+- **Tür / Öncelik:** Hata / Bug / Yüksek (P2)
+- **İlgili Ekran / Sayfa:** `/`
+- **Görevli Rol:** `data_engineer`
+- 🐙 **GitHub Issue:** [#80](https://github.com/cihan53/elektriklioto/issues/80)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Canlı ortamda ana ekran (harita/istasyon arama) açılmıyor ve şu hata alınıyor:
+
+"Cannot find module './geoSearch' imported from '/Users/cihan/PROJECT/elektriklioto-gemini/workspace/src/frontend/components/map/SearchInput.vue'"
+
+Müşteri acil çözüm talep ediyor; canlı ortam kullanılamaz durumda (production down).
+
+Beklenen: Ana ekran ve harita üzerindeki istasyon arama kutusu hatasız yüklenmeli.
+Mevcut durum: SearchInput.vue içinde './geoSearch' import'u çözümlenemiyor, bileşen/sayfa yüklenemiyor.
+
+İlgili not: TALEP-045 (haritada ilçe arama sonuçlarında bazı ilçelerin görünmemesi) kapsamındaki arama değişiklikleriyle ilişkili olabilir; geoSearch modülünün eksik/yanlış yolda olması veya yayına çıkmamış olması ihtimali kontrol edilmeli. Gerekirse ilgili değişikliğin geri alınarak canlının hızlıca ayağa kaldırılması değerlendirilmeli.
+
+Öncelik: Canlı ortam kesintisi olduğu için en yüksek öncelikle ve sıradaki iş olarak ele alınması isteniyor.
+
+**Studio Yetkilisi Notu:**
+> Sprint S34 panosuna eklendi (S34-T1 ve S34-T2). Görevli rol: data_engineer. Geliştirme başladı.
+
+- 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-049.md](workspace/docs/cozum_planlari/TALEP-049.md)
+
+---
 ### [TALEP-048] [UAT] S32-T2 canlı kabul denetimi başarısız: [TALEP-046] Müşteri Kabulü & UAT Doğrulama Denetimi (🔨 Geliştiriliyor)
 - **Bildirim Tarihi:** 2026-09-28 21:55
 - **Tür / Öncelik:** Hata / Bug / Yüksek (P2)
