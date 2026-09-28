@@ -48,12 +48,23 @@ const selectedOperatorName = computed(() => {
   return found ? found.name : 'Operatör (1)';
 });
 
+// TALEP-041: "Tüm Operatörler" menüsü istasyon sayısına göre çoktan aza sıralanır;
+// istasyon sayısı eşit olan markalar Türkçe alfabetik sırayla listelenir.
+const sortedOperators = computed(() => {
+  return [...operators.value].sort((a, b) => {
+    const countA = a.station_count ?? 0;
+    const countB = b.station_count ?? 0;
+    if (countB !== countA) return countB - countA;
+    return (a.name || '').localeCompare(b.name || '', 'tr');
+  });
+});
+
 const filteredOperators = computed(() => {
   if (!operatorSearchQuery.value.trim()) {
-    return operators.value;
+    return sortedOperators.value;
   }
   const q = operatorSearchQuery.value.toLocaleLowerCase('tr').trim();
-  return operators.value.filter(op =>
+  return sortedOperators.value.filter(op =>
     op.name.toLocaleLowerCase('tr').includes(q) ||
     op.slug.toLowerCase().includes(q)
   );
@@ -131,7 +142,7 @@ const totalStationCount = computed(() => {
           </button>
         </div>
 
-        <!-- Kaydırılabilir Operatör Listesi (TALEP-024) -->
+        <!-- Kaydırılabilir Operatör Listesi (TALEP-024) / İstasyon sayısına göre sıralı (TALEP-041) -->
         <div class="overflow-y-auto p-2 space-y-1 flex-1 max-h-64">
           <button
             v-for="op in filteredOperators"
