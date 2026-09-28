@@ -43,7 +43,7 @@ Son çıktı satırları:
 
 **Devin Analizi:**
 
-Önce canlı durumu hızlıca doğrulayayım — port 3001 ve 3000 şu anda ne durumda.
+Önce denetim scripti ve canlı ortam başlatıcısını hızlıca doğrulayayım.
 
 **İlgili Dosyalar & Modüller:**
    - `workspace/src/backend/src/modules/`
