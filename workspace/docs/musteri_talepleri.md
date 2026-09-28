@@ -1,7 +1,7 @@
 # Digital Software Studio — Müşteri Denetim & Talep Havuzu
 
-> **Son Güncelleme:** 2026-09-28 23:04  
-> **Toplam Bildirim:** 50  
+> **Son Güncelleme:** 2026-09-28 23:23  
+> **Toplam Bildirim:** 51  
 
 Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda iletilen istek, hata ve geri bildirimleri içerir.
 
@@ -11,6 +11,7 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 
 | ID | Tür | Öncelik | Durum | Başlık | Ekran / URL | İlgili Rol | GitHub Issue | Plan |
 |---|---|---|---|---|---|---|---|---|
+| **TALEP-051** | Hata / Bug | Yüksek (P2) | ⏳ Beklemede | [UAT] S35-T2 canlı kabul denetimi başarısız: [TALEP-050] Müşteri Kabulü & UAT Doğrulama Denetimi | `/` | `None` | [#82](https://github.com/cihan53/elektriklioto/issues/82) | — |
 | **TALEP-050** | Hata / Bug | Yüksek (P2) | ⏳ Beklemede | TALEP-032'nin acil olarak yeniden devreye alınması | `/` | `None` | [#81](https://github.com/cihan53/elektriklioto/issues/81) | — |
 | **TALEP-049** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | Canlı ortam hatası: SearchInput.vue './geoSearch' modülünü bulamıyor, ana ekran açılmıyor | `/` | `data_engineer` | [#80](https://github.com/cihan53/elektriklioto/issues/80) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-049.md) |
 | **TALEP-048** | Hata / Bug | Yüksek (P2) | 🔨 Geliştiriliyor | [UAT] S32-T2 canlı kabul denetimi başarısız: [TALEP-046] Müşteri Kabulü & UAT Doğrulama Denetimi | `/` | `backend_engineer` | [#79](https://github.com/cihan53/elektriklioto/issues/79) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-048.md) |
@@ -66,6 +67,34 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 
 ## 2. Talep Detayları ve Geri Bildirim Notları
 
+### [TALEP-051] [UAT] S35-T2 canlı kabul denetimi başarısız: [TALEP-050] Müşteri Kabulü & UAT Doğrulama Denetimi (⏳ Beklemede)
+- **Bildirim Tarihi:** 2026-09-28 23:23
+- **Tür / Öncelik:** Hata / Bug / Yüksek (P2)
+- **İlgili Ekran / Sayfa:** `/`
+- **Görevli Rol:** `None`
+- 🐙 **GitHub Issue:** [#82](https://github.com/cihan53/elektriklioto/issues/82)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Deterministik kalite kapısı 'S35-T2' görevinde canlı kabul denetimi başarısızlığı tespit etti.
+
+Son çıktı satırları:
+```
+2: Web istemcisi için CORS ve CORP başlık uyumu ... [31m✗ BAŞARISIZ[0m
+         [31mHata: İstek zaman aşımına uğradı (5000ms)[0m
+  [TEST] UAT-03: Zoom 6 Türkiye genelinde 81 ilin kümeleme verisi (Clusters) ... [31m✗ BAŞARISIZ[0m
+         [31mHata: İstek zaman aşımına uğradı (5000ms)[0m
+  [TEST] UAT-04: Zoom 11 İstanbul geniş ekran BBox sorgusu (1.06° boylam, 600+ pin) ... [31m✗ BAŞARISIZ[0m
+         [31mHata: İstek zaman aşımına uğradı (5000ms)[0m
+  [TEST] UAT-05: API uç noktası canlılık ve veri modeli doğrulaması ... [31m✗ BAŞARISIZ[0m
+         [31mHata: İstek zaman aşımına uğradı (5000ms)[0m
+  [TEST] UAT-06: Web arayüzü canlı HTML sunumu (Port 3000) ... [31m✗ BAŞARISIZ[0m
+         [31mHata: Web arayüzü HTTP 500 döndü[0m
+
+----------------------------------------------------------------------
+[31m⚠️  UAT TESTLERİNDE 6 HATA TESPİT EDİLDİ! (0 Başarılı, 6 Başarısız)[0m
+```
+
+---
 ### [TALEP-050] TALEP-032'nin acil olarak yeniden devreye alınması (⏳ Beklemede)
 - **Bildirim Tarihi:** 2026-09-28 23:04
 - **Tür / Öncelik:** Hata / Bug / Yüksek (P2)

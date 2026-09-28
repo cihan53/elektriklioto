@@ -191,3 +191,24 @@
 ## [S34-T2] — 2026-09-28 22:57
 
 - fix görevi tamamlandı ama değişen dosyalarda test yok (regresyon testi eksik) — dosyalar: workspace/docs/uat_kabul_raporu.md
+
+## [S35-T2] — 2026-09-28 23:23
+
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-049] → Backend üç kırık import yüzünden hiç ayağa kalkmıyor. Üretimde kullanılan alternatif giriş noktalarını kontrol
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-049] → > **Sprint / Görev:** S34 — Müşteri Denetimi & Saha Onarımları · [TALEP-049] Müşteri Kabulü & UAT Doğrulama De
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-049] → ## VERDICT: REDDEDİLDİ — TALEP-049 KAPANAMAZ
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-049] → ## 1. Talebin Doğrulanması (TALEP-049 Belirtisi)
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [talep-049] → | Geliştirici testi (bilgi amaçlı) | `tests/talep-049.spec.ts` — 8/8 vitest geçti (izole test, UAT kanıtı sayı
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-049] → | 7 | Geo arama (TALEP-049 modülünün canlı hedefi) | `GET /api/v1/geo/search?q=esenler` → Esenler, İstanbul (k
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [BUG-01] → ### BUG-01 (KRİTİK): Backend kaynak koddan hiç başlamıyor — `ERR_MODULE_NOT_FOUND`
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-046] → - **Kök neden:** `workspace/src/backend/src/app.ts` (HEAD, commit `3ae2e92` — önceki sprintin TALEP-046 "UAT d
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-049] → - **Ek kayıp:** Aynı commit `healthRoutes` ve `gadmRoutes` import + register satırlarını da silmiştir. Dosya a
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [regresyon] → - **UAT'i mümkün kılan geçici durum:** `workspace/src/backend/dist/server.bundle.cjs` (2026-09-27 derlemesi, r
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [BUG-02] → ### BUG-02 (YÜKSEK): TALEP-049 düzeltmesi commit'lenmemiş
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [talep-049] → - `git status`: `geoSearch.ts` ve `tests/talep-049.spec.ts` **untracked (`??`)**; `workspace/docs/musteri_tale
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [talep-049] → 2. `geoSearch.ts` + `tests/talep-049.spec.ts` TALEP-049 branch'inde commit'lenip PR'a bağlanmalıdır (`Closes #
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [BUG-01] → > **ÇATIŞMA:** Rolümde dosya yazma yetkisi yoktur; BUG-01'i yerinde giderme müdahalesi yapılmamış, yalnızca do
+
+## [S35-T2] — 2026-09-28 23:23
+
+- fix görevi tamamlandı ama değişen dosyalarda test yok (regresyon testi eksik) — dosyalar: workspace/docs/musteri_talepleri.md, workspace/docs/uat_kabul_raporu.md, workspace/docs/cozum_planlari/TALEP-051.md

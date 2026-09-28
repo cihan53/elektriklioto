@@ -1,64 +1,64 @@
-Backend üç kırık import yüzünden hiç ayağa kalkmıyor. Üretimde kullanılan alternatif giriş noktalarını kontrol ediyorum.Backend eski derleme (dist) ile ayağa kalktı, proxy 200. Şimdi UAT adımlarını icra ediyorum.Kümeler ve pin verisi akıyor. Detay/deep-link/geo-search uçlarını ve mevcut UAT denetim betiğini kontrol ediyorum.# UAT Kabul Raporu — [TALEP-049] Canlı ortam hatası: SearchInput.vue './geoSearch' modülünü bulamıyor
+Critical finding already visible: port 3000 returns HTTP 500 with `Cannot find module '~/composables/useClickOutside'` — the TALEP-050 fix references a missing composable. And port 3001 is serving a Nuxt instance (not Fastify). Let me verify the details.The previous sprint's UAT report format is clear. Let me verify the backend boot state — whether BUG-01 (plural route imports) persists at HEAD.# UAT Kabul Raporu — [TALEP-050] TALEP-032'nin acil olarak yeniden devreye alınması
 
 > **Belge:** `workspace/docs/uat_kabul_raporu.md`
-> **Sprint / Görev:** S34 — Müşteri Denetimi & Saha Onarımları · [TALEP-049] Müşteri Kabulü & UAT Doğrulama Denetimi
+> **Sprint / Görev:** S35 — Müşteri Denetimi & Saha Onarımları · [TALEP-050] Müşteri Kabulü & UAT Doğrulama Denetimi
 > **Denetim Tarihi:** 2026-09-28 · **Denetleyen Rol:** UAT / Canlı Kullanıcı Denetimi
-> **Ortam:** `localhost:3000` (Nuxt dev) + `localhost:3001` (Fastify API)
+> **Ortam:** `localhost:3000` (Nuxt dev) + `localhost:3001` (Fastify API bekleniyor)
 
-## VERDICT: REDDEDİLDİ — TALEP-049 KAPANAMAZ
+## VERDICT: REDDEDİLDİ — TALEP-050 KAPANAMAZ
 
-Müşterinin bildirdiği belirti (ana ekranın `./geoSearch` modül hatasıyla kilitlenmesi) çalışan sistemde **çözülmüştür**; ancak teslimat kaynak koddan yeniden üretilemez durumdadır ve denetim sırasında **backend'in kaynaktan hiç ayağa kalkamadığı yeni bir kritik hata** yakalanmıştır. Görev, aşağıdaki iki engel giderilip yeniden UAT koşulana dek reddedilir.
+TALEP-050 için teslim edilen düzeltme (TALEP-032 reaktivasyonu: "Tüm Operatörler" menüsünün dış alana tıklandığında kapanması) çalışan sistemde **doğrulanamadı**; üstelik düzeltmenin kendisi ana harita sayfasını **HTTP 500 ile çökerten** kritik bir hataya ve daha geniş bir sistem kesintisine yol açmıştır. Görev reddedilir; §4 aksiyonları tamamlanıp yeniden UAT koşulmalıdır.
 
 ---
 
-## 1. Talebin Doğrulanması (TALEP-049 Belirtisi)
+## 1. Talebin Doğrulanması (TALEP-050 / TALEP-032 Belirtisi)
 
 | Adım | Kanıt | Sonuç |
 |---|---|---|
-| Hata yeniden üretildi | Yeniden başlatma öncesi `GET /` → HTTP 500, gövdede `Cannot find module './geoSearch' imported from '.../components/map/SearchInput.vue'` | Belirti doğrulandı |
-| Düzeltme mevcut | `workspace/src/frontend/components/map/geoSearch.ts` diskte mevcut; `fetchGadmSearch` `/geo/search` ve `/gadm/search` uçlarını sırayla dener, 4 sn timeout + sessiz fallback içerir | Fix uygulanmış |
-| Canlı doğrulama | Ortam yeniden başlatıldıktan sonra `GET /` → HTTP 200; SSR HTML'de `TypeError` / `Cannot find module` / `Server Error` eşleşmesi **0** | Belirti giderildi |
-| Geliştirici testi (bilgi amaçlı) | `tests/talep-049.spec.ts` — 8/8 vitest geçti (izole test, UAT kanıtı sayılmadı) | Geçti |
+| Talep kapsamı | TALEP-032 ("Operatör menüsü dış tıklamada kapanmıyor", durumu "İptal Edildi" idi) TALEP-050 ile reaktive edildi | Bağlam doğrulandı |
+| Düzeltme mevcut mu | `FilterChips.vue` satır 5 `import { useClickOutside } from '~/composables/useClickOutside'` + satır 45 `useClickOutside(operatorMenuRoot, ...)` çağrısı, commit `1931a92` ile eklendi | Fix kodda görünüyor |
+| Düzeltme çalışıyor mu | `GET http://127.0.0.1:3000/` → **HTTP 500**; gövde: `Cannot find module '~/composables/useClickOutside' imported from '.../components/map/FilterChips.vue'` | **Belirti doğrulanamadı — fix sistemi kırdı** |
 
-> **Varsayım:** Eski Nuxt süreci (PID 5034, 22:31'de başlatılmış) `geoSearch.ts`'nin 22:52'de oluşturulmasından önce kaldığı için vite-node modül çözümleme hatasını önbelleğe almıştı; düzeltmenin canlıya yansıması için servis yeniden başlatma gerektirdi. Bu, "fix + restart" bağımlılığı olarak rapora işlenmiştir.
+> **Varsayım:** `useClickOutside` composable dosyası geliştirici makinesinde yazıldı ancak `git add` ile commit'e girmedi; `1931a92` failover-deploy commit'i yalnızca `FilterChips.vue` değişikliğini taşıyor (`git log -S useClickOutside` → tek eşleşme bu commit; `composables/` dizininde dosya yok, git geçmişinde de hiç yaratılmamış).
 
 ## 2. Gerçek Kullanıcı Yolculuğu — Canlı Doğrulama Tablosu
 
 | # | UAT Adımı | Ölçüm | Beklenen | Sonuç |
 |---|---|---|---|---|
-| 1 | Web haritasına bağlan (`GET /`) | HTTP 200, hatasız SSR | 200 | GEÇTİ |
-| 2 | Türkiye geneli kümeleme (`bbox=25.5,35.5,45.0,42.5&zoom=6`) | `{"type":"clusters","count":81}` — İstanbul kümesi 4.525, Ankara 2.174, Antalya 982 istasyon | küme > 0 | GEÇTİ |
-| 3 | Büyükşehir kümesi → zoom 11 İstanbul bbox | `{"type":"stations","count":2000}` tekil pin | 500+ pin | GEÇTİ |
-| 4 | Pin → istasyon detayı (`GET /stations/trugo-tsyd-istanbul`) | 200; `name=TSYD`, `istasyon_no=ŞRJ/10313`, `operator=Trugo`, `connector_types=["CCS2"]`, `power_kw=180` | doğru veri | GEÇTİ |
-| 5 | Derin bağlantı verisi | Detay gövdesinde `deep_link: "trugo://charge?station=10313"`, `clipboard_fallback:false` | şema üretimi | GEÇTİ |
-| 6 | İstasyon detay sayfası SSR (`/trugo/trugo-tsyd-istanbul`) | HTTP 200 | 200 | GEÇTİ |
-| 7 | Geo arama (TALEP-049 modülünün canlı hedefi) | `GET /api/v1/geo/search?q=esenler` → Esenler, İstanbul (koordinat+bbox); proxy üzerinden `:3000` da aynı | sonuç döner | GEÇTİ |
-| 8 | Operatör sözlüğü | `GET /api/v1/operators` → 180 kayıt | > 0 | GEÇTİ |
-| 9 | Hatalı istek davranışı | `bbox=abc,...` → RFC 7807 `400 Geçersiz İstek` (doğru red, bug değil) | kontrollü 400 | GEÇTİ |
-| 10 | Proje UAT denetim betiği | `node scripts/uat_live_audit.mjs` → **6/6 GEÇTİ** (sağlık, CORS, küme, BBox, veri modeli, HTML) | 6/6 | GEÇTİ |
+| 1 | Web haritasına bağlan (`GET /` @3000) | HTTP 500 — `Cannot find module '~/composables/useClickOutside'` (SSR modül çözümleme çökmesi) | 200 | **BAŞARISIZ (Kritik)** |
+| 2 | Türkiye geneli kümeleme (`GET /api/v1/stations?bbox=...&zoom=6` @3001) | İstek 5 sn sonra zaman aşımı (HTTP 000) | `type:"clusters"`, count > 0 | **BAŞARISIZ — backend ölü** |
+| 3 | İstanbul kümesi → zoom 11 pin kontrolü | API'ye hiç ulaşılamadı | 500+ tekil pin | ÖLÇÜLEMEDİ |
+| 4 | Pin → istasyon detay paneli (soket/güç/operatör) | Ana sayfa 500; API 000 | Panel + doğru veri | ÖLÇÜLEMEDİ |
+| 5 | "Operatörde Aç / Derin Bağlantı" butonu | Ana sayfa 500; API 000 | Deep-link veya clipboard fallback | ÖLÇÜLEMEDİ |
+| 6 | Proje UAT denetim betiği | `node scripts/uat_live_audit.mjs` → **0/6 GEÇTİ** (sağlık, CORS, küme, BBox, veri modeli, HTML — hepsi timeout/500) | 6/6 | **BAŞARISIZ** |
+| 7 | Proxy eşliği (`GET :3000/api/v1/operators`) | Zaman aşımı (HTTP 000, 5 sn) | 200 liste | **BAŞARISIZ** |
 
-> **Not:** `GET /api/v1/stations/{slug}/deep-link` ayrı uç noktası çalışan derlemede 404 dönmektedir; ancak detay yanıtı `deep_link` nesnesini zaten gömülü taşıdığından ve istemci (`useStations.fetchStationDeepLink`) hatayı `null` ile tolere ettiğinden kullanıcı akışı kırılmaz — düşük öncelikli uyarı olarak kaydedildi.
+> **Not:** Harita dışı sayfalar (örn. `/{operator}` SSR — `GET /health` operatör sayfası 200 döndü) render edilebiliyor; kırılma yalnızca `FilterChips.vue`'yu içe aktaran `/` harita sayfasında. Ancak görevin kapsamı tam olarak bu sayfadır.
 
 ## 3. HATA (BUG) RAPORU — Engelleyici Bulgular
 
-### BUG-01 (KRİTİK): Backend kaynak koddan hiç başlamıyor — `ERR_MODULE_NOT_FOUND`
+### BUG-01 (KRİTİK — bloklayıcı): `useClickOutside` composable'ı hiç var olmadı — ana sayfa 500
 
-- **Yeniden üretim:** `./workspace/canli.sh` → `tsx watch src/server.ts` anında çöker:
-  `Cannot find module '.../src/modules/stations/stations.routes.js' imported from src/app.ts`
-- **Kök neden:** `workspace/src/backend/src/app.ts` (HEAD, commit `3ae2e92` — önceki sprintin TALEP-046 "UAT düzeltmesi") var olmayan çoğul dosya adlarını import eder: `stations.routes.js`, `operators.routes.js`, `reports.routes.js`. Diskteki gerçek dosyalar tekil: `station.routes.ts`, `operator.routes.ts`, `report.routes.ts`.
-- **Ek kayıp:** Aynı commit `healthRoutes` ve `gadmRoutes` import + register satırlarını da silmiştir. Dosya adları düzeltilse bile `/api/v1/health/*`, `/api/v1/gadm/*` ve `/api/v1/geo/*` uçları kayıtlı olmayacaktır — `geoSearch.ts`'nin çağırdığı `/geo/search` + `/gadm/search` uçları bunlardır; yani TALEP-049 fix'i kaynak üzerinden **işlevsiz** kalır.
-- **UAT'i mümkün kılan geçici durum:** `workspace/src/backend/dist/server.bundle.cjs` (2026-09-27 derlemesi, regresyondan önceki kod) `PORT=3001` ile ayağa kaldırılarak testler koşuldu. Bayat artefakt; yeni derleme aynı şekilde çökecektir.
-- **Etki:** `localhost:3001` ölü → proxy üzerinden tüm `/api/v1/*` istekleri 000. Üretim derlemesi de aynı hatayla kırılır.
+- **Yeniden üretim:** `curl http://127.0.0.1:3000/` → HTTP 500; Nuxt/Vite hata gövdesinde eksik modül açıkça raporlanıyor.
+- **Kök neden:** Commit `1931a92` (failover-deploy, 2026-09-28 23:14) `FilterChips.vue`'ya `import { useClickOutside } from '~/composables/useClickOutside'` ekledi; `workspace/src/frontend/composables/` altında `useClickOutside.ts` **diskte ve git geçmişinde mevcut değil** (mevcut: useChangelog, useOperators, useProximityProof, useSourceHealth, useStations, useTheme, useToast, useUserLocation, useVersionCheck).
+- **Etki:** Ana harita ekranı (`/`) ve FilterChips içeren her görünüm SSR'da çöker. Müşterinin talep ettiği özellik (menü dış tıklama) çalışamaz haldedir; kullanıcı hiçbir sayfa göremez.
+- **Gereken:** `useClickOutside.ts` composable'ının yazılıp commit'lenmesi (document capture-fazı click/touch dinleyicisi + Escape + unmount'ta temizlik — plan §2.A'daki `stopPropagation`/memory-leak riskleri karşılanmalı).
 
-### BUG-02 (YÜKSEK): TALEP-049 düzeltmesi commit'lenmemiş
+### BUG-02 (KRİTİK — S34 BUG-01'i regresyonu sürüyor): Backend kaynak koddan ayağa kalkmıyor
 
-- `git status`: `geoSearch.ts` ve `tests/talep-049.spec.ts` **untracked (`??`)**; `workspace/docs/musteri_talepleri.md` ise değiştirilmiş ama commit'lenmemiş.
-- **Etki:** Temiz klon / deploy'da `geoSearch.ts` yok → `./geoSearch` import hatası aynen geri döner. Fix yalnızca yerel diskte yaşamaktadır; AGENTS.md'deki Issue → branch → commit → PR akışı tamamlanmamıştır.
+- **Yeniden üretim:** `tsx` modül çözümleme testi → `APP_FAIL Cannot find module '.../modules/stations/stations.routes.js' imported from src/app.ts`.
+- **Kök neden:** `workspace/src/backend/src/app.ts` satır 11-13 çoğul adlarla import ediyor (`stations.routes.js`, `operators.routes.js`, `reports.routes.js`); diskteki dosyalar tekil (`station.routes.ts`, `operator.routes.ts`, `report.routes.ts`). Ayrıca `healthRoutes` ve `gadmRoutes` register'ları HEAD'de yok — `/api/v1/health/*`, `/api/v1/gadm/*`, `/api/v1/geo/*` uçları kayıtlı değil.
+- **Etki:** `npm run dev` (`tsx watch`) anında çöker; `npm run build` aynı yolla kırılır. `tsx watch` süpervizörü (PID 41598, Cumartesi'den beri) çalışır görünüyor ama hiçbir porta bağlanmıyor — "çalışıyor sanılan ölü süreç" yanılsaması.
+
+### BUG-03 (YÜKSEK — ortam): Port 3001'i ölü bir Nuxt süreci işgal ediyor; `/api/v1` kendine proxy'lenip asılıyor
+
+- **Kanıt:** `lsof` → 3001 portu `node` PID 39536 (`nuxt dev`) tarafından dinleniyor — Fastify değil. Bu kopyanın `nitro.devProxy` hedefi `http://127.0.0.1:3001/api/v1`; yani `/api/v1/*` istekleri kendine döner, sonsuz bekler (5 sn timeout → 000).
+- **Etki:** Backend düzeltilse bile mevcut oturumda portu alamaz; frontend'in proxy'si hayalet uca bakar. `canli.sh` portları temizlediği için kalıcı değil, ancak denetim anında canlı API tamamen ulaşılamazdı.
 
 ## 4. Yeniden Kabul İçin Gerekli Aksiyonlar
 
-1. `src/app.ts` import yolları tekil dosya adlarıyla düzeltilmeli ve kaldırılan `healthRoutes` + `gadmRoutes` (`/api/v1/health`, `/api/v1/gadm`, `/api/v1/geo` alias) register'ları geri eklenmelidir.
-2. `geoSearch.ts` + `tests/talep-049.spec.ts` TALEP-049 branch'inde commit'lenip PR'a bağlanmalıdır (`Closes #80`).
-3. Düzeltme sonrası `tsx watch` ile backend'in 3001'de boot ettiği, ardından §2 tablosunun 10 adımının **dist değil kaynak kodla** yeniden koşulduğu UAT tekrarı zorunludur.
+1. `workspace/src/frontend/composables/useClickOutside.ts` yazılıp commit'lenmeli; ardından `GET /` 200 ve menü dış-tıklama/Escape senaryosu canlıda doğrulanmalı (TALEP-032 kabul ölçütü).
+2. `src/app.ts` import yolları tekil dosya adlarına düzeltilmeli; `healthRoutes` + `gadmRoutes` register'ları geri eklenmeli (S34 BUG-01 kapanışı).
+3. Backend `npm run dev` ile 3001'de gerçekten dinlediği kanıtlandıktan sonra §2 tablosunun tüm adımları (küme > 0, zoom 11'de pinler, detay paneli, deep-link/clipboard, `uat_live_audit.mjs` 6/6) yeniden koşulmalıdır.
 
-> **ÇATIŞMA:** Rolümde dosya yazma yetkisi yoktur; BUG-01'i yerinde giderme müdahalesi yapılmamış, yalnızca doğrulama amaçlı bayat `dist` artefaktı ayrı süreçte çalıştırılmıştır (sistem kalıcı olarak eski haline döndürülebilir durumdadır).
+> **ÇATIŞMA:** Rolümde dosya yazma yetkisi yoktur; eksik composable ve backend import hatalarını yerinde giderme müdahalesi yapılmamıştır. Tespitler yalnızca okuma ve canlı ağ isteğiyle belgelenmiştir.
