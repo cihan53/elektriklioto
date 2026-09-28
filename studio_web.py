@@ -94,7 +94,14 @@ def durum_ozeti() -> dict:
         "studio_guncelleme": None,
         "motor_oneri": None,
         "motor_override": [],
+        "onay_bekliyor": None,
     }
+    try:
+        ob = B.value_of("onay_bekliyor")
+        if ob:
+            out["onay_bekliyor"] = json.loads(ob)
+    except Exception:
+        pass
     try:
         out["motor_oneri"] = B.motor_oneri_oku()
         out["motor_override"] = B.motor_list()
@@ -192,13 +199,45 @@ def kontrol(body: dict) -> dict:
         return {"ok": ok, "mesaj": msg}
     if aks in ("atla", "gec"):
         tid = (body.get("gorev") or "").strip()
+        board = B.load()
         if not tid:
-            board = B.load()
             _, run = B.find_running(board)
             _, nxt = B.next_ready(board)
             tid = (run or nxt or {}).get("id") if (run or nxt) else None
         if not tid:
             return {"ok": False, "mesaj": "Hedef görev bulunamadı."}
+
+        # Sprint id verildiyse (örn. "S33") toplu işlem uygula
+        spr = next((s for s in board.get("sprints", [])
+                    if s.get("id") == tid), None)
+        if spr is not None:
+            acik = [t for t in spr.get("tasks", [])
+                    if t.get("status") not in B.TERMINAL]
+            if not acik:
+                return {"ok": False, "mesaj": f"{tid} zaten tamamen kapalı."}
+            if aks == "atla":
+                sys.path.insert(0, str(ROOT / "scripts"))
+                import musteri_talepleri as MT
+                for t in acik:
+                    if t["status"] == B.RUNNING:
+                        B.request("skip", t["id"], kaynak="web")
+                    else:
+                        t["status"] = B.SKIPPED
+                        t["note"] = "kullanıcı sprinti atladı"
+                        if t.get("talep_id"):
+                            MT.talep_beklemeye_al(t["talep_id"], t["id"])
+                B.refresh(board)
+                B.save(board)
+                if body.get("force"):
+                    B.request("force", kaynak="web")
+                B.audit("web", "sprint_atla",
+                        detay={"sprint": tid, "adet": len(acik)})
+                ek = " (çağrı anında kesiliyor)" if body.get("force") else ""
+                return {"ok": True,
+                        "mesaj": f"{tid}: {len(acik)} görev atlandı{ek}."}
+            # gec: sprintin ilk açık görevini hedefle
+            tid = acik[0]["id"]
+
         flag = "skip" if aks == "atla" else "goto"
         B.request(flag, tid, kaynak="web")
         if body.get("force"):
@@ -251,11 +290,76 @@ def kontrol(body: dict) -> dict:
                    if pano.get("kosan") else "")
             return {"ok": True, "mesaj": f"{tid} iptal edildi.{ek}"}
         return {"ok": False, "mesaj": f"{tid} bulunamadı veya zaten kapalı."}
+    if aks == "talep_onayla":
+        # DEGERLENDIRMEDE/FAZ_BEKLIYOR/IPTAL talebi aktif faz kapsamında
+        # PLANLANDI'ya çeker; bir sonraki pano senkronunda sprint görevi
+        # olarak eklenir. IPTAL → yeniden devreye alma anlamı taşır.
+        tid = (body.get("talep_id") or "").strip()
+        try:
+            import musteri_talepleri as MT
+            t = MT.getir(tid)
+            if not t:
+                return {"ok": False, "mesaj": f"{tid} bulunamadı."}
+            eski = t.get("durum")
+            if eski not in ("DEGERLENDIRMEDE", "FAZ_BEKLIYOR",
+                            "BEKLEMEDE", "IPTAL"):
+                return {"ok": False,
+                        "mesaj": f"{tid} zaten {eski} durumda."}
+            try:
+                sys.path.insert(0, str(ROOT / "scripts"))
+                import karar_verici_triage as KVT
+                faz = KVT.aktif_faz_getir().get("id", "FAZ-1")
+            except Exception:
+                faz = "FAZ-1"
+            MT.guncelle(
+                tid, durum="PLANLANDI",
+                studio_notu=("Panelden yeniden devreye alındı" if eski == "IPTAL"
+                             else "Panelden sprint onayı verildi")
+                + f" ({faz}).")
+            B.request("reload", kaynak="web")
+            B.audit("web", "talep_onay", talep_id=tid,
+                    detay={"faz": faz, "onceki_durum": eski})
+            ek = "yeniden devreye alındı" if eski == "IPTAL" else "sprint onayı alındı"
+            return {"ok": True,
+                    "mesaj": f"{tid} {ek} ({faz}); sonraki boş turda panoya eklenecek."}
+        except Exception as e:
+            return {"ok": False, "mesaj": f"Talep modülü: {e}"}
+    if aks == "talep_cozum":
+        # ONAY_BEKLIYOR talebi için müşteri kararı:
+        #   sonuc=onayla → COZULDU (GitHub issue otomatik kapanır)
+        #   sonuc=reddet → BEKLEMEDE (kuyruğa geri döner, yeniden sprinte girer)
+        tid = (body.get("talep_id") or "").strip()
+        sonuc = (body.get("sonuc") or "").strip()
+        try:
+            sys.path.insert(0, str(ROOT / "scripts"))
+            import musteri_talepleri as MT
+            t = MT.getir(tid)
+            if not t:
+                return {"ok": False, "mesaj": f"{tid} bulunamadı."}
+            if t.get("durum") != "ONAY_BEKLIYOR":
+                return {"ok": False,
+                        "mesaj": f"{tid} onay beklemiyor ({t.get('durum')})."}
+            if sonuc == "onayla":
+                MT.guncelle(tid, durum="COZULDU",
+                            studio_notu="Müşteri onayı ile kapatıldı.")
+                B.request("reload", kaynak="web")
+                B.audit("web", "talep_cozum_onay", talep_id=tid)
+                return {"ok": True, "mesaj": f"{tid} çözüldü olarak kapatıldı."}
+            if sonuc == "reddet":
+                MT.guncelle(tid, durum="BEKLEMEDE",
+                            studio_notu="Müşteri: sorun devam ediyor — talep kuyruğa geri alındı.")
+                B.request("reload", kaynak="web")
+                B.audit("web", "talep_cozum_red", talep_id=tid)
+                return {"ok": True, "mesaj": f"{tid} tekrar kuyruğa alındı."}
+            return {"ok": False, "mesaj": "sonuc 'onayla' veya 'reddet' olmalı."}
+        except Exception as e:
+            return {"ok": False, "mesaj": f"Talep modülü: {e}"}
     if aks == "onayla":
         g = body.get("gorev_kota")
         b = body.get("butce")
         d = B.ledger_approve(gorev=int(g) if g else None,
                              butce=float(b) if b else None)
+        B.clear("onay_bekliyor")
         return {"ok": True,
                 "mesaj": f"Ek kota tanındı: {d['gorev']} görev, ${d['maliyet']:.2f} harcandı."}
     return {"ok": False, "mesaj": f"Bilinmeyen aksiyon: {aks}"}
