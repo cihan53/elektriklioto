@@ -1,7 +1,7 @@
 # Digital Software Studio — Müşteri Denetim & Talep Havuzu
 
-> **Son Güncelleme:** 2026-09-28 21:05  
-> **Toplam Bildirim:** 45  
+> **Son Güncelleme:** 2026-09-28 21:34  
+> **Toplam Bildirim:** 46  
 
 Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda iletilen istek, hata ve geri bildirimleri içerir.
 
@@ -11,8 +11,9 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 
 | ID | Tür | Öncelik | Durum | Başlık | Ekran / URL | İlgili Rol | GitHub Issue | Plan |
 |---|---|---|---|---|---|---|---|---|
+| **TALEP-046** | Hata / Bug | Yüksek (P2) | ⏳ Beklemede | [UAT] S31-T2 canlı kabul denetimi başarısız: [TALEP-045] Müşteri Kabulü & UAT Doğrulama Denetimi | `/` | `None` | [#77](https://github.com/cihan53/elektriklioto/issues/77) | — |
 | **TALEP-045** | Hata / Bug | Normal (P3) | 🔨 Geliştiriliyor | Haritada istasyon aramada bazı ilçeler (Esenler) ilçe sonuçlarında görünmüyor | `/` | `web_engineer` | [#74](https://github.com/cihan53/elektriklioto/issues/74) | — |
-| **TALEP-044** | Hata / Bug | Yüksek (P2) | ⏳ Beklemede | 041 numaralı talebin öncelikli olarak sprinte alınması | `/` | `None` | [#73](https://github.com/cihan53/elektriklioto/issues/73) | — |
+| **TALEP-044** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | 041 numaralı talebin öncelikli olarak sprinte alınması | `/` | `None` | [#73](https://github.com/cihan53/elektriklioto/issues/73) | — |
 | **TALEP-043** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | Sunucuda backend yeniden başlatma işlemi başarısız olduğu halde başarılı bildiriliyor | `Sunucu / Yayınlama` | `None` | [#72](https://github.com/cihan53/elektriklioto/issues/72) | — |
 | **TALEP-042** | Veri & İstasyon Tutarlılığı | Düşük (P4) | ✅ Çözüldü | Canlı sitede operatör listesi yerel ortama göre bir kayıt eksik görünüyor | `Harita / Operatör Listesi` | `web_engineer` | [#71](https://github.com/cihan53/elektriklioto/issues/71) | — |
 | **TALEP-041** | Yeni İstek / Özellik | Normal (P3) | ⚖️ Değerlendirmede (Triage) | Tüm Operatörler menüsündeki markalar istasyon sayısına göre sıralansın | `/operatorler` | `None` | [#68](https://github.com/cihan53/elektriklioto/issues/68) | — |
@@ -61,6 +62,34 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 
 ## 2. Talep Detayları ve Geri Bildirim Notları
 
+### [TALEP-046] [UAT] S31-T2 canlı kabul denetimi başarısız: [TALEP-045] Müşteri Kabulü & UAT Doğrulama Denetimi (⏳ Beklemede)
+- **Bildirim Tarihi:** 2026-09-28 21:34
+- **Tür / Öncelik:** Hata / Bug / Yüksek (P2)
+- **İlgili Ekran / Sayfa:** `/`
+- **Görevli Rol:** `None`
+- 🐙 **GitHub Issue:** [#77](https://github.com/cihan53/elektriklioto/issues/77)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Canlı UAT denetimi (scripts/uat_live_audit.mjs) 'S31-T2' görevinde başarısız oldu.
+
+Son çıktı satırları:
+```
+al Software Studio — Canlı UAT & Kullanıcı Denetimi Başlatılıyor[0m
+[36m======================================================================[0m
+
+  [TEST] UAT-01: Fastify Backend API canlı sağlık kontrolü (Port 3001) ... [32m✓ GEÇTİ[0m
+  [TEST] UAT-02: Web istemcisi için CORS ve CORP başlık uyumu ... [32m✓ GEÇTİ[0m
+  [TEST] UAT-03: Zoom 6 Türkiye genelinde 81 ilin kümeleme verisi (Clusters) ... [32m✓ GEÇTİ[0m
+  [TEST] UAT-04: Zoom 11 İstanbul geniş ekran BBox sorgusu (1.06° boylam, 600+ pin) ... [32m✓ GEÇTİ[0m
+  [TEST] UAT-05: API uç noktası canlılık ve veri modeli doğrulaması ... [32m✓ GEÇTİ[0m
+  [TEST] UAT-06: Web arayüzü canlı HTML sunumu (Port 3000) ... [31m✗ BAŞARISIZ[0m
+         [31mHata: Web arayüzü HTTP 500 döndü[0m
+
+----------------------------------------------------------------------
+[31m⚠️  UAT TESTLERİNDE 1 HATA TESPİT EDİLDİ! (5 Başarılı, 1 Başarısız)[0m
+```
+
+---
 ### [TALEP-045] Haritada istasyon aramada bazı ilçeler (Esenler) ilçe sonuçlarında görünmüyor (🔨 Geliştiriliyor)
 - **Bildirim Tarihi:** 2026-09-27 23:50
 - **Tür / Öncelik:** Hata / Bug / Normal (P3)
@@ -87,7 +116,7 @@ Not: Müşteri ek örnek ilçeler ve cihaz/tarayıcı bilgisini iletirse kayda e
 - 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-045.md](workspace/docs/cozum_planlari/TALEP-045.md)
 
 ---
-### [TALEP-044] 041 numaralı talebin öncelikli olarak sprinte alınması (⏳ Beklemede)
+### [TALEP-044] 041 numaralı talebin öncelikli olarak sprinte alınması (✅ Çözüldü)
 - **Bildirim Tarihi:** 2026-09-27 21:47
 - **Tür / Öncelik:** Hata / Bug / Yüksek (P2)
 - **İlgili Ekran / Sayfa:** `/`
@@ -102,6 +131,9 @@ Güncel talep: 041 numaralı kaydın beklemeye alınmaması, işleme alınarak b
 Aciliyet: Müşteri bu iş için aciliyet olduğunu, bir sonraki iş olarak ele alınmasını talep ettiğini belirtti. Bağlı olduğu spesifik bir teslim tarihi paylaşılmadı.
 
 Beklenti: Sprint planlaması yapıldıktan sonra tahmini tamamlanma tarihinin müşteriye bildirilmesi.
+
+**Studio Yetkilisi Notu:**
+> Görev S30-T2 başarıyla tamamlandı ve UAT testinden geçti.
 
 ---
 ### [TALEP-043] Sunucuda backend yeniden başlatma işlemi başarısız olduğu halde başarılı bildiriliyor (✅ Çözüldü)
