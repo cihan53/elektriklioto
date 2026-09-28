@@ -1,7 +1,7 @@
 # Digital Software Studio — Müşteri Denetim & Talep Havuzu
 
-> **Son Güncelleme:** 2026-09-28 22:48  
-> **Toplam Bildirim:** 49  
+> **Son Güncelleme:** 2026-09-28 23:04  
+> **Toplam Bildirim:** 50  
 
 Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda iletilen istek, hata ve geri bildirimleri içerir.
 
@@ -11,7 +11,8 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 
 | ID | Tür | Öncelik | Durum | Başlık | Ekran / URL | İlgili Rol | GitHub Issue | Plan |
 |---|---|---|---|---|---|---|---|---|
-| **TALEP-049** | Hata / Bug | Yüksek (P2) | 🔨 Geliştiriliyor | Canlı ortam hatası: SearchInput.vue './geoSearch' modülünü bulamıyor, ana ekran açılmıyor | `/` | `data_engineer` | [#80](https://github.com/cihan53/elektriklioto/issues/80) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-049.md) |
+| **TALEP-050** | Hata / Bug | Yüksek (P2) | ⏳ Beklemede | TALEP-032'nin acil olarak yeniden devreye alınması | `/` | `None` | [#81](https://github.com/cihan53/elektriklioto/issues/81) | — |
+| **TALEP-049** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | Canlı ortam hatası: SearchInput.vue './geoSearch' modülünü bulamıyor, ana ekran açılmıyor | `/` | `data_engineer` | [#80](https://github.com/cihan53/elektriklioto/issues/80) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-049.md) |
 | **TALEP-048** | Hata / Bug | Yüksek (P2) | 🔨 Geliştiriliyor | [UAT] S32-T2 canlı kabul denetimi başarısız: [TALEP-046] Müşteri Kabulü & UAT Doğrulama Denetimi | `/` | `backend_engineer` | [#79](https://github.com/cihan53/elektriklioto/issues/79) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-048.md) |
 | **TALEP-047** | Hata / Bug | Yüksek (P2) | 🔨 Geliştiriliyor | [UAT] S32-T1 canlı kabul denetimi başarısız: [TALEP-046] [UAT] S31-T2 canlı kabul denetimi başarısız: [TALEP-045] Müşteri Kab | `/` | `backend_engineer` | [#78](https://github.com/cihan53/elektriklioto/issues/78) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-047.md) |
 | **TALEP-046** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | [UAT] S31-T2 canlı kabul denetimi başarısız: [TALEP-045] Müşteri Kabulü & UAT Doğrulama Denetimi | `/` | `backend_engineer` | [#77](https://github.com/cihan53/elektriklioto/issues/77) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-046.md) |
@@ -65,7 +66,25 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 
 ## 2. Talep Detayları ve Geri Bildirim Notları
 
-### [TALEP-049] Canlı ortam hatası: SearchInput.vue './geoSearch' modülünü bulamıyor, ana ekran açılmıyor (🔨 Geliştiriliyor)
+### [TALEP-050] TALEP-032'nin acil olarak yeniden devreye alınması (⏳ Beklemede)
+- **Bildirim Tarihi:** 2026-09-28 23:04
+- **Tür / Öncelik:** Hata / Bug / Yüksek (P2)
+- **İlgili Ekran / Sayfa:** `/`
+- **Görevli Rol:** `None`
+- 🐙 **GitHub Issue:** [#81](https://github.com/cihan53/elektriklioto/issues/81)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Müşteri, daha önce açılmış olan TALEP-032 numaralı talebin yeniden aktifleştirilmesini ve acil olarak işleme alınmasını talep ediyor.
+
+Müşteri beyanı: "TALEP-032 talebimi tekrar devreye al", "talep acil hemen işleme al".
+
+Notlar:
+- Talebin mevcut durumu (beklemede / iptal / kapalı) ve yeniden açılma gerekçesi müşteri tarafından netleştirilmedi; ekip tarafından kayıt geçmişinden kontrol edilmesi gerekiyor.
+- Müşteri aciliyet belirtti, ivedilikle ele alınması isteniyor.
+- Planlama ve öncelik sırası geliştirme ekibince belirlenecek; sonuç ve tahmini tamamlanma tarihi müşteriye iletilecek.
+
+---
+### [TALEP-049] Canlı ortam hatası: SearchInput.vue './geoSearch' modülünü bulamıyor, ana ekran açılmıyor (✅ Çözüldü)
 - **Bildirim Tarihi:** 2026-09-28 22:40
 - **Tür / Öncelik:** Hata / Bug / Yüksek (P2)
 - **İlgili Ekran / Sayfa:** `/`
@@ -87,7 +106,7 @@ Mevcut durum: SearchInput.vue içinde './geoSearch' import'u çözümlenemiyor, 
 Öncelik: Canlı ortam kesintisi olduğu için en yüksek öncelikle ve sıradaki iş olarak ele alınması isteniyor.
 
 **Studio Yetkilisi Notu:**
-> Sprint S34 panosuna eklendi (S34-T1 ve S34-T2). Görevli rol: data_engineer. Geliştirme başladı.
+> Görev S34-T2 başarıyla tamamlandı ve UAT testinden geçti.
 
 - 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-049.md](workspace/docs/cozum_planlari/TALEP-049.md)
 
