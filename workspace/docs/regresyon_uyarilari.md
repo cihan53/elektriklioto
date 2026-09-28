@@ -104,3 +104,35 @@
 ## [S30-T2] — 2026-09-28 21:19
 
 - fix görevi tamamlandı ama değişen dosyalarda test yok (regresyon testi eksik) — dosyalar: workspace/docs/uat_kabul_raporu.md
+
+## [S31-T1] — 2026-09-28 21:31
+
+- fix görevi tamamlandı ama değişen dosyalarda test yok (regresyon testi eksik) — dosyalar: .studio-version, basla.sh, studio_engine.py, studio_web.py, web/panel.html, workspace/src/frontend/components/map/SearchInput.vue
+
+## [S31-T2] — 2026-09-28 21:34
+
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-044] → # UAT Kabul Raporu — S30 / TALEP-044
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-044] → > **Sprint:** S30 — Müşteri Denetimi & Saha Onarımları (TALEP-044)
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-044] → > **Görev:** S30-T2 · [TALEP-044] Müşteri Kabulü & UAT Doğrulama Denetimi
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-044] → TALEP-044, müşterinin **TALEP-041**'in (Tüm Operatörler menüsündeki markaların istasyon sayısına göre sıralanm
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-041] → - **A) İşlevsel eksen:** TALEP-041'in istediği sıralama davranışı canlıda çalışıyor mu?
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-041] → - **B) Süreç / izlenebilirlik ekseni:** TALEP-041 gerçekten işleme alınıp kaydı güncellendi mi, müşteriye ETA 
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-044] → > **Varsayım:** S30-T1 çıktısı olan `components/map/FilterChips.vue` değişikliği ve yeni `pages/operatorler.vu
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-041] → | U-03 | **TALEP-041 çekirdek kriteri:** menü sıralaması | İstasyon sayısına göre çoktan aza | `ZES(1940) → Tr
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [Regresyon] → | U-14 | Regresyon süiti (deterministik) | Kırılma yok | Frontend `vitest`: 9 dosya / **59 test geçti** (TALEP
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-041] → | U-15 | **TALEP-041 için regresyon testi** | Sıralamayı koruyan otomatik test | Değişen dosyalar için yeni te
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-041] → | U-16 | TALEP-041 kayıt durumu | Sprinte alınmış / işleme geçmiş durum | `studio.db`: `TALEP-041 = DEGERLENDI
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-044] → | U-17 | Müşteriye ETA bildirimi | Planlanan tamamlanma tarihi kayda geçmiş | `musteri_talepleri.md` TALEP-044
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-041] → | **S-2** | TALEP-041 sıralaması için otomatik regresyon testi yok | Sonraki bir düzenleme sıralamayı sessizce
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-044] → | **S-4** | `GET /api/v1/stations/{slug}/deep-link` → 404 (istemci bu çağrıyı sessizce yutuyor) | Ön yüz derin
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-044] → | **S-5** | `zoom=10` isteğinde kümeleme yerine 2000 tekil istasyon dönüyor (kümeleme eşiği fiilen `zoom < 10`
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-042] → | **S-6** | API'de 180, arayüzde 179 operatör (`rssarj-412` yalnızca API'de türetilmiş mükerrer kayıt); listed
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-041] → 1. `TALEP-041` kaydının durumu güncellenmeli (Değerlendirmede → Çözüldü/Geliştiriliyor) ve hangi sprint/görevd
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-044] → 2. Müşteriye tahmini tamamlanma / teslim bildirimi `musteri_talepleri.md` TALEP-044 kaydına Studio Yetkilisi n
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [regresyon] → 3. Sıralamayı koruyan regresyon testi eklenmeli (S-2).
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-044] → - **Aşağı akış için bağlayıcı aksiyon:** S-1 (backend `station_count`) bir sonraki veri/backend görevine alınm
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [Regresyon] → # Regresyon süitleri
+
+## [S31-T2] — 2026-09-28 21:34
+
+- fix görevi tamamlandı ama değişen dosyalarda test yok (regresyon testi eksik) — dosyalar: workspace/docs/uat_kabul_raporu.md, workspace/docs/cozum_planlari/TALEP-046.md

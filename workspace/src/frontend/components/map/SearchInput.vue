@@ -4,12 +4,13 @@ import { ref, watch, computed } from 'vue';
 import { Search, X, Loader2, SearchX, MapPin, Building2, Navigation, Zap } from 'lucide-vue-next';
 import { useOperators } from '~/composables/useOperators';
 import { useStations } from '~/composables/useStations';
+import { fetchGadmSearch, type GadmSearchItem } from './geoSearch';
 import type { StationItem } from '~/types/station';
 
 export interface LocationSearchResult {
   id: string;
   name: string;
-  type: 'city' | 'district' | 'station' | 'operator';
+  type: 'city' | 'district' | 'neighborhood' | 'station' | 'operator';
   parentName?: string;
   lat?: number;
   lon?: number;
@@ -30,6 +31,7 @@ const emit = defineEmits<{
   (e: 'selectStation', st: StationItem): void;
 }>();
 
+const config = useRuntimeConfig();
 const { operators, fetchOperators } = useOperators();
 const { stations, selectStation } = useStations();
 
@@ -42,6 +44,12 @@ const mapFlyToTarget = useState<{ lon: number; lat: number; zoom: number; timest
 const isOpen = ref(false);
 const isSearching = ref(false);
 const inputVal = ref(props.modelValue);
+
+// TALEP-045: GADM CBS arama sonuçları (81 il / 973 ilçe / mahalleler tam kapsam).
+// Statik TURKEY_MAJOR_DISTRICTS örneklemi yalnızca ağ hatasında fallback olarak
+// kalır; Esenler gibi örneklem dışı ilçeler artık API sonucuyla listelenir.
+const remoteGeoResults = ref<GadmSearchItem[]>([]);
+let geoSearchToken = 0;
 
 // Türkçe karakter ve harf katlama fonksiyonu (Türkçe ve İngilizce klavye uyumlu)
 const foldText = (s: string) => {
@@ -144,7 +152,7 @@ const TURKEY_81_CITIES: Array<{ name: string; lat: number; lon: number }> = [
 ];
 
 // =============================================================================
-// 2. TÜRKİYE POPÜLER VE YOĞUN İLÇELERİ (Örneklem Kümesi)
+// 2. TÜRKİYE POPÜLER VE YOĞUN İLÇELERİ (Yerel Fallback — API erişilemediğinde)
 // =============================================================================
 const TURKEY_MAJOR_DISTRICTS: Array<{ name: string; parentName: string; lat: number; lon: number }> = [
   // İstanbul
@@ -162,6 +170,7 @@ const TURKEY_MAJOR_DISTRICTS: Array<{ name: string; parentName: string; lat: num
   { name: 'Başakşehir', parentName: 'İstanbul', lat: 41.096, lon: 28.803 },
   { name: 'Ümraniye', parentName: 'İstanbul', lat: 41.025, lon: 29.116 },
   { name: 'Fatih', parentName: 'İstanbul', lat: 41.018, lon: 28.949 },
+  { name: 'Esenler', parentName: 'İstanbul', lat: 41.034, lon: 28.890 },
   // Ankara
   { name: 'Çankaya', parentName: 'Ankara', lat: 39.900, lon: 32.860 },
   { name: 'Yenimahalle', parentName: 'Ankara', lat: 39.967, lon: 32.817 },
@@ -343,11 +352,19 @@ const onInput = (e: Event) => {
   if (!val || val.trim().length < 2) {
     isOpen.value = false;
     isSearching.value = false;
+    remoteGeoResults.value = [];
     return;
   }
 
   isSearching.value = true;
-  searchTimer = setTimeout(() => {
+  searchTimer = setTimeout(async () => {
+    // TALEP-045: GADM CBS dizininden tüm il/ilçe/mahalle sonuçlarını getir.
+    // Sıralı eski yanıtların yeni sorguyu ezmesini token ile engelle.
+    const token = ++geoSearchToken;
+    const geo = await fetchGadmSearch(config.public.apiBase, val, 15);
+    if (token === geoSearchToken) {
+      remoteGeoResults.value = geo;
+    }
     isSearching.value = false;
     isOpen.value = true;
   }, 200);
@@ -358,10 +375,11 @@ const clearInput = () => {
   emit('update:modelValue', '');
   isOpen.value = false;
   isSearching.value = false;
+  remoteGeoResults.value = [];
 };
 
 // =============================================================================
-// FİLTRELENMİŞ ARAMA SONUÇLARI (İstasyon, İlçe, İl, Operatör)
+// FİLTRELENMİŞ ARAMA SONUÇLARI (İstasyon, İlçe, Mahalle, İl, Operatör)
 // =============================================================================
 
 // İstasyon Arama Eşleşmeleri (Hafızadaki istasyonlar + Örneklem havuzu)
@@ -388,20 +406,84 @@ const filteredStations = computed(() => {
     .slice(0, 5);
 });
 
-// İlçe Arama Eşleşmeleri (Kadıköy, Çankaya, Bodrum vb.)
+// İlçe Arama Eşleşmeleri — TALEP-045: GADM API sonuçları (973 ilçe tam kapsam)
+// önceliklidir; statik örneklem liste yalnızca çevrimdışı fallback olarak birleşir.
 const filteredDistricts = computed(() => {
   if (!inputVal.value || inputVal.value.trim().length < 2) return [];
   const q = foldText(inputVal.value);
-  return TURKEY_MAJOR_DISTRICTS.filter((d) => {
-    return foldText(d.name).includes(q) || foldText(d.parentName).includes(q);
-  }).slice(0, 6);
+  const seen = new Set<string>();
+  const out: Array<{ name: string; parentName: string; lat: number; lon: number; slug?: string }> = [];
+
+  for (const r of remoteGeoResults.value) {
+    if (r.type !== 'district' || !r.coordinates) continue;
+    const key = `${r.province_name}|${r.name}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    out.push({
+      name: r.name,
+      parentName: r.province_name,
+      lat: r.coordinates.lat,
+      lon: r.coordinates.lon,
+      slug: r.slug,
+    });
+  }
+
+  for (const d of TURKEY_MAJOR_DISTRICTS) {
+    if (!(foldText(d.name).includes(q) || foldText(d.parentName).includes(q))) continue;
+    const key = `${d.parentName}|${d.name}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    out.push(d);
+  }
+
+  return out.slice(0, 6);
 });
 
-// 81 İl Arama Eşleşmeleri
+// Mahalle Arama Eşleşmeleri — TALEP-045: GADM API (Level 3) sonuçları
+const filteredNeighborhoods = computed(() => {
+  if (!inputVal.value || inputVal.value.trim().length < 2) return [];
+  const seen = new Set<string>();
+  const out: Array<{ name: string; parentName: string; lat: number; lon: number }> = [];
+
+  for (const r of remoteGeoResults.value) {
+    if (r.type !== 'neighborhood' || !r.coordinates) continue;
+    const key = `${r.district_name || ''}|${r.name}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    out.push({
+      name: r.name,
+      parentName: `${r.district_name ? r.district_name + ', ' : ''}${r.province_name}`,
+      lat: r.coordinates.lat,
+      lon: r.coordinates.lon,
+    });
+  }
+
+  return out.slice(0, 4);
+});
+
+// 81 İl Arama Eşleşmeleri — TALEP-045: GADM API sonuçları yerel listeyle birleşir
 const filteredCities = computed(() => {
   if (!inputVal.value || inputVal.value.trim().length < 2) return [];
   const q = foldText(inputVal.value);
-  return TURKEY_81_CITIES.filter((c) => foldText(c.name).includes(q)).slice(0, 5);
+  const seen = new Set<string>();
+  const out: Array<{ name: string; lat: number; lon: number }> = [];
+
+  for (const r of remoteGeoResults.value) {
+    if (r.type !== 'province' || !r.coordinates) continue;
+    const key = r.name;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    out.push({ name: r.name, lat: r.coordinates.lat, lon: r.coordinates.lon });
+  }
+
+  for (const c of TURKEY_81_CITIES) {
+    if (!foldText(c.name).includes(q)) continue;
+    if (seen.has(c.name)) continue;
+    seen.add(c.name);
+    out.push(c);
+  }
+
+  return out.slice(0, 5);
 });
 
 // Operatör Arama Eşleşmeleri (TALEP-023: 179 lisanslı EPDK operatör havuzunda arama)
@@ -459,6 +541,27 @@ const handleSelectDistrict = (d: { name: string; parentName: string; lat: number
 
   // Haritayı yumuşak animasyonla (flyTo) ilçe merkezine odakla
   mapFlyToTarget.value = { lon: d.lon, lat: d.lat, zoom: 13, timestamp: Date.now() };
+  isOpen.value = false;
+};
+
+const handleSelectNeighborhood = (n: { name: string; parentName: string; lat: number; lon: number }) => {
+  const displayLabel = `${n.name}, ${n.parentName}`;
+  inputVal.value = displayLabel;
+  emit('update:modelValue', displayLabel);
+
+  const res: LocationSearchResult = {
+    id: `neighborhood-${n.name}`,
+    name: n.name,
+    type: 'neighborhood',
+    parentName: n.parentName,
+    lat: n.lat,
+    lon: n.lon,
+    zoom: 14,
+  };
+  emit('selectLocation', res);
+
+  // Haritayı yumuşak animasyonla (flyTo) mahalle merkezine odakla
+  mapFlyToTarget.value = { lon: n.lon, lat: n.lat, zoom: 14, timestamp: Date.now() };
   isOpen.value = false;
 };
 
@@ -535,7 +638,7 @@ const handleSelectOperator = (slug: string, name: string) => {
 
     <!-- Açılır Arama Sonuç Paneli (Autocomplete Dropdown - z-50 & Floating) -->
     <div
-      v-if="isOpen && (filteredStations.length > 0 || filteredDistricts.length > 0 || filteredCities.length > 0 || filteredOperators.length > 0)"
+      v-if="isOpen && (filteredStations.length > 0 || filteredDistricts.length > 0 || filteredNeighborhoods.length > 0 || filteredCities.length > 0 || filteredOperators.length > 0)"
       class="absolute left-0 top-14 w-full bg-bg-surface border border-border-default rounded-md shadow-xl overflow-hidden z-50 max-h-96 overflow-y-auto divide-y divide-border-default"
       role="listbox"
     >
@@ -560,7 +663,7 @@ const handleSelectOperator = (slug: string, name: string) => {
         </button>
       </div>
 
-      <!-- 2. İlçeler Kategorisi (Kadıköy, Çankaya, Beşiktaş vb.) -->
+      <!-- 2. İlçeler Kategorisi (Kadıköy, Çankaya, Esenler vb. — TALEP-045: GADM tam kapsam) -->
       <div v-if="filteredDistricts.length > 0" class="p-2 space-y-1">
         <div class="px-2 py-1 text-xs font-semibold text-text-muted flex items-center gap-1.5 uppercase tracking-wider">
           <Navigation class="w-3.5 h-3.5 text-success" />
@@ -581,7 +684,28 @@ const handleSelectOperator = (slug: string, name: string) => {
         </button>
       </div>
 
-      <!-- 3. Şehirler / İller Kategorisi (81 İl) -->
+      <!-- 3. Mahalleler Kategorisi (TALEP-045: GADM Level 3 sonuçları) -->
+      <div v-if="filteredNeighborhoods.length > 0" class="p-2 space-y-1">
+        <div class="px-2 py-1 text-xs font-semibold text-text-muted flex items-center gap-1.5 uppercase tracking-wider">
+          <MapPin class="w-3.5 h-3.5 text-text-secondary" />
+          <span>Mahalleler</span>
+        </div>
+        <button
+          v-for="n in filteredNeighborhoods"
+          :key="`${n.parentName}-${n.name}`"
+          type="button"
+          @click="handleSelectNeighborhood(n)"
+          class="w-full text-left px-2.5 py-2 rounded hover:bg-bg-subdued flex items-center justify-between transition-colors touch-target-min"
+        >
+          <div class="flex items-center gap-2">
+            <MapPin class="w-4 h-4 text-text-muted flex-shrink-0" />
+            <span class="text-sm font-medium text-text-primary">{{ n.name }}</span>
+          </div>
+          <span class="text-xs text-text-secondary">{{ n.parentName }}</span>
+        </button>
+      </div>
+
+      <!-- 4. Şehirler / İller Kategorisi (81 İl) -->
       <div v-if="filteredCities.length > 0" class="p-2 space-y-1">
         <div class="px-2 py-1 text-xs font-semibold text-text-muted flex items-center gap-1.5 uppercase tracking-wider">
           <MapPin class="w-3.5 h-3.5 text-primary" />
@@ -602,7 +726,7 @@ const handleSelectOperator = (slug: string, name: string) => {
         </button>
       </div>
 
-      <!-- 4. Spesifik İstasyonlar Kategorisi (Ad, Numara, Adres) -->
+      <!-- 5. Spesifik İstasyonlar Kategorisi (Ad, Numara, Adres) -->
       <div v-if="filteredStations.length > 0" class="p-2 space-y-1">
         <div class="px-2 py-1 text-xs font-semibold text-text-muted flex items-center gap-1.5 uppercase tracking-wider">
           <Zap class="w-3.5 h-3.5 text-warning" />
