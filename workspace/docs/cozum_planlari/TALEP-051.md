@@ -43,7 +43,7 @@ Son çıktı satırları:
 
 **Devin Analizi:**
 
-Kısa bir durum tespiti yapayım — servislerin çalışıp çalışmadığını ve UAT script'inin neyi test ettiğini kontrol ediyorum.
+UAT denetim scriptine ve canlı ortam durumuna hızlıca bakıyorum.
 
 **İlgili Dosyalar & Modüller:**
    - `workspace/src/backend/src/modules/`
