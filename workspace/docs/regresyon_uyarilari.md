@@ -81,3 +81,26 @@
 ## [S29-T4] — 2026-09-28 21:05
 
 - fix görevi tamamlandı ama değişen dosyalarda test yok (regresyon testi eksik) — dosyalar: workspace/docs/uat_kabul_raporu.md, workspace/node_modules, workspace/package.json
+
+## [S30-T1] — 2026-09-28 21:09
+
+- workspace/src/frontend/components/map/FilterChips.vue: silinen koruma referansı [TALEP-024] → <!-- Kaydırılabilir Operatör Listesi (TALEP-024) -->
+
+## [S30-T1] — 2026-09-28 21:09
+
+- fix görevi tamamlandı ama değişen dosyalarda test yok (regresyon testi eksik) — dosyalar: workspace/src/frontend/components/map/FilterChips.vue, workspace/src/frontend/pages/operatorler.vue
+
+## [S30-T2] — 2026-09-28 21:19
+
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-042] → The existing report covers TALEP-042; this task is TALEP-043's UAT. Let me examine the fix and the restart/dep
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-043] → # UAT Kabul Raporu — TALEP-043 (Sprint S29)
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-043] → > **Görev:** TALEP-043 — Müşteri Kabulü & UAT Doğrulama Denetimi (S29-T4)
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-043] → **VERDICT: REJECTED — TALEP-043 düzeltmesi depoya hiç ulaşmamış; bildirilen hata canlıda aynen yeniden üretild
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-043] → | UAT-07 | **TALEP-043: restart'ta eski süreç portu tutuyor** | eski süreç öldürülür VEYA açık hata + sıfır-ol
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-043] → | UAT-08 | **TALEP-043: başarı yalnızca yeni süreç doğrulanınca** | sağlık kontrolü süreç kimliğini doğrular |
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-043] → | **TALEP-043 çekirdek senaryo (sahte başarı)** | **KALDI — hata canlıda yeniden üretildi** |
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-043] → > **Varsayım:** `workspace/canli.sh` (dev ortamı, portlar 3000/3001) TALEP-043 kapsamında değildir; talep metn
+
+## [S30-T2] — 2026-09-28 21:19
+
+- fix görevi tamamlandı ama değişen dosyalarda test yok (regresyon testi eksik) — dosyalar: workspace/docs/uat_kabul_raporu.md

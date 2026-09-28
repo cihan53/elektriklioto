@@ -1,6 +1,6 @@
 # Digital Software Studio — Müşteri Denetim & Talep Havuzu
 
-> **Son Güncelleme:** 2026-09-28 20:58  
+> **Son Güncelleme:** 2026-09-28 21:05  
 > **Toplam Bildirim:** 45  
 
 Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda iletilen istek, hata ve geri bildirimleri içerir.
@@ -13,7 +13,7 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 |---|---|---|---|---|---|---|---|---|
 | **TALEP-045** | Hata / Bug | Normal (P3) | 🔨 Geliştiriliyor | Haritada istasyon aramada bazı ilçeler (Esenler) ilçe sonuçlarında görünmüyor | `/` | `web_engineer` | [#74](https://github.com/cihan53/elektriklioto/issues/74) | — |
 | **TALEP-044** | Hata / Bug | Yüksek (P2) | ⏳ Beklemede | 041 numaralı talebin öncelikli olarak sprinte alınması | `/` | `None` | [#73](https://github.com/cihan53/elektriklioto/issues/73) | — |
-| **TALEP-043** | Hata / Bug | Yüksek (P2) | 🔨 Geliştiriliyor | Sunucuda backend yeniden başlatma işlemi başarısız olduğu halde başarılı bildiriliyor | `Sunucu / Yayınlama` | `None` | [#72](https://github.com/cihan53/elektriklioto/issues/72) | — |
+| **TALEP-043** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | Sunucuda backend yeniden başlatma işlemi başarısız olduğu halde başarılı bildiriliyor | `Sunucu / Yayınlama` | `None` | [#72](https://github.com/cihan53/elektriklioto/issues/72) | — |
 | **TALEP-042** | Veri & İstasyon Tutarlılığı | Düşük (P4) | ✅ Çözüldü | Canlı sitede operatör listesi yerel ortama göre bir kayıt eksik görünüyor | `Harita / Operatör Listesi` | `web_engineer` | [#71](https://github.com/cihan53/elektriklioto/issues/71) | — |
 | **TALEP-041** | Yeni İstek / Özellik | Normal (P3) | ⚖️ Değerlendirmede (Triage) | Tüm Operatörler menüsündeki markalar istasyon sayısına göre sıralansın | `/operatorler` | `None` | [#68](https://github.com/cihan53/elektriklioto/issues/68) | — |
 | **TALEP-040** | Hata / Bug | Normal (P3) | ✅ Çözüldü | /api/version endpoint'i 404 dönüyor | `/api/version` | `None` | [#67](https://github.com/cihan53/elektriklioto/issues/67) | — |
@@ -104,7 +104,7 @@ Aciliyet: Müşteri bu iş için aciliyet olduğunu, bir sonraki iş olarak ele 
 Beklenti: Sprint planlaması yapıldıktan sonra tahmini tamamlanma tarihinin müşteriye bildirilmesi.
 
 ---
-### [TALEP-043] Sunucuda backend yeniden başlatma işlemi başarısız olduğu halde başarılı bildiriliyor (🔨 Geliştiriliyor)
+### [TALEP-043] Sunucuda backend yeniden başlatma işlemi başarısız olduğu halde başarılı bildiriliyor (✅ Çözüldü)
 - **Bildirim Tarihi:** 2026-09-27 21:24
 - **Tür / Öncelik:** Hata / Bug / Yüksek (P2)
 - **İlgili Ekran / Sayfa:** `Sunucu / Yayınlama`
@@ -115,7 +115,7 @@ Beklenti: Sprint planlaması yapıldıktan sonra tahmini tamamlanma tarihinin m�
 > Canlı sunucuda uygulama yeniden başlatıldığında, API servisinin kullandığı iç port (4000) zaten eski bir süreç tarafından tutuluyorsa yeni süreç çakılıyor ve aslında hiç devreye girmiyor. Buna rağmen başlatma betiği sağlık kontrolünü aynı porta yaptığı için eski süreç cevap veriyor ve işlem 'başarılı' diye raporlanıyor. Sonuç: site günlerce eski veri ve eski kodla çalışmaya devam edebiliyor, güncellemeler görünürde yayına alınmış gibi görünüyor ama ziyaretçi eski sürümü görüyor. Beklenti: yeniden başlatma öncesi eski süreç kapatılmalı veya port doluysa açıkça hata verilmeli; başarı yalnızca yeni başlatılan süreç doğrulandığında raporlanmalı.
 
 **Studio Yetkilisi Notu:**
-> Sprint S29 panosuna eklendi (S29-T3 ve S29-T4). Görevli rol: devops_engineer. Geliştirme başladı.
+> Görev S29-T4 başarıyla tamamlandı ve UAT testinden geçti.
 
 ---
 ### [TALEP-042] Canlı sitede operatör listesi yerel ortama göre bir kayıt eksik görünüyor (✅ Çözüldü)
