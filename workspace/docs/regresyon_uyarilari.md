@@ -61,3 +61,23 @@
 ## [S29-T2] — 2026-09-28 20:58
 
 - fix görevi tamamlandı ama değişen dosyalarda test yok (regresyon testi eksik) — dosyalar: workspace/docs/uat_kabul_raporu.md
+
+## [S29-T4] — 2026-09-28 21:05
+
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-042] → TALEP-042'nin ne olduğunu ve canlı servislerin durumunu kontrol ediyorum.Servisler ayakta. TALEP-042'nin içeri
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-042] → # UAT Kabul Raporu — TALEP-042 (Sprint S29)
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-042] → > **Görev:** TALEP-042 — Müşteri Kabulü & UAT Doğrulama Denetimi
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-042] → **VERDICT: REJECTED — TALEP-042 kabul kriteri müşteri yüzeyinde karşılanmıyor.**
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [BUG-02] → Ayrıca ikinci, görev kapsamını aşan ancak kabulleri bloke eden kritik bir kusur tespit edildi: **SSR katalog/d
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-042] → | UAT-08 | **TALEP-042 — operatör listesi eşliği** | Canlı = yerel = 180; istasyonu olan her operatör adıyla l
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-042] → ## 3. TALEP-042 Doğrulama Detayı
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [BUG-01] → ### BUG-01 (KALDI — TALEP-042 kapsamı): Operatör menüsü bundle'da sabitlendi
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [BUG-02] → ### BUG-02 (KALDI — yeni kritik kusur, ayrı talep önerilir): SSR sayfaları "404 Page not found" nedeniyle boş
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-042] → | **TALEP-042 müşteri yüzeyi** | **KALDI** (BUG-01) |
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [BUG-02] → | SEO/SSR katalog bütünlüğü | **KALDI** (BUG-02) |
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-042] → > **Sonuç:** TALEP-042 backend çözümü onaylandı ancak müşteri kabulü için UI tarafının da 180 operatörü göster
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [BUG-02] → > **Varsayım:** Üretim (elektriklioto.com) yapılandırmasında `NUXT_PUBLIC_API_BASE` mutlak `https://api.elektr
+
+## [S29-T4] — 2026-09-28 21:05
+
+- fix görevi tamamlandı ama değişen dosyalarda test yok (regresyon testi eksik) — dosyalar: workspace/docs/uat_kabul_raporu.md, workspace/node_modules, workspace/package.json

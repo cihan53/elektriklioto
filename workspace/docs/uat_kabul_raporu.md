@@ -1,75 +1,75 @@
-TALEP-042'nin ne olduğunu ve canlı servislerin durumunu kontrol ediyorum.Servisler ayakta. TALEP-042'nin içeriğini bulmam gerekiyor — plan dosyası yok, diğer kaynaklara bakıyorum.Backend 180 operatör dönüyor — TALEP-042 düzeltmesi yerinde görünüyor. Mevcut rapor formatına ve canlı denetim script'ine bakıyorum.Rapor formatı için daha eski bir geçmiş sürüme bakıyorum ve audit script'ini koşturuyorum.Audit script 6/6 geçti. Şimdi rol kapsamındaki detaylı canlı denetimleri yapıyorum: küme sayıları, pin sayısı, istasyon detayı, deep-link ve operatör eşliği.Operatörlerde `station_count` alanı None dönüyor. İstasyonların operatör eşliğini ve eksik operatörün çözüldüğünü doğruluyorum.Zoom 12'de tam Türkiye BBox 400 döndü — hata gövdesini ve geçerlilik sınırını inceliyorum.Operatör eşliği tam: 2000 istasyonun tamamı adlandırılmış operatöre çözümleniyor. Şimdi istasyon detayı, deep-link ve SSR sayfaları doğruluyorum.Kritik bulgu: API detayı 200 dönüyor ama SSR sayfa "İstasyon Kaydı Bulunamadı" render ediyor. Sayfanın veri çekme mantığını inceliyorum.Sayfa SSR'da `/api/v1/stations/{slug}` çekiyor. Port 3000'in dev mi prod mu çalıştığını ve SSR fetch'in neden boş döndüğünü kontrol ediyorum.Port 3000 `nuxt dev` çalışıyor ve proxy browser tarafında çalışıyor (180 operatör geldi). Ama SSR sayfaları veriyi alamıyor. Hatanın kaynağını araştırıyorum.SSR sayfalar veri çekemiyor — bu gerçek bir kusur. Son bir doğrulama: harita pinlerinin DOM marker mı canvas mı olduğunu ve detay panelinin açılıp açılmadığını pin koordinatına tıklayarak test ediyorum.Pin tıklamayı doğrulamak için istasyon koordinatının ekran pikselini hesaplayıp oraya tıklatacağım. Önce harita state'inin nasıl açıldığını görelim.Arama yalnızca yüklenen viewport verisinde çalışıyor (zoom 6'da istasyon listesi boş — küme modu). Pin tıklama testini gerçek koordinat projeksiyonuyla yapıyorum.`?city=istanbul` flyTo tetiklenmedi ve küme verisi döndü. Küme tıklama → zoom davranışını adım adım test ediyorum.Son kontrol: `/zes` operatör sayfası istemci tarafında hydration sonrası istasyonları yüklüyor mu, yoksa SSR hatası kalıcı mı?Son kanıt: haritadaki operatör dropdown'ının canlıda kaç operatör gösterdiğini kontrol ediyorum (TALEP-042'nin müşteri gözüyle doğrulanması).Kritik nokta: `fetchOperators` `length >= 170` ise API'yi hiç çağırmıyor — bundle'da 179 sabit. API'deki 180. operatörün hangisi olduğunu ve UI'a ulaşıp ulaşmadığını karşılaştırıyorum.Tüm kanıtlar toplandı. TALEP-042 düzeltmesi backend'de doğrulandı ancak müşteri gözüyle UI tarafında iki engelleyici bulgu var. Raporu üretiyorum.
+The existing report covers TALEP-042; this task is TALEP-043's UAT. Let me examine the fix and the restart/deploy mechanism.TALEP-043's fix hasn't been committed — `start_backend.sh` is untouched since Sep 26 and no PR/branch exists for issue #72. Let me verify no other restart path was changed, then reproduce the defect live on port 4000.No fix for TALEP-043 exists in the repo. Now I'll reproduce the reported defect on port 4000: occupy the port with a foreign process and simulate a restricted environment where the script's cleanup can't find `lsof`/`fuser`.Port 4000 is free. Now I'll stage the reproduction: a foreign process holding :4000 (simulating the stale old backend) and a masked `which` so `fuser`/`lsof` appear absent — the exact cPanel condition under which the script's cleanup silently no-ops.Defect fully reproduced — dead PID 53894 reported as "BAŞARILI" while stale PID 53777 still owns the port. Cleaning up and running the live regression pass.All evidence collected. Writing the UAT report for TALEP-043 — verdict REJECTED, defect reproduces live.
 
-# UAT Kabul Raporu — TALEP-042 (Sprint S29)
+# UAT Kabul Raporu — TALEP-043 (Sprint S29)
 
 > **Belge:** `workspace/docs/uat_kabul_raporu.md`
-> **Görev:** TALEP-042 — Müşteri Kabulü & UAT Doğrulama Denetimi
-> **Ortam:** Canlı dev — `http://127.0.0.1:3000` (Nuxt 3 dev + Nitro devProxy), `http://127.0.0.1:3001` (Fastify API, PostGIS)
-> **Yöntem:** Headless Chromium (Playwright-core) + canlı HTTP istekleri; izole birim testi / mock kullanılmadı
+> **Görev:** TALEP-043 — Müşteri Kabulü & UAT Doğrulama Denetimi (S29-T4)
+> **Talep:** Sunucuda backend yeniden başlatma işlemi başarısız olduğu halde başarılı bildiriliyor — Issue [#72](https://github.com/cihan53/elektriklioto/issues/72)
+> **Ortam:** Canlı dev — `http://127.0.0.1:3000` (Nuxt 3 + Nitro devProxy), `http://127.0.0.1:3001` (Fastify API, PostGIS); restart betiği portu: `4000`
+> **Yöntem:** Canlı süreç/port simülasyonu + gerçek betik çalıştırması; izole birim testi ve mock kullanılmadı
 > **Tarih:** 2026-09-28
 
 ## 1. Genel Karar
 
-**VERDICT: REJECTED — TALEP-042 kabul kriteri müşteri yüzeyinde karşılanmıyor.**
+**VERDICT: REJECTED — TALEP-043 düzeltmesi depoya hiç ulaşmamış; bildirilen hata canlıda aynen yeniden üretildi.**
 
-Backend düzeltmesi doğrulandı (`/api/v1/operators` artık **180** operatör dönüyor, türetilen `rssarj-412` / "Rsşarj" dahil; 2000 istasyonluk örneklemde çözümlenemeyen `operator_id` = 0). Ancak frontend operatör menüsü API'yi hiç çağırmıyor — `useOperators.fetchOperators()` içindeki `if (operators.value.length >= 170) return` erken çıkışı, bundle'daki 179 kayıtlık `data/operators.json` yüzünden API isteğini sonsuza dek kısa devre yapıyor. Sonuç: müşterinin şikâyet ettiği semptom (canlıda 179 görünmesi) **aynıyla devam ediyor**; 180. operatör "Tüm Operatörler" menüsünde ve operatör aramada asla listelenmiyor.
+`workspace/server-scripts/start_backend.sh` dosyası talebin açıldığı tarihten (2026-09-27) önceki sürümde duruyor (son değişiklik: Sep 26, commit `22fe1be`); issue #72'ye bağlı branch/PR/commit yok. Betik gerçek çalıştırıldığında, port 4000'i tutan yabancı (eski) süreç devam ederken yeni başlatılan süreç ölmüş olmasına rağmen `BAŞARILI` logladı ve `exit 0` ile çıktı — müşterinin bildirdiği sessiz başarısızlık birebir doğrulandı.
 
-Ayrıca ikinci, görev kapsamını aşan ancak kabulleri bloke eden kritik bir kusur tespit edildi: **SSR katalog/detay sayfaları verisiz render ediliyor** (bkz. §4-BUG-02). `/zes` sayfası "aktif istasyon kaydı işlenmemiştir", geçerli bir istasyon sayfası `/trugo/trugo-tsyd-istanbul` ise "İstasyon Kaydı Bulunamadı" gösteriyor — TALEP-042'nin "istasyonu olan her operatör sitede adıyla listelenmeli" kabulü bu yüzeyde de kırılıyor.
+## 2. Canlı Yeniden Üretme Kanıtı (Kesin)
 
-## 2. UAT Senaryo Sonuç Tablosu
+Senaryo: müşterinin tarif ettiği cPanel koşulu — eski süreç port 4000'i tutuyor, `fuser`/`lsof` kısıtlı kabuk ortamında bulunamıyor (betikteki `which fuser`/`which lsof` kontrolleri ikisi de boş dönüyor → port temizliği tamamen atlanıyor).
 
-| ID | Senaryo (Görev Adımı) | Beklenen | Ölçülen | Sonuç |
+| Adım | Komut / Eylem | Gözlenen |
+|---|---|---|
+| 1 | Port 4000'e sahte "eski süreç" yerleştir (PID 53777, her isteğe `200 {marker:"STALE_PROCESS"}` döner) | Port dolu: `lsof -ti :4000` → `53777` |
+| 2 | `bash workspace/server-scripts/start_backend.sh` (kısıtlı PATH: fuser/lsof yok) | `Backend API arka planda başlatıldı (PID: 53894)` |
+| 3 | Betiğin sağlık kontrolü | **`BAŞARILI: Backend API yanıt veriyor ve sağlıklı! (HTTP 200)`** |
+| 4 | Çıkış kodu | **`exit 0`** — çağıran deploy hattı başarı sanıyor |
+| 5 | Süreç doğrulaması | `kill -0 53894` → **DEAD** (`MODULE_NOT_FOUND`; prod'da `EADDRINUSE` ile aynı sonuç) |
+| 6 | Port sahipliği | `lsof -ti :4000` → hâlâ **53777** (eski süreç) |
+| 7 | `curl :4000/api/v1/health` | `{"status":"OK","marker":"STALE_PROCESS"}` — yanıtı veren **eski** süreç |
+| 8 | `workspace/tmp/backend.pid` | İçerik `53894` — ölü PID kaydedildi |
+
+**Sonuç:** "Sağlıklı" raporu portu dinleyen eski süreçten geldi; yeni kod hiç devreye girmedi. Müşterinin "günlerce eski sürüm yayında kalır" senaryosu kanıtlandı.
+
+## 3. Kök Neden (Kod Kanıtı)
+
+`start_backend.sh` içinde üç birleşen kusur:
+
+1. **Port temizliği kırılgan ve sessiz:** `fuser -k` / `lsof` dalına `which` kontrolüyle giriliyor; araçlar yoksa blok tamamen atlanıyor (satır ~80-88). `kill` hataları `2>/dev/null || true` ile maskeleniyor — kill başarısız olsa bile betik fark etmiyor.
+2. **Sağlık kontrolü portu doğruluyor, süreci değil:** `curl :4000/api/v1/health → 200` tek başına yeterli sayılıyor. Yanıt verenin az önce başlatılan `$NEW_PID` olduğu hiç denetlenmiyor — `kill -0 $NEW_PID` kontrolü yok, yanıt gövdesinde sürüm/PID işareti aranmıyor.
+3. **Hata durumunda bile `exit 0`:** `IS_READY=false` dalı yalnızca `UYARI` loglayıp "süreç tamamlandı" diyerek sıfır kodla çıkıyor; başarısızlık çağırana hiçbir zaman hata olarak dönmüyor.
+
+## 4. UAT Senaryo Sonuç Tablosu
+
+| ID | Senaryo | Beklenen | Ölçülen | Sonuç |
 |---|---|---|---|---|
-| UAT-01 | Canlı haritaya bağlanma (3000 + 3001) | HTTP 200, HTML + API UP | `/` 200, `/health/sources` UP, `x-service-type: e-Mobility Assistant / EMP Candidate` | **GEÇTİ** |
-| UAT-02 | Türkiye geneli küme daireleri (zoom < 11) | cluster sayısı > 0 | `zoom=6` → `type:"clusters"`, **81 küme** (İstanbul kümesi `cluster-34-0` = 4525 istasyon) | **GEÇTİ** |
-| UAT-03 | Küme tıklama → zoom 10-12 uçuşu | Kademeli zoom + pin geçişi | Kümeye tıklama zoom 6→9→11 ilerletti; her adımda yeni BBox sorgusu tetiklendi | **GEÇTİ** |
-| UAT-04 | Büyükşehir pin yoğunluğu | 500+ istasyon pini | İstanbul `zoom=11` BBox → `type:"stations"`, **2000 pin** (soket/güç/operatör alanlı) | **GEÇTİ** |
-| UAT-05 | Pin tıklama → detay paneli | Panel açılır; ad, operatör, EPDK no doğru | Zoom 15'e uçuş + pin tıklaması → panel açıldı: **TSYD / ŞRJ/10313 / Trugo / CCS2 / 180 kW** | **GEÇTİ** |
-| UAT-06 | Derin bağlantı / pano fallback | Kopyalama veya yönlendirme | "Operatör Web Sitesine Git ↗" tıklandı → **`ŞRJ/10313` panoya kopyalandı**, yönerge toast'ı tetiklendi (headless'te `window.open` popup'ı gözlenemedi) | **GEÇTİ** |
-| UAT-07 | Konsol `TypeError` / ağ `400` taraması | Sıfır kritik hata | TypeError yok; API'de 400/500 yok; yalnızca `demotiles.maplibre.org` font PBF 404 (kozmetik) | **GEÇTİ** |
-| UAT-08 | **TALEP-042 — operatör listesi eşliği** | Canlı = yerel = 180; istasyonu olan her operatör adıyla listeli | API 180 ✓ ancak UI menüsü bundle 179'da kilitli — `rssarj-412` müşteriye görünmüyor | **KALDI** |
-| UAT-09 | Operatör/istasyon SSR sayfaları | Liste ve detay verisi render edilir | `/zes` 0 kart; `/trugo/trugo-tsyd-istanbul` "İstasyon Kaydı Bulunamadı" | **KALDI** |
+| UAT-01 | Canlı servislere bağlanma (3000 + 3001) | HTTP 200 | `/` 200; `GET /api/v1/operators` → **180** kayıt; `/api/version` → 200 `v1.0.0-faz2` | **GEÇTİ** |
+| UAT-02 | Türkiye geneli küme daireleri | cluster > 0 | `zoom=6` → `type:"clusters"`, **81 küme** | **GEÇTİ** |
+| UAT-03 | Büyükşehir zoom 10-12 + pin yoğunluğu | 500+ pin | İstanbul bbox `zoom=11` → **2000 pin** | **GEÇTİ** |
+| UAT-04 | Pin → detay paneli verisi | ad / operatör / ŞRJ no doğru | `GEBZE OSB` / `ŞRJ/15310` / `sarjen`; soketler `CCS2, Type 2` | **GEÇTİ** |
+| UAT-05 | Derin bağlantı / pano fallback | kopyalama veya yönlendirme | `deep_link`: `clipboard_fallback: true`, `clipboard_text: "ŞRJ/15310"` | **GEÇTİ** |
+| UAT-06 | Konsol `TypeError` / ağ `400` taraması | sıfır kritik hata | API çağrılarında 400/500 yok; TypeError yok | **GEÇTİ** |
+| UAT-07 | **TALEP-043: restart'ta eski süreç portu tutuyor** | eski süreç öldürülür VEYA açık hata + sıfır-olmayan çıkış | `BAŞARILI` + `exit 0`; yeni PID ölü, eski süreç portta | **KALDI** |
+| UAT-08 | **TALEP-043: başarı yalnızca yeni süreç doğrulanınca** | sağlık kontrolü süreç kimliğini doğrular | Health check yalnızca porta bakıyor; `NEW_PID` canlılığı denetlenmiyor | **KALDI** |
 
-## 3. TALEP-042 Doğrulama Detayı
+## 5. Kabul için Zorunlu Düzeltmeler (DevOps'a Bağlayıcı)
 
-| Kontrol | Sonuç |
-|---|---|
-| `GET :3001/api/v1/operators` → kayıt sayısı | **180** (öncesi 179) ✓ |
-| `GET :3000/api/v1/operators` (Nitro proxy) | **180** ✓ |
-| API−bundle farkı | API'de fazla: `rssarj-412` ("Rsşarj"); bundle'da fazla: yok |
-| 2000 istasyonluk İstanbul örneklem: `operator_id` çözülemeyen | **0** |
-| Boş `operator_name` / yetim `operator.slug` | **0 / 0** |
-| UI operatör menüsü kaynağı | `data/operators.json` (179) — `fetchOperators` ≥170 eşiğinde API'ye hiç çıkmıyor; Playwright oturumunda `/operators` çağrısı **hiç gözlenmedi** |
+1. **Port doluysa açıkça başarısız ol:** Yeni süreç başlatılmadan önce port 4000 sahipliği doğrulanmalı; temizlik sonrası port hâlâ doluysa betik `exit 1` ile `HATA` dönmeli. `fuser`/`lsof` yokluğu tek başına temizliği sessizce atlamamalı — alternatif olarak yanıt veren sürecin PID'i `/proc` veya `lsof` varsa onunla, yoksa PID dosyası + health-check kimlik doğrulamasıyla çözülmeli.
+2. **Süreç kimliği doğrulaması:** Health check'ten önce/sonra `kill -0 $NEW_PID`; ayrıca `/api/v1/health` (veya `/version`) yanıtına başlatılan sürece özgü `build_id`/`started_at` işareti eklenip betikte karşılaştırılmalı — "port cevap veriyor" ≠ "yeni süreç cevap veriyor".
+3. **Başarısızlıkta sıfır-olmayan çıkış:** `IS_READY=false` dalında `exit 1` zorunlu; deploy hattı ve cron ancak böyle alarm üretebilir.
 
-**Karar:** Backend tarafı doğru; kabul kriterinin müşteri yüzeyi ayağı (`Tüm Operatörler` menüsü, operatör arama) eksik. `useOperators.ts` satır ~12'deki `length >= 170` kısa devresi kaldırılmalı veya `data/operators.json`'a `rssarj-412` eklenip bundle güncellenmeli — tercihen ikisi (tek doğruluk kaynağı API olmalı).
-
-## 4. Tespit Edilen Kusurlar
-
-### BUG-01 (KALDI — TALEP-042 kapsamı): Operatör menüsü bundle'da sabitlendi
-- **Yeniden üretme:** Canlı UI'da "Tüm Operatörler" açılır menüsü → başlık "179 Marka"; `Rsşarj` araması sonuçsuz.
-- **Kök neden:** `composables/useOperators.ts` — `useState` bundle JSON ile 179 doluyor; `fetchOperators()` `>= 170` koşulunda erken dönüyor.
-- **Etki:** İstasyonu olan türetilmiş operatör (`rssarj-412`) sitede yok; müşteri bildirimi geçerli.
-
-### BUG-02 (KALDI — yeni kritik kusur, ayrı talep önerilir): SSR sayfaları "404 Page not found" nedeniyle boş
-- **Yeniden üretme:** `curl :3000/trugo/trugo-tsyd-istanbul` → `<title>İstasyon Bulunamadı</title>`; `/istanbul/sarj-istasyonlari` → "0 istasyon"; `/zes` → boş kart grid.
-- **Kök neden (kanıt):** Nuxt SSR payload'ında `_errors` içinde `"[GET] \"/api/v1/stations/trugo-tsyd-istanbul\": 404 Page not found"`. `useFetch` göreli `/api/v1` ile SSR'da Nitro uygulamasına **içsel** çağrı yapar; `nitro.devProxy` yalnızca listener katmanında çalıştığından SSR çağrısı proxy'yi atlayıp Nuxt router'a düşer → 404. Hydration sonrası yeniden çekim de yok (hata payload'a gömülü), sayfa kalıcı boş kalır.
-- **Etki:** Tüm SEO katalog yüzeyi (`/{city}`, `/{city}/{district}`, `/{operator}`, `/{operator}/{slug}`) dev ortamında işlevsiz; PO-501/UX-FLOW-06 ihlali. Prod'da `NUXT_PUBLIC_API_BASE` mutlak URL ise geçerli olabilir — doğrulanmalı (AGENTS.md dev↔prod eşlik kuralı).
-
-### Gözlem (kusur değil)
-- `GET /api/v1/stations/{slug}/deep-link` → 404; ancak detay yanıtı `deep_link` alanını gömülü taşıyor ve UI clipboard fallback'i doğrulandı. Kullanılmayan uç nokta; temizlik önerilir.
-- Zoom-farkındalı BBox tavanı (`getMaxSpanForZoom`) kasıtlı DoS koruması: `zoom=12`+tam Türkiye → 400 beklenen davranış.
-- demotiles font 404 — harita karo sağlayıcısı demo kalıntısı; kozmetik.
-
-## 5. Kapı Özeti
+## 6. Kapı Özeti
 
 | Kapı | Durum |
 |---|---|
-| Kümeleme / zoom / pin sayısı | GEÇTİ (81 küme; z11'de 2000 pin) |
-| Pin→detay→deep-link yolculuğu | GEÇTİ (ŞRJ/10313 panoda) |
-| Konsol/ağ sağlığı | GEÇTİ (TypeError=0, API 400=0) |
-| **TALEP-042 müşteri yüzeyi** | **KALDI** (BUG-01) |
-| SEO/SSR katalog bütünlüğü | **KALDI** (BUG-02) |
+| Canlı harita / kümeleme / pin yolculuğu | GEÇTİ (81 küme, 2000 pin, detay + clipboard fallback doğru) |
+| Ağ sağlığı | GEÇTİ (400/500/TypeError = 0) |
+| **TALEP-043 çekirdek senaryo (sahte başarı)** | **KALDI — hata canlıda yeniden üretildi** |
+| Düzeltme mevcudiyeti | **KALDI — depoda fix yok, PR/branch yok** |
 
-> **Sonuç:** TALEP-042 backend çözümü onaylandı ancak müşteri kabulü için UI tarafının da 180 operatörü göstermesi şart — **BUG-01 kapatılmadan görev REDDEDİLİR.** BUG-02 ayrı bir müşteri talebi olarak kayda geçirilmelidir.
+> **Sonuç:** Müşterinin bildirdiği sessiz restart başarısızlığı aynen duruyor. Görev **REDDEDİLDİ**; `devops_engineer` görevi (S29-T3) kod üretmemiş veya üretilen kod bu depoya ulaşmamıştır. Betik §5'teki üç madde karşılanmadan yeniden UAT'a gelmemelidir.
 
-> **Varsayım:** Üretim (elektriklioto.com) yapılandırmasında `NUXT_PUBLIC_API_BASE` mutlak `https://api.elektriklioto.com` olarak tanımlıysa BUG-02 yalnızca dev ortamını etkiler; cPanel ortamı bu oturumdan doğrulanamadığı için bu bir varsayım olarak bırakılmıştır.
+> **Varsayım:** Test, gerçek cPanel sunucusu yerine yerel port 4000 üzerinde, `fuser`/`lsof`'un bulunamadığı kısıtlı kabuk ortamı simüle edilerek koşuldu — cPanel/CloudLinux jailed shell'de bu araçların eksikliği bilinen durumdur ve betiğin temizlik dalını tamamen devre dışı bırakan kod yolu birebir aynıdır. Betik `workspace/cpanel_api_entry.cjs` dosyasını yerelde bulamadığı için yeni süreç `MODULE_NOT_FOUND` ile öldü; üretimde aynı senaryo `EADDRINUSE` ile yaşanır — her ikisinde de sonuç aynı: port eski süreçte kalır ve health check onu "sağlıklı" sanır.
+
+> **Varsayım:** `workspace/canli.sh` (dev ortamı, portlar 3000/3001) TALEP-043 kapsamında değildir; talep metni açıkça sunucu yayınlama/port 4000 akışını işaret etmektedir. Ancak aynı "port yanıtı = süreç kimliği" karışıklığı `canli.sh`'in health-check kalıbında da mevcut olduğundan, düzeltme yapılırken bu dosyanın da gözden geçirilmesi önerilir (ayrı görev kapsamı).

@@ -1,7 +1,7 @@
 # Digital Software Studio — Müşteri Denetim & Talep Havuzu
 
-> **Son Güncelleme:** 2026-09-27 05:46  
-> **Toplam Bildirim:** 36  
+> **Son Güncelleme:** 2026-09-28 20:58  
+> **Toplam Bildirim:** 45  
 
 Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda iletilen istek, hata ve geri bildirimleri içerir.
 
@@ -11,6 +11,15 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 
 | ID | Tür | Öncelik | Durum | Başlık | Ekran / URL | İlgili Rol | GitHub Issue | Plan |
 |---|---|---|---|---|---|---|---|---|
+| **TALEP-045** | Hata / Bug | Normal (P3) | 🔨 Geliştiriliyor | Haritada istasyon aramada bazı ilçeler (Esenler) ilçe sonuçlarında görünmüyor | `/` | `web_engineer` | [#74](https://github.com/cihan53/elektriklioto/issues/74) | — |
+| **TALEP-044** | Hata / Bug | Yüksek (P2) | ⏳ Beklemede | 041 numaralı talebin öncelikli olarak sprinte alınması | `/` | `None` | [#73](https://github.com/cihan53/elektriklioto/issues/73) | — |
+| **TALEP-043** | Hata / Bug | Yüksek (P2) | 🔨 Geliştiriliyor | Sunucuda backend yeniden başlatma işlemi başarısız olduğu halde başarılı bildiriliyor | `Sunucu / Yayınlama` | `None` | [#72](https://github.com/cihan53/elektriklioto/issues/72) | — |
+| **TALEP-042** | Veri & İstasyon Tutarlılığı | Düşük (P4) | ✅ Çözüldü | Canlı sitede operatör listesi yerel ortama göre bir kayıt eksik görünüyor | `Harita / Operatör Listesi` | `web_engineer` | [#71](https://github.com/cihan53/elektriklioto/issues/71) | — |
+| **TALEP-041** | Yeni İstek / Özellik | Normal (P3) | ⚖️ Değerlendirmede (Triage) | Tüm Operatörler menüsündeki markalar istasyon sayısına göre sıralansın | `/operatorler` | `None` | [#68](https://github.com/cihan53/elektriklioto/issues/68) | — |
+| **TALEP-040** | Hata / Bug | Normal (P3) | ✅ Çözüldü | /api/version endpoint'i 404 dönüyor | `/api/version` | `None` | [#67](https://github.com/cihan53/elektriklioto/issues/67) | — |
+| **TALEP-039** | Veri & İstasyon Tutarlılığı | Düşük (P4) | ✅ Çözüldü | Günlük istasyon sayısı gün içinde küçük miktarlarda dalgalanıyor | `İstasyon Listesi / Veri Sayıları` | `data_engineer` | [#66](https://github.com/cihan53/elektriklioto/issues/66) | — |
+| **TALEP-038** | Veri & İstasyon Tutarlılığı | Normal (P3) | ⏳ Beklemede | Kapanan veya kaynaktan kalkan şarj istasyonları listeden düşmüyor | `İstasyon Listesi / Harita` | `None` | [#65](https://github.com/cihan53/elektriklioto/issues/65) | — |
+| **TALEP-037** | Yeni İstek / Özellik | Düşük (P4) | ⏳ Beklemede | Sunucudaki veritabanı yazılımının güncel sürüme yükseltilmesi | `Sunucu / Altyapı` | `None` | [#64](https://github.com/cihan53/elektriklioto/issues/64) | — |
 | **TALEP-036** | Hata / Bug | Yüksek (P2) | ❌ İptal Edildi | [UAT] S26-T1 canlı kabul denetimi başarısız: [TALEP-034] [UAT] S23-T2 canlı kabul denetimi başarısız: [TALEP-027] Müşteri Kab | `/` | `None` | [#55](https://github.com/cihan53/elektriklioto/issues/55) | — |
 | **TALEP-035** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | [UAT] S24-T1 canlı kabul denetimi başarısız: [TALEP-028] Google Arama Motorunda 'Standart Sayfa Olmadan Kopya' Uyarısı ve Sit | `/` | `web_engineer` | [#54](https://github.com/cihan53/elektriklioto/issues/54) | — |
 | **TALEP-034** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | [UAT] S23-T2 canlı kabul denetimi başarısız: [TALEP-027] Müşteri Kabulü & UAT Doğrulama Denetimi | `/` | `backend_engineer` | [#53](https://github.com/cihan53/elektriklioto/issues/53) | — |
@@ -52,6 +61,149 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 
 ## 2. Talep Detayları ve Geri Bildirim Notları
 
+### [TALEP-045] Haritada istasyon aramada bazı ilçeler (Esenler) ilçe sonuçlarında görünmüyor (🔨 Geliştiriliyor)
+- **Bildirim Tarihi:** 2026-09-27 23:50
+- **Tür / Öncelik:** Hata / Bug / Normal (P3)
+- **İlgili Ekran / Sayfa:** `/`
+- **Görevli Rol:** `web_engineer`
+- 🐙 **GitHub Issue:** [#74](https://github.com/cihan53/elektriklioto/issues/74)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Ana ekrandaki harita üzerindeki istasyon arama alanında bazı ilçe adları için ilçe sonucu dönmüyor.
+
+Adımlar:
+1. Ana ekranı (/) açıp haritadaki istasyon arama kutusuna gidin.
+2. "Kadıköy" yazın -> Beklenen davranış gerçekleşiyor: sonuçların "İlçe" bölümünde Kadıköy görünüyor ve altında ilgili şarj istasyonları listeleniyor.
+3. "Esenler" yazın -> "İlçe" bölümünde Esenler görünmüyor.
+
+Beklenen: Arama terimiyle eşleşen tüm ilçelerin "İlçe" bölümünde listelenmesi ve altında o ilçedeki şarj istasyonlarının gösterilmesi.
+Gerçekleşen: Bazı ilçeler (örnek: Esenler) ilçe sonuçlarında hiç çıkmıyor.
+
+Not: Müşteri ek örnek ilçeler ve cihaz/tarayıcı bilgisini iletirse kayda eklenecek.
+
+**Studio Yetkilisi Notu:**
+> Sprint S31 panosuna eklendi (S31-T1 ve S31-T2). Görevli rol: web_engineer. Geliştirme başladı.
+
+- 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-045.md](workspace/docs/cozum_planlari/TALEP-045.md)
+
+---
+### [TALEP-044] 041 numaralı talebin öncelikli olarak sprinte alınması (⏳ Beklemede)
+- **Bildirim Tarihi:** 2026-09-27 21:47
+- **Tür / Öncelik:** Hata / Bug / Yüksek (P2)
+- **İlgili Ekran / Sayfa:** `/`
+- **Görevli Rol:** `None`
+- 🐙 **GitHub Issue:** [#73](https://github.com/cihan53/elektriklioto/issues/73)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Müşteri, daha önce ilettiği 041 numaralı talebin halen değerlendirme aşamasında olduğunu ve henüz bir sprinte dahil edilmediğini belirtti. Başlangıçta talebi beklemeye alma isteği iletmiş, ardından bu isteğinden vazgeçti.
+
+Güncel talep: 041 numaralı kaydın beklemeye alınmaması, işleme alınarak bir sonraki sprinte dahil edilmesi ve sıradaki iş olarak ele alınması isteniyor.
+
+Aciliyet: Müşteri bu iş için aciliyet olduğunu, bir sonraki iş olarak ele alınmasını talep ettiğini belirtti. Bağlı olduğu spesifik bir teslim tarihi paylaşılmadı.
+
+Beklenti: Sprint planlaması yapıldıktan sonra tahmini tamamlanma tarihinin müşteriye bildirilmesi.
+
+---
+### [TALEP-043] Sunucuda backend yeniden başlatma işlemi başarısız olduğu halde başarılı bildiriliyor (🔨 Geliştiriliyor)
+- **Bildirim Tarihi:** 2026-09-27 21:24
+- **Tür / Öncelik:** Hata / Bug / Yüksek (P2)
+- **İlgili Ekran / Sayfa:** `Sunucu / Yayınlama`
+- **Görevli Rol:** `None`
+- 🐙 **GitHub Issue:** [#72](https://github.com/cihan53/elektriklioto/issues/72)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Canlı sunucuda uygulama yeniden başlatıldığında, API servisinin kullandığı iç port (4000) zaten eski bir süreç tarafından tutuluyorsa yeni süreç çakılıyor ve aslında hiç devreye girmiyor. Buna rağmen başlatma betiği sağlık kontrolünü aynı porta yaptığı için eski süreç cevap veriyor ve işlem 'başarılı' diye raporlanıyor. Sonuç: site günlerce eski veri ve eski kodla çalışmaya devam edebiliyor, güncellemeler görünürde yayına alınmış gibi görünüyor ama ziyaretçi eski sürümü görüyor. Beklenti: yeniden başlatma öncesi eski süreç kapatılmalı veya port doluysa açıkça hata verilmeli; başarı yalnızca yeni başlatılan süreç doğrulandığında raporlanmalı.
+
+**Studio Yetkilisi Notu:**
+> Sprint S29 panosuna eklendi (S29-T3 ve S29-T4). Görevli rol: devops_engineer. Geliştirme başladı.
+
+---
+### [TALEP-042] Canlı sitede operatör listesi yerel ortama göre bir kayıt eksik görünüyor (✅ Çözüldü)
+- **Bildirim Tarihi:** 2026-09-27 21:23
+- **Tür / Öncelik:** Veri & İstasyon Tutarlılığı / Düşük (P4)
+- **İlgili Ekran / Sayfa:** `Harita / Operatör Listesi`
+- **Görevli Rol:** `web_engineer`
+- 🐙 **GitHub Issue:** [#71](https://github.com/cihan53/elektriklioto/issues/71)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Sitedeki operatör/şarj ağı listesini yerel geliştirme ortamıyla karşılaştırdığımızda canlıda 179, localde 180 operatör görünüyor. Bazı istasyonların bağlı olduğu bir operatör canlıdaki operatör kayıt listesinde (operators.json) tanımlı olmadığı için yalnızca istasyon verisinden türetilen ek bir operatör localde oluşuyor; canlıda bu operatör listede görünmüyor veya adı eksik kalabiliyor. Beklenti: her iki ortamda da operatör listesi birebir aynı olmalı ve istasyonu olan her operatör sitede adıyla listelenmeli.
+
+**Studio Yetkilisi Notu:**
+> Görev S29-T2 başarıyla tamamlandı ve UAT testinden geçti.
+
+- 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-042.md](workspace/docs/cozum_planlari/TALEP-042.md)
+
+---
+### [TALEP-041] Tüm Operatörler menüsündeki markalar istasyon sayısına göre sıralansın (⚖️ Değerlendirmede (Triage))
+- **Bildirim Tarihi:** 2026-09-27 19:54
+- **Tür / Öncelik:** Yeni İstek / Özellik / Normal (P3)
+- **İlgili Ekran / Sayfa:** `/operatorler`
+- **Görevli Rol:** `None`
+- 🐙 **GitHub Issue:** [#68](https://github.com/cihan53/elektriklioto/issues/68)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> "Tüm Operatörler" menüsünde listelenen marka/operatörler şu anda mevcut sıralamayla (muhtemelen alfabetik veya eklenme sırası) gösteriliyor. Müşteri, listenin her operatörün toplam istasyon sayısına göre sıralanmasını istiyor; böylece en yaygın operatörler üstte görünecek. Varsayılan olarak çoktan aza sıralama öngörülmüştür (müşteri onayı bekleniyor). Listeye istasyon sayısının görsel olarak eklenip eklenmeyeceği ayrıca netleştirilecek.
+
+---
+### [TALEP-040] /api/version endpoint'i 404 dönüyor (✅ Çözüldü)
+- **Bildirim Tarihi:** 2026-09-27 19:47
+- **Tür / Öncelik:** Hata / Bug / Normal (P3)
+- **İlgili Ekran / Sayfa:** `/api/version`
+- **Görevli Rol:** `None`
+- 🐙 **GitHub Issue:** [#67](https://github.com/cihan53/elektriklioto/issues/67)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Müşteri bildirimi: https://elektriklioto.com/api/version?t=1790527622057 adresine yapılan istek 404 Not Found dönüyor.
+
+Beklenen: Endpoint'in geçerli bir sürüm bilgisi (200 OK) döndürmesi.
+Gözlenen: 404 Not Found.
+
+Not: İstek cache-busting parametresi (?t=...) ile yapılıyor; muhtemelen istemci tarafında periyodik sürüm kontrolü yapan bir mekanizmadan geliyor. Endpoint'in sunucuda tanımlı olup olmadığı, route/deploy yapılandırması ve yönlendirme kuralları kontrol edilmeli.
+
+Açıklığa kavuşturulacak: hatanın görüldüğü sayfa, kullanıcıya yansıyan bir etki olup olmadığı ve başlangıç tarihi müşteriden teyit edilecek.
+
+**Studio Yetkilisi Notu:**
+> Görev S28-T2 başarıyla tamamlandı ve UAT testinden geçti.
+
+---
+### [TALEP-039] Günlük istasyon sayısı gün içinde küçük miktarlarda dalgalanıyor (✅ Çözüldü)
+- **Bildirim Tarihi:** 2026-09-27 13:48
+- **Tür / Öncelik:** Veri & İstasyon Tutarlılığı / Düşük (P4)
+- **İlgili Ekran / Sayfa:** `İstasyon Listesi / Veri Sayıları`
+- **Görevli Rol:** `data_engineer`
+- 🐙 **GitHub Issue:** [#66](https://github.com/cihan53/elektriklioto/issues/66)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Sitede ve uygulamada gösterilen toplam şarj istasyonu sayısı günden güne birkaç düzine kadar inip çıkıyor. Bunun sebebi, resmi veri kaynağının her sorguda birebir aynı listeyi döndürmemesi ve yoğunluk/sınır durumlarında kısmi yanıt vermesi. Büyük bir bozulma değil ancak veri tutarlılığı izlenirken kafa karışıklığı yaratıyor. Sayıların neden dalgalandığının görünür kılınması ya da günlük karşılaştırmada küçük farkların tolere edilmesi isteniyor.
+
+**Studio Yetkilisi Notu:**
+> Görev S27-T2 başarıyla tamamlandı ve UAT testinden geçti.
+
+- 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-039.md](workspace/docs/cozum_planlari/TALEP-039.md)
+
+---
+### [TALEP-038] Kapanan veya kaynaktan kalkan şarj istasyonları listeden düşmüyor (⏳ Beklemede)
+- **Bildirim Tarihi:** 2026-09-27 13:47
+- **Tür / Öncelik:** Veri & İstasyon Tutarlılığı / Normal (P3)
+- **İlgili Ekran / Sayfa:** `İstasyon Listesi / Harita`
+- **Görevli Rol:** `None`
+- 🐙 **GitHub Issue:** [#65](https://github.com/cihan53/elektriklioto/issues/65)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Uygulamada ve sitede gösterilen şarj istasyonları her gece güncel kaynaklardan tazeleniyor; ancak bir istasyon kaynak listeden çıkarıldığında (örneğin kalıcı olarak kapandığında veya işletmeci kaydı sildiğinde) bizde görünmeye devam ediyor. Zamanla bu, kullanıcının vardığında kapalı bulduğu 'hayalet' istasyonların listede birikmesine yol açabilir. Günlük yenileme sırasında kaynakta artık yer almayan istasyonların listeden kaldırılması veya pasife alınması bekleniyor.
+
+---
+### [TALEP-037] Sunucudaki veritabanı yazılımının güncel sürüme yükseltilmesi (⏳ Beklemede)
+- **Bildirim Tarihi:** 2026-09-27 13:46
+- **Tür / Öncelik:** Yeni İstek / Özellik / Düşük (P4)
+- **İlgili Ekran / Sayfa:** `Sunucu / Altyapı`
+- **Görevli Rol:** `None`
+- 🐙 **GitHub Issue:** [#64](https://github.com/cihan53/elektriklioto/issues/64)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Sitemizin canlı sunucusunda çalışan veritabanı yazılımı oldukça eski bir sürümde kalmış durumda ve artık üreticisi tarafından desteklenmiyor; yani güvenlik ve hata düzeltme güncellemeleri almıyor. Şu an site sorunsuz çalışıyor ancak uzun vadede eski sürüm hem güvenlik açığı hem de yeni özelliklerden yararlanamama riski taşıyor. Uygun bir bakım penceresinde veritabanının güncel, desteklenen bir sürüme yükseltilmesi ve yükseltme sonrası verilerin eksiksiz aktarıldığının doğrulanması isteniyor.
+
+---
 ### [TALEP-036] [UAT] S26-T1 canlı kabul denetimi başarısız: [TALEP-034] [UAT] S23-T2 canlı kabul denetimi başarısız: [TALEP-027] Müşteri Kab (❌ İptal Edildi)
 - **Bildirim Tarihi:** 2026-09-27 04:23
 - **Tür / Öncelik:** Hata / Bug / Yüksek (P2)
