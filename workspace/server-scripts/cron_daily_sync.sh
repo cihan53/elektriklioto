@@ -27,11 +27,22 @@ LOG_FILE="$LOG_DIR/cron_daily_sync.log"
 
 mkdir -p "$LOG_DIR"
 
+# Log dosyası yazılabilir değilse (örn. yanlış sahiplikle oluşmuşsa) 'tee'
+# hatası set -e altında tüm script'i ilk log çağrısında öldürür; senkronun
+# tamamen susmasını engellemek için geçici dosyaya düşülür.
+# Not: 'touch' sahibi olduğu dosyada yazma izni olmadan da başarılı olur;
+# gerçek yazma testi için append redirection kullanılır.
+if ! : >> "$LOG_FILE" 2>/dev/null; then
+    echo "[UYARI] $LOG_FILE yazılamıyor; çıktılar /tmp altına düşecek." >&2
+    LOG_FILE="$(mktemp -t cron_daily_sync.XXXXXX.log)"
+fi
+
 # cPanel ve sistem PATH genişletmesi
 export PATH="/usr/local/bin:/usr/bin:/bin:$HOME/bin:$PATH"
 
 log() {
-    echo "[$(date '+%Y-%m-%d %H:%M:%S')] $1" | tee -a "$LOG_FILE"
+    # tee dosyaya yazamasa bile stdout'a basar; '|| true' set -e'yi korur.
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')] $1" | tee -a "$LOG_FILE" 2>/dev/null || true
 }
 
 log "========================================================"

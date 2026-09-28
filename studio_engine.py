@@ -19,6 +19,7 @@ import os
 import re
 import shutil
 import signal
+import sqlite3
 import time
 import subprocess
 import sys
@@ -586,7 +587,8 @@ class CallAborted(Exception):
 
 
 def _run_cli(cmd: list, cwd: Path, timeout: int, name: str,
-             stdin_text: str | None = None):
+             stdin_text: str | None = None,
+             on_stdout_line=None):
     """CLI'yi kesilebilir şekilde çalıştırır.
 
     Normal akışta subprocess.run ile aynıdır. Farkı: her yarım saniyede
@@ -594,6 +596,8 @@ def _run_cli(cmd: list, cwd: Path, timeout: int, name: str,
     SIGTERM ile öldürülür ve CallAborted fırlatılır (--gec/--atla --force).
     `stdin_text` verilirse ayrı bir yazıcı iş parçacığıyla sürecin
     stdin'ine beslenir (uzun prompt'lar argv sınırını aşar).
+    `on_stdout_line` verilirse stdout satır satır okuyucu iş parçacığıyla
+    tüketilir ve her satır geri çağrıya iletilir (canlı akış için).
     """
     proc = subprocess.Popen(
         cmd, stdin=subprocess.PIPE if stdin_text is not None else None,
@@ -608,6 +612,33 @@ def _run_cli(cmd: list, cwd: Path, timeout: int, name: str,
             except (OSError, BrokenPipeError):
                 pass
         threading.Thread(target=_besle, daemon=True).start()
+    okuyucular = []
+    if on_stdout_line is not None:
+        # stdout'u satır satır tüket: hem topla hem canlı geri çağrıya ver.
+        # stderr de ayrı tüketilmeli — aksi hâlde boru dolunca süreç kilitlenir.
+        out_parca, err_parca = [], []
+
+        def _oku_out():
+            try:
+                for satir in proc.stdout:
+                    out_parca.append(satir)
+                    try:
+                        on_stdout_line(satir)
+                    except Exception:
+                        pass
+            except (OSError, ValueError):
+                pass
+
+        def _oku_err():
+            try:
+                err_parca.append(proc.stderr.read() or "")
+            except (OSError, ValueError):
+                pass
+
+        for hedef in (_oku_out, _oku_err):
+            t = threading.Thread(target=hedef, daemon=True)
+            t.start()
+            okuyucular.append(t)
     deadline = time.time() + timeout
     try:
         while proc.poll() is None:
@@ -628,7 +659,12 @@ def _run_cli(cmd: list, cwd: Path, timeout: int, name: str,
                     pass
                 raise RuntimeError(f"{name} {timeout}s içinde yanıt vermedi.")
             time.sleep(0.5)
-        out, err = proc.communicate()
+        if okuyucular:
+            for t in okuyucular:
+                t.join(timeout=10)
+            out, err = "".join(out_parca), "".join(err_parca)
+        else:
+            out, err = proc.communicate()
         # Yarış: süreç SIGTERM ile zaten ölüp döngüden çıkmış olabilir;
         # yarım kalan çıktı parse hatasına dönüşmesin, CallAborted korunur.
         if B.is_set("force"):
@@ -760,8 +796,91 @@ def _call_devin(system_prompt: str, user_prompt: str, effort: str, model: str,
     # araçlarını deneyebilir → mod koşulsuz geçilir, yoksa çağrı boş döner.
     cmd += ["--permission-mode", DEVIN_PERMISSION_MODE]
 
+    # devin -p ara çıktı üretmez ve --export -p modunda dosyayı ancak çağrı
+    # sonunda yazar (tek tur). Canlı akış için devin CLI'nin anlık mesaj
+    # düğümlerini tuttuğu sessions.db sorgulanır: bu çağrının oturumu
+    # working_directory + created_at ile bulunur, message_nodes node_id
+    # sırasıyla okunup current.out'a render edilir.
+    sess_db = Path.home() / ".local/share/devin/cli/sessions.db"
     run_cwd = ROOT if tools else SCRATCH_DIR
-    rc, out, err = _run_cli(cmd, run_cwd, DEVIN_TIMEOUT + 60, "devin")
+    live = TRACE_DIR / "current.out"
+    try:
+        live.write_text("", encoding="utf-8")
+    except OSError:
+        pass
+    izle_dur = threading.Event()
+
+    def _devin_izle():
+        baslangic = int(time.time())
+        oturum = None
+        # Aynı message_id birden fazla düğüm olarak kaydedilir (kısmi → tam);
+        # kimliğe göre tutup yenisiyle ezeceğiz — sıra ilk görülme sırası.
+        mesajlar = {}
+        son_metin = [""]
+        while not izle_dur.is_set():
+            try:
+                if sess_db.exists():
+                    conn = sqlite3.connect(
+                        f"file:{sess_db}?mode=ro", uri=True, timeout=1)
+                    try:
+                        if oturum is None:
+                            row = conn.execute(
+                                "SELECT id FROM sessions WHERE"
+                                " working_directory=? AND created_at>=?"
+                                " ORDER BY created_at DESC LIMIT 1",
+                                (str(run_cwd), baslangic - 10)).fetchone()
+                            oturum = row[0] if row else None
+                        if oturum:
+                            dugumler = conn.execute(
+                                "SELECT chat_message FROM message_nodes"
+                                " WHERE session_id=? ORDER BY node_id",
+                                (oturum,)).fetchall()
+                            for mesaj in dugumler:
+                                try:
+                                    m = json.loads(mesaj[0])
+                                except (ValueError, TypeError):
+                                    continue
+                                rol = m.get("role")
+                                satirlar = []
+                                if rol == "assistant":
+                                    icerik = (m.get("content") or "").strip()
+                                    if icerik:
+                                        satirlar.append(icerik)
+                                    for tc in m.get("tool_calls") or []:
+                                        ad = tc.get("name", "?")
+                                        arg = json.dumps(
+                                            tc.get("arguments") or {},
+                                            ensure_ascii=False)[:200]
+                                        satirlar.append(f"⚙ {ad} {arg}")
+                                elif rol == "tool":
+                                    oz = (m.get("content") or "").strip()
+                                    satirlar.append(f"↩ {oz[:200]}")
+                                if satirlar:
+                                    mesajlar[m.get("message_id") or
+                                             len(mesajlar)] = satirlar
+                            if mesajlar:
+                                duz = [s for l in mesajlar.values()
+                                       for s in l]
+                                metin = "\n".join(duz)[-12000:]
+                                # Değişiklik yoksa yazma — dosyanın mtime'ı
+                                # "son aktivite" göstergesi olarak kullanılıyor.
+                                if metin != son_metin[0]:
+                                    son_metin[0] = metin
+                                    live.write_text(
+                                        metin, encoding="utf-8")
+                    finally:
+                        conn.close()
+            except (OSError, sqlite3.Error):
+                pass
+            izle_dur.wait(2.0)
+
+    izleyici = threading.Thread(target=_devin_izle, daemon=True)
+    izleyici.start()
+
+    try:
+        rc, out, err = _run_cli(cmd, run_cwd, DEVIN_TIMEOUT + 60, "devin")
+    finally:
+        izle_dur.set()
 
     if rc != 0:
         detail = (err or out or "").strip()[:500]
@@ -791,7 +910,47 @@ def _call_claude(system_prompt: str, user_prompt: str, effort: str, model: str,
         raise RuntimeError("'claude' bulunamadı. Claude Code CLI kurulu olmalı "
                            "(npm i -g @anthropic-ai/claude-code).")
 
-    cmd = [exe, "-p", "--output-format", "json"]
+    # stream-json + verbose: ajanın assistant/tool olayları satır satır akar;
+    # her satır Canlı Çıktı'ya (current.out) akıtılır ki panelde çağrı boyunca
+    # "çıktı yok" yerine ajanın ne yaptığı görünsün.
+    live = TRACE_DIR / "current.out"
+    try:
+        live.write_text("", encoding="utf-8")
+    except OSError:
+        pass
+    canli_kilit = threading.Lock()
+
+    def _canli_yaz(satir: str):
+        try:
+            with canli_kilit, live.open("a", encoding="utf-8") as f:
+                f.write(satir.rstrip() + "\n")
+        except OSError:
+            pass
+
+    def _canli_satir(ham: str):
+        try:
+            ev = json.loads(ham)
+        except (json.JSONDecodeError, ValueError):
+            return
+        tur = ev.get("type")
+        if tur == "assistant":
+            for b in (ev.get("message", {}).get("content") or []):
+                if not isinstance(b, dict):
+                    continue
+                if b.get("type") == "text" and (b.get("text") or "").strip():
+                    _canli_yaz(b["text"])
+                elif b.get("type") == "tool_use":
+                    ozet = json.dumps(b.get("input") or {}, ensure_ascii=False)
+                    _canli_yaz(f"⚙ {b.get('name', '?')} {ozet[:140]}")
+        elif tur == "user":
+            for b in (ev.get("message", {}).get("content") or []):
+                if isinstance(b, dict) and b.get("type") == "tool_result":
+                    c = b.get("content")
+                    s = c if isinstance(c, str) else json.dumps(
+                        c, ensure_ascii=False)
+                    _canli_yaz(f"  ↩ {str(s).strip()[:200]}")
+
+    cmd = [exe, "-p", "--output-format", "stream-json", "--verbose"]
     if model:
         cmd += ["--model", model]
     if system_prompt:
@@ -801,21 +960,35 @@ def _call_claude(system_prompt: str, user_prompt: str, effort: str, model: str,
 
     run_cwd = ROOT if tools else SCRATCH_DIR
     rc, out, err = _run_cli(cmd, run_cwd, CLAUDE_TIMEOUT + 60, "claude",
-                            stdin_text=user_prompt)
+                            stdin_text=user_prompt,
+                            on_stdout_line=_canli_satir)
 
     if rc != 0:
         detail = (err or out or "").strip()[:500]
         raise RuntimeError(f"claude hata koduyla çıktı ({rc}): {detail}")
 
-    try:
-        data = json.loads((out or "").strip(), strict=False)
-    except json.JSONDecodeError:
-        data = _json_kurtar(out)
+    # NDJSON akışının son 'result' olayı nihai yanıtı taşır; akış yoksa/
+    # bozuksa eski tek-JSON formatına geri düşülür.
+    data = None
+    for satir in reversed((out or "").strip().splitlines()):
+        try:
+            ev = json.loads(satir.strip(), strict=False)
+        except json.JSONDecodeError:
+            continue
+        if isinstance(ev, dict) and ev.get("type") == "result":
+            data = ev
+            break
+    if data is None:
+        try:
+            data = json.loads((out or "").strip(), strict=False)
+        except json.JSONDecodeError:
+            data = _json_kurtar(out)
     if not isinstance(data, dict):
         raise RuntimeError(f"claude JSON döndürmedi: {(out or '').strip()[:300]}"
                            f" ...son: {(out or '').strip()[-150:]}")
     if data.get("is_error"):
-        raise RuntimeError(f"claude hata bildirdi: {str(data.get('result'))[:300]}")
+        detail = str(data.get("result") or data.get("subtype") or "")
+        raise RuntimeError(f"claude hata bildirdi: {detail[:300]}")
 
     text = (data.get("result") or "").strip()
     if not text:
@@ -845,6 +1018,9 @@ LIMIT_PATTERNS = (
     "gateway timeout", "econnreset", "econnrefused", "etimedout", "eai_again",
     "enotfound", "request failed", "streamgeneratecontent",
     "yanıt vermedi", "empty reply", "server disconnected",
+    # --- boş sonuç (izin reddi döngüsü / tur tükenmesi): ölümcül değil,
+    # taze oturumla yeniden denenmeli ---
+    "metin üretmedi", "boş sonuç", "boş metin",
 )
 MAX_WAIT = int(os.getenv("STUDIO_MAX_WAIT", "18000"))   # varsayılan 5 saat
 WAIT_STEP = 20
@@ -1233,10 +1409,40 @@ Dosya uzantılarını mimari dokümanda seçilen dile/framework'e göre belirle.
 
 CODE_HINT = "\nBu bir kaynak kod dosyası: markdown kod çiti kullanma, sadece ham kodu yaz."
 
+# Saha gözlemi: Write/Edit aracı olmayan araçlı roller (ör. uat_auditor),
+# prompt'ta hedef dosya adını görünce raporu kendileri yazmaya çalışıyor.
+# Headless -p kipinde onay veren olmadığından tüm denemeler reddediliyor;
+# ajan turlarını bu döngüde harcayıp boş sonuçla bitiriyor.
+NO_WRITE_RULE = """
+
+--- DOSYA YAZMA YETKİSİ YOK (ZORUNLU) ---
+Bu rolde dosya yazma aracın (Write/Edit) bulunmuyor.
+- Dosya oluşturmaya veya güncellemeye ÇALIŞMA; Write/Edit ve geçici probe
+  dosyası denemeleri reddedilir ve turlarını boşa harcar.
+- Cevabın metin olarak doğrudan hedef dosyaya yazılacak — sen yalnızca
+  nihai içeriği çıktı metni olarak döndürürsün."""
+
+WRITE_TOOL_NAMES = ("Write", "Edit", "MultiEdit", "NotebookEdit")
+
+
+def _yazma_yetkisi(tools: list | None) -> bool:
+    """Rolün dosya yazabilecek bir aracı var mı? Kısıtlı Bash(x:*)
+    yazma sayılmaz; yalnızca serbest Bash veya Bash(*) sayılır."""
+    for t in tools or []:
+        t = str(t).strip()
+        if t.split("(", 1)[0] in WRITE_TOOL_NAMES:
+            return True
+        if t in ("Bash", "Bash(*)"):
+            return True
+    return False
+
 
 def build_prompts(agent: dict, target: str, siblings: list[str], brief: str,
-                  inputs_text: str, revision_note: str = "") -> tuple[str, str]:
+                  inputs_text: str, revision_note: str = "",
+                  tools: list | None = None) -> tuple[str, str]:
     system = agent["system_prompt"] + SYSTEM_SUFFIX
+    if not _yazma_yetkisi(tools):
+        system += NO_WRITE_RULE
 
     is_dir = target.endswith("/")
     # Uzunluk disiplini: kapsam dokümanının kendine özel kuralı var, diğer
@@ -1307,7 +1513,7 @@ def run_agent(agent: dict, brief: str, state: dict, force: bool = False,
 
         siblings = [o for o in agent["outputs"] if o != target]
         system, user = build_prompts(agent, target, siblings, agent_brief,
-                                     inputs_text, revision_note)
+                                     inputs_text, revision_note, tools)
 
         if dry_run:
             print(f"    [dry-run] {target}  ({backend}/{model or 'varsayılan'}, effort={effort}, "
@@ -1937,7 +2143,8 @@ def execute_task(org: dict, task: dict, sprint: dict, brief: str, board: dict,
                 )
 
         system, user = build_prompts(agent, target, siblings, brief,
-                                     inputs_text + task_brief + existing_code_block)
+                                     inputs_text + task_brief + existing_code_block,
+                                     tools=tools)
         meta = {"seq": _trace_seq(), "role": task["role"], "title": agent["title"],
                 "target": target, "backend": backend, "model": model,
                 "tools": tools, "task": task["id"], "sprint": sprint["id"]}
