@@ -41,9 +41,18 @@ Son çıktı satırları:
 
 ## 2. Kök Neden & Mimari Analiz
 
-**Devin Analizi:**
+**Claude Analizi:**
 
-Hızlıca canlı durumu doğrulayayım — backend portu ve UAT script'i hakkında kontrol yapıyorum.
+## Kök Neden
+
+`ECONNREFUSED 127.0.0.1:3001` hatası, port 3001'de dinleyen hiçbir sürecin olmadığını gösteriyor — yani backend servisi UAT denetimi çalıştığı anda ayakta değil; bu bir kod hatası değil, bir servis erişilebilirlik sorunu. Port 3000'deki HTTP 500 ise web istemcisinin ayakta olduğunu ama muhtemelen backend'e (3001) bağlanamadığı için hata döndürdüğünü gösteriyor, yani tek kök neden zincirleme etki yaratıyor: backend down → web 500. Bu, TALEP-043'te ("backend yeniden başlatma işlemi başarısız olduğu halde başarılı bildiriliyor") tespit edilen sorunla örtüşüyor: deploy/restart betiği süreci gerçekten ayağa kaldırmadan "başarılı" raporluyor olabilir, ya da süreç kaldırılıyor ama crash-loop / bellek limiti gibi bir nedenle kısa sürede çöküyor.
+
+## Kritik Riskler
+
+1. **Yalancı yeşil (false positive) restart bildirimi**: Deploy/restart script'i gerçek sağlık kontrolü (health check) yapmadan "başarılı" diyorsa, bu üçüncü kez aynı semptomla karşılaşılmasının nedeni olabilir — TALEP-043'teki düzeltmenin kapsamı gözden geçirilmeli.
+2. **Süreç yöneticisi (PM2/systemd) crash-loop'ta olabilir**: Backend ayakta kalamıyor olabilir; loglar (`pm2 logs` veya ilgili servis logları) incelenmeden kök neden kesinleşmez.
+3. **UAT script zamanlama sorunu**: Denetim, deploy sonrası servisler tam ayağa kalkmadan tetikleniyor olabilir; restart sonrası bir "readiness" bekleme/retry mekanizması eksik olabilir.
+4. **Tekrarlayan desen**: Bu, art arda 3. benzer canlı denetim hatası (TALEP-044/045/046 ardından); kalıcı çözüm yerine geçici restart'larla kapatılıyorsa, üretimde güvenilirlik riski büyümeye devam edecektir — kök neden analizi ve otomatik health-check/alerting eklenmeli.
 
 **İlgili Dosyalar & Modüller:**
    - `workspace/src/backend/src/modules/`

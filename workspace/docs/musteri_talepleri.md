@@ -1,6 +1,6 @@
 # Digital Software Studio — Müşteri Denetim & Talep Havuzu
 
-> **Son Güncelleme:** 2026-09-28 21:55  
+> **Son Güncelleme:** 2026-09-28 21:56  
 > **Toplam Bildirim:** 48  
 
 Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda iletilen istek, hata ve geri bildirimleri içerir.
@@ -11,9 +11,9 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 
 | ID | Tür | Öncelik | Durum | Başlık | Ekran / URL | İlgili Rol | GitHub Issue | Plan |
 |---|---|---|---|---|---|---|---|---|
-| **TALEP-048** | Hata / Bug | Yüksek (P2) | ⏳ Beklemede | [UAT] S32-T2 canlı kabul denetimi başarısız: [TALEP-046] Müşteri Kabulü & UAT Doğrulama Denetimi | `/` | `None` | [#79](https://github.com/cihan53/elektriklioto/issues/79) | — |
-| **TALEP-047** | Hata / Bug | Yüksek (P2) | ⏳ Beklemede | [UAT] S32-T1 canlı kabul denetimi başarısız: [TALEP-046] [UAT] S31-T2 canlı kabul denetimi başarısız: [TALEP-045] Müşteri Kab | `/` | `None` | [#78](https://github.com/cihan53/elektriklioto/issues/78) | — |
-| **TALEP-046** | Hata / Bug | Yüksek (P2) | 🔨 Geliştiriliyor | [UAT] S31-T2 canlı kabul denetimi başarısız: [TALEP-045] Müşteri Kabulü & UAT Doğrulama Denetimi | `/` | `backend_engineer` | [#77](https://github.com/cihan53/elektriklioto/issues/77) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-046.md) |
+| **TALEP-048** | Hata / Bug | Yüksek (P2) | 🔨 Geliştiriliyor | [UAT] S32-T2 canlı kabul denetimi başarısız: [TALEP-046] Müşteri Kabulü & UAT Doğrulama Denetimi | `/` | `backend_engineer` | [#79](https://github.com/cihan53/elektriklioto/issues/79) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-048.md) |
+| **TALEP-047** | Hata / Bug | Yüksek (P2) | 🔨 Geliştiriliyor | [UAT] S32-T1 canlı kabul denetimi başarısız: [TALEP-046] [UAT] S31-T2 canlı kabul denetimi başarısız: [TALEP-045] Müşteri Kab | `/` | `backend_engineer` | [#78](https://github.com/cihan53/elektriklioto/issues/78) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-047.md) |
+| **TALEP-046** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | [UAT] S31-T2 canlı kabul denetimi başarısız: [TALEP-045] Müşteri Kabulü & UAT Doğrulama Denetimi | `/` | `backend_engineer` | [#77](https://github.com/cihan53/elektriklioto/issues/77) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-046.md) |
 | **TALEP-045** | Hata / Bug | Normal (P3) | ✅ Çözüldü | Haritada istasyon aramada bazı ilçeler (Esenler) ilçe sonuçlarında görünmüyor | `/` | `web_engineer` | [#74](https://github.com/cihan53/elektriklioto/issues/74) | — |
 | **TALEP-044** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | 041 numaralı talebin öncelikli olarak sprinte alınması | `/` | `None` | [#73](https://github.com/cihan53/elektriklioto/issues/73) | — |
 | **TALEP-043** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | Sunucuda backend yeniden başlatma işlemi başarısız olduğu halde başarılı bildiriliyor | `Sunucu / Yayınlama` | `None` | [#72](https://github.com/cihan53/elektriklioto/issues/72) | — |
@@ -64,11 +64,11 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 
 ## 2. Talep Detayları ve Geri Bildirim Notları
 
-### [TALEP-048] [UAT] S32-T2 canlı kabul denetimi başarısız: [TALEP-046] Müşteri Kabulü & UAT Doğrulama Denetimi (⏳ Beklemede)
+### [TALEP-048] [UAT] S32-T2 canlı kabul denetimi başarısız: [TALEP-046] Müşteri Kabulü & UAT Doğrulama Denetimi (🔨 Geliştiriliyor)
 - **Bildirim Tarihi:** 2026-09-28 21:55
 - **Tür / Öncelik:** Hata / Bug / Yüksek (P2)
 - **İlgili Ekran / Sayfa:** `/`
-- **Görevli Rol:** `None`
+- **Görevli Rol:** `backend_engineer`
 - 🐙 **GitHub Issue:** [#79](https://github.com/cihan53/elektriklioto/issues/79)
 
 **Müşteri Açıklaması / Hata Adımları:**
@@ -91,12 +91,17 @@ Son çıktı satırları:
 [31m⚠️  UAT TESTLERİNDE 6 HATA TESPİT EDİLDİ! (0 Başarılı, 6 Başarısız)[0m
 ```
 
+**Studio Yetkilisi Notu:**
+> Sprint S33 panosuna eklendi (S33-T3 ve S33-T4). Görevli rol: backend_engineer. Geliştirme başladı.
+
+- 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-048.md](workspace/docs/cozum_planlari/TALEP-048.md)
+
 ---
-### [TALEP-047] [UAT] S32-T1 canlı kabul denetimi başarısız: [TALEP-046] [UAT] S31-T2 canlı kabul denetimi başarısız: [TALEP-045] Müşteri Kab (⏳ Beklemede)
+### [TALEP-047] [UAT] S32-T1 canlı kabul denetimi başarısız: [TALEP-046] [UAT] S31-T2 canlı kabul denetimi başarısız: [TALEP-045] Müşteri Kab (🔨 Geliştiriliyor)
 - **Bildirim Tarihi:** 2026-09-28 21:47
 - **Tür / Öncelik:** Hata / Bug / Yüksek (P2)
 - **İlgili Ekran / Sayfa:** `/`
-- **Görevli Rol:** `None`
+- **Görevli Rol:** `backend_engineer`
 - 🐙 **GitHub Issue:** [#78](https://github.com/cihan53/elektriklioto/issues/78)
 
 **Müşteri Açıklaması / Hata Adımları:**
@@ -119,8 +124,13 @@ Son çıktı satırları:
 [31m⚠️  UAT TESTLERİNDE 6 HATA TESPİT EDİLDİ! (0 Başarılı, 6 Başarısız)[0m
 ```
 
+**Studio Yetkilisi Notu:**
+> Sprint S33 panosuna eklendi (S33-T1 ve S33-T2). Görevli rol: backend_engineer. Geliştirme başladı.
+
+- 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-047.md](workspace/docs/cozum_planlari/TALEP-047.md)
+
 ---
-### [TALEP-046] [UAT] S31-T2 canlı kabul denetimi başarısız: [TALEP-045] Müşteri Kabulü & UAT Doğrulama Denetimi (🔨 Geliştiriliyor)
+### [TALEP-046] [UAT] S31-T2 canlı kabul denetimi başarısız: [TALEP-045] Müşteri Kabulü & UAT Doğrulama Denetimi (✅ Çözüldü)
 - **Bildirim Tarihi:** 2026-09-28 21:34
 - **Tür / Öncelik:** Hata / Bug / Yüksek (P2)
 - **İlgili Ekran / Sayfa:** `/`
@@ -148,7 +158,7 @@ al Software Studio — Canlı UAT & Kullanıcı Denetimi Başlatılıyor[0m
 ```
 
 **Studio Yetkilisi Notu:**
-> Sprint S32 panosuna eklendi (S32-T1 ve S32-T2). Görevli rol: backend_engineer. Geliştirme başladı.
+> Görev S32-T2 başarıyla tamamlandı ve UAT testinden geçti.
 
 - 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-046.md](workspace/docs/cozum_planlari/TALEP-046.md)
 
