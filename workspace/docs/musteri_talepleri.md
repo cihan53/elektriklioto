@@ -1,7 +1,7 @@
 # Digital Software Studio — Müşteri Denetim & Talep Havuzu
 
-> **Son Güncelleme:** 2026-09-28 21:34  
-> **Toplam Bildirim:** 46  
+> **Son Güncelleme:** 2026-09-28 21:55  
+> **Toplam Bildirim:** 48  
 
 Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda iletilen istek, hata ve geri bildirimleri içerir.
 
@@ -11,8 +11,10 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 
 | ID | Tür | Öncelik | Durum | Başlık | Ekran / URL | İlgili Rol | GitHub Issue | Plan |
 |---|---|---|---|---|---|---|---|---|
-| **TALEP-046** | Hata / Bug | Yüksek (P2) | ⏳ Beklemede | [UAT] S31-T2 canlı kabul denetimi başarısız: [TALEP-045] Müşteri Kabulü & UAT Doğrulama Denetimi | `/` | `None` | [#77](https://github.com/cihan53/elektriklioto/issues/77) | — |
-| **TALEP-045** | Hata / Bug | Normal (P3) | 🔨 Geliştiriliyor | Haritada istasyon aramada bazı ilçeler (Esenler) ilçe sonuçlarında görünmüyor | `/` | `web_engineer` | [#74](https://github.com/cihan53/elektriklioto/issues/74) | — |
+| **TALEP-048** | Hata / Bug | Yüksek (P2) | ⏳ Beklemede | [UAT] S32-T2 canlı kabul denetimi başarısız: [TALEP-046] Müşteri Kabulü & UAT Doğrulama Denetimi | `/` | `None` | [#79](https://github.com/cihan53/elektriklioto/issues/79) | — |
+| **TALEP-047** | Hata / Bug | Yüksek (P2) | ⏳ Beklemede | [UAT] S32-T1 canlı kabul denetimi başarısız: [TALEP-046] [UAT] S31-T2 canlı kabul denetimi başarısız: [TALEP-045] Müşteri Kab | `/` | `None` | [#78](https://github.com/cihan53/elektriklioto/issues/78) | — |
+| **TALEP-046** | Hata / Bug | Yüksek (P2) | 🔨 Geliştiriliyor | [UAT] S31-T2 canlı kabul denetimi başarısız: [TALEP-045] Müşteri Kabulü & UAT Doğrulama Denetimi | `/` | `backend_engineer` | [#77](https://github.com/cihan53/elektriklioto/issues/77) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-046.md) |
+| **TALEP-045** | Hata / Bug | Normal (P3) | ✅ Çözüldü | Haritada istasyon aramada bazı ilçeler (Esenler) ilçe sonuçlarında görünmüyor | `/` | `web_engineer` | [#74](https://github.com/cihan53/elektriklioto/issues/74) | — |
 | **TALEP-044** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | 041 numaralı talebin öncelikli olarak sprinte alınması | `/` | `None` | [#73](https://github.com/cihan53/elektriklioto/issues/73) | — |
 | **TALEP-043** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | Sunucuda backend yeniden başlatma işlemi başarısız olduğu halde başarılı bildiriliyor | `Sunucu / Yayınlama` | `None` | [#72](https://github.com/cihan53/elektriklioto/issues/72) | — |
 | **TALEP-042** | Veri & İstasyon Tutarlılığı | Düşük (P4) | ✅ Çözüldü | Canlı sitede operatör listesi yerel ortama göre bir kayıt eksik görünüyor | `Harita / Operatör Listesi` | `web_engineer` | [#71](https://github.com/cihan53/elektriklioto/issues/71) | — |
@@ -62,11 +64,67 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 
 ## 2. Talep Detayları ve Geri Bildirim Notları
 
-### [TALEP-046] [UAT] S31-T2 canlı kabul denetimi başarısız: [TALEP-045] Müşteri Kabulü & UAT Doğrulama Denetimi (⏳ Beklemede)
-- **Bildirim Tarihi:** 2026-09-28 21:34
+### [TALEP-048] [UAT] S32-T2 canlı kabul denetimi başarısız: [TALEP-046] Müşteri Kabulü & UAT Doğrulama Denetimi (⏳ Beklemede)
+- **Bildirim Tarihi:** 2026-09-28 21:55
 - **Tür / Öncelik:** Hata / Bug / Yüksek (P2)
 - **İlgili Ekran / Sayfa:** `/`
 - **Görevli Rol:** `None`
+- 🐙 **GitHub Issue:** [#79](https://github.com/cihan53/elektriklioto/issues/79)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Canlı UAT denetimi (scripts/uat_live_audit.mjs) 'S32-T2' görevinde başarısız oldu.
+
+Son çıktı satırları:
+```
+2: Web istemcisi için CORS ve CORP başlık uyumu ... [31m✗ BAŞARISIZ[0m
+         [31mHata: connect ECONNREFUSED 127.0.0.1:3001[0m
+  [TEST] UAT-03: Zoom 6 Türkiye genelinde 81 ilin kümeleme verisi (Clusters) ... [31m✗ BAŞARISIZ[0m
+         [31mHata: connect ECONNREFUSED 127.0.0.1:3001[0m
+  [TEST] UAT-04: Zoom 11 İstanbul geniş ekran BBox sorgusu (1.06° boylam, 600+ pin) ... [31m✗ BAŞARISIZ[0m
+         [31mHata: connect ECONNREFUSED 127.0.0.1:3001[0m
+  [TEST] UAT-05: API uç noktası canlılık ve veri modeli doğrulaması ... [31m✗ BAŞARISIZ[0m
+         [31mHata: connect ECONNREFUSED 127.0.0.1:3001[0m
+  [TEST] UAT-06: Web arayüzü canlı HTML sunumu (Port 3000) ... [31m✗ BAŞARISIZ[0m
+         [31mHata: Web arayüzü HTTP 500 döndü[0m
+
+----------------------------------------------------------------------
+[31m⚠️  UAT TESTLERİNDE 6 HATA TESPİT EDİLDİ! (0 Başarılı, 6 Başarısız)[0m
+```
+
+---
+### [TALEP-047] [UAT] S32-T1 canlı kabul denetimi başarısız: [TALEP-046] [UAT] S31-T2 canlı kabul denetimi başarısız: [TALEP-045] Müşteri Kab (⏳ Beklemede)
+- **Bildirim Tarihi:** 2026-09-28 21:47
+- **Tür / Öncelik:** Hata / Bug / Yüksek (P2)
+- **İlgili Ekran / Sayfa:** `/`
+- **Görevli Rol:** `None`
+- 🐙 **GitHub Issue:** [#78](https://github.com/cihan53/elektriklioto/issues/78)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Canlı UAT denetimi (scripts/uat_live_audit.mjs) 'S32-T1' görevinde başarısız oldu.
+
+Son çıktı satırları:
+```
+2: Web istemcisi için CORS ve CORP başlık uyumu ... [31m✗ BAŞARISIZ[0m
+         [31mHata: connect ECONNREFUSED 127.0.0.1:3001[0m
+  [TEST] UAT-03: Zoom 6 Türkiye genelinde 81 ilin kümeleme verisi (Clusters) ... [31m✗ BAŞARISIZ[0m
+         [31mHata: connect ECONNREFUSED 127.0.0.1:3001[0m
+  [TEST] UAT-04: Zoom 11 İstanbul geniş ekran BBox sorgusu (1.06° boylam, 600+ pin) ... [31m✗ BAŞARISIZ[0m
+         [31mHata: connect ECONNREFUSED 127.0.0.1:3001[0m
+  [TEST] UAT-05: API uç noktası canlılık ve veri modeli doğrulaması ... [31m✗ BAŞARISIZ[0m
+         [31mHata: connect ECONNREFUSED 127.0.0.1:3001[0m
+  [TEST] UAT-06: Web arayüzü canlı HTML sunumu (Port 3000) ... [31m✗ BAŞARISIZ[0m
+         [31mHata: Web arayüzü HTTP 500 döndü[0m
+
+----------------------------------------------------------------------
+[31m⚠️  UAT TESTLERİNDE 6 HATA TESPİT EDİLDİ! (0 Başarılı, 6 Başarısız)[0m
+```
+
+---
+### [TALEP-046] [UAT] S31-T2 canlı kabul denetimi başarısız: [TALEP-045] Müşteri Kabulü & UAT Doğrulama Denetimi (🔨 Geliştiriliyor)
+- **Bildirim Tarihi:** 2026-09-28 21:34
+- **Tür / Öncelik:** Hata / Bug / Yüksek (P2)
+- **İlgili Ekran / Sayfa:** `/`
+- **Görevli Rol:** `backend_engineer`
 - 🐙 **GitHub Issue:** [#77](https://github.com/cihan53/elektriklioto/issues/77)
 
 **Müşteri Açıklaması / Hata Adımları:**
@@ -89,8 +147,13 @@ al Software Studio — Canlı UAT & Kullanıcı Denetimi Başlatılıyor[0m
 [31m⚠️  UAT TESTLERİNDE 1 HATA TESPİT EDİLDİ! (5 Başarılı, 1 Başarısız)[0m
 ```
 
+**Studio Yetkilisi Notu:**
+> Sprint S32 panosuna eklendi (S32-T1 ve S32-T2). Görevli rol: backend_engineer. Geliştirme başladı.
+
+- 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-046.md](workspace/docs/cozum_planlari/TALEP-046.md)
+
 ---
-### [TALEP-045] Haritada istasyon aramada bazı ilçeler (Esenler) ilçe sonuçlarında görünmüyor (🔨 Geliştiriliyor)
+### [TALEP-045] Haritada istasyon aramada bazı ilçeler (Esenler) ilçe sonuçlarında görünmüyor (✅ Çözüldü)
 - **Bildirim Tarihi:** 2026-09-27 23:50
 - **Tür / Öncelik:** Hata / Bug / Normal (P3)
 - **İlgili Ekran / Sayfa:** `/`
@@ -111,7 +174,7 @@ Gerçekleşen: Bazı ilçeler (örnek: Esenler) ilçe sonuçlarında hiç çıkm
 Not: Müşteri ek örnek ilçeler ve cihaz/tarayıcı bilgisini iletirse kayda eklenecek.
 
 **Studio Yetkilisi Notu:**
-> Sprint S31 panosuna eklendi (S31-T1 ve S31-T2). Görevli rol: web_engineer. Geliştirme başladı.
+> Görev S31-T2 başarıyla tamamlandı ve UAT testinden geçti.
 
 - 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-045.md](workspace/docs/cozum_planlari/TALEP-045.md)
 

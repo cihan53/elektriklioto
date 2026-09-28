@@ -136,3 +136,36 @@
 ## [S31-T2] — 2026-09-28 21:34
 
 - fix görevi tamamlandı ama değişen dosyalarda test yok (regresyon testi eksik) — dosyalar: workspace/docs/uat_kabul_raporu.md, workspace/docs/cozum_planlari/TALEP-046.md
+
+## [S32-T1] — 2026-09-28 21:47
+
+- workspace/src/backend/src/app.ts: silinen koruma referansı [TALEP-025] → // TALEP-025: Canlı Sürüm ve Durum Bilgisi (Yalnızca genel sürüm ve yayın tarihi döner, dahili altyapı ve veri
+- workspace/src/backend/src/app.ts: silinen koruma referansı [TALEP-010] → // TALEP-010: PostgreSQL/PostGIS veritabanı ile istasyon ve soket entegrasyonu (otomatik tohumlama)
+- workspace/src/backend/src/modules/stations/station.service.ts: silinen koruma referansı [TALEP-022] → // TALEP-022: Veritabanı tek gerçek kaynaktır (single source of truth).
+- workspace/src/backend/src/modules/stations/station.service.ts: silinen koruma referansı [TALEP-022] → // TALEP-022: Veritabanı tek gerçek kaynaktır; DB sorgusu çalıştıysa ve kayıt yoksa null dönmelidir.
+- workspace/src/backend/src/modules/stations/station.service.ts: silinen koruma referansı [TALEP-022] → // TALEP-022: Veritabanı tek gerçek kaynaktır.
+- workspace/src/backend/src/modules/stations/station.service.ts: silinen koruma referansı [TALEP-022] → // TALEP-022: Veritabanı tek gerçek kaynaktır.
+- workspace/src/backend/src/modules/stations/station.service.ts: silinen koruma referansı [TALEP-022] → // TALEP-022: Veritabanı tek gerçek kaynaktır.
+- workspace/src/backend/src/modules/stations/station.service.ts: silinen koruma referansı [BUG-01] → // 4. BBox Format ve Sınır Doğrulaması (BUG-01 Düzeltmesi)
+- workspace/src/backend/src/modules/stations/station.service.ts: silinen koruma referansı [BUG-02] → // 5. Zoom < 10 ise Kümeleme (Clustering) Çıktısı (UAT-03 & BUG-02)
+
+## [S32-T1] — 2026-09-28 21:47
+
+- fix görevi tamamlandı ama değişen dosyalarda test yok (regresyon testi eksik) — dosyalar: workspace/src/backend/src/app.ts, workspace/src/backend/src/modules/stations/station.routes.ts, workspace/src/backend/src/modules/stations/station.schema.ts, workspace/src/backend/src/modules/stations/station.service.ts, workspace/docs/cozum_planlari/TALEP-047.md
+
+## [S32-T2] — 2026-09-28 21:55
+
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-045] → Frontend on :3000 returns 500 — already a red flag. Let me investigate further.The TALEP-045 fix appears to ha
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-045] → > **Görev:** [TALEP-045] Müşteri Kabulü & UAT Doğrulama Denetimi
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-045] → **Tek cümlelik gerekçe:** TALEP-045 düzeltmesi yarım bırakılmış — `SearchInput.vue` içine eklenen `import { fe
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-045] → | **Değişiklik Durumu** | `git status`: `M workspace/src/frontend/components/map/SearchInput.vue` — **commit'l
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-045] → | UAT-6 | TALEP-045 özgül: "Esenler" ilçe araması | Arama kutusunda "Esenler" ilçe sonucu listelenir | Backend
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [regresyon] → | UAT-7 | "Kadıköy" regresyon kontrolü | İlçe sonucu + istasyon listesi | `gadm/search?q=Kadıköy` → 200 doğru 
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-045] → **Sınır notu:** Çözüm planı dosyası `workspace/docs/cozum_planlari/TALEP-045.md` repoda bulunamadı (musteri_ta
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-045] → - **TALEP-045 backend tarafı çalışıyor:** GADM `/search` ucu Esenler'i `district` tipiyle doğru döndürüyor; so
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-045] → 3. **UAT re-run:** Dosya eklendikten sonra UAT-1…UAT-7 yeniden icra edilir; "Esenler" araması UI'da İlçe bölüm
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-045] → > **Not:** Çözüm planı `workspace/docs/cozum_planlari/TALEP-045.md` eksik — talep kaydındaki kırık link ayrıca
+
+## [S32-T2] — 2026-09-28 21:55
+
+- fix görevi tamamlandı ama değişen dosyalarda test yok (regresyon testi eksik) — dosyalar: workspace/docs/uat_kabul_raporu.md, workspace/docs/cozum_planlari/TALEP-048.md
