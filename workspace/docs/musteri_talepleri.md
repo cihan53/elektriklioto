@@ -1,6 +1,6 @@
 # Digital Software Studio — Müşteri Denetim & Talep Havuzu
 
-> **Son Güncelleme:** 2026-09-29 00:36  
+> **Son Güncelleme:** 2026-09-29 08:24  
 > **Toplam Bildirim:** 52  
 
 Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda iletilen istek, hata ve geri bildirimleri içerir.
@@ -11,7 +11,7 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 
 | ID | Tür | Öncelik | Durum | Başlık | Ekran / URL | İlgili Rol | GitHub Issue | Plan |
 |---|---|---|---|---|---|---|---|---|
-| **TALEP-052** | Hata / Bug | Yüksek (P2) | ONAY_BEKLIYOR | FilterChips.vue '~/composables/useClickOutside' modülünü bulamıyor | `/` | `None` | [#83](https://github.com/cihan53/elektriklioto/issues/83) | — |
+| **TALEP-052** | Hata / Bug | Yüksek (P2) | 🔨 Geliştiriliyor | FilterChips.vue '~/composables/useClickOutside' modülünü bulamıyor | `/` | `data_engineer` | [#83](https://github.com/cihan53/elektriklioto/issues/83) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-052.md) |
 | **TALEP-051** | Hata / Bug | Yüksek (P2) | 🔨 Geliştiriliyor | [UAT] S35-T2 canlı kabul denetimi başarısız: [TALEP-050] Müşteri Kabulü & UAT Doğrulama Denetimi | `/` | `backend_engineer` | [#82](https://github.com/cihan53/elektriklioto/issues/82) | — |
 | **TALEP-050** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | TALEP-032'nin acil olarak yeniden devreye alınması | `/` | `None` | [#81](https://github.com/cihan53/elektriklioto/issues/81) | — |
 | **TALEP-049** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | Canlı ortam hatası: SearchInput.vue './geoSearch' modülünü bulamıyor, ana ekran açılmıyor | `/` | `data_engineer` | [#80](https://github.com/cihan53/elektriklioto/issues/80) | — |
@@ -68,11 +68,11 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 
 ## 2. Talep Detayları ve Geri Bildirim Notları
 
-### [TALEP-052] FilterChips.vue '~/composables/useClickOutside' modülünü bulamıyor (ONAY_BEKLIYOR)
+### [TALEP-052] FilterChips.vue '~/composables/useClickOutside' modülünü bulamıyor (🔨 Geliştiriliyor)
 - **Bildirim Tarihi:** 2026-09-28 23:43
 - **Tür / Öncelik:** Hata / Bug / Yüksek (P2)
 - **İlgili Ekran / Sayfa:** `/`
-- **Görevli Rol:** `None`
+- **Görevli Rol:** `data_engineer`
 - 🐙 **GitHub Issue:** [#83](https://github.com/cihan53/elektriklioto/issues/83)
 
 **Müşteri Açıklaması / Hata Adımları:**
@@ -88,7 +88,9 @@ Müşteri notu: Acil düzeltilmesi isteniyor.
 Ekip notu: TALEP-049 (SearchInput.vue './geoSearch' modülü bulunamıyor) ile aynı kökenli olabilir; eksik/taşınmış composable dosyaları veya '~' alias çözümleme (vite/vitest tsconfig paths) yapılandırması birlikte incelenmeli. Müşteriden hatanın kapsamı (uygulama tamamen açılmıyor mu / yalnızca filtre alanı mı) ve ortam bilgisi (canlı / test çalıştırması) teyidi bekleniyor.
 
 **Studio Yetkilisi Notu:**
-> Görev S37-T2 tamamlandı ve UAT testinden geçti — kapanış için müşteri onayı bekleniyor.
+> Sprint S37 panosuna eklendi (S37-T1 ve S37-T2). Görevli rol: data_engineer. Geliştirme başladı.
+
+- 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-052.md](workspace/docs/cozum_planlari/TALEP-052.md)
 
 ---
 ### [TALEP-051] [UAT] S35-T2 canlı kabul denetimi başarısız: [TALEP-050] Müşteri Kabulü & UAT Doğrulama Denetimi (🔨 Geliştiriliyor)
