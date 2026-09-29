@@ -26,7 +26,7 @@ Müşteri (proje sahibi) denetimi sırasında aşağıdaki durumu tespit etti:
 
 **Devin Analizi:**
 
-Hızlıca sitenin SEO/meta yapılandırmasını kontrol edeyim.
+Kısa bir kontrol yapıp projedeki SEO/canonical durumunu doğrulayayım.
 
 **İlgili Dosyalar & Modüller:**
    - `scripts/`

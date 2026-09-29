@@ -1,6 +1,6 @@
 # Digital Software Studio — Müşteri Denetim & Talep Havuzu
 
-> **Son Güncelleme:** 2026-09-29 17:43  
+> **Son Güncelleme:** 2026-09-29 18:49  
 > **Toplam Bildirim:** 52  
 
 Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda iletilen istek, hata ve geri bildirimleri içerir.
@@ -12,13 +12,13 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 | ID | Tür | Öncelik | Durum | Başlık | Ekran / URL | İlgili Rol | GitHub Issue | Plan |
 |---|---|---|---|---|---|---|---|---|
 | **TALEP-052** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | FilterChips.vue '~/composables/useClickOutside' modülünü bulamıyor | `/` | `data_engineer` | [#83](https://github.com/cihan53/elektriklioto/issues/83) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-052.md) |
-| **TALEP-051** | Hata / Bug | Yüksek (P2) | ⏳ Beklemede | [UAT] S35-T2 canlı kabul denetimi başarısız: [TALEP-050] Müşteri Kabulü & UAT Doğrulama Denetimi | `/` | `backend_engineer` | [#82](https://github.com/cihan53/elektriklioto/issues/82) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-051.md) |
+| **TALEP-051** | Hata / Bug | Yüksek (P2) | 🔨 Geliştiriliyor | [UAT] S35-T2 canlı kabul denetimi başarısız: [TALEP-050] Müşteri Kabulü & UAT Doğrulama Denetimi | `/` | `backend_engineer` | [#82](https://github.com/cihan53/elektriklioto/issues/82) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-051.md) |
 | **TALEP-050** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | TALEP-032'nin acil olarak yeniden devreye alınması | `/` | `None` | [#81](https://github.com/cihan53/elektriklioto/issues/81) | — |
 | **TALEP-049** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | Canlı ortam hatası: SearchInput.vue './geoSearch' modülünü bulamıyor, ana ekran açılmıyor | `/` | `data_engineer` | [#80](https://github.com/cihan53/elektriklioto/issues/80) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-049.md) |
 | **TALEP-048** | Hata / Bug | Yüksek (P2) | ❌ İptal Edildi | [UAT] S32-T2 canlı kabul denetimi başarısız: [TALEP-046] Müşteri Kabulü & UAT Doğrulama Denetimi | `/` | `backend_engineer` | [#79](https://github.com/cihan53/elektriklioto/issues/79) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-048.md) |
 | **TALEP-047** | Hata / Bug | Yüksek (P2) | ❌ İptal Edildi | [UAT] S32-T1 canlı kabul denetimi başarısız: [TALEP-046] [UAT] S31-T2 canlı kabul denetimi başarısız: [TALEP-045] Müşteri Kab | `/` | `backend_engineer` | [#78](https://github.com/cihan53/elektriklioto/issues/78) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-047.md) |
 | **TALEP-046** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | [UAT] S31-T2 canlı kabul denetimi başarısız: [TALEP-045] Müşteri Kabulü & UAT Doğrulama Denetimi | `/` | `backend_engineer` | [#77](https://github.com/cihan53/elektriklioto/issues/77) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-046.md) |
-| **TALEP-045** | Hata / Bug | Normal (P3) | 📋 Planlandı | Haritada istasyon aramada bazı ilçeler (Esenler) ilçe sonuçlarında görünmüyor | `/` | `web_engineer` | [#74](https://github.com/cihan53/elektriklioto/issues/74) | — |
+| **TALEP-045** | Hata / Bug | Normal (P3) | 🔨 Geliştiriliyor | Haritada istasyon aramada bazı ilçeler (Esenler) ilçe sonuçlarında görünmüyor | `/` | `web_engineer` | [#74](https://github.com/cihan53/elektriklioto/issues/74) | — |
 | **TALEP-044** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | 041 numaralı talebin öncelikli olarak sprinte alınması | `/` | `None` | [#73](https://github.com/cihan53/elektriklioto/issues/73) | — |
 | **TALEP-043** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | Sunucuda backend yeniden başlatma işlemi başarısız olduğu halde başarılı bildiriliyor | `Sunucu / Yayınlama` | `None` | [#72](https://github.com/cihan53/elektriklioto/issues/72) | — |
 | **TALEP-042** | Veri & İstasyon Tutarlılığı | Düşük (P4) | ✅ Çözüldü | Canlı sitede operatör listesi yerel ortama göre bir kayıt eksik görünüyor | `Harita / Operatör Listesi` | `web_engineer` | [#71](https://github.com/cihan53/elektriklioto/issues/71) | — |
@@ -35,7 +35,7 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 | **TALEP-031** | Hata / Bug | Normal (P3) | ❌ İptal Edildi | Tüm Operatörler Menüsü Dış Alana Tıklandığında Kapanmıyor | `/` | `web_engineer` | [#48](https://github.com/cihan53/elektriklioto/issues/48) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-031.md) |
 | **TALEP-030** | Hata / Bug | Normal (P3) | ❌ İptal Edildi | Tüm Operatörler Menüsü Dış Alana Tıklandığında Kapanmıyor | `/` | `None` | [#43](https://github.com/cihan53/elektriklioto/issues/43) | — |
 | **TALEP-029** | Hata / Bug | Normal (P3) | ✅ Çözüldü | Tüm Operatörler Menüsü Dış Alana Tıklandığında Kapanmıyor | `/` | `None` | [#41](https://github.com/cihan53/elektriklioto/issues/41) | — |
-| **TALEP-028** | Hata / Bug | Kritik (P1) | ⏳ Beklemede | Google Arama Motorunda 'Standart Sayfa Olmadan Kopya' Uyarısı ve Sitenin İndekslenmemesi | `/` | `None` | [#37](https://github.com/cihan53/elektriklioto/issues/37) | — |
+| **TALEP-028** | Hata / Bug | Kritik (P1) | 🔨 Geliştiriliyor | Google Arama Motorunda 'Standart Sayfa Olmadan Kopya' Uyarısı ve Sitenin İndekslenmemesi | `/` | `data_engineer` | [#37](https://github.com/cihan53/elektriklioto/issues/37) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-028.md) |
 | **TALEP-027** | Hata / Bug | Kritik (P1) | ✅ Çözüldü | Haritada Yakınlaşınca İstasyon Pinlerinin Yapay Bir Dikdörtgen Blok Halinde Üst Üste Yığılması | `/harita` | `None` | [#36](https://github.com/cihan53/elektriklioto/issues/36) | — |
 | **TALEP-026** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | Sürüm Notları ve Güncellemeler Ekranının Çözülen Taleplerle Senkronize Olmaması | `/guncellemeler` | `data_engineer` | [#34](https://github.com/cihan53/elektriklioto/issues/34) | — |
 | **TALEP-025** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | Canlı Sürüm Bilgisi Ekranında Sistem Altyapısı ve Veritabanı Bilgilerinin Açıkça Gösterilmesinin Kaldırılması | `/hakkimizda` | `None` | [#33](https://github.com/cihan53/elektriklioto/issues/33) | — |
@@ -93,7 +93,7 @@ Ekip notu: TALEP-049 (SearchInput.vue './geoSearch' modülü bulunamıyor) ile a
 - 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-052.md](workspace/docs/cozum_planlari/TALEP-052.md)
 
 ---
-### [TALEP-051] [UAT] S35-T2 canlı kabul denetimi başarısız: [TALEP-050] Müşteri Kabulü & UAT Doğrulama Denetimi (⏳ Beklemede)
+### [TALEP-051] [UAT] S35-T2 canlı kabul denetimi başarısız: [TALEP-050] Müşteri Kabulü & UAT Doğrulama Denetimi (🔨 Geliştiriliyor)
 - **Bildirim Tarihi:** 2026-09-28 23:23
 - **Tür / Öncelik:** Hata / Bug / Yüksek (P2)
 - **İlgili Ekran / Sayfa:** `/`
@@ -121,7 +121,7 @@ Son çıktı satırları:
 ```
 
 **Studio Yetkilisi Notu:**
-> Bağlı görev atlandı — talep kuyruğa geri alındı (S36-T1)
+> Sprint S37 panosuna eklendi (S37-T5 ve S37-T6). Görevli rol: backend_engineer. Geliştirme başladı.
 
 - 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-051.md](workspace/docs/cozum_planlari/TALEP-051.md)
 
@@ -273,7 +273,7 @@ al Software Studio — Canlı UAT & Kullanıcı Denetimi Başlatılıyor[0m
 - 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-046.md](workspace/docs/cozum_planlari/TALEP-046.md)
 
 ---
-### [TALEP-045] Haritada istasyon aramada bazı ilçeler (Esenler) ilçe sonuçlarında görünmüyor (📋 Planlandı)
+### [TALEP-045] Haritada istasyon aramada bazı ilçeler (Esenler) ilçe sonuçlarında görünmüyor (🔨 Geliştiriliyor)
 - **Bildirim Tarihi:** 2026-09-27 23:50
 - **Tür / Öncelik:** Hata / Bug / Normal (P3)
 - **İlgili Ekran / Sayfa:** `/`
@@ -294,7 +294,7 @@ Gerçekleşen: Bazı ilçeler (örnek: Esenler) ilçe sonuçlarında hiç çıkm
 Not: Müşteri ek örnek ilçeler ve cihaz/tarayıcı bilgisini iletirse kayda eklenecek.
 
 **Studio Yetkilisi Notu:**
-> Panelden sprint onayı verildi (FAZ-1).
+> Sprint S37 panosuna eklendi (S37-T3 ve S37-T4). Görevli rol: web_engineer. Geliştirme başladı.
 
 - 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-045.md](workspace/docs/cozum_planlari/TALEP-045.md)
 
@@ -580,15 +580,20 @@ al Software Studio — Canlı UAT & Kullanıcı Denetimi Başlatılıyor[0m
 > Görev S25-T2 başarıyla tamamlandı ve UAT testinden geçti.
 
 ---
-### [TALEP-028] Google Arama Motorunda 'Standart Sayfa Olmadan Kopya' Uyarısı ve Sitenin İndekslenmemesi (⏳ Beklemede)
+### [TALEP-028] Google Arama Motorunda 'Standart Sayfa Olmadan Kopya' Uyarısı ve Sitenin İndekslenmemesi (🔨 Geliştiriliyor)
 - **Bildirim Tarihi:** 2026-09-26 12:11
 - **Tür / Öncelik:** Hata / Bug / Kritik (P1)
 - **İlgili Ekran / Sayfa:** `/`
-- **Görevli Rol:** `None`
+- **Görevli Rol:** `data_engineer`
 - 🐙 **GitHub Issue:** [#37](https://github.com/cihan53/elektriklioto/issues/37)
 
 **Müşteri Açıklaması / Hata Adımları:**
 > Google Arama Konsolu (Search Console) araçlarında sitemiz incelendiğinde 'Kullanıcı tarafından seçilen standart sayfa olmadan kopya' uyarısı çıktığı ve bu sebeple sitemizin Google arama sonuçlarında dizine eklenmeyip kullanıcılara sunulmadığı görülmektedir. Ziyaretçiler Google üzerinde arama yaptıklarında platformumuz listelenmemektedir. Arama motorlarının sitemizi kopya sayfa olarak görmesini engelleyecek resmi standart sayfa bildirimlerinin yapılması, adres yönlendirmelerinin netleştirilmesi ve platformun Google aramalarında sorunsuz şekilde listelenmesinin acilen sağlanması gerekiyor.
+
+**Studio Yetkilisi Notu:**
+> Sprint S37 panosuna eklendi (S37-T1 ve S37-T2). Görevli rol: data_engineer. Geliştirme başladı.
+
+- 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-028.md](workspace/docs/cozum_planlari/TALEP-028.md)
 
 ---
 ### [TALEP-027] Haritada Yakınlaşınca İstasyon Pinlerinin Yapay Bir Dikdörtgen Blok Halinde Üst Üste Yığılması (✅ Çözüldü)
