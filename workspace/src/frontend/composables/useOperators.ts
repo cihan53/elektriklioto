@@ -2,9 +2,19 @@
 import type { OperatorItem } from '~/types/station';
 import defaultOperators from '~/data/operators.json';
 
+// TALEP-041: Operatör listesi istasyon sayısına göre çoktan aza sıralanır;
+// eşit sayılarda Türkçe alfabetik sıralama ile deterministik düzen korunur.
+export const sortOperatorsByStationCount = (list: OperatorItem[]): OperatorItem[] => {
+  return [...list].sort((a, b) => {
+    const diff = (b.station_count ?? 0) - (a.station_count ?? 0);
+    if (diff !== 0) return diff;
+    return a.name.localeCompare(b.name, 'tr');
+  });
+};
+
 export const useOperators = () => {
   const config = useRuntimeConfig();
-  const operators = useState<OperatorItem[]>('operators-cache', () => defaultOperators as OperatorItem[]);
+  const operators = useState<OperatorItem[]>('operators-cache', () => sortOperatorsByStationCount(defaultOperators as OperatorItem[]));
   const loading = useState<boolean>('operators-loading', () => false);
   const error = useState<string | null>('operators-error', () => null);
 
@@ -31,7 +41,8 @@ export const useOperators = () => {
               station_count: op.station_count ?? existing?.station_count ?? 0,
             });
           }
-          operators.value = Array.from(opMap.values());
+          // TALEP-041: Birleştirme sonrası istasyon sayısına göre çoktan aza sırala
+          operators.value = sortOperatorsByStationCount(Array.from(opMap.values()));
         } else {
           // TALEP-023: Eksik veya parçalı API yanıtlarında EPDK 179 marka tabanını koru ve birleştir
           const opMap = new Map<string, OperatorItem>();
@@ -46,7 +57,8 @@ export const useOperators = () => {
               station_count: op.station_count ?? existing?.station_count ?? 0,
             });
           }
-          operators.value = Array.from(opMap.values());
+          // TALEP-041: Birleştirme sonrası istasyon sayısına göre çoktan aza sırala
+          operators.value = sortOperatorsByStationCount(Array.from(opMap.values()));
         }
       }
     } catch (err: any) {

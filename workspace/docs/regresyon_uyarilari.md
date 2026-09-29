@@ -65,3 +65,27 @@
 ## [S37-T1] — 2026-09-29 00:38
 
 - fix görevi tamamlandı ama değişen dosyalarda test yok (regresyon testi eksik) — dosyalar: workspace/src/frontend/_CIKTI.md
+
+## [S37-T2] — 2026-09-29 09:31
+
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-052] → The picture is getting clearer. Let me verify which branches actually contain the fix and what state master is
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-052] → > **Görev:** [TALEP-052] Müşteri Kabulü & UAT Doğrulama Denetimi
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-052] → ## 2. Kritik Doğrulama Bulgusu (TALEP-052 Özelinde)
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [talep-052] → | Düzeltme commit'i | `1729521` (useClickOutside.ts + `tests/talep-052.spec.ts`) yalnızca `bug/75` dalında; PR
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-050] → > **Varsayım:** Müşterinin bildirdiği hata, TALEP-050 kapsamında eklenen `useClickOutside` import'u çalışma ağ
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-050] → - `bug/84` dalında "menü dışına tıklayınca dropdown kapanması" davranışı (TALEP-050) mevcut değildir — bu TALE
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [talep-052] → **Koşul / Risk Notu:** Düzeltme artefaktı (`composables/useClickOutside.ts` + `tests/talep-052.spec.ts`, commi
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-052] → 1. `bug/75` → `master` birleştirmesi tamamlanmadan TALEP-052 "kapanmış" sayılmamalıdır; composable dosyasının 
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [regresyon] → 2. Birleştirme sonrası regresyon kapısı olarak `tests/talep-052.spec.ts` CI'da koşmalıdır.
+
+## [S37-T2] — 2026-09-29 09:31
+
+- fix görevi tamamlandı ama değişen dosyalarda test yok (regresyon testi eksik) — dosyalar: .idea/workspace.xml, workspace/docs/uat_kabul_raporu.md
+
+## [S37-T1] — 2026-09-29 09:37
+
+- workspace/src/frontend/components/map/FilterChips.vue: silinen koruma referansı [TALEP-024] → <!-- Kaydırılabilir Operatör Listesi (TALEP-024) -->
+
+## [S37-T2] — 2026-09-29 09:46
+
+- fix görevi tamamlandı ama değişen dosyalarda test yok (regresyon testi eksik) — dosyalar: workspace/src/frontend/test-results/
