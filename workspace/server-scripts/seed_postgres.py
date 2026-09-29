@@ -8,6 +8,7 @@ PostgreSQL veritabanına aktarır. Hem psql üzerinden doğrudan çalışır hem
 pgAdmin için 'scripts/seed_data.sql' çıktısı üretir.
 """
 
+import glob
 import json
 import os
 import re
@@ -16,21 +17,39 @@ import subprocess
 import sys
 import uuid
 from pathlib import Path
+from urllib.parse import unquote, urlparse, parse_qs
 
 
 def _find_psql() -> str | None:
-    """psql'i PATH'te ve bilinen kurulum dizinlerinde ara (Homebrew/libpq, Postgres.app)."""
+    """psql'i PATH'te ve bilinen kurulum dizinlerinde ara.
+
+    macOS geliştirme (Homebrew/libpq, Postgres.app) ve Linux/cPanel paylaşımlı
+    hosting (PostgreSQL.org paketleri, CloudLinux alt-pgsql, SCL, Debian
+    çoklu-sürüm dizini) konumlarını kapsar.
+    """
     found = shutil.which("psql")
     if found:
         return found
-    for cand in (
+    candidates = [
         "/usr/local/opt/libpq/bin/psql",
         "/opt/homebrew/opt/libpq/bin/psql",
         "/usr/local/bin/psql",
         "/opt/homebrew/bin/psql",
         "/usr/bin/psql",
         "/Applications/Postgres.app/Contents/Versions/latest/bin/psql",
+    ]
+    # cPanel/CloudLinux ve çoklu-sürüm Linux kurulumları sürüm dizini kullanır;
+    # glob ile hangi sürüm kuruluysa o yakalanır.
+    for pattern in (
+        "/usr/pgsql-*/bin/psql",
+        "/usr/lib/postgresql/*/bin/psql",
+        "/opt/rh/rh-postgresql*/root/usr/bin/psql",
+        "/opt/alt/alt-pgsql*/root/usr/bin/psql",
+        "/opt/alt/pgsql*/usr/bin/psql",
+        "/opt/cpanel/ea-postgresql*/root/usr/bin/psql",
     ):
+        candidates.extend(sorted(glob.glob(pattern), reverse=True))
+    for cand in candidates:
         if os.path.isfile(cand) and os.access(cand, os.X_OK):
             return cand
     return None
@@ -269,6 +288,114 @@ def generate_seed_sql() -> Path:
     return OUTPUT_SQL
 
 
+def _split_sql_statements(sql_text: str) -> list[str]:
+    """Üretilen seed dosyasını tek tek SQL cümlelerine böler.
+
+    `'` içindeki `;` ayraç sayılmaz, `''` kaçışı desteklenir; satır başı
+    `--` yorumları atılır.
+    """
+    cleaned = "\n".join(
+        line for line in sql_text.splitlines() if not line.lstrip().startswith("--")
+    )
+    stmts, buf, in_quote = [], [], False
+    i = 0
+    while i < len(cleaned):
+        ch = cleaned[i]
+        if in_quote:
+            buf.append(ch)
+            if ch == "'":
+                if i + 1 < len(cleaned) and cleaned[i + 1] == "'":
+                    buf.append("'")
+                    i += 1
+                else:
+                    in_quote = False
+        elif ch == "'":
+            in_quote = True
+            buf.append(ch)
+        elif ch == ";":
+            stmt = "".join(buf).strip()
+            if stmt:
+                stmts.append(stmt)
+            buf = []
+        else:
+            buf.append(ch)
+        i += 1
+    tail = "".join(buf).strip()
+    if tail:
+        stmts.append(tail)
+    return stmts
+
+
+def _connect_python_driver(db_url: str):
+    """Kurulu ilk saf-Python/DB-API PostgreSQL sürücüsüyle bağlantı açar.
+
+    Sıra: psycopg (v3) -> psycopg2 -> pg8000. Hiçbiri yoksa (None, None).
+    """
+    try:
+        import psycopg  # type: ignore
+
+        return psycopg.connect(db_url, autocommit=True), "psycopg3"
+    except ImportError:
+        pass
+    try:
+        import psycopg2  # type: ignore
+
+        conn = psycopg2.connect(db_url)
+        conn.autocommit = True
+        return conn, "psycopg2"
+    except ImportError:
+        pass
+    try:
+        import pg8000.dbapi as pg8000  # type: ignore
+
+        u = urlparse(db_url)
+        sslmode = (parse_qs(u.query).get("sslmode") or [""])[0]
+        kwargs = {
+            "user": unquote(u.username or ""),
+            "password": unquote(u.password or ""),
+            "host": u.hostname or "localhost",
+            "port": u.port or 5432,
+            "database": u.path.lstrip("/"),
+            "timeout": 300,
+        }
+        if sslmode and sslmode != "disable":
+            kwargs["ssl_context"] = True
+        return pg8000.connect(**kwargs), "pg8000"
+    except ImportError:
+        return None, None
+
+
+def _apply_sql_with_python_driver(db_url: str, sql_file: Path):
+    """psql bulunamazsa/başarısız olursa seed_data.sql'i Python sürücüsüyle uygular.
+
+    Dönüş: True = başarılı, False = sürücü vardı ama aktarım hatası,
+    None = hiç sürücü kurulu değil.
+    """
+    conn, driver = _connect_python_driver(db_url)
+    if conn is None:
+        return None
+    statements = _split_sql_statements(sql_file.read_text(encoding="utf-8"))
+    try:
+        cur = conn.cursor()
+        for stmt in statements:
+            cur.execute(stmt)
+        conn.commit()
+        print(f"[✓] İstasyonlar {driver} sürücüsüyle veritabanına aktarıldı ({len(statements)} SQL cümlesi).")
+        return True
+    except Exception as e:
+        print(f"[!] {driver} ile aktarım başarısız: {str(e)[:500]}")
+        try:
+            conn.rollback()
+        except Exception:
+            pass
+        return False
+    finally:
+        try:
+            conn.close()
+        except Exception:
+            pass
+
+
 def main():
     sql_file = generate_seed_sql()
     db_url = os.getenv("DATABASE_URL")
@@ -279,7 +406,13 @@ def main():
     print(f"[i] DATABASE_URL algılandı, doğrudan psql üzerinden veritabanına aktarılıyor...")
     psql_bin = _find_psql()
     if not psql_bin:
-        print(f"[!] psql bulunamadı (PATH ve bilinen dizinlerde yok). Dosya '{sql_file}' elle uygulanabilir.")
+        print("[i] psql istemcisi bulunamadı; Python PostgreSQL sürücüsüyle uygulanıyor...")
+        res = _apply_sql_with_python_driver(db_url, sql_file)
+        if res is True:
+            return 0
+        if res is None:
+            print(f"[!] Ne psql ne de Python sürücüsü (psycopg/psycopg2/pg8000) mevcut. "
+                  f"'{sql_file}' elle uygulanabilir veya 'pip install pg8000' ile sürücü kurulabilir.")
         return 1
     try:
         res = subprocess.run(
@@ -290,8 +423,14 @@ def main():
             print("✓ İstasyonlar veritabanına başarıyla aktarıldı!")
             return 0
         print(f"[!] psql çalıştırma uyarısı: {(res.stderr or res.stdout)[:500]}")
+        print("[i] Python PostgreSQL sürücüsüyle yeniden deneniyor...")
+        if _apply_sql_with_python_driver(db_url, sql_file):
+            return 0
     except Exception as e:
-        print(f"[!] psql komutu doğrudan çalıştırılamadı ({e}). Dosya 'server-scripts/seed_data.sql' olarak pgAdmin veya psql için hazır.")
+        print(f"[!] psql komutu doğrudan çalıştırılamadı ({e}). Python sürücüsüyle deneniyor...")
+        if _apply_sql_with_python_driver(db_url, sql_file):
+            return 0
+        print(f"[!] Otomatik aktarım mümkün olmadı. Dosya '{sql_file}' pgAdmin veya psql için hazır.")
     return 1
 
 
