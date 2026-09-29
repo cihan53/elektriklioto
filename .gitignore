@@ -41,3 +41,19 @@ dist/
 workspace/epdk_output/
 workspace/epdk_checkpoints/
 workspace/logs/
+
+# Studio framework dosyalari (sync_studio.sh ile studio reposundan gelir,
+# yerelde gerekli ama git'te izlenmez — deploy bunlara ihtiyac duymaz)
+basla.sh
+musteri.sh
+studio_engine.py
+studio_board.py
+studio_web.py
+studio_ctl.py
+sync_studio.sh
+studio_schedule.sh
+studio.tick.plist
+studio.version
+scripts/
+web/
+workspace/.stale/
