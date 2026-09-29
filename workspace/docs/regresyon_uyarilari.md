@@ -57,3 +57,11 @@
 ## [S26-T4] — 2026-09-27 05:45
 
 - fix görevi tamamlandı ama değişen dosyalarda test yok (regresyon testi eksik) — dosyalar: workspace/docs/uat_kabul_raporu.md, workspace/server-scripts/import_cpo_stations.py, workspace/server-scripts/schema.sql, workspace/src/backend/src/app.ts, workspace/src/backend/src/db/schema/index.ts, workspace/src/backend/src/db/schema/stations.ts, workspace/src/backend/src/modules/stations/station.service.ts, workspace/src/backend/src/db/schema/regions.ts
+
+## [S37-T2] — 2026-09-29 00:36
+
+- fix görevi tamamlandı ama değişen dosyalarda test yok (regresyon testi eksik) — dosyalar: workspace/docs/musteri_talepleri.md, workspace/docs/uat_kabul_raporu.md
+
+## [S37-T1] — 2026-09-29 00:38
+
+- fix görevi tamamlandı ama değişen dosyalarda test yok (regresyon testi eksik) — dosyalar: workspace/src/frontend/_CIKTI.md
