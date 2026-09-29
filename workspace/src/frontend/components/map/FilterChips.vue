@@ -3,6 +3,7 @@
 import { ref, computed, onMounted } from 'vue';
 import { useToast } from '~/composables/useToast';
 import { useOperators } from '~/composables/useOperators';
+import { useClickOutside } from '~/composables/useClickOutside';
 import { ChevronDown, Zap, BatteryCharging, Lock, Search } from 'lucide-vue-next';
 
 const props = defineProps<{
@@ -19,22 +20,44 @@ const { showToast } = useToast();
 const { operators, fetchOperators } = useOperators();
 const isOperatorDropdownOpen = ref(false);
 const operatorSearchQuery = ref('');
+const operatorMenuRoot = ref<HTMLElement | null>(null);
 
 onMounted(() => {
   fetchOperators();
 });
 
+const closeOperatorDropdown = () => {
+  isOperatorDropdownOpen.value = false;
+  operatorSearchQuery.value = '';
+};
+
 const toggleOperatorDropdown = () => {
   isOperatorDropdownOpen.value = !isOperatorDropdownOpen.value;
   if (isOperatorDropdownOpen.value) {
     fetchOperators();
+  } else {
+    operatorSearchQuery.value = '';
+  }
+};
+
+// TALEP-050 (TALEP-032 reaktivasyonu): Menü dışındaki herhangi bir alana
+// tıklama/dokunma veya Escape tuşu açılır listeyi kapatır. Dinleyici capture
+// fazında kurulur ve bileşen kaldırıldığında temizlenir (memory leak yok).
+useClickOutside(operatorMenuRoot, () => {
+  if (isOperatorDropdownOpen.value) closeOperatorDropdown();
+});
+
+// Klavye ile sekme (Tab) odağı menü dışına taştığında listeyi kapat.
+const onOperatorFocusOut = (event: FocusEvent) => {
+  const next = event.relatedTarget as Node | null;
+  if (!next || !operatorMenuRoot.value?.contains(next)) {
+    closeOperatorDropdown();
   }
 };
 
 const selectOperator = (slug: string) => {
   emit('update:selectedOperator', slug === props.selectedOperator ? '' : slug);
-  isOperatorDropdownOpen.value = false;
-  operatorSearchQuery.value = '';
+  closeOperatorDropdown();
 };
 
 // Faz 1 Zorunlu Kısıt Uyarısı
@@ -48,12 +71,23 @@ const selectedOperatorName = computed(() => {
   return found ? found.name : 'Operatör (1)';
 });
 
+// TALEP-041: "Tüm Operatörler" menüsü istasyon sayısına göre çoktan aza sıralanır;
+// istasyon sayısı eşit olan markalar Türkçe alfabetik sırayla listelenir.
+const sortedOperators = computed(() => {
+  return [...operators.value].sort((a, b) => {
+    const countA = a.station_count ?? 0;
+    const countB = b.station_count ?? 0;
+    if (countB !== countA) return countB - countA;
+    return (a.name || '').localeCompare(b.name || '', 'tr');
+  });
+});
+
 const filteredOperators = computed(() => {
   if (!operatorSearchQuery.value.trim()) {
-    return operators.value;
+    return sortedOperators.value;
   }
   const q = operatorSearchQuery.value.toLocaleLowerCase('tr').trim();
-  return operators.value.filter(op =>
+  return sortedOperators.value.filter(op =>
     op.name.toLocaleLowerCase('tr').includes(q) ||
     op.slug.toLowerCase().includes(q)
   );
@@ -68,7 +102,11 @@ const totalStationCount = computed(() => {
 <template>
   <div class="relative flex items-center max-w-full">
     <!-- 1. Operatörler Filtre Çipi (overflow kırpmasını önlemek için scroll container dışında - TALEP-007) -->
-    <div class="relative flex-shrink-0 mr-2 z-30">
+    <div
+      ref="operatorMenuRoot"
+      class="relative flex-shrink-0 mr-2 z-30"
+      @focusout="onOperatorFocusOut"
+    >
       <button
         type="button"
         @click="toggleOperatorDropdown"
@@ -79,6 +117,7 @@ const totalStationCount = computed(() => {
             : 'bg-bg-surface text-text-secondary border-border-default hover:bg-bg-subdued'
         ]"
         :aria-pressed="!!selectedOperator"
+        :aria-expanded="isOperatorDropdownOpen"
         aria-haspopup="listbox"
         aria-label="Operatör Filtresi"
       >
@@ -131,7 +170,7 @@ const totalStationCount = computed(() => {
           </button>
         </div>
 
-        <!-- Kaydırılabilir Operatör Listesi (TALEP-024) -->
+        <!-- Kaydırılabilir Operatör Listesi (TALEP-024) / İstasyon sayısına göre sıralı (TALEP-041) -->
         <div class="overflow-y-auto p-2 space-y-1 flex-1 max-h-64">
           <button
             v-for="op in filteredOperators"
