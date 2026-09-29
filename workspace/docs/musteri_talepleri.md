@@ -1,6 +1,6 @@
 # Digital Software Studio — Müşteri Denetim & Talep Havuzu
 
-> **Son Güncelleme:** 2026-09-29 12:05  
+> **Son Güncelleme:** 2026-09-29 17:43  
 > **Toplam Bildirim:** 52  
 
 Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda iletilen istek, hata ve geri bildirimleri içerir.
@@ -12,17 +12,17 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 | ID | Tür | Öncelik | Durum | Başlık | Ekran / URL | İlgili Rol | GitHub Issue | Plan |
 |---|---|---|---|---|---|---|---|---|
 | **TALEP-052** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | FilterChips.vue '~/composables/useClickOutside' modülünü bulamıyor | `/` | `data_engineer` | [#83](https://github.com/cihan53/elektriklioto/issues/83) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-052.md) |
-| **TALEP-051** | Hata / Bug | Yüksek (P2) | 🔨 Geliştiriliyor | [UAT] S35-T2 canlı kabul denetimi başarısız: [TALEP-050] Müşteri Kabulü & UAT Doğrulama Denetimi | `/` | `backend_engineer` | [#82](https://github.com/cihan53/elektriklioto/issues/82) | — |
+| **TALEP-051** | Hata / Bug | Yüksek (P2) | ⏳ Beklemede | [UAT] S35-T2 canlı kabul denetimi başarısız: [TALEP-050] Müşteri Kabulü & UAT Doğrulama Denetimi | `/` | `backend_engineer` | [#82](https://github.com/cihan53/elektriklioto/issues/82) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-051.md) |
 | **TALEP-050** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | TALEP-032'nin acil olarak yeniden devreye alınması | `/` | `None` | [#81](https://github.com/cihan53/elektriklioto/issues/81) | — |
-| **TALEP-049** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | Canlı ortam hatası: SearchInput.vue './geoSearch' modülünü bulamıyor, ana ekran açılmıyor | `/` | `data_engineer` | [#80](https://github.com/cihan53/elektriklioto/issues/80) | — |
-| **TALEP-048** | Hata / Bug | Yüksek (P2) | ❌ İptal Edildi | [UAT] S32-T2 canlı kabul denetimi başarısız: [TALEP-046] Müşteri Kabulü & UAT Doğrulama Denetimi | `/` | `backend_engineer` | [#79](https://github.com/cihan53/elektriklioto/issues/79) | — |
-| **TALEP-047** | Hata / Bug | Yüksek (P2) | ❌ İptal Edildi | [UAT] S32-T1 canlı kabul denetimi başarısız: [TALEP-046] [UAT] S31-T2 canlı kabul denetimi başarısız: [TALEP-045] Müşteri Kab | `/` | `backend_engineer` | [#78](https://github.com/cihan53/elektriklioto/issues/78) | — |
-| **TALEP-046** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | [UAT] S31-T2 canlı kabul denetimi başarısız: [TALEP-045] Müşteri Kabulü & UAT Doğrulama Denetimi | `/` | `backend_engineer` | [#77](https://github.com/cihan53/elektriklioto/issues/77) | — |
+| **TALEP-049** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | Canlı ortam hatası: SearchInput.vue './geoSearch' modülünü bulamıyor, ana ekran açılmıyor | `/` | `data_engineer` | [#80](https://github.com/cihan53/elektriklioto/issues/80) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-049.md) |
+| **TALEP-048** | Hata / Bug | Yüksek (P2) | ❌ İptal Edildi | [UAT] S32-T2 canlı kabul denetimi başarısız: [TALEP-046] Müşteri Kabulü & UAT Doğrulama Denetimi | `/` | `backend_engineer` | [#79](https://github.com/cihan53/elektriklioto/issues/79) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-048.md) |
+| **TALEP-047** | Hata / Bug | Yüksek (P2) | ❌ İptal Edildi | [UAT] S32-T1 canlı kabul denetimi başarısız: [TALEP-046] [UAT] S31-T2 canlı kabul denetimi başarısız: [TALEP-045] Müşteri Kab | `/` | `backend_engineer` | [#78](https://github.com/cihan53/elektriklioto/issues/78) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-047.md) |
+| **TALEP-046** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | [UAT] S31-T2 canlı kabul denetimi başarısız: [TALEP-045] Müşteri Kabulü & UAT Doğrulama Denetimi | `/` | `backend_engineer` | [#77](https://github.com/cihan53/elektriklioto/issues/77) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-046.md) |
 | **TALEP-045** | Hata / Bug | Normal (P3) | 📋 Planlandı | Haritada istasyon aramada bazı ilçeler (Esenler) ilçe sonuçlarında görünmüyor | `/` | `web_engineer` | [#74](https://github.com/cihan53/elektriklioto/issues/74) | — |
 | **TALEP-044** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | 041 numaralı talebin öncelikli olarak sprinte alınması | `/` | `None` | [#73](https://github.com/cihan53/elektriklioto/issues/73) | — |
 | **TALEP-043** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | Sunucuda backend yeniden başlatma işlemi başarısız olduğu halde başarılı bildiriliyor | `Sunucu / Yayınlama` | `None` | [#72](https://github.com/cihan53/elektriklioto/issues/72) | — |
 | **TALEP-042** | Veri & İstasyon Tutarlılığı | Düşük (P4) | ✅ Çözüldü | Canlı sitede operatör listesi yerel ortama göre bir kayıt eksik görünüyor | `Harita / Operatör Listesi` | `web_engineer` | [#71](https://github.com/cihan53/elektriklioto/issues/71) | — |
-| **TALEP-041** | Yeni İstek / Özellik | Normal (P3) | ONAY_BEKLIYOR | Tüm Operatörler menüsündeki markalar istasyon sayısına göre sıralansın | `/operatorler` | `data_engineer` | [#68](https://github.com/cihan53/elektriklioto/issues/68) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-041.md) |
+| **TALEP-041** | Yeni İstek / Özellik | Normal (P3) | ✅ Çözüldü | Tüm Operatörler menüsündeki markalar istasyon sayısına göre sıralansın | `/operatorler` | `data_engineer` | [#68](https://github.com/cihan53/elektriklioto/issues/68) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-041.md) |
 | **TALEP-040** | Hata / Bug | Normal (P3) | ✅ Çözüldü | /api/version endpoint'i 404 dönüyor | `/api/version` | `None` | [#67](https://github.com/cihan53/elektriklioto/issues/67) | — |
 | **TALEP-039** | Veri & İstasyon Tutarlılığı | Düşük (P4) | ✅ Çözüldü | Günlük istasyon sayısı gün içinde küçük miktarlarda dalgalanıyor | `İstasyon Listesi / Veri Sayıları` | `data_engineer` | [#66](https://github.com/cihan53/elektriklioto/issues/66) | — |
 | **TALEP-038** | Veri & İstasyon Tutarlılığı | Normal (P3) | ⏳ Beklemede | Kapanan veya kaynaktan kalkan şarj istasyonları listeden düşmüyor | `İstasyon Listesi / Harita` | `None` | [#65](https://github.com/cihan53/elektriklioto/issues/65) | — |
@@ -93,7 +93,7 @@ Ekip notu: TALEP-049 (SearchInput.vue './geoSearch' modülü bulunamıyor) ile a
 - 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-052.md](workspace/docs/cozum_planlari/TALEP-052.md)
 
 ---
-### [TALEP-051] [UAT] S35-T2 canlı kabul denetimi başarısız: [TALEP-050] Müşteri Kabulü & UAT Doğrulama Denetimi (🔨 Geliştiriliyor)
+### [TALEP-051] [UAT] S35-T2 canlı kabul denetimi başarısız: [TALEP-050] Müşteri Kabulü & UAT Doğrulama Denetimi (⏳ Beklemede)
 - **Bildirim Tarihi:** 2026-09-28 23:23
 - **Tür / Öncelik:** Hata / Bug / Yüksek (P2)
 - **İlgili Ekran / Sayfa:** `/`
@@ -121,7 +121,7 @@ Son çıktı satırları:
 ```
 
 **Studio Yetkilisi Notu:**
-> Sprint S36 panosuna eklendi (S36-T1 ve S36-T2). Görevli rol: backend_engineer. Geliştirme başladı.
+> Bağlı görev atlandı — talep kuyruğa geri alındı (S36-T1)
 
 - 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-051.md](workspace/docs/cozum_planlari/TALEP-051.md)
 
@@ -349,7 +349,7 @@ Beklenti: Sprint planlaması yapıldıktan sonra tahmini tamamlanma tarihinin m�
 - 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-042.md](workspace/docs/cozum_planlari/TALEP-042.md)
 
 ---
-### [TALEP-041] Tüm Operatörler menüsündeki markalar istasyon sayısına göre sıralansın (ONAY_BEKLIYOR)
+### [TALEP-041] Tüm Operatörler menüsündeki markalar istasyon sayısına göre sıralansın (✅ Çözüldü)
 - **Bildirim Tarihi:** 2026-09-27 19:54
 - **Tür / Öncelik:** Yeni İstek / Özellik / Normal (P3)
 - **İlgili Ekran / Sayfa:** `/operatorler`
@@ -360,7 +360,7 @@ Beklenti: Sprint planlaması yapıldıktan sonra tahmini tamamlanma tarihinin m�
 > "Tüm Operatörler" menüsünde listelenen marka/operatörler şu anda mevcut sıralamayla (muhtemelen alfabetik veya eklenme sırası) gösteriliyor. Müşteri, listenin her operatörün toplam istasyon sayısına göre sıralanmasını istiyor; böylece en yaygın operatörler üstte görünecek. Varsayılan olarak çoktan aza sıralama öngörülmüştür (müşteri onayı bekleniyor). Listeye istasyon sayısının görsel olarak eklenip eklenmeyeceği ayrıca netleştirilecek.
 
 **Studio Yetkilisi Notu:**
-> Görev S37-T2 tamamlandı ve UAT testinden geçti — kapanış için müşteri onayı bekleniyor.
+> Müşteri onayı ile kapatıldı.
 
 - 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-041.md](workspace/docs/cozum_planlari/TALEP-041.md)
 
