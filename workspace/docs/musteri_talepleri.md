@@ -1,7 +1,7 @@
 # Digital Software Studio — Müşteri Denetim & Talep Havuzu
 
-> **Son Güncelleme:** 2026-09-27 05:46  
-> **Toplam Bildirim:** 36  
+> **Son Güncelleme:** 2026-09-29 00:36  
+> **Toplam Bildirim:** 52  
 
 Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda iletilen istek, hata ve geri bildirimleri içerir.
 
@@ -11,6 +11,22 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 
 | ID | Tür | Öncelik | Durum | Başlık | Ekran / URL | İlgili Rol | GitHub Issue | Plan |
 |---|---|---|---|---|---|---|---|---|
+| **TALEP-052** | Hata / Bug | Yüksek (P2) | ONAY_BEKLIYOR | FilterChips.vue '~/composables/useClickOutside' modülünü bulamıyor | `/` | `None` | [#83](https://github.com/cihan53/elektriklioto/issues/83) | — |
+| **TALEP-051** | Hata / Bug | Yüksek (P2) | 🔨 Geliştiriliyor | [UAT] S35-T2 canlı kabul denetimi başarısız: [TALEP-050] Müşteri Kabulü & UAT Doğrulama Denetimi | `/` | `backend_engineer` | [#82](https://github.com/cihan53/elektriklioto/issues/82) | — |
+| **TALEP-050** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | TALEP-032'nin acil olarak yeniden devreye alınması | `/` | `None` | [#81](https://github.com/cihan53/elektriklioto/issues/81) | — |
+| **TALEP-049** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | Canlı ortam hatası: SearchInput.vue './geoSearch' modülünü bulamıyor, ana ekran açılmıyor | `/` | `data_engineer` | [#80](https://github.com/cihan53/elektriklioto/issues/80) | — |
+| **TALEP-048** | Hata / Bug | Yüksek (P2) | ❌ İptal Edildi | [UAT] S32-T2 canlı kabul denetimi başarısız: [TALEP-046] Müşteri Kabulü & UAT Doğrulama Denetimi | `/` | `backend_engineer` | [#79](https://github.com/cihan53/elektriklioto/issues/79) | — |
+| **TALEP-047** | Hata / Bug | Yüksek (P2) | ❌ İptal Edildi | [UAT] S32-T1 canlı kabul denetimi başarısız: [TALEP-046] [UAT] S31-T2 canlı kabul denetimi başarısız: [TALEP-045] Müşteri Kab | `/` | `backend_engineer` | [#78](https://github.com/cihan53/elektriklioto/issues/78) | — |
+| **TALEP-046** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | [UAT] S31-T2 canlı kabul denetimi başarısız: [TALEP-045] Müşteri Kabulü & UAT Doğrulama Denetimi | `/` | `backend_engineer` | [#77](https://github.com/cihan53/elektriklioto/issues/77) | — |
+| **TALEP-045** | Hata / Bug | Normal (P3) | ⏳ Beklemede | Haritada istasyon aramada bazı ilçeler (Esenler) ilçe sonuçlarında görünmüyor | `/` | `web_engineer` | [#74](https://github.com/cihan53/elektriklioto/issues/74) | — |
+| **TALEP-044** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | 041 numaralı talebin öncelikli olarak sprinte alınması | `/` | `None` | [#73](https://github.com/cihan53/elektriklioto/issues/73) | — |
+| **TALEP-043** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | Sunucuda backend yeniden başlatma işlemi başarısız olduğu halde başarılı bildiriliyor | `Sunucu / Yayınlama` | `None` | [#72](https://github.com/cihan53/elektriklioto/issues/72) | — |
+| **TALEP-042** | Veri & İstasyon Tutarlılığı | Düşük (P4) | ✅ Çözüldü | Canlı sitede operatör listesi yerel ortama göre bir kayıt eksik görünüyor | `Harita / Operatör Listesi` | `web_engineer` | [#71](https://github.com/cihan53/elektriklioto/issues/71) | — |
+| **TALEP-041** | Yeni İstek / Özellik | Normal (P3) | 🔨 Geliştiriliyor | Tüm Operatörler menüsündeki markalar istasyon sayısına göre sıralansın | `/operatorler` | `data_engineer` | [#68](https://github.com/cihan53/elektriklioto/issues/68) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-041.md) |
+| **TALEP-040** | Hata / Bug | Normal (P3) | ✅ Çözüldü | /api/version endpoint'i 404 dönüyor | `/api/version` | `None` | [#67](https://github.com/cihan53/elektriklioto/issues/67) | — |
+| **TALEP-039** | Veri & İstasyon Tutarlılığı | Düşük (P4) | ✅ Çözüldü | Günlük istasyon sayısı gün içinde küçük miktarlarda dalgalanıyor | `İstasyon Listesi / Veri Sayıları` | `data_engineer` | [#66](https://github.com/cihan53/elektriklioto/issues/66) | — |
+| **TALEP-038** | Veri & İstasyon Tutarlılığı | Normal (P3) | ⏳ Beklemede | Kapanan veya kaynaktan kalkan şarj istasyonları listeden düşmüyor | `İstasyon Listesi / Harita` | `None` | [#65](https://github.com/cihan53/elektriklioto/issues/65) | — |
+| **TALEP-037** | Yeni İstek / Özellik | Düşük (P4) | ⏳ Beklemede | Sunucudaki veritabanı yazılımının güncel sürüme yükseltilmesi | `Sunucu / Altyapı` | `None` | [#64](https://github.com/cihan53/elektriklioto/issues/64) | — |
 | **TALEP-036** | Hata / Bug | Yüksek (P2) | ❌ İptal Edildi | [UAT] S26-T1 canlı kabul denetimi başarısız: [TALEP-034] [UAT] S23-T2 canlı kabul denetimi başarısız: [TALEP-027] Müşteri Kab | `/` | `None` | [#55](https://github.com/cihan53/elektriklioto/issues/55) | — |
 | **TALEP-035** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | [UAT] S24-T1 canlı kabul denetimi başarısız: [TALEP-028] Google Arama Motorunda 'Standart Sayfa Olmadan Kopya' Uyarısı ve Sit | `/` | `web_engineer` | [#54](https://github.com/cihan53/elektriklioto/issues/54) | — |
 | **TALEP-034** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | [UAT] S23-T2 canlı kabul denetimi başarısız: [TALEP-027] Müşteri Kabulü & UAT Doğrulama Denetimi | `/` | `backend_engineer` | [#53](https://github.com/cihan53/elektriklioto/issues/53) | — |
@@ -52,6 +68,360 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 
 ## 2. Talep Detayları ve Geri Bildirim Notları
 
+### [TALEP-052] FilterChips.vue '~/composables/useClickOutside' modülünü bulamıyor (ONAY_BEKLIYOR)
+- **Bildirim Tarihi:** 2026-09-28 23:43
+- **Tür / Öncelik:** Hata / Bug / Yüksek (P2)
+- **İlgili Ekran / Sayfa:** `/`
+- **Görevli Rol:** `None`
+- 🐙 **GitHub Issue:** [#83](https://github.com/cihan53/elektriklioto/issues/83)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Müşteri bildirimi (ACİL): Harita filtre bileşeni modül çözümleme hatası veriyor.
+
+Hata mesajı:
+Cannot find module '~/composables/useClickOutside' imported from '/Users/cihan/PROJECT/elektriklioto-gemini/workspace/src/frontend/components/map/FilterChips.vue'.
+- If you rely on tsconfig.json's "paths" to resolve modules, please install "vite-tsconfig-paths" plugin to handle module resolution.
+- Make sure you don't have relative aliases in your Vitest config. Use absolute paths instead. Read more: https://vitest.dev/guide/common-errors
+
+Müşteri notu: Acil düzeltilmesi isteniyor.
+
+Ekip notu: TALEP-049 (SearchInput.vue './geoSearch' modülü bulunamıyor) ile aynı kökenli olabilir; eksik/taşınmış composable dosyaları veya '~' alias çözümleme (vite/vitest tsconfig paths) yapılandırması birlikte incelenmeli. Müşteriden hatanın kapsamı (uygulama tamamen açılmıyor mu / yalnızca filtre alanı mı) ve ortam bilgisi (canlı / test çalıştırması) teyidi bekleniyor.
+
+**Studio Yetkilisi Notu:**
+> Görev S37-T2 tamamlandı ve UAT testinden geçti — kapanış için müşteri onayı bekleniyor.
+
+---
+### [TALEP-051] [UAT] S35-T2 canlı kabul denetimi başarısız: [TALEP-050] Müşteri Kabulü & UAT Doğrulama Denetimi (🔨 Geliştiriliyor)
+- **Bildirim Tarihi:** 2026-09-28 23:23
+- **Tür / Öncelik:** Hata / Bug / Yüksek (P2)
+- **İlgili Ekran / Sayfa:** `/`
+- **Görevli Rol:** `backend_engineer`
+- 🐙 **GitHub Issue:** [#82](https://github.com/cihan53/elektriklioto/issues/82)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Deterministik kalite kapısı 'S35-T2' görevinde canlı kabul denetimi başarısızlığı tespit etti.
+
+Son çıktı satırları:
+```
+2: Web istemcisi için CORS ve CORP başlık uyumu ... [31m✗ BAŞARISIZ[0m
+         [31mHata: İstek zaman aşımına uğradı (5000ms)[0m
+  [TEST] UAT-03: Zoom 6 Türkiye genelinde 81 ilin kümeleme verisi (Clusters) ... [31m✗ BAŞARISIZ[0m
+         [31mHata: İstek zaman aşımına uğradı (5000ms)[0m
+  [TEST] UAT-04: Zoom 11 İstanbul geniş ekran BBox sorgusu (1.06° boylam, 600+ pin) ... [31m✗ BAŞARISIZ[0m
+         [31mHata: İstek zaman aşımına uğradı (5000ms)[0m
+  [TEST] UAT-05: API uç noktası canlılık ve veri modeli doğrulaması ... [31m✗ BAŞARISIZ[0m
+         [31mHata: İstek zaman aşımına uğradı (5000ms)[0m
+  [TEST] UAT-06: Web arayüzü canlı HTML sunumu (Port 3000) ... [31m✗ BAŞARISIZ[0m
+         [31mHata: Web arayüzü HTTP 500 döndü[0m
+
+----------------------------------------------------------------------
+[31m⚠️  UAT TESTLERİNDE 6 HATA TESPİT EDİLDİ! (0 Başarılı, 6 Başarısız)[0m
+```
+
+**Studio Yetkilisi Notu:**
+> Sprint S36 panosuna eklendi (S36-T1 ve S36-T2). Görevli rol: backend_engineer. Geliştirme başladı.
+
+- 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-051.md](workspace/docs/cozum_planlari/TALEP-051.md)
+
+---
+### [TALEP-050] TALEP-032'nin acil olarak yeniden devreye alınması (✅ Çözüldü)
+- **Bildirim Tarihi:** 2026-09-28 23:04
+- **Tür / Öncelik:** Hata / Bug / Yüksek (P2)
+- **İlgili Ekran / Sayfa:** `/`
+- **Görevli Rol:** `None`
+- 🐙 **GitHub Issue:** [#81](https://github.com/cihan53/elektriklioto/issues/81)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Müşteri, daha önce açılmış olan TALEP-032 numaralı talebin yeniden aktifleştirilmesini ve acil olarak işleme alınmasını talep ediyor.
+
+Müşteri beyanı: "TALEP-032 talebimi tekrar devreye al", "talep acil hemen işleme al".
+
+Notlar:
+- Talebin mevcut durumu (beklemede / iptal / kapalı) ve yeniden açılma gerekçesi müşteri tarafından netleştirilmedi; ekip tarafından kayıt geçmişinden kontrol edilmesi gerekiyor.
+- Müşteri aciliyet belirtti, ivedilikle ele alınması isteniyor.
+- Planlama ve öncelik sırası geliştirme ekibince belirlenecek; sonuç ve tahmini tamamlanma tarihi müşteriye iletilecek.
+
+**Studio Yetkilisi Notu:**
+> Görev S35-T2 başarıyla tamamlandı ve UAT testinden geçti.
+
+---
+### [TALEP-049] Canlı ortam hatası: SearchInput.vue './geoSearch' modülünü bulamıyor, ana ekran açılmıyor (✅ Çözüldü)
+- **Bildirim Tarihi:** 2026-09-28 22:40
+- **Tür / Öncelik:** Hata / Bug / Yüksek (P2)
+- **İlgili Ekran / Sayfa:** `/`
+- **Görevli Rol:** `data_engineer`
+- 🐙 **GitHub Issue:** [#80](https://github.com/cihan53/elektriklioto/issues/80)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Canlı ortamda ana ekran (harita/istasyon arama) açılmıyor ve şu hata alınıyor:
+
+"Cannot find module './geoSearch' imported from '/Users/cihan/PROJECT/elektriklioto-gemini/workspace/src/frontend/components/map/SearchInput.vue'"
+
+Müşteri acil çözüm talep ediyor; canlı ortam kullanılamaz durumda (production down).
+
+Beklenen: Ana ekran ve harita üzerindeki istasyon arama kutusu hatasız yüklenmeli.
+Mevcut durum: SearchInput.vue içinde './geoSearch' import'u çözümlenemiyor, bileşen/sayfa yüklenemiyor.
+
+İlgili not: TALEP-045 (haritada ilçe arama sonuçlarında bazı ilçelerin görünmemesi) kapsamındaki arama değişiklikleriyle ilişkili olabilir; geoSearch modülünün eksik/yanlış yolda olması veya yayına çıkmamış olması ihtimali kontrol edilmeli. Gerekirse ilgili değişikliğin geri alınarak canlının hızlıca ayağa kaldırılması değerlendirilmeli.
+
+Öncelik: Canlı ortam kesintisi olduğu için en yüksek öncelikle ve sıradaki iş olarak ele alınması isteniyor.
+
+**Studio Yetkilisi Notu:**
+> Görev S34-T2 başarıyla tamamlandı ve UAT testinden geçti.
+
+- 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-049.md](workspace/docs/cozum_planlari/TALEP-049.md)
+
+---
+### [TALEP-048] [UAT] S32-T2 canlı kabul denetimi başarısız: [TALEP-046] Müşteri Kabulü & UAT Doğrulama Denetimi (❌ İptal Edildi)
+- **Bildirim Tarihi:** 2026-09-28 21:55
+- **Tür / Öncelik:** Hata / Bug / Yüksek (P2)
+- **İlgili Ekran / Sayfa:** `/`
+- **Görevli Rol:** `backend_engineer`
+- 🐙 **GitHub Issue:** [#79](https://github.com/cihan53/elektriklioto/issues/79)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Canlı UAT denetimi (scripts/uat_live_audit.mjs) 'S32-T2' görevinde başarısız oldu.
+
+Son çıktı satırları:
+```
+2: Web istemcisi için CORS ve CORP başlık uyumu ... [31m✗ BAŞARISIZ[0m
+         [31mHata: connect ECONNREFUSED 127.0.0.1:3001[0m
+  [TEST] UAT-03: Zoom 6 Türkiye genelinde 81 ilin kümeleme verisi (Clusters) ... [31m✗ BAŞARISIZ[0m
+         [31mHata: connect ECONNREFUSED 127.0.0.1:3001[0m
+  [TEST] UAT-04: Zoom 11 İstanbul geniş ekran BBox sorgusu (1.06° boylam, 600+ pin) ... [31m✗ BAŞARISIZ[0m
+         [31mHata: connect ECONNREFUSED 127.0.0.1:3001[0m
+  [TEST] UAT-05: API uç noktası canlılık ve veri modeli doğrulaması ... [31m✗ BAŞARISIZ[0m
+         [31mHata: connect ECONNREFUSED 127.0.0.1:3001[0m
+  [TEST] UAT-06: Web arayüzü canlı HTML sunumu (Port 3000) ... [31m✗ BAŞARISIZ[0m
+         [31mHata: Web arayüzü HTTP 500 döndü[0m
+
+----------------------------------------------------------------------
+[31m⚠️  UAT TESTLERİNDE 6 HATA TESPİT EDİLDİ! (0 Başarılı, 6 Başarısız)[0m
+```
+
+**Studio Yetkilisi Notu:**
+> Sprint S33 panosuna eklendi (S33-T3 ve S33-T4). Görevli rol: backend_engineer. Geliştirme başladı.
+
+- 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-048.md](workspace/docs/cozum_planlari/TALEP-048.md)
+
+---
+### [TALEP-047] [UAT] S32-T1 canlı kabul denetimi başarısız: [TALEP-046] [UAT] S31-T2 canlı kabul denetimi başarısız: [TALEP-045] Müşteri Kab (❌ İptal Edildi)
+- **Bildirim Tarihi:** 2026-09-28 21:47
+- **Tür / Öncelik:** Hata / Bug / Yüksek (P2)
+- **İlgili Ekran / Sayfa:** `/`
+- **Görevli Rol:** `backend_engineer`
+- 🐙 **GitHub Issue:** [#78](https://github.com/cihan53/elektriklioto/issues/78)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Canlı UAT denetimi (scripts/uat_live_audit.mjs) 'S32-T1' görevinde başarısız oldu.
+
+Son çıktı satırları:
+```
+2: Web istemcisi için CORS ve CORP başlık uyumu ... [31m✗ BAŞARISIZ[0m
+         [31mHata: connect ECONNREFUSED 127.0.0.1:3001[0m
+  [TEST] UAT-03: Zoom 6 Türkiye genelinde 81 ilin kümeleme verisi (Clusters) ... [31m✗ BAŞARISIZ[0m
+         [31mHata: connect ECONNREFUSED 127.0.0.1:3001[0m
+  [TEST] UAT-04: Zoom 11 İstanbul geniş ekran BBox sorgusu (1.06° boylam, 600+ pin) ... [31m✗ BAŞARISIZ[0m
+         [31mHata: connect ECONNREFUSED 127.0.0.1:3001[0m
+  [TEST] UAT-05: API uç noktası canlılık ve veri modeli doğrulaması ... [31m✗ BAŞARISIZ[0m
+         [31mHata: connect ECONNREFUSED 127.0.0.1:3001[0m
+  [TEST] UAT-06: Web arayüzü canlı HTML sunumu (Port 3000) ... [31m✗ BAŞARISIZ[0m
+         [31mHata: Web arayüzü HTTP 500 döndü[0m
+
+----------------------------------------------------------------------
+[31m⚠️  UAT TESTLERİNDE 6 HATA TESPİT EDİLDİ! (0 Başarılı, 6 Başarısız)[0m
+```
+
+**Studio Yetkilisi Notu:**
+> Sprint S33 panosuna eklendi (S33-T1 ve S33-T2). Görevli rol: backend_engineer. Geliştirme başladı.
+
+- 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-047.md](workspace/docs/cozum_planlari/TALEP-047.md)
+
+---
+### [TALEP-046] [UAT] S31-T2 canlı kabul denetimi başarısız: [TALEP-045] Müşteri Kabulü & UAT Doğrulama Denetimi (✅ Çözüldü)
+- **Bildirim Tarihi:** 2026-09-28 21:34
+- **Tür / Öncelik:** Hata / Bug / Yüksek (P2)
+- **İlgili Ekran / Sayfa:** `/`
+- **Görevli Rol:** `backend_engineer`
+- 🐙 **GitHub Issue:** [#77](https://github.com/cihan53/elektriklioto/issues/77)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Canlı UAT denetimi (scripts/uat_live_audit.mjs) 'S31-T2' görevinde başarısız oldu.
+
+Son çıktı satırları:
+```
+al Software Studio — Canlı UAT & Kullanıcı Denetimi Başlatılıyor[0m
+[36m======================================================================[0m
+
+  [TEST] UAT-01: Fastify Backend API canlı sağlık kontrolü (Port 3001) ... [32m✓ GEÇTİ[0m
+  [TEST] UAT-02: Web istemcisi için CORS ve CORP başlık uyumu ... [32m✓ GEÇTİ[0m
+  [TEST] UAT-03: Zoom 6 Türkiye genelinde 81 ilin kümeleme verisi (Clusters) ... [32m✓ GEÇTİ[0m
+  [TEST] UAT-04: Zoom 11 İstanbul geniş ekran BBox sorgusu (1.06° boylam, 600+ pin) ... [32m✓ GEÇTİ[0m
+  [TEST] UAT-05: API uç noktası canlılık ve veri modeli doğrulaması ... [32m✓ GEÇTİ[0m
+  [TEST] UAT-06: Web arayüzü canlı HTML sunumu (Port 3000) ... [31m✗ BAŞARISIZ[0m
+         [31mHata: Web arayüzü HTTP 500 döndü[0m
+
+----------------------------------------------------------------------
+[31m⚠️  UAT TESTLERİNDE 1 HATA TESPİT EDİLDİ! (5 Başarılı, 1 Başarısız)[0m
+```
+
+**Studio Yetkilisi Notu:**
+> Görev S32-T2 başarıyla tamamlandı ve UAT testinden geçti.
+
+- 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-046.md](workspace/docs/cozum_planlari/TALEP-046.md)
+
+---
+### [TALEP-045] Haritada istasyon aramada bazı ilçeler (Esenler) ilçe sonuçlarında görünmüyor (⏳ Beklemede)
+- **Bildirim Tarihi:** 2026-09-27 23:50
+- **Tür / Öncelik:** Hata / Bug / Normal (P3)
+- **İlgili Ekran / Sayfa:** `/`
+- **Görevli Rol:** `web_engineer`
+- 🐙 **GitHub Issue:** [#74](https://github.com/cihan53/elektriklioto/issues/74)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Ana ekrandaki harita üzerindeki istasyon arama alanında bazı ilçe adları için ilçe sonucu dönmüyor.
+
+Adımlar:
+1. Ana ekranı (/) açıp haritadaki istasyon arama kutusuna gidin.
+2. "Kadıköy" yazın -> Beklenen davranış gerçekleşiyor: sonuçların "İlçe" bölümünde Kadıköy görünüyor ve altında ilgili şarj istasyonları listeleniyor.
+3. "Esenler" yazın -> "İlçe" bölümünde Esenler görünmüyor.
+
+Beklenen: Arama terimiyle eşleşen tüm ilçelerin "İlçe" bölümünde listelenmesi ve altında o ilçedeki şarj istasyonlarının gösterilmesi.
+Gerçekleşen: Bazı ilçeler (örnek: Esenler) ilçe sonuçlarında hiç çıkmıyor.
+
+Not: Müşteri ek örnek ilçeler ve cihaz/tarayıcı bilgisini iletirse kayda eklenecek.
+
+**Studio Yetkilisi Notu:**
+> Görev S31-T2 başarıyla tamamlandı ve UAT testinden geçti.
+
+- 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-045.md](workspace/docs/cozum_planlari/TALEP-045.md)
+
+---
+### [TALEP-044] 041 numaralı talebin öncelikli olarak sprinte alınması (✅ Çözüldü)
+- **Bildirim Tarihi:** 2026-09-27 21:47
+- **Tür / Öncelik:** Hata / Bug / Yüksek (P2)
+- **İlgili Ekran / Sayfa:** `/`
+- **Görevli Rol:** `None`
+- 🐙 **GitHub Issue:** [#73](https://github.com/cihan53/elektriklioto/issues/73)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Müşteri, daha önce ilettiği 041 numaralı talebin halen değerlendirme aşamasında olduğunu ve henüz bir sprinte dahil edilmediğini belirtti. Başlangıçta talebi beklemeye alma isteği iletmiş, ardından bu isteğinden vazgeçti.
+
+Güncel talep: 041 numaralı kaydın beklemeye alınmaması, işleme alınarak bir sonraki sprinte dahil edilmesi ve sıradaki iş olarak ele alınması isteniyor.
+
+Aciliyet: Müşteri bu iş için aciliyet olduğunu, bir sonraki iş olarak ele alınmasını talep ettiğini belirtti. Bağlı olduğu spesifik bir teslim tarihi paylaşılmadı.
+
+Beklenti: Sprint planlaması yapıldıktan sonra tahmini tamamlanma tarihinin müşteriye bildirilmesi.
+
+**Studio Yetkilisi Notu:**
+> Görev S30-T2 başarıyla tamamlandı ve UAT testinden geçti.
+
+---
+### [TALEP-043] Sunucuda backend yeniden başlatma işlemi başarısız olduğu halde başarılı bildiriliyor (✅ Çözüldü)
+- **Bildirim Tarihi:** 2026-09-27 21:24
+- **Tür / Öncelik:** Hata / Bug / Yüksek (P2)
+- **İlgili Ekran / Sayfa:** `Sunucu / Yayınlama`
+- **Görevli Rol:** `None`
+- 🐙 **GitHub Issue:** [#72](https://github.com/cihan53/elektriklioto/issues/72)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Canlı sunucuda uygulama yeniden başlatıldığında, API servisinin kullandığı iç port (4000) zaten eski bir süreç tarafından tutuluyorsa yeni süreç çakılıyor ve aslında hiç devreye girmiyor. Buna rağmen başlatma betiği sağlık kontrolünü aynı porta yaptığı için eski süreç cevap veriyor ve işlem 'başarılı' diye raporlanıyor. Sonuç: site günlerce eski veri ve eski kodla çalışmaya devam edebiliyor, güncellemeler görünürde yayına alınmış gibi görünüyor ama ziyaretçi eski sürümü görüyor. Beklenti: yeniden başlatma öncesi eski süreç kapatılmalı veya port doluysa açıkça hata verilmeli; başarı yalnızca yeni başlatılan süreç doğrulandığında raporlanmalı.
+
+**Studio Yetkilisi Notu:**
+> Görev S29-T4 başarıyla tamamlandı ve UAT testinden geçti.
+
+---
+### [TALEP-042] Canlı sitede operatör listesi yerel ortama göre bir kayıt eksik görünüyor (✅ Çözüldü)
+- **Bildirim Tarihi:** 2026-09-27 21:23
+- **Tür / Öncelik:** Veri & İstasyon Tutarlılığı / Düşük (P4)
+- **İlgili Ekran / Sayfa:** `Harita / Operatör Listesi`
+- **Görevli Rol:** `web_engineer`
+- 🐙 **GitHub Issue:** [#71](https://github.com/cihan53/elektriklioto/issues/71)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Sitedeki operatör/şarj ağı listesini yerel geliştirme ortamıyla karşılaştırdığımızda canlıda 179, localde 180 operatör görünüyor. Bazı istasyonların bağlı olduğu bir operatör canlıdaki operatör kayıt listesinde (operators.json) tanımlı olmadığı için yalnızca istasyon verisinden türetilen ek bir operatör localde oluşuyor; canlıda bu operatör listede görünmüyor veya adı eksik kalabiliyor. Beklenti: her iki ortamda da operatör listesi birebir aynı olmalı ve istasyonu olan her operatör sitede adıyla listelenmeli.
+
+**Studio Yetkilisi Notu:**
+> Görev S29-T2 başarıyla tamamlandı ve UAT testinden geçti.
+
+- 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-042.md](workspace/docs/cozum_planlari/TALEP-042.md)
+
+---
+### [TALEP-041] Tüm Operatörler menüsündeki markalar istasyon sayısına göre sıralansın (🔨 Geliştiriliyor)
+- **Bildirim Tarihi:** 2026-09-27 19:54
+- **Tür / Öncelik:** Yeni İstek / Özellik / Normal (P3)
+- **İlgili Ekran / Sayfa:** `/operatorler`
+- **Görevli Rol:** `data_engineer`
+- 🐙 **GitHub Issue:** [#68](https://github.com/cihan53/elektriklioto/issues/68)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> "Tüm Operatörler" menüsünde listelenen marka/operatörler şu anda mevcut sıralamayla (muhtemelen alfabetik veya eklenme sırası) gösteriliyor. Müşteri, listenin her operatörün toplam istasyon sayısına göre sıralanmasını istiyor; böylece en yaygın operatörler üstte görünecek. Varsayılan olarak çoktan aza sıralama öngörülmüştür (müşteri onayı bekleniyor). Listeye istasyon sayısının görsel olarak eklenip eklenmeyeceği ayrıca netleştirilecek.
+
+**Studio Yetkilisi Notu:**
+> Sprint S37 panosuna eklendi (S37-T1 ve S37-T2). Görevli rol: data_engineer. Geliştirme başladı.
+
+- 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-041.md](workspace/docs/cozum_planlari/TALEP-041.md)
+
+---
+### [TALEP-040] /api/version endpoint'i 404 dönüyor (✅ Çözüldü)
+- **Bildirim Tarihi:** 2026-09-27 19:47
+- **Tür / Öncelik:** Hata / Bug / Normal (P3)
+- **İlgili Ekran / Sayfa:** `/api/version`
+- **Görevli Rol:** `None`
+- 🐙 **GitHub Issue:** [#67](https://github.com/cihan53/elektriklioto/issues/67)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Müşteri bildirimi: https://elektriklioto.com/api/version?t=1790527622057 adresine yapılan istek 404 Not Found dönüyor.
+
+Beklenen: Endpoint'in geçerli bir sürüm bilgisi (200 OK) döndürmesi.
+Gözlenen: 404 Not Found.
+
+Not: İstek cache-busting parametresi (?t=...) ile yapılıyor; muhtemelen istemci tarafında periyodik sürüm kontrolü yapan bir mekanizmadan geliyor. Endpoint'in sunucuda tanımlı olup olmadığı, route/deploy yapılandırması ve yönlendirme kuralları kontrol edilmeli.
+
+Açıklığa kavuşturulacak: hatanın görüldüğü sayfa, kullanıcıya yansıyan bir etki olup olmadığı ve başlangıç tarihi müşteriden teyit edilecek.
+
+**Studio Yetkilisi Notu:**
+> Görev S28-T2 başarıyla tamamlandı ve UAT testinden geçti.
+
+---
+### [TALEP-039] Günlük istasyon sayısı gün içinde küçük miktarlarda dalgalanıyor (✅ Çözüldü)
+- **Bildirim Tarihi:** 2026-09-27 13:48
+- **Tür / Öncelik:** Veri & İstasyon Tutarlılığı / Düşük (P4)
+- **İlgili Ekran / Sayfa:** `İstasyon Listesi / Veri Sayıları`
+- **Görevli Rol:** `data_engineer`
+- 🐙 **GitHub Issue:** [#66](https://github.com/cihan53/elektriklioto/issues/66)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Sitede ve uygulamada gösterilen toplam şarj istasyonu sayısı günden güne birkaç düzine kadar inip çıkıyor. Bunun sebebi, resmi veri kaynağının her sorguda birebir aynı listeyi döndürmemesi ve yoğunluk/sınır durumlarında kısmi yanıt vermesi. Büyük bir bozulma değil ancak veri tutarlılığı izlenirken kafa karışıklığı yaratıyor. Sayıların neden dalgalandığının görünür kılınması ya da günlük karşılaştırmada küçük farkların tolere edilmesi isteniyor.
+
+**Studio Yetkilisi Notu:**
+> Görev S27-T2 başarıyla tamamlandı ve UAT testinden geçti.
+
+- 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-039.md](workspace/docs/cozum_planlari/TALEP-039.md)
+
+---
+### [TALEP-038] Kapanan veya kaynaktan kalkan şarj istasyonları listeden düşmüyor (⏳ Beklemede)
+- **Bildirim Tarihi:** 2026-09-27 13:47
+- **Tür / Öncelik:** Veri & İstasyon Tutarlılığı / Normal (P3)
+- **İlgili Ekran / Sayfa:** `İstasyon Listesi / Harita`
+- **Görevli Rol:** `None`
+- 🐙 **GitHub Issue:** [#65](https://github.com/cihan53/elektriklioto/issues/65)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Uygulamada ve sitede gösterilen şarj istasyonları her gece güncel kaynaklardan tazeleniyor; ancak bir istasyon kaynak listeden çıkarıldığında (örneğin kalıcı olarak kapandığında veya işletmeci kaydı sildiğinde) bizde görünmeye devam ediyor. Zamanla bu, kullanıcının vardığında kapalı bulduğu 'hayalet' istasyonların listede birikmesine yol açabilir. Günlük yenileme sırasında kaynakta artık yer almayan istasyonların listeden kaldırılması veya pasife alınması bekleniyor.
+
+---
+### [TALEP-037] Sunucudaki veritabanı yazılımının güncel sürüme yükseltilmesi (⏳ Beklemede)
+- **Bildirim Tarihi:** 2026-09-27 13:46
+- **Tür / Öncelik:** Yeni İstek / Özellik / Düşük (P4)
+- **İlgili Ekran / Sayfa:** `Sunucu / Altyapı`
+- **Görevli Rol:** `None`
+- 🐙 **GitHub Issue:** [#64](https://github.com/cihan53/elektriklioto/issues/64)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Sitemizin canlı sunucusunda çalışan veritabanı yazılımı oldukça eski bir sürümde kalmış durumda ve artık üreticisi tarafından desteklenmiyor; yani güvenlik ve hata düzeltme güncellemeleri almıyor. Şu an site sorunsuz çalışıyor ancak uzun vadede eski sürüm hem güvenlik açığı hem de yeni özelliklerden yararlanamama riski taşıyor. Uygun bir bakım penceresinde veritabanının güncel, desteklenen bir sürüme yükseltilmesi ve yükseltme sonrası verilerin eksiksiz aktarıldığının doğrulanması isteniyor.
+
+---
 ### [TALEP-036] [UAT] S26-T1 canlı kabul denetimi başarısız: [TALEP-034] [UAT] S23-T2 canlı kabul denetimi başarısız: [TALEP-027] Müşteri Kab (❌ İptal Edildi)
 - **Bildirim Tarihi:** 2026-09-27 04:23
 - **Tür / Öncelik:** Hata / Bug / Yüksek (P2)
