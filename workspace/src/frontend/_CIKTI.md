@@ -1,10 +1,11 @@
+The "Tüm Operatörler" menu is the operator dropdown in `FilterChips.vue`, fed by `useOperators()`. Checking the file's git history before modifying (regression rule).=== FILE: composables/useOperators.ts ===
 
 import type { OperatorItem } from '~/types/station';
 import defaultOperators from '~/data/operators.json';
 
 // TALEP-041: Operatör listesi istasyon sayısına göre çoktan aza sıralanır;
 // eşit sayılarda Türkçe alfabetik sıralama ile deterministik düzen korunur.
-export const sortOperatorsByStationCount = (list: OperatorItem[]): OperatorItem[] => {
+const sortOperatorsByStationCount = (list: OperatorItem[]): OperatorItem[] => {
   return [...list].sort((a, b) => {
     const diff = (b.station_count ?? 0) - (a.station_count ?? 0);
     if (diff !== 0) return diff;
@@ -41,7 +42,6 @@ export const useOperators = () => {
               station_count: op.station_count ?? existing?.station_count ?? 0,
             });
           }
-          // TALEP-041: Birleştirme sonrası istasyon sayısına göre çoktan aza sırala
           operators.value = sortOperatorsByStationCount(Array.from(opMap.values()));
         } else {
           // TALEP-023: Eksik veya parçalı API yanıtlarında EPDK 179 marka tabanını koru ve birleştir
@@ -57,7 +57,6 @@ export const useOperators = () => {
               station_count: op.station_count ?? existing?.station_count ?? 0,
             });
           }
-          // TALEP-041: Birleştirme sonrası istasyon sayısına göre çoktan aza sırala
           operators.value = sortOperatorsByStationCount(Array.from(opMap.values()));
         }
       }
