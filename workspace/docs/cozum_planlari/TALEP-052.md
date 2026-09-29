@@ -33,9 +33,11 @@ Ekip notu: TALEP-049 (SearchInput.vue './geoSearch' modülü bulunamıyor) ile a
 
 ## 2. Kök Neden & Mimari Analiz
 
-**Statik Analiz:**
+**Claude Analizi:**
 
-Bu talep `Veri Kazıma & ETL Pipeline (Python)` katmanını etkiliyor. İlgili dosyalar ve modüller incelenerek kök neden tespit edilecek, ardından aşağıdaki aksiyon planı uygulanacaktır.
+**1. Kök Neden:** `FilterChips.vue`, `~/composables/useClickOutside` yolunu import ediyor, ancak bu dosya `composables/` klasöründe mevcut değil (klasörde `useChangelog`, `useOperators`, `useToast` vb. var, `useClickOutside` yok) — TALEP-049'daki `geoSearch.ts` durumuna çok benziyor: o dosya da composables'da değil, `components/map/geoSearch.ts` altında bulunuyor. Yani bu, tek seferlik bir yazım hatası değil, geçtiğimiz refactor/taşıma sürecinde composable dosyalarının bir kısmının hedef klasöre taşınmadığı veya hiç oluşturulmadığı sistematik bir eksiklik; `~` alias çözümlemesi (tsconfig/vite paths) muhtemelen doğru çalışıyor, sorun dosyanın kendisinin yokluğu.
+
+**2. Kritik Riskler:** Önce dosyanın gerçekten eksik mi yoksa yanlış konumda mı olduğunu doğrulayın (grep ile `useClickOutside` tanımı repo genelinde aranmalı) — TALEP-049'da olduğu gibi başka bir yerde duruyor olabilir, bu durumda çözüm "taşıma", "yeniden yazma" değil. İkisi aynı kökten geliyorsa aynı taşıma/commit'te kaybolmuş başka composable'lar da olabilir — sadece bu iki dosyayla sınırlı kalmayıp tüm `~/composables/*` importlarını derleme hatası almadan doğrulayın (ör. `vue-tsc`/build ile). Build hatası tüm uygulamayı açılmaz hale getirebileceğinden (TALEP-049'da olduğu gibi) müşteriden istenen kapsam teyidini (sadece filtre alanı mı, tüm SPA mı) almadan "acil" etiketiyle aceleyle patch geçmeyin; canlıya çıkmadan önce mutlaka local build+smoke test yapın.
 
 **İlgili Dosyalar & Modüller:**
    - `scripts/`
