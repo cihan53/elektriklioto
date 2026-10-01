@@ -1,7 +1,7 @@
 # Digital Software Studio — Müşteri Denetim & Talep Havuzu
 
-> **Son Güncelleme:** 2026-10-01 09:21  
-> **Toplam Bildirim:** 57  
+> **Son Güncelleme:** 2026-10-01 12:46  
+> **Toplam Bildirim:** 58  
 
 Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda iletilen istek, hata ve geri bildirimleri içerir.
 
@@ -11,8 +11,9 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 
 | ID | Tür | Öncelik | Durum | Başlık | Ekran / URL | İlgili Rol | GitHub Issue | Plan |
 |---|---|---|---|---|---|---|---|---|
+| **TALEP-058** | Hata / Bug | Yüksek (P2) | ⏳ Beklemede | TALEP-045 ve TALEP-029 canlıda hâlâ düzeltilmemiş görünüyor | `/` | `None` | [#95](https://github.com/cihan53/elektriklioto/issues/95) | — |
 | **TALEP-057** | Hata / Bug | Yüksek (P2) | 🔨 Geliştiriliyor | [BUILD] S35-T3 derleme/import doğrulaması başarısız: [TALEP-054] Haritada istasyon sayıları mükerrer kayıt nedeniyle şişkin görünüyor | `/` | `data_engineer` | [#94](https://github.com/cihan53/elektriklioto/issues/94) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-057.md) |
-| **TALEP-056** | Hata / Bug | Yüksek (P2) | ONAY_BEKLIYOR | [HİJYEN] S37-T1 çalışma alanı hijyeni başarısız: [TALEP-053] Ana ekranda istasyonlar gelmiyor — backend modül hatasıyla çöküyor | `/` | `data_engineer` | [#93](https://github.com/cihan53/elektriklioto/issues/93) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-056.md) |
+| **TALEP-056** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | [HİJYEN] S37-T1 çalışma alanı hijyeni başarısız: [TALEP-053] Ana ekranda istasyonlar gelmiyor — backend modül hatasıyla çöküyor | `/` | `data_engineer` | [#93](https://github.com/cihan53/elektriklioto/issues/93) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-056.md) |
 | **TALEP-055** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | [BUILD] S37-T1 derleme/import doğrulaması başarısız: [TALEP-053] Ana ekranda istasyonlar gelmiyor — backend modül hatasıyla çöküyor | `/` | `data_engineer` | [#92](https://github.com/cihan53/elektriklioto/issues/92) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-055.md) |
 | **TALEP-054** | Hata / Bug | Yüksek (P2) | ⏳ Beklemede | Haritada istasyon sayıları mükerrer kayıt nedeniyle şişkin görünüyor | `/` | `backend_engineer` | [#91](https://github.com/cihan53/elektriklioto/issues/91) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-054.md) |
 | **TALEP-053** | Hata / Bug | Kritik (P1) | ✅ Çözüldü | Ana ekranda istasyonlar gelmiyor — backend modül hatasıyla çöküyor | `/` | `None` | [#90](https://github.com/cihan53/elektriklioto/issues/90) | — |
@@ -73,6 +74,17 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 
 ## 2. Talep Detayları ve Geri Bildirim Notları
 
+### [TALEP-058] TALEP-045 ve TALEP-029 canlıda hâlâ düzeltilmemiş görünüyor (⏳ Beklemede)
+- **Bildirim Tarihi:** 2026-10-01 12:45
+- **Tür / Öncelik:** Hata / Bug / Yüksek (P2)
+- **İlgili Ekran / Sayfa:** `/`
+- **Görevli Rol:** `None`
+- 🐙 **GitHub Issue:** [#95](https://github.com/cihan53/elektriklioto/issues/95)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Yayın ortamında ana ekranda istasyon araması yaparken Esenler gibi bazı ilçeler ilçe sonuçlarında görünmüyor (TALEP-045 kapsamı). Ayrıca 'Tüm Operatörler' menüsü açıkken menü dışındaki alana tıklandığında menü kapanmıyor (TALEP-029 kapsamı). Aynı davranışların local/test ortamında doğru çalıştığı belirtiliyor; ancak canlı sistemde sorunların devam ettiği görülüyor. İlgili düzeltmelerin canlı ortama alınıp alınmadığının kontrol edilmesi, eksikse yayınlanması ve canlıda tekrar doğrulanması bekleniyor.
+
+---
 ### [TALEP-057] [BUILD] S35-T3 derleme/import doğrulaması başarısız: [TALEP-054] Haritada istasyon sayıları mükerrer kayıt nedeniyle şişkin görünüyor (🔨 Geliştiriliyor)
 - **Bildirim Tarihi:** 2026-09-30 13:10
 - **Tür / Öncelik:** Hata / Bug / Yüksek (P2)
@@ -94,7 +106,7 @@ hijyen ihlali (2); regresyon testi eksik; derleme başarısız (import 2)
 - 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-057.md](workspace/docs/cozum_planlari/TALEP-057.md)
 
 ---
-### [TALEP-056] [HİJYEN] S37-T1 çalışma alanı hijyeni başarısız: [TALEP-053] Ana ekranda istasyonlar gelmiyor — backend modül hatasıyla çöküyor (ONAY_BEKLIYOR)
+### [TALEP-056] [HİJYEN] S37-T1 çalışma alanı hijyeni başarısız: [TALEP-053] Ana ekranda istasyonlar gelmiyor — backend modül hatasıyla çöküyor (✅ Çözüldü)
 - **Bildirim Tarihi:** 2026-09-30 08:30
 - **Tür / Öncelik:** Hata / Bug / Yüksek (P2)
 - **İlgili Ekran / Sayfa:** `/`
@@ -110,7 +122,7 @@ hijyen ihlali (2); 12 koruma referansı kaldırıldı (regresyon_uyarilari.md); 
 ```
 
 **Studio Yetkilisi Notu:**
-> Görev S35-T8 tamamlandı ve UAT testinden geçti — kapanış için müşteri onayı bekleniyor.
+> Müşteri onayı ile kapatıldı.
 
 - 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-056.md](workspace/docs/cozum_planlari/TALEP-056.md)
 
