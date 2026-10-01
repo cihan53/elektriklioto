@@ -40,7 +40,7 @@ const toggleOperatorDropdown = () => {
   }
 };
 
-// TALEP-050 (TALEP-032 reaktivasyonu): Menü dışındaki herhangi bir alana
+// TALEP-058 (ve TALEP-050 / TALEP-029 / TALEP-032 reaktivasyonu): Menü dışındaki herhangi bir alana
 // tıklama/dokunma veya Escape tuşu açılır listeyi kapatır. Dinleyici capture
 // fazında kurulur ve bileşen kaldırıldığında temizlenir (memory leak yok).
 useClickOutside(operatorMenuRoot, () => {

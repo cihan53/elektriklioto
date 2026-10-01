@@ -181,6 +181,7 @@ const handleSelectCity = (city: string) => {
   }
 };
 
+// TALEP-058 & TALEP-045: İlçe ve lokasyon arama seçiminde harita odaklanması
 const handleSelectLocation = (loc: LocationSearchResult) => {
   if (loc.type === 'operator' && loc.operatorSlug) {
     selectedOperator.value = loc.operatorSlug;
@@ -313,6 +314,7 @@ useHead({
       </div>
 
       <!-- Üst Yüzen Kontroller (Arama & Filtre Çubuğu - TALEP-004 & TALEP-007) -->
+      <!-- TALEP-058 & TALEP-029: Dış tıklama yönetimi SearchInput ve FilterChips içinde useClickOutside ile sağlanır -->
       <div
         class="absolute top-4 left-4 right-4 sm:right-auto z-30 flex flex-col gap-2 pointer-events-none max-w-[calc(100vw-32px)]"
       >
