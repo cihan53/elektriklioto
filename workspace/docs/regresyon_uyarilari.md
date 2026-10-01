@@ -384,3 +384,13 @@
 ## [S35-T2] — 2026-10-01 18:43
 
 - fix görevi tamamlandı ama değişen dosyalarda test yok (regresyon testi eksik) — dosyalar: workspace/docs/uat_kabul_raporu.md
+
+## [S35-T3] — 2026-10-01 18:53
+
+- workspace/docs/musteri_talepleri.md: silinen koruma referansı [TALEP-058] → | **TALEP-058** | Hata / Bug | Yüksek (P2) | ONAY_BEKLIYOR | TALEP-045 ve TALEP-029 canlıda hâlâ düzeltilmemiş
+- workspace/docs/musteri_talepleri.md: silinen koruma referansı [TALEP-054] → | **TALEP-054** | Hata / Bug | Yüksek (P2) | ONAY_BEKLIYOR | Haritada istasyon sayıları mükerrer kayıt nedeniy
+- workspace/docs/musteri_talepleri.md: silinen koruma referansı [TALEP-058] → ### [TALEP-058] TALEP-045 ve TALEP-029 canlıda hâlâ düzeltilmemiş görünüyor (ONAY_BEKLIYOR)
+- workspace/docs/musteri_talepleri.md: silinen koruma referansı [TALEP-054] → ### [TALEP-054] Haritada istasyon sayıları mükerrer kayıt nedeniyle şişkin görünüyor (ONAY_BEKLIYOR)
+- workspace/infra/canli.sh: silinen koruma referansı [TALEP-014] → # CPO İstasyon Veri Tohumu Denetimi (TALEP-014)
+- workspace/infra/canli.sh: silinen koruma referansı [TALEP-012] → # 7. TALEP-012: Yerel Geliştirme Sürüm Dosyasını Hazırla
+- workspace/infra/canli.sh: silinen koruma referansı [TALEP-012] → echo -e "   - 🏷️  TALEP-012 Version: http://localhost:3001/version.json"

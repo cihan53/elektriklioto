@@ -10,6 +10,44 @@ import type {
   ReportResponse
 } from '~/types/station';
 
+// TALEP-054 & TALEP-059: Haritada mükerrer istasyon kayıtlarının sayıyı şişirmesini önleyen istemci tekilleştirmesi.
+// Aynı id, slug veya aynı kanonik istasyon_no / operatör + konum imzasına sahip mükerrerler elenir.
+export const deduplicateStations = (list: StationItem[]): StationItem[] => {
+  if (!Array.isArray(list)) return [];
+  const seenKeys = new Set<string>();
+  const result: StationItem[] = [];
+
+  for (const item of list) {
+    if (!item) continue;
+    // 1. Birincil kimlik anahtarı (id, slug veya istasyon_no)
+    const primaryId = item.id || item.slug || (item as any).istasyon_no;
+    if (primaryId && seenKeys.has(`id:${primaryId}`)) {
+      continue;
+    }
+
+    // 2. Fiziksel saha imzası: operatör + yaklaşık koordinat (3 ondalık ~110m) + normalize isim
+    const lat = typeof item.lat === 'number' ? item.lat : parseFloat(String(item.lat));
+    const lon = typeof item.lon === 'number' ? item.lon : parseFloat(String(item.lon));
+    const op = (item as any).operator_id || (item as any).operator_slug || '';
+    const nameNorm = (item.name || '').trim().toLowerCase();
+
+    if (!Number.isNaN(lat) && !Number.isNaN(lon)) {
+      const sigKey = `sig:${op}:${lat.toFixed(3)}:${lon.toFixed(3)}:${nameNorm}`;
+      if (seenKeys.has(sigKey)) {
+        continue;
+      }
+      seenKeys.add(sigKey);
+    }
+
+    if (primaryId) {
+      seenKeys.add(`id:${primaryId}`);
+    }
+    result.push(item);
+  }
+
+  return result;
+};
+
 export const useStations = () => {
   const config = useRuntimeConfig();
 
@@ -57,7 +95,7 @@ export const useStations = () => {
         // Veritabanı boşaltıldığında API'den dönen data: [] sonucu haritada sıfır pin / sıfır küme olarak yansıtılır.
         if (Array.isArray(res)) {
           responseType.value = 'stations';
-          stations.value = res as StationItem[];
+          stations.value = deduplicateStations(res as StationItem[]);
           clusters.value = [];
         } else if (res && res.type === 'clusters') {
           responseType.value = 'clusters';
@@ -65,7 +103,7 @@ export const useStations = () => {
           stations.value = [];
         } else if (res && res.data) {
           responseType.value = 'stations';
-          stations.value = (res.data || []) as StationItem[];
+          stations.value = deduplicateStations((res.data || []) as StationItem[]);
           clusters.value = [];
         } else {
           stations.value = [];

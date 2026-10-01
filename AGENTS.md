@@ -24,20 +24,20 @@ Kullanıcıdan gelen prompt `"müşteri:"` (veya `müşteri:`) ile başlıyorsa:
 `workspace/src/frontend/nuxt.config.ts` içinde `runtimeConfig.public.apiBase`
 varsayılanı **göreli** yoldur: `/api/v1`.
 
-- **Prod:** cPanel `.htaccess` `/api` isteklerini backend'e proxy'ler → göreli yol çalışır.
-- **Dev (`nuxt dev`):** `nitro.devProxy` `/api/v1` → `http://127.0.0.1:3001/api/v1`
-  eşlemesini yapar. Bu blok silinirse/bozulursa tüm `/api/v1/*` istekleri Nuxt
+- **Prod:** cPanel `.htaccess` `/api` ve `/documentation` isteklerini backend'e proxy'ler → göreli yol çalışır.
+- **Dev (`nuxt dev`):** `nitro.devProxy` `/api` → `http://127.0.0.1:3001/api`
+  eşlemesini yapar. Bu blok silinirse/bozulursa tüm `/api/*` istekleri Nuxt
   router'a düşer ve 404 olur ("Vue Router warn: No match found").
 
 Kural: `apiBase`, `.htaccess`, `nuxt.config`, `docker-compose`, `*.env` gibi
 dosyalara dokunan her değişiklik **dev VE prod path'i birlikte** doğrulanmalıdır.
-Nitro devProxy eşleşen prefix'i kırpar — hedefe `/api/v1` yazılmasının sebebi budur.
 
 ## Doğrulama Komutları
 
 ```bash
-# Canlı ortam
-./workspace/canli.sh              # backend:3001 + frontend:3000
+# Yerel geliştirme ortamı
+./yerel_ortam.sh              # backend:3001 + frontend:3000 (veya ./workspace/yerel_ortam.sh)
+```
 
 # Smoke checklist (LLM'siz, deterministik)
 python3 scripts/kalite_kapilari.py smoke        # workspace/smoke_checklist.json

@@ -1,6 +1,6 @@
 # Digital Software Studio — Müşteri Denetim & Talep Havuzu
 
-> **Son Güncelleme:** 2026-10-01 18:51  
+> **Son Güncelleme:** 2026-10-01 18:54  
 > **Toplam Bildirim:** 60  
 
 Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda iletilen istek, hata ve geri bildirimleri içerir.
@@ -13,11 +13,11 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 |---|---|---|---|---|---|---|---|---|
 | **TALEP-060** | Hata / Bug | Yüksek (P2) | ❌ İptal Edildi | [HİJYEN] S35-T1 çalışma alanı hijyeni başarısız: [TALEP-054] Haritada istasyon sayıları mükerrer kayıt nedeniyle şişkin görünüyor | `/` | `data_engineer` | [#97](https://github.com/cihan53/elektriklioto/issues/97) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-060.md) |
 | **TALEP-059** | Hata / Bug | Yüksek (P2) | ❌ İptal Edildi | [BUILD] S35-T1 derleme/import doğrulaması başarısız: [TALEP-054] Haritada istasyon sayıları mükerrer kayıt nedeniyle şişkin görünüyor | `/` | `data_engineer` | [#96](https://github.com/cihan53/elektriklioto/issues/96) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-059.md) |
-| **TALEP-058** | Hata / Bug | Yüksek (P2) | ONAY_BEKLIYOR | TALEP-045 ve TALEP-029 canlıda hâlâ düzeltilmemiş görünüyor | `/` | `None` | [#95](https://github.com/cihan53/elektriklioto/issues/95) | — |
+| **TALEP-058** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | TALEP-045 ve TALEP-029 canlıda hâlâ düzeltilmemiş görünüyor | `/` | `None` | [#95](https://github.com/cihan53/elektriklioto/issues/95) | — |
 | **TALEP-057** | Hata / Bug | Yüksek (P2) | ❌ İptal Edildi | [BUILD] S35-T3 derleme/import doğrulaması başarısız: [TALEP-054] Haritada istasyon sayıları mükerrer kayıt nedeniyle şişkin görünüyor | `/` | `data_engineer` | [#94](https://github.com/cihan53/elektriklioto/issues/94) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-057.md) |
 | **TALEP-056** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | [HİJYEN] S37-T1 çalışma alanı hijyeni başarısız: [TALEP-053] Ana ekranda istasyonlar gelmiyor — backend modül hatasıyla çöküyor | `/` | `data_engineer` | [#93](https://github.com/cihan53/elektriklioto/issues/93) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-056.md) |
 | **TALEP-055** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | [BUILD] S37-T1 derleme/import doğrulaması başarısız: [TALEP-053] Ana ekranda istasyonlar gelmiyor — backend modül hatasıyla çöküyor | `/` | `data_engineer` | [#92](https://github.com/cihan53/elektriklioto/issues/92) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-055.md) |
-| **TALEP-054** | Hata / Bug | Yüksek (P2) | ONAY_BEKLIYOR | Haritada istasyon sayıları mükerrer kayıt nedeniyle şişkin görünüyor | `/` | `backend_engineer` | [#91](https://github.com/cihan53/elektriklioto/issues/91) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-054.md) |
+| **TALEP-054** | Hata / Bug | Yüksek (P2) | 🔨 Geliştiriliyor | Haritada istasyon sayıları mükerrer kayıt nedeniyle şişkin görünüyor | `/` | `backend_engineer` | [#91](https://github.com/cihan53/elektriklioto/issues/91) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-054.md) |
 | **TALEP-053** | Hata / Bug | Kritik (P1) | ✅ Çözüldü | Ana ekranda istasyonlar gelmiyor — backend modül hatasıyla çöküyor | `/` | `None` | [#90](https://github.com/cihan53/elektriklioto/issues/90) | — |
 | **TALEP-052** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | FilterChips.vue '~/composables/useClickOutside' modülünü bulamıyor | `/` | `data_engineer` | [#83](https://github.com/cihan53/elektriklioto/issues/83) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-052.md) |
 | **TALEP-051** | Hata / Bug | Yüksek (P2) | ❌ İptal Edildi | [UAT] S35-T2 canlı kabul denetimi başarısız: [TALEP-050] Müşteri Kabulü & UAT Doğrulama Denetimi | `/` | `backend_engineer` | [#82](https://github.com/cihan53/elektriklioto/issues/82) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-051.md) |
@@ -118,7 +118,7 @@ hijyen ihlali (1); regresyon testi eksik; derleme başarısız (import 14)
 - 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-059.md](workspace/docs/cozum_planlari/TALEP-059.md)
 
 ---
-### [TALEP-058] TALEP-045 ve TALEP-029 canlıda hâlâ düzeltilmemiş görünüyor (ONAY_BEKLIYOR)
+### [TALEP-058] TALEP-045 ve TALEP-029 canlıda hâlâ düzeltilmemiş görünüyor (✅ Çözüldü)
 - **Bildirim Tarihi:** 2026-10-01 12:45
 - **Tür / Öncelik:** Hata / Bug / Yüksek (P2)
 - **İlgili Ekran / Sayfa:** `/`
@@ -129,7 +129,7 @@ hijyen ihlali (1); regresyon testi eksik; derleme başarısız (import 14)
 > Yayın ortamında ana ekranda istasyon araması yaparken Esenler gibi bazı ilçeler ilçe sonuçlarında görünmüyor (TALEP-045 kapsamı). Ayrıca 'Tüm Operatörler' menüsü açıkken menü dışındaki alana tıklandığında menü kapanmıyor (TALEP-029 kapsamı). Aynı davranışların local/test ortamında doğru çalıştığı belirtiliyor; ancak canlı sistemde sorunların devam ettiği görülüyor. İlgili düzeltmelerin canlı ortama alınıp alınmadığının kontrol edilmesi, eksikse yayınlanması ve canlıda tekrar doğrulanması bekleniyor.
 
 **Studio Yetkilisi Notu:**
-> Görev S35-T4 tamamlandı ve UAT testinden geçti — kapanış için müşteri onayı bekleniyor.
+> Müşteri onayı ile kapatıldı.
 
 ---
 ### [TALEP-057] [BUILD] S35-T3 derleme/import doğrulaması başarısız: [TALEP-054] Haritada istasyon sayıları mükerrer kayıt nedeniyle şişkin görünüyor (❌ İptal Edildi)
@@ -195,7 +195,7 @@ hijyen ihlali (2); 12 koruma referansı kaldırıldı (regresyon_uyarilari.md); 
 - 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-055.md](workspace/docs/cozum_planlari/TALEP-055.md)
 
 ---
-### [TALEP-054] Haritada istasyon sayıları mükerrer kayıt nedeniyle şişkin görünüyor (ONAY_BEKLIYOR)
+### [TALEP-054] Haritada istasyon sayıları mükerrer kayıt nedeniyle şişkin görünüyor (🔨 Geliştiriliyor)
 - **Bildirim Tarihi:** 2026-09-29 19:06
 - **Tür / Öncelik:** Hata / Bug / Yüksek (P2)
 - **İlgili Ekran / Sayfa:** `/`
@@ -206,7 +206,7 @@ hijyen ihlali (2); 12 koruma referansı kaldırıldı (regresyon_uyarilari.md); 
 > Yayın ortamındaki haritada istasyon sayıları beklenenden çok daha yüksek görünüyor. Örneğin yalnızca İstanbul’da 13 binden fazla istasyon gösterilirken sistemdeki toplam istasyon sayısının yaklaşık 16 bin olduğu belirtiliyor. Kullanıcı, haritadaki istasyon sayılarının gerçek ve tekil veriyle tutarlı olmasını bekliyor. Veritabanına mükerrer istasyon kayıtları eklenmiş olabileceği için mevcut kayıtların incelenmesi, mükerrerlerin temizlenmesi ve harita sayılarının doğrulanması gerekiyor.
 
 **Studio Yetkilisi Notu:**
-> Görev S35-T2 tamamlandı ve UAT testinden geçti — kapanış için müşteri onayı bekleniyor.
+> Sprint S35 panosuna eklendi (S35-T1 ve S35-T2). Görevli rol: backend_engineer. Geliştirme başladı.
 
 - 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-054.md](workspace/docs/cozum_planlari/TALEP-054.md)
 
