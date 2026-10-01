@@ -32,7 +32,7 @@ Müşteri (site sahibi) denetimi sırasında aşağıdaki durumu tespit etti:
 
 ### Aşama A: İnceleme ve Hazırlık (`web_engineer`)
 - İlgili dosyalardaki mevcut state, rota parametreleri ve bileşen event akışını kontrol et.
-- Sorunun canlı veya lokal ortamda (`./canli.sh` -> 3000 / 3001) yeniden üretilebilirliğini teyit et.
+- Sorunun canlı veya lokal ortamda (`./yerel_ortam.sh` -> 3000 / 3001) yeniden üretilebilirliğini teyit et.
 
 ### Aşama B: Kodlama ve Çözüm
 - İlgili bileşende gerekli refactor / hata düzeltmesini yap.

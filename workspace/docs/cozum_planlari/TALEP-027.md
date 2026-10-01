@@ -43,7 +43,7 @@ Harita kodlarını inceleyip kök nedeni doğrulayacağım.
 
 ### Aşama A: İnceleme ve Hazırlık (`web_engineer`)
 - İlgili Vue bileşenindeki mevcut state, props ve event akışını kontrol et.
-- Sorunun lokal ortamda (`./canli.sh` → 3000) yeniden üretilebilirliğini teyit et.
+- Sorunun lokal ortamda (`./yerel_ortam.sh` → 3000) yeniden üretilebilirliğini teyit et.
 
 ### Aşama B: Kodlama ve Çözüm
 - İlgili bileşende gerekli refactor / hata düzeltmesini yap.

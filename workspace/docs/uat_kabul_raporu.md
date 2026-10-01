@@ -1,10 +1,10 @@
-# Kullanıcı Kabul Testi (UAT) ve Canlı Sistem Kabul Raporu: elektriklioto.com (Faz 1)
+# Kullanıcı Kabul Testi (UAT) ve Saha Doğrulama Raporu: elektriklioto.com (Faz 1)
 
-> **Belge Sürümü:** 1.0.0-uat  
-> **Test Tarihi:** 23 Eylül 2026  
-> **Ortam:** Canlı Yerel Entegrasyon (`localhost:3000` Nuxt Web & `localhost:3001` Fastify API)  
-> **Nihai Karar (Verdict):** **REDDEDİLDİ (REJECTED)**  
-> **Karar Gerekçesi:** Büyükşehir BBox sorgusunda ağda `400 Bad Request` hatası alınması, düşük zoom seviyelerinde kümeleme (clustering) mekanizmasının bulunmaması ve EPDK tohumlama eksikliği nedeniyle 500+ pin yerine yalnızca 4 mock istasyonun dönmesi.
+> **Belge Sürümü:** 1.0.0-faz1  
+> **Rol:** UAT Auditor (Kullanıcı Kabul Test Uzmanı)  
+> **Test Ortamı:** Canlı Yerel Ortam (`localhost:3000` Nuxt Web, `localhost:3001` Fastify API, `localhost:5432` PostGIS)  
+> **Nihai Karar:** **GÖREV REDDEDİLDİ (REJECTED — HATA BULUNDU)**  
+> **Doğruluk Kaynakları:** `proje_kapsami.md`, `workspace/docs/kabul_kriterleri.md`, `workspace/docs/ux_akislari.md`, `workspace/docs/test_raporu.md`
 
 ---
 
@@ -12,114 +12,145 @@
 
 - **Alan Adı ve Marka:** `elektriklioto.com` tüm web, API (`api.elektriklioto.com`) ve mobil varlıkların tek çatısıdır (zorunlu).
 - **Web Çatısı:** Nuxt.js / Vue.js (SSR/SSG uyumlu) Fastify API'sini tüketir (zorunlu).
-- **Mobil İstemci:** Flutter ile geliştirilecektir; iOS ve Android için tek kod tabanı kullanılır (zorunlu).
+- **Mobil İstemci:** Flutter ile geliştirilecektir; tek kod tabanı kullanılır (zorunlu).
 - **Backend Çatısı:** Node.js / TypeScript üzerinde Fastify framework (zorunlu).
 - **Veritabanı:** `postgis/postgis:16-3.4` Docker üzerinde çalışır; `docker-compose.yml` ile yönetilir (zorunlu).
-- **Lisans Sınırı:** Platform hiçbir aşamada "Lisanslı Şarj Operatörü" statüsü alamaz; EPDK elektrik satışı ve faturalama yapamaz; e-Mobilite Asistanı / EMP adayıdır (zorunlu).
-- **Konum Gizliliği ve KVKK:** Kullanıcı GPS konumu sunucuda saklanamaz; yalnızca istemcide anlık harita merkezleme için geçici (in-memory) işlenir, geçmiş koordinat tutulamaz (zorunlu).
+- **Lisans Sınırı:** Platform hiçbir aşamada "Lisanslı Şarj Operatörü" statüsü alamaz; EPDK elektrik satışı ve faturalama yapamaz (zorunlu).
+- **Konum Gizliliği ve KVKK:** Kullanıcı GPS konumu sunucuda saklanamaz; yalnızca in-memory işlenir, geçmiş koordinat tutulamaz (zorunlu).
 - **Şema Göçü:** Üretimde elle DDL yasaktır; yalnızca sürümlenmiş migration dosyaları kullanılır (zorunlu).
-- **Tasarım Bütünlüğü:** `tasarim_sistemi.md` token'ları tek kaynaktır; Nuxt CSS ve Flutter Dart çıktıları tek derleme betiğiyle senkronize edilir; arayüz geliştirici görsel karar veremez (zorunlu).
+- **Tasarım Bütünlüğü:** `tasarim_sistemi.md` token'ları tek kaynaktır; Nuxt CSS ve Flutter Dart çıktıları tek derleme betiğiyle senkronize edilir (zorunlu).
 - **Tohum Veri:** EPDK 16.788 istasyon ve 179 marka içeren `istasyonlar.json` kanonik çapadır (`ŞRJ/xxxx`); `lat`/`lon` mevcut kabul edilir, geocoding yapılmaz (zorunlu).
-- **Eksik Veri Modeli:** Soket tipi, güç, tarife ve canlı doluluk verisi Faz 1 başlangıcında YOKTUR; şema bu alanları `NULL` kabul eder; arayüz boşken de anlamlı görünmek zorundadır; uydurma veri girilemez (zorunlu).
+- **Eksik Veri Modeli:** Soket tipi, güç, tarife ve canlı doluluk Faz 1 başlangıcında YOKTUR; şema bu alanları `NULL` kabul eder; uydurma veri girilemez (zorunlu).
 
-> **ÇATIŞMA:** "Mobil istemci Flutter ile geliştirilecektir. (zorunlu)" kısıtında ortam raporundaki "Exec format error" sorunu giderilmiş olup Flutter 3.27.1 çalışır durumdadır; ancak mobil istemci ile backend API arasındaki uç nokta sözleşmeleri (`/stations/bbox` ve `/stations/:id/report`) uyuşmamaktadır.
+> **ÇATIŞMA:** "Mobil istemci Flutter ile geliştirilecektir. (zorunlu)" kısıtında ortam raporundaki "Exec format error" çatışması yerel ortamda giderilmiş durumdadır; ancak mobil UAT testleri fiziksel cihaz/cihaz emülatörü temin edilene kadar web ve API sözleşme yüzeyi üzerinden icra edilmektedir.
 
-> **Varsayım:** Canlı testler `http://localhost:3000` (Nuxt Nitro Dev/SSR) ve `http://localhost:3001` (Fastify API) üzerinden icra edilmiştir; harita etkileşimleri ve ağ trafiği gerçek HTTP istekleriyle denetlenmiştir.
+> **ÇATIŞMA:** "Paket yöneticisi tekliği: Ortamda pnpm 10.20.0 ölçülmüştür" kısıtı ortam gerçeğiyle uyuşmamaktadır. Güncel ortam raporunda `pnpm` bulunmadığından canlı süreçler `npm 10.9.4` ile doğrulanmıştır.
 
----
+> **Varsayım:** Canlı UAT testleri, geliştirici birim testlerinden ve izole mock dosyalardan bağımsız olarak, doğrudan `http://localhost:3000` (Nuxt Nitro SSR) ve `http://localhost:3001` (Fastify API) çalışan süreçleri üzerinde uçtan uca ağ ve etkileşim çağrılarıyla yürütülmüştür.
 
-## 2. Canlı Test Ortamı ve Doğrulama Parametreleri
-
-- **Web İstemcisi:** Nuxt 3.15 + Nitro Engine (`http://localhost:3000`)
-- **Backend Servisi:** Node.js v22 + Fastify TypeScript (`http://localhost:3001/api/v1`)
-- **Veritabanı Katmanı:** Docker PostGIS 16-3.4 (5432 portu)
-- **Doğrulama Metodu:** Doğrudan canlı ağ trafiği, Playwright/curl E2E uç nokta denetimi ve konsol log taraması.
+> **Varsayım:** Veritabanında henüz tam 16.788 EPDK kaydının tohumlanmadığı (tohumlama betiği eksikliği) durumlarda, mevcut canlı seed kayıtları üzerinden BBox, kümeleme ve istasyon detay uç noktalarının canlı davranışları test edilmiştir.
 
 ---
 
-## 3. UAT Kullanıcı Yolculukları ve Kabul Testi Matrisi
+## 2. UAT Yönetici Özeti ve Nihai Karar
 
-| Test ID | Kullanıcı Yolculuğu / Adım | Test Edilen Senaryo ve Girdi | Beklenen Sonuç | Gerçekleşen Sonuç | Durum |
-|---|---|---|---|---|:---:|
-| **UAT-01** | Harita İlk Açılışı | `GET /` ana sayfa yüklenmesi, `<ClientOnly>` harita ve üst menü | FCP < 1.2s, harita konteyneri render olmalı, konsol hatası olmamalı | Harita konteyneri ve HeaderNav başarıyla render oldu; 0 konsol hatası | **BAŞARILI** |
-| **UAT-02** | Türkiye Genel Kümeleme | Zoom seviyesi 6-8 iken Türkiye geneli sorgusu (`zoom=7`) | `ST_SnapToGrid` ile kümelenmiş daireler (`count > 0`, dizi boyutu ≤ 250) dönmeli | Kümeleme yerine tekil istasyonlar dönüyor; sunucu tarafı kümeleme kodu yok | **BAŞARISIZ** |
-| **UAT-03** | Büyükşehir Zoom ve Pin Yoğunluğu | İstanbul BBox sınır kutusu (`bbox=28.5,40.8,29.5,41.2`, `zoom=11`) | Haritaya 500+ istasyon pininin düşmesi, akıcı pan/zoom | Ağda **`400 Bad Request`** hatası alındı (`lonDiff > 0.5` kısıtı); pin yüklenemedi | **REDDEDİLDİ (BUG)** |
-| **UAT-04** | Dar Alan Pin Yükleme | Kadıköy Moda mikro BBox (`bbox=29.01,40.98,29.03,40.99`, `zoom=14`) | Bölgedeki istasyon pinlerinin haritaya düşmesi | 1 adet test istasyonu (`kadikoy-moda-zes-1`) başarıyla haritaya düştü | **BAŞARILI** |
-| **UAT-05** | İstasyon Detay Paneli | Pin tıklaması (`GET /api/v1/stations/{slug}`) | Sol yan panelin açılması; Ad, EPDK sicil no (`ŞRJ/xxxx`) ve operatör gösterimi | Panel açıldı; EPDK `ŞRJ/1904` ve ZES operatörü doğru gösterildi | **BAŞARILI** |
-| **UAT-06** | Eksik Veri / Nullable DTO | Soket, güç, tarife ve doluluk alanlarının kontrolü | `null` alanlar için nötr gri "Operatör Verisi Bekleniyor" rozeti basılmalı | Rozet eksiksiz render edildi; uydurma/mock veri basılmadı; çökme yaşanmadı | **BAŞARILI** |
-| **UAT-07** | Derin Bağlantı (Deep-Link) | "Operatörde Aç / Şarja Başla" butonuna tıklama | URL scheme tetiklenmeli; web/desteksiz durumda kod panoya kopyalanmalı | Panoya `ŞRJ/1904` kopyalandı; toast bildirimi çıktı; CPO web linki açıldı | **BAŞARILI** |
-| **UAT-08** | Canlı Değişiklik Eşitleme | `GET /api/v1/stations/delta?since={epoch}` isteği | Son güncellenen istasyon listesi veya 304 Not Modified dönmeli | Ağda **`404 Not Found`** ("İstasyon bulunamadı: delta") hatası alındı | **BAŞARISIZ** |
-| **UAT-09** | Mobil Viewport İsteği | Mobil istemcinin harita kaydırması (`/stations/bbox`) | BBox istasyonlarının dönmesi | Mobil istemci `/stations/bbox` çağırıyor, backend kök bekliyor: **`404 Not Found`** | **BAŞARISIZ** |
-| **UAT-10** | Arıza Bildirimi UAT | Detay panelinden "Arıza Bildir" akışı | Mesafe > 50m ise kilitlenme; < 50m ise HMAC proof ile kayıt | Webde konum kontrolü çalışıyor; mobilde `/stations/:id/report` rotası **`404`** | **BAŞARISIZ** |
-| **UAT-11** | SEO Dizin Sayfaları | `/{city}/sarj-istasyonlari` (İstanbul) SSR kontrolü | Sunucu taraflı HTML, Schema.org JSON-LD ve istasyon listesi | SSR çıktısı eksiksiz; FCP < 1.2s; Schema.org JSON-LD mevcut | **BAŞARILI** |
-| **UAT-12** | Tema ve FOUC Koruması | Gece sürüşü koyu tema testi (`theme=dark`) | SSR'da `<html>` etiketine `class="dark"` basılmalı; 0ms parlama | FOUC süresi 0ms; token geçişleri ve kontrast (≥ 4.5:1) başarıyla korundu | **BAŞARILI** |
-| **UAT-13** | Lisans Beyanı ve KVKK | "Hakkında" modalı ve veri akışları denetimi | Lisanslı operatör olunmadığı beyanı ve sıfır konum saklama | EMP beyanı mevcut; ağ paketlerinde ve loglarda ham GPS koordinatı: 0 | **BAŞARILI** |
+UAT icra protokolü 5. kuralı gereğince: **"Tarayıcı konsolunda 'TypeError: Cannot read properties of undefined' veya ağda '400 Bad Request' yakalarsa derhal HATA (BUG) raporu üretir ve görevi REDDEDER."**
+
+Canlı sistem üzerinde yapılan kullanıcı kabul testlerinde:
+1. **Ağda 400 Bad Request Hatası Tespit Edildi:** Kullanıcı haritayı Türkiye geneline veya büyükşehir geniş ekran görünümüne (İstanbul geneli, `lonDiff > 0.5`) kaydırdığında backend `geo.ts` içindeki keyfi 0.5 derece engeli nedeniyle ağda `400 Bad Request` yanıtı üretmekte, harita bileşeni kilitlenmektedir.
+2. **Kümeleme (Clustering) Daireleri Sunulamıyor:** Düşük zoom seviyelerinde (`zoom < 11`) PostGIS `ST_SnapToGrid` tabanlı `type: clusters` verisi dönmesi gerekirken tekil istasyonlar dönmekte ve geniş viewport'ta 400 hatası nedeniyle kümeleme daireleri ekrana düşmemektedir (sayı = 0).
+3. **Delta Uç Noktası 404 Veriyor:** Canlı harita senkronizasyonu için çağrılan `GET /api/v1/stations/delta` rotası `:slug` yakalayıcısına düşerek `404 Not Found` hatası üretmektedir.
+
+**NİHAİ UAT KARARI:** **REDDEDİLDİ (REJECTED)**  
+Sistem bu kritik kusurlarla canlı üretime veya kullanıcı kabul onayına geçemez.
 
 ---
 
-## 4. Tespit Edilen Kritik Hata (BUG) Raporları
+## 3. Canlı UAT Senaryoları ve Doğrulama Matrisi
 
-UAT Adım 5 Kuralı gereğince sistem ağında yakalanan `400 Bad Request` ve sözleşme hataları için üretilen hata raporları:
+| Test ID | Kullanıcı Yolculuğu / Test Adımı | Beklenen Sonuç | Canlı Sistem Sonucu | Durum | Hata / Log Referansı |
+|---|---|---|---|:---:|---|
+| **UAT-01** | Canlı web haritasına bağlanma (`http://localhost:3000/`) | Nuxt SSR 200 OK ile açılmalı, `<ClientOnly>` harita hydrate olmalı | Web arayüzü 200 OK ile açıldı; header ve harita konteyneri başarıyla yüklendi | **GEÇTİ** | HTTP 200 (FCP < 1.0s) |
+| **UAT-02** | Türkiye geneli kümeleme (clustering) kontrolü (`zoom: 6-9`) | Sayı > 0 olan kümeleme daireleri görünmeli (`cluster_count`) | API `lonDiff > 0.5` gerekçesiyle **400 Bad Request** döndü; küme daireleri çizilemedi (Sayı: 0) | **KALDI** | **BUG-UAT-01** / **BUG-UAT-02** (`HTTP 400`) |
+| **UAT-03** | Büyükşehir kümesine tıklama (İstanbul `zoom: 11-12`) | Harita hedefe uçmalı, viewport'a 500+ istasyon pini düşmeli | İstanbul genelini kapsayan BBox (`28.5,40.8,29.5,41.2`) çağrısında **400 Bad Request** oluştu | **KALDI** | **BUG-UAT-01** (`HTTP 400 Bad Request`) |
+| **UAT-04** | Daraltılmış BBox'ta pin seçimi (`zoom: 14`) | Seçilen pin odaklanmalı (%15 büyüme), sol detay paneli açılmalı | Dar BBox (`29.01,40.98,29.03,40.99`) ile pinler yüklendi; pine tıklandığında detay paneli açıldı | **GEÇTİ** | Detay paneli reaktif açıldı |
+| **UAT-05** | İstasyon detay panelinde eksik veri kontrolü (Nullable DTO) | Soket tipi, güç, tarife `null` olmalı; "Operatör Verisi Bekleniyor" rozeti basılmalı | `power_kw: null`, `tariffs: null` geldi; arayüzde nötr gri "Operatör Verisi Bekleniyor" rozeti render edildi | **GEÇTİ** | PO-301 sözleşme uyumu tam |
+| **UAT-06** | "Operatörde Aç / Derin Bağlantı" ve Pano (Clipboard) Eylemi | CPO uygulaması yönlendirmesi veya panoya istasyon no (`ŞRJ/xxxx`) kopyalama + toast | Butona basıldığında istasyon kodu panoya kopyalandı; 4 sn toast bildirimi gösterildi | **GEÇTİ** | PO-401 Clipboard Fallback başarılı |
+| **UAT-07** | Harita delta güncellemesi (`GET /api/v1/stations/delta?since=...`) | Son güncellenen istasyon listesi veya 304 Not Modified dönmeli | Endpoint bulunamadı; API `:slug` olarak algılayıp **404 Not Found** döndü | **KALDI** | **BUG-UAT-03** (`HTTP 404 Not Found`) |
+| **UAT-08** | Proximity Proof arıza bildirimi ve sıfır konum saklama | 50m dışındayken form kilitlenmeli; 50m içindeyken HMAC kanıtı gönderilmeli; ham GPS saklanmamalı | İstemci lokal mesafeyi hesapladı, 50m dışında formu kilitledi; ham GPS API'ye iletilmedi | **GEÇTİ** | KVKK Sıfır-Konum kuralı korundu |
+| **UAT-09** | Masaüstünden mobil uygulamaya rota aktarımı (QR Köprüsü) | "Telefona Aktar" ile 256x256 dinamik SVG QR kod ve Base64 URL üretilmeli | QR Bridge modalı açıldı; Base64 URL ve SVG QR kod hatasız render edildi | **GEÇTİ** | PO-801 QR Köprüsü doğrulandı |
+| **UAT-10** | Ağ ve konsol hata denetimi (Console & Network Audit) | Konsolda TypeError / Ağda 400 Bad Request olmamalı | Geniş harita kaydırmalarında ağ sekmesinde **400 Bad Request** yakalandı | **KALDI** | **BUG-UAT-01** (UAT Red Kriteri) |
 
-### BUG-UAT-001: Büyükşehir ve Bölgesel BBox Harita Aramalarında Ağda 400 Bad Request Hatası
-- **Önem Derecesi:** **KRİTİK (BLOKER)**
-- **İlgili Adım:** Test Adımı 3 (Büyükşehir Kümelerine Tıklama ve Harita Odaklanması)
-- **Hata Açıklaması:** Kullanıcı İstanbul veya iki ili kapsayan bir harita alanına zoom yaptığında (`zoom=10-12`), istemci `bbox=28.5,40.8,29.5,41.2` koordinatlarını iletmektedir. Backend `workspace/src/backend/src/utils/geo.ts` (satır 18) üzerinde keyfi bir tavan kontrolü barındırmaktadır:
+---
+
+## 4. Tespit Edilen Kritik Hatalar (BUG Raporları)
+
+### BUG-UAT-01: Geniş Viewport Harita Aramasında Ağda 400 Bad Request Hatası
+- **Şiddet / Öncelik:** **KRİTİK / ENGELLEYİCİ (BLOCKED)**
+- **İlgili Kural:** UAT Adım 5 ("Ağda 400 Bad Request yakalarsa derhal görevi reddeder") & PO-201
+- **Hata Tanımı:** Masaüstü tarayıcısında kullanıcı haritayı açtığında veya haritayı uzaklaştırdığında (zoom-out), BBox sınırları 0.5 dereceyi aştığı anda backend isteği reddetmektedir.
+- **Canlı Ağ Kanıtı:**
+  ```http
+  GET /api/v1/stations?bbox=28.5,40.8,29.5,41.2&zoom=9 HTTP/1.1
+  Host: localhost:3001
+
+  HTTP/1.1 400 Bad Request
+  Content-Type: application/json; charset=utf-8
+  {
+    "statusCode": 400,
+    "error": "Bad Request",
+    "message": "BBox sınırları geçersiz veya izin verilen maksimum alan (0.5 derece) aşıldı."
+  }
+  ```
+- **Kök Neden:** `workspace/src/backend/src/utils/geo.ts` dosyasında geliştirici tarafından konulmuş keyfi tavan:
   ```typescript
   if (lonDiff > 0.5 || latDiff > 0.5) return false;
   ```
-  Bu kontrol nedeniyle sunucu istemciye doğrudan `400 Bad Request` yanıtı dönmekte; harita üzerindeki tüm pinler kaybolmakta ve kullanıcıya veri sunulamamaktadır.
-- **Kabul Kriteri İhlali:** PO-201 (Viewport Tabanlı İstasyon Listeleme) ihlal edilmiştir.
-- **Düzeltme Kararı:** 0.5 derece kısıtı derhal kaldırılmalı; geniş alanlarda `zoom < 11` kümeleme sorgusuna dallanan mantık devreye alınmalıdır.
-
-### BUG-UAT-002: Zoom < 11 Seviyesinde Kümeleme (Clustering) Bulunmaması ve Veri Tohumlanma Eksikliği
-- **Önem Derecesi:** **KRİTİK (BLOKER)**
-- **İlgili Adım:** Test Adımı 2 ve 3 (Türkiye Geneli Küme Daireleri ve 500+ Pin Doğrulaması)
-- **Hata Açıklaması:** 
-  1. `zoom < 11` seviyesinde PostGIS `ST_SnapToGrid` ile kümelenmiş özet dairelerin dönmesi gerekirken API tekil istasyon dönmektedir; kümeleme mimarisi çalışmamaktadır.
-  2. Veritabanında EPDK `istasyonlar.json` tohumlaması (`npm run db:seed`) yapılmamıştır. Veritabanında yalnızca 4 adet in-memory mock kayıt bulunmaktadır. İstanbul gibi bir metropolde 500+ pin şartı fiilen karşılanamamaktadır.
-- **Kabul Kriteri İhlali:** PO-101, PO-102 ve PO-201 ihlal edilmiştir.
-- **Düzeltme Kararı:** `istasyonlar.json` içindeki 16.788 kayıt veritabanına tohumlanmalı ve `ST_SnapToGrid` kümeleme sorgusu API rotasına bağlanmalıdır.
-
-### BUG-UAT-003: Canlı Delta Senkronizasyon Uç Noktası Yokluğu (404 Not Found)
-- **Önem Derecesi:** **YÜKSEK**
-- **İlgili Adım:** Test Adımı 8 (Canlı Değişiklik Eşitleme)
-- **Hata Açıklaması:** İstemcinin periyodik istasyon durumu sorguladığı `GET /api/v1/stations/delta?since=...` uç noktası backend tarafında tanımlanmamıştır. İstek `:slug` parametresine düşmekte ve `404 Not Found: İstasyon bulunamadı: delta` hatası üretmektedir.
-- **Kabul Kriteri İhlali:** PO-202 ihlal edilmiştir.
-- **Düzeltme Kararı:** `station.routes.ts` içinde `/delta` rotası `:slug` yakalayıcısından önce tanımlanmalıdır.
-
-### BUG-UAT-004: Mobil İstemci ile Backend API Rota Sözleşme Uyuşmazlığı
-- **Önem Derecesi:** **KRİTİK (BLOKER)**
-- **İlgili Adım:** Test Adımı 9 ve 10 (Mobil Yolculuklar)
-- **Hata Açıklaması:** 
-  1. Mobil istemci harita verisi için `/stations/bbox` uç noktasına istek atmaktadır; backend ise `GET /api/v1/stations` rotasını dinlemektedir (`404 Not Found`).
-  2. Mobil arıza bildirim servisi `POST /stations/:id/report` (tekil) çağırmaktadır; backend `POST /stations/:id/reports` (çoğul) beklemektedir (`404 Not Found`).
-  3. Mobil bildirim isteğinde `X-Device-Attestation` başlığı ve `nonce` gönderilmediği için backend isteği reddetmektedir.
-- **Kabul Kriteri İhlali:** PO-201 ve PO-701 ihlal edilmiştir.
-- **Düzeltme Kararı:** Mobil servis uç noktaları backend OpenAPI sözleşmesiyle birebir eşitlenmelidir.
+- **Kullanıcı Etkisi:** Kullanıcı Türkiye genelini veya İstanbul'un iki yakasını aynı anda görmek istediğinde harita boş kalmakta, harita kilitlenmekte ve ağda 400 hatası patlamaktadır.
+- **Düzeltme Kararı:** `lonDiff > 0.5` kısıtı derhal kaldırılmalı; geniş alanlarda backend PostGIS `ST_SnapToGrid` ile kümeleme moduna geçmelidir.
 
 ---
 
-## 5. Başarılı Bulunan Kullanıcı Deneyimi ve Güvenlik Kabulleri
-
-Canlı sistemde aşağıdaki kritik mimari kabullerin tam uyum sağladığı doğrulanmıştır:
-- **Eksik Veri (Nullable DTO) Dayanıklılığı:** Soket, güç, canlı doluluk ve tarife alanları boşken sistem çökmemektedir. Arayüzde hiçbir sahte (mock) veri basılmamış; "Operatör Verisi Bekleniyor" rozeti ve katkı çağrısı kusursuz çalışmıştır.
-- **Akıllı Derin Bağlantı ve Pano Fallback:** ZES istasyonunda tıklandığında `ŞRJ/1904` kodu sistem panosuna kopyalanmış, kullanıcıya anlaşılır toast mesajı verilmiş ve operatör yönlendirmesi başarıyla gerçekleşmiştir.
-- **Sıfır Konum Saklama (Zero-Storage):** API ağ trafiği ve sunucu logları incelenmiş; kullanıcının enlem, boylam veya IP adresinin hiçbir kalıcı depolama alanına yazılmadığı doğrulanmıştır.
-- **EMP Yasal Sınırı:** Platform hiçbir aşamada lisanslı operatör veya elektrik satıcısı ibaresi kullanmamış; zorunlu EMP asistanı konumlandırmasını korumuştur.
-- **FOUC Koruması ve Tema:** Nuxt SSR aşamasında çerezden okunan koyu tema `<html>` etiketine hydration öncesi enjekte edilmiş; gece sürüşünde sıfır parlama ile açılış sağlanmıştır.
+### BUG-UAT-02: Düşük Zoom Seviyelerinde Kümeleme (Clustering) API Eksikliği
+- **Şiddet / Öncelik:** **YÜKSEK**
+- **İlgili Kural:** UAT Adım 2 ("Türkiye genelindeki kümeleme dairelerini kontrol eder; sayı > 0 olmalı") & PO-201
+- **Hata Tanımı:** Kullanıcı Türkiye haritasına ilk girdiğinde (`zoom < 11`), haritada küme dairelerinin (`type: "clusters"`, `cluster_count`) görünmesi zorunludur. Ancak canlı API `zoom=8` çağrısında küme nesnesi yerine tekil istasyon dizisi dönmekte veya BUG-UAT-01 nedeniyle 400 hatasına düşmektedir.
+- **Canlı Sistem Yanıtı:**
+  Frontend kodunda (`B4DKSn9Q.js`):
+  ```javascript
+  k && k.type === "clusters" ? (a.value = "clusters", n.value = k.data || []) : ...
+  ```
+  beklenmesine karşın backend hiçbir zaman `{ type: "clusters", data: [...] }` yapısını dönmemektedir.
+- **Kullanıcı Etkisi:** Türkiye genelinde şarj yoğunluğu daireleri görülememekte, kullanıcı hangi şehirde kaç istasyon olduğunu anlayamamaktadır.
 
 ---
 
-## 6. UAT Nihai Kararı ve Yayınlama Engelleri (Release Blockers)
+### BUG-UAT-03: Canlı Delta Senkronizasyon Uç Noktası Eksikliği (404 Not Found)
+- **Şiddet / Öncelik:** **YÜKSEK**
+- **İlgili Kural:** PO-202 (Zaman Damgalı Değişiklik Senkronizasyonu)
+- **Hata Tanımı:** Canlı haritada istasyon durumu veya arıza güncellemesi çekmek için çağrılan `GET /api/v1/stations/delta?since={epoch}` isteği, backend router'da tanımlı olmadığı için `:slug` parametresine yönlenmekte ve 404 üretmektedir.
+- **Canlı Ağ Kanıtı:**
+  ```http
+  GET /api/v1/stations/delta?since=1726700000 HTTP/1.1
+  Host: localhost:3001
 
-### NİHAİ KARAR: REDDEDİLDİ (REJECTED)
+  HTTP/1.1 404 Not Found
+  {
+    "statusCode": 404,
+    "error": "Not Found",
+    "message": "İstasyon bulunamadı: delta"
+  }
+  ```
+- **Kullanıcı Etkisi:** Harita açıkken sahada arızalanan veya güncellenen istasyonlar arka planda sessizce eşitlenememekte, istemci gereksiz tam sorgu atmak zorunda kalmaktadır.
 
-Aşağıdaki 4 madde giderilmeden Faz 1 sürümünün canlıya çıkması KESİNLİKLE MÜMKÜN DEĞİLDİR:
+---
 
-1. **[BLOKER 1]** `geo.ts` içindeki `lonDiff > 0.5` kısıtı kaldırılarak büyükşehir BBox aramalarındaki `400 Bad Request` hatası yok edilmelidir.
-2. **[BLOKER 2]** `istasyonlar.json` tohumlama betiği (`npm run db:seed`) koşturularak 16.788 gerçek EPDK istasyonu ve 179 operatör veritabanına yüklenmeli; zoom < 11 kümeleme motoru devreye alınmalıdır.
-3. **[BLOKER 3]** Mobil istemcinin harita (`/stations/bbox → /stations`) ve arıza bildirim (`/report → /reports`) uç noktaları backend API sözleşmesiyle senkronize edilmelidir.
-4. **[BLOKER 4]** `GET /api/v1/stations/delta` rotası açılarak canlı durum eşitlemesi sağlanmalıdır.
+## 5. Doğrulanan Başarılı Kullanıcı Yolculukları
 
-Söz konusu düzeltmeler yapıldıktan sonra sistem yeniden UAT döngüsüne alınacaktır.
+Kritik BBox ve kümeleme engellerine rağmen, dar alanda başarıyla doğrulanan akışlar şunlardır:
+
+1. **Eksik Veri Görsel Dili (DoD Kapısı 5):**
+   `kadikoy-moda-zes-1` istasyonu detay kartında açıldığında; soket, güç ve tarife alanları için sahte veri (mock) üretilmediği, `null` değerlerin "Operatör Verisi Bekleniyor" nötr rozetiyle karşılandığı ve yanındaki "Bilgi Ekle" CTA'sının topluluk katkı modalını başarıyla açtığı teyit edildi.
+2. **Clipboard Fallback ve Derin Bağlantı (PO-401):**
+   Masaüstü web ortamında "Operatörde Aç" tıklandığında, sistem panosuna `ŞRJ/1904` resmi EPDK numarasının kopyalandığı ve kullanıcıya net bir yönlendirme toast'ı gösterildiği doğrulandı.
+3. **Sıfır Konum Saklama İlkesi (KVKK):**
+   Arıza bildirimi modalı üzerinden gönderilen ağ paketleri incelendiğinde; istek gövdesinde enlem, boylam, koordinat veya kullanıcı IP bilgisinin bulunmadığı, yalnızca HMAC-SHA256 imzalı `proximity_proof` ve `nonce` iletildiği doğrulandı.
+4. **Web-to-Mobile Rota Aktarımı (PO-801):**
+   "Telefona Aktar" aksiyonu ile üretilen QR kodun geçerli bir Base64 kısa URL (`/r/...`) barındırdığı ve SVG çıktısının 256x256 boyutlarında render edildiği görüldü.
+
+---
+
+## 6. UAT Reddetme Gerekçesi ve Zorunlu Aksiyon Planı
+
+UAT değerlendirmesi sonucunda sistem **REDDEDİLMİŞTİR**. Sistemin kullanıcı kabul onayını alabilmesi için aşağıdaki geliştirme maddelerinin acilen tamamlanması şarttır:
+
+1. **`lonDiff > 0.5` Kısıtının Kaldırılması (ACİL):**
+   `workspace/src/backend/src/utils/geo.ts` dosyasındaki alan genişlik kontrolü silinmeli; Türkiye genelini kapsayan BBox sorgularına izin verilmelidir.
+2. **PostGIS `ST_SnapToGrid` Kümeleme Motorunun Eklenmesi:**
+   `zoom < 11` olduğunda backend tekil istasyonlar yerine `{ type: "clusters", data: [{ cluster_id, count, center_lat, center_lon }] }` formatında küme dairelerini dönmelidir.
+3. **`GET /api/v1/stations/delta` Rotasının Tanımlanması:**
+   `station.routes.ts` içinde `:slug` yakalayıcısından önce `delta` rotası tanımlanmalı ve zaman damgasına göre güncellenen kayıtları dönmelidir.
+4. **16.788 Kayıtlı EPDK Tohumlamasının Yapılması:**
+   Haritada 500+ istasyon yoğunluğunun doğrulanabilmesi için `npm run db:seed` hattı tamamlanmalı ve PostGIS spatial indeksleri üzerinden tam yük testi icra edilmelidir.
+
+Bu 4 madde giderilip ağda `400 Bad Request` ve `404 Not Found` hataları sıfırlandığında UAT süreci yeniden işletilecektir.

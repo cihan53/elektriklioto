@@ -11,6 +11,7 @@ import type {
 } from '~/types/station';
 
 // TALEP-054 & TALEP-059: Haritada mükerrer istasyon kayıtlarının sayıyı şişirmesini önleyen istemci tekilleştirmesi.
+// TALEP-061: Mükerrer kayıt ve küme tekilleştirme genişletmesi.
 // Aynı id, slug veya aynı kanonik istasyon_no / operatör + konum imzasına sahip mükerrerler elenir.
 export const deduplicateStations = (list: StationItem[]): StationItem[] => {
   if (!Array.isArray(list)) return [];
@@ -19,17 +20,24 @@ export const deduplicateStations = (list: StationItem[]): StationItem[] => {
 
   for (const item of list) {
     if (!item) continue;
-    // 1. Birincil kimlik anahtarı (id, slug veya istasyon_no)
-    const primaryId = item.id || item.slug || (item as any).istasyon_no;
-    if (primaryId && seenKeys.has(`id:${primaryId}`)) {
-      continue;
-    }
+    // 1. Birincil kimlik anahtarları (id, slug ve kanonik istasyon_no)
+    const idKey = item.id ? `id:${item.id}` : null;
+    const slugKey = item.slug ? `slug:${item.slug}` : null;
+    const rawNo = (item as any).istasyon_no ? String((item as any).istasyon_no).trim().toLowerCase() : '';
+    const noKey = rawNo
+      ? `no:${rawNo.replace(/ş/g, 's').replace(/ı/g, 'i').replace(/ğ/g, 'g').replace(/ü/g, 'u').replace(/ö/g, 'o').replace(/ç/g, 'c')}`
+      : null;
+
+    if (idKey && seenKeys.has(idKey)) continue;
+    if (slugKey && seenKeys.has(slugKey)) continue;
+    if (noKey && seenKeys.has(noKey)) continue;
 
     // 2. Fiziksel saha imzası: operatör + yaklaşık koordinat (3 ondalık ~110m) + normalize isim
     const lat = typeof item.lat === 'number' ? item.lat : parseFloat(String(item.lat));
     const lon = typeof item.lon === 'number' ? item.lon : parseFloat(String(item.lon));
-    const op = (item as any).operator_id || (item as any).operator_slug || '';
-    const nameNorm = (item.name || '').trim().toLowerCase();
+    const op = String((item as any).operator_id || (item as any).operator_slug || '');
+    const nameNorm = (item.name || '').trim().toLowerCase()
+      .replace(/ş/g, 's').replace(/ı/g, 'i').replace(/ğ/g, 'g').replace(/ü/g, 'u').replace(/ö/g, 'o').replace(/ç/g, 'c');
 
     if (!Number.isNaN(lat) && !Number.isNaN(lon)) {
       const sigKey = `sig:${op}:${lat.toFixed(3)}:${lon.toFixed(3)}:${nameNorm}`;
@@ -39,12 +47,27 @@ export const deduplicateStations = (list: StationItem[]): StationItem[] => {
       seenKeys.add(sigKey);
     }
 
-    if (primaryId) {
-      seenKeys.add(`id:${primaryId}`);
-    }
+    if (idKey) seenKeys.add(idKey);
+    if (slugKey) seenKeys.add(slugKey);
+    if (noKey) seenKeys.add(noKey);
     result.push(item);
   }
 
+  return result;
+};
+
+// TALEP-054 & TALEP-061: Kümeleme yanıtlarında mükerrer cluster kayıtlarını ayıklar
+export const deduplicateClusters = (list: ClusterItem[]): ClusterItem[] => {
+  if (!Array.isArray(list)) return [];
+  const seen = new Set<string>();
+  const result: ClusterItem[] = [];
+  for (const c of list) {
+    if (!c) continue;
+    const key = c.cluster_id ? `id:${c.cluster_id}` : `pos:${c.center_lat?.toFixed(2)}:${c.center_lon?.toFixed(2)}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    result.push(c);
+  }
   return result;
 };
 
@@ -99,7 +122,7 @@ export const useStations = () => {
           clusters.value = [];
         } else if (res && res.type === 'clusters') {
           responseType.value = 'clusters';
-          clusters.value = (res.data || []) as ClusterItem[];
+          clusters.value = deduplicateClusters((res.data || []) as ClusterItem[]);
           stations.value = [];
         } else if (res && res.data) {
           responseType.value = 'stations';
