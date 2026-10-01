@@ -27,6 +27,7 @@ jobs:
       - name: Bump Version and Push Tag
         id: tag_version
         uses: mathieudutour/github-tag-action@v6.2
+        continue-on-error: true
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           default_bump: patch
@@ -47,6 +48,7 @@ jobs:
   deploy:
     name: Build & Deploy to cPanel
     needs: version_and_release
+    if: always() && !cancelled()
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
@@ -120,7 +122,7 @@ jobs:
           passphrase: ${{ secrets.CPANEL_SSH_PASSPHRASE }}
           port: ${{ secrets.CPANEL_SSH_PORT || 22 }}
           script_stop: true
-          pty: true
+          request_pty: true
           timeout: 120s
           script: |
             APP_DIR="${{ secrets.CPANEL_APP_DIR }}"
