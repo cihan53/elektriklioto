@@ -1,6 +1,6 @@
 # Digital Software Studio — Müşteri Denetim & Talep Havuzu
 
-> **Son Güncelleme:** 2026-09-30 14:09  
+> **Son Güncelleme:** 2026-10-01 09:11  
 > **Toplam Bildirim:** 57  
 
 Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda iletilen istek, hata ve geri bildirimleri içerir.
@@ -23,7 +23,7 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 | **TALEP-048** | Hata / Bug | Yüksek (P2) | ❌ İptal Edildi | [UAT] S32-T2 canlı kabul denetimi başarısız: [TALEP-046] Müşteri Kabulü & UAT Doğrulama Denetimi | `/` | `backend_engineer` | [#79](https://github.com/cihan53/elektriklioto/issues/79) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-048.md) |
 | **TALEP-047** | Hata / Bug | Yüksek (P2) | ❌ İptal Edildi | [UAT] S32-T1 canlı kabul denetimi başarısız: [TALEP-046] [UAT] S31-T2 canlı kabul denetimi başarısız: [TALEP-045] Müşteri Kab | `/` | `backend_engineer` | [#78](https://github.com/cihan53/elektriklioto/issues/78) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-047.md) |
 | **TALEP-046** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | [UAT] S31-T2 canlı kabul denetimi başarısız: [TALEP-045] Müşteri Kabulü & UAT Doğrulama Denetimi | `/` | `backend_engineer` | [#77](https://github.com/cihan53/elektriklioto/issues/77) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-046.md) |
-| **TALEP-045** | Hata / Bug | Normal (P3) | ONAY_BEKLIYOR | Haritada istasyon aramada bazı ilçeler (Esenler) ilçe sonuçlarında görünmüyor | `/` | `web_engineer` | [#74](https://github.com/cihan53/elektriklioto/issues/74) | — |
+| **TALEP-045** | Hata / Bug | Normal (P3) | ✅ Çözüldü | Haritada istasyon aramada bazı ilçeler (Esenler) ilçe sonuçlarında görünmüyor | `/` | `web_engineer` | [#74](https://github.com/cihan53/elektriklioto/issues/74) | — |
 | **TALEP-044** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | 041 numaralı talebin öncelikli olarak sprinte alınması | `/` | `None` | [#73](https://github.com/cihan53/elektriklioto/issues/73) | — |
 | **TALEP-043** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | Sunucuda backend yeniden başlatma işlemi başarısız olduğu halde başarılı bildiriliyor | `Sunucu / Yayınlama` | `None` | [#72](https://github.com/cihan53/elektriklioto/issues/72) | — |
 | **TALEP-042** | Veri & İstasyon Tutarlılığı | Düşük (P4) | ✅ Çözüldü | Canlı sitede operatör listesi yerel ortama göre bir kayıt eksik görünüyor | `Harita / Operatör Listesi` | `web_engineer` | [#71](https://github.com/cihan53/elektriklioto/issues/71) | — |
@@ -371,7 +371,7 @@ al Software Studio — Canlı UAT & Kullanıcı Denetimi Başlatılıyor[0m
 - 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-046.md](workspace/docs/cozum_planlari/TALEP-046.md)
 
 ---
-### [TALEP-045] Haritada istasyon aramada bazı ilçeler (Esenler) ilçe sonuçlarında görünmüyor (ONAY_BEKLIYOR)
+### [TALEP-045] Haritada istasyon aramada bazı ilçeler (Esenler) ilçe sonuçlarında görünmüyor (✅ Çözüldü)
 - **Bildirim Tarihi:** 2026-09-27 23:50
 - **Tür / Öncelik:** Hata / Bug / Normal (P3)
 - **İlgili Ekran / Sayfa:** `/`
@@ -392,7 +392,7 @@ Gerçekleşen: Bazı ilçeler (örnek: Esenler) ilçe sonuçlarında hiç çıkm
 Not: Müşteri ek örnek ilçeler ve cihaz/tarayıcı bilgisini iletirse kayda eklenecek.
 
 **Studio Yetkilisi Notu:**
-> Görev S35-T2 tamamlandı ve UAT testinden geçti — kapanış için müşteri onayı bekleniyor.
+> Müşteri onayı ile kapatıldı.
 
 - 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-045.md](workspace/docs/cozum_planlari/TALEP-045.md)
 
