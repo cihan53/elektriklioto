@@ -1,3 +1,4 @@
+
 import fs from 'node:fs';
 import path from 'node:path';
 import { sql, eq, or } from 'drizzle-orm';
@@ -14,6 +15,14 @@ import { validateBBox } from '../../utils/geo.js';
 import { regionLookup } from '../regions/region-lookup.js';
 import { il, ilce } from '../../db/schema/regions.js';
 import { BadRequestError } from '../../utils/errors.js';
+import {
+  stationDedupeSubquery,
+  dedupeStations,
+  derivedStationNo,
+  ensureStationDeduped,
+} from './station-dedupe.service.js';
+
+export { ensureStationDeduped };
 
 function getMaxSpanForZoom(zoom: number): number {
   if (zoom < 10) return 180.0;
@@ -274,14 +283,15 @@ export async function ensureDatabaseSeeded(): Promise<void> {
         } catch {}
       }
 
-      // 2. İstasyonları yükle
+      // 2. İstasyonları yükle (TALEP-054: deterministik kimlik koruması)
       for (const item of items) {
         try {
+          const determinedNo = item.istasyon_no || derivedStationNo(item);
           await db
             .insert(stations)
             .values({
               id: item.id || undefined,
-              istasyon_no: item.istasyon_no || `ŞRJ/${Math.floor(Math.random() * 90000 + 10000)}`,
+              istasyon_no: determinedNo,
               slug: item.slug || toSlug(item.name || 'istasyon'),
               name: item.name || 'Şarj İstasyonu',
               address: item.address || '',
@@ -375,7 +385,7 @@ export const stationRepository = {
           if (Array.isArray(list) && list.length > 0) {
             const mappedList: StationModel[] = list.map((item: any) => ({
               id: item.id || `sync-${toSlug(item.istasyon_no || item.name)}`,
-              istasyon_no: item.istasyon_no || `ŞRJ/${Math.floor(Math.random() * 90000 + 10000)}`,
+              istasyon_no: item.istasyon_no || derivedStationNo(item),
               slug: item.slug || toSlug(item.name || 'istasyon'),
               name: item.name || 'Şarj İstasyonu',
               address: item.address || '',
@@ -522,13 +532,15 @@ export const stationRepository = {
     if (this.useDatabase) {
       try {
         const db = getDb();
+        // TALEP-054 KORUNACAK: stationDedupeSubquery ile mükerrer kayıtlar elenir.
+        const dedupedSql = stationDedupeSubquery(
+          sql`s.lon >= ${minLon} AND s.lon <= ${maxLon} AND s.lat >= ${minLat} AND s.lat <= ${maxLat}`,
+          operatorSlug ? sql`JOIN "operator" o ON s.operator_id = o.id AND o.slug = ${operatorSlug}` : sql``
+        );
         const query = sql`
-          SELECT s.*
-          FROM "station" s
-          ${operatorSlug ? sql`JOIN "operator" o ON s.operator_id = o.id AND o.slug = ${operatorSlug}` : sql``}
-          WHERE s.lon >= ${minLon} AND s.lon <= ${maxLon}
-            AND s.lat >= ${minLat} AND s.lat <= ${maxLat}
-          ORDER BY s.updated_at DESC
+          SELECT d.*
+          FROM (${dedupedSql}) d
+          ORDER BY d.updated_at DESC
           LIMIT 2000;
         `;
         const rows = await db.execute<any>(query);
@@ -560,13 +572,17 @@ export const stationRepository = {
       }
     }
 
-    const result: StationModel[] = [];
-    const unique = new Set<string>();
-
+    const seen = new Set<string>();
+    const candidates: StationModel[] = [];
     for (const s of this.stations.values()) {
-      if (unique.has(s.id)) continue;
-      unique.add(s.id);
+      if (seen.has(s.id)) continue;
+      seen.add(s.id);
+      candidates.push(s);
+    }
+    const deduped = dedupeStations(candidates);
 
+    const result: StationModel[] = [];
+    for (const s of deduped) {
       if (s.lon >= minLon && s.lon <= maxLon && s.lat >= minLat && s.lat <= maxLat) {
         if (operatorSlug) {
           const op = operatorService.getBySlug(operatorSlug);
@@ -590,17 +606,19 @@ export const stationRepository = {
         const db = getDb();
         // Issue #56: Kümeleme kanonik il plaka koduyla yapılır; il adı varyantları
         // (ASCII/Unicode) ayrı kümelere bölünemez. Kodu çözülemeyen kayıtlar 'diger' grubundadır.
+        // TALEP-054 KORUNACAK: stationDedupeSubquery ile mükerrer kayıtlar elenir; sayımlar şişmez.
+        const dedupedSql = stationDedupeSubquery(
+          sql`s.lon >= ${minLon} AND s.lon <= ${maxLon} AND s.lat >= ${minLat} AND s.lat <= ${maxLat}`,
+          operatorSlug ? sql`JOIN "operator" o ON s.operator_id = o.id AND o.slug = ${operatorSlug}` : sql``
+        );
         const query = sql`
           SELECT
-            COALESCE(s.il_kodu, 0)::int as il_kodu,
+            COALESCE(d.il_kodu, 0)::int as il_kodu,
             COUNT(*)::int as count,
-            ROUND(AVG(s.lat), 6)::float as lat,
-            ROUND(AVG(s.lon), 6)::float as lon
-          FROM "station" s
-          ${operatorSlug ? sql`JOIN "operator" o ON s.operator_id = o.id AND o.slug = ${operatorSlug}` : sql``}
-          WHERE s.lon >= ${minLon} AND s.lon <= ${maxLon}
-            AND s.lat >= ${minLat} AND s.lat <= ${maxLat}
-          GROUP BY COALESCE(s.il_kodu, 0)
+            ROUND(AVG(d.lat), 6)::float as lat,
+            ROUND(AVG(d.lon), 6)::float as lon
+          FROM (${dedupedSql}) d
+          GROUP BY COALESCE(d.il_kodu, 0)
           HAVING COUNT(*) > 0
           ORDER BY count DESC;
         `;
@@ -622,7 +640,16 @@ export const stationRepository = {
     }
 
     const cityGroups = new Map<string, { count: number; latSum: number; lonSum: number }>();
+    const seen = new Set<string>();
+    const candidates: StationModel[] = [];
     for (const s of this.stations.values()) {
+      if (seen.has(s.id)) continue;
+      seen.add(s.id);
+      candidates.push(s);
+    }
+    const deduped = dedupeStations(candidates);
+
+    for (const s of deduped) {
       if (s.lon >= minLon && s.lon <= maxLon && s.lat >= minLat && s.lat <= maxLat) {
         if (operatorSlug) {
           const op = operatorService.getBySlug(operatorSlug);
@@ -666,16 +693,16 @@ export const stationRepository = {
             ilceKodu ? sql`s.ilce_kodu = ${ilceKodu}` : sql`s.district ILIKE ${'%' + districtSlug + '%'}`
           );
         }
-        if (operatorSlug) {
-          conditions.push(sql`o.slug = ${operatorSlug}`);
-        }
 
+        // TALEP-054 KORUNACAK: stationDedupeSubquery ile mükerrer kayıtlar elenir.
+        const dedupedSql = stationDedupeSubquery(
+          conditions.length > 0 ? sql.join(conditions, sql` AND `) : sql`1=1`,
+          operatorSlug ? sql`JOIN "operator" o ON s.operator_id = o.id AND o.slug = ${operatorSlug}` : sql``
+        );
         const query = sql`
-          SELECT s.*
-          FROM "station" s
-          LEFT JOIN "operator" o ON s.operator_id = o.id
-          WHERE ${conditions.length > 0 ? sql.join(conditions, sql` AND `) : sql`1=1`}
-          ORDER BY s.name ASC
+          SELECT d.*
+          FROM (${dedupedSql}) d
+          ORDER BY d.name ASC
           LIMIT 500;
         `;
         const rows = await db.execute<any>(query);
@@ -705,16 +732,20 @@ export const stationRepository = {
     }
 
     if (process.env.NODE_ENV === 'test' || !this.useDatabase) {
+      const seen = new Set<string>();
+      const candidates: StationModel[] = [];
+      for (const s of this.stations.values()) {
+        if (seen.has(s.id)) continue;
+        seen.add(s.id);
+        candidates.push(s);
+      }
+      const deduped = dedupeStations(candidates);
       const result: StationModel[] = [];
-      const unique = new Set<string>();
 
       const normCity = citySlug ? toSlug(citySlug) : undefined;
       const normDistrict = districtSlug ? toSlug(districtSlug) : undefined;
 
-      for (const s of this.stations.values()) {
-        if (unique.has(s.id)) continue;
-        unique.add(s.id);
-
+      for (const s of deduped) {
         if (normCity) {
           if (ilKodu) {
             if (s.il_kodu !== ilKodu) continue;
@@ -1092,11 +1123,14 @@ export class StationService {
           }
         }
 
+        // TALEP-054 KORUNACAK: stationDedupeSubquery ile arama sonuçlarında mükerrerler filtrelenir.
+        const dedupedSql = stationDedupeSubquery(
+          sql.join(conditions, sql` OR `)
+        );
         const querySql = sql`
-          SELECT s.*
-          FROM "station" s
-          WHERE ${sql.join(conditions, sql` OR `)}
-          ORDER BY s.name ASC
+          SELECT d.*
+          FROM (${dedupedSql}) d
+          ORDER BY d.name ASC
           LIMIT 100;
         `;
 
@@ -1128,10 +1162,16 @@ export class StationService {
 
     // Fallback veya test modu
     if (matchedStations.length === 0 && (process.env.NODE_ENV === 'test' || !stationRepository.useDatabase)) {
-      const unique = new Map<string, StationModel>();
+      const seen = new Set<string>();
+      const candidates: StationModel[] = [];
       for (const s of stationRepository.stations.values()) {
-        if (unique.has(s.id)) continue;
-
+        if (seen.has(s.id)) continue;
+        seen.add(s.id);
+        candidates.push(s);
+      }
+      const deduped = dedupeStations(candidates);
+      const unique = new Map<string, StationModel>();
+      for (const s of deduped) {
         const matchesRegion =
           matchedRegion &&
           (toSlug(s.city) === toSlug(matchedRegion.province) ||

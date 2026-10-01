@@ -336,3 +336,51 @@
 ## [S35-T8] — 2026-09-30 14:09
 
 - workspace/src/frontend/_CIKTI.md: çalışma alanına sızan artefakt
+
+## [S35-T1] — 2026-10-01 18:21
+
+- workspace/src/frontend/_CIKTI.md: çalışma alanına sızan artefakt
+
+## [S35-T1] — 2026-10-01 18:21
+
+- fix görevi tamamlandı ama değişen dosyalarda test yok (regresyon testi eksik) — dosyalar: .github/workflows/deploy.yml, workspace/src/backend/src/modules/stations/station.service.ts
+
+## [S35-T1] — 2026-10-01 18:21
+
+- workspace/src/backend/src/modules/stations/station.service.ts: './station-dedupe.service.js' çözülemedi
+- workspace/src/backend/src/modules/stations/station.service.ts: '../../db/index.js' çözülemedi
+- workspace/src/backend/src/modules/stations/station.service.ts: '../../db/schema/stations.js' çözülemedi
+- workspace/src/backend/src/modules/stations/station.service.ts: '../../db/schema/regions.js' çözülemedi
+- workspace/src/backend/src/modules/stations/station.service.ts: '../../utils/errors.js' çözülemedi
+- workspace/src/backend/src/modules/stations/station.service.ts: '../operators/operator.service.js' çözülemedi
+- workspace/src/backend/src/modules/stations/station.service.ts: '../../utils/geo.js' çözülemedi
+- workspace/src/backend/src/modules/stations/station.service.ts: '../../db/schema/operators.js' çözülemedi
+- workspace/src/backend/src/modules/stations/station.service.ts: '../../utils/unicode.js' çözülemedi
+- workspace/src/backend/src/modules/stations/station.service.ts: '../gadm/gadm.service.js' çözülemedi
+- workspace/src/backend/src/modules/stations/station.service.ts: '../../db/schema/connectors.js' çözülemedi
+- workspace/src/backend/src/modules/stations/station.service.ts: '../worker/source-health.service.js' çözülemedi
+- workspace/src/backend/src/modules/stations/station.service.ts: '../regions/region-lookup.js' çözülemedi
+- workspace/src/backend/src/modules/stations/station.service.ts: '../deeplink/deeplink.service.js' çözülemedi
+
+## [S35-T3] — 2026-10-01 18:41
+
+- workspace/src/frontend/components/map/FilterChips.vue: silinen koruma referansı [TALEP-050] → // TALEP-050 (TALEP-032 reaktivasyonu): Menü dışındaki herhangi bir alana
+
+## [S35-T3] — 2026-10-01 18:41
+
+- fix görevi tamamlandı ama değişen dosyalarda test yok (regresyon testi eksik) — dosyalar: workspace/src/frontend/_CIKTI.md, workspace/src/frontend/components/map/FilterChips.vue, workspace/src/frontend/components/map/SearchInput.vue, workspace/src/frontend/pages/index.vue
+
+## [S35-T2] — 2026-10-01 18:43
+
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-056] → Servisler ayakta. TALEP-056'nın kapsamını öğrenmek için çözüm planı ve talep kaydını okuyorum.TALEP-056 kapsam
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-056] → > **Rapor Kodu:** UAT-S35-TALEP-056
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-056] → > **Doğrulanan Talep:** TALEP-056 — *"[HİJYEN] S37-T1 çalışma alanı hijyeni başarısız: [TALEP-053] Ana ekranda
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-056] → > **Varsayım:** TALEP-056 bir hijyen/derleme kapısı kaydıdır; kök kullanıcı etkisi TALEP-053'teki "ana ekranda
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-056] → | **GENEL KARAR** | **KABUL (PASS)** — TALEP-056 kapsamındaki çökme/hijyen kaynaklı ana ekran arızası giderilm
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-053] → | UAT-10 | TALEP-053/056 regresyonu | Backend modül çökmesiz tüm rotaları servis eder | `/health`, `/api/v1/op
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-053] → **Yok.** Görev kuralı gereği `TypeError: Cannot read properties of undefined` veya uygulama kaynaklı `400 Bad 
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-056] → **Nihai Karar:** TALEP-056 **KABUL EDİLDİ (PASS)**. Ana ekran istasyon akışı canlıda uçtan uca çalışmakta, küm
+
+## [S35-T2] — 2026-10-01 18:43
+
+- fix görevi tamamlandı ama değişen dosyalarda test yok (regresyon testi eksik) — dosyalar: workspace/docs/uat_kabul_raporu.md

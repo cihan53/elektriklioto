@@ -4,6 +4,7 @@ import { ref, watch, computed } from 'vue';
 import { Search, X, Loader2, SearchX, MapPin, Building2, Navigation, Zap } from 'lucide-vue-next';
 import { useOperators } from '~/composables/useOperators';
 import { useStations } from '~/composables/useStations';
+import { useClickOutside } from '~/composables/useClickOutside';
 import { fetchGadmSearch, type GadmSearchItem } from './geoSearch';
 import { TURKEY_81_CITIES, TURKEY_ALL_DISTRICTS } from './turkeyDistricts';
 import type { StationItem } from '~/types/station';
@@ -45,6 +46,13 @@ const mapFlyToTarget = useState<{ lon: number; lat: number; zoom: number; timest
 const isOpen = ref(false);
 const isSearching = ref(false);
 const inputVal = ref(props.modelValue);
+const searchRoot = ref<HTMLElement | null>(null);
+
+// TALEP-058 (ve TALEP-029/045 dayanıklılığı): Arama kutusu dışına tıklandığında veya Escape tuşuna basıldığında
+// açılır arama menüsü otomatik kapanır.
+useClickOutside(searchRoot, () => {
+  isOpen.value = false;
+});
 
 // TALEP-045: GADM CBS arama sonuçları (81 il / 973 ilçe / mahalleler tam kapsam).
 // Uzak API erişilemediğinde veya eksik döndüğünde yerel TURKEY_ALL_DISTRICTS
@@ -483,7 +491,7 @@ const handleSelectOperator = (slug: string, name: string) => {
 </script>
 
 <template>
-  <div class="relative w-full max-w-[380px]">
+  <div ref="searchRoot" class="relative w-full max-w-[380px]">
     <!-- Arama Kutusu -->
     <div
       class="h-12 w-full bg-bg-surface border border-border-strong rounded-md shadow-md flex items-center px-3 gap-2 transition-colors focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/20"
