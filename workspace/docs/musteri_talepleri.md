@@ -1,6 +1,6 @@
 # Digital Software Studio — Müşteri Denetim & Talep Havuzu
 
-> **Son Güncelleme:** 2026-10-01 09:12  
+> **Son Güncelleme:** 2026-10-01 09:21  
 > **Toplam Bildirim:** 57  
 
 Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda iletilen istek, hata ve geri bildirimleri içerir.
@@ -13,7 +13,7 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 |---|---|---|---|---|---|---|---|---|
 | **TALEP-057** | Hata / Bug | Yüksek (P2) | 🔨 Geliştiriliyor | [BUILD] S35-T3 derleme/import doğrulaması başarısız: [TALEP-054] Haritada istasyon sayıları mükerrer kayıt nedeniyle şişkin görünüyor | `/` | `data_engineer` | [#94](https://github.com/cihan53/elektriklioto/issues/94) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-057.md) |
 | **TALEP-056** | Hata / Bug | Yüksek (P2) | ONAY_BEKLIYOR | [HİJYEN] S37-T1 çalışma alanı hijyeni başarısız: [TALEP-053] Ana ekranda istasyonlar gelmiyor — backend modül hatasıyla çöküyor | `/` | `data_engineer` | [#93](https://github.com/cihan53/elektriklioto/issues/93) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-056.md) |
-| **TALEP-055** | Hata / Bug | Yüksek (P2) | ONAY_BEKLIYOR | [BUILD] S37-T1 derleme/import doğrulaması başarısız: [TALEP-053] Ana ekranda istasyonlar gelmiyor — backend modül hatasıyla çöküyor | `/` | `data_engineer` | [#92](https://github.com/cihan53/elektriklioto/issues/92) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-055.md) |
+| **TALEP-055** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | [BUILD] S37-T1 derleme/import doğrulaması başarısız: [TALEP-053] Ana ekranda istasyonlar gelmiyor — backend modül hatasıyla çöküyor | `/` | `data_engineer` | [#92](https://github.com/cihan53/elektriklioto/issues/92) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-055.md) |
 | **TALEP-054** | Hata / Bug | Yüksek (P2) | ⏳ Beklemede | Haritada istasyon sayıları mükerrer kayıt nedeniyle şişkin görünüyor | `/` | `backend_engineer` | [#91](https://github.com/cihan53/elektriklioto/issues/91) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-054.md) |
 | **TALEP-053** | Hata / Bug | Kritik (P1) | ✅ Çözüldü | Ana ekranda istasyonlar gelmiyor — backend modül hatasıyla çöküyor | `/` | `None` | [#90](https://github.com/cihan53/elektriklioto/issues/90) | — |
 | **TALEP-052** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | FilterChips.vue '~/composables/useClickOutside' modülünü bulamıyor | `/` | `data_engineer` | [#83](https://github.com/cihan53/elektriklioto/issues/83) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-052.md) |
@@ -115,7 +115,7 @@ hijyen ihlali (2); 12 koruma referansı kaldırıldı (regresyon_uyarilari.md); 
 - 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-056.md](workspace/docs/cozum_planlari/TALEP-056.md)
 
 ---
-### [TALEP-055] [BUILD] S37-T1 derleme/import doğrulaması başarısız: [TALEP-053] Ana ekranda istasyonlar gelmiyor — backend modül hatasıyla çöküyor (ONAY_BEKLIYOR)
+### [TALEP-055] [BUILD] S37-T1 derleme/import doğrulaması başarısız: [TALEP-053] Ana ekranda istasyonlar gelmiyor — backend modül hatasıyla çöküyor (✅ Çözüldü)
 - **Bildirim Tarihi:** 2026-09-30 08:30
 - **Tür / Öncelik:** Hata / Bug / Yüksek (P2)
 - **İlgili Ekran / Sayfa:** `/`
@@ -131,7 +131,7 @@ hijyen ihlali (2); 12 koruma referansı kaldırıldı (regresyon_uyarilari.md); 
 ```
 
 **Studio Yetkilisi Notu:**
-> Görev S35-T6 tamamlandı ve UAT testinden geçti — kapanış için müşteri onayı bekleniyor.
+> Müşteri onayı ile kapatıldı.
 
 - 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-055.md](workspace/docs/cozum_planlari/TALEP-055.md)
 
