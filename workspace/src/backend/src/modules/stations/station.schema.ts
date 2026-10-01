@@ -1,143 +1,107 @@
 
-import { Type, type Static } from '@sinclair/typebox';
+import { Type } from '@sinclair/typebox';
 
-// TALEP-046: UAT-06 kök neden analizi — `bbox` eksik/geçersiz geldiğinde
-// (örn. web istemcisinin SSR aşamasında henüz kullanıcı konumu/viewport
-// hesaplanmamışken gönderdiği varsayılan istek) mevcut şema bunu 400 olarak
-// reddetmiyor, ham `NaN` değerleri PostGIS katmanına sızıyor ve orada
-// yakalanmayan bir hata 500'e dönüşüyordu. Backlog US-04 AC2: "BBox
-// koordinat parametreleri WGS 84 sınırları dışında veya eksik verildiğinde
-// API HTTP 400 Bad Request dönmelidir." — bu şema o kabul kriterini uygular.
-
-const BBOX_PATTERN =
-  '^-?\\d{1,3}(\\.\\d+)?,-?\\d{1,3}(\\.\\d+)?,-?\\d{1,3}(\\.\\d+)?,-?\\d{1,3}(\\.\\d+)?$';
-
-export const StationsBBoxQuerySchema = Type.Object(
-  {
-    // "min_lon,min_lat,max_lon,max_lat" — WGS 84. Zorunludur; eksikse Ajv
-    // required denetimiyle 400 döner (kendimiz throw etmeyiz).
-    bbox: Type.String({
-      pattern: BBOX_PATTERN,
-      description: 'min_lon,min_lat,max_lon,max_lat (WGS 84)',
-    }),
-    // Zoom < 10 ise sunucu içi kümeleme (ST_SnapToGrid) uygulanır.
-    zoom: Type.Integer({ minimum: 0, maximum: 22, default: 12 }),
-    // Delta senkronizasyon köprüsü; bu uç noktada opsiyoneldir.
-    since: Type.Optional(Type.Integer({ minimum: 0, description: 'epoch seconds' })),
-  },
-  { additionalProperties: false },
-);
-export type StationsBBoxQuery = Static<typeof StationsBBoxQuerySchema>;
-
-export const StationsDeltaQuerySchema = Type.Object(
-  {
-    since: Type.Integer({ minimum: 0, description: 'epoch seconds' }),
-  },
-  { additionalProperties: false },
-);
-export type StationsDeltaQuery = Static<typeof StationsDeltaQuerySchema>;
-
-export const StationSlugParamsSchema = Type.Object({
-  slug: Type.String({ minLength: 1, maxLength: 200 }),
-});
-export type StationSlugParams = Static<typeof StationSlugParamsSchema>;
-
-// --- Nullable DTO Sözleşmesi (paket_secim_raporu / backlog US-06) ---
-// Soket, güç ve tarife Faz 1'de yoktur; şema bu alanları `nullable: true`
-// olarak tanımlar, uydurma varsayılan değer YOK.
-export const OperatorRefSchema = Type.Union([
-  Type.Object({
-    id: Type.Integer(),
-    slug: Type.String(),
-    name: Type.String(),
-    is_active: Type.Boolean(),
-  }),
-  Type.Null(),
-]);
-
-export const StationClusterSchema = Type.Object({
-  type: Type.Literal('cluster'),
-  cluster_count: Type.Integer({ minimum: 1 }),
-  center_lat: Type.Number(),
-  center_lon: Type.Number(),
+export const DeepLinkResultSchema = Type.Object({
+  deep_link_url: Type.Union([Type.String(), Type.Null()]),
+  clipboard_fallback: Type.Boolean(),
+  clipboard_text: Type.Union([Type.String(), Type.Null()]),
 });
 
-export const StationPinSchema = Type.Object({
-  type: Type.Literal('station'),
-  station_uid: Type.String({ format: 'uuid' }),
+export const OperatorSummarySchema = Type.Object({
+  id: Type.Integer(),
+  name: Type.String(),
+  slug: Type.String(),
+  deep_link_config: Type.Optional(Type.Any()),
+});
+
+export const FreshnessBadgeSchema = Type.Object({
+  is_stale: Type.Boolean(),
+  last_updated_text: Type.String(),
+});
+
+export const StationSummarySchema = Type.Object({
+  id: Type.String({ format: 'uuid' }),
   istasyon_no: Type.String(),
   slug: Type.String(),
-  name: Type.Union([Type.String(), Type.Null()]),
+  name: Type.String(),
   lat: Type.Number(),
   lon: Type.Number(),
-  operator: OperatorRefSchema,
-  connector_types: Type.Union([Type.Array(Type.String()), Type.Null()]),
-  power_kw: Type.Union([Type.Number(), Type.Null()]),
-  current_tariff: Type.Union([Type.Number(), Type.Null()]),
-  data_freshness_hours: Type.Union([Type.Number(), Type.Null()]),
-  updated_at: Type.String({ format: 'date-time' }),
+  city: Type.String(),
+  district: Type.String(),
+  operator_id: Type.Integer(),
+  operator_name: Type.String(),
+  operator: Type.Optional(OperatorSummarySchema),
+  is_flagged_defective: Type.Boolean(),
 });
 
-export const StationsBBoxResponseSchema = Type.Object({
-  mode: Type.Union([Type.Literal('cluster'), Type.Literal('detail')]),
+export const ClusterItemSchema = Type.Object({
+  cluster_id: Type.String(),
   count: Type.Integer(),
-  items: Type.Array(Type.Union([StationClusterSchema, StationPinSchema])),
-});
-
-export const StationDetailSchema = Type.Object({
-  station_uid: Type.String({ format: 'uuid' }),
-  istasyon_no: Type.String(),
-  slug: Type.String(),
-  name: Type.Union([Type.String(), Type.Null()]),
-  address: Type.Union([Type.String(), Type.Null()]),
-  city: Type.Union([Type.String(), Type.Null()]),
-  district: Type.Union([Type.String(), Type.Null()]),
   lat: Type.Number(),
   lon: Type.Number(),
-  operator: OperatorRefSchema,
+});
+
+export const StationsResponseSchema = Type.Object({
+  type: Type.String(),
+  zoom: Type.Number(),
+  count: Type.Integer(),
+  data: Type.Array(Type.Any()),
+});
+
+export const StationDetailResponseSchema = Type.Object({
+  id: Type.String({ format: 'uuid' }),
+  istasyon_no: Type.String(),
+  slug: Type.String(),
+  name: Type.String(),
+  address: Type.String(),
+  city: Type.String(),
+  district: Type.String(),
+  lat: Type.Number(),
+  lon: Type.Number(),
+  updated_at: Type.String(),
+  is_flagged_defective: Type.Boolean(),
+  operator: OperatorSummarySchema,
+  deep_link: DeepLinkResultSchema,
+  // ZORUNLU KISIT: Eksik Veri Modeli (Nullable Fields)
   connector_types: Type.Union([Type.Array(Type.String()), Type.Null()]),
   power_kw: Type.Union([Type.Number(), Type.Null()]),
-  current_tariff: Type.Union([Type.Number(), Type.Null()]),
-  data_freshness_hours: Type.Union([Type.Number(), Type.Null()]),
-  updated_at: Type.String({ format: 'date-time' }),
+  current_tariff: Type.Union([Type.String(), Type.Null()]),
+  occupancy_status: Type.Union([Type.String(), Type.Null()]),
+  // S5 Veri Tazeliği Rozeti (US-18)
+  data_freshness: Type.Optional(FreshnessBadgeSchema),
 });
-export type StationDetailDTO = Static<typeof StationDetailSchema>;
 
-// RFC 7807 Problem Details — güvenlik tasarımı §4.2 ile birebir uyumlu.
-// İç hata detayları (stack, SQL) hiçbir koşulda yanıta sızmaz.
-export const ProblemDetailsSchema = Type.Object({
-  type: Type.String(),
-  title: Type.String(),
-  status: Type.Integer(),
-  detail: Type.Optional(Type.String()),
-  instance: Type.Optional(Type.String()),
+// TALEP-046 KORUNACAK: bbox şemada opsiyoneldir (il/ilçe ve metin araması
+// bbox'suz da çalışır); sayısal/sınır doğrulaması servis katmanında
+// BadRequestError ile 400 üretir — WGS 84 dışı veya ters sıralı kutu reddedilir.
+export const StationQuerySchema = Type.Object({
+  bbox: Type.Optional(Type.String({ description: 'minLon,minLat,maxLon,maxLat' })),
+  zoom: Type.Optional(Type.Number({ default: 12 })),
+  operator: Type.Optional(Type.String()),
+  city: Type.Optional(Type.String()),
+  district: Type.Optional(Type.String()),
+  q: Type.Optional(Type.String()),
 });
-export type ProblemDetails = Static<typeof ProblemDetailsSchema>;
 
-export const StationsBBoxSchemaDef = {
-  querystring: StationsBBoxQuerySchema,
-  response: {
-    200: StationsBBoxResponseSchema,
-    400: ProblemDetailsSchema,
-    500: ProblemDetailsSchema,
-    503: ProblemDetailsSchema,
-  },
-} as const;
-
-export const StationsDeltaSchemaDef = {
-  querystring: StationsDeltaQuerySchema,
-  response: {
-    200: Type.Object({ count: Type.Integer(), items: Type.Array(StationPinSchema) }),
-    400: ProblemDetailsSchema,
-    500: ProblemDetailsSchema,
-  },
-} as const;
-
-export const StationDetailSchemaDef = {
-  params: StationSlugParamsSchema,
-  response: {
-    200: StationDetailSchema,
-    404: ProblemDetailsSchema,
-    500: ProblemDetailsSchema,
-  },
-} as const;
+export const StationSearchResponseSchema = Type.Object({
+  query: Type.String(),
+  matched_region: Type.Optional(
+    Type.Object({
+      type: Type.String(),
+      name: Type.String(),
+      province: Type.String(),
+      district: Type.Union([Type.String(), Type.Null()]),
+      center: Type.Object({
+        lat: Type.Number(),
+        lon: Type.Number(),
+      }),
+      bbox: Type.Object({
+        min_lon: Type.Number(),
+        min_lat: Type.Number(),
+        max_lon: Type.Number(),
+        max_lat: Type.Number(),
+      }),
+    })
+  ),
+  stations: Type.Array(StationSummarySchema),
+});

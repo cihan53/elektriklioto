@@ -1,4 +1,4 @@
-import Fastify, { type FastifyInstance } from 'fastify';
+import Fastify, { type FastifyError, type FastifyInstance } from 'fastify';
 import cors from '@fastify/cors';
 import helmet from '@fastify/helmet';
 import rateLimit from '@fastify/rate-limit';
@@ -8,10 +8,19 @@ import postgres from 'postgres';
 import { drizzle, type PostgresJsDatabase } from 'drizzle-orm/postgres-js';
 import { pathToFileURL } from 'node:url';
 
-import { stationRoutes } from './modules/stations/stations.routes.js';
-import { operatorRoutes } from './modules/operators/operators.routes.js';
-import { reportRoutes } from './modules/reports/reports.routes.js';
+import { stationRoutes } from './modules/stations/station.routes.js';
+import { operatorRoutes } from './modules/operators/operator.routes.js';
+import { reportRoutes } from './modules/reports/report.routes.js';
 import { routeBridgeRoutes } from './modules/route-bridge/route-bridge.routes.js';
+import { healthRoutes } from './modules/health/health.routes.js';
+import { gadmRoutes } from './modules/gadm/gadm.routes.js';
+import {
+  ensureDatabaseSeeded,
+  ensureRegionTablesSeeded,
+} from './modules/stations/station.service.js';
+import { ensureStationDeduped } from './modules/stations/station-dedupe.service.js';
+import { operatorService } from './modules/operators/operator.service.js';
+import { AppError } from './utils/errors.js';
 
 // Bu dosya elektriklioto.com Fastify API sürecinin (apps/api) kompozisyon
 // köküdür. Mimari kaynağı: workspace/docs/teknik_mimari_dokumani.md (§3, §4.1),
@@ -109,6 +118,11 @@ function isTrustedInternalIp(ip: string): boolean {
 export async function buildApp(): Promise<FastifyInstance> {
   const app = Fastify({
     trustProxy: TRUST_PROXY,
+    routerOptions: {
+      // /r/:payload köprüsü Base64URL rota dizilerini path parametresinde
+      // taşır; varsayılan 100 char sınırı 414 URI Too Long üretir.
+      maxParamLength: 4096,
+    },
     logger: {
       level: LOG_LEVEL,
       redact: {
@@ -159,7 +173,7 @@ export async function buildApp(): Promise<FastifyInstance> {
     },
     crossOriginEmbedderPolicy: false,
     crossOriginOpenerPolicy: { policy: 'same-origin' },
-    crossOriginResourcePolicy: { policy: 'same-site' },
+    crossOriginResourcePolicy: { policy: 'cross-origin' },
     hsts: { maxAge: 31536000, includeSubDomains: true, preload: true },
     hidePoweredBy: true,
     noSniff: true,
@@ -169,7 +183,14 @@ export async function buildApp(): Promise<FastifyInstance> {
   // --- CORS -----------------------------------------------------------------
   await app.register(cors, {
     origin: (origin, callback) => {
-      if (!origin || CORS_ALLOWED_ORIGINS.has(origin)) {
+      if (!origin) {
+        callback(null, true);
+        return;
+      }
+      // Yerel geliştirme (nuxt dev + nitro devProxy) ve *.elektriklioto.com
+      // alt alanları her zaman izinlidir; kalanı env listesi belirler.
+      const isLocal = /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin);
+      if (isLocal || CORS_ALLOWED_ORIGINS.has(origin) || origin.endsWith('.elektriklioto.com')) {
         callback(null, true);
         return;
       }
@@ -230,6 +251,7 @@ export async function buildApp(): Promise<FastifyInstance> {
       'X-Platform-Role',
       'e-Mobilite Asistani (EMP Adayi) - Not a Licensed Charging Operator',
     );
+    reply.header('X-Service-Type', 'e-Mobility Assistant / EMP Candidate');
     return payload;
   });
 
@@ -262,13 +284,10 @@ export async function buildApp(): Promise<FastifyInstance> {
     };
   });
 
-  // --- Modül Kayıtları (/api/v1) ----------------------------------------------
-  await app.register(stationRoutes, { prefix: '/api/v1/stations' });
-  await app.register(operatorRoutes, { prefix: '/api/v1/operators' });
-  await app.register(reportRoutes, { prefix: '/api/v1' });
-  await app.register(routeBridgeRoutes, { prefix: '/api/v1/routes' });
-
   // --- Hata ve 404 İşleyicileri (RFC 7807 Problem Details) --------------------
+  // TALEP-053: kapsülleme bağlamı kayıt anında yakalandığı için hata
+  // işleyicileri modül register() çağrılarından ÖNCE tanımlanmak zorundadır;
+  // aksi halde plugin rotaları Fastify'nin varsayılan hata gövdesine düşer.
   app.setNotFoundHandler((request, reply) => {
     reply
       .status(404)
@@ -282,7 +301,32 @@ export async function buildApp(): Promise<FastifyInstance> {
       });
   });
 
-  app.setErrorHandler((error, request, reply) => {
+  app.setErrorHandler((error: FastifyError, request, reply) => {
+    // Alan bilinçli uygulama hataları (NotFoundError, BadRequestError,
+    // UnauthorizedError vb.) kendi RFC 7807 problem gövdesini üretir.
+    if (error instanceof AppError) {
+      return reply
+        .status(error.statusCode)
+        .type('application/problem+json')
+        .send(error.toProblemDetails(request.url));
+    }
+
+    // Fastify/Ajv şema doğrulama hataları (zorunlu query eksik, pattern
+    // ihlali vb.) 400 problem+json olarak döner — ham doğrulama çıktısı
+    // istemciye sızdırılmaz.
+    if (error.validation) {
+      return reply
+        .status(400)
+        .type('application/problem+json')
+        .send({
+          type: 'https://api.elektriklioto.com/errors/validation-error',
+          title: 'Doğrulama Hatası',
+          status: 400,
+          detail: 'İstek parametreleri beklenen şemaya uymuyor.',
+          instance: request.url,
+        });
+    }
+
     const statusCode =
       typeof error.statusCode === 'number' && error.statusCode >= 400 ? error.statusCode : 500;
 
@@ -306,6 +350,40 @@ export async function buildApp(): Promise<FastifyInstance> {
         instance: request.url,
       });
   });
+
+  // --- Modül Kayıtları (/api/v1) ----------------------------------------------
+  // TALEP-053: routeBridgeRoutes kendi mutlak yollarını taşır
+  // (/api/v1/route-bridge/encode, /r/:payload) — prefix'e sokulmamalıdır.
+  // reportRoutes '/:id/reports' deseniyle istasyon alt yolunu tamamlar.
+  await app.register(routeBridgeRoutes);
+  await app.register(stationRoutes, { prefix: '/api/v1/stations' });
+  await app.register(operatorRoutes, { prefix: '/api/v1/operators' });
+  await app.register(reportRoutes, { prefix: '/api/v1/stations' });
+  await app.register(healthRoutes, { prefix: '/api/v1/health' });
+  await app.register(gadmRoutes, { prefix: '/api/v1/gadm' });
+  await app.register(gadmRoutes, { prefix: '/api/v1/geo' });
+
+  // TALEP-010: PostgreSQL/PostGIS veritabanı ile istasyon ve soket entegrasyonu
+  // (otomatik tohumlama). Veritabanı henüz hazır değilse veya test ortamındaysa
+  // açılış engellenmez; bellek içi istasyon deposu (cpo_stations.json) devrededir.
+  try {
+    await operatorService.syncWithDb();
+    await ensureRegionTablesSeeded();
+    if (process.env.AUTO_SEED === 'true') {
+      await ensureDatabaseSeeded();
+    }
+    // TALEP-054 KORUNACAK: Harita küme/sayaçlarının şişmesine yol açan mükerrer
+    // istasyon kayıtları (aynı fiziksel sahanın ŞRJ/, ZES/, TRU/ vb. farklı
+    // kimliklerle yazılması) süreç başına bir kez tekilleştirilir. Temizlik
+    // tohumlamadan SONRA çalışır ki hem eski kopyalar hem de seed sonrası
+    // durum tutarlı olsun; DB'ye erişilemezse fonksiyon içeride sessizce geçer
+    // ve sorgu-tarafı DISTINCT ON tekilleştirmesi (stationDedupeSubquery)
+    // sayımları yine doğru tutar. Bu çağrıyı kaldırma — prod'daki mevcut
+    // kopyalar ancak bu self-heal ile temizlenir.
+    await ensureStationDeduped();
+  } catch {
+    // DB bağlantısı kurulamadığında fallback veri kaynaklarıyla devam et
+  }
 
   return app;
 }

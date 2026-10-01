@@ -212,3 +212,127 @@
 ## [S35-T2] — 2026-09-28 23:23
 
 - fix görevi tamamlandı ama değişen dosyalarda test yok (regresyon testi eksik) — dosyalar: workspace/docs/musteri_talepleri.md, workspace/docs/uat_kabul_raporu.md, workspace/docs/cozum_planlari/TALEP-051.md
+
+## [S37-T1] — 2026-09-30 08:30
+
+- workspace/src/frontend/_CIKTI.md: çalışma alanına sızan artefakt
+- workspace/src/frontend/test-results: çalışma alanına sızan artefakt
+
+## [S37-T1] — 2026-09-30 08:30
+
+- workspace/src/backend/src/modules/stations/station.routes.ts: silinen koruma referansı [TALEP-046] → // TALEP-046 — [UAT] S31-T2 canlı kabul denetimi başarısız (UAT-06: Web arayüzü
+- workspace/src/backend/src/modules/stations/station.routes.ts: silinen koruma referansı [KORUNACAK] → // problem+json zarfı KORUNACAK — geri alınmamalıdır.
+- workspace/src/backend/src/modules/stations/station.routes.ts: silinen koruma referansı [TALEP-046] → // TALEP-046: bbox 4 bileşene ayrıştırılır ve WGS 84 sınırları
+- workspace/src/backend/src/modules/stations/station.routes.ts: silinen koruma referansı [TALEP-046] → // TALEP-046: Beklenmeyen hata (DB bağlantı kaybı, PostGIS istisnası
+- workspace/src/backend/src/modules/stations/station.schema.ts: silinen koruma referansı [TALEP-046] → // TALEP-046: UAT-06 kök neden analizi — `bbox` eksik/geçersiz geldiğinde
+- workspace/src/backend/src/modules/stations/station.service.ts: silinen koruma referansı [TALEP-046] → // TALEP-046: KÖK NEDEN DÜZELTMESİ.
+- workspace/src/backend/src/modules/stations/station.service.ts: silinen koruma referansı [KORUNACAK] → // tetiklenip HTTP 500'e yol açıyordu. Bu fonksiyon KORUNACAK: operatör,
+- workspace/src/backend/src/modules/stations/station.service.ts: silinen koruma referansı [TALEP-046] → // TALEP-046: servis katmanı da rotadan bağımsız olarak kendi girdisini
+- workspace/src/backend/src/modules/stations/station.service.ts: silinen koruma referansı [TALEP-046] → // TALEP-046: Faz 1'de connector envanteri boştur (kapsam dışı — bkz.
+- workspace/src/frontend/_CIKTI.md: silinen koruma referansı [TALEP-041] → // TALEP-041: Operatör listesi istasyon sayısına göre çoktan aza sıralanır;
+- workspace/src/frontend/_CIKTI.md: silinen koruma referansı [TALEP-024] → // TALEP-024: İstasyon sayılarını koru ve birleştir
+- workspace/src/frontend/_CIKTI.md: silinen koruma referansı [TALEP-023] → // TALEP-023: Eksik veya parçalı API yanıtlarında EPDK 179 marka tabanını koru ve birleştir
+
+## [S37-T1] — 2026-09-30 08:30
+
+- fix görevi tamamlandı ama değişen dosyalarda test yok (regresyon testi eksik) — dosyalar: workspace/src/backend/src/app.ts, workspace/src/backend/src/modules/stations/station.routes.ts, workspace/src/backend/src/modules/stations/station.schema.ts, workspace/src/backend/src/modules/stations/station.service.ts, workspace/src/frontend/_CIKTI.md
+
+## [S37-T1] — 2026-09-30 08:30
+
+- workspace/src/backend/src/app.ts: './modules/gadm/gadm.routes.js' çözülemedi
+- workspace/src/backend/src/app.ts: './modules/stations/station.service.js' çözülemedi
+- workspace/src/backend/src/app.ts: './modules/stations/station.routes.js' çözülemedi
+- workspace/src/backend/src/app.ts: './modules/reports/report.routes.js' çözülemedi
+- workspace/src/backend/src/app.ts: './modules/operators/operator.routes.js' çözülemedi
+- workspace/src/backend/src/app.ts: './modules/operators/operator.service.js' çözülemedi
+- workspace/src/backend/src/app.ts: './utils/errors.js' çözülemedi
+- workspace/src/backend/src/app.ts: './modules/route-bridge/route-bridge.routes.js' çözülemedi
+- workspace/src/backend/src/app.ts: './modules/health/health.routes.js' çözülemedi
+- workspace/src/backend/src/modules/stations/station.routes.ts: '../gadm/gadm.service.js' çözülemedi
+- workspace/src/backend/src/modules/stations/station.routes.ts: './station.schema.js' çözülemedi
+- workspace/src/backend/src/modules/stations/station.routes.ts: './station.service.js' çözülemedi
+- workspace/src/backend/src/modules/stations/station.routes.ts: '../gadm/gadm.schema.js' çözülemedi
+- workspace/src/backend/src/modules/stations/station.routes.ts: '../../utils/errors.js' çözülemedi
+- workspace/src/backend/src/modules/stations/station.service.ts: '../deeplink/deeplink.service.js' çözülemedi
+- workspace/src/backend/src/modules/stations/station.service.ts: '../gadm/gadm.service.js' çözülemedi
+- workspace/src/backend/src/modules/stations/station.service.ts: '../../db/schema/operators.js' çözülemedi
+- workspace/src/backend/src/modules/stations/station.service.ts: '../worker/source-health.service.js' çözülemedi
+- workspace/src/backend/src/modules/stations/station.service.ts: '../../db/schema/stations.js' çözülemedi
+- workspace/src/backend/src/modules/stations/station.service.ts: '../../utils/unicode.js' çözülemedi
+- workspace/src/backend/src/modules/stations/station.service.ts: '../../db/schema/connectors.js' çözülemedi
+- workspace/src/backend/src/modules/stations/station.service.ts: '../../db/index.js' çözülemedi
+- workspace/src/backend/src/modules/stations/station.service.ts: '../../utils/geo.js' çözülemedi
+- workspace/src/backend/src/modules/stations/station.service.ts: '../../utils/errors.js' çözülemedi
+- workspace/src/backend/src/modules/stations/station.service.ts: '../../db/schema/regions.js' çözülemedi
+- workspace/src/backend/src/modules/stations/station.service.ts: '../operators/operator.service.js' çözülemedi
+- workspace/src/backend/src/modules/stations/station.service.ts: '../regions/region-lookup.js' çözülemedi
+
+## [S37-T2] — 2026-09-30 08:43
+
+- workspace/src/frontend/_CIKTI.md: çalışma alanına sızan artefakt
+- workspace/src/frontend/test-results: çalışma alanına sızan artefakt
+
+## [S37-T2] — 2026-09-30 08:43
+
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-050] → Critical finding already visible: port 3000 returns HTTP 500 with `Cannot find module '~/composables/useClickO
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-050] → > **Sprint / Görev:** S35 — Müşteri Denetimi & Saha Onarımları · [TALEP-050] Müşteri Kabulü & UAT Doğrulama De
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-050] → ## VERDICT: REDDEDİLDİ — TALEP-050 KAPANAMAZ
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-050] → TALEP-050 için teslim edilen düzeltme (TALEP-032 reaktivasyonu: "Tüm Operatörler" menüsünün dış alana tıklandı
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-050] → ## 1. Talebin Doğrulanması (TALEP-050 / TALEP-032 Belirtisi)
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-032] → | Talep kapsamı | TALEP-032 ("Operatör menüsü dış tıklamada kapanmıyor", durumu "İptal Edildi" idi) TALEP-050 
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [BUG-01] → ### BUG-01 (KRİTİK — bloklayıcı): `useClickOutside` composable'ı hiç var olmadı — ana sayfa 500
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [BUG-02] → ### BUG-02 (KRİTİK — S34 BUG-01'i regresyonu sürüyor): Backend kaynak koddan ayağa kalkmıyor
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [BUG-03] → ### BUG-03 (YÜKSEK — ortam): Port 3001'i ölü bir Nuxt süreci işgal ediyor; `/api/v1` kendine proxy'lenip asılı
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [TALEP-032] → 1. `workspace/src/frontend/composables/useClickOutside.ts` yazılıp commit'lenmeli; ardından `GET /` 200 ve men
+- workspace/docs/uat_kabul_raporu.md: silinen koruma referansı [BUG-01] → 2. `src/app.ts` import yolları tekil dosya adlarına düzeltilmeli; `healthRoutes` + `gadmRoutes` register'ları 
+
+## [S37-T2] — 2026-09-30 08:43
+
+- fix görevi tamamlandı ama değişen dosyalarda test yok (regresyon testi eksik) — dosyalar: workspace/docs/uat_kabul_raporu.md
+
+## [S35-T3] — 2026-09-30 13:10
+
+- workspace/src/frontend/_CIKTI.md: çalışma alanına sızan artefakt
+- workspace/src/frontend/test-results: çalışma alanına sızan artefakt
+
+## [S35-T3] — 2026-09-30 13:10
+
+- fix görevi tamamlandı ama değişen dosyalarda test yok (regresyon testi eksik) — dosyalar: workspace/src/backend/src/modules/stations/station-dedupe.service.ts
+
+## [S35-T3] — 2026-09-30 13:10
+
+- workspace/src/backend/src/modules/stations/station-dedupe.service.ts: '../../utils/unicode.js' çözülemedi
+- workspace/src/backend/src/modules/stations/station-dedupe.service.ts: '../../db/index.js' çözülemedi
+
+## [S35-T5] — 2026-09-30 13:23
+
+- workspace/src/frontend/_CIKTI.md: çalışma alanına sızan artefakt
+
+## [S35-T7] — 2026-09-30 13:30
+
+- workspace/src/frontend/_CIKTI.md: çalışma alanına sızan artefakt
+
+## [S35-T7] — 2026-09-30 13:30
+
+- workspace/src/frontend/_CIKTI.md: silinen koruma referansı [TALEP-041] → // TALEP-041: Operatör listesi istasyon sayısına göre çoktan aza sıralanır;
+- workspace/src/frontend/_CIKTI.md: silinen koruma referansı [TALEP-024] → // TALEP-024: İstasyon sayılarını koru ve birleştir
+- workspace/src/frontend/_CIKTI.md: silinen koruma referansı [TALEP-023] → // TALEP-023: Eksik veya parçalı API yanıtlarında EPDK 179 marka tabanını koru ve birleştir
+- workspace/src/frontend/_CIKTI.md: silinen koruma referansı [TALEP-041] → // TALEP-041: Operatör listesi istasyon sayısına göre çoktan aza sıralanır;
+- workspace/src/frontend/_CIKTI.md: silinen koruma referansı [TALEP-024] → // TALEP-024: İstasyon sayılarını koru ve birleştir
+- workspace/src/frontend/_CIKTI.md: silinen koruma referansı [TALEP-023] → // TALEP-023: Eksik veya parçalı API yanıtlarında EPDK 179 marka tabanını koru ve birleştir
+
+## [S35-T2] — 2026-09-30 13:41
+
+- workspace/src/frontend/_CIKTI.md: çalışma alanına sızan artefakt
+
+## [S35-T4] — 2026-09-30 13:48
+
+- workspace/src/frontend/_CIKTI.md: çalışma alanına sızan artefakt
+
+## [S35-T6] — 2026-09-30 13:57
+
+- workspace/src/frontend/_CIKTI.md: çalışma alanına sızan artefakt
+
+## [S35-T8] — 2026-09-30 14:09
+
+- workspace/src/frontend/_CIKTI.md: çalışma alanına sızan artefakt

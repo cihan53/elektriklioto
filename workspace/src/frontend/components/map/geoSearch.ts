@@ -4,7 +4,11 @@
 // hatasına yol açarak ana ekranı kilitliyordu. Backend `modules/gadm`
 // rotaları `/api/v1/gadm` ve `/api/v1/geo` takma adlarıyla sunulur;
 // istemci iki prefix'i sırayla dener, ikisi de erişilemezse sessizce
-// boş dizi döner ve bileşen statik TURKEY_MAJOR_DISTRICTS fallback'ine düşer.
+// boş dizi döner ve bileşen yerel TURKEY_ALL_DISTRICTS dizinine düşer.
+//
+// TALEP-045: ilk uç 200 döndüğü hâlde dizi dışı gövde (ör. sarmalanmış
+// {results} yükü veya bozuk JSON) verirse zincir artık kırılmaz — ikinci
+// takma ad da denenir; iki uç da kullanılabilir sonuç üretmezse [] döner.
 
 export interface GadmCoordinates {
   lat: number;
@@ -57,6 +61,19 @@ const toItem = (raw: any): GadmSearchItem | null => {
   };
 };
 
+// Yanıt gövdesi çıplak dizi olabileceği gibi {results|items|data: []}
+// sarmalı da olabilir; ikisi de kabul edilir, aksi hâlde null döner.
+const extractPayloadArray = (payload: unknown): any[] | null => {
+  if (Array.isArray(payload)) return payload;
+  if (payload && typeof payload === 'object') {
+    const box = payload as Record<string, unknown>;
+    for (const key of ['results', 'items', 'data']) {
+      if (Array.isArray(box[key])) return box[key] as any[];
+    }
+  }
+  return null;
+};
+
 const fetchWithTimeout = async (url: string): Promise<Response> => {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
@@ -75,7 +92,7 @@ export async function fetchGadmSearch(
   query: string,
   limit = 10
 ): Promise<GadmSearchItem[]> {
-  const q = (query || '').trim();
+  const q = (query || '').trim().normalize('NFC');
   const base = normalizeBase(apiBase);
   if (!q || !base) return [];
 
@@ -87,9 +104,11 @@ export async function fetchGadmSearch(
       const res = await fetchWithTimeout(`${base}${path}?${qs}`);
       if (!res.ok) continue;
       const payload = await res.json();
-      if (!Array.isArray(payload)) return [];
+      // TALEP-045: beklenmeyen gövde şekli zinciri kırmaz, sıradaki takma ad denenir.
+      const list = extractPayloadArray(payload);
+      if (!list) continue;
       const items: GadmSearchItem[] = [];
-      for (const raw of payload) {
+      for (const raw of list) {
         const item = toItem(raw);
         if (item) items.push(item);
       }

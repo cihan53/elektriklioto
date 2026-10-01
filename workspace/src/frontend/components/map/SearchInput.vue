@@ -5,6 +5,7 @@ import { Search, X, Loader2, SearchX, MapPin, Building2, Navigation, Zap } from 
 import { useOperators } from '~/composables/useOperators';
 import { useStations } from '~/composables/useStations';
 import { fetchGadmSearch, type GadmSearchItem } from './geoSearch';
+import { TURKEY_81_CITIES, TURKEY_ALL_DISTRICTS } from './turkeyDistricts';
 import type { StationItem } from '~/types/station';
 
 export interface LocationSearchResult {
@@ -46,8 +47,9 @@ const isSearching = ref(false);
 const inputVal = ref(props.modelValue);
 
 // TALEP-045: GADM CBS arama sonuçları (81 il / 973 ilçe / mahalleler tam kapsam).
-// Statik TURKEY_MAJOR_DISTRICTS örneklemi yalnızca ağ hatasında fallback olarak
-// kalır; Esenler gibi örneklem dışı ilçeler artık API sonucuyla listelenir.
+// Uzak API erişilemediğinde veya eksik döndüğünde yerel TURKEY_ALL_DISTRICTS
+// dizini (81 ilin tamamı, 973 ilçe) birleştirilir; Esenler gibi ilçeler artık
+// yalnızca API'ye değil her durumda listelenir.
 const remoteGeoResults = ref<GadmSearchItem[]>([]);
 let geoSearchToken = 0;
 
@@ -65,142 +67,7 @@ const foldText = (s: string) => {
 };
 
 // =============================================================================
-// 1. TÜRKİYE 81 İL LİSTESİ VE MERKEZ KOORDİNATLARI
-// =============================================================================
-const TURKEY_81_CITIES: Array<{ name: string; lat: number; lon: number }> = [
-  { name: 'Adana', lat: 36.9914, lon: 35.3308 },
-  { name: 'Adıyaman', lat: 37.7648, lon: 38.2786 },
-  { name: 'Afyonkarahisar', lat: 38.7569, lon: 30.5401 },
-  { name: 'Ağrı', lat: 39.7217, lon: 43.0519 },
-  { name: 'Aksaray', lat: 38.3687, lon: 34.0254 },
-  { name: 'Amasya', lat: 40.6534, lon: 35.8353 },
-  { name: 'Ankara', lat: 39.9334, lon: 32.8597 },
-  { name: 'Antalya', lat: 36.8969, lon: 30.7133 },
-  { name: 'Ardahan', lat: 41.1105, lon: 42.7022 },
-  { name: 'Artvin', lat: 41.1828, lon: 41.8183 },
-  { name: 'Aydın', lat: 37.8560, lon: 27.8458 },
-  { name: 'Balıkesir', lat: 39.6484, lon: 27.8826 },
-  { name: 'Bartın', lat: 41.6358, lon: 32.3375 },
-  { name: 'Batman', lat: 37.8812, lon: 41.1294 },
-  { name: 'Bayburt', lat: 40.2552, lon: 40.2249 },
-  { name: 'Bilecik', lat: 40.1426, lon: 29.9793 },
-  { name: 'Bingöl', lat: 38.8855, lon: 40.4939 },
-  { name: 'Bitlis', lat: 38.4006, lon: 42.1095 },
-  { name: 'Bolu', lat: 40.7350, lon: 31.6061 },
-  { name: 'Burdur', lat: 37.7203, lon: 30.2889 },
-  { name: 'Bursa', lat: 40.1885, lon: 29.0610 },
-  { name: 'Çanakkale', lat: 40.1553, lon: 26.4086 },
-  { name: 'Çankırı', lat: 40.6013, lon: 33.6134 },
-  { name: 'Çorum', lat: 40.5506, lon: 34.9556 },
-  { name: 'Denizli', lat: 37.7765, lon: 29.0864 },
-  { name: 'Diyarbakır', lat: 37.9144, lon: 40.2110 },
-  { name: 'Düzce', lat: 40.8438, lon: 31.1565 },
-  { name: 'Edirne', lat: 41.6771, lon: 26.5557 },
-  { name: 'Elazığ', lat: 38.6810, lon: 39.2264 },
-  { name: 'Erzincan', lat: 39.7500, lon: 39.4911 },
-  { name: 'Erzurum', lat: 39.9043, lon: 41.2769 },
-  { name: 'Eskişehir', lat: 39.7767, lon: 30.5256 },
-  { name: 'Gaziantep', lat: 37.0662, lon: 37.3822 },
-  { name: 'Giresun', lat: 40.9128, lon: 38.3895 },
-  { name: 'Gümüşhane', lat: 40.4600, lon: 39.4718 },
-  { name: 'Hakkari', lat: 37.5833, lon: 43.7408 },
-  { name: 'Hatay', lat: 36.2023, lon: 36.1667 },
-  { name: 'Iğdır', lat: 39.9237, lon: 44.0450 },
-  { name: 'Isparta', lat: 37.7648, lon: 30.5537 },
-  { name: 'İstanbul', lat: 41.0082, lon: 28.9784 },
-  { name: 'İzmir', lat: 38.4237, lon: 27.1428 },
-  { name: 'Kahramanmaraş', lat: 37.5858, lon: 36.9371 },
-  { name: 'Karabük', lat: 41.2061, lon: 32.6277 },
-  { name: 'Karaman', lat: 37.1759, lon: 33.2150 },
-  { name: 'Kars', lat: 40.6013, lon: 43.0975 },
-  { name: 'Kastamonu', lat: 41.3887, lon: 33.7765 },
-  { name: 'Kayseri', lat: 38.7312, lon: 35.4853 },
-  { name: 'Kilis', lat: 36.7184, lon: 37.1150 },
-  { name: 'Kırıkkale', lat: 39.8468, lon: 33.5064 },
-  { name: 'Kırklareli', lat: 41.7333, lon: 27.2244 },
-  { name: 'Kırşehir', lat: 39.1425, lon: 34.1709 },
-  { name: 'Kocaeli', lat: 40.7654, lon: 29.9400 },
-  { name: 'Konya', lat: 37.8746, lon: 32.4846 },
-  { name: 'Kütahya', lat: 39.4167, lon: 29.9833 },
-  { name: 'Malatya', lat: 38.3552, lon: 38.3552 },
-  { name: 'Manisa', lat: 38.6191, lon: 27.4260 },
-  { name: 'Mardin', lat: 37.3212, lon: 40.7420 },
-  { name: 'Mersin', lat: 36.8121, lon: 34.6415 },
-  { name: 'Muğla', lat: 37.2153, lon: 28.3636 },
-  { name: 'Muş', lat: 38.7432, lon: 41.5064 },
-  { name: 'Nevşehir', lat: 38.6244, lon: 34.7144 },
-  { name: 'Niğde', lat: 37.9667, lon: 34.6857 },
-  { name: 'Ordu', lat: 40.9839, lon: 37.8797 },
-  { name: 'Osmaniye', lat: 37.0742, lon: 36.2464 },
-  { name: 'Rize', lat: 41.0201, lon: 40.5217 },
-  { name: 'Sakarya', lat: 40.7569, lon: 30.4033 },
-  { name: 'Samsun', lat: 41.2867, lon: 36.3360 },
-  { name: 'Şanlıurfa', lat: 37.1674, lon: 38.7955 },
-  { name: 'Siirt', lat: 37.9333, lon: 41.9420 },
-  { name: 'Sinop', lat: 42.0231, lon: 35.1517 },
-  { name: 'Sivas', lat: 39.7477, lon: 37.0145 },
-  { name: 'Şırnak', lat: 37.5164, lon: 42.4594 },
-  { name: 'Tekirdağ', lat: 40.9833, lon: 27.5110 },
-  { name: 'Tokat', lat: 40.3167, lon: 36.5544 },
-  { name: 'Trabzon', lat: 41.0027, lon: 39.7168 },
-  { name: 'Tunceli', lat: 39.1079, lon: 39.5401 },
-  { name: 'Uşak', lat: 38.6823, lon: 29.4058 },
-  { name: 'Van', lat: 38.4891, lon: 43.3748 },
-  { name: 'Yalova', lat: 40.6500, lon: 29.2769 },
-  { name: 'Yozgat', lat: 39.8181, lon: 34.8044 },
-  { name: 'Zonguldak', lat: 41.4564, lon: 31.7987 },
-];
-
-// =============================================================================
-// 2. TÜRKİYE POPÜLER VE YOĞUN İLÇELERİ (Yerel Fallback — API erişilemediğinde)
-// =============================================================================
-const TURKEY_MAJOR_DISTRICTS: Array<{ name: string; parentName: string; lat: number; lon: number }> = [
-  // İstanbul
-  { name: 'Kadıköy', parentName: 'İstanbul', lat: 40.991, lon: 29.025 },
-  { name: 'Beşiktaş', parentName: 'İstanbul', lat: 41.042, lon: 29.008 },
-  { name: 'Şişli', parentName: 'İstanbul', lat: 41.060, lon: 28.987 },
-  { name: 'Üsküdar', parentName: 'İstanbul', lat: 41.026, lon: 29.015 },
-  { name: 'Ataşehir', parentName: 'İstanbul', lat: 40.983, lon: 29.117 },
-  { name: 'Bakırköy', parentName: 'İstanbul', lat: 40.978, lon: 28.872 },
-  { name: 'Beylikdüzü', parentName: 'İstanbul', lat: 41.001, lon: 28.647 },
-  { name: 'Sarıyer', parentName: 'İstanbul', lat: 41.166, lon: 29.050 },
-  { name: 'Maltepe', parentName: 'İstanbul', lat: 40.933, lon: 29.150 },
-  { name: 'Kartal', parentName: 'İstanbul', lat: 40.890, lon: 29.185 },
-  { name: 'Pendik', parentName: 'İstanbul', lat: 40.875, lon: 29.233 },
-  { name: 'Başakşehir', parentName: 'İstanbul', lat: 41.096, lon: 28.803 },
-  { name: 'Ümraniye', parentName: 'İstanbul', lat: 41.025, lon: 29.116 },
-  { name: 'Fatih', parentName: 'İstanbul', lat: 41.018, lon: 28.949 },
-  { name: 'Esenler', parentName: 'İstanbul', lat: 41.034, lon: 28.890 },
-  // Ankara
-  { name: 'Çankaya', parentName: 'Ankara', lat: 39.900, lon: 32.860 },
-  { name: 'Yenimahalle', parentName: 'Ankara', lat: 39.967, lon: 32.817 },
-  { name: 'Etimesgut', parentName: 'Ankara', lat: 39.949, lon: 32.665 },
-  { name: 'Keçiören', parentName: 'Ankara', lat: 40.003, lon: 32.864 },
-  { name: 'Gölbaşı', parentName: 'Ankara', lat: 39.790, lon: 32.808 },
-  { name: 'Mamak', parentName: 'Ankara', lat: 39.940, lon: 32.915 },
-  // İzmir
-  { name: 'Konak', parentName: 'İzmir', lat: 38.419, lon: 27.128 },
-  { name: 'Karşıyaka', parentName: 'İzmir', lat: 38.459, lon: 27.110 },
-  { name: 'Bornova', parentName: 'İzmir', lat: 38.468, lon: 27.218 },
-  { name: 'Çeşme', parentName: 'İzmir', lat: 38.323, lon: 26.304 },
-  { name: 'Urla', parentName: 'İzmir', lat: 38.322, lon: 26.764 },
-  { name: 'Bayraklı', parentName: 'İzmir', lat: 38.462, lon: 27.165 },
-  // Antalya & Muğla (Turizm Aksları)
-  { name: 'Muratpaşa', parentName: 'Antalya', lat: 36.885, lon: 30.707 },
-  { name: 'Konyaaltı', parentName: 'Antalya', lat: 36.862, lon: 30.636 },
-  { name: 'Alanya', parentName: 'Antalya', lat: 36.544, lon: 31.995 },
-  { name: 'Bodrum', parentName: 'Muğla', lat: 37.038, lon: 27.429 },
-  { name: 'Fethiye', parentName: 'Muğla', lat: 36.621, lon: 29.116 },
-  { name: 'Marmaris', parentName: 'Muğla', lat: 36.855, lon: 28.274 },
-  // Bursa & Kocaeli
-  { name: 'Nilüfer', parentName: 'Bursa', lat: 40.214, lon: 28.983 },
-  { name: 'Osmangazi', parentName: 'Bursa', lat: 40.203, lon: 29.060 },
-  { name: 'İzmit', parentName: 'Kocaeli', lat: 40.765, lon: 29.940 },
-  { name: 'Gebze', parentName: 'Kocaeli', lat: 40.802, lon: 29.430 },
-];
-
-// =============================================================================
-// 3. STATİK ÖRNEKLEM İSTASYON HAVUZU (Client-Side Hızlı Arama & Fallback)
+// STATİK ÖRNEKLEM İSTASYON HAVUZU (Client-Side Hızlı Arama & Fallback)
 // =============================================================================
 const SAMPLE_STATIONS: StationItem[] = [
   {
@@ -406,8 +273,10 @@ const filteredStations = computed(() => {
     .slice(0, 5);
 });
 
-// İlçe Arama Eşleşmeleri — TALEP-045: GADM API sonuçları (973 ilçe tam kapsam)
-// önceliklidir; statik örneklem liste yalnızca çevrimdışı fallback olarak birleşir.
+// İlçe Arama Eşleşmeleri — TALEP-045: GADM API sonuçları önceliklidir; yerel
+// TURKEY_ALL_DISTRICTS dizini (81 il, 973 ilçe tam kapsam) API erişilemediğinde
+// veya eksik döndüğünde birleştirilir. Esenler gibi örneklem dışı ilçeler
+// artık her durumda listelenir.
 const filteredDistricts = computed(() => {
   if (!inputVal.value || inputVal.value.trim().length < 2) return [];
   const q = foldText(inputVal.value);
@@ -428,8 +297,20 @@ const filteredDistricts = computed(() => {
     });
   }
 
-  for (const d of TURKEY_MAJOR_DISTRICTS) {
-    if (!(foldText(d.name).includes(q) || foldText(d.parentName).includes(q))) continue;
+  // Yerel tam kapsamlı dizin: ada göre eşleşme öncelikli, il adıyla yapılan
+  // sorgular (ör. "istanbul") ilin tüm ilçelerini alfabetik listeler.
+  const localMatches = TURKEY_ALL_DISTRICTS.filter(
+    (d) => foldText(d.name).includes(q) || foldText(d.parentName).includes(q)
+  ).sort((a, b) => {
+    const aN = foldText(a.name);
+    const bN = foldText(b.name);
+    const aRank = aN === q ? 0 : aN.startsWith(q) ? 1 : aN.includes(q) ? 2 : 3;
+    const bRank = bN === q ? 0 : bN.startsWith(q) ? 1 : bN.includes(q) ? 2 : 3;
+    if (aRank !== bRank) return aRank - bRank;
+    return a.name.localeCompare(b.name, 'tr');
+  });
+
+  for (const d of localMatches) {
     const key = `${d.parentName}|${d.name}`;
     if (seen.has(key)) continue;
     seen.add(key);
@@ -663,7 +544,7 @@ const handleSelectOperator = (slug: string, name: string) => {
         </button>
       </div>
 
-      <!-- 2. İlçeler Kategorisi (Kadıköy, Çankaya, Esenler vb. — TALEP-045: GADM tam kapsam) -->
+      <!-- 2. İlçeler Kategorisi (Kadıköy, Çankaya, Esenler vb. — TALEP-045: tam kapsam) -->
       <div v-if="filteredDistricts.length > 0" class="p-2 space-y-1">
         <div class="px-2 py-1 text-xs font-semibold text-text-muted flex items-center gap-1.5 uppercase tracking-wider">
           <Navigation class="w-3.5 h-3.5 text-success" />
