@@ -15,7 +15,7 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 | **TALEP-056** | Hata / Bug | Yüksek (P2) | ONAY_BEKLIYOR | [HİJYEN] S37-T1 çalışma alanı hijyeni başarısız: [TALEP-053] Ana ekranda istasyonlar gelmiyor — backend modül hatasıyla çöküyor | `/` | `data_engineer` | [#93](https://github.com/cihan53/elektriklioto/issues/93) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-056.md) |
 | **TALEP-055** | Hata / Bug | Yüksek (P2) | ONAY_BEKLIYOR | [BUILD] S37-T1 derleme/import doğrulaması başarısız: [TALEP-053] Ana ekranda istasyonlar gelmiyor — backend modül hatasıyla çöküyor | `/` | `data_engineer` | [#92](https://github.com/cihan53/elektriklioto/issues/92) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-055.md) |
 | **TALEP-054** | Hata / Bug | Yüksek (P2) | ONAY_BEKLIYOR | Haritada istasyon sayıları mükerrer kayıt nedeniyle şişkin görünüyor | `/` | `backend_engineer` | [#91](https://github.com/cihan53/elektriklioto/issues/91) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-054.md) |
-| **TALEP-053** | Hata / Bug | Kritik (P1) | ONAY_BEKLIYOR | Ana ekranda istasyonlar gelmiyor — backend modül hatasıyla çöküyor | `/` | `None` | [#90](https://github.com/cihan53/elektriklioto/issues/90) | — |
+| **TALEP-053** | Hata / Bug | Kritik (P1) | ✅ Çözüldü | Ana ekranda istasyonlar gelmiyor — backend modül hatasıyla çöküyor | `/` | `None` | [#90](https://github.com/cihan53/elektriklioto/issues/90) | — |
 | **TALEP-052** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | FilterChips.vue '~/composables/useClickOutside' modülünü bulamıyor | `/` | `data_engineer` | [#83](https://github.com/cihan53/elektriklioto/issues/83) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-052.md) |
 | **TALEP-051** | Hata / Bug | Yüksek (P2) | ❌ İptal Edildi | [UAT] S35-T2 canlı kabul denetimi başarısız: [TALEP-050] Müşteri Kabulü & UAT Doğrulama Denetimi | `/` | `backend_engineer` | [#82](https://github.com/cihan53/elektriklioto/issues/82) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-051.md) |
 | **TALEP-050** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | TALEP-032'nin acil olarak yeniden devreye alınması | `/` | `None` | [#81](https://github.com/cihan53/elektriklioto/issues/81) | — |
@@ -23,7 +23,7 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 | **TALEP-048** | Hata / Bug | Yüksek (P2) | ❌ İptal Edildi | [UAT] S32-T2 canlı kabul denetimi başarısız: [TALEP-046] Müşteri Kabulü & UAT Doğrulama Denetimi | `/` | `backend_engineer` | [#79](https://github.com/cihan53/elektriklioto/issues/79) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-048.md) |
 | **TALEP-047** | Hata / Bug | Yüksek (P2) | ❌ İptal Edildi | [UAT] S32-T1 canlı kabul denetimi başarısız: [TALEP-046] [UAT] S31-T2 canlı kabul denetimi başarısız: [TALEP-045] Müşteri Kab | `/` | `backend_engineer` | [#78](https://github.com/cihan53/elektriklioto/issues/78) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-047.md) |
 | **TALEP-046** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | [UAT] S31-T2 canlı kabul denetimi başarısız: [TALEP-045] Müşteri Kabulü & UAT Doğrulama Denetimi | `/` | `backend_engineer` | [#77](https://github.com/cihan53/elektriklioto/issues/77) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-046.md) |
-| **TALEP-045** | Hata / Bug | Normal (P3) | ✅ Çözüldü | Haritada istasyon aramada bazı ilçeler (Esenler) ilçe sonuçlarında görünmüyor | `/` | `web_engineer` | [#74](https://github.com/cihan53/elektriklioto/issues/74) | — |
+| **TALEP-045** | Hata / Bug | Normal (P3) | ONAY_BEKLIYOR | Haritada istasyon aramada bazı ilçeler (Esenler) ilçe sonuçlarında görünmüyor | `/` | `web_engineer` | [#74](https://github.com/cihan53/elektriklioto/issues/74) | — |
 | **TALEP-044** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | 041 numaralı talebin öncelikli olarak sprinte alınması | `/` | `None` | [#73](https://github.com/cihan53/elektriklioto/issues/73) | — |
 | **TALEP-043** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | Sunucuda backend yeniden başlatma işlemi başarısız olduğu halde başarılı bildiriliyor | `Sunucu / Yayınlama` | `None` | [#72](https://github.com/cihan53/elektriklioto/issues/72) | — |
 | **TALEP-042** | Veri & İstasyon Tutarlılığı | Düşük (P4) | ✅ Çözüldü | Canlı sitede operatör listesi yerel ortama göre bir kayıt eksik görünüyor | `Harita / Operatör Listesi` | `web_engineer` | [#71](https://github.com/cihan53/elektriklioto/issues/71) | — |
@@ -152,7 +152,7 @@ hijyen ihlali (2); 12 koruma referansı kaldırıldı (regresyon_uyarilari.md); 
 - 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-054.md](workspace/docs/cozum_planlari/TALEP-054.md)
 
 ---
-### [TALEP-053] Ana ekranda istasyonlar gelmiyor — backend modül hatasıyla çöküyor (ONAY_BEKLIYOR)
+### [TALEP-053] Ana ekranda istasyonlar gelmiyor — backend modül hatasıyla çöküyor (✅ Çözüldü)
 - **Bildirim Tarihi:** 2026-09-29 18:54
 - **Tür / Öncelik:** Hata / Bug / Kritik (P1)
 - **İlgili Ekran / Sayfa:** `/`
@@ -163,7 +163,7 @@ hijyen ihlali (2); 12 koruma referansı kaldırıldı (regresyon_uyarilari.md); 
 > Test ortamında ana ekranı açtığımda haritada/listede hiçbir istasyon bilgisi görünmüyor. Beklentim, Türkiye genelindeki şarj istasyonlarının harita üzerinde listelenmesiydi; bunun yerine boş bir görünümle karşılaşıyorum. Tarayıcının yaptığı istasyon listesi isteği (/api/v1/stations?bbox=...&zoom=6) boş dönüyor. Sunucu loglarına baktığımda backend'in başlarken hata verip durduğunu görüyorum: 'ERR_MODULE_NOT_FOUND: Cannot find module .../src/modules/stations/stations.routes.js' — app.ts bu modülü import ederken dosyayı bulamıyor. Yani istasyon verilerini sunan servis hiç ayağa kalkamıyor ve ana ekran bu yüzden tamamen boş kalıyor. Test ortamı bu haliyle kullanılamaz durumda; acil düzeltilmesini rica ediyorum.
 
 **Studio Yetkilisi Notu:**
-> Görev S37-T2 tamamlandı ve UAT testinden geçti — kapanış için müşteri onayı bekleniyor.
+> Müşteri onayı ile kapatıldı.
 
 ---
 ### [TALEP-052] FilterChips.vue '~/composables/useClickOutside' modülünü bulamıyor (✅ Çözüldü)
@@ -371,7 +371,7 @@ al Software Studio — Canlı UAT & Kullanıcı Denetimi Başlatılıyor[0m
 - 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-046.md](workspace/docs/cozum_planlari/TALEP-046.md)
 
 ---
-### [TALEP-045] Haritada istasyon aramada bazı ilçeler (Esenler) ilçe sonuçlarında görünmüyor (✅ Çözüldü)
+### [TALEP-045] Haritada istasyon aramada bazı ilçeler (Esenler) ilçe sonuçlarında görünmüyor (ONAY_BEKLIYOR)
 - **Bildirim Tarihi:** 2026-09-27 23:50
 - **Tür / Öncelik:** Hata / Bug / Normal (P3)
 - **İlgili Ekran / Sayfa:** `/`
@@ -392,7 +392,7 @@ Gerçekleşen: Bazı ilçeler (örnek: Esenler) ilçe sonuçlarında hiç çıkm
 Not: Müşteri ek örnek ilçeler ve cihaz/tarayıcı bilgisini iletirse kayda eklenecek.
 
 **Studio Yetkilisi Notu:**
-> Müşteri onayı ile kapatıldı.
+> Görev S35-T2 tamamlandı ve UAT testinden geçti — kapanış için müşteri onayı bekleniyor.
 
 - 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-045.md](workspace/docs/cozum_planlari/TALEP-045.md)
 
