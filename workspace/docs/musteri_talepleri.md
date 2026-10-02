@@ -1,6 +1,6 @@
 # Digital Software Studio — Müşteri Denetim & Talep Havuzu
 
-> **Son Güncelleme:** 2026-10-01 19:01  
+> **Son Güncelleme:** 2026-10-01 19:09  
 > **Toplam Bildirim:** 61  
 
 Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda iletilen istek, hata ve geri bildirimleri içerir.
@@ -11,7 +11,7 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 
 | ID | Tür | Öncelik | Durum | Başlık | Ekran / URL | İlgili Rol | GitHub Issue | Plan |
 |---|---|---|---|---|---|---|---|---|
-| **TALEP-061** | Hata / Bug | Yüksek (P2) | 🔨 Geliştiriliyor | [BUILD] S35-T1 derleme/import doğrulaması başarısız: [TALEP-054] Haritada istasyon sayıları mükerrer kayıt nedeniyle şişkin görünüyor | `/` | `data_engineer` | [#101](https://github.com/cihan53/elektriklioto/issues/101) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-061.md) |
+| **TALEP-061** | Hata / Bug | Yüksek (P2) | ONAY_BEKLIYOR | [BUILD] S35-T1 derleme/import doğrulaması başarısız: [TALEP-054] Haritada istasyon sayıları mükerrer kayıt nedeniyle şişkin görünüyor | `/` | `data_engineer` | [#101](https://github.com/cihan53/elektriklioto/issues/101) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-061.md) |
 | **TALEP-060** | Hata / Bug | Yüksek (P2) | ❌ İptal Edildi | [HİJYEN] S35-T1 çalışma alanı hijyeni başarısız: [TALEP-054] Haritada istasyon sayıları mükerrer kayıt nedeniyle şişkin görünüyor | `/` | `data_engineer` | [#97](https://github.com/cihan53/elektriklioto/issues/97) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-060.md) |
 | **TALEP-059** | Hata / Bug | Yüksek (P2) | ❌ İptal Edildi | [BUILD] S35-T1 derleme/import doğrulaması başarısız: [TALEP-054] Haritada istasyon sayıları mükerrer kayıt nedeniyle şişkin görünüyor | `/` | `data_engineer` | [#96](https://github.com/cihan53/elektriklioto/issues/96) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-059.md) |
 | **TALEP-058** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | TALEP-045 ve TALEP-029 canlıda hâlâ düzeltilmemiş görünüyor | `/` | `None` | [#95](https://github.com/cihan53/elektriklioto/issues/95) | — |
@@ -77,7 +77,7 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 
 ## 2. Talep Detayları ve Geri Bildirim Notları
 
-### [TALEP-061] [BUILD] S35-T1 derleme/import doğrulaması başarısız: [TALEP-054] Haritada istasyon sayıları mükerrer kayıt nedeniyle şişkin görünüyor (🔨 Geliştiriliyor)
+### [TALEP-061] [BUILD] S35-T1 derleme/import doğrulaması başarısız: [TALEP-054] Haritada istasyon sayıları mükerrer kayıt nedeniyle şişkin görünüyor (ONAY_BEKLIYOR)
 - **Bildirim Tarihi:** 2026-10-01 18:59
 - **Tür / Öncelik:** Hata / Bug / Yüksek (P2)
 - **İlgili Ekran / Sayfa:** `/`
@@ -93,7 +93,7 @@ derleme başarısız (import 2)
 ```
 
 **Studio Yetkilisi Notu:**
-> Sprint S35 panosuna eklendi (S35-T1 ve S35-T2). Görevli rol: data_engineer. Geliştirme başladı.
+> Görev S35-T2 tamamlandı ve UAT testinden geçti — kapanış için müşteri onayı bekleniyor.
 
 - 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-061.md](workspace/docs/cozum_planlari/TALEP-061.md)
 
