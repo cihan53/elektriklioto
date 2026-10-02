@@ -1,6 +1,6 @@
 # Digital Software Studio — Müşteri Denetim & Talep Havuzu
 
-> **Son Güncelleme:** 2026-10-02 16:11  
+> **Son Güncelleme:** 2026-10-02 17:20  
 > **Toplam Bildirim:** 71  
 
 Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda iletilen istek, hata ve geri bildirimleri içerir.
@@ -18,7 +18,7 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 | **TALEP-067** | Hata / Bug | Yüksek (P2) | ONAY_BEKLIYOR | [UAT] S35-T2 canlı kabul denetimi başarısız: [TALEP-065] Müşteri Kabulü & UAT Doğrulama Denetimi | `/` | `backend_engineer` | [#107](https://github.com/cihan53/elektriklioto/issues/107) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-067.md) |
 | **TALEP-066** | Yeni İstek / Özellik | Normal (P3) | 📦 Faz Bekliyor | Arama motorları için dinamik sitemap.xml site haritası oluşturulması | `/sitemap.xml` | `None` | [#106](https://github.com/cihan53/elektriklioto/issues/106) | — |
 | **TALEP-065** | Yeni İstek / Özellik | Yüksek (P2) | 📋 Planlandı | Tüm sistem bileşenlerinin (arama, filtreler, operatörler) merkezi veritabanından dinamik beslenmesi | `/` | `None` | [#105](https://github.com/cihan53/elektriklioto/issues/105) | — |
-| **TALEP-064** | Yeni İstek / Özellik | Normal (P3) | ONAY_BEKLIYOR | Veritabanı boşken istasyon API'sinin fallback mock veri dönmesi davranışı | `/api/v1/stations` | `backend_engineer` | [#104](https://github.com/cihan53/elektriklioto/issues/104) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-064.md) |
+| **TALEP-064** | Yeni İstek / Özellik | Normal (P3) | ✅ Çözüldü | Veritabanı boşken istasyon API'sinin fallback mock veri dönmesi davranışı | `/api/v1/stations` | `backend_engineer` | [#104](https://github.com/cihan53/elektriklioto/issues/104) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-064.md) |
 | **TALEP-063** | Hata / Bug | Normal (P3) | ONAY_BEKLIYOR | Yerel test ortamı ve canlı ortam harita istasyon sayısı uyumsuzluğu | `/` | `backend_engineer` | [#103](https://github.com/cihan53/elektriklioto/issues/103) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-063.md) |
 | **TALEP-062** | Hata / Bug | Yüksek (P2) | ❌ İptal Edildi | Sunucuda PostgreSQL senkronizasyonu (seed_postgres.py) başarısız oluyor | `Sunucu / Dağıtım` | `data_engineer` | [#102](https://github.com/cihan53/elektriklioto/issues/102) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-062.md) |
 | **TALEP-061** | Hata / Bug | Yüksek (P2) | ONAY_BEKLIYOR | [BUILD] S35-T1 derleme/import doğrulaması başarısız: [TALEP-054] Haritada istasyon sayıları mükerrer kayıt nedeniyle şişkin görünüyor | `/` | `data_engineer` | [#101](https://github.com/cihan53/elektriklioto/issues/101) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-061.md) |
@@ -236,7 +236,7 @@ temcisi için CORS ve CORP başlık uyumu ... [31m✗ BAŞARISIZ[0m
 > Panelden sprint onayı verildi (FAZ-1).
 
 ---
-### [TALEP-064] Veritabanı boşken istasyon API'sinin fallback mock veri dönmesi davranışı (ONAY_BEKLIYOR)
+### [TALEP-064] Veritabanı boşken istasyon API'sinin fallback mock veri dönmesi davranışı (✅ Çözüldü)
 - **Bildirim Tarihi:** 2026-10-02 11:39
 - **Tür / Öncelik:** Yeni İstek / Özellik / Normal (P3)
 - **İlgili Ekran / Sayfa:** `/api/v1/stations`
@@ -247,7 +247,7 @@ temcisi için CORS ve CORP başlık uyumu ... [31m✗ BAŞARISIZ[0m
 > Kullanıcı yerel geliştirme/test ortamında veritabanını boşalttığı halde /api/v1/stations uç noktasından istasyon verilerinin gelmeye devam ettiğini gözlemlemiştir. Veritabanı boşken veya test senaryolarında in-memory fallback verilerin dönmesi yerine gerçek veritabanı durumunun yansıtılması veya bu davranışın yapılandırılabilir olması beklenmektedir.
 
 **Studio Yetkilisi Notu:**
-> Görev S35-T6 tamamlandı ve UAT testinden geçti — kapanış için müşteri onayı bekleniyor.
+> Müşteri onayı ile kapatıldı.
 
 - 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-064.md](workspace/docs/cozum_planlari/TALEP-064.md)
 
