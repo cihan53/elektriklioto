@@ -95,12 +95,12 @@ Bu dördü olmadan JSON isteme:
 
 ---
 
-## 10. Canlı Ortam Başlatıcı (`canli.sh`)
+## 10. Yerel Geliştirme Ortamı Başlatıcı (`yerel_ortam.sh`)
 
-- **Geliştiriciyi klasör dolaştırma.** Kök dizinde tek bir `canli.sh` her şeyi yönetsin.
+- **Geliştiriciyi klasör dolaştırma.** Kök dizinde tek bir `yerel_ortam.sh` her şeyi yönetsin.
 - Betik şunları yapmalı: eski portları temizle → bağımlılıkları kur → Docker'ı başlat → Backend + Frontend → tarayıcıyı aç.
 - **Zarif kapanış:** `trap cleanup` ile Ctrl+C'de yetim süreç veya kilitli port bırakma.
-- `sprint_planner` şemasına ekle: S1'de `canli.sh` üretmek zorunludur.
+- `sprint_planner` şemasına ekle: S1'de `yerel_ortam.sh` üretmek zorunludur.
 
 ---
 

@@ -56,7 +56,7 @@ Sistemin tüm bileşenlerini (PostgreSQL+PostGIS veritabanı, Fastify API, bağ�
 
 ```bash
 # Proje kökünden veya workspace/infra dizininden çalıştırın:
-./canli.sh
+./yerel_ortam.sh
 ```
 
 Bu betik sırasıyla:

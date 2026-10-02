@@ -1,7 +1,6 @@
-
 #!/usr/bin/env bash
 # ==============================================================================
-# elektriklioto.com - Tek Tıkla Başlatıcı (On-Click Dev Launcher)
+# elektriklioto.com - Tek Tıkla Yerel Geliştirici Başlatıcısı (On-Click Dev Launcher)
 # Sprint: S1-S13 — Veritabanı, Backend API, Worker, Web SSR ve Sürüm Yönetimi
 # ==============================================================================
 set -euo pipefail
@@ -21,7 +20,7 @@ FRONTEND_DIR="${WORKSPACE_ROOT}/src/frontend"
 MOBILE_DIR="${WORKSPACE_ROOT}/src/mobile"
 
 echo -e "${CYAN}===================================================================${NC}"
-echo -e "${CYAN}⚡ elektriklioto.com — Tek Tıkla Geliştirici Başlatıcısı (S1-S13) ⚡${NC}"
+echo -e "${CYAN}⚡ elektriklioto.com — Tek Tıkla Yerel Geliştirici Başlatıcısı (S1-S13) ⚡${NC}"
 echo -e "${CYAN}===================================================================${NC}"
 
 # 1. Port Temizleme Fonksiyonu

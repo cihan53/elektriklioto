@@ -84,7 +84,7 @@ if [ "$HTTP_CODE" -eq 200 ]; then
   echo -e "${GREEN}BAŞARILI (HTTP 200)${NC}"
   echo -e "   ${CYAN}Dönen Sürüm Verisi:${NC} $HTTP_BODY"
 else
-  echo -e "${YELLOW}BİLGİ (Yerel web servisi port ${WEB_BASE} üzerinde dinlemiyor, canli.sh başlatıldığında test edilir)${NC}"
+  echo -e "${YELLOW}BİLGİ (Yerel web servisi port ${WEB_BASE} üzerinde dinlemiyor, yerel_ortam.sh başlatıldığında test edilir)${NC}"
 fi
 
 echo -e "\n${CYAN}===================================================================${NC}"

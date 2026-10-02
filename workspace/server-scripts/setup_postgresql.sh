@@ -176,5 +176,5 @@ SELECT
 
 echo -e "\n${GREEN}Servisleri yeniden başlatmak için:${NC}"
 echo -e "  touch tmp/restart.txt  (cPanel Passenger için)"
-echo -e "  veya local test için: ./canli.sh"
+echo -e "  veya local test için: ./yerel_ortam.sh"
 echo "======================================================================"

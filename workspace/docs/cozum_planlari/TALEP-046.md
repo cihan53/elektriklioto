@@ -57,7 +57,7 @@ Canlı ortamı ve denetim script'ini hızlıca kontrol ediyorum.
 
 ### Aşama A: İnceleme ve Hazırlık (`backend_engineer`)
 - İlgili Fastify modülündeki rota tanımı ve handler mantığını incele.
-- Sorunun lokal ortamda (`./canli.sh` → 3001) yeniden üretilebilirliğini teyit et.
+- Sorunun lokal ortamda (`./yerel_ortam.sh` → 3001) yeniden üretilebilirliğini teyit et.
 
 ### Aşama B: Kodlama ve Çözüm
 - İlgili route veya servis katmanında gerekli düzeltmeyi yap.

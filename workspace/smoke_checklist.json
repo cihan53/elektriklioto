@@ -1,5 +1,5 @@
 {
-  "_aciklama": "Deterministik smoke checklist — kalite_kapilari.py tarafından okunur. canli.sh çalışır durumdayken doğrular. LLM kullanılmaz.",
+  "_aciklama": "Deterministik smoke checklist — kalite_kapilari.py tarafından okunur. yerel_ortam.sh çalışır durumdayken doğrular. LLM kullanılmaz.",
   "checks": [
     {
       "name": "Web arayüzü SSR HTML sunumu (Nuxt:3000)",

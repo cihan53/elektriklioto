@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ==============================================================================
-#  elektriklioto.com — Tek Tıkla Canlı Geliştirme Ortamı Başlatıcı
+#  elektriklioto.com — Tek Tıkla Yerel Geliştirme Ortamı Başlatıcı
 #  Backend (Fastify: 3001) + Frontend (Nuxt 3: 3000) + PostGIS (Docker: 5432)
 # ==============================================================================
 
@@ -25,7 +25,7 @@ NC='\033[0m' # No Color
 
 echo -e "${CYAN}"
 echo "======================================================================"
-echo "  ⚡ elektriklioto.com — Canlı Geliştirme Ortamı Başlatılıyor"
+echo "  ⚡ elektriklioto.com — Yerel Geliştirme Ortamı Başlatılıyor"
 echo "======================================================================"
 echo -e "${NC}"
 

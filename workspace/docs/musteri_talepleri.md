@@ -1,7 +1,7 @@
 # Digital Software Studio — Müşteri Denetim & Talep Havuzu
 
-> **Son Güncelleme:** 2026-10-01 18:45  
-> **Toplam Bildirim:** 60  
+> **Son Güncelleme:** 2026-10-01 19:01  
+> **Toplam Bildirim:** 61  
 
 Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda iletilen istek, hata ve geri bildirimleri içerir.
 
@@ -11,10 +11,11 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 
 | ID | Tür | Öncelik | Durum | Başlık | Ekran / URL | İlgili Rol | GitHub Issue | Plan |
 |---|---|---|---|---|---|---|---|---|
-| **TALEP-060** | Hata / Bug | Yüksek (P2) | 🔨 Geliştiriliyor | [HİJYEN] S35-T1 çalışma alanı hijyeni başarısız: [TALEP-054] Haritada istasyon sayıları mükerrer kayıt nedeniyle şişkin görünüyor | `/` | `data_engineer` | [#97](https://github.com/cihan53/elektriklioto/issues/97) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-060.md) |
-| **TALEP-059** | Hata / Bug | Yüksek (P2) | 🔨 Geliştiriliyor | [BUILD] S35-T1 derleme/import doğrulaması başarısız: [TALEP-054] Haritada istasyon sayıları mükerrer kayıt nedeniyle şişkin görünüyor | `/` | `data_engineer` | [#96](https://github.com/cihan53/elektriklioto/issues/96) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-059.md) |
-| **TALEP-058** | Hata / Bug | Yüksek (P2) | ONAY_BEKLIYOR | TALEP-045 ve TALEP-029 canlıda hâlâ düzeltilmemiş görünüyor | `/` | `None` | [#95](https://github.com/cihan53/elektriklioto/issues/95) | — |
-| **TALEP-057** | Hata / Bug | Yüksek (P2) | 🔨 Geliştiriliyor | [BUILD] S35-T3 derleme/import doğrulaması başarısız: [TALEP-054] Haritada istasyon sayıları mükerrer kayıt nedeniyle şişkin görünüyor | `/` | `data_engineer` | [#94](https://github.com/cihan53/elektriklioto/issues/94) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-057.md) |
+| **TALEP-061** | Hata / Bug | Yüksek (P2) | 🔨 Geliştiriliyor | [BUILD] S35-T1 derleme/import doğrulaması başarısız: [TALEP-054] Haritada istasyon sayıları mükerrer kayıt nedeniyle şişkin görünüyor | `/` | `data_engineer` | [#101](https://github.com/cihan53/elektriklioto/issues/101) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-061.md) |
+| **TALEP-060** | Hata / Bug | Yüksek (P2) | ❌ İptal Edildi | [HİJYEN] S35-T1 çalışma alanı hijyeni başarısız: [TALEP-054] Haritada istasyon sayıları mükerrer kayıt nedeniyle şişkin görünüyor | `/` | `data_engineer` | [#97](https://github.com/cihan53/elektriklioto/issues/97) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-060.md) |
+| **TALEP-059** | Hata / Bug | Yüksek (P2) | ❌ İptal Edildi | [BUILD] S35-T1 derleme/import doğrulaması başarısız: [TALEP-054] Haritada istasyon sayıları mükerrer kayıt nedeniyle şişkin görünüyor | `/` | `data_engineer` | [#96](https://github.com/cihan53/elektriklioto/issues/96) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-059.md) |
+| **TALEP-058** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | TALEP-045 ve TALEP-029 canlıda hâlâ düzeltilmemiş görünüyor | `/` | `None` | [#95](https://github.com/cihan53/elektriklioto/issues/95) | — |
+| **TALEP-057** | Hata / Bug | Yüksek (P2) | ❌ İptal Edildi | [BUILD] S35-T3 derleme/import doğrulaması başarısız: [TALEP-054] Haritada istasyon sayıları mükerrer kayıt nedeniyle şişkin görünüyor | `/` | `data_engineer` | [#94](https://github.com/cihan53/elektriklioto/issues/94) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-057.md) |
 | **TALEP-056** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | [HİJYEN] S37-T1 çalışma alanı hijyeni başarısız: [TALEP-053] Ana ekranda istasyonlar gelmiyor — backend modül hatasıyla çöküyor | `/` | `data_engineer` | [#93](https://github.com/cihan53/elektriklioto/issues/93) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-056.md) |
 | **TALEP-055** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | [BUILD] S37-T1 derleme/import doğrulaması başarısız: [TALEP-053] Ana ekranda istasyonlar gelmiyor — backend modül hatasıyla çöküyor | `/` | `data_engineer` | [#92](https://github.com/cihan53/elektriklioto/issues/92) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-055.md) |
 | **TALEP-054** | Hata / Bug | Yüksek (P2) | ONAY_BEKLIYOR | Haritada istasyon sayıları mükerrer kayıt nedeniyle şişkin görünüyor | `/` | `backend_engineer` | [#91](https://github.com/cihan53/elektriklioto/issues/91) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-054.md) |
@@ -76,7 +77,28 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 
 ## 2. Talep Detayları ve Geri Bildirim Notları
 
-### [TALEP-060] [HİJYEN] S35-T1 çalışma alanı hijyeni başarısız: [TALEP-054] Haritada istasyon sayıları mükerrer kayıt nedeniyle şişkin görünüyor (🔨 Geliştiriliyor)
+### [TALEP-061] [BUILD] S35-T1 derleme/import doğrulaması başarısız: [TALEP-054] Haritada istasyon sayıları mükerrer kayıt nedeniyle şişkin görünüyor (🔨 Geliştiriliyor)
+- **Bildirim Tarihi:** 2026-10-01 18:59
+- **Tür / Öncelik:** Hata / Bug / Yüksek (P2)
+- **İlgili Ekran / Sayfa:** `/`
+- **Görevli Rol:** `data_engineer`
+- 🐙 **GitHub Issue:** [#101](https://github.com/cihan53/elektriklioto/issues/101)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Deterministik kalite kapısı 'S35-T1' görevinde derleme/import doğrulaması başarısızlığı tespit etti.
+
+Son çıktı satırları:
+```
+derleme başarısız (import 2)
+```
+
+**Studio Yetkilisi Notu:**
+> Sprint S35 panosuna eklendi (S35-T1 ve S35-T2). Görevli rol: data_engineer. Geliştirme başladı.
+
+- 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-061.md](workspace/docs/cozum_planlari/TALEP-061.md)
+
+---
+### [TALEP-060] [HİJYEN] S35-T1 çalışma alanı hijyeni başarısız: [TALEP-054] Haritada istasyon sayıları mükerrer kayıt nedeniyle şişkin görünüyor (❌ İptal Edildi)
 - **Bildirim Tarihi:** 2026-10-01 18:22
 - **Tür / Öncelik:** Hata / Bug / Yüksek (P2)
 - **İlgili Ekran / Sayfa:** `/`
@@ -97,7 +119,7 @@ hijyen ihlali (1); regresyon testi eksik; derleme başarısız (import 14)
 - 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-060.md](workspace/docs/cozum_planlari/TALEP-060.md)
 
 ---
-### [TALEP-059] [BUILD] S35-T1 derleme/import doğrulaması başarısız: [TALEP-054] Haritada istasyon sayıları mükerrer kayıt nedeniyle şişkin görünüyor (🔨 Geliştiriliyor)
+### [TALEP-059] [BUILD] S35-T1 derleme/import doğrulaması başarısız: [TALEP-054] Haritada istasyon sayıları mükerrer kayıt nedeniyle şişkin görünüyor (❌ İptal Edildi)
 - **Bildirim Tarihi:** 2026-10-01 18:21
 - **Tür / Öncelik:** Hata / Bug / Yüksek (P2)
 - **İlgili Ekran / Sayfa:** `/`
@@ -118,7 +140,7 @@ hijyen ihlali (1); regresyon testi eksik; derleme başarısız (import 14)
 - 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-059.md](workspace/docs/cozum_planlari/TALEP-059.md)
 
 ---
-### [TALEP-058] TALEP-045 ve TALEP-029 canlıda hâlâ düzeltilmemiş görünüyor (ONAY_BEKLIYOR)
+### [TALEP-058] TALEP-045 ve TALEP-029 canlıda hâlâ düzeltilmemiş görünüyor (✅ Çözüldü)
 - **Bildirim Tarihi:** 2026-10-01 12:45
 - **Tür / Öncelik:** Hata / Bug / Yüksek (P2)
 - **İlgili Ekran / Sayfa:** `/`
@@ -129,10 +151,10 @@ hijyen ihlali (1); regresyon testi eksik; derleme başarısız (import 14)
 > Yayın ortamında ana ekranda istasyon araması yaparken Esenler gibi bazı ilçeler ilçe sonuçlarında görünmüyor (TALEP-045 kapsamı). Ayrıca 'Tüm Operatörler' menüsü açıkken menü dışındaki alana tıklandığında menü kapanmıyor (TALEP-029 kapsamı). Aynı davranışların local/test ortamında doğru çalıştığı belirtiliyor; ancak canlı sistemde sorunların devam ettiği görülüyor. İlgili düzeltmelerin canlı ortama alınıp alınmadığının kontrol edilmesi, eksikse yayınlanması ve canlıda tekrar doğrulanması bekleniyor.
 
 **Studio Yetkilisi Notu:**
-> Görev S35-T4 tamamlandı ve UAT testinden geçti — kapanış için müşteri onayı bekleniyor.
+> Müşteri onayı ile kapatıldı.
 
 ---
-### [TALEP-057] [BUILD] S35-T3 derleme/import doğrulaması başarısız: [TALEP-054] Haritada istasyon sayıları mükerrer kayıt nedeniyle şişkin görünüyor (🔨 Geliştiriliyor)
+### [TALEP-057] [BUILD] S35-T3 derleme/import doğrulaması başarısız: [TALEP-054] Haritada istasyon sayıları mükerrer kayıt nedeniyle şişkin görünüyor (❌ İptal Edildi)
 - **Bildirim Tarihi:** 2026-09-30 13:10
 - **Tür / Öncelik:** Hata / Bug / Yüksek (P2)
 - **İlgili Ekran / Sayfa:** `/`
