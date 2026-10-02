@@ -1,6 +1,6 @@
 # Digital Software Studio — Müşteri Denetim & Talep Havuzu
 
-> **Son Güncelleme:** 2026-10-02 15:57  
+> **Son Güncelleme:** 2026-10-02 16:11  
 > **Toplam Bildirim:** 71  
 
 Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda iletilen istek, hata ve geri bildirimleri içerir.
@@ -13,7 +13,7 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 |---|---|---|---|---|---|---|---|---|
 | **TALEP-071** | Hata / Bug | Yüksek (P2) | 🔨 Geliştiriliyor | [BUILD] S35-T7 derleme/import doğrulaması başarısız: [TALEP-067] [UAT] S35-T2 canlı kabul denetimi başarısız: [TALEP-065] Müşteri Kab | `/` | `data_engineer` | [#111](https://github.com/cihan53/elektriklioto/issues/111) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-071.md) |
 | **TALEP-070** | Hata / Bug | Yüksek (P2) | 🔨 Geliştiriliyor | [UAT] S35-T7 canlı kabul denetimi başarısız: [TALEP-067] [UAT] S35-T2 canlı kabul denetimi başarısız: [TALEP-065] Müşteri Kab | `/` | `backend_engineer` | [#110](https://github.com/cihan53/elektriklioto/issues/110) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-070.md) |
-| **TALEP-069** | Hata / Bug | Normal (P3) | 🔨 Geliştiriliyor | /api/version uç noktasının 404 Not Found hatası vermesi | `/api/version` | `backend_engineer` | [#109](https://github.com/cihan53/elektriklioto/issues/109) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-069.md) |
+| **TALEP-069** | Hata / Bug | Normal (P3) | ✅ Çözüldü | /api/version uç noktasının 404 Not Found hatası vermesi | `/api/version` | `backend_engineer` | [#109](https://github.com/cihan53/elektriklioto/issues/109) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-069.md) |
 | **TALEP-068** | Hata / Bug | Yüksek (P2) | 🔨 Geliştiriliyor | [BUILD] S35-T5 derleme/import doğrulaması başarısız: [TALEP-064] Veritabanı boşken istasyon API'sinin fallback mock veri dönmesi davr | `/` | `data_engineer` | [#108](https://github.com/cihan53/elektriklioto/issues/108) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-068.md) |
 | **TALEP-067** | Hata / Bug | Yüksek (P2) | ONAY_BEKLIYOR | [UAT] S35-T2 canlı kabul denetimi başarısız: [TALEP-065] Müşteri Kabulü & UAT Doğrulama Denetimi | `/` | `backend_engineer` | [#107](https://github.com/cihan53/elektriklioto/issues/107) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-067.md) |
 | **TALEP-066** | Yeni İstek / Özellik | Normal (P3) | 📦 Faz Bekliyor | Arama motorları için dinamik sitemap.xml site haritası oluşturulması | `/sitemap.xml` | `None` | [#106](https://github.com/cihan53/elektriklioto/issues/106) | — |
@@ -141,7 +141,7 @@ nd API canlı sağlık kontrolü (Port 3001) ... [32m✓ GEÇTİ[0m
 - 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-070.md](workspace/docs/cozum_planlari/TALEP-070.md)
 
 ---
-### [TALEP-069] /api/version uç noktasının 404 Not Found hatası vermesi (🔨 Geliştiriliyor)
+### [TALEP-069] /api/version uç noktasının 404 Not Found hatası vermesi (✅ Çözüldü)
 - **Bildirim Tarihi:** 2026-10-02 15:09
 - **Tür / Öncelik:** Hata / Bug / Normal (P3)
 - **İlgili Ekran / Sayfa:** `/api/version`
