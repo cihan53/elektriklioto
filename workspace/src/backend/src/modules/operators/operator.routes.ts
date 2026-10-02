@@ -21,7 +21,8 @@ export const operatorRoutes: FastifyPluginAsync = async (fastify) => {
       },
     },
     async () => {
-      return operatorService.getAll();
+      // TALEP-065: Operatörler doğrudan merkezi veritabanından dinamik beslenir
+      return await operatorService.getAll();
     }
   );
 
@@ -41,7 +42,8 @@ export const operatorRoutes: FastifyPluginAsync = async (fastify) => {
     },
     async (request) => {
       const { slug } = request.params;
-      const op = operatorService.getBySlug(slug);
+      // TALEP-065: Operatör detayı ve deep-link konfigürasyonu doğrudan veritabanından çözümlenir
+      const op = await operatorService.getBySlug(slug);
       if (!op) {
         throw new NotFoundError(`Operatör bulunamadı: ${slug}`);
       }

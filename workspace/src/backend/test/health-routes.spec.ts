@@ -102,4 +102,39 @@ describe('S5: Health & Queue API Endpoints Testleri', () => {
       expect(raw).not.toContain(term);
     }
   });
+
+  it('TC-HEALTH-06: GET /api/version ve /api/v1/version 200 dönmeli ve sürüm bilgisi vermelidir (TALEP-069)', async () => {
+    // 1. /api/version kontrolü (Arayüz ve proxy üzerinden tetiklenen sürüm kontrol isteği)
+    const apiRes = await app.inject({
+      method: 'GET',
+      url: '/api/version',
+    });
+    expect(apiRes.statusCode).toBe(200);
+    const apiBody = apiRes.json();
+    expect(apiBody.status).toBe('UP');
+    expect(apiBody.service).toBe('elektriklioto-api');
+    expect(apiBody.version).toBe('1.0.0-faz1');
+
+    // 2. /api/v1/version kontrolü
+    const v1Res = await app.inject({
+      method: 'GET',
+      url: '/api/v1/version',
+    });
+    expect(v1Res.statusCode).toBe(200);
+    const v1Body = v1Res.json();
+    expect(v1Body.status).toBe('UP');
+    expect(v1Body.service).toBe('elektriklioto-api');
+    expect(v1Body.version).toBe('1.0.0-faz1');
+
+    // 3. /version kök kontrolü
+    const rootRes = await app.inject({
+      method: 'GET',
+      url: '/version',
+    });
+    expect(rootRes.statusCode).toBe(200);
+    const rootBody = rootRes.json();
+    expect(rootBody.status).toBe('UP');
+    expect(rootBody.version).toBe('1.0.0-faz1');
+  });
 });
+

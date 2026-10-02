@@ -1,3 +1,4 @@
+
 import { ref } from 'vue';
 import { vi } from 'vitest';
 
@@ -49,3 +50,9 @@ const stateMap = new Map<string, any>();
   }
   return { data: [] };
 });
+
+(globalThis as any).fetch = vi.fn().mockImplementation(async (url: string) => ({
+  ok: true,
+  json: async () => [],
+  text: async () => "[]"
+}));

@@ -284,6 +284,19 @@ export async function buildApp(): Promise<FastifyInstance> {
     };
   });
 
+  // TALEP-025 & TALEP-069 KORUNACAK: Canlı Sürüm ve Durum Bilgisi (Yalnızca genel sürüm ve yayın tarihi döner, dahili altyapı ve veritabanı motoru gizlenir)
+  const versionHandler = async () => ({
+    status: 'UP',
+    service: 'elektriklioto-api',
+    version: '1.0.0-faz1',
+    release_date: '2026-09-18',
+    timestamp: new Date().toISOString(),
+  });
+
+  app.get('/version', { config: { rateLimit: false } }, versionHandler);
+  app.get('/api/version', { config: { rateLimit: false } }, versionHandler);
+  app.get('/api/v1/version', { config: { rateLimit: false } }, versionHandler);
+
   // --- Hata ve 404 İşleyicileri (RFC 7807 Problem Details) --------------------
   // TALEP-053: kapsülleme bağlamı kayıt anında yakalandığı için hata
   // işleyicileri modül register() çağrılarından ÖNCE tanımlanmak zorundadır;
@@ -363,9 +376,11 @@ export async function buildApp(): Promise<FastifyInstance> {
   await app.register(gadmRoutes, { prefix: '/api/v1/gadm' });
   await app.register(gadmRoutes, { prefix: '/api/v1/geo' });
 
-  // TALEP-010: PostgreSQL/PostGIS veritabanı ile istasyon ve soket entegrasyonu
-  // (otomatik tohumlama). Veritabanı henüz hazır değilse veya test ortamındaysa
-  // açılış engellenmez; bellek içi istasyon deposu (cpo_stations.json) devrededir.
+  // TALEP-010, TALEP-064 & TALEP-065: PostgreSQL/PostGIS veritabanı ile istasyon ve soket entegrasyonu
+  // (otomatik tohumlama ve merkezi dinamik veri senkronizasyonu).
+  // TALEP-064 KORUNACAK: Veritabanı boşken veya test senaryolarında API fallback mock verisi dönmez;
+  // in-memory fallback yalnızca ENABLE_MOCK_FALLBACK=true açıkça tanımlandığında devreye girer.
+  // Veritabanı henüz hazır değilse veya test ortamındaysa açılış engellenmez.
   try {
     await operatorService.syncWithDb();
     await ensureRegionTablesSeeded();

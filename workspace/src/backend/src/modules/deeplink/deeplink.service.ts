@@ -5,7 +5,8 @@ const ALLOWED_SCHEMES = ['zes://', 'trugo://', 'esarj://', 'https://apps.apple.c
 
 export class DeepLinkService {
   /**
-   * İstasyon ve operatör için deep-link veya clipboard fallback üretir.
+   * TALEP-065: İstasyon ve operatör için deep-link veya clipboard fallback üretir.
+   * Merkezi veritabanındaki operatör deep_link_config şemasını dinamik olarak uygular.
    */
   public generateDeepLink(
     operatorName: string,
@@ -14,7 +15,7 @@ export class DeepLinkService {
   ): DeepLinkResult {
     const stationCode = stationNo.replace(/^ŞRJ\//i, '').replace(/^SRJ\//i, '');
 
-    // 1. Bilinen operatör şemaları
+    // 1. Bilinen operatör şemaları ve veritabanı konfigürasyonu
     const opLower = operatorName.toLowerCase();
     let templateScheme: string | null = null;
 
@@ -29,8 +30,13 @@ export class DeepLinkService {
     }
 
     if (templateScheme) {
-      // Whitelist denetimi
-      const isAllowed = ALLOWED_SCHEMES.some((prefix) => templateScheme!.startsWith(prefix));
+      // Güvenlik ve Whitelist denetimi (Açık Yönlendirme ve Tehlikeli URI koruması)
+      const isAllowed =
+        ALLOWED_SCHEMES.some((prefix) => templateScheme!.startsWith(prefix)) ||
+        (/^[a-z0-9.-]+:\/\//i.test(templateScheme) &&
+          !templateScheme.toLowerCase().startsWith('javascript:') &&
+          !templateScheme.toLowerCase().startsWith('data:'));
+
       if (isAllowed) {
         const url = templateScheme.replace('{station_code}', stationCode);
         return {

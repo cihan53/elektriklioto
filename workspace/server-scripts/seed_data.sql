@@ -66522,3 +66522,4 @@ INSERT INTO "connector" (station_id, socket_type, power_kw, current_type) VALUES
 INSERT INTO "connector" (station_id, socket_type, power_kw, current_type) VALUES ('0ccf90b9-1e94-5466-8c1e-d6f16fbf1386', 'CCS2', 120, 'DC');
 
 COMMIT;
+

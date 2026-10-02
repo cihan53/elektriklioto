@@ -14,6 +14,7 @@ import {
   SyncTriggerResponseSchema,
   CronTriggerResponseSchema,
   HealthVersionResponseSchema,
+  HealthLiveResponseSchema,
 } from './health.schema.js';
 
 export const healthRoutes: FastifyPluginAsync = async (fastify) => {
@@ -37,6 +38,26 @@ export const healthRoutes: FastifyPluginAsync = async (fastify) => {
         service: 'elektriklioto-api',
         version: '1.0.0-faz1',
         release_date: '2026-09-18',
+        timestamp: new Date().toISOString(),
+      };
+    }
+  );
+
+  // TALEP-067 / UAT-05: API Canlılık ve Hazırlık Kontrolü
+  app.get(
+    '/live',
+    {
+      schema: {
+        description: 'API canlılık ve çalışma zamanı durumunu döner.',
+        tags: ['Health'],
+        response: {
+          200: HealthLiveResponseSchema,
+        },
+      },
+    },
+    async () => {
+      return {
+        status: 'UP',
         timestamp: new Date().toISOString(),
       };
     }

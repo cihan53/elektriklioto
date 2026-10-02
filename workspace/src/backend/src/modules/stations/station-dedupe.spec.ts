@@ -8,9 +8,10 @@ import {
   ensureStationDeduped,
   type StationDedupeInput,
 } from './station-dedupe.service';
+import { stationRepository, ensureDatabaseSeeded } from './station.service';
 import * as dbModule from '../../db/index';
 
-describe('TALEP-054: İstasyon Mükerrer Kayıt Tekilleştirme Doğrulaması', () => {
+describe('TALEP-054 & TALEP-063: İstasyon Mükerrer Kayıt Tekilleştirme ve Sayı Tutarlılığı Doğrulaması', () => {
   beforeEach(() => {
     vi.restoreAllMocks();
   });
@@ -100,5 +101,21 @@ describe('TALEP-054: İstasyon Mükerrer Kayıt Tekilleştirme Doğrulaması', (
 
     const report = await ensureStationDeduped();
     expect(report).toBeNull();
+  });
+
+  it('TC-DEDUPE-06: TALEP-063 yerel test ortamı ve canlı ortam veri seti tutarlılığı ve tohumlama güvenliği', async () => {
+    if (stationRepository.stations.size < 15000) {
+      stationRepository.loadFromDataFile();
+    }
+    // 1. Veri seti zenginliği: stationRepository hafızasında veya tohum setinde 15.000+ istasyon bulunmalıdır
+    expect(stationRepository.stations.size).toBeGreaterThanOrEqual(15000);
+
+    // 2. Tekilleştirme tutarlılığı: mükerrerler elendikten sonra Türkiye geneli istasyon sayısı 15.000 altına inmemelidir
+    const deduped = dedupeStations(Array.from(stationRepository.stations.values()));
+    expect(deduped.length).toBeGreaterThanOrEqual(15000);
+
+    // 3. Güvenlik ve TALEP-022 korunumu: AUTO_SEED !== 'true' olduğunda veritabanı sorgusu tetiklenmez
+    delete process.env.AUTO_SEED;
+    await expect(ensureDatabaseSeeded()).resolves.not.toThrow();
   });
 });

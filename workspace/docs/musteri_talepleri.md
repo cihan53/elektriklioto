@@ -1,7 +1,7 @@
 # Digital Software Studio — Müşteri Denetim & Talep Havuzu
 
-> **Son Güncelleme:** 2026-10-01 19:09  
-> **Toplam Bildirim:** 61  
+> **Son Güncelleme:** 2026-10-02 15:57  
+> **Toplam Bildirim:** 71  
 
 Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda iletilen istek, hata ve geri bildirimleri içerir.
 
@@ -11,6 +11,16 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 
 | ID | Tür | Öncelik | Durum | Başlık | Ekran / URL | İlgili Rol | GitHub Issue | Plan |
 |---|---|---|---|---|---|---|---|---|
+| **TALEP-071** | Hata / Bug | Yüksek (P2) | 🔨 Geliştiriliyor | [BUILD] S35-T7 derleme/import doğrulaması başarısız: [TALEP-067] [UAT] S35-T2 canlı kabul denetimi başarısız: [TALEP-065] Müşteri Kab | `/` | `data_engineer` | [#111](https://github.com/cihan53/elektriklioto/issues/111) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-071.md) |
+| **TALEP-070** | Hata / Bug | Yüksek (P2) | 🔨 Geliştiriliyor | [UAT] S35-T7 canlı kabul denetimi başarısız: [TALEP-067] [UAT] S35-T2 canlı kabul denetimi başarısız: [TALEP-065] Müşteri Kab | `/` | `backend_engineer` | [#110](https://github.com/cihan53/elektriklioto/issues/110) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-070.md) |
+| **TALEP-069** | Hata / Bug | Normal (P3) | 🔨 Geliştiriliyor | /api/version uç noktasının 404 Not Found hatası vermesi | `/api/version` | `backend_engineer` | [#109](https://github.com/cihan53/elektriklioto/issues/109) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-069.md) |
+| **TALEP-068** | Hata / Bug | Yüksek (P2) | 🔨 Geliştiriliyor | [BUILD] S35-T5 derleme/import doğrulaması başarısız: [TALEP-064] Veritabanı boşken istasyon API'sinin fallback mock veri dönmesi davr | `/` | `data_engineer` | [#108](https://github.com/cihan53/elektriklioto/issues/108) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-068.md) |
+| **TALEP-067** | Hata / Bug | Yüksek (P2) | ONAY_BEKLIYOR | [UAT] S35-T2 canlı kabul denetimi başarısız: [TALEP-065] Müşteri Kabulü & UAT Doğrulama Denetimi | `/` | `backend_engineer` | [#107](https://github.com/cihan53/elektriklioto/issues/107) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-067.md) |
+| **TALEP-066** | Yeni İstek / Özellik | Normal (P3) | 📦 Faz Bekliyor | Arama motorları için dinamik sitemap.xml site haritası oluşturulması | `/sitemap.xml` | `None` | [#106](https://github.com/cihan53/elektriklioto/issues/106) | — |
+| **TALEP-065** | Yeni İstek / Özellik | Yüksek (P2) | 📋 Planlandı | Tüm sistem bileşenlerinin (arama, filtreler, operatörler) merkezi veritabanından dinamik beslenmesi | `/` | `None` | [#105](https://github.com/cihan53/elektriklioto/issues/105) | — |
+| **TALEP-064** | Yeni İstek / Özellik | Normal (P3) | ONAY_BEKLIYOR | Veritabanı boşken istasyon API'sinin fallback mock veri dönmesi davranışı | `/api/v1/stations` | `backend_engineer` | [#104](https://github.com/cihan53/elektriklioto/issues/104) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-064.md) |
+| **TALEP-063** | Hata / Bug | Normal (P3) | ONAY_BEKLIYOR | Yerel test ortamı ve canlı ortam harita istasyon sayısı uyumsuzluğu | `/` | `backend_engineer` | [#103](https://github.com/cihan53/elektriklioto/issues/103) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-063.md) |
+| **TALEP-062** | Hata / Bug | Yüksek (P2) | ❌ İptal Edildi | Sunucuda PostgreSQL senkronizasyonu (seed_postgres.py) başarısız oluyor | `Sunucu / Dağıtım` | `data_engineer` | [#102](https://github.com/cihan53/elektriklioto/issues/102) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-062.md) |
 | **TALEP-061** | Hata / Bug | Yüksek (P2) | ONAY_BEKLIYOR | [BUILD] S35-T1 derleme/import doğrulaması başarısız: [TALEP-054] Haritada istasyon sayıları mükerrer kayıt nedeniyle şişkin görünüyor | `/` | `data_engineer` | [#101](https://github.com/cihan53/elektriklioto/issues/101) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-061.md) |
 | **TALEP-060** | Hata / Bug | Yüksek (P2) | ❌ İptal Edildi | [HİJYEN] S35-T1 çalışma alanı hijyeni başarısız: [TALEP-054] Haritada istasyon sayıları mükerrer kayıt nedeniyle şişkin görünüyor | `/` | `data_engineer` | [#97](https://github.com/cihan53/elektriklioto/issues/97) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-060.md) |
 | **TALEP-059** | Hata / Bug | Yüksek (P2) | ❌ İptal Edildi | [BUILD] S35-T1 derleme/import doğrulaması başarısız: [TALEP-054] Haritada istasyon sayıları mükerrer kayıt nedeniyle şişkin görünüyor | `/` | `data_engineer` | [#96](https://github.com/cihan53/elektriklioto/issues/96) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-059.md) |
@@ -18,7 +28,7 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 | **TALEP-057** | Hata / Bug | Yüksek (P2) | ❌ İptal Edildi | [BUILD] S35-T3 derleme/import doğrulaması başarısız: [TALEP-054] Haritada istasyon sayıları mükerrer kayıt nedeniyle şişkin görünüyor | `/` | `data_engineer` | [#94](https://github.com/cihan53/elektriklioto/issues/94) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-057.md) |
 | **TALEP-056** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | [HİJYEN] S37-T1 çalışma alanı hijyeni başarısız: [TALEP-053] Ana ekranda istasyonlar gelmiyor — backend modül hatasıyla çöküyor | `/` | `data_engineer` | [#93](https://github.com/cihan53/elektriklioto/issues/93) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-056.md) |
 | **TALEP-055** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | [BUILD] S37-T1 derleme/import doğrulaması başarısız: [TALEP-053] Ana ekranda istasyonlar gelmiyor — backend modül hatasıyla çöküyor | `/` | `data_engineer` | [#92](https://github.com/cihan53/elektriklioto/issues/92) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-055.md) |
-| **TALEP-054** | Hata / Bug | Yüksek (P2) | ONAY_BEKLIYOR | Haritada istasyon sayıları mükerrer kayıt nedeniyle şişkin görünüyor | `/` | `backend_engineer` | [#91](https://github.com/cihan53/elektriklioto/issues/91) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-054.md) |
+| **TALEP-054** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | Haritada istasyon sayıları mükerrer kayıt nedeniyle şişkin görünüyor | `/` | `backend_engineer` | [#91](https://github.com/cihan53/elektriklioto/issues/91) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-054.md) |
 | **TALEP-053** | Hata / Bug | Kritik (P1) | ✅ Çözüldü | Ana ekranda istasyonlar gelmiyor — backend modül hatasıyla çöküyor | `/` | `None` | [#90](https://github.com/cihan53/elektriklioto/issues/90) | — |
 | **TALEP-052** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | FilterChips.vue '~/composables/useClickOutside' modülünü bulamıyor | `/` | `data_engineer` | [#83](https://github.com/cihan53/elektriklioto/issues/83) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-052.md) |
 | **TALEP-051** | Hata / Bug | Yüksek (P2) | ❌ İptal Edildi | [UAT] S35-T2 canlı kabul denetimi başarısız: [TALEP-050] Müşteri Kabulü & UAT Doğrulama Denetimi | `/` | `backend_engineer` | [#82](https://github.com/cihan53/elektriklioto/issues/82) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-051.md) |
@@ -77,6 +87,203 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 
 ## 2. Talep Detayları ve Geri Bildirim Notları
 
+### [TALEP-071] [BUILD] S35-T7 derleme/import doğrulaması başarısız: [TALEP-067] [UAT] S35-T2 canlı kabul denetimi başarısız: [TALEP-065] Müşteri Kab (🔨 Geliştiriliyor)
+- **Bildirim Tarihi:** 2026-10-02 15:47
+- **Tür / Öncelik:** Hata / Bug / Yüksek (P2)
+- **İlgili Ekran / Sayfa:** `/`
+- **Görevli Rol:** `data_engineer`
+- 🐙 **GitHub Issue:** [#111](https://github.com/cihan53/elektriklioto/issues/111)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Deterministik kalite kapısı 'S35-T7' görevinde derleme/import doğrulaması başarısızlığı tespit etti.
+
+Son çıktı satırları:
+```
+derleme başarısız (import 7)
+```
+
+**Studio Yetkilisi Notu:**
+> Sprint S35 panosuna eklendi (S35-T7 ve S35-T8). Görevli rol: data_engineer. Geliştirme başladı.
+
+- 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-071.md](workspace/docs/cozum_planlari/TALEP-071.md)
+
+---
+### [TALEP-070] [UAT] S35-T7 canlı kabul denetimi başarısız: [TALEP-067] [UAT] S35-T2 canlı kabul denetimi başarısız: [TALEP-065] Müşteri Kab (🔨 Geliştiriliyor)
+- **Bildirim Tarihi:** 2026-10-02 15:46
+- **Tür / Öncelik:** Hata / Bug / Yüksek (P2)
+- **İlgili Ekran / Sayfa:** `/`
+- **Görevli Rol:** `backend_engineer`
+- 🐙 **GitHub Issue:** [#110](https://github.com/cihan53/elektriklioto/issues/110)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Deterministik kalite kapısı 'S35-T7' görevinde canlı kabul denetimi başarısızlığı tespit etti.
+
+Son çıktı satırları:
+```
+nd API canlı sağlık kontrolü (Port 3001) ... [32m✓ GEÇTİ[0m
+  [TEST] UAT-02: Web istemcisi için CORS ve CORP başlık uyumu ... [31m✗ BAŞARISIZ[0m
+         [31mHata: socket hang up[0m
+  [TEST] UAT-03: Zoom 6 Türkiye genelinde 81 ilin kümeleme verisi (Clusters) ... [31m✗ BAŞARISIZ[0m
+         [31mHata: connect ECONNREFUSED 127.0.0.1:3001[0m
+  [TEST] UAT-04: Zoom 11 İstanbul geniş ekran BBox sorgusu (1.06° boylam, 600+ pin) ... [31m✗ BAŞARISIZ[0m
+         [31mHata: connect ECONNREFUSED 127.0.0.1:3001[0m
+  [TEST] UAT-05: API uç noktası canlılık ve veri modeli doğrulaması ... [31m✗ BAŞARISIZ[0m
+         [31mHata: connect ECONNREFUSED 127.0.0.1:3001[0m
+  [TEST] UAT-06: Web arayüzü canlı HTML sunumu (Port 3000) ... [32m✓ GEÇTİ[0m
+
+----------------------------------------------------------------------
+[31m⚠️  UAT TESTLERİNDE 4 HATA TESPİT EDİLDİ! (2 Başarılı, 4 Başarısız)[0m
+```
+
+**Studio Yetkilisi Notu:**
+> Sprint S35 panosuna eklendi (S35-T5 ve S35-T6). Görevli rol: backend_engineer. Geliştirme başladı.
+
+- 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-070.md](workspace/docs/cozum_planlari/TALEP-070.md)
+
+---
+### [TALEP-069] /api/version uç noktasının 404 Not Found hatası vermesi (🔨 Geliştiriliyor)
+- **Bildirim Tarihi:** 2026-10-02 15:09
+- **Tür / Öncelik:** Hata / Bug / Normal (P3)
+- **İlgili Ekran / Sayfa:** `/api/version`
+- **Görevli Rol:** `backend_engineer`
+- 🐙 **GitHub Issue:** [#109](https://github.com/cihan53/elektriklioto/issues/109)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Arayüz üzerinden tetiklenen /api/version sürüm kontrol isteği 404 hatası döndürmektedir. API versiyonlama yapısı (/api/v1/...) ve proxy/route tanımlarının incelenerek sürüm kontrolünün beklenen şekilde yanıt vermesi talep edilmektedir.
+
+**Studio Yetkilisi Notu:**
+> Sprint S35 panosuna eklendi (S35-T3 ve S35-T4). Görevli rol: backend_engineer. Geliştirme başladı.
+
+- 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-069.md](workspace/docs/cozum_planlari/TALEP-069.md)
+
+---
+### [TALEP-068] [BUILD] S35-T5 derleme/import doğrulaması başarısız: [TALEP-064] Veritabanı boşken istasyon API'sinin fallback mock veri dönmesi davr (🔨 Geliştiriliyor)
+- **Bildirim Tarihi:** 2026-10-02 12:51
+- **Tür / Öncelik:** Hata / Bug / Yüksek (P2)
+- **İlgili Ekran / Sayfa:** `/`
+- **Görevli Rol:** `data_engineer`
+- 🐙 **GitHub Issue:** [#108](https://github.com/cihan53/elektriklioto/issues/108)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Deterministik kalite kapısı 'S35-T5' görevinde derleme/import doğrulaması başarısızlığı tespit etti.
+
+Son çıktı satırları:
+```
+derleme başarısız (import 2)
+```
+
+**Studio Yetkilisi Notu:**
+> Sprint S35 panosuna eklendi (S35-T1 ve S35-T2). Görevli rol: data_engineer. Geliştirme başladı.
+
+- 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-068.md](workspace/docs/cozum_planlari/TALEP-068.md)
+
+---
+### [TALEP-067] [UAT] S35-T2 canlı kabul denetimi başarısız: [TALEP-065] Müşteri Kabulü & UAT Doğrulama Denetimi (ONAY_BEKLIYOR)
+- **Bildirim Tarihi:** 2026-10-02 12:19
+- **Tür / Öncelik:** Hata / Bug / Yüksek (P2)
+- **İlgili Ekran / Sayfa:** `/`
+- **Görevli Rol:** `backend_engineer`
+- 🐙 **GitHub Issue:** [#107](https://github.com/cihan53/elektriklioto/issues/107)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Deterministik kalite kapısı 'S35-T2' görevinde canlı kabul denetimi başarısızlığı tespit etti.
+
+Son çıktı satırları:
+```
+temcisi için CORS ve CORP başlık uyumu ... [31m✗ BAŞARISIZ[0m
+         [31mHata: connect ECONNREFUSED 127.0.0.1:3001[0m
+  [TEST] UAT-03: Zoom 6 Türkiye genelinde 81 ilin kümeleme verisi (Clusters) ... [31m✗ BAŞARISIZ[0m
+         [31mHata: connect ECONNREFUSED 127.0.0.1:3001[0m
+  [TEST] UAT-04: Zoom 11 İstanbul geniş ekran BBox sorgusu (1.06° boylam, 600+ pin) ... [31m✗ BAŞARISIZ[0m
+         [31mHata: connect ECONNREFUSED 127.0.0.1:3001[0m
+  [TEST] UAT-05: API uç noktası canlılık ve veri modeli doğrulaması ... [31m✗ BAŞARISIZ[0m
+         [31mHata: connect ECONNREFUSED 127.0.0.1:3001[0m
+  [TEST] UAT-06: Web arayüzü canlı HTML sunumu (Port 3000) ... [31m✗ BAŞARISIZ[0m
+         [31mHata: connect ECONNREFUSED 127.0.0.1:3000[0m
+
+----------------------------------------------------------------------
+[31m⚠️  UAT TESTLERİNDE 6 HATA TESPİT EDİLDİ! (0 Başarılı, 6 Başarısız)[0m
+```
+
+**Studio Yetkilisi Notu:**
+> Görev S35-T8 tamamlandı ve UAT testinden geçti — kapanış için müşteri onayı bekleniyor.
+
+- 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-067.md](workspace/docs/cozum_planlari/TALEP-067.md)
+
+---
+### [TALEP-066] Arama motorları için dinamik sitemap.xml site haritası oluşturulması (📦 Faz Bekliyor)
+- **Bildirim Tarihi:** 2026-10-02 12:14
+- **Tür / Öncelik:** Yeni İstek / Özellik / Normal (P3)
+- **İlgili Ekran / Sayfa:** `/sitemap.xml`
+- **Görevli Rol:** `None`
+- 🐙 **GitHub Issue:** [#106](https://github.com/cihan53/elektriklioto/issues/106)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Platformun Google ve diğer arama motorları tarafından eksiksiz indekslenebilmesi amacıyla statik sayfalar ile dinamik istasyon ve operatör sayfalarını içeren, otomatik güncellenen sitemap.xml site haritasının oluşturulması ve robots.txt dosyasına bağlanması talep edilmektedir.
+
+---
+### [TALEP-065] Tüm sistem bileşenlerinin (arama, filtreler, operatörler) merkezi veritabanından dinamik beslenmesi (📋 Planlandı)
+- **Bildirim Tarihi:** 2026-10-02 11:59
+- **Tür / Öncelik:** Yeni İstek / Özellik / Yüksek (P2)
+- **İlgili Ekran / Sayfa:** `/`
+- **Görevli Rol:** `None`
+- 🐙 **GitHub Issue:** [#105](https://github.com/cihan53/elektriklioto/issues/105)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Harita üzerindeki istasyonların, arama çubuğu havuzunun, operatör filtre listelerinin ve istasyon detayındaki uygulama açma yönlendirmelerinin statik/hafıza içi (in-memory/file) bağımlılıklardan arındırılarak doğrudan merkezi veritabanından (single source of truth) dinamik olarak beslenmesi; veritabanı güncellemelerinin tüm sistemde anında ve tutarlı şekilde yansıması talep edilmektedir.
+
+**Studio Yetkilisi Notu:**
+> Panelden sprint onayı verildi (FAZ-1).
+
+---
+### [TALEP-064] Veritabanı boşken istasyon API'sinin fallback mock veri dönmesi davranışı (ONAY_BEKLIYOR)
+- **Bildirim Tarihi:** 2026-10-02 11:39
+- **Tür / Öncelik:** Yeni İstek / Özellik / Normal (P3)
+- **İlgili Ekran / Sayfa:** `/api/v1/stations`
+- **Görevli Rol:** `backend_engineer`
+- 🐙 **GitHub Issue:** [#104](https://github.com/cihan53/elektriklioto/issues/104)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Kullanıcı yerel geliştirme/test ortamında veritabanını boşalttığı halde /api/v1/stations uç noktasından istasyon verilerinin gelmeye devam ettiğini gözlemlemiştir. Veritabanı boşken veya test senaryolarında in-memory fallback verilerin dönmesi yerine gerçek veritabanı durumunun yansıtılması veya bu davranışın yapılandırılabilir olması beklenmektedir.
+
+**Studio Yetkilisi Notu:**
+> Görev S35-T6 tamamlandı ve UAT testinden geçti — kapanış için müşteri onayı bekleniyor.
+
+- 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-064.md](workspace/docs/cozum_planlari/TALEP-064.md)
+
+---
+### [TALEP-063] Yerel test ortamı ve canlı ortam harita istasyon sayısı uyumsuzluğu (ONAY_BEKLIYOR)
+- **Bildirim Tarihi:** 2026-10-02 11:03
+- **Tür / Öncelik:** Hata / Bug / Normal (P3)
+- **İlgili Ekran / Sayfa:** `/`
+- **Görevli Rol:** `backend_engineer`
+- 🐙 **GitHub Issue:** [#103](https://github.com/cihan53/elektriklioto/issues/103)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Kullanıcı, harita üzerinde görüntülenen şarj istasyonu sayısının yerel test ortamı ile canlı ortam arasında farklılık gösterdiğini, canlı ortamda çok daha fazla istasyon listelenirken yerel ortamda istasyonların eksik göründüğünü iletti. Yerel test ortamındaki istasyon veri tabanı / tohum veri (seed) setinin canlı ortam verileriyle tutarlı hale getirilmesi bekleniyor.
+
+**Studio Yetkilisi Notu:**
+> Görev S35-T4 tamamlandı ve UAT testinden geçti — kapanış için müşteri onayı bekleniyor.
+
+- 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-063.md](workspace/docs/cozum_planlari/TALEP-063.md)
+
+---
+### [TALEP-062] Sunucuda PostgreSQL senkronizasyonu (seed_postgres.py) başarısız oluyor (❌ İptal Edildi)
+- **Bildirim Tarihi:** 2026-10-02 08:47
+- **Tür / Öncelik:** Hata / Bug / Yüksek (P2)
+- **İlgili Ekran / Sayfa:** `Sunucu / Dağıtım`
+- **Görevli Rol:** `data_engineer`
+- 🐙 **GitHub Issue:** [#102](https://github.com/cihan53/elektriklioto/issues/102)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> Sunucuda otomatik çalışan PostgreSQL senkronizasyonu (seed_postgres.py) işlemi başarısız olmakta ve loglarda 'PostgreSQL senkronizasyonu başarısız. /home/elektriklioto/app/server-scripts/seed_data.sql elle uygulanabilir.' uyarısı verilmektedir. Veritabanı senkronizasyonunun hatasız ve otomatik olarak tamamlanabilmesi için ilgili betiğin ve veritabanı bağlantı/çalışma süreçlerinin incelenerek düzeltilmesi gerekmektedir.
+
+**Studio Yetkilisi Notu:**
+> Müşteri: sorun devam ediyor — talep kuyruğa geri alındı.
+
+- 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-062.md](workspace/docs/cozum_planlari/TALEP-062.md)
+
+---
 ### [TALEP-061] [BUILD] S35-T1 derleme/import doğrulaması başarısız: [TALEP-054] Haritada istasyon sayıları mükerrer kayıt nedeniyle şişkin görünüyor (ONAY_BEKLIYOR)
 - **Bildirim Tarihi:** 2026-10-01 18:59
 - **Tür / Öncelik:** Hata / Bug / Yüksek (P2)
@@ -217,7 +424,7 @@ hijyen ihlali (2); 12 koruma referansı kaldırıldı (regresyon_uyarilari.md); 
 - 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-055.md](workspace/docs/cozum_planlari/TALEP-055.md)
 
 ---
-### [TALEP-054] Haritada istasyon sayıları mükerrer kayıt nedeniyle şişkin görünüyor (ONAY_BEKLIYOR)
+### [TALEP-054] Haritada istasyon sayıları mükerrer kayıt nedeniyle şişkin görünüyor (✅ Çözüldü)
 - **Bildirim Tarihi:** 2026-09-29 19:06
 - **Tür / Öncelik:** Hata / Bug / Yüksek (P2)
 - **İlgili Ekran / Sayfa:** `/`
@@ -228,7 +435,7 @@ hijyen ihlali (2); 12 koruma referansı kaldırıldı (regresyon_uyarilari.md); 
 > Yayın ortamındaki haritada istasyon sayıları beklenenden çok daha yüksek görünüyor. Örneğin yalnızca İstanbul’da 13 binden fazla istasyon gösterilirken sistemdeki toplam istasyon sayısının yaklaşık 16 bin olduğu belirtiliyor. Kullanıcı, haritadaki istasyon sayılarının gerçek ve tekil veriyle tutarlı olmasını bekliyor. Veritabanına mükerrer istasyon kayıtları eklenmiş olabileceği için mevcut kayıtların incelenmesi, mükerrerlerin temizlenmesi ve harita sayılarının doğrulanması gerekiyor.
 
 **Studio Yetkilisi Notu:**
-> Görev S35-T2 tamamlandı ve UAT testinden geçti — kapanış için müşteri onayı bekleniyor.
+> Müşteri onayı ile kapatıldı.
 
 - 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-054.md](workspace/docs/cozum_planlari/TALEP-054.md)
 

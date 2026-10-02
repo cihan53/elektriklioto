@@ -114,8 +114,9 @@ export const useStations = () => {
           params: queryParams
         });
 
-        // TALEP-022: Veritabanı tek gerçek kaynaktır (Single Source of Truth).
-        // Veritabanı boşaltıldığında API'den dönen data: [] sonucu haritada sıfır pin / sıfır küme olarak yansıtılır.
+        // TALEP-022, TALEP-064 & TALEP-068: Veritabanı tek gerçek kaynaktır (Single Source of Truth).
+        // Veritabanı boşaltıldığında veya fallback devre dışı bırakıldığında API'den dönen data: []
+        // sonucu haritada sıfır pin / sıfır küme olarak şeffaf şekilde yansıtılır.
         if (Array.isArray(res)) {
           responseType.value = 'stations';
           stations.value = deduplicateStations(res as StationItem[]);

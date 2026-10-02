@@ -403,3 +403,139 @@
 ## [S35-T2] — 2026-10-01 19:01
 
 - fix görevi tamamlandı ama değişen dosyalarda test yok (regresyon testi eksik) — dosyalar: workspace/docs/uat_kabul_raporu.md
+
+## [S35-T2] — 2026-10-02 08:57
+
+- fix görevi tamamlandı ama değişen dosyalarda test yok (regresyon testi eksik) — dosyalar: workspace/docs/uat_kabul_raporu.md
+
+## [S35-T1] — 2026-10-02 11:17
+
+- workspace/src/backend/src/modules/stations/station.service.ts: silinen koruma referansı [TALEP-054] → // 2. İstasyonları yükle (TALEP-054: deterministik kimlik koruması)
+
+## [S35-T1] — 2026-10-02 11:17
+
+- fix görevi tamamlandı ama değişen dosyalarda test yok (regresyon testi eksik) — dosyalar: workspace/src/backend/src/modules/operators/operator.service.ts, workspace/src/backend/src/modules/stations/station.service.ts
+
+## [S35-T1] — 2026-10-02 11:17
+
+- workspace/src/backend/src/modules/operators/operator.service.ts: '../../db/schema/operators.js' çözülemedi
+- workspace/src/backend/src/modules/operators/operator.service.ts: '../../utils/unicode.js' çözülemedi
+- workspace/src/backend/src/modules/operators/operator.service.ts: '../../db/index.js' çözülemedi
+- workspace/src/backend/src/modules/stations/station.service.ts: './station-dedupe.service.js' çözülemedi
+- workspace/src/backend/src/modules/stations/station.service.ts: '../../db/index.js' çözülemedi
+- workspace/src/backend/src/modules/stations/station.service.ts: '../../db/schema/stations.js' çözülemedi
+- workspace/src/backend/src/modules/stations/station.service.ts: '../../db/schema/regions.js' çözülemedi
+- workspace/src/backend/src/modules/stations/station.service.ts: '../../utils/errors.js' çözülemedi
+- workspace/src/backend/src/modules/stations/station.service.ts: '../operators/operator.service.js' çözülemedi
+- workspace/src/backend/src/modules/stations/station.service.ts: '../../utils/geo.js' çözülemedi
+- workspace/src/backend/src/modules/stations/station.service.ts: '../../db/schema/operators.js' çözülemedi
+- workspace/src/backend/src/modules/stations/station.service.ts: '../../utils/unicode.js' çözülemedi
+- workspace/src/backend/src/modules/stations/station.service.ts: '../gadm/gadm.service.js' çözülemedi
+- workspace/src/backend/src/modules/stations/station.service.ts: '../../db/schema/connectors.js' çözülemedi
+- workspace/src/backend/src/modules/stations/station.service.ts: '../worker/source-health.service.js' çözülemedi
+- workspace/src/backend/src/modules/stations/station.service.ts: '../regions/region-lookup.js' çözülemedi
+- workspace/src/backend/src/modules/stations/station.service.ts: '../deeplink/deeplink.service.js' çözülemedi
+
+## [S35-T2] — 2026-10-02 11:47
+
+- fix görevi tamamlandı ama değişen dosyalarda test yok (regresyon testi eksik) — dosyalar: workspace/docs/cozum_planlari/TALEP-064.md
+
+## [S35-T1] — 2026-10-02 12:15
+
+- workspace/src/backend/src/app.ts: silinen koruma referansı [TALEP-010] → // TALEP-010: PostgreSQL/PostGIS veritabanı ile istasyon ve soket entegrasyonu
+
+## [S35-T1] — 2026-10-02 12:15
+
+- fix görevi tamamlandı ama değişen dosyalarda test yok (regresyon testi eksik) — dosyalar: workspace/src/backend/src/app.ts, workspace/src/backend/src/modules/deeplink/deeplink.service.ts, workspace/src/backend/src/modules/operators/operator.routes.ts, workspace/docs/cozum_planlari/TALEP-066.md
+
+## [S35-T1] — 2026-10-02 12:15
+
+- workspace/src/backend/src/app.ts: './modules/route-bridge/route-bridge.routes.js' çözülemedi
+- workspace/src/backend/src/app.ts: './modules/stations/station-dedupe.service.js' çözülemedi
+- workspace/src/backend/src/app.ts: './modules/operators/operator.routes.js' çözülemedi
+- workspace/src/backend/src/app.ts: './modules/health/health.routes.js' çözülemedi
+- workspace/src/backend/src/app.ts: './modules/operators/operator.service.js' çözülemedi
+- workspace/src/backend/src/app.ts: './modules/stations/station.service.js' çözülemedi
+- workspace/src/backend/src/app.ts: './modules/reports/report.routes.js' çözülemedi
+- workspace/src/backend/src/app.ts: './modules/stations/station.routes.js' çözülemedi
+- workspace/src/backend/src/app.ts: './utils/errors.js' çözülemedi
+- workspace/src/backend/src/app.ts: './modules/gadm/gadm.routes.js' çözülemedi
+- workspace/src/backend/src/modules/deeplink/deeplink.service.ts: './deeplink.types.js' çözülemedi
+- workspace/src/backend/src/modules/operators/operator.routes.ts: './operator.schema.js' çözülemedi
+- workspace/src/backend/src/modules/operators/operator.routes.ts: './operator.service.js' çözülemedi
+- workspace/src/backend/src/modules/operators/operator.routes.ts: '../../utils/errors.js' çözülemedi
+
+## [S35-T2] — 2026-10-02 12:20
+
+- fix görevi tamamlandı ama değişen dosyalarda test yok (regresyon testi eksik) — dosyalar: workspace/docs/cozum_planlari/TALEP-067.md
+
+## [S35-T3] — 2026-10-02 12:42
+
+- workspace/src/backend/src/modules/stations/station-dedupe.spec.ts: silinen koruma referansı [TALEP-054] → describe('TALEP-054: İstasyon Mükerrer Kayıt Tekilleştirme Doğrulaması', () => {
+
+## [S35-T5] — 2026-10-02 12:51
+
+- workspace/src/backend/src/modules/stations/station-fallback.spec.ts: '../../db/index.js' çözülemedi
+- workspace/src/backend/src/modules/stations/station-fallback.spec.ts: './station.service.js' çözülemedi
+
+## [S35-T7] — 2026-10-02 15:47
+
+- workspace/src/backend/src/modules/health/health.routes.ts: '../worker/circuit-breaker.service.js' çözülemedi
+- workspace/src/backend/src/modules/health/health.routes.ts: '../queue/skip-locked-queue.js' çözülemedi
+- workspace/src/backend/src/modules/health/health.routes.ts: '../worker/cpo-endpoints.js' çözülemedi
+- workspace/src/backend/src/modules/health/health.routes.ts: '../worker/cpo-sync.service.js' çözülemedi
+- workspace/src/backend/src/modules/health/health.routes.ts: './health.schema.js' çözülemedi
+- workspace/src/backend/src/modules/health/health.routes.ts: '../worker/source-health.service.js' çözülemedi
+- workspace/src/backend/src/modules/health/health.spec.ts: './health.routes.js' çözülemedi
+
+## [S35-T1] — 2026-10-02 16:01
+
+- workspace/docs/musteri_talepleri.md: silinen koruma referansı [TALEP-054] → | **TALEP-054** | Hata / Bug | Yüksek (P2) | ONAY_BEKLIYOR | Haritada istasyon sayıları mükerrer kayıt nedeniy
+- workspace/docs/musteri_talepleri.md: silinen koruma referansı [TALEP-054] → ### [TALEP-054] Haritada istasyon sayıları mükerrer kayıt nedeniyle şişkin görünüyor (ONAY_BEKLIYOR)
+- workspace/src/backend/src/app.ts: silinen koruma referansı [TALEP-010] → // TALEP-010: PostgreSQL/PostGIS veritabanı ile istasyon ve soket entegrasyonu
+- workspace/src/backend/src/modules/stations/station-dedupe.spec.ts: silinen koruma referansı [TALEP-054] → describe('TALEP-054: İstasyon Mükerrer Kayıt Tekilleştirme Doğrulaması', () => {
+- workspace/src/backend/src/modules/stations/station.service.ts: silinen koruma referansı [TALEP-022] → // TALEP-022: Veritabanı tek gerçek kaynaktır (single source of truth).
+- workspace/src/backend/src/modules/stations/station.service.ts: silinen koruma referansı [TALEP-054] → // 2. İstasyonları yükle (TALEP-054: deterministik kimlik koruması)
+- workspace/src/backend/src/modules/stations/station.service.ts: silinen koruma referansı [TALEP-022] → // TALEP-022: Veritabanı tek gerçek kaynaktır; DB sorgusu çalıştıysa ve kayıt yoksa null dönmelidir.
+- workspace/src/backend/src/modules/stations/station.service.ts: silinen koruma referansı [TALEP-022] → // TALEP-022: Veritabanı tek gerçek kaynaktır.
+- workspace/src/backend/src/modules/stations/station.service.ts: silinen koruma referansı [TALEP-054] → // TALEP-054 KORUNACAK: stationDedupeSubquery ile mükerrer kayıtlar elenir.
+- workspace/src/backend/src/modules/stations/station.service.ts: silinen koruma referansı [TALEP-022] → // TALEP-022: Veritabanı tek gerçek kaynaktır.
+- workspace/src/backend/src/modules/stations/station.service.ts: silinen koruma referansı [TALEP-022] → // TALEP-022: Veritabanı tek gerçek kaynaktır.
+
+## [S35-T1] — 2026-10-02 16:01
+
+- workspace/src/backend/src/app.ts: './utils/errors.js' çözülemedi
+- workspace/src/backend/src/app.ts: './modules/health/health.routes.js' çözülemedi
+- workspace/src/backend/src/app.ts: './modules/operators/operator.routes.js' çözülemedi
+- workspace/src/backend/src/app.ts: './modules/stations/station.routes.js' çözülemedi
+- workspace/src/backend/src/app.ts: './modules/gadm/gadm.routes.js' çözülemedi
+- workspace/src/backend/src/app.ts: './modules/stations/station-dedupe.service.js' çözülemedi
+- workspace/src/backend/src/app.ts: './modules/stations/station.service.js' çözülemedi
+- workspace/src/backend/src/app.ts: './modules/operators/operator.service.js' çözülemedi
+- workspace/src/backend/src/app.ts: './modules/reports/report.routes.js' çözülemedi
+- workspace/src/backend/src/app.ts: './modules/route-bridge/route-bridge.routes.js' çözülemedi
+- workspace/src/backend/src/modules/deeplink/deeplink.service.ts: './deeplink.types.js' çözülemedi
+- workspace/src/backend/src/modules/operators/operator.routes.ts: '../../utils/errors.js' çözülemedi
+- workspace/src/backend/src/modules/operators/operator.routes.ts: './operator.schema.js' çözülemedi
+- workspace/src/backend/src/modules/operators/operator.routes.ts: './operator.service.js' çözülemedi
+- workspace/src/backend/src/modules/operators/operator.service.ts: '../../db/schema/operators.js' çözülemedi
+- workspace/src/backend/src/modules/operators/operator.service.ts: '../../utils/unicode.js' çözülemedi
+- workspace/src/backend/src/modules/operators/operator.service.ts: '../../db/index.js' çözülemedi
+- workspace/src/backend/src/modules/stations/station.service.ts: '../../utils/errors.js' çözülemedi
+- workspace/src/backend/src/modules/stations/station.service.ts: '../../db/index.js' çözülemedi
+- workspace/src/backend/src/modules/stations/station.service.ts: '../../db/schema/stations.js' çözülemedi
+- workspace/src/backend/src/modules/stations/station.service.ts: '../../utils/unicode.js' çözülemedi
+- workspace/src/backend/src/modules/stations/station.service.ts: '../deeplink/deeplink.service.js' çözülemedi
+- workspace/src/backend/src/modules/stations/station.service.ts: '../../db/schema/regions.js' çözülemedi
+- workspace/src/backend/src/modules/stations/station.service.ts: '../gadm/gadm.service.js' çözülemedi
+- workspace/src/backend/src/modules/stations/station.service.ts: '../../db/schema/connectors.js' çözülemedi
+- workspace/src/backend/src/modules/stations/station.service.ts: '../regions/region-lookup.js' çözülemedi
+- workspace/src/backend/src/modules/stations/station.service.ts: '../operators/operator.service.js' çözülemedi
+- workspace/src/backend/src/modules/stations/station.service.ts: '../../utils/geo.js' çözülemedi
+- workspace/src/backend/src/modules/stations/station.service.ts: '../../db/schema/operators.js' çözülemedi
+- workspace/src/backend/src/modules/stations/station.service.ts: './station-dedupe.service.js' çözülemedi
+- workspace/src/backend/src/modules/stations/station.service.ts: '../worker/source-health.service.js' çözülemedi
+
+## [S35-T1] — 2026-10-02 16:03
+
+- workspace/src/frontend/composables/useStations.ts: silinen koruma referansı [TALEP-022] → // TALEP-022: Veritabanı tek gerçek kaynaktır (Single Source of Truth).

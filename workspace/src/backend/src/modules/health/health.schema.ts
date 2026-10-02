@@ -94,3 +94,9 @@ export const HealthVersionResponseSchema = Type.Object({
   release_date: Type.String(),
   timestamp: Type.String(),
 });
+
+// TALEP-067 / UAT-05: API Canlılık ve Hazırlık Kontrol Şeması
+export const HealthLiveResponseSchema = Type.Object({
+  status: Type.String(),
+  timestamp: Type.String(),
+});
