@@ -1,7 +1,7 @@
 # Digital Software Studio — Müşteri Denetim & Talep Havuzu
 
-> **Son Güncelleme:** 2026-10-02 17:20  
-> **Toplam Bildirim:** 71  
+> **Son Güncelleme:** 2026-10-02 18:12  
+> **Toplam Bildirim:** 72  
 
 Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda iletilen istek, hata ve geri bildirimleri içerir.
 
@@ -11,6 +11,7 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 
 | ID | Tür | Öncelik | Durum | Başlık | Ekran / URL | İlgili Rol | GitHub Issue | Plan |
 |---|---|---|---|---|---|---|---|---|
+| **TALEP-072** | Hata / Bug | Normal (P3) | ⏳ Beklemede | [DEPLOY-CI/CD] GitHub Actions cPanel dağıtımı başarısız oldu (Run #36981971903) | `/` | `None` | [#112](https://github.com/cihan53/elektriklioto/issues/112) | — |
 | **TALEP-071** | Hata / Bug | Yüksek (P2) | 🔨 Geliştiriliyor | [BUILD] S35-T7 derleme/import doğrulaması başarısız: [TALEP-067] [UAT] S35-T2 canlı kabul denetimi başarısız: [TALEP-065] Müşteri Kab | `/` | `data_engineer` | [#111](https://github.com/cihan53/elektriklioto/issues/111) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-071.md) |
 | **TALEP-070** | Hata / Bug | Yüksek (P2) | 🔨 Geliştiriliyor | [UAT] S35-T7 canlı kabul denetimi başarısız: [TALEP-067] [UAT] S35-T2 canlı kabul denetimi başarısız: [TALEP-065] Müşteri Kab | `/` | `backend_engineer` | [#110](https://github.com/cihan53/elektriklioto/issues/110) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-070.md) |
 | **TALEP-069** | Hata / Bug | Normal (P3) | ✅ Çözüldü | /api/version uç noktasının 404 Not Found hatası vermesi | `/api/version` | `backend_engineer` | [#109](https://github.com/cihan53/elektriklioto/issues/109) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-069.md) |
@@ -21,7 +22,7 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 | **TALEP-064** | Yeni İstek / Özellik | Normal (P3) | ONAY_BEKLIYOR | Veritabanı boşken istasyon API'sinin fallback mock veri dönmesi davranışı | `/api/v1/stations` | `backend_engineer` | [#104](https://github.com/cihan53/elektriklioto/issues/104) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-064.md) |
 | **TALEP-063** | Hata / Bug | Normal (P3) | ✅ Çözüldü | Yerel test ortamı ve canlı ortam harita istasyon sayısı uyumsuzluğu | `/` | `backend_engineer` | [#103](https://github.com/cihan53/elektriklioto/issues/103) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-063.md) |
 | **TALEP-062** | Hata / Bug | Yüksek (P2) | ❌ İptal Edildi | Sunucuda PostgreSQL senkronizasyonu (seed_postgres.py) başarısız oluyor | `Sunucu / Dağıtım` | `data_engineer` | [#102](https://github.com/cihan53/elektriklioto/issues/102) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-062.md) |
-| **TALEP-061** | Hata / Bug | Yüksek (P2) | ONAY_BEKLIYOR | [BUILD] S35-T1 derleme/import doğrulaması başarısız: [TALEP-054] Haritada istasyon sayıları mükerrer kayıt nedeniyle şişkin görünüyor | `/` | `data_engineer` | [#101](https://github.com/cihan53/elektriklioto/issues/101) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-061.md) |
+| **TALEP-061** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | [BUILD] S35-T1 derleme/import doğrulaması başarısız: [TALEP-054] Haritada istasyon sayıları mükerrer kayıt nedeniyle şişkin görünüyor | `/` | `data_engineer` | [#101](https://github.com/cihan53/elektriklioto/issues/101) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-061.md) |
 | **TALEP-060** | Hata / Bug | Yüksek (P2) | ❌ İptal Edildi | [HİJYEN] S35-T1 çalışma alanı hijyeni başarısız: [TALEP-054] Haritada istasyon sayıları mükerrer kayıt nedeniyle şişkin görünüyor | `/` | `data_engineer` | [#97](https://github.com/cihan53/elektriklioto/issues/97) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-060.md) |
 | **TALEP-059** | Hata / Bug | Yüksek (P2) | ❌ İptal Edildi | [BUILD] S35-T1 derleme/import doğrulaması başarısız: [TALEP-054] Haritada istasyon sayıları mükerrer kayıt nedeniyle şişkin görünüyor | `/` | `data_engineer` | [#96](https://github.com/cihan53/elektriklioto/issues/96) | [Plan Oku](workspace/docs/cozum_planlari/TALEP-059.md) |
 | **TALEP-058** | Hata / Bug | Yüksek (P2) | ✅ Çözüldü | TALEP-045 ve TALEP-029 canlıda hâlâ düzeltilmemiş görünüyor | `/` | `None` | [#95](https://github.com/cihan53/elektriklioto/issues/95) | — |
@@ -87,6 +88,39 @@ Bu doküman, proje sahibinin / müşterinin yaptığı denetimler sonucunda ilet
 
 ## 2. Talep Detayları ve Geri Bildirim Notları
 
+### [TALEP-072] [DEPLOY-CI/CD] GitHub Actions cPanel dağıtımı başarısız oldu (Run #36981971903) (⏳ Beklemede)
+- **Bildirim Tarihi:** 2026-10-02 18:11
+- **Tür / Öncelik:** Hata / Bug / Normal (P3)
+- **İlgili Ekran / Sayfa:** `/`
+- **Görevli Rol:** `None`
+- 🐙 **GitHub Issue:** [#112](https://github.com/cihan53/elektriklioto/issues/112)
+
+**Müşteri Açıklaması / Hata Adımları:**
+> GitHub Actions 'Deploy to cPanel & Create Version Tag' iş akışı canlıya dağıtım yaparken çöktü.
+
+**Run ID:** 36981971903
+
+**Başarısız Olan Adım Logları:**
+```
+Build & Deploy to cPanel	UNKNOWN STEP	﻿2026-10-02T08:04:39.0883061Z Current runner version: '2.337.0'
+Build & Deploy to cPanel	UNKNOWN STEP	2026-10-02T08:04:39.0913920Z ##[group]Runner Image Provisioner
+Build & Deploy to cPanel	UNKNOWN STEP	2026-10-02T08:04:39.0915560Z Hosted Compute Agent
+Build & Deploy to cPanel	UNKNOWN STEP	2026-10-02T08:04:39.0916800Z Version: 20260901.588
+Build & Deploy to cPanel	UNKNOWN STEP	2026-10-02T08:04:39.0918156Z Commit: f88ec8081b781fac6c440065ac7ff9e710ce3d0b
+Build & Deploy to cPanel	UNKNOWN STEP	2026-10-02T08:04:39.0919601Z Build Date: 2026-09-01T19:56:44Z
+Build & Deploy to cPanel	UNKNOWN STEP	2026-10-02T08:04:39.0920936Z Worker ID: {841e6e2f-e0c5-43ff-b88f-99715ea82545}
+Build & Deploy to cPanel	UNKNOWN STEP	2026-10-02T08:04:39.0922580Z Azure Region: eastus
+Build & Deploy to cPanel	UNKNOWN STEP	2026-10-02T08:04:39.0923819Z ##[endgroup]
+Build & Deploy to cPanel	UNKNOWN STEP	2026-10-02T08:04:39.0926418Z ##[group]Operating System
+Build & Deploy to cPanel	UNKNOWN STEP	2026-10-02T08:04:39.0927732Z Ubuntu
+Build & Deploy to cPanel	UNKNOWN STEP	2026-10-02T08:04:39.0928895Z 24.04.5
+Build & Deploy to cPanel	UNKNOWN STEP	2026-10-02T08:04:39.0929992Z LTS
+Build 
+```
+
+Ajanların bu hatayı inceleyip workflow veya kaynak kodundaki derleme/dağıtım sorununu çözmesi gerekmektedir.
+
+---
 ### [TALEP-071] [BUILD] S35-T7 derleme/import doğrulaması başarısız: [TALEP-067] [UAT] S35-T2 canlı kabul denetimi başarısız: [TALEP-065] Müşteri Kab (🔨 Geliştiriliyor)
 - **Bildirim Tarihi:** 2026-10-02 15:47
 - **Tür / Öncelik:** Hata / Bug / Yüksek (P2)
@@ -284,7 +318,7 @@ temcisi için CORS ve CORP başlık uyumu ... [31m✗ BAŞARISIZ[0m
 - 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-062.md](workspace/docs/cozum_planlari/TALEP-062.md)
 
 ---
-### [TALEP-061] [BUILD] S35-T1 derleme/import doğrulaması başarısız: [TALEP-054] Haritada istasyon sayıları mükerrer kayıt nedeniyle şişkin görünüyor (ONAY_BEKLIYOR)
+### [TALEP-061] [BUILD] S35-T1 derleme/import doğrulaması başarısız: [TALEP-054] Haritada istasyon sayıları mükerrer kayıt nedeniyle şişkin görünüyor (✅ Çözüldü)
 - **Bildirim Tarihi:** 2026-10-01 18:59
 - **Tür / Öncelik:** Hata / Bug / Yüksek (P2)
 - **İlgili Ekran / Sayfa:** `/`
@@ -300,7 +334,7 @@ derleme başarısız (import 2)
 ```
 
 **Studio Yetkilisi Notu:**
-> Görev S35-T2 tamamlandı ve UAT testinden geçti — kapanış için müşteri onayı bekleniyor.
+> Müşteri onayı ile kapatıldı.
 
 - 📄 **Çözüm Planı:** [workspace/docs/cozum_planlari/TALEP-061.md](workspace/docs/cozum_planlari/TALEP-061.md)
 
