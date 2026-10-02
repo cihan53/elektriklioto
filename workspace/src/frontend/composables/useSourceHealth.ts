@@ -2,6 +2,7 @@
 import { computed } from 'vue';
 import type { SourcesHealthResponse, SourceHealthItem, DataFreshness } from '~/types/station';
 
+// TALEP-071: Kaynak sağlık modülü derleme ve import doğrulaması koruma kilidi.
 export const useSourceHealth = () => {
   const config = useRuntimeConfig();
 

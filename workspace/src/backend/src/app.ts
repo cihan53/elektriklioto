@@ -155,6 +155,8 @@ export async function buildApp(): Promise<FastifyInstance> {
   });
 
   // --- Güvenlik Başlıkları (@fastify/helmet) --------------------------------
+  // TALEP-070 KORUNACAK: UAT-02 canlı denetimi crossOriginResourcePolicy değerinin
+  // 'cross-origin' olmasını zorunlu kılar; istemci harita ve varlıkları bu başlıkla doğrular.
   await app.register(helmet, {
     contentSecurityPolicy: {
       directives: {
@@ -181,6 +183,8 @@ export async function buildApp(): Promise<FastifyInstance> {
   });
 
   // --- CORS -----------------------------------------------------------------
+  // TALEP-070 KORUNACAK: Yerel ortam (127.0.0.1, localhost) ve *.elektriklioto.com
+  // origin'leri için CORS tam izinlidir (UAT-02 gereksinimi).
   await app.register(cors, {
     origin: (origin, callback) => {
       if (!origin) {

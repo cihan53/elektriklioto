@@ -12,6 +12,7 @@ import type {
 
 // TALEP-054 & TALEP-059: Haritada mükerrer istasyon kayıtlarının sayıyı şişirmesini önleyen istemci tekilleştirmesi.
 // TALEP-061: Mükerrer kayıt ve küme tekilleştirme genişletmesi.
+// TALEP-071: Derleme ve import doğrulaması koruma kilidi.
 // Aynı id, slug veya aynı kanonik istasyon_no / operatör + konum imzasına sahip mükerrerler elenir.
 export const deduplicateStations = (list: StationItem[]): StationItem[] => {
   if (!Array.isArray(list)) return [];
@@ -63,7 +64,9 @@ export const deduplicateClusters = (list: ClusterItem[]): ClusterItem[] => {
   const result: ClusterItem[] = [];
   for (const c of list) {
     if (!c) continue;
-    const key = c.cluster_id ? `id:${c.cluster_id}` : `pos:${c.center_lat?.toFixed(2)}:${c.center_lon?.toFixed(2)}`;
+    const cLat = typeof c.lat === 'number' ? c.lat : c.center_lat;
+    const cLon = typeof c.lon === 'number' ? c.lon : c.center_lon;
+    const key = c.cluster_id ? `id:${c.cluster_id}` : `pos:${cLat?.toFixed(2)}:${cLon?.toFixed(2)}`;
     if (seen.has(key)) continue;
     seen.add(key);
     result.push(c);

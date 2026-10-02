@@ -20,7 +20,7 @@ export const FreshnessBadgeSchema = Type.Object({
 });
 
 export const StationSummarySchema = Type.Object({
-  id: Type.String({ format: 'uuid' }),
+  id: Type.String(),
   istasyon_no: Type.String(),
   slug: Type.String(),
   name: Type.String(),
@@ -49,7 +49,7 @@ export const StationsResponseSchema = Type.Object({
 });
 
 export const StationDetailResponseSchema = Type.Object({
-  id: Type.String({ format: 'uuid' }),
+  id: Type.String(),
   istasyon_no: Type.String(),
   slug: Type.String(),
   name: Type.String(),
@@ -74,6 +74,7 @@ export const StationDetailResponseSchema = Type.Object({
 // TALEP-046 KORUNACAK: bbox şemada opsiyoneldir (il/ilçe ve metin araması
 // bbox'suz da çalışır); sayısal/sınır doğrulaması servis katmanında
 // BadRequestError ile 400 üretir — WGS 84 dışı veya ters sıralı kutu reddedilir.
+// TALEP-070 KORUNACAK: UAT-02 ve canlı veri serileştirme dayanıklılığı için şema tipleri
 export const StationQuerySchema = Type.Object({
   bbox: Type.Optional(Type.String({ description: 'minLon,minLat,maxLon,maxLat' })),
   zoom: Type.Optional(Type.Number({ default: 12 })),

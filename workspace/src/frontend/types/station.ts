@@ -1,4 +1,6 @@
 
+// TALEP-071: İstasyon, operatör, küme ve sağlık tipleri derleme doğrulaması.
+
 export interface DeepLinkStoreUrls {
   ios?: string | null;
   android?: string | null;
@@ -117,8 +119,10 @@ export interface StationItem {
 export interface ClusterItem {
   cluster_id: string;
   count: number;
-  lat: number;
-  lon: number;
+  lat?: number;
+  lon?: number;
+  center_lat?: number;
+  center_lon?: number;
 }
 
 export interface StationsResponse {

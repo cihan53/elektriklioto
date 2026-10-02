@@ -539,3 +539,14 @@
 ## [S35-T1] — 2026-10-02 16:03
 
 - workspace/src/frontend/composables/useStations.ts: silinen koruma referansı [TALEP-022] → // TALEP-022: Veritabanı tek gerçek kaynaktır (Single Source of Truth).
+
+## [S35-T5] — 2026-10-02 18:21
+
+- workspace/docs/musteri_talepleri.md: silinen koruma referansı [TALEP-070] → | **TALEP-070** | Hata / Bug | Yüksek (P2) | 🔨 Geliştiriliyor | [UAT] S35-T7 canlı kabul denetimi başarısız: [
+- workspace/docs/musteri_talepleri.md: silinen koruma referansı [TALEP-064] → | **TALEP-064** | Yeni İstek / Özellik | Normal (P3) | ONAY_BEKLIYOR | Veritabanı boşken istasyon API'sinin fa
+- workspace/docs/musteri_talepleri.md: silinen koruma referansı [TALEP-070] → ### [TALEP-070] [UAT] S35-T7 canlı kabul denetimi başarısız: [TALEP-067] [UAT] S35-T2 canlı kabul denetimi baş
+- workspace/docs/musteri_talepleri.md: silinen koruma referansı [TALEP-064] → ### [TALEP-064] Veritabanı boşken istasyon API'sinin fallback mock veri dönmesi davranışı (ONAY_BEKLIYOR)
+
+## [S35-T2] — 2026-10-02 18:35
+
+- fix görevi tamamlandı ama değişen dosyalarda test yok (regresyon testi eksik) — dosyalar: .studio-version, workspace/docs/uat_kabul_raporu.md

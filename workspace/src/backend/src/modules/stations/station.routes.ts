@@ -1,8 +1,11 @@
+
 // TALEP-053: Bu dosya 8190e9f öncesi çalışan sürüme geri yüklendi; TALEP-046'nın
 // koyduğu koruma (geçersiz/eksik bbox → 400, beklenmeyen hata → anlamlı
 // problem+json, ham hata/stack sızıntısı yok) bu dosyada try/catch yerine
 // `stationService` içindeki BadRequestError denetimleri ve app.ts'teki merkezî
 // AppError/RFC 7807 setErrorHandler katmanında sürdürülüyor — davranış aynı.
+// TALEP-070 KORUNACAK: Canlı UAT denetimi (UAT-02, UAT-03, UAT-04) gereksinimleri:
+// /api/v1/stations parametresiz çağrıda ve BBox sorgularında hatasız çalışma garantisi.
 import { FastifyPluginAsync } from 'fastify';
 import { TypeBoxTypeProvider } from '@fastify/type-provider-typebox';
 import { Type } from '@sinclair/typebox';
